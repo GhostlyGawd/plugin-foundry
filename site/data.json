@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:35:10.658178+00:00",
- "iteration": 47,
+ "generated_at": "2026-07-05T19:35:11.372254+00:00",
+ "iteration": 48,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 13,
   "building": 0,
-  "rc": 11,
-  "published": 10,
+  "rc": 10,
+  "published": 11,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i48",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:35:11Z",
+   "text": "Published window-watchability: countdown, sharpest wall, ergonomics live; experiment armed \u00b7 window-watchability \u2192 published"
+  },
   {
    "it": "i47",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T19:32:57Z",
    "text": "trust-card built: derivation-only footprint block on plugin certificates (hooks parsed, network heuristic labeled, no ha \u00b7 trust-card \u2192 building"
-  },
-  {
-   "it": "i40",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:31:36Z",
-   "text": "Published counter-index: chips + tested filter live on the window; experiment armed \u00b7 counter-index \u2192 published"
   }
  ],
  "records": [
@@ -872,7 +872,7 @@
    "name": "window-watchability",
    "title": "Window Watchability Pack",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -1132,29 +1132,6 @@
      "digest",
      "retention",
      "narrative"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "window-watchability",
-    "title": "Window Watchability Pack",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.",
-    "tags": [
-     "countdown",
-     "reviews",
-     "a11y"
     ],
     "commission": null,
     "kind": "feature",
@@ -1564,6 +1541,29 @@
      "trust",
      "footprint",
      "certificates"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "window-watchability",
+    "title": "Window Watchability Pack",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.",
+    "tags": [
+     "countdown",
+     "reviews",
+     "a11y"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 47
+   "n": 48
   }
  ],
  "repo": null

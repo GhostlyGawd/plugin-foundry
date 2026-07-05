@@ -268,3 +268,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: window-watchability approved: honest static countdown, wall renders only recorded argument, ergonomics as permanent tests
 - line: window-watchability review approved
 - gate: validate+build green
+
+## i48 — maintainer — 2026-07-05T19:35:11Z
+- did: Published window-watchability: countdown, sharpest wall, ergonomics live; experiment armed
+- line: window-watchability → published
+- gate: validate+build green · qa green

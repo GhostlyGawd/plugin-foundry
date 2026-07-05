@@ -2,7 +2,7 @@
 name: window-watchability
 title: Window Watchability Pack
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -51,6 +51,10 @@ plus aria plus tap targets make it humane on every device.
   cron drift risk noted: fn documents "17 0,8,16 UTC" — if the operator edits the
   cron, the wall test will not catch it; queued a P3 to derive from the workflow
 TEST VERDICT: pass
+
+## Publish log
+- i48 (maintainer): countdown + wall + ergonomics live this build; experiment
+  armed (returning-uniques trend, review 2026-09-05).
 
 ## Review log
 ### Review — i47 (reviewer)

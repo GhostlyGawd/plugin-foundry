@@ -39,7 +39,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Window Watchability Pack — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.</p>
   
   
@@ -68,7 +68,8 @@ plus aria plus tap targets make it humane on every device.</pre></details><detai
 - defects: none found — probed: countdown chip absent-element guard (no-op),
   cron drift risk noted: fn documents &quot;17 0,8,16 UTC&quot; — if the operator edits the
   cron, the wall test will not catch it; queued a P3 to derive from the workflow
-TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i47 (reviewer)
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i48 (maintainer): countdown + wall + ergonomics live this build; experiment
+  armed (returning-uniques trend, review 2026-09-05).</pre></details><details open><summary>Review log</summary><pre>### Review — i47 (reviewer)
 - The countdown computes client-side from a documented constant — no server, no
   polling, honest &quot;~&quot; on the estimate; QA&#x27;s cron-drift P3 is the right shape of
   humility.
