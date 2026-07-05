@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:56:34.893423+00:00",
- "iteration": 80,
+ "generated_at": "2026-07-05T19:56:35.145776+00:00",
+ "iteration": 81,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i81",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:56:35Z",
+   "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
+  },
   {
    "it": "i80",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:51:37Z",
    "text": "Published the-almanac: Edition 000 live; monthly duty in force; experiment armed \u00b7 the-almanac \u2192 published"
-  },
-  {
-   "it": "i73",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:51:36Z",
-   "text": "the-almanac approved: strictest QA applied to the self-portrait, permanently checkable numbers \u00b7 the-almanac review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i69",
-   "role": "builder",
-   "ts": "2026-07-05T19:49:10Z",
-   "text": "the-almanac built: ledger-only monthly edition (000 live for 2026-07), honest missing-ledger line, editions index, nav,  \u00b7 the-almanac \u2192 building"
-  },
   {
    "it": "i70",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-05T19:56:34Z",
    "text": "commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed \u2192 rc \u00b7 commission-queue \u2192 rc"
+  },
+  {
+   "it": "i81",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:56:35Z",
+   "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 80
+   "n": 81
   }
  ],
  "repo": null

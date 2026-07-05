@@ -51,3 +51,16 @@ fenced and untrusted), status derived from the line.
 - defects: none found — probed: malformed commissions.json (load_json default []
   keeps the page up), commission number as int vs string (normalized both sides)
 TEST VERDICT: pass
+
+## Review log
+### Review — i81 (reviewer)
+- Sanitization at *intake*, not at render, is the right layer: patron prose never
+  enters the repo's derived state at all, so no future renderer can leak it.
+- Status derived from the line means the queue cannot be edited into optimism —
+  a commission reads "delivered" only when a published record claims its number.
+- The no-amounts rule keeps the board a status window, not a revenue billboard;
+  that is the dark-pattern ban doing quiet work.
+- Sharpest question: can two records claim one commission? by_comm keeps the
+  last — flagged as acceptable now (one-commission-one-record is the intake
+  contract), worth a validator rule if co-delivery ever becomes real.
+REVIEW: approved

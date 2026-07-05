@@ -70,7 +70,17 @@ fenced and untrusted), status derived from the line.</pre></details><details><su
   (open counter) and the nav link held
 - defects: none found — probed: malformed commissions.json (load_json default []
   keeps the page up), commission number as int vs string (normalized both sides)
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i81 (reviewer)
+- Sanitization at *intake*, not at render, is the right layer: patron prose never
+  enters the repo&#x27;s derived state at all, so no future renderer can leak it.
+- Status derived from the line means the queue cannot be edited into optimism —
+  a commission reads &quot;delivered&quot; only when a published record claims its number.
+- The no-amounts rule keeps the board a status window, not a revenue billboard;
+  that is the dark-pattern ban doing quiet work.
+- Sharpest question: can two records claim one commission? by_comm keeps the
+  last — flagged as acceptable now (one-commission-one-record is the intake
+  contract), worth a validator rule if co-delivery ever becomes real.
+REVIEW: approved</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

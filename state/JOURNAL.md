@@ -433,3 +433,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed → rc
 - line: commission-queue → rc
 - gate: validate+build green · qa green
+
+## i81 — reviewer — 2026-07-05T19:56:35Z
+- did: commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design
+- line: commission-queue review approved
+- gate: validate+build green
