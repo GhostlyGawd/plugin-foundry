@@ -99,6 +99,12 @@ and governor halts open `ops-alarm` issues that turn the window amber, and
 commission tiers wait at spec as a pricing experiment. Every surface still answers
 to METRICS.jsonl — no real movement, killed with a memo.
 
+## Put the machine on your site
+
+Status badge (shields.io endpoint): `![foundry](https://img.shields.io/endpoint?url=<pages_url>/badge.json)`
+Live ticker embed: `<iframe src="<pages_url>/embed.html" width="100%" height="86" style="border:0" title="Nightshift Foundry ticker"></iframe>`
+Both regenerate on every deploy, same as the window.
+
 ## The laws that make it trustworthy
 
 **Docs before invention.** The plugin spec is Anthropic's; when any field, event, or

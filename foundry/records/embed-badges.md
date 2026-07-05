@@ -38,5 +38,5 @@ Fans are distribution. Give them something true to embed.
 - **Review-after:** 30 days post-deploy.
 
 ## Build log
-- i0(v5): badge.json + embed.html generators landed with the v5 window; QA pass
-  pending before rc.
+- i0(v5): badge.json + embed.html generators landed with the v5 window.
+- i6: README snippet block (badge endpoint + iframe embed) — build complete.

@@ -53,3 +53,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Saga QA pass: 11/11 ADRs render, ships match published count exactly, naming slot resolved → rc
 - line: saga-page → rc
 - gate: validate+build green
+
+## i6 — builder — 2026-07-05T18:22:51Z
+- did: Completed embed-badges build: README gains the shields endpoint + iframe snippet block (both derived, both regenerate per deploy)
+- line: n/a — build step within building
+- gate: validate+build green
