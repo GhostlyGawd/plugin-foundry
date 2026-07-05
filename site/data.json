@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:30:09.110072+00:00",
- "iteration": 22,
+ "generated_at": "2026-07-05T18:30:09.334914+00:00",
+ "iteration": 23,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i23",
+   "role": "reviewer",
+   "ts": "2026-07-05T18:30:09Z",
+   "text": "env-doctor approved: consent-gated fixes, no manufactured findings, non-destructive fix vocabulary \u00b7 env-doctor review approved"
+  },
   {
    "it": "i22",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:27:26Z",
    "text": "Built session-recap: evidence-first append-only recap skill + suite; archive behavior is offer-only \u00b7 session-recap \u2192 building"
-  },
-  {
-   "it": "i15",
-   "role": "builder",
-   "ts": "2026-07-05T18:27:26Z",
-   "text": "session-recap specced: append-only dated handoff sections built from git evidence; acceptance checks set \u00b7 session-recap \u2192 spec"
   }
  ],
  "records": [
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 22
+   "n": 23
   }
  ],
  "repo": null

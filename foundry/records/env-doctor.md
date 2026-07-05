@@ -56,3 +56,12 @@ Half of "it doesn't work" is a version mismatch discovered twenty minutes in.
 - defects: none found — probed: repo with zero requirement files (explicit stop),
   fix vocabulary audited (installs/exports only, nothing destructive)
 TEST VERDICT: pass
+
+## Review log
+### Review — i23 (reviewer)
+- The consent law is the artifact: diagnosis free, surgery consented, per-command.
+- Requirements sourced from the repo's own files with silent-skip on absence — no
+  manufactured findings, and the empty state says so in words.
+- Sharpest question: could a suggested "fix" be destructive-by-default? Audited the
+  vocabulary — installs and exports only, no rm/overwrite class commands.
+REVIEW: approved
