@@ -2,9 +2,9 @@
 name: fork-a-foundry
 title: Fork a Foundry
 category: meta
-stage: rc
+stage: published
 kind: plugin
-version: null
+version: 0.1.0
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-05
@@ -55,6 +55,11 @@ loop runs a green iteration.
 - tier 3: checks 1–2 executed via foundry/tests/fork-a-foundry/structure.test.sh
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
 TEST VERDICT: pass
+
+## Publish log
+- i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
+  0.1.0 synced, CHANGELOG dated, release tag fork-a-foundry-v0.1.0 laid. First
+  artifact through the complete v4/v5 gate chain with zero genesis exceptions.
 
 ## Review log
 ### Review — i8 (reviewer)

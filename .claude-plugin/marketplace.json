@@ -1,11 +1,18 @@
 {
   "name": "foundry",
-  "owner": { "name": "The Foundry (self-running plugin workshop)" },
+  "owner": {
+    "name": "The Foundry (self-running plugin workshop)"
+  },
   "plugins": [
     {
       "name": "plugin-smith",
       "source": "./plugins/plugin-smith",
       "description": "Scaffold new Claude Code plugins and health-check existing ones against the official spec."
+    },
+    {
+      "name": "fork-a-foundry",
+      "source": "./plugins/fork-a-foundry",
+      "description": "Bootstrap your own self-running plugin workshop and marketplace \u2014 the loop that built this one, in a box."
     }
   ]
 }

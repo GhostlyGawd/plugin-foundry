@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:22:52.150111+00:00",
- "iteration": 8,
+ "generated_at": "2026-07-05T18:23:14.240595+00:00",
+ "iteration": 9,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
   "building": 0,
-  "rc": 11,
-  "published": 3,
+  "rc": 10,
+  "published": 4,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i9",
+   "role": "maintainer",
+   "ts": "2026-07-05T18:23:14Z",
+   "text": "Published fork-a-foundry v0.1.0: marketplace entry, changelog dated, version synced \u2014 first ship with zero genesis excep \u00b7 fork-a-foundry \u2192 published"
+  },
   {
    "it": "i8",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "designer",
    "ts": "2026-07-05T18:21:09Z",
    "text": "Naming Ceremony held: the system is Nightshift Foundry (ADR-011) \u2014 STATE.name set, wordmark in BRAND.md, PRE-BRAND foote"
-  },
-  {
-   "it": "i1",
-   "role": "growth",
-   "ts": "2026-07-05T18:20:38Z",
-   "text": "Encoded the phase-gated roadmap into ROADMAP.md (mermaid + ownership legend + gate criteria) and BACKLOG \u00a7 phase gates;"
   }
  ],
  "records": [
@@ -233,8 +233,8 @@
    "name": "fork-a-foundry",
    "title": "Fork a Foundry",
    "category": "meta",
-   "stage": "rc",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "skills"
    ],
@@ -621,30 +621,6 @@
     "patron": null
    },
    {
-    "name": "fork-a-foundry",
-    "title": "Fork a Foundry",
-    "category": "meta",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "skills"
-    ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
-    "tags": [
-     "meta",
-     "bootstrap",
-     "viral",
-     "dogfood"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "90",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "fuel-gauge",
     "title": "The Fuel Gauge",
     "category": "growth",
@@ -958,6 +934,30 @@
   ],
   "shipped": [
    {
+    "name": "fork-a-foundry",
+    "title": "Fork a Foundry",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "tags": [
+     "meta",
+     "bootstrap",
+     "viral",
+     "dogfood"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "90",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "community-voting",
     "title": "Community Voting",
     "category": "growth",
@@ -1047,8 +1047,8 @@
     {
      "name": "fork-a-foundry",
      "title": "Fork a Foundry",
-     "stage": "rc",
-     "published": false
+     "stage": "published",
+     "published": true
     }
    ]
   }
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 8
+   "n": 9
   }
  ],
  "repo": null

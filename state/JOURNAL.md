@@ -68,3 +68,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: fork-a-foundry reviewed against the full QUALITY bar: laws carried verbatim, no hooks, thrift ~90 tok, naming handoff correct — REVIEW: approved (one non-blocking nit journaled as P3)
 - line: fork-a-foundry review approved (stage holds at rc for maintainer)
 - gate: validate+build green
+
+## i9 — maintainer — 2026-07-05T18:23:14Z
+- did: Published fork-a-foundry v0.1.0: marketplace entry, changelog dated, version synced — first ship with zero genesis exceptions; P3 polish nit queued
+- line: fork-a-foundry → published
+- gate: validate+build green · qa green

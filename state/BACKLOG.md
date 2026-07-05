@@ -33,8 +33,8 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       compliance, token budgets. If sound: phase → "grow", refill role_queue, ADR.
 
 ## Grow (worked after bootstrap)
-- [ ] P1 (reviewer) Review fork-a-foundry (rc): full QUALITY pass; then maintainer
-      publishes with tag fork-a-foundry-v0.1.0 — the first ship through v4 gates.
+- [x] P1 Review + publish fork-a-foundry — DONE i8/i9, tag fork-a-foundry-v0.1.0.
+- [ ] P3 (builder) fork-a-foundry polish: from-spec path links OPERATIONS §7–8 (reviewer nit, i8).
 - [ ] P1 (growth) Run the pr-gated-publishes trial per its spec; verdict decides the
       scheduled default.
 - [ ] P1 (qa) QA fixture passes for the four building-stage v5 features
