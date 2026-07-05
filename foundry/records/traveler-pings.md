@@ -47,3 +47,15 @@ The cheapest loyalty program in software: tell people their idea is moving.
 - defects: none in the artifact; the suite's first silence predicate was letter
   soup and got rewritten — logged for the pattern file
 TEST VERDICT: pass
+
+## Review log
+### Review — i67 (reviewer)
+- The comment body tells the reader *how it was sent* ("by the shift that did the
+  work") — provenance in the notification itself, on brand.
+- Per-issue cap and fail-soft are the difference between a courtesy and a spam
+  bot; the guard means the operator arms it deliberately, never by surprise.
+- Sharpest question: what if a suggester's record is killed? diff() only speaks
+  on stage *changes it can name kindly* — shelved/killed records still ping with
+  the honest stage word, and the certificate explains the memo. Acceptable; the
+  kill memo is part of the deal suggesters sign up for.
+REVIEW: approved

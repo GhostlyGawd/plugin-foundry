@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:48:16.053161+00:00",
- "iteration": 66,
+ "generated_at": "2026-07-05T19:48:16.302253+00:00",
+ "iteration": 67,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i67",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:48:16Z",
+   "text": "traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced \u00b7 traveler-pings review approved"
+  },
   {
    "it": "i66",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:44:59Z",
    "text": "Published night-clerk v0.1.0: marketplace entry, catalog regenerated (7 plugins, clerk lists itself), experiment armed \u00b7 night-clerk \u2192 published (v0.1.0)"
-  },
-  {
-   "it": "i59",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:44:58Z",
-   "text": "night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through \u00b7 night-clerk review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i55",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:37:16Z",
-   "text": "live-shift-theater approved: ledger-diffed playback, honest windowing, reduce path is instant not slower \u00b7 live-shift-theater review approved"
-  },
   {
    "it": "i56",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-05T19:48:16Z",
    "text": "traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified \u2192 rc \u00b7 traveler-pings \u2192 rc"
+  },
+  {
+   "it": "i67",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:48:16Z",
+   "text": "traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced \u00b7 traveler-pings review approved"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 66
+   "n": 67
   }
  ],
  "repo": null

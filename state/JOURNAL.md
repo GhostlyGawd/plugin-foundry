@@ -363,3 +363,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified → rc
 - line: traveler-pings → rc
 - gate: validate+build green · qa green
+
+## i67 — reviewer — 2026-07-05T19:48:16Z
+- did: traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced
+- line: traveler-pings review approved
+- gate: validate+build green
