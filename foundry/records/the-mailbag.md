@@ -47,3 +47,15 @@ read: the Monday shipnote.
 - defects: none found — probed: malformed gh JSON (caught, treated as zero
   questions), label with no open issues (silent)
 TEST VERDICT: pass
+
+## Review log
+### Review — i77 (reviewer)
+- Evidence-only answering is the load-bearing clause; a mailbag that speculates
+  would launder guesses through the shipnote's credibility. GROWTH says the quiet
+  part: unanswerable-yet is an allowed answer.
+- Fail-open with a stderr note is exactly right for a garnish feature — the
+  shipnote's core cargo never waits on gh.
+- Sharpest question: who audits the answers? The same thread they land in —
+  in-thread answers are publicly falsifiable next to the question, unlike a
+  private FAQ.
+REVIEW: approved

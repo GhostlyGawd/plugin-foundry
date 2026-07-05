@@ -413,3 +413,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: the-mailbag QA: 4/4 with live fail-open proof; empty and malformed paths probed → rc
 - line: the-mailbag → rc
 - gate: validate+build green · qa green
+
+## i77 — reviewer — 2026-07-05T19:53:14Z
+- did: the-mailbag approved: evidence-only clause load-bearing, in-thread answers publicly falsifiable
+- line: the-mailbag review approved
+- gate: validate+build green
