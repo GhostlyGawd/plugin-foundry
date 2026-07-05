@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:59:01.985570+00:00",
- "iteration": 84,
+ "generated_at": "2026-07-05T19:59:02.232567+00:00",
+ "iteration": 85,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i85",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:59:02Z",
+   "text": "releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failu \u00b7 releases-and-reverify review approved"
+  },
   {
    "it": "i84",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:53:15Z",
    "text": "Published the-mailbag: live in the shipnote pipeline; experiment armed \u00b7 the-mailbag \u2192 published"
-  },
-  {
-   "it": "i77",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:53:14Z",
-   "text": "the-mailbag approved: evidence-only clause load-bearing, in-thread answers publicly falsifiable \u00b7 the-mailbag review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i73",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:51:36Z",
-   "text": "the-almanac approved: strictest QA applied to the self-portrait, permanently checkable numbers \u00b7 the-almanac review approved"
-  },
   {
    "it": "i74",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-05T19:59:01Z",
    "text": "releases-and-reverify QA: 13/13, refusal semantics proven, qa-recursion designed out \u2192 rc \u00b7 releases-and-reverify \u2192 rc"
+  },
+  {
+   "it": "i85",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:59:02Z",
+   "text": "releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failu \u00b7 releases-and-reverify review approved"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 84
+   "n": 85
   }
  ],
  "repo": null

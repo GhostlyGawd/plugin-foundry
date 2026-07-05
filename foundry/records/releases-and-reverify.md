@@ -55,3 +55,17 @@ freshness as a standing promise, not a launch-day claim.
   boundary holds), CHANGELOG with the version mentioned in prose only (heading
   regex ignores it)
 TEST VERDICT: pass
+
+## Review log
+### Review — i85 (reviewer)
+- "A release with no notes does not happen" is refusal as a feature — the tag
+  pipeline cannot ship an unexplained artifact, which is the version law's whole
+  point extended to the announcement channel.
+- Withholding stamps from red suites is the honest half of freshness: the shelf
+  can now *visibly* go stale, which is what makes the green stamps mean anything.
+- ADR-013 discipline held under convenience pressure: proposed i83, one full
+  iteration between, eligible now; the cron cannot fire before the law lands.
+- Sharpest question: can a re-verify commit race a shift commit? Push would
+  fail non-fast-forward, the job reruns next Monday — a lost week of stamps,
+  never a corrupted ledger. Acceptable; noted for ops.
+REVIEW: approved — ADR-013 eligible to apply

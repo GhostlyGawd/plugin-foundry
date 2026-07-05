@@ -453,3 +453,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: releases-and-reverify QA: 13/13, refusal semantics proven, qa-recursion designed out → rc
 - line: releases-and-reverify → rc
 - gate: validate+build green · qa green
+
+## i85 — reviewer — 2026-07-05T19:59:02Z
+- did: releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failure
+- line: releases-and-reverify review approved
+- gate: validate+build green
