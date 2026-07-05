@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:48:16.302253+00:00",
- "iteration": 67,
+ "generated_at": "2026-07-05T19:48:17.348797+00:00",
+ "iteration": 68,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 8,
   "building": 0,
-  "rc": 11,
-  "published": 15,
+  "rc": 10,
+  "published": 16,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i68",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:48:17Z",
+   "text": "Published traveler-pings: mechanism live, world-arming documented; experiment armed \u00b7 traveler-pings \u2192 published"
+  },
   {
    "it": "i67",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-05T19:46:40Z",
    "text": "contributor-cards built: SVG generator, hall enrichment, conditional links on certs+hall, empty-wipes-clean; fixture sui \u00b7 contributor-cards \u2192 building"
-  },
-  {
-   "it": "i60",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:44:59Z",
-   "text": "Published night-clerk v0.1.0: marketplace entry, catalog regenerated (7 plugins, clerk lists itself), experiment armed \u00b7 night-clerk \u2192 published (v0.1.0)"
   }
  ],
  "journal": [
-  {
-   "it": "i56",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:37:16Z",
-   "text": "Published live-shift-theater; experiment armed \u00b7 live-shift-theater \u2192 published"
-  },
   {
    "it": "i57",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:48:16Z",
    "text": "traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced \u00b7 traveler-pings review approved"
+  },
+  {
+   "it": "i68",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:48:17Z",
+   "text": "Published traveler-pings: mechanism live, world-arming documented; experiment armed \u00b7 traveler-pings \u2192 published"
   }
  ],
  "records": [
@@ -876,7 +876,7 @@
    "name": "traveler-pings",
    "title": "Traveler Pings",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "workflow"
@@ -1182,29 +1182,6 @@
      "trust",
      "transparency",
      "tokens"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "traveler-pings",
-    "title": "Traveler Pings",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "workflow"
-    ],
-    "one_liner": "When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.",
-    "tags": [
-     "issues",
-     "notifications",
-     "credit"
     ],
     "commission": null,
     "kind": "feature",
@@ -1597,6 +1574,29 @@
     "kind": "plugin",
     "always_on_tokens": "86",
     "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "traveler-pings",
+    "title": "Traveler Pings",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "workflow"
+    ],
+    "one_liner": "When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.",
+    "tags": [
+     "issues",
+     "notifications",
+     "credit"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 67
+   "n": 68
   }
  ],
  "repo": null

@@ -2,7 +2,7 @@
 name: traveler-pings
 title: Traveler Pings
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [workflow]
@@ -47,6 +47,10 @@ The cheapest loyalty program in software: tell people their idea is moving.
 - defects: none in the artifact; the suite's first silence predicate was letter
   soup and got rewritten — logged for the pattern file
 TEST VERDICT: pass
+
+## Publish log
+- i68 (maintainer): mechanism live; arms when the operator sets PINGS_ENABLED in
+  repo variables; experiment armed (suggester re-engagement, review 2026-09-15).
 
 ## Review log
 ### Review — i67 (reviewer)

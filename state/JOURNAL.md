@@ -368,3 +368,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced
 - line: traveler-pings review approved
 - gate: validate+build green
+
+## i68 — maintainer — 2026-07-05T19:48:17Z
+- did: Published traveler-pings: mechanism live, world-arming documented; experiment armed
+- line: traveler-pings → published
+- gate: validate+build green · qa green
