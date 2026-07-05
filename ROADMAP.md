@@ -48,6 +48,12 @@ have baselines. — [ ] (auditor verifies)
 - [x] Idea pool: live-shift-theater, cross-foundry-exchange (loop)
 - [ ] First sister foundry registered; first cross-foundry idea lands (world)
 
+## v7 portfolio (slate encoded i35 - audit-002 verifies)
+Build order: counter-index, trust-card, window-watchability, demo-transcripts,
+live-shift-theater, night-clerk (flagship), contributor-cards, traveler-pings,
+the-almanac, the-mailbag, commission-queue, releases-and-reverify.
+Pillars: meet users where they are - make the machine watchable - skin in the game.
+
 ## Always-on lane
 Experiment reviews on their dates · monthly audits · bug SLO (fix ships with the
 regression test) · theme votes · Monday shipnotes. North star: weekly installs

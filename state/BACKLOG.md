@@ -53,6 +53,12 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] P2 (growth) Spec weekly-shipnote; pair with maintainer for the workflow step.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
 
+## v7 slate (in order - one artifact per iteration, gates green or it did not happen)
+1 counter-index, 2 trust-card, 3 window-watchability, 4 demo-transcripts,
+5 live-shift-theater, 6 night-clerk, 7 contributor-cards, 8 traveler-pings,
+9 the-almanac, 10 the-mailbag, 11 commission-queue, 12 releases-and-reverify,
+then audit-002.
+
 ## Roadmap phase gates (ROADMAP.md — Auditor verifies, nobody else checks boxes)
 - [ ] GATE A — window live 14d, ledger arming, 6 experiment baselines [GATED: operator+world]
 - [ ] GATE B — ≥8 shipped, ≥2 public verdicts, first bug survived well [GATED: world]

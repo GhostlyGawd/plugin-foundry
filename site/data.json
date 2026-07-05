@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-07-05T18:40:00.986394+00:00",
- "iteration": 34,
+ "generated_at": "2026-07-05T19:29:42.027257+00:00",
+ "iteration": 35,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 2,
-  "spec": 4,
+  "spec": 15,
   "building": 0,
   "rc": 10,
   "published": 8,
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i35",
+   "role": "growth",
+   "ts": "2026-07-05T19:29:41Z",
+   "text": "v7 slate encoded: 11 records at spec fitted to the taxonomy (experiments carry privacy-lawful proxy metrics), ROADMAP v7 \u00b7 11 records \u2192 spec (new)"
+  },
   {
    "it": "i34",
    "role": "auditor",
@@ -54,12 +60,6 @@
    "role": "reviewer",
    "ts": "2026-07-05T18:31:08Z",
    "text": "pr-narrator approved: test-notes honesty protects reviewers; kit pairing with commit-craft noted \u00b7 pr-narrator review approved"
-  },
-  {
-   "it": "i27",
-   "role": "qa",
-   "ts": "2026-07-05T18:31:08Z",
-   "text": "pr-narrator three-tier pass: suite 6/6, ~88 tok stamped, no push/force vocabulary \u00b7 pr-narrator \u2192 rc"
   }
  ],
  "records": [
@@ -80,6 +80,30 @@
     "qa",
     "security",
     "ladder"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "commission-queue",
+   "title": "The Commission Queue",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site",
+    "worker"
+   ],
+   "one_liner": "A sanitized public status board for commissions - patrons watch progress without asking.",
+   "tags": [
+    "commissions",
+    "transparency",
+    "queue"
    ],
    "commission": null,
    "kind": "feature",
@@ -186,6 +210,52 @@
    "patron": null
   },
   {
+   "name": "contributor-cards",
+   "title": "Contributor Cards",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site"
+   ],
+   "one_liner": "A shareable, kraft-styled SVG credit card per contributor - prospects, patronages, breaks, since-date.",
+   "tags": [
+    "credit",
+    "svg",
+    "ladder"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "counter-index",
+   "title": "The Counter Index",
+   "category": "context",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site"
+   ],
+   "one_liner": "Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.",
+   "tags": [
+    "search",
+    "filters",
+    "shelf"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "cross-foundry-exchange",
    "title": "Cross-Foundry Exchange",
    "category": "growth",
@@ -200,6 +270,30 @@
     "network",
     "federation",
     "moonshot"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "demo-transcripts",
+   "title": "Demo Transcripts",
+   "category": "quality",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site",
+    "docs"
+   ],
+   "one_liner": "Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.",
+   "tags": [
+    "demos",
+    "certificates",
+    "show-dont-tell"
    ],
    "commission": null,
    "kind": "feature",
@@ -400,6 +494,29 @@
    "patron": null
   },
   {
+   "name": "night-clerk",
+   "title": "Night Clerk",
+   "category": "workflow",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "skills"
+   ],
+   "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+   "tags": [
+    "discovery",
+    "meta",
+    "catalog"
+   ],
+   "commission": null,
+   "kind": "plugin",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "plugin-smith",
    "title": "Plugin Smith",
    "category": "meta",
@@ -465,6 +582,29 @@
    "kind": "plugin",
    "always_on_tokens": "88",
    "verified": "2026-07-05",
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "releases-and-reverify",
+   "title": "Releases & Weekly Re-verification",
+   "category": "workflow",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "workflow"
+   ],
+   "one_liner": "Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.",
+   "tags": [
+    "releases",
+    "cron",
+    "freshness"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -587,6 +727,54 @@
    "patron": null
   },
   {
+   "name": "the-almanac",
+   "title": "The Almanac",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site"
+   ],
+   "one_liner": "A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.",
+   "tags": [
+    "retrospective",
+    "accountability",
+    "content"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "the-mailbag",
+   "title": "The Mailbag",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "workflow",
+    "docs",
+    "template"
+   ],
+   "one_liner": "question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.",
+   "tags": [
+    "shipnotes",
+    "questions",
+    "community"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "token-cost-badges",
    "title": "Token-Cost Badges",
    "category": "growth",
@@ -611,6 +799,52 @@
    "patron": null
   },
   {
+   "name": "traveler-pings",
+   "title": "Traveler Pings",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "workflow"
+   ],
+   "one_liner": "When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.",
+   "tags": [
+    "issues",
+    "notifications",
+    "credit"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "trust-card",
+   "title": "Trust Card",
+   "category": "quality",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site"
+   ],
+   "one_liner": "A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.",
+   "tags": [
+    "trust",
+    "footprint",
+    "certificates"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "weekly-shipnote",
    "title": "Weekly Shipnote",
    "category": "growth",
@@ -625,6 +859,29 @@
     "digest",
     "retention",
     "narrative"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "window-watchability",
+   "title": "Window Watchability Pack",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site"
+   ],
+   "one_liner": "Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.",
+   "tags": [
+    "countdown",
+    "reviews",
+    "a11y"
    ],
    "commission": null,
    "kind": "feature",
@@ -913,6 +1170,30 @@
     "patron": null
    },
    {
+    "name": "commission-queue",
+    "title": "The Commission Queue",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site",
+     "worker"
+    ],
+    "one_liner": "A sanitized public status board for commissions - patrons watch progress without asking.",
+    "tags": [
+     "commissions",
+     "transparency",
+     "queue"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "commission-tiers",
     "title": "Commission Tiers",
     "category": "growth",
@@ -927,6 +1208,76 @@
      "pricing",
      "patrons",
      "experiment"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "contributor-cards",
+    "title": "Contributor Cards",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A shareable, kraft-styled SVG credit card per contributor - prospects, patronages, breaks, since-date.",
+    "tags": [
+     "credit",
+     "svg",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "counter-index",
+    "title": "The Counter Index",
+    "category": "context",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.",
+    "tags": [
+     "search",
+     "filters",
+     "shelf"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "demo-transcripts",
+    "title": "Demo Transcripts",
+    "category": "quality",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.",
+    "tags": [
+     "demos",
+     "certificates",
+     "show-dont-tell"
     ],
     "commission": null,
     "kind": "feature",
@@ -962,6 +1313,29 @@
     "patron": null
    },
    {
+    "name": "night-clerk",
+    "title": "Night Clerk",
+    "category": "workflow",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+    "tags": [
+     "discovery",
+     "meta",
+     "catalog"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "pr-gated-publishes",
     "title": "PR-Gated Publishes",
     "category": "growth",
@@ -975,6 +1349,146 @@
      "governance",
      "trust",
      "veto"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "releases-and-reverify",
+    "title": "Releases & Weekly Re-verification",
+    "category": "workflow",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "workflow"
+    ],
+    "one_liner": "Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.",
+    "tags": [
+     "releases",
+     "cron",
+     "freshness"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "the-almanac",
+    "title": "The Almanac",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.",
+    "tags": [
+     "retrospective",
+     "accountability",
+     "content"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "the-mailbag",
+    "title": "The Mailbag",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "workflow",
+     "docs",
+     "template"
+    ],
+    "one_liner": "question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.",
+    "tags": [
+     "shipnotes",
+     "questions",
+     "community"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "traveler-pings",
+    "title": "Traveler Pings",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "workflow"
+    ],
+    "one_liner": "When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.",
+    "tags": [
+     "issues",
+     "notifications",
+     "credit"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "trust-card",
+    "title": "Trust Card",
+    "category": "quality",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.",
+    "tags": [
+     "trust",
+     "footprint",
+     "certificates"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "window-watchability",
+    "title": "Window Watchability Pack",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.",
+    "tags": [
+     "countdown",
+     "reviews",
+     "a11y"
     ],
     "commission": null,
     "kind": "feature",
@@ -1613,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 34
+   "n": 35
   }
  ],
  "repo": null

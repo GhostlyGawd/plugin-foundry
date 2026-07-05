@@ -203,3 +203,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Audit-001: bootstrap complete — gates caught 2 real defects, 2 harness incidents rolled back pre-push and documented, version-law sweep clean; phase flips to grow, role_queue set; B1+B10 checked
 - line: n/a — audit
 - gate: validate+build green · qa green
+
+## i35 — growth — 2026-07-05T19:29:41Z
+- did: v7 slate encoded: 11 records at spec fitted to the taxonomy (experiments carry privacy-lawful proxy metrics), ROADMAP v7 section, build order in BACKLOG
+- line: 11 records → spec (new)
+- gate: validate+build green
