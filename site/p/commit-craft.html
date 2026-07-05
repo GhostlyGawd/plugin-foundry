@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commit Craft — provenance</title>
+<style>
+  :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  *{box-sizing:border-box; margin:0}
+  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
+    color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
+  .sheet{max-width:820px; margin:0 auto}
+  a{color:var(--stamp)}
+  header{border-bottom:2px solid var(--ink); padding-bottom:10px}
+  header h1{font-size:20px; letter-spacing:.1em; text-transform:uppercase}
+  .meta{color:var(--dim); font-size:12px; letter-spacing:.06em; padding:6px 0}
+  .track{display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim);
+    letter-spacing:.1em; text-transform:uppercase; padding:8px 0}
+  .punch{width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); display:inline-block}
+  .punch.done{background:var(--ink)}
+  .cert{border:1px solid var(--line); background:var(--card); margin:16px 0}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer; padding:10px 14px; font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  summary:focus-visible{outline:2px solid var(--stamp); outline-offset:-2px}
+  details pre{white-space:pre-wrap; overflow-wrap:anywhere; padding:0 14px 14px; color:var(--dim); font:inherit; font-size:12.5px}
+  .field{border:1px dashed var(--line); background:var(--card); padding:10px 14px; margin:10px 0; font-size:12.5px}
+  .field a{display:block}
+  .links{font-size:12px; padding:8px 0}
+  footer{color:var(--dim); font-size:11px; border-top:2px solid var(--ink); margin-top:18px; padding-top:10px}
+</style>
+</head>
+<body><div class="sheet">
+  <p class="links"><a href="../index.html">← back to the window</a></p>
+  <header><h1>Commit Craft — birth certificate</h1></header>
+  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
+  
+  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
+- **User:** anyone using Claude Code in a repo with commit standards.
+- **Components:** one skill (draft the message), one PreToolUse hook (guard the format).
+- **Why a plugin:** it pairs a prompt with an enforcement hook — exactly what plugins
+  bundle and CLAUDE.md notes can&#x27;t.</pre></details><details><summary>Spec</summary><pre>- Name: `commit-craft` (forever).
+- skills/commit/SKILL.md — description (verbatim): &quot;Draft a conventional commit
+  message from the currently staged changes. Use when committing, when asked to write
+  a commit message, or after staging changes.&quot;
+  Body must: run `git diff --staged --stat` then `git diff --staged`; infer type
+  (feat|fix|docs|refactor|test|chore|perf) and scope from paths; produce
+  `type(scope): imperative summary ≤72 chars` + wrapped body explaining why; never
+  invent ticket numbers; if nothing is staged, say so and stop.
+- hooks/hooks.json — PreToolUse, matcher `Bash`, type `command`, command
+  `&quot;${CLAUDE_PLUGIN_ROOT}&quot;/scripts/check-commit-msg.sh`.
+- scripts/check-commit-msg.sh — reads the hook JSON from stdin; acts ONLY if the
+  Bash command is a `git commit` with an inline `-m` message; checks the message
+  against `^(feat|fix|docs|refactor|test|chore|perf)(\(.+\))?: .{1,72}`; on mismatch
+  exits 2 with a one-line reason (blocks with feedback); **exits 0 on any parsing
+  doubt — fail open, never brick a commit**; no writes, no network.
+- README: install lines, both components explained, how to disable the hook.
+- Token budget: ≤200 always-on.
+### Acceptance checks
+1. With staged changes, the skill produces a valid conventional message that
+   truthfully describes the diff.
+2. With nothing staged, the skill says so and does not fabricate.
+3. Hook script, fed a `git commit -m &quot;bad message&quot;` payload on stdin, exits 2 with a
+   reason; fed a conforming message, exits 0.
+4. Hook script, fed a non-commit Bash payload and a garbled payload, exits 0 both
+   times (fail-open proven).
+5. `bash tools/smoke.sh commit-craft` passes; always-on cost within budget.</pre></details></div>
+  <p class="links">links appear once the repo is configured</p>
+  <footer>Every claim above was written by the loop iteration that did the work, in
+  the commit that did it — the record is append-only. Nothing here is retouched for
+  the window.</footer>
+</div></body></html>

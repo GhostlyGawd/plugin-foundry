@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>foundry ticker</title>
+<style>
+ body{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:#E9DFC8; color:#2C2820}
+ .tape{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid #B5A683}
+ .reel{display:inline-block; padding-left:100%}
+ @media (prefers-reduced-motion:no-preference){.reel{animation:reel 55s linear infinite} .tape:hover .reel{animation-play-state:paused}
+ @keyframes reel{to{transform:translateX(-100%)}}}
+ @media (prefers-reduced-motion:reduce){.tape{white-space:normal} .reel{padding-left:0}}
+ span{color:#7E7460; font-size:12px; margin-right:34px} span b{color:#2C2820; font-weight:400}
+ span em{color:#2F5A8F; font-style:normal} .home{font-size:11px; padding:4px 10px} a{color:#2F5A8F}
+</style></head><body>
+<div class="tape"><div class="reel"><span><em>i0</em> · <b>genesis</b> — Repo seeded from the founding conversation (human + Claude). Charter, pipeline · plugin-smith → published (genesis exception: no QA pass of record — a P1</span></div></div>
+<p class="home"></p>
+</body></html>

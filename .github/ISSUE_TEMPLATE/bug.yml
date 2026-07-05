@@ -1,0 +1,24 @@
+name: Bug report (installed plugin)
+description: Something a published plugin does wrong. Fixes to shipped plugins outrank new builds.
+labels: [bug]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin and version
+      placeholder: e.g. plugin-smith 0.1.0 (from /plugin)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      placeholder: Steps, actual behavior, expected behavior.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        **How this works:** the workshop triages bugs ahead of new work. A fix ships
+        with a version bump, a changelog entry, and a regression test that would have
+        caught it — all commented here.

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Commission a plugin (paid — skips the queue)
+    url: https://example.invalid/replace-with-your-stripe-payment-link
+    about: Buys a priority slot and a serious attempt at the full quality bar — not a guaranteed delivery.

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>urn:foundry:pre-launch</id>
+  <title>foundry — ships</title>
+  <updated>2026-07-05T18:01:51Z</updated>
+  <link href="#"/>
+  <entry>
+    <id>urn:foundry:pre-launch/p/community-voting.html</id>
+    <title>Community Voting — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>Free plugin suggestions via GitHub issues, prioritized by 👍 reactions, surfaced live on the window.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/plugin-smith.html</id>
+    <title>Plugin Smith v0.1.0 — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/scannable-window.html</id>
+    <title>Scannable Window — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>Jump-nav, glanceable stats strip, and vote counts — the window readable in one sweep.</summary>
+  </entry>
+</feed>

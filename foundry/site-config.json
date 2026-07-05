@@ -1,0 +1,9 @@
+{
+  "note": "Operator fills these at go-live (see OPERATIONS.md). Empty values degrade gracefully on the site. goatcounter_site is optional (privacy-respecting pageviews; token lives in Actions secrets, never here). monthly_budget_usd (optional) is the fuel gauge's denominator \u2014 mirror your LOOP_MONTHLY_BUDGET_USD Actions variable.",
+  "repo": "",
+  "pages_url": "",
+  "stripe_payment_link": "",
+  "price_label": "$5.99",
+  "goatcounter_site": "",
+  "monthly_budget_usd": null
+}

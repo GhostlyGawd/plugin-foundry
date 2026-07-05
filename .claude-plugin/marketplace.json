@@ -1,0 +1,11 @@
+{
+  "name": "foundry",
+  "owner": { "name": "The Foundry (self-running plugin workshop)" },
+  "plugins": [
+    {
+      "name": "plugin-smith",
+      "source": "./plugins/plugin-smith",
+      "description": "Scaffold new Claude Code plugins and health-check existing ones against the official spec."
+    }
+  ]
+}

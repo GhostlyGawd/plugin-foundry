@@ -1,0 +1,19 @@
+# Executable QA (ADR-006): every change to a shipping artifact or its tests must
+# pass the harness. "TEST VERDICT: pass" in a record now has a green check behind it.
+name: QA harness
+on:
+  push:
+    paths: ["plugins/**", "foundry/tests/**", "tools/qa.sh"]
+  pull_request:
+    paths: ["plugins/**", "foundry/tests/**", "tools/qa.sh"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Claude Code (enables official validate in tests)
+        run: npm install -g @anthropic-ai/claude-code
+      - run: bash tools/qa.sh

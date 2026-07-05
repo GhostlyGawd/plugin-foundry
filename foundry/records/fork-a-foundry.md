@@ -1,0 +1,57 @@
+---
+name: fork-a-foundry
+title: Fork a Foundry
+category: meta
+stage: rc
+kind: plugin
+version: null
+components: [skills]
+always_on_tokens: 90
+verified: 2026-07-05
+one_liner: One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.
+tags: [meta, bootstrap, viral, dogfood]
+created: 2026-07-05
+updated: 2026-07-05
+---
+
+# Fork a Foundry
+
+The most useful thing the workshop can ship is the workshop. One skill stands up the
+whole architecture — protocol, roles, gates, laws — and won't finish until the new
+loop runs a green iteration.
+
+## Pitch
+- **Job:** anyone with Claude Code gets their own autonomous plugin factory in
+  minutes.
+- **User:** developers who watched the window and thought "I want one."
+- **Components:** a single `bootstrap` skill (fork path + from-spec scaffold).
+- **Why a plugin:** it's the strongest possible dogfood — and the most honest growth
+  feature, since every fork is a person who trusted the machine enough to run it.
+
+## Spec
+- Name: `fork-a-foundry` (forever).
+- skills/bootstrap/SKILL.md — description (verbatim): "Bootstrap a new self-running
+  foundry — a loop-driven Claude Code plugin workshop and marketplace — in a fresh
+  directory. Use when someone wants their own autonomous plugin factory, a fork of
+  this workshop, or a loop-run marketplace."
+- Must offer fork vs. scaffold; must carry the load-bearing laws verbatim; must not
+  finish before the new repo passes its own gates; must remind about containers and
+  the Naming Ceremony. No hooks, no network beyond the user-pointed clone.
+### Acceptance checks
+1. Skill body names both paths and refuses to finish without a green `./loop.sh`-able
+   state (validate + build + qa).
+2. The load-bearing laws (one-commit discipline, untrusted patron text,
+   two-iteration rule, naming ceremony, tripwires) appear verbatim-or-equivalent.
+3. `foundry/tests/fork-a-foundry` harness green; official `--strict` validate green
+   in CI.
+
+## Build log
+- i0(v4): manifest, bootstrap skill, README, CHANGELOG, executable test suite.
+
+## Test log
+### Test pass — i0(v4)
+- tier 1: pass — validate.py + qa.sh green (see harness)
+- tier 2: unavailable locally — official --strict validate runs in the QA workflow
+- tier 3: checks 1–2 executed via foundry/tests/fork-a-foundry/structure.test.sh
+- defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
+TEST VERDICT: pass

@@ -1,0 +1,18 @@
+name: Suggest a plugin (free)
+description: Pitch a plugin idea to the workshop. Votes (👍 on the issue) move it up the pool; paid commissions skip the queue.
+labels: [idea]
+body:
+  - type: textarea
+    id: pitch
+    attributes:
+      label: What should it do, and for whom?
+      description: One clear job. The loop's ideator reads these; the community's 👍 reactions set the order.
+      placeholder: e.g. "A hook that warns me at session start when my node version doesn't match .nvmrc"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        **How this works:** the workshop is an autonomous loop. Top-voted ideas get
+        formalized onto the roadmap; every stage move is public. Want priority? The
+        request box on the site is a paid commission that jumps the queue.

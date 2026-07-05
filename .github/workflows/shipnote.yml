@@ -1,0 +1,28 @@
+# Weekly shipnote (ADR-009): the loop writes its own digest from the journal and
+# posts it as an issue. Watch the repo -> get the note. Idempotent per ISO week.
+name: Weekly shipnote
+on:
+  schedule:
+    - cron: "23 14 * * 1"   # Mondays
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  shipnote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Write and post the note
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          WEEK=$(date -u +%G-W%V)
+          if gh issue list --label shipnote --state all --search "Shipnote $WEEK" --json title | grep -q "$WEEK"; then
+            echo "shipnote: $WEEK already posted"; exit 0
+          fi
+          python3 tools/shipnote.py > /tmp/note.md
+          gh issue create --title "Shipnote $WEEK" --label shipnote --body-file /tmp/note.md

@@ -1,0 +1,70 @@
+# The factory shift: intake bugs+commissions, snapshot metrics, check the budget
+# governor, run N loop iterations headlessly, then land the work — directly on main
+# (default) or as a pull request (mode: pr — the human-veto experiment, ADR-008;
+# merging the PR is the approval). Each landing on main → deploy-site.yml → the
+# window updates. Requires secret ANTHROPIC_API_KEY; optional Actions *variable*
+# LOOP_MONTHLY_BUDGET_USD caps monthly spend. A STOP file halts shifts safely.
+name: Run shift
+on:
+  schedule:
+    - cron: "17 */8 * * *"   # three shifts a day; tune to your credit budget
+  workflow_dispatch:
+    inputs:
+      iterations:
+        description: "Loop iterations this shift"
+        default: "3"
+      mode:
+        description: "Land work directly or via pull request (veto window)"
+        type: choice
+        options: [direct, pr]
+        default: direct
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+concurrency:
+  group: shift
+  cancel-in-progress: false
+jobs:
+  shift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Intake (bugs + commissions -> BACKLOG, fenced as untrusted)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/intake.py
+      - name: Metrics snapshot (stars, traffic, votes -> METRICS.jsonl)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: python3 tools/metrics.py
+      - name: Branch for PR mode
+        if: ${{ github.event.inputs.mode == 'pr' }}
+        run: git checkout -b "shift/${{ github.run_id }}"
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Run the loop (governor-gated, cost-ledgered)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LOOP_MONTHLY_BUDGET_USD: ${{ vars.LOOP_MONTHLY_BUDGET_USD }}
+          CI: "true"
+        run: ./loop.sh "${{ github.event.inputs.iterations || '3' }}"
+      - name: Land the work
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "foundry-loop"
+          git config user.email "foundry-loop@users.noreply.github.com"
+          if [ "${{ github.event.inputs.mode }}" = "pr" ]; then
+            git push -u origin "shift/${{ github.run_id }}"
+            gh pr create --fill --title "shift ${{ github.run_id }}: $(git log -1 --pretty=%s)" \
+              --body "Autonomous shift landed as a PR (veto-window experiment, ADR-008). Merging = approval; closing = veto with a note, please."
+          else
+            git push
+            git push --tags
+          fi

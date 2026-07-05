@@ -1,0 +1,14 @@
+{
+ "note": "Starter kits (ADR-009): curated bundles, one copy-block installs. Maintainer curates; only published plugins render as installable \u2014 the rest show as 'finishing on the line'.",
+ "kits": [
+  {
+   "id": "plugin-maker",
+   "name": "Plugin-maker kit",
+   "desc": "Everything for building Claude Code plugins the disciplined way \u2014 scaffold, audit, and eventually your own factory.",
+   "plugins": [
+    "plugin-smith",
+    "fork-a-foundry"
+   ]
+  }
+ ]
+}

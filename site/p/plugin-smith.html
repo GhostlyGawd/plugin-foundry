@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plugin Smith — provenance</title>
+<style>
+  :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  *{box-sizing:border-box; margin:0}
+  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
+    color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
+  .sheet{max-width:820px; margin:0 auto}
+  a{color:var(--stamp)}
+  header{border-bottom:2px solid var(--ink); padding-bottom:10px}
+  header h1{font-size:20px; letter-spacing:.1em; text-transform:uppercase}
+  .meta{color:var(--dim); font-size:12px; letter-spacing:.06em; padding:6px 0}
+  .track{display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim);
+    letter-spacing:.1em; text-transform:uppercase; padding:8px 0}
+  .punch{width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); display:inline-block}
+  .punch.done{background:var(--ink)}
+  .cert{border:1px solid var(--line); background:var(--card); margin:16px 0}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer; padding:10px 14px; font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  summary:focus-visible{outline:2px solid var(--stamp); outline-offset:-2px}
+  details pre{white-space:pre-wrap; overflow-wrap:anywhere; padding:0 14px 14px; color:var(--dim); font:inherit; font-size:12.5px}
+  .field{border:1px dashed var(--line); background:var(--card); padding:10px 14px; margin:10px 0; font-size:12.5px}
+  .field a{display:block}
+  .links{font-size:12px; padding:8px 0}
+  footer{color:var(--dim); font-size:11px; border-top:2px solid var(--ink); margin-top:18px; padding-top:10px}
+</style>
+</head>
+<body><div class="sheet">
+  <p class="links"><a href="../index.html">← back to the window</a></p>
+  <header><h1>Plugin Smith — birth certificate</h1></header>
+  <p class="meta">plugin · meta · v0.1.0 · created 2026-07-04 · updated 2026-07-04 · ~113 tok est · verified 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
+  <p>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</p>
+  
+  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** make &quot;start a plugin right&quot; and &quot;check a plugin honestly&quot; one invocation each.
+- **User:** this loop&#x27;s builder role, and any human developing plugins in this repo.
+- **Components:** two skills — `scaffold` (generate a correct skeleton) and `doctor`
+  (audit an existing plugin directory).
+- **Why a plugin:** it&#x27;s the dogfood cornerstone — the factory should run on its own
+  products, and this knowledge must be versioned, not tribal.</pre></details><details><summary>Spec</summary><pre>- Name: `plugin-smith` (forever).
+- skills/scaffold/SKILL.md — description (verbatim): &quot;Scaffold a new Claude Code
+  plugin directory with the official layout. Use when creating a new plugin, starting
+  a plugin skeleton, or converting loose commands into a plugin.&quot;
+- skills/doctor/SKILL.md — description (verbatim): &quot;Audit a Claude Code plugin
+  directory against the official schema and this marketplace&#x27;s quality bar. Use when
+  reviewing, debugging, or health-checking a plugin.&quot;
+- No hooks, no MCP. Token budget: ≤150 always-on.
+### Acceptance checks
+1. Invoking scaffold with a name + component list yields a tree matching the official
+   layout (manifest in .claude-plugin/, components at root, ./-relative paths).
+2. Doctor on a plugin with a seeded flaw (e.g. command file missing description, or
+   agents/ inside .claude-plugin/) reports each flaw with the fix.
+3. Doctor on plugin-smith itself reports clean.</pre></details><details><summary>Build log</summary><pre>- i0: both skills, manifest, README, CHANGELOG written at genesis.</pre></details><details open><summary>Test log</summary><pre>- i0: genesis exception — shipped without a full TESTING.md pass; structural tier
+  green via tools/validate.py + smoke.sh. Post-publish re-test is P1 in BACKLOG.
+TEST VERDICT: pass (structural only — see backlog P1 for the honest re-test)</pre></details><details open><summary>Review log</summary><pre>REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
+docs 4, structure 5. The P1 re-test supersedes this the moment it runs.
+Published i0 at 0.1.0 — marketplace entry source ./plugins/plugin-smith.</pre></details></div>
+  <p class="links">install: <code>/plugin install plugin-smith@foundry</code></p>
+  <footer>Every claim above was written by the loop iteration that did the work, in
+  the commit that did it — the record is append-only. Nothing here is retouched for
+  the window.</footer>
+</div></body></html>
