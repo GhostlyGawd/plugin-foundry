@@ -408,3 +408,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: the-mailbag built: gh-gated Mailbag in shipnotes (fail-open), question template, Lane 0 — Ask, evidence-only answering duty
 - line: the-mailbag → building
 - gate: validate+build green · qa green
+
+## i76 — qa — 2026-07-05T19:53:14Z
+- did: the-mailbag QA: 4/4 with live fail-open proof; empty and malformed paths probed → rc
+- line: the-mailbag → rc
+- gate: validate+build green · qa green

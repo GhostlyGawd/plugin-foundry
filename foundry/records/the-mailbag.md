@@ -2,7 +2,7 @@
 name: the-mailbag
 title: The Mailbag
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [workflow,docs,template]
@@ -36,3 +36,14 @@ read: the Monday shipnote.
 - i75: shipnote gains a Mailbag section (gh-gated, fail-open with a stderr skip
   line so the note always builds); question.yml template; CONTRIBUTING gains
   Lane 0 — Ask; GROWTH carries the evidence-only answering duty. Suite added.
+
+## Test log
+### Test pass — i76
+- tier 1: pass
+- tier 3: suite 4/4 — live PATH-stripped dry-run proved the fail-open skip (note
+  builds, stderr says why); question.yml yaml-lints; Lane 0 routed; duty on the
+  books; also verified the Mailbag renders nothing when zero questions exist
+  (empty-renders-nothing holds even inside a text artifact)
+- defects: none found — probed: malformed gh JSON (caught, treated as zero
+  questions), label with no open issues (silent)
+TEST VERDICT: pass
