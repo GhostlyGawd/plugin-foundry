@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:20:38.260701+00:00",
- "iteration": 1,
+ "generated_at": "2026-07-05T18:21:30.682952+00:00",
+ "iteration": 2,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i2",
+   "role": "designer",
+   "ts": "2026-07-05T18:21:09Z",
+   "text": "Naming Ceremony held: the system is Nightshift Foundry (ADR-011) \u2014 STATE.name set, wordmark in BRAND.md, PRE-BRAND foote"
+  },
   {
    "it": "i1",
    "role": "growth",
@@ -1362,7 +1368,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 1
+   "n": 2
   }
  ],
  "repo": null

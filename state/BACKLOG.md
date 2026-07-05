@@ -22,10 +22,10 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] B6 (maintainer) Publish commit-craft: marketplace.json entry
       (source ./plugins/commit-craft), version 0.1.0 in plugin.json + record,
       CHANGELOG dated, README install line verified; advance rc → published.
-- [ ] B7 (designer) **Naming Ceremony** per charter/BRAND.md — marketplace + repo
+- [x] B7 (designer) **Naming Ceremony** per charter/BRAND.md — marketplace + repo
       name, ASCII wordmark, brand v1, ADR; update STATE.json, marketplace.json name,
       README, catalog copy, every install snippet.
-- [ ] B8 (designer) Apply brand v1 to the catalog (template changes need a
+- [x] B8 (designer) Apply brand v1 to the catalog (template changes need a
       prior-iteration ADR; copy/palette-in-place fine now).
 - [ ] B9 (ideator) Replenish the line: 3–5 new idea records, deduped against records
       + shelf, drawn from § Hunting grounds and journaled dogfood friction.

@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "codename": "foundry",
-  "name": null,
-  "iteration": 1,
+  "name": "Nightshift Foundry",
+  "iteration": 2,
   "phase": "bootstrap",
   "role_queue": [],
-  "notes": "name null until the Naming Ceremony (charter/BRAND.md) \u2014 held early (B7) because marketplace names travel with install commands. role_queue unused in bootstrap. theme is set monthly by the designer via ADR (charter/BRAND.md \u00a7 Themes).",
+  "notes": "Named at ADR-011 (Naming Ceremony, i2). Marketplace slug 'foundry' is immutable per the names-are-forever law; the brand name rides display surfaces only.",
   "theme": null
 }

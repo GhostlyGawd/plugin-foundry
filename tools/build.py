@@ -428,7 +428,7 @@ TEMPLATE = """<!DOCTYPE html>
 
   <footer>
     <span>window: rebuilt on every loop commit · heartbeat: data.json · <a href="feed.xml">atom feed</a> · <a href="embed.html">embed the ticker</a> · <a href="badge.json">badge endpoint</a></span>
-    <span>PRE-BRAND traveler v0.3 — identity pending Naming Ceremony</span>
+    <span>@@TITLE@@ — the workshop that works while you sleep · window v0.5</span>
     <span>generated <span id="stamp">@@STAMP@@</span> by tools/build.py</span>
   </footer>
 </div>

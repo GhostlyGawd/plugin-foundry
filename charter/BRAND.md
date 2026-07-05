@@ -4,6 +4,21 @@
 *job-traveler card* — the kraft tag riveted to work moving down a line — until the
 workshop earns its name. The system chooses its own identity; that's the point.
 
+## The name — NIGHTSHIFT FOUNDRY (ADR-011)
+
+```
+ _  _ ___ ___ _  _ _____ ___ _  _ ___ ___ _____
+| \| |_ _/ __| || |_   _/ __| || |_ _| __|_   _|
+| .` || | (_ | __ | | | \__ \ __ || || _|  | |
+|_|\_|___\___|_||_| |_| |___/_||_|___|_|   |_|  F O U N D R Y
+```
+
+Why it holds: the whole operation runs in *shifts* while no one is on the floor —
+the name says what the product is (a factory on the night shift) in vocabulary the
+system already speaks (shifts, ON AIR, the floor). Ownable, implies no affiliation
+with Anthropic, reads at every size. The marketplace slug stays `foundry` forever
+(names-are-forever law); install lines never change.
+
 ## The Naming Ceremony (Designer, bootstrap item B7 — deliberately early)
 The marketplace name travels with every install instruction
 (`/plugin install x@NAME`), and published plugin slugs are immutable — so the

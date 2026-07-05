@@ -33,3 +33,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Encoded the phase-gated roadmap into ROADMAP.md (mermaid + ownership legend + gate criteria) and BACKLOG § phase gates; roadmap execution starts this shift
 - line: n/a — docs
 - gate: validate+build green
+
+## i2 — designer — 2026-07-05T18:21:09Z
+- did: Naming Ceremony held: the system is Nightshift Foundry (ADR-011) — STATE.name set, wordmark in BRAND.md, PRE-BRAND footer retired; slug 'foundry' immutable; B7+B8 checked
+- line: n/a — identity
+- gate: validate+build green

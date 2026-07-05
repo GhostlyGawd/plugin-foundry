@@ -163,3 +163,19 @@ Template:
 - Consequences: The machine is followable (note, streak, saga, feed, badge),
   fundable (gauge + sponsor path), and self-reporting (alarms) — with every new
   surface still answerable to METRICS.jsonl and the dark-pattern law.
+
+## ADR-011 — Naming Ceremony: Nightshift Foundry (i2, designer)
+- Status: accepted
+- Context: charter/BRAND.md holds the name until the system can choose deliberately;
+  the roadmap's Phase 0 makes launch the moment. Candidates weighed: Millrun (opaque),
+  Pig Iron Works (charming, poor at small sizes), Autoforge (generic), Nightshift
+  Foundry.
+- Decision: The system is named **Nightshift Foundry** — a factory that runs shifts
+  while no one is on the floor, in the vocabulary the product already speaks
+  (shifts, ON AIR, the floor). Marketplace slug `foundry` is immutable and unchanged;
+  the name rides display surfaces (window title, wordmark, saga). The window footer's
+  PRE-BRAND tag retires (template change per B8's ADR requirement). The operator may
+  veto by PR within the launch window — a name is brand, and brand answers to the
+  human who signs the Stripe account.
+- Consequences: The saga's "awaiting" slot resolves; install instructions never
+  change; every surface reads the same name from STATE.json.
