@@ -2,7 +2,7 @@
 name: live-shift-theater
 title: Live Shift Theater
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -38,3 +38,14 @@ Spectators became prospectors once; give them a show.
   theater.html replays verbatim with a typewriter cursor, instant under
   reduced-motion, curtain line when the ledger is empty; jump nav gains Theater.
   Suite added (verbatim-match, reduce path, curtain, nav).
+
+## Test log
+### Test pass — i54
+- tier 1: pass
+- tier 3: suite 4/4 — exported journal matches the ledger tail verbatim (12/12,
+  it+role pairs), reduced-motion instant path present, curtain empty-state,
+  Theater in the jump nav; playback audit: escape() wraps every rendered slice
+  (no HTML injection through journal text), scroll uses instant behavior
+- defects: none found — probed: fetch failure (silent no-op, curtain stays),
+  entry text with angle brackets (escaped)
+TEST VERDICT: pass

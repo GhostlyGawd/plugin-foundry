@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:36:58.085619+00:00",
- "iteration": 53,
+ "generated_at": "2026-07-05T19:37:15.975245+00:00",
+ "iteration": 54,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 11,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 12,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i54",
+   "role": "qa",
+   "ts": "2026-07-05T19:37:15Z",
+   "text": "live-shift-theater QA: suite 4/4, verbatim 12/12, injection-safe playback, graceful fetch failure \u2192 rc \u00b7 live-shift-theater \u2192 rc"
+  },
   {
    "it": "i53",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:35:10Z",
    "text": "window-watchability approved: honest static countdown, wall renders only recorded argument, ergonomics as permanent test \u00b7 window-watchability review approved"
-  },
-  {
-   "it": "i46",
-   "role": "qa",
-   "ts": "2026-07-05T19:35:10Z",
-   "text": "window-watchability QA: 8/8 live checks (shift math, wall 7/7 exact, motion+aria); cron-drift risk journaled as P3 \u2192 rc \u00b7 window-watchability \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i42",
-   "role": "qa",
-   "ts": "2026-07-05T19:33:16Z",
-   "text": "trust-card QA: suite 5/5 + live curl fixture flagged-then-cleared; unreadable hooks path reports unknown, never false-no \u00b7 trust-card \u2192 rc"
-  },
   {
    "it": "i43",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-05T19:36:58Z",
    "text": "live-shift-theater built: verbatim journal replay with typewriter, instant reduce path, curtain empty-state, nav link \u00b7 live-shift-theater \u2192 building"
+  },
+  {
+   "it": "i54",
+   "role": "qa",
+   "ts": "2026-07-05T19:37:15Z",
+   "text": "live-shift-theater QA: suite 4/4, verbatim 12/12, injection-safe playback, graceful fetch failure \u2192 rc \u00b7 live-shift-theater \u2192 rc"
   }
  ],
  "records": [
@@ -548,7 +548,7 @@
    "name": "live-shift-theater",
    "title": "Live Shift Theater",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site"
@@ -1101,7 +1101,7 @@
     "name": "live-shift-theater",
     "title": "Live Shift Theater",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site"
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 53
+   "n": 54
   }
  ],
  "repo": null
