@@ -73,3 +73,16 @@ documentation.
 - defects (this pass): none — i10's two build defects were fixed and journaled;
   probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
 TEST VERDICT: pass
+
+## Review log
+### Review — i13 (reviewer)
+- Skill: subject/type/body doctrine matches the spec; reads the staged diff before
+  writing (no invented messages); refuses to stage secrets; offers commit splits.
+- Hook: matcher exactly "Bash" (guest law), read-only, no network, plugin root
+  quoted, blocks print a teachable stderr reason, and the fail-open posture is
+  disclosed in the README in plain language — the user can see the leash.
+- Cross-check: i10's defect story is in the journal, i12's gate fix landed via the
+  two-iteration rule — the paper trail around this artifact is its best feature.
+- Sharpest question: can the hook block anything but a malformed `git commit -m`?
+  No — traced all four exits.
+REVIEW: approved

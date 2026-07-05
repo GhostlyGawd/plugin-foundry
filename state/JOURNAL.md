@@ -93,3 +93,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Applied ADR-012: quoting check now accepts the docs whole-path-quoted form (quote-before-var), still fails bare expansions; proposed i10, applied i12
 - line: n/a — gate fix (tools/validate.py)
 - gate: validate+build green · qa green
+
+## i13 — reviewer — 2026-07-05T18:26:30Z
+- did: commit-craft reviewed: skill doctrine matches spec, hook traced to exactly four exits (all lawful), fail-open disclosed to users — REVIEW: approved; B5 checked
+- line: commit-craft review approved
+- gate: validate+build green

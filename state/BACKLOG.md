@@ -17,7 +17,7 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       Build log entry.
 - [x] B4 (qa) Full three-tier test pass per charter/TESTING.md against the spec's
       acceptance checks; Test log; advance building → rc, or bounce with reasons.
-- [ ] B5 (reviewer) Line-by-line review (prompt craft, hook safety, token thrift,
+- [x] B5 (reviewer) Line-by-line review (prompt craft, hook safety, token thrift,
       docs truth); QUALITY axis scores; `REVIEW: approved` or bounce; Review log.
 - [ ] B6 (maintainer) Publish commit-craft: marketplace.json entry
       (source ./plugins/commit-craft), version 0.1.0 in plugin.json + record,
