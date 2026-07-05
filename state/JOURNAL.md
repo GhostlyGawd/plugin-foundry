@@ -313,3 +313,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published live-shift-theater; experiment armed
 - line: live-shift-theater → published
 - gate: validate+build green · qa green
+
+## i57 — builder — 2026-07-05T19:38:01Z
+- did: night-clerk built: catalog-bound front-desk skill with never-invent + snapshot disclosure; clerkcat generator; suite
+- line: night-clerk → building
+- gate: validate+build green · qa green

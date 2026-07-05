@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:37:17.000353+00:00",
- "iteration": 56,
+ "generated_at": "2026-07-05T19:38:01.248185+00:00",
+ "iteration": 57,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 11,
-  "building": 0,
+  "spec": 10,
+  "building": 1,
   "rc": 10,
   "published": 13,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i57",
+   "role": "builder",
+   "ts": "2026-07-05T19:38:01Z",
+   "text": "night-clerk built: catalog-bound front-desk skill with never-invent + snapshot disclosure; clerkcat generator; suite \u00b7 night-clerk \u2192 building"
+  },
   {
    "it": "i56",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-05T19:36:11Z",
    "text": "demo-transcripts QA: suite 2/2 + per-demo behavior cross-read (no overclaimed abilities) \u2192 rc \u00b7 demo-transcripts \u2192 rc"
-  },
-  {
-   "it": "i49",
-   "role": "builder",
-   "ts": "2026-07-05T19:35:54Z",
-   "text": "demo-transcripts built: labeled terminal sessions on all six plugin certificates; SCHEMA + TESTING duties; behavior-accu \u00b7 demo-transcripts \u2192 building"
   }
  ],
  "journal": [
-  {
-   "it": "i45",
-   "role": "builder",
-   "ts": "2026-07-05T19:34:32Z",
-   "text": "window-watchability built: countdown (pure, marker-tested), sharpest wall on the saga, aria-pressed + 44px + motion-guar \u00b7 window-watchability \u2192 building"
-  },
   {
    "it": "i46",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:37:16Z",
    "text": "Published live-shift-theater; experiment armed \u00b7 live-shift-theater \u2192 published"
+  },
+  {
+   "it": "i57",
+   "role": "builder",
+   "ts": "2026-07-05T19:38:01Z",
+   "text": "night-clerk built: catalog-bound front-desk skill with never-invent + snapshot disclosure; clerkcat generator; suite \u00b7 night-clerk \u2192 building"
   }
  ],
  "records": [
@@ -571,7 +571,7 @@
    "name": "night-clerk",
    "title": "Night Clerk",
    "category": "workflow",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "skills"
@@ -1098,6 +1098,29 @@
     "patron": null
    },
    {
+    "name": "night-clerk",
+    "title": "Night Clerk",
+    "category": "workflow",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+    "tags": [
+     "discovery",
+     "meta",
+     "catalog"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1333,29 +1356,6 @@
     ],
     "commission": null,
     "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "night-clerk",
-    "title": "Night Clerk",
-    "category": "workflow",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
-    "tags": [
-     "discovery",
-     "meta",
-     "catalog"
-    ],
-    "commission": null,
-    "kind": "plugin",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 56
+   "n": 57
   }
  ],
  "repo": null

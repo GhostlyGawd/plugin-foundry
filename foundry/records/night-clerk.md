@@ -2,7 +2,7 @@
 name: night-clerk
 title: Night Clerk
 category: workflow
-stage: spec
+stage: building
 kind: plugin
 version: null
 components: [skills]
@@ -34,3 +34,8 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.
 1. catalog.json contains only published records and a snapshot date.
 2. Skill carries the never-invent clause and the empty-answer path.
 3. Suite green; token estimate stamped.
+
+## Build log
+- i57: manifest, clerk skill (catalog-bound, <=3 fits, snapshot disclosure,
+  never-invent, honest empty path, anti-lore clause), tools/clerkcat.py generator,
+  bundled catalog (published-only), README with disclosures, CHANGELOG, suite.

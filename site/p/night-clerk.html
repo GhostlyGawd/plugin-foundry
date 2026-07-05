@@ -41,9 +41,9 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Night Clerk — birth certificate</h1></header>
   <p class="meta">plugin · workflow · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</p>
-  
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>unmeasured</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall night-clerk — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details><summary>Pitch</summary><pre>Discovery should live where the need occurs: the terminal. A bundled catalog
 snapshot makes the marketplace self-recommending, offline, with zero invention.</pre></details><details><summary>Spec</summary><pre>- One skill, clerk, description (verbatim): &quot;Search the Nightshift Foundry
@@ -59,7 +59,9 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.<
 ### Acceptance checks
 1. catalog.json contains only published records and a snapshot date.
 2. Skill carries the never-invent clause and the empty-answer path.
-3. Suite green; token estimate stamped.</pre></details></div>
+3. Suite green; token estimate stamped.</pre></details><details><summary>Build log</summary><pre>- i57: manifest, clerk skill (catalog-bound, &lt;=3 fits, snapshot disclosure,
+  never-invent, honest empty path, anti-lore clause), tools/clerkcat.py generator,
+  bundled catalog (published-only), README with disclosures, CHANGELOG, suite.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
