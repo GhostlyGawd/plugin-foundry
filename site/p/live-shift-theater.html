@@ -33,12 +33,22 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Live Shift Theater — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
   <p>A window page that replays the latest shift&#x27;s journal as a slow-scrolling theater — watch the machine work.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>The ON AIR light says &quot;something is happening&quot;; theater would show *what*. The
 journal is already the script — render the latest entries as a timed replay.
-Spectators became prospectors once; give them a show.</pre></details></div>
+Spectators became prospectors once; give them a show.</pre></details><details><summary>Spec</summary><pre>- build exports the last 12 journal entries (i, role, ts, did) into data.json;
+  site/theater.html replays them typewriter-style, newest last, ON AIR chip shared
+  with the window; prefers-reduced-motion renders instantly, no animation.
+- Zero invention: entries come from JOURNAL verbatim; empty journal - curtain line.
+- Nav gains Theater.</pre></details><details><summary>Experiment</summary><pre>- Hypothesis: theater becomes the second-most-visited page after the shelf.
+- Metric: traffic uniques on theater path; Baseline: 0; Review-after: 2026-09-15.
+
+### Acceptance checks
+1. Rendered entries match the JOURNAL tail exactly (count + text).
+2. Reduced-motion shows the full script instantly.
+3. Empty journal renders the curtain line, nothing invented.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

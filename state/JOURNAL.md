@@ -208,3 +208,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: v7 slate encoded: 11 records at spec fitted to the taxonomy (experiments carry privacy-lawful proxy metrics), ROADMAP v7 section, build order in BACKLOG
 - line: 11 records → spec (new)
 - gate: validate+build green
+
+## i36 — builder — 2026-07-05T19:29:42Z
+- did: live-shift-theater specced: verbatim journal replay, reduced-motion instant, curtain empty-state
+- line: live-shift-theater → spec
+- gate: validate+build green

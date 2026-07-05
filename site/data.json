@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-07-05T19:29:42.027257+00:00",
- "iteration": 35,
+ "generated_at": "2026-07-05T19:29:42.375886+00:00",
+ "iteration": 36,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 2,
-  "spec": 15,
+  "idea": 1,
+  "spec": 16,
   "building": 0,
   "rc": 10,
   "published": 8,
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i36",
+   "role": "builder",
+   "ts": "2026-07-05T19:29:42Z",
+   "text": "live-shift-theater specced: verbatim journal replay, reduced-motion instant, curtain empty-state \u00b7 live-shift-theater \u2192 spec"
+  },
   {
    "it": "i35",
    "role": "growth",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T18:31:08Z",
    "text": "Published pr-narrator v0.1.0 with tag; git-flow kit curated (commit-craft + pr-narrator) \u00b7 pr-narrator \u2192 published"
-  },
-  {
-   "it": "i28",
-   "role": "reviewer",
-   "ts": "2026-07-05T18:31:08Z",
-   "text": "pr-narrator approved: test-notes honesty protects reviewers; kit pairing with commit-craft noted \u00b7 pr-narrator review approved"
   }
  ],
  "records": [
@@ -474,7 +474,7 @@
    "name": "live-shift-theater",
    "title": "Live Shift Theater",
    "category": "growth",
-   "stage": "idea",
+   "stage": "spec",
    "version": null,
    "components": [
     "site"
@@ -1313,6 +1313,29 @@
     "patron": null
    },
    {
+    "name": "live-shift-theater",
+    "title": "Live Shift Theater",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
+    "tags": [
+     "spectator",
+     "window",
+     "delight"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "night-clerk",
     "title": "Night Clerk",
     "category": "workflow",
@@ -1515,29 +1538,6 @@
      "network",
      "federation",
      "moonshot"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "live-shift-theater",
-    "title": "Live Shift Theater",
-    "category": "growth",
-    "stage": "idea",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
-    "tags": [
-     "spectator",
-     "window",
-     "delight"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 35
+   "n": 36
   }
  ],
  "repo": null

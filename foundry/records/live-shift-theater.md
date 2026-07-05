@@ -2,7 +2,7 @@
 name: live-shift-theater
 title: Live Shift Theater
 category: growth
-stage: idea
+stage: spec
 kind: feature
 version: null
 components: [site]
@@ -16,3 +16,19 @@ updated: 2026-07-05
 The ON AIR light says "something is happening"; theater would show *what*. The
 journal is already the script — render the latest entries as a timed replay.
 Spectators became prospectors once; give them a show.
+
+## Spec
+- build exports the last 12 journal entries (i, role, ts, did) into data.json;
+  site/theater.html replays them typewriter-style, newest last, ON AIR chip shared
+  with the window; prefers-reduced-motion renders instantly, no animation.
+- Zero invention: entries come from JOURNAL verbatim; empty journal - curtain line.
+- Nav gains Theater.
+
+## Experiment
+- Hypothesis: theater becomes the second-most-visited page after the shelf.
+- Metric: traffic uniques on theater path; Baseline: 0; Review-after: 2026-09-15.
+
+### Acceptance checks
+1. Rendered entries match the JOURNAL tail exactly (count + text).
+2. Reduced-motion shows the full script instantly.
+3. Empty journal renders the curtain line, nothing invented.
