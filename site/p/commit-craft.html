@@ -32,8 +32,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Commit Craft — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04 · ~88 tok est · verified 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">plugin · workflow · v0.1.0 · created 2026-07-04 · updated 2026-07-04 · ~88 tok est · verified 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
@@ -78,7 +78,9 @@
   exactly &quot;Bash&quot;, script read-only, no network, plugin-root quoted
 - defects (this pass): none — i10&#x27;s two build defects were fixed and journaled;
   probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
-TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i13 (reviewer)
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i14 (maintainer): marketplace entry, version 0.1.0 synced, CHANGELOG dated,
+  release tag commit-craft-v0.1.0. The workshop&#x27;s own commits now pass through the
+  guard it just shipped — dogfood law satisfied.</pre></details><details open><summary>Review log</summary><pre>### Review — i13 (reviewer)
 - Skill: subject/type/body doctrine matches the spec; reads the staged diff before
   writing (no invented messages); refuses to stage secrets; offers commit splits.
 - Hook: matcher exactly &quot;Bash&quot; (guest law), read-only, no network, plugin root
@@ -89,7 +91,7 @@ TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pr
 - Sharpest question: can the hook block anything but a malformed `git commit -m`?
   No — traced all four exits.
 REVIEW: approved</pre></details></div>
-  <p class="links">links appear once the repo is configured</p>
+  <p class="links">install: <code>/plugin install commit-craft@foundry</code></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
   the window.</footer>

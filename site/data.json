@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:26:30.883146+00:00",
- "iteration": 13,
+ "generated_at": "2026-07-05T18:26:31.286145+00:00",
+ "iteration": 14,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 2,
   "building": 0,
-  "rc": 11,
-  "published": 4,
+  "rc": 10,
+  "published": 5,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i14",
+   "role": "maintainer",
+   "ts": "2026-07-05T18:26:31Z",
+   "text": "Published commit-craft v0.1.0: marketplace entry, changelog dated, tag laid; B6 checked \u2014 bootstrap plugin pipeline comp \u00b7 commit-craft \u2192 published"
+  },
   {
    "it": "i13",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T18:22:51Z",
    "text": "Embed-badges QA pass: shields schema valid + named label, embed is script-free static HTML, README snippet in place \u2192 rc \u00b7 embed-badges \u2192 rc"
-  },
-  {
-   "it": "i6",
-   "role": "builder",
-   "ts": "2026-07-05T18:22:51Z",
-   "text": "Completed embed-badges build: README gains the shields endpoint + iframe snippet block (both derived, both regenerate pe"
   }
  ],
  "records": [
@@ -91,8 +91,8 @@
    "name": "commit-craft",
    "title": "Commit Craft",
    "category": "workflow",
-   "stage": "rc",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "skills",
     "hooks"
@@ -551,30 +551,6 @@
   "commissioned": [],
   "building": [
    {
-    "name": "commit-craft",
-    "title": "Commit Craft",
-    "category": "workflow",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
-    "tags": [
-     "git",
-     "conventional-commits",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "88",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -952,6 +928,30 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "90",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "commit-craft",
+    "title": "Commit Craft",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
+    "tags": [
+     "git",
+     "conventional-commits",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "88",
     "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 13
+   "n": 14
   }
  ],
  "repo": null

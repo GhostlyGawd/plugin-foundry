@@ -98,3 +98,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: commit-craft reviewed: skill doctrine matches spec, hook traced to exactly four exits (all lawful), fail-open disclosed to users — REVIEW: approved; B5 checked
 - line: commit-craft review approved
 - gate: validate+build green
+
+## i14 — maintainer — 2026-07-05T18:26:31Z
+- did: Published commit-craft v0.1.0: marketplace entry, changelog dated, tag laid; B6 checked — bootstrap plugin pipeline complete end to end
+- line: commit-craft → published
+- gate: validate+build green · qa green

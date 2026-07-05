@@ -2,8 +2,8 @@
 name: commit-craft
 title: Commit Craft
 category: workflow
-stage: rc
-version: null
+stage: published
+version: 0.1.0
 always_on_tokens: 88
 verified: 2026-07-05
 components: [skills, hooks]
@@ -73,6 +73,11 @@ documentation.
 - defects (this pass): none — i10's two build defects were fixed and journaled;
   probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
 TEST VERDICT: pass
+
+## Publish log
+- i14 (maintainer): marketplace entry, version 0.1.0 synced, CHANGELOG dated,
+  release tag commit-craft-v0.1.0. The workshop's own commits now pass through the
+  guard it just shipped — dogfood law satisfied.
 
 ## Review log
 ### Review — i13 (reviewer)

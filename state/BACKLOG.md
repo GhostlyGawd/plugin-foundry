@@ -19,7 +19,7 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       acceptance checks; Test log; advance building → rc, or bounce with reasons.
 - [x] B5 (reviewer) Line-by-line review (prompt craft, hook safety, token thrift,
       docs truth); QUALITY axis scores; `REVIEW: approved` or bounce; Review log.
-- [ ] B6 (maintainer) Publish commit-craft: marketplace.json entry
+- [x] B6 (maintainer) Publish commit-craft: marketplace.json entry
       (source ./plugins/commit-craft), version 0.1.0 in plugin.json + record,
       CHANGELOG dated, README install line verified; advance rc → published.
 - [x] B7 (designer) **Naming Ceremony** per charter/BRAND.md — marketplace + repo

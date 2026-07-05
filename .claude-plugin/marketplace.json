@@ -13,6 +13,11 @@
       "name": "fork-a-foundry",
       "source": "./plugins/fork-a-foundry",
       "description": "Bootstrap your own self-running plugin workshop and marketplace \u2014 the loop that built this one, in a box."
+    },
+    {
+      "name": "commit-craft",
+      "source": "./plugins/commit-craft",
+      "description": "Conventional-commit discipline: a skill that writes great messages and a fail-open guard hook that blocks malformed ones."
     }
   ]
 }

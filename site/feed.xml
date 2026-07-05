@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T18:26:30Z</updated>
+  <updated>2026-07-05T18:26:31Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/fork-a-foundry.html</id>
@@ -10,6 +10,13 @@
     <link href="#"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/commit-craft.html</id>
+    <title>Commit Craft v0.1.0 — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>Drafts conventional commits from the staged diff and guards message format at commit time.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/community-voting.html</id>
