@@ -293,3 +293,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published demo-transcripts: labeled sessions live; experiment armed
 - line: demo-transcripts → published
 - gate: validate+build green · qa green
+
+## i53 — builder — 2026-07-05T19:36:58Z
+- did: live-shift-theater built: verbatim journal replay with typewriter, instant reduce path, curtain empty-state, nav link
+- line: live-shift-theater → building
+- gate: validate+build green · qa green

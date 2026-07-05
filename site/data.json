@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:36:12.411000+00:00",
- "iteration": 52,
+ "generated_at": "2026-07-05T19:36:58.085619+00:00",
+ "iteration": 53,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 12,
-  "building": 0,
+  "spec": 11,
+  "building": 1,
   "rc": 10,
   "published": 12,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i53",
+   "role": "builder",
+   "ts": "2026-07-05T19:36:58Z",
+   "text": "live-shift-theater built: verbatim journal replay with typewriter, instant reduce path, curtain empty-state, nav link \u00b7 live-shift-theater \u2192 building"
+  },
   {
    "it": "i52",
    "role": "maintainer",
@@ -54,12 +60,80 @@
    "role": "qa",
    "ts": "2026-07-05T19:35:10Z",
    "text": "window-watchability QA: 8/8 live checks (shift math, wall 7/7 exact, motion+aria); cron-drift risk journaled as P3 \u2192 rc \u00b7 window-watchability \u2192 rc"
+  }
+ ],
+ "journal": [
+  {
+   "it": "i42",
+   "role": "qa",
+   "ts": "2026-07-05T19:33:16Z",
+   "text": "trust-card QA: suite 5/5 + live curl fixture flagged-then-cleared; unreadable hooks path reports unknown, never false-no \u00b7 trust-card \u2192 rc"
+  },
+  {
+   "it": "i43",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:33:16Z",
+   "text": "trust-card approved: derivation enforced structurally, unknown-over-false-none, heuristic labeled on-page \u00b7 trust-card review approved"
+  },
+  {
+   "it": "i44",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:33:17Z",
+   "text": "Published trust-card: footprint blocks live on all plugin certificates; experiment armed \u00b7 trust-card \u2192 published"
   },
   {
    "it": "i45",
    "role": "builder",
    "ts": "2026-07-05T19:34:32Z",
    "text": "window-watchability built: countdown (pure, marker-tested), sharpest wall on the saga, aria-pressed + 44px + motion-guar \u00b7 window-watchability \u2192 building"
+  },
+  {
+   "it": "i46",
+   "role": "qa",
+   "ts": "2026-07-05T19:35:10Z",
+   "text": "window-watchability QA: 8/8 live checks (shift math, wall 7/7 exact, motion+aria); cron-drift risk journaled as P3 \u2192 rc \u00b7 window-watchability \u2192 rc"
+  },
+  {
+   "it": "i47",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:35:10Z",
+   "text": "window-watchability approved: honest static countdown, wall renders only recorded argument, ergonomics as permanent test \u00b7 window-watchability review approved"
+  },
+  {
+   "it": "i48",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:35:11Z",
+   "text": "Published window-watchability: countdown, sharpest wall, ergonomics live; experiment armed \u00b7 window-watchability \u2192 published"
+  },
+  {
+   "it": "i49",
+   "role": "builder",
+   "ts": "2026-07-05T19:35:54Z",
+   "text": "demo-transcripts built: labeled terminal sessions on all six plugin certificates; SCHEMA + TESTING duties; behavior-accu \u00b7 demo-transcripts \u2192 building"
+  },
+  {
+   "it": "i50",
+   "role": "qa",
+   "ts": "2026-07-05T19:36:11Z",
+   "text": "demo-transcripts QA: suite 2/2 + per-demo behavior cross-read (no overclaimed abilities) \u2192 rc \u00b7 demo-transcripts \u2192 rc"
+  },
+  {
+   "it": "i51",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:36:11Z",
+   "text": "demo-transcripts approved: label creates a dated upgrade obligation; demos teach limits, not just features \u00b7 demo-transcripts review approved"
+  },
+  {
+   "it": "i52",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:36:12Z",
+   "text": "Published demo-transcripts: labeled sessions live; experiment armed \u00b7 demo-transcripts \u2192 published"
+  },
+  {
+   "it": "i53",
+   "role": "builder",
+   "ts": "2026-07-05T19:36:58Z",
+   "text": "live-shift-theater built: verbatim journal replay with typewriter, instant reduce path, curtain empty-state, nav link \u00b7 live-shift-theater \u2192 building"
   }
  ],
  "records": [
@@ -474,7 +548,7 @@
    "name": "live-shift-theater",
    "title": "Live Shift Theater",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site"
@@ -1024,6 +1098,29 @@
     "patron": null
    },
    {
+    "name": "live-shift-theater",
+    "title": "Live Shift Theater",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
+    "tags": [
+     "spectator",
+     "window",
+     "delight"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1256,29 +1353,6 @@
      "network",
      "forks",
      "federation"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "live-shift-theater",
-    "title": "Live Shift Theater",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
-    "tags": [
-     "spectator",
-     "window",
-     "delight"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 52
+   "n": 53
   }
  ],
  "repo": null

@@ -2,7 +2,7 @@
 name: live-shift-theater
 title: Live Shift Theater
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site]
@@ -32,3 +32,9 @@ Spectators became prospectors once; give them a show.
 1. Rendered entries match the JOURNAL tail exactly (count + text).
 2. Reduced-motion shows the full script instantly.
 3. Empty journal renders the curtain line, nothing invented.
+
+## Build log
+- i53: data.json exports the 12-entry journal tail (oldest-first for playback);
+  theater.html replays verbatim with a typewriter cursor, instant under
+  reduced-motion, curtain line when the ledger is empty; jump nav gains Theater.
+  Suite added (verbatim-match, reduce path, curtain, nav).

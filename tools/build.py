@@ -370,7 +370,7 @@ TEMPLATE = """<!DOCTYPE html>
   redeploys each time it works. Scroll the shelf, watch the roadmap move, or
   <a href="#request">commission the next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
   <div id="themebox"></div>
   <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -952,6 +952,64 @@ def build_embed(ticker, cfg):
 </body></html>""")
 
 
+
+THEATER_TMPL = """<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@@TITLE@@ — live shift theater</title>
+<style>
+  body{background:#161310;color:#E8DCC0;font:14px/1.7 ui-monospace,Menlo,monospace;margin:0;padding:24px 16px 64px;max-width:760px;margin-inline:auto}
+  h1{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#F3ECDA}
+  .sub{opacity:.7;font-size:12px}
+  .entry{margin:18px 0;border-left:3px solid #B07818;padding-left:12px;min-height:1.4em}
+  .entry b{color:#F3ECDA}
+  .curtain{opacity:.7;font-style:italic}
+  a{color:#D8A94E}
+  .cursor{display:inline-block;width:8px;background:#B07818}
+  @media (prefers-reduced-motion:no-preference){ .cursor{animation:blink 1s steps(1) infinite} @keyframes blink{50%{opacity:0}} }
+</style></head><body>
+<h1>Live shift theater</h1>
+<p class="sub">the latest journal entries, replayed verbatim — the script is the ledger ·
+<a href="index.html">back to the window</a></p>
+<div id="stage"><p class="curtain">the floor is quiet — no journal yet; the curtain rises on the first shift</p></div>
+<script>
+(async () => {
+  let d; try { d = await (await fetch('data.json', {cache:'no-store'})).json(); } catch(e){ return; }
+  const J = d.journal || [];
+  if (!J.length) return;
+  const stage = document.getElementById('stage'); stage.textContent = '';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esc = s => { const x = document.createElement('span'); x.textContent = s ?? ''; return x.innerHTML; };
+  function lineFor(e){ return '<b>' + esc(e.it) + ' · ' + esc(e.role) + '</b> — ' + esc(e.text); }
+  if (reduce){
+    stage.innerHTML = J.map(e => '<div class="entry">' + lineFor(e) + '</div>').join('');
+    return;
+  }
+  for (const e of J){
+    const div = document.createElement('div'); div.className = 'entry';
+    const full = e.it + ' · ' + e.role + ' — ' + e.text;
+    const cur = '<span class="cursor">&nbsp;</span>';
+    stage.appendChild(div);
+    for (let i = 1; i <= full.length; i += 2){
+      div.innerHTML = esc(full.slice(0, i)) + cur;
+      await new Promise(r => setTimeout(r, 12));
+    }
+    div.innerHTML = lineFor(e);
+    div.scrollIntoView({block:'end', behavior:'instant'});
+    await new Promise(r => setTimeout(r, 350));
+  }
+})();
+</script>
+<footer class="sub">entries render from data.json verbatim — nothing staged, nothing invented.</footer>
+</body></html>
+"""
+
+
+def build_theater(state, cfg):
+    page = THEATER_TMPL.replace("@@TITLE@@", state.get("name") or "PRE-BRAND foundry")
+    (ROOT / "site" / "theater.html").write_text(page)
+
+
+
 def build_badge(records, state):
     shipped = sum(1 for r in records if r.get("stage") == "published")
     (ROOT / "site" / "badge.json").write_text(json.dumps({
@@ -1030,6 +1088,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "theme": state.get("theme"),
         "counts": counts,
         "ticker": collect_journal(),
+        "journal": list(reversed(collect_journal(12))),
         "records": [slim(r) for r in records],
         "stats": {k: metrics.get(k) for k in
                   ("stars", "watchers", "views_14d", "uniques_14d",
@@ -1099,6 +1158,7 @@ def main():
     build_pages(records, mp_name, cfg, reports)
     build_saga(records, state, cfg)
     build_embed(data["ticker"], cfg)
+    build_theater(state, cfg)
     build_badge(records, state)
     build_feed(records, cfg)
     print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates")
