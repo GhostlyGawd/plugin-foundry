@@ -2,8 +2,10 @@
 name: pr-narrator
 title: PR Narrator
 category: workflow
-stage: building
+stage: rc
 version: null
+always_on_tokens: 88
+verified: 2026-07-05
 components: [agents]
 one_liner: A subagent that turns a branch's commits and diff into a reviewer-ready PR description.
 tags: [pull-requests, agents, writing]
@@ -44,3 +46,13 @@ PR descriptions are either empty or novels; reviewers need the middle.
 - i26: manifest, `pr` skill (evidence-first, honest test notes, risk+rollback,
   consent-gated gh), README with recipes incl. the commit-craft pairing, CHANGELOG,
   executable suite.
+
+## Test log
+### Test pass — i27
+- tier 1: pass; smoke: CLI absent locally, official --strict runs in CI (logged)
+- tier 2: unavailable locally — always-on cost: 88 tok (est., stamped)
+- tier 3: suite 6/6 — evidence-first, honest test notes, risk section, consent-
+  gated gh, invoke contract, manifest; acceptance checks 1–3 traced
+- defects: none found — probed: base-branch detection order (main→master→ask),
+  no push/force verbs anywhere in the skill
+TEST VERDICT: pass

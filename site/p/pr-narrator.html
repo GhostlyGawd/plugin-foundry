@@ -32,8 +32,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>PR Narrator — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04 · ~88 tok est · verified 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** one invocation from branch to honest, skimmable PR description.
@@ -57,7 +57,14 @@
 2. Test-notes section refuses to claim untested things (&quot;none&quot; is a valid answer).
 3. gh usage is offer-then-consent with the exact command shown.</pre></details><details><summary>Build log</summary><pre>- i26: manifest, `pr` skill (evidence-first, honest test notes, risk+rollback,
   consent-gated gh), README with recipes incl. the commit-craft pairing, CHANGELOG,
-  executable suite.</pre></details></div>
+  executable suite.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i27
+- tier 1: pass; smoke: CLI absent locally, official --strict runs in CI (logged)
+- tier 2: unavailable locally — always-on cost: 88 tok (est., stamped)
+- tier 3: suite 6/6 — evidence-first, honest test notes, risk section, consent-
+  gated gh, invoke contract, manifest; acceptance checks 1–3 traced
+- defects: none found — probed: base-branch detection order (main→master→ask),
+  no push/force verbs anywhere in the skill
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

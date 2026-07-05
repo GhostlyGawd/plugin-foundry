@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:31:07.836387+00:00",
- "iteration": 26,
+ "generated_at": "2026-07-05T18:31:08.356971+00:00",
+ "iteration": 27,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 0,
   "spec": 2,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 7,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i27",
+   "role": "qa",
+   "ts": "2026-07-05T18:31:08Z",
+   "text": "pr-narrator three-tier pass: suite 6/6, ~88 tok stamped, no push/force vocabulary \u00b7 pr-narrator \u2192 rc"
+  },
   {
    "it": "i26",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:30:08Z",
    "text": "env-doctor specced: repo-requirements-first diagnosis, paired copyable fixes, hard no-mutation-without-consent law (redo \u00b7 env-doctor \u2192 spec"
-  },
-  {
-   "it": "i19",
-   "role": "maintainer",
-   "ts": "2026-07-05T18:27:27Z",
-   "text": "Published session-recap v0.1.0 with tag \u00b7 session-recap \u2192 published"
   }
  ],
  "records": [
@@ -352,7 +352,7 @@
    "name": "pr-narrator",
    "title": "PR Narrator",
    "category": "workflow",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "agents"
@@ -365,8 +365,8 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": null,
-   "verified": null,
+   "always_on_tokens": "88",
+   "verified": "2026-07-05",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -672,7 +672,7 @@
     "name": "pr-narrator",
     "title": "PR Narrator",
     "category": "workflow",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "agents"
@@ -685,8 +685,8 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1397,7 +1397,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 26
+   "n": 27
   }
  ],
  "repo": null

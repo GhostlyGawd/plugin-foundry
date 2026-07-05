@@ -163,3 +163,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Built pr-narrator: evidence-derived narrative with honest test notes and consent-gated gh
 - line: pr-narrator → building
 - gate: validate+build green · qa green
+
+## i27 — qa — 2026-07-05T18:31:08Z
+- did: pr-narrator three-tier pass: suite 6/6, ~88 tok stamped, no push/force vocabulary
+- line: pr-narrator → rc
+- gate: validate+build green · qa green
