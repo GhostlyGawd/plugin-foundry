@@ -58,3 +58,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Completed embed-badges build: README gains the shields endpoint + iframe snippet block (both derived, both regenerate per deploy)
 - line: n/a — build step within building
 - gate: validate+build green
+
+## i7 — qa — 2026-07-05T18:22:51Z
+- did: Embed-badges QA pass: shields schema valid + named label, embed is script-free static HTML, README snippet in place → rc
+- line: embed-badges → rc
+- gate: validate+build green

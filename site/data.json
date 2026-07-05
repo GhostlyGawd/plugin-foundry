@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:22:51.839304+00:00",
- "iteration": 6,
+ "generated_at": "2026-07-05T18:22:52.000724+00:00",
+ "iteration": 7,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 3,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i7",
+   "role": "qa",
+   "ts": "2026-07-05T18:22:51Z",
+   "text": "Embed-badges QA pass: shields schema valid + named label, embed is script-free static HTML, README snippet in place \u2192 rc \u00b7 embed-badges \u2192 rc"
+  },
   {
    "it": "i6",
    "role": "builder",
@@ -157,7 +163,7 @@
    "name": "embed-badges",
    "title": "Embeds & Badges",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site",
@@ -571,7 +577,7 @@
     "name": "embed-badges",
     "title": "Embeds & Badges",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site",
@@ -1392,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 6
+   "n": 7
   }
  ],
  "repo": null

@@ -2,7 +2,7 @@
 name: embed-badges
 title: Embeds & Badges
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site, docs]
@@ -40,3 +40,14 @@ Fans are distribution. Give them something true to embed.
 ## Build log
 - i0(v5): badge.json + embed.html generators landed with the v5 window.
 - i6: README snippet block (badge endpoint + iframe embed) — build complete.
+
+## Test log
+### Test pass — i7
+- tier 1: pass
+- tier 2: n/a (site feature)
+- tier 3: badge.json validates against the shields endpoint schema (schemaVersion/
+  label/message/color) and carries the post-ceremony name; embed.html is script-free
+  static HTML with the real reel and a viewport meta (iframe-safe at narrow widths);
+  README snippet present and derivable once pages_url is set
+- defects: none found — probed: badge label pre/post naming (reads STATE, not a constant)
+TEST VERDICT: pass
