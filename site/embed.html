@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>foundry ticker</title>
+<style>
+ body{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:#E9DFC8; color:#2C2820}
+ .tape{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid #B5A683}
+ .reel{display:inline-block; padding-left:100%}
+ @media (prefers-reduced-motion:no-preference){.reel{animation:reel 55s linear infinite} .tape:hover .reel{animation-play-state:paused}
+ @keyframes reel{to{transform:translateX(-100%)}}}
+ @media (prefers-reduced-motion:reduce){.tape{white-space:normal} .reel{padding-left:0}}
+ span{color:#7E7460; font-size:12px; margin-right:34px} span b{color:#2C2820; font-weight:400}
+ span em{color:#2F5A8F; font-style:normal} .home{font-size:11px; padding:4px 10px} a{color:#2F5A8F}
+</style></head><body>
+<div class="tape"><div class="reel"><span><em>i87</em> · <b>auditor</b> — audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue → ideat · audit-002 filed</span><span><em>i86</em> · <b>maintainer</b> — Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed · releases-and-reverify → published</span><span><em>i85</em> · <b>reviewer</b> — releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failu · releases-and-reverify review approved</span><span><em>i84</em> · <b>qa</b> — releases-and-reverify QA: 13/13, refusal semantics proven, qa-recursion designed out → rc · releases-and-reverify → rc</span><span><em>i83</em> · <b>builder</b> — releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (met · releases-and-reverify → building</span><span><em>i82</em> · <b>maintainer</b> — Published commission-queue: board live, counter open; experiment armed · commission-queue → published</span><span><em>i81</em> · <b>reviewer</b> — commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design · commission-queue review approved</span><span><em>i80</em> · <b>qa</b> — commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed → rc · commission-queue → rc</span></div></div>
+<p class="home"></p>
+</body></html>

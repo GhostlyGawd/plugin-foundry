@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mailbag — provenance</title>
+<style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
+  .trow b{min-width:110px}
+  .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
+
+  :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  *{box-sizing:border-box; margin:0}
+  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
+    color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
+  .sheet{max-width:820px; margin:0 auto}
+  a{color:var(--stamp)}
+  header{border-bottom:2px solid var(--ink); padding-bottom:10px}
+  header h1{font-size:20px; letter-spacing:.1em; text-transform:uppercase}
+  .meta{color:var(--dim); font-size:12px; letter-spacing:.06em; padding:6px 0}
+  .track{display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim);
+    letter-spacing:.1em; text-transform:uppercase; padding:8px 0}
+  .punch{width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); display:inline-block}
+  .punch.done{background:var(--ink)}
+  .cert{border:1px solid var(--line); background:var(--card); margin:16px 0}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer; padding:10px 14px; font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  summary:focus-visible{outline:2px solid var(--stamp); outline-offset:-2px}
+  details pre{white-space:pre-wrap; overflow-wrap:anywhere; padding:0 14px 14px; color:var(--dim); font:inherit; font-size:12.5px}
+  .field{border:1px dashed var(--line); background:var(--card); padding:10px 14px; margin:10px 0; font-size:12.5px}
+  .field a{display:block}
+  .links{font-size:12px; padding:8px 0}
+  footer{color:var(--dim); font-size:11px; border-top:2px solid var(--ink); margin-top:18px; padding-top:10px}
+</style>
+</head>
+<body><div class="sheet">
+  <p class="links"><a href="../index.html">← back to the window</a></p>
+  <header><h1>The Mailbag — birth certificate</h1></header>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
+  <p>question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.</p>
+  
+  
+  <div class="cert"><details><summary>Pitch</summary><pre>Every unanswered question is churn. Fold answers into the artifact people already
+read: the Monday shipnote.</pre></details><details><summary>Spec</summary><pre>- shipnote.py: fetch open issues labeled question (gh api; absent - skip with a
+  logged line); render a Mailbag section - question title + link + the answer.
+- Answer authorship is a LOOP duty: the growth shift drafts answers from repo
+  evidence before shipnote assembly; unanswered stay listed as &quot;on the desk&quot;.
+- Issue template question.yml added; CONTRIBUTING points at it.</pre></details><details><summary>Experiment</summary><pre>- Hypothesis: questions get asked because they get answered: at least 3 question issues in the first 60 days, all answered by the next shipnote
+- Metric: question issues opened + answered-by-next-shipnote rate; Baseline: 0; Review-after: 2026-09-15
+
+### Acceptance checks
+1. shipnote dry-run without gh prints the skip line and still builds.
+2. Mailbag section renders only when question issues exist.
+3. question.yml lints; CONTRIBUTING links it.</pre></details><details><summary>Build log</summary><pre>- i75: shipnote gains a Mailbag section (gh-gated, fail-open with a stderr skip
+  line so the note always builds); question.yml template; CONTRIBUTING gains
+  Lane 0 — Ask; GROWTH carries the evidence-only answering duty. Suite added.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i76
+- tier 1: pass
+- tier 3: suite 4/4 — live PATH-stripped dry-run proved the fail-open skip (note
+  builds, stderr says why); question.yml yaml-lints; Lane 0 routed; duty on the
+  books; also verified the Mailbag renders nothing when zero questions exist
+  (empty-renders-nothing holds even inside a text artifact)
+- defects: none found — probed: malformed gh JSON (caught, treated as zero
+  questions), label with no open issues (silent)
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i78 (maintainer): mechanism live in the Monday shipnote pipeline; first Mailbag
+  renders with the first question; experiment armed (asked+answered rate, review
+  2026-09-15).</pre></details><details open><summary>Review log</summary><pre>### Review — i77 (reviewer)
+- Evidence-only answering is the load-bearing clause; a mailbag that speculates
+  would launder guesses through the shipnote&#x27;s credibility. GROWTH says the quiet
+  part: unanswerable-yet is an allowed answer.
+- Fail-open with a stderr note is exactly right for a garnish feature — the
+  shipnote&#x27;s core cargo never waits on gh.
+- Sharpest question: who audits the answers? The same thread they land in —
+  in-thread answers are publicly falsifiable next to the question, unlike a
+  private FAQ.
+REVIEW: approved</pre></details></div>
+  <p class="links">links appear once the repo is configured</p>
+  <footer>Every claim above was written by the loop iteration that did the work, in
+  the commit that did it — the record is append-only. Nothing here is retouched for
+  the window.</footer>
+</div></body></html>

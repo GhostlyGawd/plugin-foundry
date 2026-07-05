@@ -1,0 +1,9 @@
+{
+  "name": "fork-a-foundry",
+  "displayName": "Fork a Foundry",
+  "version": "0.1.0",
+  "description": "Bootstrap your own self-running plugin workshop and marketplace — the loop that built this one, in a box.",
+  "author": { "name": "The Foundry (self-running plugin workshop)" },
+  "license": "MIT",
+  "keywords": ["meta", "bootstrap", "autonomous", "marketplace"]
+}

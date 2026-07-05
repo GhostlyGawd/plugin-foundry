@@ -1,0 +1,19 @@
+# PR Narrator
+
+One skill, `pr`: turns your branch's real commits and diff into a reviewer-ready
+pull request — conventional title, Summary, grouped Changes, *honest* Test notes
+("none" allowed, lies not), Risk & rollback. Offers `gh pr create` with the exact
+command and runs it only on your yes.
+
+## Install
+```
+/plugin marketplace add <this-repo>
+/plugin install pr-narrator@foundry
+```
+
+## Recipes
+- "write the PR" on a finished branch → full draft from evidence
+- pair with **commit-craft**: clean commits in, clean narrative out
+- "describe this branch for the changelog" → same evidence, changelog voice
+
+No hooks, no pushes, nothing unasked. See [CHANGELOG.md](./CHANGELOG.md).

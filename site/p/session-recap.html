@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session Recap — provenance</title>
+<style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
+  .trow b{min-width:110px}
+  .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
+
+  :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  *{box-sizing:border-box; margin:0}
+  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
+    color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
+  .sheet{max-width:820px; margin:0 auto}
+  a{color:var(--stamp)}
+  header{border-bottom:2px solid var(--ink); padding-bottom:10px}
+  header h1{font-size:20px; letter-spacing:.1em; text-transform:uppercase}
+  .meta{color:var(--dim); font-size:12px; letter-spacing:.06em; padding:6px 0}
+  .track{display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim);
+    letter-spacing:.1em; text-transform:uppercase; padding:8px 0}
+  .punch{width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); display:inline-block}
+  .punch.done{background:var(--ink)}
+  .cert{border:1px solid var(--line); background:var(--card); margin:16px 0}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer; padding:10px 14px; font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  summary:focus-visible{outline:2px solid var(--stamp); outline-offset:-2px}
+  details pre{white-space:pre-wrap; overflow-wrap:anywhere; padding:0 14px 14px; color:var(--dim); font:inherit; font-size:12.5px}
+  .field{border:1px dashed var(--line); background:var(--card); padding:10px 14px; margin:10px 0; font-size:12.5px}
+  .field a{display:block}
+  .links{font-size:12px; padding:8px 0}
+  footer{color:var(--dim); font-size:11px; border-top:2px solid var(--ink); margin-top:18px; padding-top:10px}
+</style>
+</head>
+<body><div class="sheet">
+  <p class="links"><a href="../index.html">← back to the window</a></p>
+  <header><h1>Session Recap — birth certificate</h1></header>
+  <p class="meta">plugin · context · v0.1.0 · created 2026-07-04 · updated 2026-07-04 · ~93 tok est · verified 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
+  <p>Writes a structured recap when a session ends and recalls it when the next one starts.</p>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~93 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall session-recap — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
+  
+  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** continuity across sessions without hand-written notes.
+- **User:** anyone running multi-day work in one repo.
+- **Components:** a Stop/SessionEnd hook appending a dated recap stub to a project
+  log file, plus a `recall` skill that reads and summarizes recent entries on demand.
+- **Why a plugin:** it&#x27;s an event (hook) + a retrieval prompt (skill) — a natural
+  bundle; also a clean exercise of hook-safety law (writes one project-local file,
+  documented loudly).</pre></details><details><summary>Spec</summary><pre>- Name: `session-recap` (forever). One skill, `recap`, description (verbatim):
+  &quot;Write a durable handoff recap of this working session into SESSION-RECAP.md.
+  Use when ending a session, handing work to someone else, or the user says recap
+  this session, write a handoff, or where did we leave off.&quot;
+- Behavior: read the session&#x27;s evidence (git status, git diff --stat, recent
+  conversation decisions), then APPEND a dated section to SESSION-RECAP.md with:
+  What changed · Decisions made · Open questions · Next steps (checkboxed). Never
+  overwrite prior recaps; create the file if absent; no hooks, no network.
+### Acceptance checks
+1. Skill appends (never truncates) and dates each section.
+2. Reads git evidence before writing — no invented changes.
+3. Next steps render as actionable checkboxes.</pre></details><details><summary>Build log</summary><pre>- i16: manifest, `recap` skill (evidence-first, append-only, checkboxed next
+  steps, archive offer past ~10 sections), README with recipes, CHANGELOG,
+  executable test suite.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i17
+- tier 1: pass; smoke: CLI absent locally, official --strict runs in CI (logged)
+- tier 2: unavailable locally — always-on cost: 93 tok (est., stamped)
+- tier 3: suite 5/5 — append-only law, evidence-before-prose, checkboxed steps,
+  invoke contract, manifest; acceptance checks 1–3 traced through the skill text
+- defects: none found — probed: missing-file case (create-if-missing present),
+  archive behavior is offer-only (no unasked file moves)
+TEST VERDICT: pass</pre></details><details open><summary>Recipes</summary><pre>- &quot;recap this session&quot; → dated section appended to SESSION-RECAP.md
+- &quot;where did we leave off?&quot; → latest section read back before starting
+- &quot;hand this off to Sam&quot; → next steps written for a stranger</pre></details><details open><summary>Example session</summary><p class="honestlabel">authored example — a CI-recorded transcript replaces this per charter/TESTING.md</p><pre class="term">you&gt; recap this session
+recap&gt; evidence: git status, diff --stat, 3 decisions from this conversation
+recap&gt; appended &quot;## 2026-07-05 14:30 — intake hardening&quot; to SESSION-RECAP.md
+recap&gt; next steps written for a stranger:
+recap&gt; - [ ] wire PINGS_ENABLED in repo settings
+recap&gt; - [ ] re-run the adversarial pass on commission #12</pre></details><details><summary>Publish log</summary><pre>- i19 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
+  session-recap-v0.1.0.</pre></details><details open><summary>Review log</summary><pre>### Review — i18 (reviewer)
+- The skill&#x27;s spine is the honesty clause: evidence (git + actual conversation
+  decisions) before prose, and APPEND-only so handoffs are a ledger, not a wiki.
+- Checkboxes written &quot;for a stranger&quot; — matches the handoff job precisely.
+- No hooks, no background writes, one file touched, archive is an offer.
+- Sharpest question: can it fabricate a change log with no git repo present? No —
+  status/diff steps precede writing; absent evidence yields absent claims.
+REVIEW: approved</pre></details></div>
+  <p class="links">install: <code>/plugin install session-recap@foundry</code></p>
+  <footer>Every claim above was written by the loop iteration that did the work, in
+  the commit that did it — the record is append-only. Nothing here is retouched for
+  the window.</footer>
+</div></body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Counter Index — provenance</title>
+<style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
+  .trow b{min-width:110px}
+  .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
+
+  :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  *{box-sizing:border-box; margin:0}
+  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
+    color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
+  .sheet{max-width:820px; margin:0 auto}
+  a{color:var(--stamp)}
+  header{border-bottom:2px solid var(--ink); padding-bottom:10px}
+  header h1{font-size:20px; letter-spacing:.1em; text-transform:uppercase}
+  .meta{color:var(--dim); font-size:12px; letter-spacing:.06em; padding:6px 0}
+  .track{display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim);
+    letter-spacing:.1em; text-transform:uppercase; padding:8px 0}
+  .punch{width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); display:inline-block}
+  .punch.done{background:var(--ink)}
+  .cert{border:1px solid var(--line); background:var(--card); margin:16px 0}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer; padding:10px 14px; font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  summary:focus-visible{outline:2px solid var(--stamp); outline-offset:-2px}
+  details pre{white-space:pre-wrap; overflow-wrap:anywhere; padding:0 14px 14px; color:var(--dim); font:inherit; font-size:12.5px}
+  .field{border:1px dashed var(--line); background:var(--card); padding:10px 14px; margin:10px 0; font-size:12.5px}
+  .field a{display:block}
+  .links{font-size:12px; padding:8px 0}
+  footer{color:var(--dim); font-size:11px; border-top:2px solid var(--ink); margin-top:18px; padding-top:10px}
+</style>
+</head>
+<body><div class="sheet">
+  <p class="links"><a href="../index.html">← back to the window</a></p>
+  <header><h1>The Counter Index — birth certificate</h1></header>
+  <p class="meta">feature · context · unversioned · created 2026-07-05 · updated 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
+  <p>Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.</p>
+  
+  
+  <div class="cert"><details><summary>Pitch</summary><pre>The shelf is past the point where scanning beats searching. Cards already render
+client-side from data.json, so filtering is a pure function away.</pre></details><details><summary>Spec</summary><pre>- Search input above the shelf filters cards live on name + one_liner + tags.
+- Tag chip row (union of published tags) toggles a tag filter; combines with text.
+- Filtering is a pure function filterCards(q, tag, entries) exported for tests.
+- Empty result renders &quot;nothing on the shelf matches - suggest it&quot; + idea link.
+- No libraries, no analytics; full list stays server-visible in INDEX.md.</pre></details><details><summary>Experiment</summary><pre>- Hypothesis: visitors who search reach a certificate faster; proxy - returning uniques hold or rise after ship
+- Metric: GitHub traffic returning uniques (privacy law: no page analytics); Baseline: 0; Review-after: 2026-09-05
+
+### Acceptance checks
+1. Pure filter function unit-tested (node) across name/tag/one-liner cases.
+2. Tag chips derive from data.json only; no hardcoded tags.
+3. Empty state links the idea template.</pre></details><details><summary>Build log</summary><pre>- i37: honest scope note — free-text search predates this record (shipped with
+  scannable-window); this ship adds the tag-chip row (published-tag union,
+  toggleable, ANDs with text), extracts the predicate into pure filterCards()
+  between FILTER markers for unit testing, and links the empty state to the idea
+  template. Suite added (node-guarded).</pre></details><details open><summary>Test log</summary><pre>### Test pass — i38
+- tier 1: pass
+- tier 3: node unit suite 5/5 on the extracted pure function (no-filter, text over
+  one_liner+tags, tag chip, text AND tag, no-match); chips provably derive from
+  data (flatMap over entry tags in the built window — zero hardcoded tags);
+  empty state carries the idea-template link in the built page
+- defects: none found — probed: tag toggle-off (second click clears), entries
+  missing tags array (guarded with ||[])
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i40 (maintainer): live on the window this build; experiment armed (returning-
+  uniques proxy, review 2026-09-05).</pre></details><details open><summary>Review log</summary><pre>### Review — i39 (reviewer)
+- Scope honesty is the standout: the record credits scannable-window for the text
+  search instead of re-claiming it — the ledger stays trustworthy.
+- The pure-function extraction turns UI behavior into a tested contract; markers
+  make the test read the *shipped* code, not a copy.
+- AND semantics between text and tag are the right default (narrowing, never
+  surprising); toggle-off on second tap matches chip conventions.
+- Sharpest question: can a tag chip appear for an unpublished record and dead-end
+  a filter? No — chip union is published-only; filtered non-published cards still
+  match by tag if present, which is a feature (watch it move down the line).
+REVIEW: approved</pre></details></div>
+  <p class="links">links appear once the repo is configured</p>
+  <footer>Every claim above was written by the loop iteration that did the work, in
+  the commit that did it — the record is append-only. Nothing here is retouched for
+  the window.</footer>
+</div></body></html>
