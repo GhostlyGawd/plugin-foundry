@@ -223,3 +223,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: counter-index QA: node suite 5/5 on the pure filter, chips derive from data, empty state links ideas → rc
 - line: counter-index → rc
 - gate: validate+build green · qa green
+
+## i39 — reviewer — 2026-07-05T19:31:36Z
+- did: counter-index approved: prior-art honesty, tested pure contract, published-only chip union reasoning traced
+- line: counter-index review approved
+- gate: validate+build green

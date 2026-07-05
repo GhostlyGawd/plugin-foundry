@@ -49,3 +49,16 @@ client-side from data.json, so filtering is a pure function away.
 - defects: none found — probed: tag toggle-off (second click clears), entries
   missing tags array (guarded with ||[])
 TEST VERDICT: pass
+
+## Review log
+### Review — i39 (reviewer)
+- Scope honesty is the standout: the record credits scannable-window for the text
+  search instead of re-claiming it — the ledger stays trustworthy.
+- The pure-function extraction turns UI behavior into a tested contract; markers
+  make the test read the *shipped* code, not a copy.
+- AND semantics between text and tag are the right default (narrowing, never
+  surprising); toggle-off on second tap matches chip conventions.
+- Sharpest question: can a tag chip appear for an unpublished record and dead-end
+  a filter? No — chip union is published-only; filtered non-published cards still
+  match by tag if present, which is a feature (watch it move down the line).
+REVIEW: approved
