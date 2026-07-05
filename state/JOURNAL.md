@@ -338,3 +338,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: contributor-cards built: SVG generator, hall enrichment, conditional links on certs+hall, empty-wipes-clean; fixture suite green (self-containment check corrected to test real external fetches, not the xmlns URI)
 - line: contributor-cards → building
 - gate: validate+build green · qa green
+
+## i62 — qa — 2026-07-05T19:47:02Z
+- did: contributor-cards QA: fixture 5/5; test-predicate defect found+fixed (xmlns false positive); login sanitization probed → rc
+- line: contributor-cards → rc
+- gate: validate+build green · qa green

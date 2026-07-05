@@ -2,7 +2,7 @@
 name: contributor-cards
 title: Contributor Cards
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -36,3 +36,15 @@ contribution into an advertisement for the next.
   shipped, patronage, since-date from record created); build order fixed so cards
   exist before pages; certificates and hall rows link cards only when the file
   exists; empty hall wipes site/card entirely. Fixture suite added.
+
+## Test log
+### Test pass — i62
+- tier 1: pass
+- tier 3: fixture suite 5/5 live (prospector yields a card with derived counts +
+  since-date, self-contained — no href=http/<image>/url()/@import, certificate
+  links appear, empty hall wipes site/card clean); one honest note: the first run
+  caught the *test* overclaiming (xmlns URI tripped a naive http scan) — the
+  predicate now tests actual external fetches
+- defects: 1 in the test, 0 in the artifact; probed: login sanitization
+  (path-unsafe chars stripped before filenames)
+TEST VERDICT: pass
