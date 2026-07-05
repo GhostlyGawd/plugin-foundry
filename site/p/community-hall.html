@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Hall of Prospectors &amp; Patrons — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Real contributor recognition — who suggested what shipped, who fueled what got built.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** durable recognition for the people who shape the shelf.
@@ -48,7 +48,14 @@
 - **Metric:** authorship spread in votes.json + formalized counts in the journal.
 - **Baseline:** empty hall (genesis).
 - **Review-after:** 30 days after first entry appears.</pre></details><details><summary>Build log</summary><pre>- i0(v5): derivation + conditional section landed with the v5 window; QA pass with
-  fixtures is the remaining gate before rc.</pre></details></div>
+  fixtures is the remaining gate before rc.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i4
+- tier 1: pass
+- tier 2: n/a (site feature)
+- tier 3: fixture prospected_by/suggested_in on a record → hall ranks
+  @fixture-prospector, certificate meta shows &quot;prospected by @fixture-prospector
+  (#42)&quot;; fixture removed → hall data empty and section hidden (renders nothing)
+- defects: none found — probed: prospected_by without suggested_in (credit renders, no link)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -2,7 +2,7 @@
 name: saga-page
 title: The Saga
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -42,3 +42,13 @@ Lore is retention. The repo already contains the whole story — render it.
 ## Build log
 - i0(v5): generator + page landed with the v5 window; QA fixture pass pending
   before rc.
+
+## Test log
+### Test pass — i5
+- tier 1: pass
+- tier 2: n/a (site feature)
+- tier 3: all 11 ADRs render with id+title+context line; SHIPPED entries equal
+  published-record count exactly (zero invented milestones); Naming Ceremony slot
+  resolved to Nightshift Foundry post-ADR-011
+- defects: none found — probed: ADR heading without Context bullet (renders empty line, not junk)
+TEST VERDICT: pass

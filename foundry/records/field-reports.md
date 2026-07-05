@@ -2,7 +2,7 @@
 name: field-reports
 title: Field Reports
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [template, site]
@@ -41,3 +41,13 @@ Qualitative, attributed, un-gameable social proof — the opposite of star ratin
 ## Build log
 - i0(v5): template + collection pipeline landed; certificate rendering is the
   remaining build step (QA pass follows).
+
+## Test log
+### Test pass — i3
+- tier 1: pass — validate/build green with fixture and after restore
+- tier 2: n/a (site feature)
+- tier 3: fixture reports.json (2 reports) → "From the field" rendered on
+  plugin-smith certificate with titles+authors+links only (no bodies inlined);
+  fork-a-foundry certificate untouched; empty-state restore renders nothing
+- defects: none found — probed: report on unknown plugin key (ignored cleanly)
+TEST VERDICT: pass

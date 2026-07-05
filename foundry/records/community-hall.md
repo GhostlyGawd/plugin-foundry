@@ -2,7 +2,7 @@
 name: community-hall
 title: Hall of Prospectors & Patrons
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -39,3 +39,13 @@ The ladder's top rungs deserve a wall. Counts come from records only.
 ## Build log
 - i0(v5): derivation + conditional section landed with the v5 window; QA pass with
   fixtures is the remaining gate before rc.
+
+## Test log
+### Test pass — i4
+- tier 1: pass
+- tier 2: n/a (site feature)
+- tier 3: fixture prospected_by/suggested_in on a record → hall ranks
+  @fixture-prospector, certificate meta shows "prospected by @fixture-prospector
+  (#42)"; fixture removed → hall data empty and section hidden (renders nothing)
+- defects: none found — probed: prospected_by without suggested_in (credit renders, no link)
+TEST VERDICT: pass

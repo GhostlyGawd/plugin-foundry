@@ -38,3 +38,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Naming Ceremony held: the system is Nightshift Foundry (ADR-011) — STATE.name set, wordmark in BRAND.md, PRE-BRAND footer retired; slug 'foundry' immutable; B7+B8 checked
 - line: n/a — identity
 - gate: validate+build green
+
+## i3 — qa — 2026-07-05T18:22:09Z
+- did: Fixture QA pass on field-reports: 2-report fixture rendered titles/links only on the right certificate; empty state renders nothing → rc
+- line: field-reports → rc
+- gate: validate+build green

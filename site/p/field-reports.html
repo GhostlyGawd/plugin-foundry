@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Field Reports — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Real user experiences with shipped plugins, surfaced on their birth certificates.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** let installers hear from the field before installing.
@@ -50,7 +50,14 @@
 - **Metric:** `field_reports` count + `clones_14d` in METRICS.jsonl.
 - **Baseline:** 0 reports (genesis).
 - **Review-after:** 30 days post-deploy.</pre></details><details><summary>Build log</summary><pre>- i0(v5): template + collection pipeline landed; certificate rendering is the
-  remaining build step (QA pass follows).</pre></details></div>
+  remaining build step (QA pass follows).</pre></details><details open><summary>Test log</summary><pre>### Test pass — i3
+- tier 1: pass — validate/build green with fixture and after restore
+- tier 2: n/a (site feature)
+- tier 3: fixture reports.json (2 reports) → &quot;From the field&quot; rendered on
+  plugin-smith certificate with titles+authors+links only (no bodies inlined);
+  fork-a-foundry certificate untouched; empty-state restore renders nothing
+- defects: none found — probed: report on unknown plugin key (ignored cleanly)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

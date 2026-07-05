@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:21:30.682952+00:00",
- "iteration": 2,
+ "generated_at": "2026-07-05T18:22:09.106902+00:00",
+ "iteration": 3,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
-  "building": 4,
-  "rc": 7,
+  "building": 1,
+  "rc": 10,
   "published": 3,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i3",
+   "role": "qa",
+   "ts": "2026-07-05T18:22:09Z",
+   "text": "Fixture QA pass on field-reports: 2-report fixture rendered titles/links only on the right certificate; empty state rend \u00b7 field-reports \u2192 rc"
+  },
   {
    "it": "i2",
    "role": "designer",
@@ -85,7 +91,7 @@
    "name": "community-hall",
    "title": "Hall of Prospectors & Patrons",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site"
@@ -179,7 +185,7 @@
    "name": "field-reports",
    "title": "Field Reports",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "template",
@@ -345,7 +351,7 @@
    "name": "saga-page",
    "title": "The Saga",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site"
@@ -524,7 +530,7 @@
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site"
@@ -570,7 +576,7 @@
     "name": "field-reports",
     "title": "Field Reports",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "template",
@@ -666,7 +672,7 @@
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site"
@@ -1368,7 +1374,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 2
+   "n": 3
   }
  ],
  "repo": null

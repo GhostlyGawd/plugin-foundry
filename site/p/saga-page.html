@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Saga — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>An auto-generated timeline of the workshop&#x27;s own story — ADRs, ships, kills, ceremonies.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** give returners and newcomers the plot in one scroll.
@@ -51,7 +51,14 @@
 - **Metric:** `uniques_14d` in METRICS.jsonl.
 - **Baseline:** from first real snapshot.
 - **Review-after:** 30 days post-deploy.</pre></details><details><summary>Build log</summary><pre>- i0(v5): generator + page landed with the v5 window; QA fixture pass pending
-  before rc.</pre></details></div>
+  before rc.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i5
+- tier 1: pass
+- tier 2: n/a (site feature)
+- tier 3: all 11 ADRs render with id+title+context line; SHIPPED entries equal
+  published-record count exactly (zero invented milestones); Naming Ceremony slot
+  resolved to Nightshift Foundry post-ADR-011
+- defects: none found — probed: ADR heading without Context bullet (renders empty line, not junk)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
