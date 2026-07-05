@@ -18,6 +18,10 @@ rubber stamp; find the edge or document that you hunted for one.
 - No CLI in this environment? Log `TIER 2: unavailable — structural+behavioral only`
   and be harsher in Tier 3.
 
+## Compatibility stamp (QA duty, CI shifts)
+When the official CLI is present, QA stamps `tested_with: <claude --version>` into
+the record's front matter alongside the pass. Local passes leave it absent.
+
 ## Tier 3 — Behavioral (always, and now executable)
 Acceptance checks live as executable files in `foundry/tests/<name>/*.test.sh`
 (convention: emit `ok:` / `skip:` / `fail:` lines; the harness `bash tools/qa.sh`

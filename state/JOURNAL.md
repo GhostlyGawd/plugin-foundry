@@ -183,3 +183,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Recipes on every published certificate: 3 concrete invocations per plugin, rendered open by default (template tuple + 6 records)
 - line: n/a — catalog docs
 - gate: validate+build green · qa green
+
+## i31 — builder — 2026-07-05T18:36:41Z
+- did: Compatibility stamps: tested_with in SCHEMA, QA stamping duty in TESTING (absent-means-unverified), certificate meta renders it (fixture-proven); values arm on first CI shift
+- line: n/a — mechanism
+- gate: validate+build green · qa green

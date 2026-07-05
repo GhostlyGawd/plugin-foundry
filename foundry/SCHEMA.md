@@ -80,6 +80,10 @@ Features ride the same stages with three differences:
   the feature. `version` stays null for features.
 
 ## Optional front-matter keys (v5)
+- `tested_with` (optional string) — the Claude Code CLI version the last QA pass
+  ran `claude plugin validate --strict` against, e.g. `2.1.0`. Stamped by QA in CI
+  shifts (where the CLI exists); absent locally. Absent means "not yet
+  CI-verified," never "verified." Renders on the certificate.
 - `always_on_tokens` (int) + `verified` (date) — QA records the estimator's output
   (`python3 tools/tokencost.py <name>`) at each test pass; the window badges it as
   "est." because that's what it is.

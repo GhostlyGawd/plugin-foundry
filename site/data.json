@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:36:11.088276+00:00",
- "iteration": 30,
+ "generated_at": "2026-07-05T18:36:41.489051+00:00",
+ "iteration": 31,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i31",
+   "role": "builder",
+   "ts": "2026-07-05T18:36:41Z",
+   "text": "Compatibility stamps: tested_with in SCHEMA, QA stamping duty in TESTING (absent-means-unverified), certificate meta ren"
+  },
   {
    "it": "i30",
    "role": "maintainer",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T18:30:09Z",
    "text": "Published env-doctor v0.1.0 with tag \u00b7 env-doctor \u2192 published"
-  },
-  {
-   "it": "i23",
-   "role": "reviewer",
-   "ts": "2026-07-05T18:30:09Z",
-   "text": "env-doctor approved: consent-gated fixes, no manufactured findings, non-destructive fix vocabulary \u00b7 env-doctor review approved"
   }
  ],
  "records": [
@@ -1416,7 +1416,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 30
+   "n": 31
   }
  ],
  "repo": null

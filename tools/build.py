@@ -724,6 +724,8 @@ def build_pages(records, mp_name, cfg, reports):
         meta_bits = [r.get("kind", "plugin"), r.get("category", "?"),
                      f"v{r['version']}" if r.get("version") not in (None, "null", "") else "unversioned",
                      f"created {r.get('created', '?')}", f"updated {r.get('updated', '?')}"]
+        if r.get("tested_with"):
+            meta_bits.append(f'tested with Claude Code {r["tested_with"]}')
         if r.get("always_on_tokens"):
             meta_bits.append(f"~{r['always_on_tokens']} tok est"
                              + (f" · verified {r['verified']}" if r.get("verified") else ""))
