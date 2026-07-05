@@ -49,3 +49,15 @@ derives from the artifact itself, so it cannot drift from the truth.
 - defects: none found — probed: unreadable hooks.json path (reports unknown, not
   a false none)
 TEST VERDICT: pass
+
+## Review log
+### Review — i43 (reviewer)
+- The block's one law — derivation only — is enforced structurally: there is no
+  input path for prose claims, so the card cannot rot into marketing.
+- Failure honesty is right: unreadable hooks.json reads "unknown", never "none".
+- Heuristic is labeled a heuristic on the page itself; that sentence is the
+  difference between trust and theater.
+- Sharpest question: does the uninstall line overclaim for plugins that write
+  user files (session-recap)? No — "removes everything the plugin installed" is
+  precisely true; user-created recaps are the user's, not the plugin's.
+REVIEW: approved

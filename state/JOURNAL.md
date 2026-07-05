@@ -243,3 +243,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: trust-card QA: suite 5/5 + live curl fixture flagged-then-cleared; unreadable hooks path reports unknown, never false-none → rc
 - line: trust-card → rc
 - gate: validate+build green · qa green
+
+## i43 — reviewer — 2026-07-05T19:33:16Z
+- did: trust-card approved: derivation enforced structurally, unknown-over-false-none, heuristic labeled on-page
+- line: trust-card review approved
+- gate: validate+build green

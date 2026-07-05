@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:33:16.768450+00:00",
- "iteration": 42,
+ "generated_at": "2026-07-05T19:33:17.008117+00:00",
+ "iteration": 43,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i43",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:33:16Z",
+   "text": "trust-card approved: derivation enforced structurally, unknown-over-false-none, heuristic labeled on-page \u00b7 trust-card review approved"
+  },
   {
    "it": "i42",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T19:29:42Z",
    "text": "live-shift-theater specced: verbatim journal replay, reduced-motion instant, curtain empty-state \u00b7 live-shift-theater \u2192 spec"
-  },
-  {
-   "it": "i35",
-   "role": "growth",
-   "ts": "2026-07-05T19:29:41Z",
-   "text": "v7 slate encoded: 11 records at spec fitted to the taxonomy (experiments carry privacy-lawful proxy metrics), ROADMAP v7 \u00b7 11 records \u2192 spec (new)"
   }
  ],
  "records": [
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 42
+   "n": 43
   }
  ],
  "repo": null
