@@ -192,3 +192,16 @@ Template:
   bare expansions.
 - Consequences: gate matches the documented contract; no published artifact is
   affected (fix lands before commit-craft publishes).
+
+## ADR-013 — Metadata-only re-verification stamps are exempt from the version law (i83, builder)
+- Status: proposed (i83) — two-iteration rule: apply no earlier than i85
+- Context: the weekly re-verify job re-runs every published suite and refreshes
+  `verified:` (and `tested_with` when the CLI is present) on records. The version
+  law says changes to a published plugin bump semver + CHANGELOG + tag — but these
+  stamps touch only record front-matter metadata, never plugin files, and forcing
+  a weekly patch-bump across the shelf would make version numbers noise.
+- Decision (proposed): writes that modify only `verified:`/`tested_with` on a
+  record are exempt from the version-bump law. Any write under plugins/ remains
+  fully bound. charter/QUALITY.md gains the exemption text when this applies.
+- Consequences: freshness becomes a standing, dated promise; version numbers keep
+  meaning "behavior changed".

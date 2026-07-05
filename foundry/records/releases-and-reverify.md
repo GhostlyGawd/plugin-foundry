@@ -2,7 +2,7 @@
 name: releases-and-reverify
 title: Releases & Weekly Re-verification
 category: workflow
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [workflow]
@@ -32,3 +32,12 @@ freshness as a standing promise, not a launch-day claim.
 1. relnotes.py unit: extracts exactly the 0.1.0 section from commit-craft changelog.
 2. Both workflows lint; re-verify step is guarded and fails soft to an alarm.
 3. QUALITY documents the metadata exemption precisely.
+
+## Build log
+- i83: relnotes.py (exact-section extraction, refuses absent versions);
+  release-on-tag.yml (notes from the changelog, ops-alarm on failure);
+  qa.yml gains the Monday cron + a schedule-guarded reverify job (restamp.py:
+  pure parse/stamp helpers unit-tested, main is CI-only to avoid qa recursion,
+  stamps withheld from red suites, stale shelf raises an alarm). ADR-013
+  proposed for the metadata exemption — applies no earlier than i85; the cron
+  first fires Monday, after the ADR window closes. Two suites added.

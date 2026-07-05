@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:56:36.588031+00:00",
- "iteration": 82,
+ "generated_at": "2026-07-05T19:58:33.313179+00:00",
+ "iteration": 83,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 5,
-  "building": 0,
+  "spec": 4,
+  "building": 1,
   "rc": 10,
   "published": 19,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i83",
+   "role": "builder",
+   "ts": "2026-07-05T19:58:33Z",
+   "text": "releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (met \u00b7 releases-and-reverify \u2192 building"
+  },
   {
    "it": "i82",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-05T19:53:14Z",
    "text": "the-mailbag QA: 4/4 with live fail-open proof; empty and malformed paths probed \u2192 rc \u00b7 the-mailbag \u2192 rc"
-  },
-  {
-   "it": "i75",
-   "role": "builder",
-   "ts": "2026-07-05T19:52:55Z",
-   "text": "the-mailbag built: gh-gated Mailbag in shipnotes (fail-open), question template, Lane 0 \u2014 Ask, evidence-only answering d \u00b7 the-mailbag \u2192 building"
   }
  ],
  "journal": [
-  {
-   "it": "i71",
-   "role": "builder",
-   "ts": "2026-07-05T19:51:16Z",
-   "text": "almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index \u00b7 the-almanac genesis + numbering fix"
-  },
   {
    "it": "i72",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:56:36Z",
    "text": "Published commission-queue: board live, counter open; experiment armed \u00b7 commission-queue \u2192 published"
+  },
+  {
+   "it": "i83",
+   "role": "builder",
+   "ts": "2026-07-05T19:58:33Z",
+   "text": "releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (met \u00b7 releases-and-reverify \u2192 building"
   }
  ],
  "records": [
@@ -664,7 +664,7 @@
    "name": "releases-and-reverify",
    "title": "Releases & Weekly Re-verification",
    "category": "workflow",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "workflow"
@@ -1098,6 +1098,29 @@
     "patron": null
    },
    {
+    "name": "releases-and-reverify",
+    "title": "Releases & Weekly Re-verification",
+    "category": "workflow",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "workflow"
+    ],
+    "one_liner": "Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.",
+    "tags": [
+     "releases",
+     "cron",
+     "freshness"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1306,29 +1329,6 @@
      "governance",
      "trust",
      "veto"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "releases-and-reverify",
-    "title": "Releases & Weekly Re-verification",
-    "category": "workflow",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "workflow"
-    ],
-    "one_liner": "Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.",
-    "tags": [
-     "releases",
-     "cron",
-     "freshness"
     ],
     "commission": null,
     "kind": "feature",
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 82
+   "n": 83
   }
  ],
  "repo": null

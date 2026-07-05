@@ -7,13 +7,45 @@ on:
   pull_request:
     paths: ["plugins/**", "foundry/tests/**", "tools/qa.sh"]
   workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"  # weekly re-verify (ADR-013): freshness as a standing promise
 permissions:
   contents: read
 jobs:
   qa:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install Claude Code (enables official validate in tests)
         run: npm install -g @anthropic-ai/claude-code
       - run: bash tools/qa.sh
+
+  reverify:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Claude Code (best effort — enables tested_with refresh)
+        continue-on-error: true
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Re-run every suite and re-stamp freshness (metadata-only, ADR-013)
+        id: restamp
+        continue-on-error: true
+        run: python3 tools/restamp.py
+      - name: Commit stamps
+        if: steps.restamp.outcome == 'success'
+        run: |
+          git config user.name foundry-reverify
+          git config user.email foundry-reverify@users.noreply.github.com
+          git add foundry/records
+          git diff --cached --quiet || { git commit -m "chore(qa): weekly re-verify stamps (metadata-only, ADR-013)"; git push; }
+      - name: Ops alarm on stale shelf
+        if: steps.restamp.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "ops-alarm: weekly re-verify found failing suites"             --label ops-alarm             --body "restamp exited nonzero — at least one published plugin's suite is red. Its verified: stamp was withheld; the record names itself in the run log. Bug-fix lane outranks new builds (BACKLOG law)." || true

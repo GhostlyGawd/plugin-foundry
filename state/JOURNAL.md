@@ -443,3 +443,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published commission-queue: board live, counter open; experiment armed
 - line: commission-queue → published
 - gate: validate+build green · qa green
+
+## i83 — builder — 2026-07-05T19:58:33Z
+- did: releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (metadata exemption)
+- line: releases-and-reverify → building
+- gate: validate+build green · qa green
