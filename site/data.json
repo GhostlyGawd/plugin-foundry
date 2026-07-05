@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:47:57.206642+00:00",
- "iteration": 65,
+ "generated_at": "2026-07-05T19:48:16.053161+00:00",
+ "iteration": 66,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 8,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 15,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i66",
+   "role": "qa",
+   "ts": "2026-07-05T19:48:16Z",
+   "text": "traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified \u2192 rc \u00b7 traveler-pings \u2192 rc"
+  },
   {
    "it": "i65",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:44:58Z",
    "text": "night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through \u00b7 night-clerk review approved"
-  },
-  {
-   "it": "i58",
-   "role": "qa",
-   "ts": "2026-07-05T19:44:57Z",
-   "text": "night-clerk QA: suite 8/8, catalog\u2286published proven, ~cost stamped; CLI validate deferred to CI \u2192 rc \u00b7 night-clerk \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i54",
-   "role": "qa",
-   "ts": "2026-07-05T19:37:15Z",
-   "text": "live-shift-theater QA: suite 4/4, verbatim 12/12, injection-safe playback, graceful fetch failure \u2192 rc \u00b7 live-shift-theater \u2192 rc"
-  },
   {
    "it": "i55",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-05T19:47:57Z",
    "text": "traveler-pings built: pure diff core + telegram bodies, per-issue cap, guarded fail-soft CI step; unit suite 6/6 (silenc \u00b7 traveler-pings \u2192 building"
+  },
+  {
+   "it": "i66",
+   "role": "qa",
+   "ts": "2026-07-05T19:48:16Z",
+   "text": "traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified \u2192 rc \u00b7 traveler-pings \u2192 rc"
   }
  ],
  "records": [
@@ -876,7 +876,7 @@
    "name": "traveler-pings",
    "title": "Traveler Pings",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "workflow"
@@ -1195,7 +1195,7 @@
     "name": "traveler-pings",
     "title": "Traveler Pings",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "workflow"
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 65
+   "n": 66
   }
  ],
  "repo": null

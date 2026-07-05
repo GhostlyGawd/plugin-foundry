@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Traveler Pings — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.</p>
   
   
@@ -58,7 +58,15 @@
 3. Workflow step is guard-railed and fails soft.</pre></details><details><summary>Build log</summary><pre>- i65: pings.py — pure diff core (created / stage-up / published telegrams,
   per-issue cap, silent on no-issue), git snapshot CLI (HEAD~1 vs HEAD), DRY_RUN
   default, gh only behind --send; run-shift.yml gains a guarded fail-soft step
-  after push (PINGS_ENABLED). Unit suite 6/6.</pre></details></div>
+  after push (PINGS_ENABLED). Unit suite 6/6.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i66
+- tier 1: pass
+- tier 3: unit suite 6/6 (created / stage-up / published telegrams, no-issue
+  silence by key-set assertion, per-issue cap, no-change no-noise); live dry-run
+  against real HEAD~1 → clean &quot;nothing moved for a suggester&quot; (no records carry
+  suggested_in yet — correct silence); workflow lints, step guarded + fail-soft
+- defects: none in the artifact; the suite&#x27;s first silence predicate was letter
+  soup and got rewritten — logged for the pattern file
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

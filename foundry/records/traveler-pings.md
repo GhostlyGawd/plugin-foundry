@@ -2,7 +2,7 @@
 name: traveler-pings
 title: Traveler Pings
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [workflow]
@@ -36,3 +36,14 @@ The cheapest loyalty program in software: tell people their idea is moving.
   per-issue cap, silent on no-issue), git snapshot CLI (HEAD~1 vs HEAD), DRY_RUN
   default, gh only behind --send; run-shift.yml gains a guarded fail-soft step
   after push (PINGS_ENABLED). Unit suite 6/6.
+
+## Test log
+### Test pass — i66
+- tier 1: pass
+- tier 3: unit suite 6/6 (created / stage-up / published telegrams, no-issue
+  silence by key-set assertion, per-issue cap, no-change no-noise); live dry-run
+  against real HEAD~1 → clean "nothing moved for a suggester" (no records carry
+  suggested_in yet — correct silence); workflow lints, step guarded + fail-soft
+- defects: none in the artifact; the suite's first silence predicate was letter
+  soup and got rewritten — logged for the pattern file
+TEST VERDICT: pass

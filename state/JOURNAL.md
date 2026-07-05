@@ -358,3 +358,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: traveler-pings built: pure diff core + telegram bodies, per-issue cap, guarded fail-soft CI step; unit suite 6/6 (silence predicate asserts the key set, not letter soup)
 - line: traveler-pings → building
 - gate: validate+build green · qa green
+
+## i66 — qa — 2026-07-05T19:48:16Z
+- did: traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified → rc
+- line: traveler-pings → rc
+- gate: validate+build green · qa green
