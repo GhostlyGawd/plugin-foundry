@@ -128,3 +128,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published session-recap v0.1.0 with tag
 - line: session-recap → published
 - gate: validate+build green · qa green
+
+## i20 — builder — 2026-07-05T18:30:08Z
+- did: env-doctor specced: repo-requirements-first diagnosis, paired copyable fixes, hard no-mutation-without-consent law (redo of rolled-back i20 — harness cwd fault, see audit)
+- line: env-doctor → spec
+- gate: validate+build green

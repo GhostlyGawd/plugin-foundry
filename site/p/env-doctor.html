@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Env Doctor — birth certificate</h1></header>
   <p class="meta">plugin · quality · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
   <p>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** surface toolchain drift in the first second of a session.
@@ -41,7 +41,22 @@
 - **Components:** one SessionStart command hook running a read-only script that
   compares installed versions to declared ones and prints warnings.
 - **Why a plugin:** SessionStart is exactly what hooks exist for; read-only by
-  design, so a good showcase of the safety bar.</pre></details></div>
+  design, so a good showcase of the safety bar.</pre></details><details><summary>Spec</summary><pre>- Name: `env-doctor` (forever). One skill, `envcheck`, description (verbatim):
+  &quot;Diagnose this project&#x27;s development environment against what the repo actually
+  requires and report mismatches with fixes. Use when builds fail mysteriously,
+  after cloning a new repo, or the user says check my environment, why won&#x27;t this
+  run, or env doctor.&quot;
+- Behavior: read the repo&#x27;s own requirements first (package.json engines, .nvmrc,
+  .python-version / pyproject requires-python, .tool-versions, Gemfile ruby, go.mod
+  go line — whichever exist), then compare against installed versions, check PATH
+  shadowing (`type -a`), missing lockfile installs, and unset vars named in
+  .env.example. Output: REPORT (✓/✗ per line) then FIXES as copyable commands.
+  NEVER runs an install or mutation without the user saying yes to the specific
+  command.
+### Acceptance checks
+1. Requirements come from repo files, not assumptions; absent files skip silently.
+2. Every ✗ pairs with a copyable fix; no fix auto-runs.
+3. PATH shadowing check present (`type -a`).</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
