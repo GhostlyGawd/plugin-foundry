@@ -48,3 +48,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Fixture QA pass on community-hall: fixture prospector ranked + credited on certificate; empty hall renders nothing → rc
 - line: community-hall → rc
 - gate: validate+build green
+
+## i5 — qa — 2026-07-05T18:22:09Z
+- did: Saga QA pass: 11/11 ADRs render, ships match published count exactly, naming slot resolved → rc
+- line: saga-page → rc
+- gate: validate+build green

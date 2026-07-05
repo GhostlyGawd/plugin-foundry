@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:22:09.247200+00:00",
- "iteration": 4,
+ "generated_at": "2026-07-05T18:22:09.384446+00:00",
+ "iteration": 5,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i5",
+   "role": "qa",
+   "ts": "2026-07-05T18:22:09Z",
+   "text": "Saga QA pass: 11/11 ADRs render, ships match published count exactly, naming slot resolved \u2192 rc \u00b7 saga-page \u2192 rc"
+  },
   {
    "it": "i4",
    "role": "qa",
@@ -1380,7 +1386,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 4
+   "n": 5
   }
  ],
  "repo": null
