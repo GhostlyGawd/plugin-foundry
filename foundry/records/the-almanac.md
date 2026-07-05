@@ -61,3 +61,15 @@ TEST VERDICT: pass
   genesis stamp, not drift. Iteration counts now exclude i0 and say so in a
   genesis note; edition numbers are the month's stable index, not a file count
   (regenerating a month can no longer promote it to a new edition).
+
+## Test log
+### Test pass — i72
+- tier 1: pass
+- tier 3: suite 4/4 with the hardened semantics — count matches the ledger at the
+  as-of stamp (70/70 @ i70, i0 excluded and noted on-page), Edition 000 stable
+  under regeneration, money section truthful to the real BUDGET.jsonl, index +
+  nav present
+- defects this cycle: 2, both caught by the gates before any publish — snapshot
+  drift (i70) and genesis miscount + file-count numbering (i71); this is the
+  pipeline doing its job on the machine's own reporting tool
+TEST VERDICT: pass

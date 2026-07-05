@@ -80,7 +80,16 @@ TEST VERDICT: pass
 - Ledger archaeology from the i70 gate trail: the &quot;extra&quot; entry was the i0
   genesis stamp, not drift. Iteration counts now exclude i0 and say so in a
   genesis note; edition numbers are the month&#x27;s stable index, not a file count
-  (regenerating a month can no longer promote it to a new edition).</pre></details></div>
+  (regenerating a month can no longer promote it to a new edition).</pre></details><details open><summary>Test log</summary><pre>### Test pass — i72
+- tier 1: pass
+- tier 3: suite 4/4 with the hardened semantics — count matches the ledger at the
+  as-of stamp (70/70 @ i70, i0 excluded and noted on-page), Edition 000 stable
+  under regeneration, money section truthful to the real BUDGET.jsonl, index +
+  nav present
+- defects this cycle: 2, both caught by the gates before any publish — snapshot
+  drift (i70) and genesis miscount + file-count numbering (i71); this is the
+  pipeline doing its job on the machine&#x27;s own reporting tool
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

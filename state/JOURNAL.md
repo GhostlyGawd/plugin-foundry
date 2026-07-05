@@ -388,3 +388,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index
 - line: the-almanac genesis + numbering fix
 - gate: validate+build green · qa green
+
+## i72 — qa — 2026-07-05T19:51:35Z
+- did: the-almanac QA: 4/4 on hardened semantics; two gate-caught defects fixed pre-publish → rc
+- line: the-almanac → rc
+- gate: validate+build green · qa green

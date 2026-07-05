@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:51:16.826748+00:00",
- "iteration": 71,
+ "generated_at": "2026-07-05T19:51:35.921553+00:00",
+ "iteration": 72,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i72",
+   "role": "qa",
+   "ts": "2026-07-05T19:51:35Z",
+   "text": "the-almanac QA: 4/4 on hardened semantics; two gate-caught defects fixed pre-publish \u2192 rc \u00b7 the-almanac \u2192 rc"
+  },
   {
    "it": "i71",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-05T19:47:57Z",
    "text": "traveler-pings built: pure diff core + telegram bodies, per-issue cap, guarded fail-soft CI step; unit suite 6/6 (silenc \u00b7 traveler-pings \u2192 building"
-  },
-  {
-   "it": "i64",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:47:03Z",
-   "text": "Published contributor-cards: generator live, first real credit mints the first card; experiment armed \u00b7 contributor-cards \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i60",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:44:59Z",
-   "text": "Published night-clerk v0.1.0: marketplace entry, catalog regenerated (7 plugins, clerk lists itself), experiment armed \u00b7 night-clerk \u2192 published (v0.1.0)"
-  },
   {
    "it": "i61",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-05T19:51:16Z",
    "text": "almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index \u00b7 the-almanac genesis + numbering fix"
+  },
+  {
+   "it": "i72",
+   "role": "qa",
+   "ts": "2026-07-05T19:51:35Z",
+   "text": "the-almanac QA: 4/4 on hardened semantics; two gate-caught defects fixed pre-publish \u2192 rc \u00b7 the-almanac \u2192 rc"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 71
+   "n": 72
   }
  ],
  "repo": null
