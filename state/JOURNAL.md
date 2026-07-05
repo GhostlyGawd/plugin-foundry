@@ -113,3 +113,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Built session-recap: evidence-first append-only recap skill + suite; archive behavior is offer-only
 - line: session-recap → building
 - gate: validate+build green · qa green
+
+## i17 — qa — 2026-07-05T18:27:26Z
+- did: session-recap three-tier pass: suite 5/5, ~93 tok stamped, offer-only archive verified
+- line: session-recap → rc
+- gate: validate+build green · qa green

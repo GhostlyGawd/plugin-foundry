@@ -2,8 +2,10 @@
 name: session-recap
 title: Session Recap
 category: context
-stage: building
+stage: rc
 version: null
+always_on_tokens: 93
+verified: 2026-07-05
 components: [skills, hooks]
 one_liner: Writes a structured recap when a session ends and recalls it when the next one starts.
 tags: [memory, sessions, continuity]
@@ -42,3 +44,13 @@ Context evaporates between sessions; yesterday's decisions get re-derived today.
 - i16: manifest, `recap` skill (evidence-first, append-only, checkboxed next
   steps, archive offer past ~10 sections), README with recipes, CHANGELOG,
   executable test suite.
+
+## Test log
+### Test pass — i17
+- tier 1: pass; smoke: CLI absent locally, official --strict runs in CI (logged)
+- tier 2: unavailable locally — always-on cost: 93 tok (est., stamped)
+- tier 3: suite 5/5 — append-only law, evidence-before-prose, checkboxed steps,
+  invoke contract, manifest; acceptance checks 1–3 traced through the skill text
+- defects: none found — probed: missing-file case (create-if-missing present),
+  archive behavior is offer-only (no unasked file moves)
+TEST VERDICT: pass

@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:27:26.511615+00:00",
- "iteration": 16,
+ "generated_at": "2026-07-05T18:27:26.959014+00:00",
+ "iteration": 17,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 2,
   "spec": 2,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 5,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i17",
+   "role": "qa",
+   "ts": "2026-07-05T18:27:26Z",
+   "text": "session-recap three-tier pass: suite 5/5, ~93 tok stamped, offer-only archive verified \u00b7 session-recap \u2192 rc"
+  },
   {
    "it": "i16",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:23:53Z",
    "text": "Built commit-craft (manifest, commit skill, guard hook, docs). Gates then did \u00b7 commit-craft \u2192 building"
-  },
-  {
-   "it": "i9",
-   "role": "maintainer",
-   "ts": "2026-07-05T18:23:14Z",
-   "text": "Published fork-a-foundry v0.1.0: marketplace entry, changelog dated, version synced \u2014 first ship with zero genesis excep \u00b7 fork-a-foundry \u2192 published"
   }
  ],
  "records": [
@@ -421,7 +421,7 @@
    "name": "session-recap",
    "title": "Session Recap",
    "category": "context",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "skills",
@@ -435,8 +435,8 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": null,
-   "verified": null,
+   "always_on_tokens": "93",
+   "verified": "2026-07-05",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -695,7 +695,7 @@
     "name": "session-recap",
     "title": "Session Recap",
     "category": "context",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "skills",
@@ -709,8 +709,8 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
+    "always_on_tokens": "93",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 16
+   "n": 17
   }
  ],
  "repo": null
