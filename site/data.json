@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:30:08.595343+00:00",
- "iteration": 21,
+ "generated_at": "2026-07-05T18:30:09.110072+00:00",
+ "iteration": 22,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 2,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 6,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i22",
+   "role": "qa",
+   "ts": "2026-07-05T18:30:09Z",
+   "text": "env-doctor three-tier pass: suite 6/6, ~110 tok stamped, zero-requirements repo handled honestly \u00b7 env-doctor \u2192 rc"
+  },
   {
    "it": "i21",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:27:26Z",
    "text": "session-recap specced: append-only dated handoff sections built from git evidence; acceptance checks set \u00b7 session-recap \u2192 spec"
-  },
-  {
-   "it": "i14",
-   "role": "maintainer",
-   "ts": "2026-07-05T18:26:31Z",
-   "text": "Published commit-craft v0.1.0: marketplace entry, changelog dated, tag laid; B6 checked \u2014 bootstrap plugin pipeline comp \u00b7 commit-craft \u2192 published"
   }
  ],
  "records": [
@@ -186,7 +186,7 @@
    "name": "env-doctor",
    "title": "Env Doctor",
    "category": "quality",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "hooks"
@@ -199,8 +199,8 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": null,
-   "verified": null,
+   "always_on_tokens": "110",
+   "verified": "2026-07-05",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -600,7 +600,7 @@
     "name": "env-doctor",
     "title": "Env Doctor",
     "category": "quality",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "hooks"
@@ -613,8 +613,8 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
+    "always_on_tokens": "110",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 21
+   "n": 22
   }
  ],
  "repo": null

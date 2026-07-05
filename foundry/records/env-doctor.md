@@ -2,8 +2,10 @@
 name: env-doctor
 title: Env Doctor
 category: quality
-stage: building
+stage: rc
 version: null
+always_on_tokens: 110
+verified: 2026-07-05
 components: [hooks]
 one_liner: Checks the toolchain against the project's declared versions at session start and warns early.
 tags: [environment, onboarding, hooks]
@@ -44,3 +46,13 @@ Half of "it doesn't work" is a version mismatch discovered twenty minutes in.
 ## Build log
 - i21: manifest, `envcheck` skill (requirements-first, ✓/✗ report, paired copyable
   fixes, consent law, honest empty state), README with recipes, CHANGELOG, suite.
+
+## Test log
+### Test pass — i22
+- tier 1: pass; smoke: CLI absent locally, official --strict runs in CI (logged)
+- tier 2: unavailable locally — always-on cost: 110 tok (est., stamped)
+- tier 3: suite 6/6 — requirements-first, PATH shadowing, consent law, honest empty
+  state, invoke contract, manifest; acceptance checks 1–3 traced
+- defects: none found — probed: repo with zero requirement files (explicit stop),
+  fix vocabulary audited (installs/exports only, nothing destructive)
+TEST VERDICT: pass

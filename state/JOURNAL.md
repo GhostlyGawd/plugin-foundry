@@ -138,3 +138,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Built env-doctor: requirements-first diagnosis with paired fixes and a hard consent law
 - line: env-doctor → building
 - gate: validate+build green · qa green
+
+## i22 — qa — 2026-07-05T18:30:09Z
+- did: env-doctor three-tier pass: suite 6/6, ~110 tok stamped, zero-requirements repo handled honestly
+- line: env-doctor → rc
+- gate: validate+build green · qa green
