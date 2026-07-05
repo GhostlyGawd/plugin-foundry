@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adversarial QA Bounties — provenance</title>
+<style>
+  :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  *{box-sizing:border-box; margin:0}
+  body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
+    color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
+  .sheet{max-width:820px; margin:0 auto}
+  a{color:var(--stamp)}
+  header{border-bottom:2px solid var(--ink); padding-bottom:10px}
+  header h1{font-size:20px; letter-spacing:.1em; text-transform:uppercase}
+  .meta{color:var(--dim); font-size:12px; letter-spacing:.06em; padding:6px 0}
+  .track{display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim);
+    letter-spacing:.1em; text-transform:uppercase; padding:8px 0}
+  .punch{width:11px; height:11px; border-radius:50%; border:1.5px solid var(--ink); display:inline-block}
+  .punch.done{background:var(--ink)}
+  .cert{border:1px solid var(--line); background:var(--card); margin:16px 0}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer; padding:10px 14px; font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  summary:focus-visible{outline:2px solid var(--stamp); outline-offset:-2px}
+  details pre{white-space:pre-wrap; overflow-wrap:anywhere; padding:0 14px 14px; color:var(--dim); font:inherit; font-size:12.5px}
+  .field{border:1px dashed var(--line); background:var(--card); padding:10px 14px; margin:10px 0; font-size:12.5px}
+  .field a{display:block}
+  .links{font-size:12px; padding:8px 0}
+  footer{color:var(--dim); font-size:11px; border-top:2px solid var(--ink); margin-top:18px; padding-top:10px}
+</style>
+</head>
+<body><div class="sheet">
+  <p class="links"><a href="../index.html">← back to the window</a></p>
+  <header><h1>Adversarial QA Bounties — birth certificate</h1></header>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <p>Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.</p>
+  
+  <div class="cert"><details><summary>Pitch</summary><pre>Published claims (&quot;fails open&quot;, &quot;never mutates unasked&quot;) deserve hostile eyes. A
+bounty that pays in permanent credit turns skeptics into contributors and makes
+the shelf&#x27;s honesty *tested* honesty.</pre></details><details><summary>Spec</summary><pre>- CONTRIBUTING.md Lane 3 is the front door (ships alongside this spec).
+- Bug template gains a `bounty` checkbox: &quot;this reproduces a break of a claim the
+  record makes.&quot;
+- Confirmed break → fix ships with `found_by: &lt;handle&gt;` in the CHANGELOG entry;
+  Hall gains a &quot;Breakers&quot; section ranking confirmed finds; the fixed plugin&#x27;s
+  certificate credits the finder.
+- Rules of engagement live in CONTRIBUTING (own machine, no third-party targets,
+  findings not harm); out-of-scope reports get a kind decline + journal line.</pre></details><details><summary>Experiment</summary><pre>- Hypothesis: public bounty credit yields ≥1 confirmed adversarial find within 60
+  days of the window going live, at zero cash cost.
+- Metric: confirmed `bounty` bugs; Baseline: 0; Review-after: 2026-09-15.
+
+### Acceptance checks
+1. Lane documented with rules of engagement; SECURITY cross-ref in place.
+2. Hall renders a Breakers section only when a confirmed find exists.
+3. Fix changelogs carry found_by credit.</pre></details></div>
+  <p class="links">links appear once the repo is configured</p>
+  <footer>Every claim above was written by the loop iteration that did the work, in
+  the commit that did it — the record is append-only. Nothing here is retouched for
+  the window.</footer>
+</div></body></html>

@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-07-05T18:36:41.489051+00:00",
- "iteration": 31,
+ "generated_at": "2026-07-05T18:39:23.659654+00:00",
+ "iteration": 32,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
-  "idea": 0,
-  "spec": 2,
+  "idea": 2,
+  "spec": 4,
   "building": 0,
   "rc": 10,
   "published": 8,
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i32",
+   "role": "growth",
+   "ts": "2026-07-05T18:39:23Z",
+   "text": "Co-op lane opened (CONTRIBUTING.md: spec-only PRs, machine builds, shared credit; charter/SECURITY cross-ref locks the b \u00b7 adversarial-qa-bounties \u2192 spec (new)"
+  },
   {
    "it": "i31",
    "role": "builder",
@@ -54,15 +60,35 @@
    "role": "builder",
    "ts": "2026-07-05T18:31:07Z",
    "text": "pr-narrator specced: evidence-derived PR narrative, honest test-notes, consent-gated gh \u00b7 pr-narrator \u2192 spec"
-  },
-  {
-   "it": "i24",
-   "role": "maintainer",
-   "ts": "2026-07-05T18:30:09Z",
-   "text": "Published env-doctor v0.1.0 with tag \u00b7 env-doctor \u2192 published"
   }
  ],
  "records": [
+  {
+   "name": "adversarial-qa-bounties",
+   "title": "Adversarial QA Bounties",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "docs",
+    "template",
+    "site"
+   ],
+   "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
+   "tags": [
+    "community",
+    "qa",
+    "security",
+    "ladder"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
   {
    "name": "commission-tiers",
    "title": "Commission Tiers",
@@ -150,6 +176,30 @@
     "voting",
     "community",
     "ladder"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "cross-foundry-exchange",
+   "title": "Cross-Foundry Exchange",
+   "category": "growth",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "docs",
+    "workflow"
+   ],
+   "one_liner": "Sister foundries pass ideas (and someday commissions) to whichever workshop fits best \u2014 a federation of night shifts.",
+   "tags": [
+    "network",
+    "federation",
+    "moonshot"
    ],
    "commission": null,
    "kind": "feature",
@@ -254,6 +304,31 @@
    "patron": null
   },
   {
+   "name": "foundry-network",
+   "title": "The Foundry Network",
+   "category": "growth",
+   "stage": "spec",
+   "version": null,
+   "components": [
+    "site",
+    "docs",
+    "template"
+   ],
+   "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
+   "tags": [
+    "network",
+    "forks",
+    "federation"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "fuel-gauge",
    "title": "The Fuel Gauge",
    "category": "growth",
@@ -292,6 +367,29 @@
     "community",
     "recognition",
     "retention"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "live-shift-theater",
+   "title": "Live Shift Theater",
+   "category": "growth",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "site"
+   ],
+   "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
+   "tags": [
+    "spectator",
+    "window",
+    "delight"
    ],
    "commission": null,
    "kind": "feature",
@@ -789,6 +887,32 @@
   ],
   "next": [
    {
+    "name": "adversarial-qa-bounties",
+    "title": "Adversarial QA Bounties",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "docs",
+     "template",
+     "site"
+    ],
+    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
+    "tags": [
+     "community",
+     "qa",
+     "security",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "commission-tiers",
     "title": "Commission Tiers",
     "category": "growth",
@@ -803,6 +927,31 @@
      "pricing",
      "patrons",
      "experiment"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "foundry-network",
+    "title": "The Foundry Network",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "site",
+     "docs",
+     "template"
+    ],
+    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
+    "tags": [
+     "network",
+     "forks",
+     "federation"
     ],
     "commission": null,
     "kind": "feature",
@@ -836,7 +985,55 @@
     "patron": null
    }
   ],
-  "ideas": [],
+  "ideas": [
+   {
+    "name": "cross-foundry-exchange",
+    "title": "Cross-Foundry Exchange",
+    "category": "growth",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "docs",
+     "workflow"
+    ],
+    "one_liner": "Sister foundries pass ideas (and someday commissions) to whichever workshop fits best \u2014 a federation of night shifts.",
+    "tags": [
+     "network",
+     "federation",
+     "moonshot"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "live-shift-theater",
+    "title": "Live Shift Theater",
+    "category": "growth",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
+    "tags": [
+     "spectator",
+     "window",
+     "delight"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   }
+  ],
   "shipped": [
    {
     "name": "fork-a-foundry",
@@ -1416,7 +1613,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 31
+   "n": 32
   }
  ],
  "repo": null

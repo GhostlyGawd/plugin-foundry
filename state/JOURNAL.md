@@ -188,3 +188,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Compatibility stamps: tested_with in SCHEMA, QA stamping duty in TESTING (absent-means-unverified), certificate meta renders it (fixture-proven); values arm on first CI shift
 - line: n/a — mechanism
 - gate: validate+build green · qa green
+
+## i32 — growth — 2026-07-05T18:39:23Z
+- did: Co-op lane opened (CONTRIBUTING.md: spec-only PRs, machine builds, shared credit; charter/SECURITY cross-ref locks the blast radius) + adversarial-qa-bounties specced with its experiment
+- line: adversarial-qa-bounties → spec (new)
+- gate: validate+build green
