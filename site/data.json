@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-07-05T18:30:09.791461+00:00",
- "iteration": 24,
+ "generated_at": "2026-07-05T18:31:07.368006+00:00",
+ "iteration": 25,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
-  "idea": 1,
-  "spec": 2,
+  "idea": 0,
+  "spec": 3,
   "building": 0,
   "rc": 10,
   "published": 7,
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i25",
+   "role": "builder",
+   "ts": "2026-07-05T18:31:07Z",
+   "text": "pr-narrator specced: evidence-derived PR narrative, honest test-notes, consent-gated gh \u00b7 pr-narrator \u2192 spec"
+  },
   {
    "it": "i24",
    "role": "maintainer",
@@ -54,12 +60,6 @@
    "role": "reviewer",
    "ts": "2026-07-05T18:27:27Z",
    "text": "session-recap approved: ledger-style handoffs, evidence-gated claims, single-file blast radius \u00b7 session-recap review approved"
-  },
-  {
-   "it": "i17",
-   "role": "qa",
-   "ts": "2026-07-05T18:27:26Z",
-   "text": "session-recap three-tier pass: suite 5/5, ~93 tok stamped, offer-only archive verified \u00b7 session-recap \u2192 rc"
   }
  ],
  "records": [
@@ -352,7 +352,7 @@
    "name": "pr-narrator",
    "title": "PR Narrator",
    "category": "workflow",
-   "stage": "idea",
+   "stage": "spec",
    "version": null,
    "components": [
     "agents"
@@ -834,14 +834,12 @@
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
-   }
-  ],
-  "ideas": [
+   },
    {
     "name": "pr-narrator",
     "title": "PR Narrator",
     "category": "workflow",
-    "stage": "idea",
+    "stage": "spec",
     "version": null,
     "components": [
      "agents"
@@ -861,6 +859,7 @@
     "patron": null
    }
   ],
+  "ideas": [],
   "shipped": [
    {
     "name": "fork-a-foundry",
@@ -1398,7 +1397,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 24
+   "n": 25
   }
  ],
  "repo": null

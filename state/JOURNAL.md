@@ -153,3 +153,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published env-doctor v0.1.0 with tag
 - line: env-doctor → published
 - gate: validate+build green · qa green
+
+## i25 — builder — 2026-07-05T18:31:07Z
+- did: pr-narrator specced: evidence-derived PR narrative, honest test-notes, consent-gated gh
+- line: pr-narrator → spec
+- gate: validate+build green
