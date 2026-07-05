@@ -83,3 +83,8 @@ Entry template (copy exactly; newest at the bottom):
   check relax (two-iteration rule: apply no earlier than i12). B2+B3 checked.
 - line: commit-craft → building
 - gate: validate+build+qa green (after in-iteration defect fixes)
+
+## i11 — qa — 2026-07-05T18:26:07Z
+- did: commit-craft full three-tier pass: armed suite 4/4, hook-safety audit clean, ~88 tok stamped; B4 checked
+- line: commit-craft → rc
+- gate: validate+build green · qa green

@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:25:43.963670+00:00",
- "iteration": 10,
+ "generated_at": "2026-07-05T18:26:07.383543+00:00",
+ "iteration": 11,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 2,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 4,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i11",
+   "role": "qa",
+   "ts": "2026-07-05T18:26:07Z",
+   "text": "commit-craft full three-tier pass: armed suite 4/4, hook-safety audit clean, ~88 tok stamped; B4 checked \u00b7 commit-craft \u2192 rc"
+  },
   {
    "it": "i10",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T18:22:09Z",
    "text": "Fixture QA pass on community-hall: fixture prospector ranked + credited on certificate; empty hall renders nothing \u2192 rc \u00b7 community-hall \u2192 rc"
-  },
-  {
-   "it": "i3",
-   "role": "qa",
-   "ts": "2026-07-05T18:22:09Z",
-   "text": "Fixture QA pass on field-reports: 2-report fixture rendered titles/links only on the right certificate; empty state rend \u00b7 field-reports \u2192 rc"
   }
  ],
  "records": [
@@ -91,7 +91,7 @@
    "name": "commit-craft",
    "title": "Commit Craft",
    "category": "workflow",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "skills",
@@ -105,8 +105,8 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": null,
-   "verified": null,
+   "always_on_tokens": "88",
+   "verified": "2026-07-05",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -554,7 +554,7 @@
     "name": "commit-craft",
     "title": "Commit Craft",
     "category": "workflow",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "skills",
@@ -568,8 +568,8 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 10
+   "n": 11
   }
  ],
  "repo": null

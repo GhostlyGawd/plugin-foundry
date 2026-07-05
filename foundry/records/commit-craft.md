@@ -2,8 +2,10 @@
 name: commit-craft
 title: Commit Craft
 category: workflow
-stage: building
+stage: rc
 version: null
+always_on_tokens: 88
+verified: 2026-07-05
 components: [skills, hooks]
 one_liner: Drafts conventional commits from the staged diff and guards message format at commit time.
 tags: [git, conventional-commits, hooks]
@@ -57,3 +59,17 @@ documentation.
 - i10: manifest, `commit` skill, hooks.json (PreToolUse, matcher Bash, quoted
   ${CLAUDE_PLUGIN_ROOT}), scripts/check-commit-msg.sh (fail-open guard), README
   with honest hook disclosure + recipes, CHANGELOG. Bootstrap B2+B3 complete.
+
+## Test log
+### Test pass — i11
+- tier 1: pass — validate + build green; smoke: claude CLI absent locally, official
+  --strict validate runs in the QA workflow (logged per protocol)
+- tier 2: unavailable locally — always-on cost: 88 tok (est. via tools/tokencost.py;
+  stamped into front matter with verified date)
+- tier 3: executable suite foundry/tests/commit-craft green 4/4 — malformed message
+  blocked with printed reason (exit 2), conforming message passes, non-commit
+  command ignored, garbled payload fails open; hook safety audit: matcher is
+  exactly "Bash", script read-only, no network, plugin-root quoted
+- defects (this pass): none — i10's two build defects were fixed and journaled;
+  probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
+TEST VERDICT: pass

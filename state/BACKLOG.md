@@ -15,7 +15,7 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       (hooks/hooks.json + scripts/check-commit-msg.sh, executable, shebang, quoted
       "${CLAUDE_PLUGIN_ROOT}"); README.md + CHANGELOG.md (0.1.0 – Unreleased);
       Build log entry.
-- [ ] B4 (qa) Full three-tier test pass per charter/TESTING.md against the spec's
+- [x] B4 (qa) Full three-tier test pass per charter/TESTING.md against the spec's
       acceptance checks; Test log; advance building → rc, or bounce with reasons.
 - [ ] B5 (reviewer) Line-by-line review (prompt craft, hook safety, token thrift,
       docs truth); QUALITY axis scores; `REVIEW: approved` or bounce; Review log.

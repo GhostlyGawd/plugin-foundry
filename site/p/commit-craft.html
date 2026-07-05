@@ -32,8 +32,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Commit Craft — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04 · ~88 tok est · verified 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
@@ -67,7 +67,18 @@
    times (fail-open proven).
 5. `bash tools/smoke.sh commit-craft` passes; always-on cost within budget.</pre></details><details><summary>Build log</summary><pre>- i10: manifest, `commit` skill, hooks.json (PreToolUse, matcher Bash, quoted
   ${CLAUDE_PLUGIN_ROOT}), scripts/check-commit-msg.sh (fail-open guard), README
-  with honest hook disclosure + recipes, CHANGELOG. Bootstrap B2+B3 complete.</pre></details></div>
+  with honest hook disclosure + recipes, CHANGELOG. Bootstrap B2+B3 complete.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i11
+- tier 1: pass — validate + build green; smoke: claude CLI absent locally, official
+  --strict validate runs in the QA workflow (logged per protocol)
+- tier 2: unavailable locally — always-on cost: 88 tok (est. via tools/tokencost.py;
+  stamped into front matter with verified date)
+- tier 3: executable suite foundry/tests/commit-craft green 4/4 — malformed message
+  blocked with printed reason (exit 2), conforming message passes, non-commit
+  command ignored, garbled payload fails open; hook safety audit: matcher is
+  exactly &quot;Bash&quot;, script read-only, no network, plugin-root quoted
+- defects (this pass): none — i10&#x27;s two build defects were fixed and journaled;
+  probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
