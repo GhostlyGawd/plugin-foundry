@@ -49,3 +49,16 @@ Spectators became prospectors once; give them a show.
 - defects: none found — probed: fetch failure (silent no-op, curtain stays),
   entry text with angle brackets (escaped)
 TEST VERDICT: pass
+
+## Review log
+### Review — i55 (reviewer)
+- "The script is the ledger" is enforced, not asserted: the suite diffs the export
+  against JOURNAL.md itself, so staging drift breaks the build.
+- Dark terminal aesthetic earns its keep — theater and window are distinct rooms
+  with the same brand bones.
+- Accessibility is first-class: reduce gets the whole script instantly, not a
+  slower animation.
+- Sharpest question: could playback ever flatter the machine by omission? Only by
+  the same 12-entry window the ticker already uses — and the page says where the
+  unabridged version lives.
+REVIEW: approved

@@ -303,3 +303,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: live-shift-theater QA: suite 4/4, verbatim 12/12, injection-safe playback, graceful fetch failure → rc
 - line: live-shift-theater → rc
 - gate: validate+build green · qa green
+
+## i55 — reviewer — 2026-07-05T19:37:16Z
+- did: live-shift-theater approved: ledger-diffed playback, honest windowing, reduce path is instant not slower
+- line: live-shift-theater review approved
+- gate: validate+build green
