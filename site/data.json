@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:35:10.412388+00:00",
- "iteration": 46,
+ "generated_at": "2026-07-05T19:35:10.658178+00:00",
+ "iteration": 47,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i47",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:35:10Z",
+   "text": "window-watchability approved: honest static countdown, wall renders only recorded argument, ergonomics as permanent test \u00b7 window-watchability review approved"
+  },
   {
    "it": "i46",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:31:36Z",
    "text": "Published counter-index: chips + tested filter live on the window; experiment armed \u00b7 counter-index \u2192 published"
-  },
-  {
-   "it": "i39",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:31:36Z",
-   "text": "counter-index approved: prior-art honesty, tested pure contract, published-only chip union reasoning traced \u00b7 counter-index review approved"
   }
  ],
  "records": [
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 46
+   "n": 47
   }
  ],
  "repo": null

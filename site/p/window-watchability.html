@@ -68,7 +68,17 @@ plus aria plus tap targets make it humane on every device.</pre></details><detai
 - defects: none found — probed: countdown chip absent-element guard (no-op),
   cron drift risk noted: fn documents &quot;17 0,8,16 UTC&quot; — if the operator edits the
   cron, the wall test will not catch it; queued a P3 to derive from the workflow
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i47 (reviewer)
+- The countdown computes client-side from a documented constant — no server, no
+  polling, honest &quot;~&quot; on the estimate; QA&#x27;s cron-drift P3 is the right shape of
+  humility.
+- The wall renders only what reviews actually recorded; at 7 entries it already
+  reads like the machine thinking out loud — this is the saga&#x27;s best section.
+- Ergonomics landed as *tests*, not intentions: motion guards and aria-pressed
+  are now regressions waiting to be caught, permanently.
+- Sharpest question: does a static countdown mislead once stale? No — it renders
+  once with &quot;~&quot;, and the ON AIR light remains the live truth signal.
+REVIEW: approved</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

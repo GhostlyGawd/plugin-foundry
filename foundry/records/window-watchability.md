@@ -51,3 +51,16 @@ plus aria plus tap targets make it humane on every device.
   cron drift risk noted: fn documents "17 0,8,16 UTC" — if the operator edits the
   cron, the wall test will not catch it; queued a P3 to derive from the workflow
 TEST VERDICT: pass
+
+## Review log
+### Review — i47 (reviewer)
+- The countdown computes client-side from a documented constant — no server, no
+  polling, honest "~" on the estimate; QA's cron-drift P3 is the right shape of
+  humility.
+- The wall renders only what reviews actually recorded; at 7 entries it already
+  reads like the machine thinking out loud — this is the saga's best section.
+- Ergonomics landed as *tests*, not intentions: motion guards and aria-pressed
+  are now regressions waiting to be caught, permanently.
+- Sharpest question: does a static countdown mislead once stale? No — it renders
+  once with "~", and the ON AIR light remains the live truth signal.
+REVIEW: approved
