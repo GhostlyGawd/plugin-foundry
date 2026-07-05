@@ -288,3 +288,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: demo-transcripts approved: label creates a dated upgrade obligation; demos teach limits, not just features
 - line: demo-transcripts review approved
 - gate: validate+build green
+
+## i52 — maintainer — 2026-07-05T19:36:12Z
+- did: Published demo-transcripts: labeled sessions live; experiment armed
+- line: demo-transcripts → published
+- gate: validate+build green · qa green

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T19:36:11Z</updated>
+  <updated>2026-07-05T19:36:12Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/counter-index.html</id>
@@ -10,6 +10,13 @@
     <link href="#"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/demo-transcripts.html</id>
+    <title>Demo Transcripts — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/fork-a-foundry.html</id>

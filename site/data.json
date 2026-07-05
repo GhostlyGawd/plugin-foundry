@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:36:11.682189+00:00",
- "iteration": 51,
+ "generated_at": "2026-07-05T19:36:12.411000+00:00",
+ "iteration": 52,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 12,
   "building": 0,
-  "rc": 11,
-  "published": 11,
+  "rc": 10,
+  "published": 12,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i52",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:36:12Z",
+   "text": "Published demo-transcripts: labeled sessions live; experiment armed \u00b7 demo-transcripts \u2192 published"
+  },
   {
    "it": "i51",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T19:34:32Z",
    "text": "window-watchability built: countdown (pure, marker-tested), sharpest wall on the saga, aria-pressed + 44px + motion-guar \u00b7 window-watchability \u2192 building"
-  },
-  {
-   "it": "i44",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:33:17Z",
-   "text": "Published trust-card: footprint blocks live on all plugin certificates; experiment armed \u00b7 trust-card \u2192 published"
   }
  ],
  "records": [
@@ -283,7 +283,7 @@
    "name": "demo-transcripts",
    "title": "Demo Transcripts",
    "category": "quality",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -929,30 +929,6 @@
     "patron": null
    },
    {
-    "name": "demo-transcripts",
-    "title": "Demo Transcripts",
-    "category": "quality",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.",
-    "tags": [
-     "demos",
-     "certificates",
-     "show-dont-tell"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "embed-badges",
     "title": "Embeds & Badges",
     "category": "growth",
@@ -1494,6 +1470,30 @@
      "search",
      "filters",
      "shelf"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "demo-transcripts",
+    "title": "Demo Transcripts",
+    "category": "quality",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.",
+    "tags": [
+     "demos",
+     "certificates",
+     "show-dont-tell"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 51
+   "n": 52
   }
  ],
  "repo": null

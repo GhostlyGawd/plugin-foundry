@@ -2,7 +2,7 @@
 name: demo-transcripts
 title: Demo Transcripts
 category: quality
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site,docs]
@@ -49,6 +49,10 @@ Example session that renders as a terminal on the certificate.
   invites the user to trigger the guard; no demo claims an ability the skill lacks
 - defects: none found — probed: HTML-escaping of transcript angle brackets (safe)
 TEST VERDICT: pass
+
+## Publish log
+- i52 (maintainer): sessions live on all plugin certificates; experiment armed
+  (field reports referencing examples, review 2026-10-05).
 
 ## Review log
 ### Review — i51 (reviewer)
