@@ -2,7 +2,7 @@
 name: live-shift-theater
 title: Live Shift Theater
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -49,6 +49,10 @@ Spectators became prospectors once; give them a show.
 - defects: none found — probed: fetch failure (silent no-op, curtain stays),
   entry text with angle brackets (escaped)
 TEST VERDICT: pass
+
+## Publish log
+- i56 (maintainer): theater live at /theater.html; experiment armed (path uniques
+  vs saga, review 2026-09-15).
 
 ## Review log
 ### Review — i55 (reviewer)

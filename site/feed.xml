@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T19:37:16Z</updated>
+  <updated>2026-07-05T19:37:17Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/counter-index.html</id>
@@ -24,6 +24,13 @@
     <link href="#"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/live-shift-theater.html</id>
+    <title>Live Shift Theater — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>A window page that replays the latest shift&#x27;s journal as a slow-scrolling theater — watch the machine work.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/trust-card.html</id>

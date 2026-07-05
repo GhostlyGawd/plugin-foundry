@@ -308,3 +308,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: live-shift-theater approved: ledger-diffed playback, honest windowing, reduce path is instant not slower
 - line: live-shift-theater review approved
 - gate: validate+build green
+
+## i56 — maintainer — 2026-07-05T19:37:16Z
+- did: Published live-shift-theater; experiment armed
+- line: live-shift-theater → published
+- gate: validate+build green · qa green

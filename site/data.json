@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:37:16.222217+00:00",
- "iteration": 55,
+ "generated_at": "2026-07-05T19:37:17.000353+00:00",
+ "iteration": 56,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 11,
   "building": 0,
-  "rc": 11,
-  "published": 12,
+  "rc": 10,
+  "published": 13,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i56",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:37:16Z",
+   "text": "Published live-shift-theater; experiment armed \u00b7 live-shift-theater \u2192 published"
+  },
   {
    "it": "i55",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-05T19:35:54Z",
    "text": "demo-transcripts built: labeled terminal sessions on all six plugin certificates; SCHEMA + TESTING duties; behavior-accu \u00b7 demo-transcripts \u2192 building"
-  },
-  {
-   "it": "i48",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:35:11Z",
-   "text": "Published window-watchability: countdown, sharpest wall, ergonomics live; experiment armed \u00b7 window-watchability \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i44",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:33:17Z",
-   "text": "Published trust-card: footprint blocks live on all plugin certificates; experiment armed \u00b7 trust-card \u2192 published"
-  },
   {
    "it": "i45",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:37:16Z",
    "text": "live-shift-theater approved: ledger-diffed playback, honest windowing, reduce path is instant not slower \u00b7 live-shift-theater review approved"
+  },
+  {
+   "it": "i56",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:37:16Z",
+   "text": "Published live-shift-theater; experiment armed \u00b7 live-shift-theater \u2192 published"
   }
  ],
  "records": [
@@ -548,7 +548,7 @@
    "name": "live-shift-theater",
    "title": "Live Shift Theater",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -1098,29 +1098,6 @@
     "patron": null
    },
    {
-    "name": "live-shift-theater",
-    "title": "Live Shift Theater",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
-    "tags": [
-     "spectator",
-     "window",
-     "delight"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1597,6 +1574,29 @@
     "kind": "plugin",
     "always_on_tokens": "90",
     "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "live-shift-theater",
+    "title": "Live Shift Theater",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A window page that replays the latest shift's journal as a slow-scrolling theater \u2014 watch the machine work.",
+    "tags": [
+     "spectator",
+     "window",
+     "delight"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 55
+   "n": 56
   }
  ],
  "repo": null
