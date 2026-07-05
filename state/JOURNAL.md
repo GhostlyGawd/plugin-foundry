@@ -228,3 +228,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: counter-index approved: prior-art honesty, tested pure contract, published-only chip union reasoning traced
 - line: counter-index review approved
 - gate: validate+build green
+
+## i40 — maintainer — 2026-07-05T19:31:36Z
+- did: Published counter-index: chips + tested filter live on the window; experiment armed
+- line: counter-index → published
+- gate: validate+build green · qa green

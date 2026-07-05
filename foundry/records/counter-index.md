@@ -2,7 +2,7 @@
 name: counter-index
 title: The Counter Index
 category: context
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -49,6 +49,10 @@ client-side from data.json, so filtering is a pure function away.
 - defects: none found — probed: tag toggle-off (second click clears), entries
   missing tags array (guarded with ||[])
 TEST VERDICT: pass
+
+## Publish log
+- i40 (maintainer): live on the window this build; experiment armed (returning-
+  uniques proxy, review 2026-09-05).
 
 ## Review log
 ### Review — i39 (reviewer)

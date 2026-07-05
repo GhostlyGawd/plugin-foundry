@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:31:36.366770+00:00",
- "iteration": 39,
+ "generated_at": "2026-07-05T19:31:36.899855+00:00",
+ "iteration": 40,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 15,
   "building": 0,
-  "rc": 11,
-  "published": 8,
+  "rc": 10,
+  "published": 9,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i40",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:31:36Z",
+   "text": "Published counter-index: chips + tested filter live on the window; experiment armed \u00b7 counter-index \u2192 published"
+  },
   {
    "it": "i39",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "ideator",
    "ts": "2026-07-05T18:39:23Z",
    "text": "Line replenished (B9 checked): foundry-network specced with network.json stub + experiment; live-shift-theater and cross \u00b7 foundry-network \u2192 spec (new) \u00b7 2 ideas (new)"
-  },
-  {
-   "it": "i32",
-   "role": "growth",
-   "ts": "2026-07-05T18:39:23Z",
-   "text": "Co-op lane opened (CONTRIBUTING.md: spec-only PRs, machine builds, shared credit; charter/SECURITY cross-ref locks the b \u00b7 adversarial-qa-bounties \u2192 spec (new)"
   }
  ],
  "records": [
@@ -236,7 +236,7 @@
    "name": "counter-index",
    "title": "The Counter Index",
    "category": "context",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -929,29 +929,6 @@
     "patron": null
    },
    {
-    "name": "counter-index",
-    "title": "The Counter Index",
-    "category": "context",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.",
-    "tags": [
-     "search",
-     "filters",
-     "shelf"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "embed-badges",
     "title": "Embeds & Badges",
     "category": "growth",
@@ -1550,6 +1527,29 @@
   ],
   "shipped": [
    {
+    "name": "counter-index",
+    "title": "The Counter Index",
+    "category": "context",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.",
+    "tags": [
+     "search",
+     "filters",
+     "shelf"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "fork-a-foundry",
     "title": "Fork a Foundry",
     "category": "meta",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 39
+   "n": 40
   }
  ],
  "repo": null
