@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:31:08.558470+00:00",
- "iteration": 28,
+ "generated_at": "2026-07-05T18:31:09.004267+00:00",
+ "iteration": 29,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 0,
   "spec": 2,
   "building": 0,
-  "rc": 11,
-  "published": 7,
+  "rc": 10,
+  "published": 8,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i29",
+   "role": "maintainer",
+   "ts": "2026-07-05T18:31:08Z",
+   "text": "Published pr-narrator v0.1.0 with tag; git-flow kit curated (commit-craft + pr-narrator) \u00b7 pr-narrator \u2192 published"
+  },
   {
    "it": "i28",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T18:30:09Z",
    "text": "env-doctor three-tier pass: suite 6/6, ~110 tok stamped, zero-requirements repo handled honestly \u00b7 env-doctor \u2192 rc"
-  },
-  {
-   "it": "i21",
-   "role": "builder",
-   "ts": "2026-07-05T18:30:08Z",
-   "text": "Built env-doctor: requirements-first diagnosis with paired fixes and a hard consent law \u00b7 env-doctor \u2192 building"
   }
  ],
  "records": [
@@ -352,8 +352,8 @@
    "name": "pr-narrator",
    "title": "PR Narrator",
    "category": "workflow",
-   "stage": "rc",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "agents"
    ],
@@ -669,29 +669,6 @@
     "patron": null
    },
    {
-    "name": "pr-narrator",
-    "title": "PR Narrator",
-    "category": "workflow",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "agents"
-    ],
-    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
-    "tags": [
-     "pull-requests",
-     "agents",
-     "writing"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "88",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -982,6 +959,29 @@
     "patron": null
    },
    {
+    "name": "pr-narrator",
+    "title": "PR Narrator",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "agents"
+    ],
+    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
+    "tags": [
+     "pull-requests",
+     "agents",
+     "writing"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "scannable-window",
     "title": "Scannable Window",
     "category": "growth",
@@ -1046,6 +1046,25 @@
     {
      "name": "fork-a-foundry",
      "title": "Fork a Foundry",
+     "stage": "published",
+     "published": true
+    }
+   ]
+  },
+  {
+   "id": "git-flow",
+   "name": "Git-flow kit",
+   "desc": "Clean commits in, clean pull requests out \u2014 the disciplined git loop.",
+   "members": [
+    {
+     "name": "commit-craft",
+     "title": "Commit Craft",
+     "stage": "published",
+     "published": true
+    },
+    {
+     "name": "pr-narrator",
+     "title": "PR Narrator",
      "stage": "published",
      "published": true
     }
@@ -1397,7 +1416,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 28
+   "n": 29
   }
  ],
  "repo": null

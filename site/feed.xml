@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T18:31:08Z</updated>
+  <updated>2026-07-05T18:31:09Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/fork-a-foundry.html</id>
@@ -38,6 +38,13 @@
     <link href="#"/>
     <updated>2026-07-04T00:00:00Z</updated>
     <summary>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/pr-narrator.html</id>
+    <title>PR Narrator v0.1.0 — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/scannable-window.html</id>

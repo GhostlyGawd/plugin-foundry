@@ -2,8 +2,8 @@
 name: pr-narrator
 title: PR Narrator
 category: workflow
-stage: rc
-version: null
+stage: published
+version: 0.1.0
 always_on_tokens: 88
 verified: 2026-07-05
 components: [agents]
@@ -56,6 +56,11 @@ PR descriptions are either empty or novels; reviewers need the middle.
 - defects: none found — probed: base-branch detection order (main→master→ask),
   no push/force verbs anywhere in the skill
 TEST VERDICT: pass
+
+## Publish log
+- i29 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
+  pr-narrator-v0.1.0; curated the git-flow starter kit (commit-craft +
+  pr-narrator) per the reviewer's pairing note.
 
 ## Review log
 ### Review — i28 (reviewer)

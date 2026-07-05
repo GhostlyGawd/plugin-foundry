@@ -28,6 +28,11 @@
       "name": "env-doctor",
       "source": "./plugins/env-doctor",
       "description": "Diagnoses your dev environment against what the repo actually requires \u2014 with copyable fixes and zero unasked mutations."
+    },
+    {
+      "name": "pr-narrator",
+      "source": "./plugins/pr-narrator",
+      "description": "Drafts PR titles and descriptions from your branch's actual commits and diff \u2014 with honest test notes and risk/rollback."
     }
   ]
 }

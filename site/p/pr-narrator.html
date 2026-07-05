@@ -32,8 +32,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>PR Narrator — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04 · ~88 tok est · verified 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">plugin · workflow · v0.1.0 · created 2026-07-04 · updated 2026-07-04 · ~88 tok est · verified 2026-07-05</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** one invocation from branch to honest, skimmable PR description.
@@ -64,14 +64,16 @@
   gated gh, invoke contract, manifest; acceptance checks 1–3 traced
 - defects: none found — probed: base-branch detection order (main→master→ask),
   no push/force verbs anywhere in the skill
-TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i28 (reviewer)
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i29 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
+  pr-narrator-v0.1.0; curated the git-flow starter kit (commit-craft +
+  pr-narrator) per the reviewer&#x27;s pairing note.</pre></details><details open><summary>Review log</summary><pre>### Review — i28 (reviewer)
 - Test-notes honesty clause is the differentiator — a PR tool that refuses to
   launder untested work protects reviewers, not just authors.
 - Evidence chain airtight: log + stat before any prose; gh is offer-then-consent
   with the literal command shown; zero push verbs.
 - Pairs cleanly with commit-craft (clean commits → clean narrative) — kit-worthy.
 REVIEW: approved</pre></details></div>
-  <p class="links">links appear once the repo is configured</p>
+  <p class="links">install: <code>/plugin install pr-narrator@foundry</code></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
   the window.</footer>

@@ -9,6 +9,15 @@
     "plugin-smith",
     "fork-a-foundry"
    ]
+  },
+  {
+   "id": "git-flow",
+   "name": "Git-flow kit",
+   "desc": "Clean commits in, clean pull requests out \u2014 the disciplined git loop.",
+   "plugins": [
+    "commit-craft",
+    "pr-narrator"
+   ]
   }
  ]
 }

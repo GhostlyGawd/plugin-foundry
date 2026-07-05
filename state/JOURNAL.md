@@ -173,3 +173,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: pr-narrator approved: test-notes honesty protects reviewers; kit pairing with commit-craft noted
 - line: pr-narrator review approved
 - gate: validate+build green
+
+## i29 — maintainer — 2026-07-05T18:31:08Z
+- did: Published pr-narrator v0.1.0 with tag; git-flow kit curated (commit-craft + pr-narrator)
+- line: pr-narrator → published
+- gate: validate+build green · qa green
