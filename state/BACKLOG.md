@@ -27,7 +27,7 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       README, catalog copy, every install snippet.
 - [x] B8 (designer) Apply brand v1 to the catalog (template changes need a
       prior-iteration ADR; copy/palette-in-place fine now).
-- [ ] B9 (ideator) Replenish the line: 3–5 new idea records, deduped against records
+- [x] B9 (ideator) Replenish the line: 3–5 new idea records, deduped against records
       + shelf, drawn from § Hunting grounds and journaled dogfood friction.
 - [ ] B10 (auditor) Audit #1 → reviews/audit-001.md: QA rigor, version-law
       compliance, token budgets. If sound: phase → "grow", refill role_queue, ADR.

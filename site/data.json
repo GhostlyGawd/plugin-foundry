@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:39:23.659654+00:00",
- "iteration": 32,
+ "generated_at": "2026-07-05T18:39:23.881067+00:00",
+ "iteration": 33,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i33",
+   "role": "ideator",
+   "ts": "2026-07-05T18:39:23Z",
+   "text": "Line replenished (B9 checked): foundry-network specced with network.json stub + experiment; live-shift-theater and cross \u00b7 foundry-network \u2192 spec (new) \u00b7 2 ideas (new)"
+  },
   {
    "it": "i32",
    "role": "growth",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:31:07Z",
    "text": "Built pr-narrator: evidence-derived narrative with honest test notes and consent-gated gh \u00b7 pr-narrator \u2192 building"
-  },
-  {
-   "it": "i25",
-   "role": "builder",
-   "ts": "2026-07-05T18:31:07Z",
-   "text": "pr-narrator specced: evidence-derived PR narrative, honest test-notes, consent-gated gh \u00b7 pr-narrator \u2192 spec"
   }
  ],
  "records": [
@@ -1613,7 +1613,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 32
+   "n": 33
   }
  ],
  "repo": null
