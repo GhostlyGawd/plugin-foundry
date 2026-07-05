@@ -4,7 +4,7 @@ Priorities: **P0** = drop everything · P1 = important · P2 = normal · `blocke
 diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
-- [ ] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and
+- [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and
       `bash tools/smoke.sh`; confirm green; journal baseline: records per stage,
       plugins on disk, marketplace entries.
 - [x] B2 (builder) Build commit-craft component 1: the `commit` skill
@@ -29,7 +29,7 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       prior-iteration ADR; copy/palette-in-place fine now).
 - [x] B9 (ideator) Replenish the line: 3–5 new idea records, deduped against records
       + shelf, drawn from § Hunting grounds and journaled dogfood friction.
-- [ ] B10 (auditor) Audit #1 → reviews/audit-001.md: QA rigor, version-law
+- [x] B10 (auditor) Audit #1 → reviews/audit-001.md: QA rigor, version-law
       compliance, token budgets. If sound: phase → "grow", refill role_queue, ADR.
 
 ## Grow (worked after bootstrap)

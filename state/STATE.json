@@ -2,9 +2,18 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 33,
-  "phase": "bootstrap",
-  "role_queue": [],
-  "notes": "Named at ADR-011 (Naming Ceremony, i2). Marketplace slug 'foundry' is immutable per the names-are-forever law; the brand name rides display surfaces only.",
+  "iteration": 34,
+  "phase": "grow",
+  "role_queue": [
+    "growth",
+    "qa",
+    "builder",
+    "reviewer",
+    "maintainer",
+    "ideator",
+    "designer",
+    "auditor"
+  ],
+  "notes": "Phase grow as of audit-001 (i34). Named at ADR-011. Slug 'foundry' immutable.",
   "theme": null
 }
