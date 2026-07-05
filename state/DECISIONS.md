@@ -179,3 +179,16 @@ Template:
   human who signs the Stripe account.
 - Consequences: The saga's "awaiting" slot resolves; install instructions never
   change; every surface reads the same name from STATE.json.
+
+## ADR-012 — Relax the hook-quoting check to the docs pattern (i10, builder)
+- Status: proposed (two-iteration rule — apply no earlier than i12)
+- Context: tools/validate.py requires the literal token `"${CLAUDE_PLUGIN_ROOT}"`,
+  which false-positives on the official docs pattern
+  `"${CLAUDE_PLUGIN_ROOT}/path/script.sh"` (whole path quoted). Found by dogfood
+  while building commit-craft — the gate blocked a lawful artifact.
+- Decision (proposed): accept any command where `${CLAUDE_PLUGIN_ROOT}` is
+  immediately preceded by a double quote (`"${CLAUDE_PLUGIN_ROOT}` substring),
+  covering both the var-quoted and whole-path-quoted forms; keep failing truly
+  bare expansions.
+- Consequences: gate matches the documented contract; no published artifact is
+  affected (fix lands before commit-craft publishes).

@@ -7,11 +7,11 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and
       `bash tools/smoke.sh`; confirm green; journal baseline: records per stage,
       plugins on disk, marketplace entries.
-- [ ] B2 (builder) Build commit-craft component 1: the `commit` skill
+- [x] B2 (builder) Build commit-craft component 1: the `commit` skill
       (skills/commit/SKILL.md) exactly per its spec's verbatim description; scaffold
       via plugin-smith's scaffold skill; plugin.json; advance record spec → building
       with Build log entry.
-- [ ] B3 (builder) Build commit-craft component 2: the message-guard hook
+- [x] B3 (builder) Build commit-craft component 2: the message-guard hook
       (hooks/hooks.json + scripts/check-commit-msg.sh, executable, shebang, quoted
       "${CLAUDE_PLUGIN_ROOT}"); README.md + CHANGELOG.md (0.1.0 – Unreleased);
       Build log entry.

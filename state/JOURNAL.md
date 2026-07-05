@@ -73,3 +73,13 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published fork-a-foundry v0.1.0: marketplace entry, changelog dated, version synced — first ship with zero genesis exceptions; P3 polish nit queued
 - line: fork-a-foundry → published
 - gate: validate+build green · qa green
+
+## i10 — builder — 2026-07-05T18:23:53Z
+- did: Built commit-craft (manifest, commit skill, guard hook, docs). Gates then did
+  their job: qa caught the guard's heredoc consuming stdin (blocks silently failed
+  open) — fixed via env passthrough, all 4 hook payload tests now green; validate
+  flagged the hook command's quoting under a stricter-than-docs check — command
+  reshaped to the equally-correct quoted-var form, and ADR-012 filed PROPOSING the
+  check relax (two-iteration rule: apply no earlier than i12). B2+B3 checked.
+- line: commit-craft → building
+- gate: validate+build+qa green (after in-iteration defect fixes)

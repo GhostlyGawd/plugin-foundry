@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Commit Craft — birth certificate</h1></header>
   <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
@@ -65,7 +65,9 @@
    reason; fed a conforming message, exits 0.
 4. Hook script, fed a non-commit Bash payload and a garbled payload, exits 0 both
    times (fail-open proven).
-5. `bash tools/smoke.sh commit-craft` passes; always-on cost within budget.</pre></details></div>
+5. `bash tools/smoke.sh commit-craft` passes; always-on cost within budget.</pre></details><details><summary>Build log</summary><pre>- i10: manifest, `commit` skill, hooks.json (PreToolUse, matcher Bash, quoted
+  ${CLAUDE_PLUGIN_ROOT}), scripts/check-commit-msg.sh (fail-open guard), README
+  with honest hook disclosure + recipes, CHANGELOG. Bootstrap B2+B3 complete.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

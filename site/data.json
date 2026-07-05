@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:23:14.240595+00:00",
- "iteration": 9,
+ "generated_at": "2026-07-05T18:25:43.963670+00:00",
+ "iteration": 10,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 3,
-  "spec": 3,
-  "building": 0,
+  "spec": 2,
+  "building": 1,
   "rc": 10,
   "published": 4,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i10",
+   "role": "builder",
+   "ts": "2026-07-05T18:23:53Z",
+   "text": "Built commit-craft (manifest, commit skill, guard hook, docs). Gates then did \u00b7 commit-craft \u2192 building"
+  },
   {
    "it": "i9",
    "role": "maintainer",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T18:22:09Z",
    "text": "Fixture QA pass on field-reports: 2-report fixture rendered titles/links only on the right certificate; empty state rend \u00b7 field-reports \u2192 rc"
-  },
-  {
-   "it": "i2",
-   "role": "designer",
-   "ts": "2026-07-05T18:21:09Z",
-   "text": "Naming Ceremony held: the system is Nightshift Foundry (ADR-011) \u2014 STATE.name set, wordmark in BRAND.md, PRE-BRAND foote"
   }
  ],
  "records": [
@@ -91,7 +91,7 @@
    "name": "commit-craft",
    "title": "Commit Craft",
    "category": "workflow",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "skills",
@@ -551,6 +551,30 @@
   "commissioned": [],
   "building": [
    {
+    "name": "commit-craft",
+    "title": "Commit Craft",
+    "category": "workflow",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
+    "tags": [
+     "git",
+     "conventional-commits",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -806,30 +830,6 @@
     ],
     "commission": null,
     "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "commit-craft",
-    "title": "Commit Craft",
-    "category": "workflow",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
-    "tags": [
-     "git",
-     "conventional-commits",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 9
+   "n": 10
   }
  ],
  "repo": null

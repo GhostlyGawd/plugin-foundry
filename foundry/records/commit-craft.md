@@ -2,7 +2,7 @@
 name: commit-craft
 title: Commit Craft
 category: workflow
-stage: spec
+stage: building
 version: null
 components: [skills, hooks]
 one_liner: Drafts conventional commits from the staged diff and guards message format at commit time.
@@ -52,3 +52,8 @@ documentation.
 4. Hook script, fed a non-commit Bash payload and a garbled payload, exits 0 both
    times (fail-open proven).
 5. `bash tools/smoke.sh commit-craft` passes; always-on cost within budget.
+
+## Build log
+- i10: manifest, `commit` skill, hooks.json (PreToolUse, matcher Bash, quoted
+  ${CLAUDE_PLUGIN_ROOT}), scripts/check-commit-msg.sh (fail-open guard), README
+  with honest hook disclosure + recipes, CHANGELOG. Bootstrap B2+B3 complete.
