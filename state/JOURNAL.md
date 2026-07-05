@@ -168,3 +168,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: pr-narrator three-tier pass: suite 6/6, ~88 tok stamped, no push/force vocabulary
 - line: pr-narrator → rc
 - gate: validate+build green · qa green
+
+## i28 — reviewer — 2026-07-05T18:31:08Z
+- did: pr-narrator approved: test-notes honesty protects reviewers; kit pairing with commit-craft noted
+- line: pr-narrator review approved
+- gate: validate+build green

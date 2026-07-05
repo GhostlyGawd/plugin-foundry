@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:31:08.356971+00:00",
- "iteration": 27,
+ "generated_at": "2026-07-05T18:31:08.558470+00:00",
+ "iteration": 28,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i28",
+   "role": "reviewer",
+   "ts": "2026-07-05T18:31:08Z",
+   "text": "pr-narrator approved: test-notes honesty protects reviewers; kit pairing with commit-craft noted \u00b7 pr-narrator review approved"
+  },
   {
    "it": "i27",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:30:08Z",
    "text": "Built env-doctor: requirements-first diagnosis with paired fixes and a hard consent law \u00b7 env-doctor \u2192 building"
-  },
-  {
-   "it": "i20",
-   "role": "builder",
-   "ts": "2026-07-05T18:30:08Z",
-   "text": "env-doctor specced: repo-requirements-first diagnosis, paired copyable fixes, hard no-mutation-without-consent law (redo \u00b7 env-doctor \u2192 spec"
   }
  ],
  "records": [
@@ -1397,7 +1397,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 27
+   "n": 28
   }
  ],
  "repo": null

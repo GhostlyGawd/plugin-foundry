@@ -56,3 +56,12 @@ PR descriptions are either empty or novels; reviewers need the middle.
 - defects: none found — probed: base-branch detection order (main→master→ask),
   no push/force verbs anywhere in the skill
 TEST VERDICT: pass
+
+## Review log
+### Review — i28 (reviewer)
+- Test-notes honesty clause is the differentiator — a PR tool that refuses to
+  launder untested work protects reviewers, not just authors.
+- Evidence chain airtight: log + stat before any prose; gh is offer-then-consent
+  with the literal command shown; zero push verbs.
+- Pairs cleanly with commit-craft (clean commits → clean narrative) — kit-worthy.
+REVIEW: approved
