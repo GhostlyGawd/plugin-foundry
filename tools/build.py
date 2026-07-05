@@ -647,7 +647,7 @@ function renderHall(){
   head.style.display = 'block'; box.style.display = 'block';
   box.innerHTML =
     H.prospectors.map(p =>
-      '<div class="hrow"><b>@' + esc(p.login) + '</b><em>' + p.shipped + ' shipped · ' + p.total + ' formalized</em></div>').join('') +
+      '<div class="hrow"><b>@' + esc(p.login) + '</b><em>' + p.shipped + ' shipped · ' + p.total + ' formalized</em>' + (p.card ? ' <a href="' + esc(p.card) + '">card →</a>' : '') + '</div>').join('') +
     (H.patrons.length ? '<div class="hrow"><b>Patrons:</b><em>' + H.patrons.map(esc).join(' · ') + '</em></div>' : '');
 }
 function ago(iso){
@@ -835,6 +835,12 @@ def build_pages(records, mp_name, cfg, reports):
                              + (f" (#{r['suggested_in']})" if r.get("suggested_in") else ""))
         if r.get("patron"):
             meta_bits.append(f"patron: {r['patron']}")
+        cardlink = ""
+        if r.get("prospected_by"):
+            import re as _re2
+            safe = _re2.sub(r"[^A-Za-z0-9_-]", "", r["prospected_by"])
+            if (ROOT / "site" / "card" / f"{safe}.svg").exists():
+                cardlink = f' <a class="cardlink" href="../card/{safe}.svg">contributor card →</a>'
         trust = trust_card(name, r)
         plugin_reports = reports.get(name, [])
         reports_html = ""
@@ -855,7 +861,7 @@ def build_pages(records, mp_name, cfg, reports):
             links.append(f'<a href="https://github.com/{repo}/issues/new?template=field-report.yml">file a field report</a>')
         page = (PAGE_TEMPLATE
                 .replace("@@NAME@@", html.escape(r.get("title", name)))
-                .replace("@@META@@", html.escape(" · ".join(meta_bits)))
+                .replace("@@META@@", html.escape(" · ".join(meta_bits)) + cardlink)
                 .replace("@@TRACK@@", track)
                 .replace("@@STAGE@@", html.escape(r.get("stage", "?")))
                 .replace("@@ONE@@", html.escape(r.get("one_liner", "")))
@@ -1152,6 +1158,11 @@ def main():
     alarms = load_json(ROOT / "foundry" / "alarms.json", [])
     hall = collect_hall(records)
     streak = collect_streak()
+    import cards as _cards
+    card_paths = _cards.write_all(hall, records)
+    for p_ in hall["prospectors"]:
+        if p_["login"] in card_paths:
+            p_["card"] = card_paths[p_["login"]]
 
     data = build_site(records, counts, state, mp_name, cfg, votes, kits,
                       fuel(cfg), alarms, hall, streak)

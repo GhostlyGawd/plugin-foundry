@@ -2,7 +2,7 @@
 name: contributor-cards
 title: Contributor Cards
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site]
@@ -30,3 +30,9 @@ contribution into an advertisement for the next.
 1. Fixture prospector yields a valid SVG with correct counts; removal yields none.
 2. SVG is self-contained (no external fonts or requests).
 3. Hall and certificates link cards only when they exist.
+
+## Build log
+- i61: tools/cards.py renders self-contained kraft SVGs from hall data (prospects,
+  shipped, patronage, since-date from record created); build order fixed so cards
+  exist before pages; certificates and hall rows link cards only when the file
+  exists; empty hall wipes site/card entirely. Fixture suite added.

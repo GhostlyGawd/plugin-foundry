@@ -333,3 +333,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published night-clerk v0.1.0: marketplace entry, catalog regenerated (7 plugins, clerk lists itself), experiment armed
 - line: night-clerk → published (v0.1.0)
 - gate: validate+build green · qa green
+
+## i61 — builder — 2026-07-05T19:46:40Z
+- did: contributor-cards built: SVG generator, hall enrichment, conditional links on certs+hall, empty-wipes-clean; fixture suite green (self-containment check corrected to test real external fetches, not the xmlns URI)
+- line: contributor-cards → building
+- gate: validate+build green · qa green

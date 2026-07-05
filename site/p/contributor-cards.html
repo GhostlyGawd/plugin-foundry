@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Contributor Cards — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>A shareable, kraft-styled SVG credit card per contributor - prospects, patronages, breaks, since-date.</p>
   
   
@@ -55,7 +55,10 @@ contribution into an advertisement for the next.</pre></details><details><summar
 ### Acceptance checks
 1. Fixture prospector yields a valid SVG with correct counts; removal yields none.
 2. SVG is self-contained (no external fonts or requests).
-3. Hall and certificates link cards only when they exist.</pre></details></div>
+3. Hall and certificates link cards only when they exist.</pre></details><details><summary>Build log</summary><pre>- i61: tools/cards.py renders self-contained kraft SVGs from hall data (prospects,
+  shipped, patronage, since-date from record created); build order fixed so cards
+  exist before pages; certificates and hall rows link cards only when the file
+  exists; empty hall wipes site/card entirely. Fixture suite added.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
