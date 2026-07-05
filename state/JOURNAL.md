@@ -258,3 +258,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: window-watchability built: countdown (pure, marker-tested), sharpest wall on the saga, aria-pressed + 44px + motion-guard audit as tests
 - line: window-watchability → building
 - gate: validate+build green · qa green
+
+## i46 — qa — 2026-07-05T19:35:10Z
+- did: window-watchability QA: 8/8 live checks (shift math, wall 7/7 exact, motion+aria); cron-drift risk journaled as P3 → rc
+- line: window-watchability → rc
+- gate: validate+build green · qa green

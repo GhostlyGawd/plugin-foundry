@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:34:32.158265+00:00",
- "iteration": 45,
+ "generated_at": "2026-07-05T19:35:10.412388+00:00",
+ "iteration": 46,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 13,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 10,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i46",
+   "role": "qa",
+   "ts": "2026-07-05T19:35:10Z",
+   "text": "window-watchability QA: 8/8 live checks (shift math, wall 7/7 exact, motion+aria); cron-drift risk journaled as P3 \u2192 rc \u00b7 window-watchability \u2192 rc"
+  },
   {
    "it": "i45",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:31:36Z",
    "text": "counter-index approved: prior-art honesty, tested pure contract, published-only chip union reasoning traced \u00b7 counter-index review approved"
-  },
-  {
-   "it": "i38",
-   "role": "qa",
-   "ts": "2026-07-05T19:31:36Z",
-   "text": "counter-index QA: node suite 5/5 on the pure filter, chips derive from data, empty state links ideas \u2192 rc \u00b7 counter-index \u2192 rc"
   }
  ],
  "records": [
@@ -872,7 +872,7 @@
    "name": "window-watchability",
    "title": "Window Watchability Pack",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site"
@@ -1145,7 +1145,7 @@
     "name": "window-watchability",
     "title": "Window Watchability Pack",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site"
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 45
+   "n": 46
   }
  ],
  "repo": null

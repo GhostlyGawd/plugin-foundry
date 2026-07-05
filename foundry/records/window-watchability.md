@@ -2,7 +2,7 @@
 name: window-watchability
 title: Window Watchability Pack
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -39,3 +39,15 @@ plus aria plus tap targets make it humane on every device.
   (client-side, no server); sharpest-questions wall on the saga (regex over Review
   logs, dynamic count); ergonomics — aria-pressed on tag chips, 44px targets,
   motion guard audit codified as a test. Three suites added.
+
+## Test log
+### Test pass — i46
+- tier 1: pass
+- tier 3: shift suite 4/4 live under node (mid-morning, day boundary, exact-fire
+  rolls forward, post-16:17 wrap); wall count equals Review-log sources exactly
+  (7/7, zero padding); motion audit — every animation guarded, reduce fallback
+  present, chips expose aria-pressed
+- defects: none found — probed: countdown chip absent-element guard (no-op),
+  cron drift risk noted: fn documents "17 0,8,16 UTC" — if the operator edits the
+  cron, the wall test will not catch it; queued a P3 to derive from the workflow
+TEST VERDICT: pass

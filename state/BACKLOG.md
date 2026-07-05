@@ -64,6 +64,9 @@ then audit-002.
 - [ ] GATE B — ≥8 shipped, ≥2 public verdicts, first bug survived well [GATED: world]
 - [ ] GATE C — ≥3 community ships, 1st paid commission, ≥1 sponsored shift [GATED: community]
 
+- [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
+      of the documented constant (drift risk noted at i46).
+
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
 Populated by `tools/intake.py` from issues labeled `bug`.
 Format: `- [ ] B#<issue> <plugin> — <summary>`
