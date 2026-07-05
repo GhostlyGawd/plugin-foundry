@@ -213,3 +213,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: live-shift-theater specced: verbatim journal replay, reduced-motion instant, curtain empty-state
 - line: live-shift-theater → spec
 - gate: validate+build green
+
+## i37 — builder — 2026-07-05T19:31:11Z
+- did: counter-index built: tag chips (published union, AND with text), pure filterCards() behind markers, empty state links the idea template; prior-art honesty noted
+- line: counter-index → building
+- gate: validate+build green · qa green

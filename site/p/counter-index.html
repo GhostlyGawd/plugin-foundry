@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Counter Index — birth certificate</h1></header>
   <p class="meta">feature · context · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>The shelf is past the point where scanning beats searching. Cards already render
@@ -47,7 +47,11 @@ client-side from data.json, so filtering is a pure function away.</pre></details
 ### Acceptance checks
 1. Pure filter function unit-tested (node) across name/tag/one-liner cases.
 2. Tag chips derive from data.json only; no hardcoded tags.
-3. Empty state links the idea template.</pre></details></div>
+3. Empty state links the idea template.</pre></details><details><summary>Build log</summary><pre>- i37: honest scope note — free-text search predates this record (shipped with
+  scannable-window); this ship adds the tag-chip row (published-tag union,
+  toggleable, ANDs with text), extracts the predicate into pure filterCards()
+  between FILTER markers for unit testing, and links the empty state to the idea
+  template. Suite added (node-guarded).</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

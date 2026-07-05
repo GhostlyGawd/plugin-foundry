@@ -223,6 +223,9 @@ TEMPLATE = """<!DOCTYPE html>
   .pulse{display:inline-flex; align-items:center; gap:7px; font-size:11px;
     letter-spacing:.16em; text-transform:uppercase; color:var(--live)}
   .dot{width:9px; height:9px; border-radius:50%; background:var(--live)}
+  .tagchips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+  .tagbtn{cursor:pointer;background:transparent;font:inherit;min-height:32px}
+  .tagbtn.active{background:#2C2820;color:#F3ECDA;border-color:#2C2820}
   @media (prefers-reduced-motion:no-preference){
     .dot{animation:beat 2.4s ease-in-out infinite}
     @keyframes beat{0%,100%{opacity:1}50%{opacity:.25}}}
@@ -382,6 +385,7 @@ TEMPLATE = """<!DOCTYPE html>
   <nav class="lane" aria-label="pipeline filter">@@LANE@@</nav>
   <div class="tools">
     <input id="q" type="search" placeholder="Search plugins by name, job, or tag" aria-label="Search plugins">
+    <div class="tagchips" id="tagchips" role="group" aria-label="filter by tag"></div>
   </div>
   <main id="grid"></main>
   <p class="empty" id="empty">Nothing matches. Clear the filter — or commission it below.</p>
@@ -440,6 +444,7 @@ const grid = document.getElementById('grid');
 const empty = document.getElementById('empty');
 const q = document.getElementById('q');
 let activeStage = null;
+let activeTag = null;
 
 function esc(s){ const d=document.createElement('span'); d.textContent=s??''; return d.innerHTML; }
 
@@ -450,6 +455,16 @@ function badge(e){
   }
   return '<span class="chip tok" title="not yet measured by QA">unmeasured</span>';
 }
+/*FILTER-START*/
+function filterCards(qstr, tag, entries){
+  const needle = (qstr||'').trim().toLowerCase();
+  return entries.filter(e => {
+    if (tag && !(e.tags||[]).includes(tag)) return false;
+    const hay = (e.name+' '+e.title+' '+e.one_liner+' '+(e.tags||[]).join(' ')+' '+e.category+' '+(e.components||[]).join(' ')).toLowerCase();
+    return !needle || hay.includes(needle);
+  });
+}
+/*FILTER-END*/
 function card(e){
   const el = document.createElement('article');
   el.className = 'tag';
@@ -483,18 +498,26 @@ function card(e){
   return el;
 }
 function renderGrid(){
-  const needle = q.value.trim().toLowerCase();
   grid.textContent = '';
   let shown = 0;
   const order = s => { const i = TRACKS.indexOf(s); return i < 0 ? -1 : i; };
-  const sorted = [...DATA.records].sort((a,b) => order(b.stage) - order(a.stage) || a.name.localeCompare(b.name));
+  const sorted = filterCards(q.value, activeTag, [...DATA.records]).sort((a,b) => order(b.stage) - order(a.stage) || a.name.localeCompare(b.name));
   for (const e of sorted){
     if (activeStage && e.stage !== activeStage) continue;
-    const hay = (e.name+' '+e.title+' '+e.one_liner+' '+e.tags.join(' ')+' '+e.category+' '+e.components.join(' ')).toLowerCase();
-    if (needle && !hay.includes(needle)) continue;
     grid.appendChild(card(e)); shown++;
   }
   empty.style.display = shown ? 'none' : 'block';
+}
+function renderChips(){
+  const pub = DATA.records.filter(e => e.stage === 'published');
+  const tags = [...new Set(pub.flatMap(e => e.tags || []))].sort();
+  document.getElementById('tagchips').innerHTML = tags.map(t =>
+    '<button class="chip tagbtn' + (activeTag === t ? ' active' : '') + '" data-tag="' + esc(t) + '">' + esc(t) + '</button>'
+  ).join('');
+  for (const btn of document.querySelectorAll('.tagbtn'))
+    btn.onclick = () => { activeTag = (activeTag === btn.dataset.tag) ? null : btn.dataset.tag; renderChips(); renderChips();
+renderGrid();
+if (DATA.repo) empty.innerHTML = 'Nothing on the shelf matches — <a href="https://github.com/' + DATA.repo + '/issues/new?template=idea.yml">suggest it as an idea →</a> or commission it below.'; };
 }
 function renderTape(){
   document.getElementById('reel').innerHTML = DATA.ticker.map(t =>

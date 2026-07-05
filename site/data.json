@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:29:42.375886+00:00",
- "iteration": 36,
+ "generated_at": "2026-07-05T19:31:11.800554+00:00",
+ "iteration": 37,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 16,
-  "building": 0,
+  "spec": 15,
+  "building": 1,
   "rc": 10,
   "published": 8,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i37",
+   "role": "builder",
+   "ts": "2026-07-05T19:31:11Z",
+   "text": "counter-index built: tag chips (published union, AND with text), pure filterCards() behind markers, empty state links th \u00b7 counter-index \u2192 building"
+  },
   {
    "it": "i36",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T18:36:11Z",
    "text": "Recipes on every published certificate: 3 concrete invocations per plugin, rendered open by default (template tuple + 6"
-  },
-  {
-   "it": "i29",
-   "role": "maintainer",
-   "ts": "2026-07-05T18:31:08Z",
-   "text": "Published pr-narrator v0.1.0 with tag; git-flow kit curated (commit-craft + pr-narrator) \u00b7 pr-narrator \u2192 published"
   }
  ],
  "records": [
@@ -236,7 +236,7 @@
    "name": "counter-index",
    "title": "The Counter Index",
    "category": "context",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site"
@@ -929,6 +929,29 @@
     "patron": null
    },
    {
+    "name": "counter-index",
+    "title": "The Counter Index",
+    "category": "context",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.",
+    "tags": [
+     "search",
+     "filters",
+     "shelf"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "embed-badges",
     "title": "Embeds & Badges",
     "category": "growth",
@@ -1231,29 +1254,6 @@
      "credit",
      "svg",
      "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "counter-index",
-    "title": "The Counter Index",
-    "category": "context",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.",
-    "tags": [
-     "search",
-     "filters",
-     "shelf"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 36
+   "n": 37
   }
  ],
  "repo": null

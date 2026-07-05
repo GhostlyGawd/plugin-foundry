@@ -2,7 +2,7 @@
 name: counter-index
 title: The Counter Index
 category: context
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site]
@@ -31,3 +31,10 @@ client-side from data.json, so filtering is a pure function away.
 1. Pure filter function unit-tested (node) across name/tag/one-liner cases.
 2. Tag chips derive from data.json only; no hardcoded tags.
 3. Empty state links the idea template.
+
+## Build log
+- i37: honest scope note — free-text search predates this record (shipped with
+  scannable-window); this ship adds the tag-chip row (published-tag union,
+  toggleable, ANDs with text), extracts the predicate into pure filterCards()
+  between FILTER markers for unit testing, and links the empty state to the idea
+  template. Suite added (node-guarded).
