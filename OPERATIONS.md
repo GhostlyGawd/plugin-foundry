@@ -20,11 +20,14 @@ Commit + push → `deploy-site.yml` ships the site. It now redeploys on every pu
 i.e., every time the AI works.
 
 ## 3 · Turn on the factory (scheduled shifts)
-Repo → Settings → Secrets and variables → Actions → new secret
-**`ANTHROPIC_API_KEY`**. `run-shift.yml` then runs 3 loop iterations every 8 hours
-(edit the cron to match your credit budget — every shift spends API tokens). Run one
-manually first: Actions → *Run shift* → Run workflow. Halt anytime by committing a
-`STOP` file; resume by deleting it.
+On a machine where Claude Code is logged into your Claude subscription (Pro/Max/
+Team/Enterprise), run `claude setup-token` and copy the one-year OAuth token it
+prints. Repo → Settings → Secrets and variables → Actions → new secret
+**`CLAUDE_CODE_OAUTH_TOKEN`** with that value. `run-shift.yml` then runs 3 loop
+iterations every 8 hours (edit the cron to match your plan's usage limits — every
+shift consumes subscription usage). Run one manually first: Actions → *Run shift*
+→ Run workflow. Halt anytime by committing a `STOP` file; resume by deleting it.
+Renew the token before it expires (~1 year) or shifts start failing loudly.
 
 ## 4 · Open the request box (optional, ~15 min)
 Follow `services/commission-worker/README.md` (Stripe Payment Link → Cloudflare
@@ -66,7 +69,9 @@ shift starts queueing paid commissions.
   foundry/records/commission-tiers.md — the worker maps link → label.
 
 ## Costs & candor
-- Shifts consume Anthropic API credits (cadence × iterations × model = your bill).
+- Shifts run on your Claude subscription (cadence × iterations × model = your usage;
+  the BUDGET.jsonl ledger records Claude Code's computed per-iteration cost, which
+  under subscription auth is a usage gauge, not a separate bill).
 - Actions minutes and Pages are free for public repos; the Worker rides Cloudflare's
   free tier.
 - The commission promise, everywhere it appears: priority + a serious attempt at the

@@ -2,7 +2,9 @@
 # governor, run N loop iterations headlessly, then land the work — directly on main
 # (default) or as a pull request (mode: pr — the human-veto experiment, ADR-008;
 # merging the PR is the approval). Each landing on main → deploy-site.yml → the
-# window updates. Requires secret ANTHROPIC_API_KEY; optional Actions *variable*
+# window updates. Requires secret CLAUDE_CODE_OAUTH_TOKEN (a Claude subscription
+# token from `claude setup-token`; an API key would take precedence if both were
+# set, so only the subscription secret is wired). Optional Actions *variable*
 # LOOP_MONTHLY_BUDGET_USD caps monthly spend. A STOP file halts shifts safely.
 name: Run shift
 on:
@@ -50,7 +52,7 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
       - name: Run the loop (governor-gated, cost-ledgered)
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           LOOP_MONTHLY_BUDGET_USD: ${{ vars.LOOP_MONTHLY_BUDGET_USD }}
           CI: "true"
         run: ./loop.sh "${{ github.event.inputs.iterations || '3' }}"
