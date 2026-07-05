@@ -393,3 +393,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: the-almanac QA: 4/4 on hardened semantics; two gate-caught defects fixed pre-publish → rc
 - line: the-almanac → rc
 - gate: validate+build green · qa green
+
+## i73 — reviewer — 2026-07-05T19:51:36Z
+- did: the-almanac approved: strictest QA applied to the self-portrait, permanently checkable numbers
+- line: the-almanac review approved
+- gate: validate+build green

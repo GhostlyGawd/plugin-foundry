@@ -73,3 +73,15 @@ TEST VERDICT: pass
   drift (i70) and genesis miscount + file-count numbering (i71); this is the
   pipeline doing its job on the machine's own reporting tool
 TEST VERDICT: pass
+
+## Review log
+### Review — i73 (reviewer)
+- The almanac needed three iterations because it *reports on the reporter* — and
+  the gates treated it exactly like any plugin. That the machine's self-portrait
+  gets the strictest QA on the floor is the culture, proven.
+- "As of iN" + the genesis note turn every number into a permanently checkable
+  claim; edition numbers now survive regeneration.
+- Sharpest question: does self-reporting drift into self-praise? Structurally
+  hard — counts, lists, one code line; no adjective slot to fill. The two logged
+  defects on this very record are the counter-evidence.
+REVIEW: approved
