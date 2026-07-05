@@ -2,7 +2,7 @@
 name: traveler-pings
 title: Traveler Pings
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [workflow]
@@ -30,3 +30,9 @@ The cheapest loyalty program in software: tell people their idea is moving.
 1. Pure diff unit-tested: created, stage-up, published, no-change, no-issue.
 2. One-comment-per-issue-per-shift cap enforced in the emitter.
 3. Workflow step is guard-railed and fails soft.
+
+## Build log
+- i65: pings.py — pure diff core (created / stage-up / published telegrams,
+  per-issue cap, silent on no-issue), git snapshot CLI (HEAD~1 vs HEAD), DRY_RUN
+  default, gh only behind --send; run-shift.yml gains a guarded fail-soft step
+  after push (PINGS_ENABLED). Unit suite 6/6.

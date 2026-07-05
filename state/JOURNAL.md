@@ -353,3 +353,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published contributor-cards: generator live, first real credit mints the first card; experiment armed
 - line: contributor-cards → published
 - gate: validate+build green · qa green
+
+## i65 — builder — 2026-07-05T19:47:57Z
+- did: traveler-pings built: pure diff core + telegram bodies, per-issue cap, guarded fail-soft CI step; unit suite 6/6 (silence predicate asserts the key set, not letter soup)
+- line: traveler-pings → building
+- gate: validate+build green · qa green

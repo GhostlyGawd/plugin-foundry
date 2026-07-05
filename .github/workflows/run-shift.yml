@@ -68,3 +68,9 @@ jobs:
             git push
             git push --tags
           fi
+      - name: Traveler pings (guarded, fail-soft)
+        if: env.PINGS_ENABLED == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/pings.py --send
