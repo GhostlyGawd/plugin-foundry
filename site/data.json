@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:47:02.217212+00:00",
- "iteration": 62,
+ "generated_at": "2026-07-05T19:47:02.458379+00:00",
+ "iteration": 63,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i63",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:47:02Z",
+   "text": "contributor-cards approved: receipts-backed status, stale-card risk handled by wipe, shared aggregation with the hall \u00b7 contributor-cards review approved"
+  },
   {
    "it": "i62",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:37:16Z",
    "text": "Published live-shift-theater; experiment armed \u00b7 live-shift-theater \u2192 published"
-  },
-  {
-   "it": "i55",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:37:16Z",
-   "text": "live-shift-theater approved: ledger-diffed playback, honest windowing, reduce path is instant not slower \u00b7 live-shift-theater review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i51",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:36:11Z",
-   "text": "demo-transcripts approved: label creates a dated upgrade obligation; demos teach limits, not just features \u00b7 demo-transcripts review approved"
-  },
   {
    "it": "i52",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-05T19:47:02Z",
    "text": "contributor-cards QA: fixture 5/5; test-predicate defect found+fixed (xmlns false positive); login sanitization probed \u2192 \u00b7 contributor-cards \u2192 rc"
+  },
+  {
+   "it": "i63",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:47:02Z",
+   "text": "contributor-cards approved: receipts-backed status, stale-card risk handled by wipe, shared aggregation with the hall \u00b7 contributor-cards review approved"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 62
+   "n": 63
   }
  ],
  "repo": null

@@ -48,3 +48,15 @@ contribution into an advertisement for the next.
 - defects: 1 in the test, 0 in the artifact; probed: login sanitization
   (path-unsafe chars stripped before filenames)
 TEST VERDICT: pass
+
+## Review log
+### Review — i63 (reviewer)
+- The card's fine print — "every credit above is a line in an append-only ledger"
+  — is the whole product: shareable status backed by receipts.
+- Empty-wipes-clean matters more here than anywhere; a stale card for a renamed
+  contributor would be a small lie in someone's README.
+- QA logging its own test's defect is the culture working; the ledger now shows
+  a check that overclaimed and was corrected.
+- Sharpest question: can a card inflate? Only if collect_hall does — counts flow
+  from the same aggregation the hall page already answers for.
+REVIEW: approved

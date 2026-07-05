@@ -343,3 +343,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: contributor-cards QA: fixture 5/5; test-predicate defect found+fixed (xmlns false positive); login sanitization probed → rc
 - line: contributor-cards → rc
 - gate: validate+build green · qa green
+
+## i63 — reviewer — 2026-07-05T19:47:02Z
+- did: contributor-cards approved: receipts-backed status, stale-card risk handled by wipe, shared aggregation with the hall
+- line: contributor-cards review approved
+- gate: validate+build green
