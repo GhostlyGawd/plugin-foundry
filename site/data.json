@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:53:14.313669+00:00",
- "iteration": 77,
+ "generated_at": "2026-07-05T19:53:15.557698+00:00",
+ "iteration": 78,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 6,
   "building": 0,
-  "rc": 11,
-  "published": 17,
+  "rc": 10,
+  "published": 18,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i78",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:53:15Z",
+   "text": "Published the-mailbag: live in the shipnote pipeline; experiment armed \u00b7 the-mailbag \u2192 published"
+  },
   {
    "it": "i77",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-05T19:51:16Z",
    "text": "almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index \u00b7 the-almanac genesis + numbering fix"
-  },
-  {
-   "it": "i70",
-   "role": "builder",
-   "ts": "2026-07-05T19:50:04Z",
-   "text": "almanac hardened after gate catch: as-of iteration stamp makes edition counts permanently true; suite compares at the st \u00b7 the-almanac snapshot-drift fix"
   }
  ],
  "journal": [
-  {
-   "it": "i66",
-   "role": "qa",
-   "ts": "2026-07-05T19:48:16Z",
-   "text": "traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified \u2192 rc \u00b7 traveler-pings \u2192 rc"
-  },
   {
    "it": "i67",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:53:14Z",
    "text": "the-mailbag approved: evidence-only clause load-bearing, in-thread answers publicly falsifiable \u00b7 the-mailbag review approved"
+  },
+  {
+   "it": "i78",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:53:15Z",
+   "text": "Published the-mailbag: live in the shipnote pipeline; experiment armed \u00b7 the-mailbag \u2192 published"
   }
  ],
  "records": [
@@ -827,7 +827,7 @@
    "name": "the-mailbag",
    "title": "The Mailbag",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "workflow",
@@ -1158,31 +1158,6 @@
      "onboarding",
      "curation",
      "installs"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "the-mailbag",
-    "title": "The Mailbag",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "workflow",
-     "docs",
-     "template"
-    ],
-    "one_liner": "question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.",
-    "tags": [
-     "shipnotes",
-     "questions",
-     "community"
     ],
     "commission": null,
     "kind": "feature",
@@ -1569,6 +1544,31 @@
      "retrospective",
      "accountability",
      "content"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "the-mailbag",
+    "title": "The Mailbag",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "workflow",
+     "docs",
+     "template"
+    ],
+    "one_liner": "question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.",
+    "tags": [
+     "shipnotes",
+     "questions",
+     "community"
     ],
     "commission": null,
     "kind": "feature",
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 77
+   "n": 78
   }
  ],
  "repo": null

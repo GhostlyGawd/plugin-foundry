@@ -418,3 +418,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: the-mailbag approved: evidence-only clause load-bearing, in-thread answers publicly falsifiable
 - line: the-mailbag review approved
 - gate: validate+build green
+
+## i78 — maintainer — 2026-07-05T19:53:15Z
+- did: Published the-mailbag: live in the shipnote pipeline; experiment armed
+- line: the-mailbag → published
+- gate: validate+build green · qa green

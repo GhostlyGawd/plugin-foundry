@@ -2,7 +2,7 @@
 name: the-mailbag
 title: The Mailbag
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [workflow,docs,template]
@@ -47,6 +47,11 @@ read: the Monday shipnote.
 - defects: none found — probed: malformed gh JSON (caught, treated as zero
   questions), label with no open issues (silent)
 TEST VERDICT: pass
+
+## Publish log
+- i78 (maintainer): mechanism live in the Monday shipnote pipeline; first Mailbag
+  renders with the first question; experiment armed (asked+answered rate, review
+  2026-09-15).
 
 ## Review log
 ### Review — i77 (reviewer)

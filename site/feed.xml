@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T19:53:14Z</updated>
+  <updated>2026-07-05T19:53:15Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/contributor-cards.html</id>
@@ -52,6 +52,13 @@
     <link href="#"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/the-mailbag.html</id>
+    <title>The Mailbag — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/traveler-pings.html</id>
