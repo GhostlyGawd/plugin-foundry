@@ -2,10 +2,12 @@
 name: night-clerk
 title: Night Clerk
 category: workflow
-stage: building
+stage: rc
 kind: plugin
 version: null
 components: [skills]
+always_on_tokens: 86
+verified: 2026-07-05
 one_liner: Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.
 tags: [discovery, meta, catalog]
 created: 2026-07-05
@@ -39,3 +41,15 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.
 - i57: manifest, clerk skill (catalog-bound, <=3 fits, snapshot disclosure,
   never-invent, honest empty path, anti-lore clause), tools/clerkcat.py generator,
   bundled catalog (published-only), README with disclosures, CHANGELOG, suite.
+
+## Test log
+### Test pass — i58
+- tier 1: pass
+- tier 3: suite 8/8 here (manifest, invoke contract, never-invent, snapshot duty,
+  honest empty path, catalog⊆published cross-check with 6 entries, dated snapshot,
+  install lines carry @foundry); official CLI validate skips in this environment
+  and runs in CI; always-on cost measured ~86 tok (description only)
+- defects: none found — probed: catalog with zero published (clerkcat still writes
+  a valid empty catalog; skill's empty path covers it), tag list parsing on
+  single-tag records
+TEST VERDICT: pass

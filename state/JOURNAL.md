@@ -318,3 +318,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: night-clerk built: catalog-bound front-desk skill with never-invent + snapshot disclosure; clerkcat generator; suite
 - line: night-clerk → building
 - gate: validate+build green · qa green
+
+## i58 — qa — 2026-07-05T19:44:57Z
+- did: night-clerk QA: suite 8/8, catalog⊆published proven, ~cost stamped; CLI validate deferred to CI → rc
+- line: night-clerk → rc
+- gate: validate+build green · qa green
