@@ -2,7 +2,7 @@
 name: trust-card
 title: Trust Card
 category: quality
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site]
@@ -32,3 +32,9 @@ derives from the artifact itself, so it cannot drift from the truth.
 1. commit-craft card shows "PreToolUse - matcher: Bash"; skills-only plugins show hooks: none.
 2. Network heuristic flags a fixture file containing curl, and clears on removal.
 3. Block renders only for kind: plugin.
+
+## Build log
+- i41: trust_card() derives components, hook surface (parsed hooks.json), network
+  heuristic over executable surfaces (labeled as heuristic), always-on cost, and
+  the uninstall line; renders only for kind: plugin; block placed above the record
+  sections; suite added.

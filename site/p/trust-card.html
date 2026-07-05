@@ -4,6 +4,12 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trust Card — provenance</title>
 <style>
+  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
+  .trow b{min-width:110px}
+  .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
+
   :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
   *{box-sizing:border-box; margin:0}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
@@ -33,8 +39,9 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Trust Card — birth certificate</h1></header>
   <p class="meta">feature · quality · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.</p>
+  
   
   <div class="cert"><details><summary>Pitch</summary><pre>Buyers of automation deserve the blast radius in writing. Everything on the card
 derives from the artifact itself, so it cannot drift from the truth.</pre></details><details><summary>Spec</summary><pre>- Certificate block &quot;Trust card&quot;: components (from record), hook surface (parsed
@@ -48,7 +55,10 @@ derives from the artifact itself, so it cannot drift from the truth.</pre></deta
 ### Acceptance checks
 1. commit-craft card shows &quot;PreToolUse - matcher: Bash&quot;; skills-only plugins show hooks: none.
 2. Network heuristic flags a fixture file containing curl, and clears on removal.
-3. Block renders only for kind: plugin.</pre></details></div>
+3. Block renders only for kind: plugin.</pre></details><details><summary>Build log</summary><pre>- i41: trust_card() derives components, hook surface (parsed hooks.json), network
+  heuristic over executable surfaces (labeled as heuristic), always-on cost, and
+  the uninstall line; renders only for kind: plugin; block placed above the record
+  sections; suite added.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

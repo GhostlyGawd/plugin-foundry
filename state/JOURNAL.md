@@ -233,3 +233,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published counter-index: chips + tested filter live on the window; experiment armed
 - line: counter-index → published
 - gate: validate+build green · qa green
+
+## i41 — builder — 2026-07-05T19:32:57Z
+- did: trust-card built: derivation-only footprint block on plugin certificates (hooks parsed, network heuristic labeled, no hand-written claims)
+- line: trust-card → building
+- gate: validate+build green · qa green

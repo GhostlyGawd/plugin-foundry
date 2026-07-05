@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:31:36.899855+00:00",
- "iteration": 40,
+ "generated_at": "2026-07-05T19:32:57.704438+00:00",
+ "iteration": 41,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 15,
-  "building": 0,
+  "spec": 14,
+  "building": 1,
   "rc": 10,
   "published": 9,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i41",
+   "role": "builder",
+   "ts": "2026-07-05T19:32:57Z",
+   "text": "trust-card built: derivation-only footprint block on plugin certificates (hooks parsed, network heuristic labeled, no ha \u00b7 trust-card \u2192 building"
+  },
   {
    "it": "i40",
    "role": "maintainer",
@@ -54,12 +60,6 @@
    "role": "auditor",
    "ts": "2026-07-05T18:40:00Z",
    "text": "Audit-001: bootstrap complete \u2014 gates caught 2 real defects, 2 harness incidents rolled back pre-push and documented, ve"
-  },
-  {
-   "it": "i33",
-   "role": "ideator",
-   "ts": "2026-07-05T18:39:23Z",
-   "text": "Line replenished (B9 checked): foundry-network specced with network.json stub + experiment; live-shift-theater and cross \u00b7 foundry-network \u2192 spec (new) \u00b7 2 ideas (new)"
   }
  ],
  "records": [
@@ -825,7 +825,7 @@
    "name": "trust-card",
    "title": "Trust Card",
    "category": "quality",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site"
@@ -1108,6 +1108,29 @@
      "trust",
      "transparency",
      "tokens"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "trust-card",
+    "title": "Trust Card",
+    "category": "quality",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.",
+    "tags": [
+     "trust",
+     "footprint",
+     "certificates"
     ],
     "commission": null,
     "kind": "feature",
@@ -1443,29 +1466,6 @@
      "issues",
      "notifications",
      "credit"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "trust-card",
-    "title": "Trust Card",
-    "category": "quality",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.",
-    "tags": [
-     "trust",
-     "footprint",
-     "certificates"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 40
+   "n": 41
   }
  ],
  "repo": null

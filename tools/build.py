@@ -689,6 +689,12 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@NAME@@ — provenance</title>
 <style>
+  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
+  .trow b{min-width:110px}
+  .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
+
   :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
   *{box-sizing:border-box; margin:0}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
@@ -720,6 +726,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <p class="meta">@@META@@</p>
   <div class="track">@@TRACK@@<span>@@STAGE@@</span></div>
   <p>@@ONE@@</p>
+  @@TRUST@@
   @@REPORTS@@
   <div class="cert">@@SECTIONS@@</div>
   <p class="links">@@LINKS@@</p>
@@ -728,6 +735,45 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   the window.</footer>
 </div></body></html>
 """
+
+
+
+def trust_card(name, r):
+    """Derivation-only footprint block for plugin certificates. Facts come from the
+    artifact on disk; heuristics are labeled as heuristics."""
+    pdir = ROOT / "plugins" / name
+    if r.get("kind", "plugin") != "plugin" or not pdir.exists():
+        return ""
+    comps = ", ".join(r.get("components", [])) or "?"
+    hooks_f = pdir / "hooks" / "hooks.json"
+    if hooks_f.exists():
+        try:
+            hj = json.loads(hooks_f.read_text())
+            lines = [f'{ev} · matcher: {m.get("matcher", "*")}'
+                     for ev, arr in hj.get("hooks", {}).items() for m in arr]
+            hooks = "; ".join(lines) or "declared but empty"
+        except Exception:
+            hooks = "hooks.json unreadable — treat as unknown"
+    else:
+        hooks = "none"
+    hits = []
+    skl = pdir / "skills"
+    surf = list(pdir.rglob("*.sh")) + (list(skl.rglob("*.md")) if skl.exists() else [])
+    for f in surf:
+        txt = f.read_text(errors="ignore")
+        for tok in ("curl ", "wget ", "fetch(", "nc "):
+            if tok in txt:
+                hits.append(f"{f.relative_to(pdir)} ({tok.strip()})")
+    net = "none detected in executable surfaces (heuristic)" if not hits else "; ".join(sorted(set(hits)))
+    cost = f'~{r["always_on_tokens"]} tok est' if r.get("always_on_tokens") else "unmeasured"
+    rows = [("components", comps), ("hooks", hooks), ("network", net),
+            ("always-on cost", cost),
+            ("uninstall", f"/plugin uninstall {name} — removes everything the plugin installed")]
+    inner = "".join(f'<div class="trow"><b>{html.escape(k)}</b><span>{html.escape(v)}</span></div>' for k, v in rows)
+    return ('<div class="trust" aria-label="trust card — derived from the artifact">'
+            '<h3>Trust card</h3>' + inner +
+            '<p class="tnote">every line above is derived from the shipped artifact at build time — '
+            'no hand-written safety claims allowed here</p></div>')
 
 
 def build_pages(records, mp_name, cfg, reports):
@@ -757,6 +803,7 @@ def build_pages(records, mp_name, cfg, reports):
                              + (f" (#{r['suggested_in']})" if r.get("suggested_in") else ""))
         if r.get("patron"):
             meta_bits.append(f"patron: {r['patron']}")
+        trust = trust_card(name, r)
         plugin_reports = reports.get(name, [])
         reports_html = ""
         if plugin_reports:
@@ -781,6 +828,7 @@ def build_pages(records, mp_name, cfg, reports):
                 .replace("@@STAGE@@", html.escape(r.get("stage", "?")))
                 .replace("@@ONE@@", html.escape(r.get("one_liner", "")))
                 .replace("@@REPORTS@@", reports_html)
+                .replace("@@TRUST@@", trust)
                 .replace("@@SECTIONS@@", sections or "<details open><summary>Record</summary><pre>(no sections yet)</pre></details>")
                 .replace("@@LINKS@@", " · ".join(links) if links else "links appear once the repo is configured"))
         (outdir / f"{name}.html").write_text(page)
