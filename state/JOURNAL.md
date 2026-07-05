@@ -423,3 +423,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published the-mailbag: live in the shipnote pipeline; experiment armed
 - line: the-mailbag → published
 - gate: validate+build green · qa green
+
+## i79 — builder — 2026-07-05T19:56:15Z
+- did: commission-queue built: sanitizing intake ledger + derived-status queue page, open-counter empty state, nav; fixture suite 7/7
+- line: commission-queue → building
+- gate: validate+build green · qa green

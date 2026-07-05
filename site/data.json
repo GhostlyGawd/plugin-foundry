@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:53:15.557698+00:00",
- "iteration": 78,
+ "generated_at": "2026-07-05T19:56:15.323079+00:00",
+ "iteration": 79,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 6,
-  "building": 0,
+  "spec": 5,
+  "building": 1,
   "rc": 10,
   "published": 18,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i79",
+   "role": "builder",
+   "ts": "2026-07-05T19:56:15Z",
+   "text": "commission-queue built: sanitizing intake ledger + derived-status queue page, open-counter empty state, nav; fixture sui \u00b7 commission-queue \u2192 building"
+  },
   {
    "it": "i78",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-05T19:51:35Z",
    "text": "the-almanac QA: 4/4 on hardened semantics; two gate-caught defects fixed pre-publish \u2192 rc \u00b7 the-almanac \u2192 rc"
-  },
-  {
-   "it": "i71",
-   "role": "builder",
-   "ts": "2026-07-05T19:51:16Z",
-   "text": "almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index \u00b7 the-almanac genesis + numbering fix"
   }
  ],
  "journal": [
-  {
-   "it": "i67",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:48:16Z",
-   "text": "traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced \u00b7 traveler-pings review approved"
-  },
   {
    "it": "i68",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:53:15Z",
    "text": "Published the-mailbag: live in the shipnote pipeline; experiment armed \u00b7 the-mailbag \u2192 published"
+  },
+  {
+   "it": "i79",
+   "role": "builder",
+   "ts": "2026-07-05T19:56:15Z",
+   "text": "commission-queue built: sanitizing intake ledger + derived-status queue page, open-counter empty state, nav; fixture sui \u00b7 commission-queue \u2192 building"
   }
  ],
  "records": [
@@ -167,7 +167,7 @@
    "name": "commission-queue",
    "title": "The Commission Queue",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site",
@@ -980,6 +980,30 @@
   "commissioned": [],
   "building": [
    {
+    "name": "commission-queue",
+    "title": "The Commission Queue",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site",
+     "worker"
+    ],
+    "one_liner": "A sanitized public status board for commissions - patrons watch progress without asking.",
+    "tags": [
+     "commissions",
+     "transparency",
+     "queue"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -1234,30 +1258,6 @@
      "qa",
      "security",
      "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "commission-queue",
-    "title": "The Commission Queue",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site",
-     "worker"
-    ],
-    "one_liner": "A sanitized public status board for commissions - patrons watch progress without asking.",
-    "tags": [
-     "commissions",
-     "transparency",
-     "queue"
     ],
     "commission": null,
     "kind": "feature",
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 78
+   "n": 79
   }
  ],
  "repo": null

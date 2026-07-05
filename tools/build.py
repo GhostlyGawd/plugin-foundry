@@ -370,7 +370,7 @@ TEMPLATE = """<!DOCTYPE html>
   redeploys each time it works. Scroll the shelf, watch the roadmap move, or
   <a href="#request">commission the next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
   <div id="themebox"></div>
   <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -1016,6 +1016,49 @@ def build_theater(state, cfg):
 
 
 
+
+def build_queue(records, cfg):
+    """Sanitized public commission board. Titles come pre-sanitized from intake;
+    status derives from the line — queued (no record), on the line, delivered."""
+    ledger = load_json(ROOT / "state" / "commissions.json", [])
+    by_comm = {str(r.get("commission")): r for r in records if r.get("commission")}
+    rows = []
+    for c in ledger:
+        r = by_comm.get(str(c.get("issue")))
+        if r is None:
+            status, cls = "queued", "q"
+        elif r.get("stage") == "published":
+            status, cls = "delivered", "d"
+        else:
+            status, cls = "on the line", "b"
+        cert = f' · <a href="p/{html.escape(r["name"])}.html">paper trail</a>' if r is not None else ""
+        rows.append(f'<div class="qrow"><span class="qchip {cls}">{status}</span>'
+                    f'<b>C#{html.escape(str(c.get("issue","?")))}</b>'
+                    f'<span class="qtitle">{html.escape(c.get("title",""))}</span>'
+                    f'<em>{html.escape(c.get("opened",""))}</em>{cert}</div>')
+    body = ("".join(rows) if rows else
+            '<p class="qopen">The counter is open — no commissions in the queue. '
+            '<a href="index.html#request">Commission the machine →</a></p>')
+    page = f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The commission queue</title>
+<style>body{{background:#F3ECDA;color:#2C2820;font:15px/1.7 Georgia,serif;max-width:680px;margin:0 auto;padding:28px 16px 64px}}
+h1{{font-size:18px;letter-spacing:.12em;text-transform:uppercase;border-bottom:3px double #2C2820;padding-bottom:8px}}
+.note{{font-size:12.5px;opacity:.75}} a{{color:#7A4A12}}
+.qrow{{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed #C9BC9C;flex-wrap:wrap}}
+.qtitle{{flex:1;min-width:180px}} .qrow em{{font-style:normal;font-size:11.5px;opacity:.65}}
+.qchip{{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid #2C2820;padding:2px 8px}}
+.qchip.d{{background:#2C2820;color:#F3ECDA}} .qchip.b{{background:#B07818;border-color:#B07818;color:#F3ECDA}}
+.qopen{{opacity:.85}}</style></head><body>
+<h1>The commission queue</h1>
+<p class="note">titles only, sanitized at intake — patron text never runs the shop
+(charter/SECURITY.md) · status derives from the line · <a href="index.html">back to the window</a></p>
+{body}
+<footer class="note">No amounts shown; handles appear only with opt-in credit. Every delivery links its paper trail.</footer>
+</body></html>"""
+    (ROOT / "site" / "queue.html").write_text(page)
+
+
 def build_badge(records, state):
     shipped = sum(1 for r in records if r.get("stage") == "published")
     (ROOT / "site" / "badge.json").write_text(json.dumps({
@@ -1170,6 +1213,7 @@ def main():
     build_saga(records, state, cfg)
     build_embed(data["ticker"], cfg)
     build_theater(state, cfg)
+    build_queue(records, cfg)
     build_badge(records, state)
     build_feed(records, cfg)
     print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates")

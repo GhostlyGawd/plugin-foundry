@@ -2,7 +2,7 @@
 name: commission-queue
 title: The Commission Queue
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site,worker]
@@ -32,3 +32,10 @@ fenced and untrusted), status derived from the line.
 1. Fixture commissions.json renders rows; empty renders the open-counter line.
 2. Sanitizer provably drops body text and fences.
 3. Nav links Queue on index.
+
+## Build log
+- i79: intake gains sanitize_title (title line only, fences/backticks/brackets
+  stripped, 80-char cap) + a state/commissions.json ledger that rides the intake
+  commit; build renders site/queue.html — status derives from the line (queued /
+  on the line / delivered with paper-trail link), empty renders the open counter;
+  nav gains Queue. Fixture suite added.

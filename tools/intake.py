@@ -19,11 +19,19 @@ def sh(*args, check=True):
     return subprocess.run(args, capture_output=True, text=True, check=check)
 
 
+def sanitize_title(raw, limit=80):
+    """Title line only, fences and angle brackets stripped, backticks removed,
+    truncated — patron prose never reaches the queue page (charter/SECURITY.md)."""
+    line = (raw or "").splitlines()[0] if raw else ""
+    line = line.replace("`", "").replace("<", "").replace(">", "").strip()
+    return (line[: limit - 1] + "…") if len(line) > limit else (line or "untitled commission")
+
+
 def main():
     def gh_list(label):
         try:
             out = sh("gh", "issue", "list", "--label", label, "--state", "open",
-                     "--json", "number,title,body,author").stdout
+                     "--json", "number,title,body,author,createdAt").stdout
             return json.loads(out or "[]")
         except (FileNotFoundError, subprocess.CalledProcessError):
             return None
@@ -84,6 +92,22 @@ def main():
         sh("git", "-c", "user.name=foundry-intake",
            "-c", "user.email=foundry-intake@users.noreply.github.com",
            "commit", "-m", f"intake: queue {added} commission(s)")
+    # queue ledger: sanitized titles only; status derives from records at build
+    qpath = ROOT / "state" / "commissions.json"
+    try:
+        existing = {c["issue"]: c for c in json.loads(qpath.read_text())} if qpath.exists() else {}
+    except Exception:
+        existing = {}
+    qchanged = False
+    for it in issues:
+        n = str(it["number"])
+        if n not in existing:
+            existing[n] = {"issue": n, "title": sanitize_title(it.get("title", "")),
+                           "opened": (it.get("createdAt") or "")[:10]}
+            qchanged = True
+    if qchanged:
+        qpath.write_text(json.dumps(sorted(existing.values(), key=lambda c: int(c["issue"])), indent=1) + "\n")
+        sh("git", "add", str(qpath), check=False)
     print(f"intake: {added} new commission(s) queued, {len(issues)} open total")
     return 0
 
