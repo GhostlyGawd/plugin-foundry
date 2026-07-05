@@ -49,3 +49,14 @@ Example session that renders as a terminal on the certificate.
   invites the user to trigger the guard; no demo claims an ability the skill lacks
 - defects: none found — probed: HTML-escaping of transcript angle brackets (safe)
 TEST VERDICT: pass
+
+## Review log
+### Review — i51 (reviewer)
+- The honesty label does double duty: it protects readers today and creates the
+  CI obligation that upgrades it tomorrow — a promise with a deadline attached.
+- The demos teach the *limits* as much as the features (consent gates, "none" as
+  a valid test note); that is exactly the shelf's voice.
+- Sharpest question: will an authored demo ever be mistaken for a recording? Not
+  while the uppercase label sits between the summary and the terminal — and the
+  TESTING duty gives every future recording a date.
+REVIEW: approved

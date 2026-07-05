@@ -283,3 +283,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: demo-transcripts QA: suite 2/2 + per-demo behavior cross-read (no overclaimed abilities) → rc
 - line: demo-transcripts → rc
 - gate: validate+build green · qa green
+
+## i51 — reviewer — 2026-07-05T19:36:11Z
+- did: demo-transcripts approved: label creates a dated upgrade obligation; demos teach limits, not just features
+- line: demo-transcripts review approved
+- gate: validate+build green

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:36:11.444907+00:00",
- "iteration": 50,
+ "generated_at": "2026-07-05T19:36:11.682189+00:00",
+ "iteration": 51,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i51",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:36:11Z",
+   "text": "demo-transcripts approved: label creates a dated upgrade obligation; demos teach limits, not just features \u00b7 demo-transcripts review approved"
+  },
   {
    "it": "i50",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:33:17Z",
    "text": "Published trust-card: footprint blocks live on all plugin certificates; experiment armed \u00b7 trust-card \u2192 published"
-  },
-  {
-   "it": "i43",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:33:16Z",
-   "text": "trust-card approved: derivation enforced structurally, unknown-over-false-none, heuristic labeled on-page \u00b7 trust-card review approved"
   }
  ],
  "records": [
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 50
+   "n": 51
   }
  ],
  "repo": null
