@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:30:09.334914+00:00",
- "iteration": 23,
+ "generated_at": "2026-07-05T18:30:09.791461+00:00",
+ "iteration": 24,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 2,
   "building": 0,
-  "rc": 11,
-  "published": 6,
+  "rc": 10,
+  "published": 7,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i24",
+   "role": "maintainer",
+   "ts": "2026-07-05T18:30:09Z",
+   "text": "Published env-doctor v0.1.0 with tag \u00b7 env-doctor \u2192 published"
+  },
   {
    "it": "i23",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T18:27:26Z",
    "text": "session-recap three-tier pass: suite 5/5, ~93 tok stamped, offer-only archive verified \u00b7 session-recap \u2192 rc"
-  },
-  {
-   "it": "i16",
-   "role": "builder",
-   "ts": "2026-07-05T18:27:26Z",
-   "text": "Built session-recap: evidence-first append-only recap skill + suite; archive behavior is offer-only \u00b7 session-recap \u2192 building"
   }
  ],
  "records": [
@@ -186,8 +186,8 @@
    "name": "env-doctor",
    "title": "Env Doctor",
    "category": "quality",
-   "stage": "rc",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "hooks"
    ],
@@ -597,29 +597,6 @@
     "patron": null
    },
    {
-    "name": "env-doctor",
-    "title": "Env Doctor",
-    "category": "quality",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "hooks"
-    ],
-    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
-    "tags": [
-     "environment",
-     "onboarding",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "110",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "field-reports",
     "title": "Field Reports",
     "category": "growth",
@@ -954,6 +931,29 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "env-doctor",
+    "title": "Env Doctor",
+    "category": "quality",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
+    "tags": [
+     "environment",
+     "onboarding",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "110",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 23
+   "n": 24
   }
  ],
  "repo": null

@@ -2,8 +2,8 @@
 name: env-doctor
 title: Env Doctor
 category: quality
-stage: rc
-version: null
+stage: published
+version: 0.1.0
 always_on_tokens: 110
 verified: 2026-07-05
 components: [hooks]
@@ -56,6 +56,10 @@ Half of "it doesn't work" is a version mismatch discovered twenty minutes in.
 - defects: none found — probed: repo with zero requirement files (explicit stop),
   fix vocabulary audited (installs/exports only, nothing destructive)
 TEST VERDICT: pass
+
+## Publish log
+- i24 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
+  env-doctor-v0.1.0.
 
 ## Review log
 ### Review — i23 (reviewer)

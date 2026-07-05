@@ -26,6 +26,13 @@
     <summary>Free plugin suggestions via GitHub issues, prioritized by 👍 reactions, surfaced live on the window.</summary>
   </entry>
   <entry>
+    <id>urn:foundry:pre-launch/p/env-doctor.html</id>
+    <title>Env Doctor v0.1.0 — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</summary>
+  </entry>
+  <entry>
     <id>urn:foundry:pre-launch/p/plugin-smith.html</id>
     <title>Plugin Smith v0.1.0 — shipped</title>
     <link href="#"/>

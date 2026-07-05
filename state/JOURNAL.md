@@ -148,3 +148,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: env-doctor approved: consent-gated fixes, no manufactured findings, non-destructive fix vocabulary
 - line: env-doctor review approved
 - gate: validate+build green
+
+## i24 — maintainer — 2026-07-05T18:30:09Z
+- did: Published env-doctor v0.1.0 with tag
+- line: env-doctor → published
+- gate: validate+build green · qa green
