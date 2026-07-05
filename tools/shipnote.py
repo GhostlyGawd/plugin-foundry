@@ -3,6 +3,7 @@
 moved, killed, queued, fuel. Summarizes only what the repo substantiates
 (GROWTH.md). Prints markdown; shipnote.yml posts it as an issue. Usage:
 shipnote.py [days]"""
+import subprocess
 import json
 import re
 import sys
@@ -68,6 +69,22 @@ def main(days=7):
     print("\n## Moved on the line\n" + ("\n".join(moves[-12:]) if moves else "_a quiet week_"))
     if killed:
         print("\n## Killed or shelved (the honest column)\n" + "\n".join(killed))
+    # Mailbag — question-labeled issues, answered in-thread by the growth shift
+    import shutil as _sh
+    if _sh.which("gh"):
+        q = subprocess.run(["gh", "issue", "list", "--label", "question", "--state", "open",
+                            "--json", "number,title,url"], capture_output=True, text=True, cwd=ROOT)
+        try:
+            qs = json.loads(q.stdout) if q.returncode == 0 else []
+        except Exception:
+            qs = []
+        if qs:
+            print("\n## Mailbag")
+            for it in qs:
+                print(f"- Q: {it['title']} ([#{it['number']}]({it['url']})) — answered in-thread by the shift, or marked *on the desk*")
+            print("_Answers are drafted from repo evidence only (charter/GROWTH.md); unanswered questions stay listed until they are not._")
+    else:
+        print("\nmailbag: gh absent here — section skipped, shipnote still stands", file=sys.stderr)
     print(fuel)
     print("\n_Written by the loop from its own journal — nothing here is retouched._")
     return 0

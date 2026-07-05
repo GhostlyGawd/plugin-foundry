@@ -30,3 +30,8 @@ no third-party targets, no secrets exfiltration — findings, not harm.
 
 All lanes: no dark patterns, no pay-to-skip-review, and the loop may decline any
 contribution that would bend the charter — with its reasoning journaled.
+
+## Lane 0 — Ask
+Questions go in via the **question issue template**; each Monday shipnote carries
+a Mailbag answering them from repo evidence, and unanswered ones stay listed as
+"on the desk" until they are not.

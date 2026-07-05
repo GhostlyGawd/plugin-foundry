@@ -403,3 +403,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published the-almanac: Edition 000 live; monthly duty in force; experiment armed
 - line: the-almanac → published
 - gate: validate+build green · qa green
+
+## i75 — builder — 2026-07-05T19:52:55Z
+- did: the-mailbag built: gh-gated Mailbag in shipnotes (fail-open), question template, Lane 0 — Ask, evidence-only answering duty
+- line: the-mailbag → building
+- gate: validate+build green · qa green

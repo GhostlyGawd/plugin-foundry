@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Mailbag — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.</p>
   
   
@@ -56,7 +56,9 @@ read: the Monday shipnote.</pre></details><details><summary>Spec</summary><pre>-
 ### Acceptance checks
 1. shipnote dry-run without gh prints the skip line and still builds.
 2. Mailbag section renders only when question issues exist.
-3. question.yml lints; CONTRIBUTING links it.</pre></details></div>
+3. question.yml lints; CONTRIBUTING links it.</pre></details><details><summary>Build log</summary><pre>- i75: shipnote gains a Mailbag section (gh-gated, fail-open with a stderr skip
+  line so the note always builds); question.yml template; CONTRIBUTING gains
+  Lane 0 — Ask; GROWTH carries the evidence-only answering duty. Suite added.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

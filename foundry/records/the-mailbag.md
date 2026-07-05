@@ -2,7 +2,7 @@
 name: the-mailbag
 title: The Mailbag
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [workflow,docs,template]
@@ -31,3 +31,8 @@ read: the Monday shipnote.
 1. shipnote dry-run without gh prints the skip line and still builds.
 2. Mailbag section renders only when question issues exist.
 3. question.yml lints; CONTRIBUTING links it.
+
+## Build log
+- i75: shipnote gains a Mailbag section (gh-gated, fail-open with a stderr skip
+  line so the note always builds); question.yml template; CONTRIBUTING gains
+  Lane 0 — Ask; GROWTH carries the evidence-only answering duty. Suite added.

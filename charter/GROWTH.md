@@ -55,3 +55,8 @@ open or closed experiment (orphan features get one retroactively or get killed).
 First shift of each month, the growth role runs `python3 tools/almanac.py` and
 commits the edition. Numbers come from JOURNAL, records, DECISIONS, BUDGET.jsonl
 and the live gates; a missing ledger is named, never estimated around.
+
+## The Mailbag (weekly duty)
+Before shipnote assembly, the growth shift answers open question-labeled issues
+in-thread, from repo evidence only — files, ledgers, certificates. No speculation,
+no lore. What cannot be answered from evidence is said to be unanswerable yet.

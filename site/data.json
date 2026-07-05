@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:51:37.249350+00:00",
- "iteration": 74,
+ "generated_at": "2026-07-05T19:52:55.852532+00:00",
+ "iteration": 75,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 7,
-  "building": 0,
+  "spec": 6,
+  "building": 1,
   "rc": 10,
   "published": 17,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i75",
+   "role": "builder",
+   "ts": "2026-07-05T19:52:55Z",
+   "text": "the-mailbag built: gh-gated Mailbag in shipnotes (fail-open), question template, Lane 0 \u2014 Ask, evidence-only answering d \u00b7 the-mailbag \u2192 building"
+  },
   {
    "it": "i74",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:48:17Z",
    "text": "Published traveler-pings: mechanism live, world-arming documented; experiment armed \u00b7 traveler-pings \u2192 published"
-  },
-  {
-   "it": "i67",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:48:16Z",
-   "text": "traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced \u00b7 traveler-pings review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i63",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:47:02Z",
-   "text": "contributor-cards approved: receipts-backed status, stale-card risk handled by wipe, shared aggregation with the hall \u00b7 contributor-cards review approved"
-  },
   {
    "it": "i64",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:51:37Z",
    "text": "Published the-almanac: Edition 000 live; monthly duty in force; experiment armed \u00b7 the-almanac \u2192 published"
+  },
+  {
+   "it": "i75",
+   "role": "builder",
+   "ts": "2026-07-05T19:52:55Z",
+   "text": "the-mailbag built: gh-gated Mailbag in shipnotes (fail-open), question template, Lane 0 \u2014 Ask, evidence-only answering d \u00b7 the-mailbag \u2192 building"
   }
  ],
  "records": [
@@ -827,7 +827,7 @@
    "name": "the-mailbag",
    "title": "The Mailbag",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "workflow",
@@ -1168,6 +1168,31 @@
     "patron": null
    },
    {
+    "name": "the-mailbag",
+    "title": "The Mailbag",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "workflow",
+     "docs",
+     "template"
+    ],
+    "one_liner": "question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.",
+    "tags": [
+     "shipnotes",
+     "questions",
+     "community"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "token-cost-badges",
     "title": "Token-Cost Badges",
     "category": "growth",
@@ -1353,31 +1378,6 @@
      "releases",
      "cron",
      "freshness"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "the-mailbag",
-    "title": "The Mailbag",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "workflow",
-     "docs",
-     "template"
-    ],
-    "one_liner": "question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.",
-    "tags": [
-     "shipnotes",
-     "questions",
-     "community"
     ],
     "commission": null,
     "kind": "feature",
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 74
+   "n": 75
   }
  ],
  "repo": null
