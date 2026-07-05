@@ -39,7 +39,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Window Watchability Pack — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.</p>
   
   
@@ -56,7 +56,10 @@ plus aria plus tap targets make it humane on every device.</pre></details><detai
 ### Acceptance checks
 1. nextShift() unit-tested (node) across day boundaries and exact-hour edges.
 2. Wall count equals Review logs containing the line - no padding.
-3. Every keyframes animation has a reduced-motion guard.</pre></details></div>
+3. Every keyframes animation has a reduced-motion guard.</pre></details><details><summary>Build log</summary><pre>- i45: nextShift() pure fn behind SHIFT markers + static-once countdown chip
+  (client-side, no server); sharpest-questions wall on the saga (regex over Review
+  logs, dynamic count); ergonomics — aria-pressed on tag chips, 44px targets,
+  motion guard audit codified as a test. Three suites added.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

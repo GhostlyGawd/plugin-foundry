@@ -224,7 +224,7 @@ TEMPLATE = """<!DOCTYPE html>
     letter-spacing:.16em; text-transform:uppercase; color:var(--live)}
   .dot{width:9px; height:9px; border-radius:50%; background:var(--live)}
   .tagchips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
-  .tagbtn{cursor:pointer;background:transparent;font:inherit;min-height:32px}
+  .tagbtn{cursor:pointer;background:transparent;font:inherit;min-height:44px}
   .tagbtn.active{background:#2C2820;color:#F3ECDA;border-color:#2C2820}
   @media (prefers-reduced-motion:no-preference){
     .dot{animation:beat 2.4s ease-in-out infinite}
@@ -386,6 +386,7 @@ TEMPLATE = """<!DOCTYPE html>
   <div class="tools">
     <input id="q" type="search" placeholder="Search plugins by name, job, or tag" aria-label="Search plugins">
     <div class="tagchips" id="tagchips" role="group" aria-label="filter by tag"></div>
+    <span class="chip" id="nextshift" title="computed from the shift cron, no server involved"></span>
   </div>
   <main id="grid"></main>
   <p class="empty" id="empty">Nothing matches. Clear the filter — or commission it below.</p>
@@ -443,6 +444,29 @@ const MP = @@MP@@;
 const grid = document.getElementById('grid');
 const empty = document.getElementById('empty');
 const q = document.getElementById('q');
+/*SHIFT-START*/
+function nextShift(now){
+  // shifts fire at minute 17 past hours 0, 8, 16 UTC (cron: 17 0,8,16 * * *)
+  const HOURS = [0, 8, 16];
+  const d = new Date(now.getTime());
+  for (let add = 0; add <= 1; add++){
+    for (const h of HOURS){
+      const c = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + add, h, 17, 0));
+      if (c > now) return c;
+    }
+  }
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 2, 0, 17, 0));
+}
+/*SHIFT-END*/
+function renderNextShift(){
+  const el = document.getElementById('nextshift');
+  if (!el) return;
+  const n = nextShift(new Date());
+  const ms = n - new Date();
+  const h = Math.floor(ms / 3600000), m = Math.floor((ms % 3600000) / 60000);
+  el.textContent = 'next shift in ~' + (h ? h + 'h ' : '') + m + 'm (' +
+    String(n.getUTCHours()).padStart(2,'0') + ':17 UTC)';
+}
 let activeStage = null;
 let activeTag = null;
 
@@ -512,10 +536,11 @@ function renderChips(){
   const pub = DATA.records.filter(e => e.stage === 'published');
   const tags = [...new Set(pub.flatMap(e => e.tags || []))].sort();
   document.getElementById('tagchips').innerHTML = tags.map(t =>
-    '<button class="chip tagbtn' + (activeTag === t ? ' active' : '') + '" data-tag="' + esc(t) + '">' + esc(t) + '</button>'
+    '<button class="chip tagbtn' + (activeTag === t ? ' active' : '') + '" aria-pressed="' + (activeTag === t) + '" data-tag="' + esc(t) + '">' + esc(t) + '</button>'
   ).join('');
   for (const btn of document.querySelectorAll('.tagbtn'))
-    btn.onclick = () => { activeTag = (activeTag === btn.dataset.tag) ? null : btn.dataset.tag; renderChips(); renderChips();
+    btn.onclick = () => { activeTag = (activeTag === btn.dataset.tag) ? null : btn.dataset.tag; renderNextShift();
+renderChips(); renderChips();
 renderGrid();
 if (DATA.repo) empty.innerHTML = 'Nothing on the shelf matches — <a href="https://github.com/' + DATA.repo + '/issues/new?template=idea.yml">suggest it as an idea →</a> or commission it below.'; };
 }
@@ -843,6 +868,12 @@ def build_saga(records, state, cfg):
         ctx = re.search(r"- Context:\s*(.+)", m.group(5))
         adrs.append({"id": m.group(1), "title": m.group(2), "when": m.group(3),
                      "line": " ".join((ctx.group(1) if ctx else "").split())[:180]})
+    sharpest = []
+    for r in records:
+        for m in re.finditer(r"Sharpest question[^:]*:?\s*(.+?)(?=\n\s*-|\n\s*REVIEW|\n##|\Z)", r.get("_body", ""), re.S):
+            qtxt = " ".join(m.group(1).split())
+            if qtxt:
+                sharpest.append((r.get("title", r.get("name", "?")), qtxt[:220]))
     fates = []
     for r in records:
         if r.get("stage") == "published":
@@ -861,6 +892,8 @@ def build_saga(records, state, cfg):
         f"<li><em>{html.escape(a['when'])}</em> · <b>{html.escape(a['id'])}</b> — "
         f"{html.escape(a['title'])}<br><span>{html.escape(a['line'])}</span></li>"
         for a in reversed(adrs))
+    wall_html = "".join(
+        f"<li><b>{html.escape(t)}</b> — {html.escape(q)}</li>" for t, q in sharpest)
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>the saga</title>
@@ -880,6 +913,7 @@ def build_saga(records, state, cfg):
 <p><a href="index.html">← back to the window</a></p>
 <h1>The saga — the workshop's own story</h1>
 <h2>Ships &amp; fates</h2><ul>{naming}{fate_html}</ul>
+{('<h2>Questions the line asked itself</h2><p class="wallnote">the hardest question each review recorded — argument, on the record</p><ul class="wall">' + wall_html + '</ul>') if wall_html else ''}
 <h2>Charter decisions (ADRs)</h2><ul>{adr_html}</ul>
 <footer>Derived entirely from state/DECISIONS.md and the records — no editorializing,
 no invented milestones. The journal and git log carry the unabridged version.</footer>

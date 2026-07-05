@@ -253,3 +253,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published trust-card: footprint blocks live on all plugin certificates; experiment armed
 - line: trust-card → published
 - gate: validate+build green · qa green
+
+## i45 — builder — 2026-07-05T19:34:32Z
+- did: window-watchability built: countdown (pure, marker-tested), sharpest wall on the saga, aria-pressed + 44px + motion-guard audit as tests
+- line: window-watchability → building
+- gate: validate+build green · qa green

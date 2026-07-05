@@ -2,7 +2,7 @@
 name: window-watchability
 title: Window Watchability Pack
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site]
@@ -33,3 +33,9 @@ plus aria plus tap targets make it humane on every device.
 1. nextShift() unit-tested (node) across day boundaries and exact-hour edges.
 2. Wall count equals Review logs containing the line - no padding.
 3. Every keyframes animation has a reduced-motion guard.
+
+## Build log
+- i45: nextShift() pure fn behind SHIFT markers + static-once countdown chip
+  (client-side, no server); sharpest-questions wall on the saga (regex over Review
+  logs, dynamic count); ergonomics — aria-pressed on tag chips, 44px targets,
+  motion guard audit codified as a test. Three suites added.
