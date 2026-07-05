@@ -158,3 +158,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: pr-narrator specced: evidence-derived PR narrative, honest test-notes, consent-gated gh
 - line: pr-narrator → spec
 - gate: validate+build green
+
+## i26 — builder — 2026-07-05T18:31:07Z
+- did: Built pr-narrator: evidence-derived narrative with honest test notes and consent-gated gh
+- line: pr-narrator → building
+- gate: validate+build green · qa green

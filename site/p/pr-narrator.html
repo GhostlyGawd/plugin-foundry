@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>PR Narrator — birth certificate</h1></header>
   <p class="meta">plugin · workflow · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** one invocation from branch to honest, skimmable PR description.
@@ -55,7 +55,9 @@
 ### Acceptance checks
 1. Title/body derive from real commits and diff — zero invented changes.
 2. Test-notes section refuses to claim untested things (&quot;none&quot; is a valid answer).
-3. gh usage is offer-then-consent with the exact command shown.</pre></details></div>
+3. gh usage is offer-then-consent with the exact command shown.</pre></details><details><summary>Build log</summary><pre>- i26: manifest, `pr` skill (evidence-first, honest test notes, risk+rollback,
+  consent-gated gh), README with recipes incl. the commit-craft pairing, CHANGELOG,
+  executable suite.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

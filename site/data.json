@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:31:07.368006+00:00",
- "iteration": 25,
+ "generated_at": "2026-07-05T18:31:07.836387+00:00",
+ "iteration": 26,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 0,
-  "spec": 3,
-  "building": 0,
+  "spec": 2,
+  "building": 1,
   "rc": 10,
   "published": 7,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i26",
+   "role": "builder",
+   "ts": "2026-07-05T18:31:07Z",
+   "text": "Built pr-narrator: evidence-derived narrative with honest test notes and consent-gated gh \u00b7 pr-narrator \u2192 building"
+  },
   {
    "it": "i25",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T18:27:27Z",
    "text": "Published session-recap v0.1.0 with tag \u00b7 session-recap \u2192 published"
-  },
-  {
-   "it": "i18",
-   "role": "reviewer",
-   "ts": "2026-07-05T18:27:27Z",
-   "text": "session-recap approved: ledger-style handoffs, evidence-gated claims, single-file blast radius \u00b7 session-recap review approved"
   }
  ],
  "records": [
@@ -352,7 +352,7 @@
    "name": "pr-narrator",
    "title": "PR Narrator",
    "category": "workflow",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "agents"
@@ -669,6 +669,29 @@
     "patron": null
    },
    {
+    "name": "pr-narrator",
+    "title": "PR Narrator",
+    "category": "workflow",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "agents"
+    ],
+    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
+    "tags": [
+     "pull-requests",
+     "agents",
+     "writing"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -829,29 +852,6 @@
     ],
     "commission": null,
     "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "pr-narrator",
-    "title": "PR Narrator",
-    "category": "workflow",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "agents"
-    ],
-    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
-    "tags": [
-     "pull-requests",
-     "agents",
-     "writing"
-    ],
-    "commission": null,
-    "kind": "plugin",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,
@@ -1397,7 +1397,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 25
+   "n": 26
   }
  ],
  "repo": null

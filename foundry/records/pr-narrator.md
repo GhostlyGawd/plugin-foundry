@@ -2,7 +2,7 @@
 name: pr-narrator
 title: PR Narrator
 category: workflow
-stage: spec
+stage: building
 version: null
 components: [agents]
 one_liner: A subagent that turns a branch's commits and diff into a reviewer-ready PR description.
@@ -39,3 +39,8 @@ PR descriptions are either empty or novels; reviewers need the middle.
 1. Title/body derive from real commits and diff — zero invented changes.
 2. Test-notes section refuses to claim untested things ("none" is a valid answer).
 3. gh usage is offer-then-consent with the exact command shown.
+
+## Build log
+- i26: manifest, `pr` skill (evidence-first, honest test notes, risk+rollback,
+  consent-gated gh), README with recipes incl. the commit-craft pairing, CHANGELOG,
+  executable suite.
