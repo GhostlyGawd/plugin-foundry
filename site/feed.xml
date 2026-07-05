@@ -39,4 +39,11 @@
     <updated>2026-07-04T00:00:00Z</updated>
     <summary>Jump-nav, glanceable stats strip, and vote counts — the window readable in one sweep.</summary>
   </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/session-recap.html</id>
+    <title>Session Recap v0.1.0 — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <summary>Writes a structured recap when a session ends and recalls it when the next one starts.</summary>
+  </entry>
 </feed>

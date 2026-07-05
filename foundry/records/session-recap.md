@@ -2,8 +2,8 @@
 name: session-recap
 title: Session Recap
 category: context
-stage: rc
-version: null
+stage: published
+version: 0.1.0
 always_on_tokens: 93
 verified: 2026-07-05
 components: [skills, hooks]
@@ -54,6 +54,10 @@ Context evaporates between sessions; yesterday's decisions get re-derived today.
 - defects: none found — probed: missing-file case (create-if-missing present),
   archive behavior is offer-only (no unasked file moves)
 TEST VERDICT: pass
+
+## Publish log
+- i19 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
+  session-recap-v0.1.0.
 
 ## Review log
 ### Review — i18 (reviewer)

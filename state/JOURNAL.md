@@ -123,3 +123,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: session-recap approved: ledger-style handoffs, evidence-gated claims, single-file blast radius
 - line: session-recap review approved
 - gate: validate+build green
+
+## i19 — maintainer — 2026-07-05T18:27:27Z
+- did: Published session-recap v0.1.0 with tag
+- line: session-recap → published
+- gate: validate+build green · qa green

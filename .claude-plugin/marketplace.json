@@ -18,6 +18,11 @@
       "name": "commit-craft",
       "source": "./plugins/commit-craft",
       "description": "Conventional-commit discipline: a skill that writes great messages and a fail-open guard hook that blocks malformed ones."
+    },
+    {
+      "name": "session-recap",
+      "source": "./plugins/session-recap",
+      "description": "One command ends the session properly: an appended, dated handoff \u2014 what changed, decisions, open questions, next steps."
     }
   ]
 }

@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:27:27.157146+00:00",
- "iteration": 18,
+ "generated_at": "2026-07-05T18:27:27.564133+00:00",
+ "iteration": 19,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 2,
   "spec": 2,
   "building": 0,
-  "rc": 11,
-  "published": 5,
+  "rc": 10,
+  "published": 6,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i19",
+   "role": "maintainer",
+   "ts": "2026-07-05T18:27:27Z",
+   "text": "Published session-recap v0.1.0 with tag \u00b7 session-recap \u2192 published"
+  },
   {
    "it": "i18",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:26:07Z",
    "text": "Applied ADR-012: quoting check now accepts the docs whole-path-quoted form (quote-before-var), still fails bare expansio"
-  },
-  {
-   "it": "i11",
-   "role": "qa",
-   "ts": "2026-07-05T18:26:07Z",
-   "text": "commit-craft full three-tier pass: armed suite 4/4, hook-safety audit clean, ~88 tok stamped; B4 checked \u00b7 commit-craft \u2192 rc"
   }
  ],
  "records": [
@@ -421,8 +421,8 @@
    "name": "session-recap",
    "title": "Session Recap",
    "category": "context",
-   "stage": "rc",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "skills",
     "hooks"
@@ -687,30 +687,6 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "session-recap",
-    "title": "Session Recap",
-    "category": "context",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
-    "tags": [
-     "memory",
-     "sessions",
-     "continuity"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "93",
-    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1025,6 +1001,30 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "session-recap",
+    "title": "Session Recap",
+    "category": "context",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
+    "tags": [
+     "memory",
+     "sessions",
+     "continuity"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "93",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 18
+   "n": 19
   }
  ],
  "repo": null
