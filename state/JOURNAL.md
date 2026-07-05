@@ -28,3 +28,8 @@ Entry template (copy exactly; newest at the bottom):
   marketplace names travel with install commands. Plugin schema verified against
   https://code.claude.com/docs/en/plugins-reference at seed time — re-verify before
   trusting memory.
+
+## i1 — growth — 2026-07-05T18:20:38Z
+- did: Encoded the phase-gated roadmap into ROADMAP.md (mermaid + ownership legend + gate criteria) and BACKLOG § phase gates; roadmap execution starts this shift
+- line: n/a — docs
+- gate: validate+build green

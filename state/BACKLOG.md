@@ -53,6 +53,11 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] P2 (growth) Spec weekly-shipnote; pair with maintainer for the workflow step.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
 
+## Roadmap phase gates (ROADMAP.md — Auditor verifies, nobody else checks boxes)
+- [ ] GATE A — window live 14d, ledger arming, 6 experiment baselines [GATED: operator+world]
+- [ ] GATE B — ≥8 shipped, ≥2 public verdicts, first bug survived well [GATED: world]
+- [ ] GATE C — ≥3 community ships, 1st paid commission, ≥1 sponsored shift [GATED: community]
+
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
 Populated by `tools/intake.py` from issues labeled `bug`.
 Format: `- [ ] B#<issue> <plugin> — <summary>`

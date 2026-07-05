@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:01:51.857541+00:00",
- "iteration": 0,
+ "generated_at": "2026-07-05T18:20:38.260701+00:00",
+ "iteration": 1,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i1",
+   "role": "growth",
+   "ts": "2026-07-05T18:20:38Z",
+   "text": "Encoded the phase-gated roadmap into ROADMAP.md (mermaid + ownership legend + gate criteria) and BACKLOG \u00a7 phase gates;"
+  },
   {
    "it": "i0",
    "role": "genesis",
@@ -1356,7 +1362,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 0
+   "n": 1
   }
  ],
  "repo": null
