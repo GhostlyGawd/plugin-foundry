@@ -1,0 +1,18 @@
+name: Ask the foundry
+description: A question about the plugins, the process, or the machine itself — answered in the next Monday shipnote.
+title: "[question] "
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: Answers are drafted from repo evidence only, in-thread, by the next growth shift. Unanswered questions stay listed as "on the desk" until they are not.
+      placeholder: How does the reviewer decide what to kill?
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Context (optional)
+      placeholder: link, plugin name, or what you were trying to do

@@ -1,0 +1,34 @@
+# Releases-and-reverify (record: releases-and-reverify): every *-v* tag becomes a
+# GitHub Release whose notes are the matching CHANGELOG section — extracted, never
+# retyped. A release with no notes does not happen; failures raise an ops-alarm.
+name: Release on tag
+on:
+  push:
+    tags: ["*-v*"]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cut the release from the changelog
+        id: cut
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          NAME="${TAG%-v*}"
+          VER="${TAG##*-v}"
+          python3 tools/relnotes.py "plugins/${NAME}/CHANGELOG.md" "${VER}" > /tmp/notes.md
+          gh release create "${TAG}" --title "${NAME} v${VER}" --notes-file /tmp/notes.md
+      - name: Ops alarm on failure (fail-soft, never silent)
+        if: steps.cut.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "ops-alarm: release failed for ${GITHUB_REF_NAME}" \
+            --label ops-alarm \
+            --body "Release-on-tag could not cut ${GITHUB_REF_NAME}. Likely causes: missing CHANGELOG section for the tagged version, or gh/api failure. relnotes exits 1 when the version is absent — a release with no notes does not happen." || true

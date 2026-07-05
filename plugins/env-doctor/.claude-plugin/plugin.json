@@ -1,0 +1,9 @@
+{
+  "name": "env-doctor",
+  "displayName": "Env Doctor",
+  "version": "0.1.0",
+  "description": "Diagnoses your dev environment against what the repo actually requires — versions, PATH shadowing, missing installs — with copyable fixes and zero unasked mutations.",
+  "author": { "name": "Nightshift Foundry" },
+  "license": "MIT",
+  "keywords": ["environment", "doctor", "diagnostics", "versions"]
+}

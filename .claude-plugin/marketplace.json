@@ -1,0 +1,43 @@
+{
+ "name": "foundry",
+ "owner": {
+  "name": "The Foundry (self-running plugin workshop)"
+ },
+ "plugins": [
+  {
+   "name": "plugin-smith",
+   "source": "./plugins/plugin-smith",
+   "description": "Scaffold new Claude Code plugins and health-check existing ones against the official spec."
+  },
+  {
+   "name": "fork-a-foundry",
+   "source": "./plugins/fork-a-foundry",
+   "description": "Bootstrap your own self-running plugin workshop and marketplace \u2014 the loop that built this one, in a box."
+  },
+  {
+   "name": "commit-craft",
+   "source": "./plugins/commit-craft",
+   "description": "Conventional-commit discipline: a skill that writes great messages and a fail-open guard hook that blocks malformed ones."
+  },
+  {
+   "name": "session-recap",
+   "source": "./plugins/session-recap",
+   "description": "One command ends the session properly: an appended, dated handoff \u2014 what changed, decisions, open questions, next steps."
+  },
+  {
+   "name": "env-doctor",
+   "source": "./plugins/env-doctor",
+   "description": "Diagnoses your dev environment against what the repo actually requires \u2014 with copyable fixes and zero unasked mutations."
+  },
+  {
+   "name": "pr-narrator",
+   "source": "./plugins/pr-narrator",
+   "description": "Drafts PR titles and descriptions from your branch's actual commits and diff \u2014 with honest test notes and risk/rollback."
+  },
+  {
+   "name": "night-clerk",
+   "source": "./plugins/night-clerk",
+   "description": "The foundry's front desk inside your terminal: ask what plugin helps with a task and get real recommendations with exact install lines from a bundled catalog snapshot."
+  }
+ ]
+}

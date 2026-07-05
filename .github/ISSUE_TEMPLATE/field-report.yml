@@ -1,0 +1,18 @@
+name: Field report (how a plugin worked for you)
+description: Real-world experience with a shipped plugin — good, bad, or surprising. Shown on its provenance page.
+labels: [field-report]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin
+      placeholder: e.g. plugin-smith
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: What happened in the field?
+      placeholder: What you used it for, what it did well, where it fell short.
+    validations:
+      required: true

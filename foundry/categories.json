@@ -1,0 +1,45 @@
+{
+  "version": 0,
+  "note": "Taxonomy v0, seeded at genesis. Maintainer owns evolution via ADR (backlog B-taxonomy). 'growth' category added at genesis with ADR-005.",
+  "stages": [
+    "idea",
+    "spec",
+    "building",
+    "rc",
+    "published",
+    "deprecated",
+    "shelved"
+  ],
+  "categories": [
+    {
+      "id": "workflow",
+      "name": "Workflow",
+      "desc": "Everyday development flow: commits, PRs, sessions."
+    },
+    {
+      "id": "quality",
+      "name": "Quality",
+      "desc": "Testing, review, and correctness guards."
+    },
+    {
+      "id": "context",
+      "name": "Context",
+      "desc": "Memory, recall, and session awareness."
+    },
+    {
+      "id": "integrations",
+      "name": "Integrations",
+      "desc": "Bridges to external tools and services (MCP, LSP)."
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "desc": "Plugins for building and maintaining plugins."
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "desc": "Engagement, community, and window features \u2014 experiment-governed (charter/GROWTH.md)."
+    }
+  ]
+}
