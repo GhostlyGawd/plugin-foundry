@@ -118,3 +118,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: session-recap three-tier pass: suite 5/5, ~93 tok stamped, offer-only archive verified
 - line: session-recap → rc
 - gate: validate+build green · qa green
+
+## i18 — reviewer — 2026-07-05T18:27:27Z
+- did: session-recap approved: ledger-style handoffs, evidence-gated claims, single-file blast radius
+- line: session-recap review approved
+- gate: validate+build green

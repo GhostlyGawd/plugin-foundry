@@ -54,3 +54,13 @@ Context evaporates between sessions; yesterday's decisions get re-derived today.
 - defects: none found — probed: missing-file case (create-if-missing present),
   archive behavior is offer-only (no unasked file moves)
 TEST VERDICT: pass
+
+## Review log
+### Review — i18 (reviewer)
+- The skill's spine is the honesty clause: evidence (git + actual conversation
+  decisions) before prose, and APPEND-only so handoffs are a ledger, not a wiki.
+- Checkboxes written "for a stranger" — matches the handoff job precisely.
+- No hooks, no background writes, one file touched, archive is an offer.
+- Sharpest question: can it fabricate a change log with no git repo present? No —
+  status/diff steps precede writing; absent evidence yields absent claims.
+REVIEW: approved

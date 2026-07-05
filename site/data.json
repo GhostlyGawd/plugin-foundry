@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:27:26.959014+00:00",
- "iteration": 17,
+ "generated_at": "2026-07-05T18:27:27.157146+00:00",
+ "iteration": 18,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i18",
+   "role": "reviewer",
+   "ts": "2026-07-05T18:27:27Z",
+   "text": "session-recap approved: ledger-style handoffs, evidence-gated claims, single-file blast radius \u00b7 session-recap review approved"
+  },
   {
    "it": "i17",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T18:26:07Z",
    "text": "commit-craft full three-tier pass: armed suite 4/4, hook-safety audit clean, ~88 tok stamped; B4 checked \u00b7 commit-craft \u2192 rc"
-  },
-  {
-   "it": "i10",
-   "role": "builder",
-   "ts": "2026-07-05T18:23:53Z",
-   "text": "Built commit-craft (manifest, commit skill, guard hook, docs). Gates then did \u00b7 commit-craft \u2192 building"
   }
  ],
  "records": [
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 17
+   "n": 18
   }
  ],
  "repo": null
