@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:48:17.348797+00:00",
- "iteration": 68,
+ "generated_at": "2026-07-05T19:49:10.449727+00:00",
+ "iteration": 69,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 8,
-  "building": 0,
+  "spec": 7,
+  "building": 1,
   "rc": 10,
   "published": 16,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i69",
+   "role": "builder",
+   "ts": "2026-07-05T19:49:10Z",
+   "text": "the-almanac built: ledger-only monthly edition (000 live for 2026-07), honest missing-ledger line, editions index, nav,  \u00b7 the-almanac \u2192 building"
+  },
   {
    "it": "i68",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-05T19:47:02Z",
    "text": "contributor-cards QA: fixture 5/5; test-predicate defect found+fixed (xmlns false positive); login sanitization probed \u2192 \u00b7 contributor-cards \u2192 rc"
-  },
-  {
-   "it": "i61",
-   "role": "builder",
-   "ts": "2026-07-05T19:46:40Z",
-   "text": "contributor-cards built: SVG generator, hall enrichment, conditional links on certs+hall, empty-wipes-clean; fixture sui \u00b7 contributor-cards \u2192 building"
   }
  ],
  "journal": [
-  {
-   "it": "i57",
-   "role": "builder",
-   "ts": "2026-07-05T19:38:01Z",
-   "text": "night-clerk built: catalog-bound front-desk skill with never-invent + snapshot disclosure; clerkcat generator; suite \u00b7 night-clerk \u2192 building"
-  },
   {
    "it": "i58",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:48:17Z",
    "text": "Published traveler-pings: mechanism live, world-arming documented; experiment armed \u00b7 traveler-pings \u2192 published"
+  },
+  {
+   "it": "i69",
+   "role": "builder",
+   "ts": "2026-07-05T19:49:10Z",
+   "text": "the-almanac built: ledger-only monthly edition (000 live for 2026-07), honest missing-ledger line, editions index, nav,  \u00b7 the-almanac \u2192 building"
   }
  ],
  "records": [
@@ -804,7 +804,7 @@
    "name": "the-almanac",
    "title": "The Almanac",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site"
@@ -1168,6 +1168,29 @@
     "patron": null
    },
    {
+    "name": "the-almanac",
+    "title": "The Almanac",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.",
+    "tags": [
+     "retrospective",
+     "accountability",
+     "content"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "token-cost-badges",
     "title": "Token-Cost Badges",
     "category": "growth",
@@ -1353,29 +1376,6 @@
      "releases",
      "cron",
      "freshness"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "the-almanac",
-    "title": "The Almanac",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.",
-    "tags": [
-     "retrospective",
-     "accountability",
-     "content"
     ],
     "commission": null,
     "kind": "feature",
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 68
+   "n": 69
   }
  ],
  "repo": null

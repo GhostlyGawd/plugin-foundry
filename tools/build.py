@@ -370,7 +370,7 @@ TEMPLATE = """<!DOCTYPE html>
   redeploys each time it works. Scroll the shelf, watch the roadmap move, or
   <a href="#request">commission the next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
   <div id="themebox"></div>
   <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>

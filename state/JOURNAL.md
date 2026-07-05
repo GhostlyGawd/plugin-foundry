@@ -373,3 +373,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published traveler-pings: mechanism live, world-arming documented; experiment armed
 - line: traveler-pings → published
 - gate: validate+build green · qa green
+
+## i69 — builder — 2026-07-05T19:49:10Z
+- did: the-almanac built: ledger-only monthly edition (000 live for 2026-07), honest missing-ledger line, editions index, nav, GROWTH duty
+- line: the-almanac → building
+- gate: validate+build green · qa green

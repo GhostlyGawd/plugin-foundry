@@ -50,3 +50,8 @@ If the last 4 experiment verdicts are all `keep`, measurement has gone soft — 
 becomes P0 (same logic as the QA rubber-stamp tripwire). The Auditor's monthly read
 includes: verdict mix, ladder movement, and whether any shipped feature lacks an
 open or closed experiment (orphan features get one retroactively or get killed).
+
+## The Almanac (monthly duty)
+First shift of each month, the growth role runs `python3 tools/almanac.py` and
+commits the edition. Numbers come from JOURNAL, records, DECISIONS, BUDGET.jsonl
+and the live gates; a missing ledger is named, never estimated around.

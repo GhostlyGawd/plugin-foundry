@@ -2,7 +2,7 @@
 name: the-almanac
 title: The Almanac
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site]
@@ -31,3 +31,9 @@ ledger, every month, no adjectives it cannot back.
 1. Edition 000 counts match the ledger (iterations, ships) exactly.
 2. Missing budget data produces the honest line, not zeros presented as fact.
 3. Editions index renders; nav links it.
+
+## Build log
+- i69: almanac.py writes editions from JOURNAL/records/DECISIONS/BUDGET + live
+  gates; absent cost ledger produces the honest sentence, never an estimate;
+  editions index + nav link; GROWTH monthly duty; Edition 000 generated for
+  2026-07 from real data. Suite added.
