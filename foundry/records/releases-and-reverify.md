@@ -2,7 +2,7 @@
 name: releases-and-reverify
 title: Releases & Weekly Re-verification
 category: workflow
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [workflow]
@@ -41,3 +41,17 @@ freshness as a standing promise, not a launch-day claim.
   stamps withheld from red suites, stale shelf raises an alarm). ADR-013
   proposed for the metadata exemption — applies no earlier than i85; the cron
   first fires Monday, after the ADR window closes. Two suites added.
+
+## Test log
+### Test pass — i84
+- tier 1: pass
+- tier 3: suites 13/13 live — relnotes extracts the exact section with proven
+  exclusion of neighbors, refuses absent versions at both API and CLI levels
+  (a release with no notes does not happen); both workflows lint; cron, schedule
+  guard and dual ops-alarms asserted; restamp helpers unit-tested (red suites
+  withhold stamps, insert-vs-refresh both covered) without invoking main —
+  the qa-recursion trap was designed out, not patched around
+- defects: none found — probed: prerelease-style versions in extract (word
+  boundary holds), CHANGELOG with the version mentioned in prose only (heading
+  regex ignores it)
+TEST VERDICT: pass

@@ -448,3 +448,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (metadata exemption)
 - line: releases-and-reverify → building
 - gate: validate+build green · qa green
+
+## i84 — qa — 2026-07-05T19:59:01Z
+- did: releases-and-reverify QA: 13/13, refusal semantics proven, qa-recursion designed out → rc
+- line: releases-and-reverify → rc
+- gate: validate+build green · qa green

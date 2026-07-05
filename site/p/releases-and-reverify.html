@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Releases &amp; Weekly Re-verification — birth certificate</h1></header>
   <p class="meta">feature · workflow · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.</p>
   
   
@@ -63,7 +63,18 @@ freshness as a standing promise, not a launch-day claim.</pre></details><details
   pure parse/stamp helpers unit-tested, main is CI-only to avoid qa recursion,
   stamps withheld from red suites, stale shelf raises an alarm). ADR-013
   proposed for the metadata exemption — applies no earlier than i85; the cron
-  first fires Monday, after the ADR window closes. Two suites added.</pre></details></div>
+  first fires Monday, after the ADR window closes. Two suites added.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i84
+- tier 1: pass
+- tier 3: suites 13/13 live — relnotes extracts the exact section with proven
+  exclusion of neighbors, refuses absent versions at both API and CLI levels
+  (a release with no notes does not happen); both workflows lint; cron, schedule
+  guard and dual ops-alarms asserted; restamp helpers unit-tested (red suites
+  withhold stamps, insert-vs-refresh both covered) without invoking main —
+  the qa-recursion trap was designed out, not patched around
+- defects: none found — probed: prerelease-style versions in extract (word
+  boundary holds), CHANGELOG with the version mentioned in prose only (heading
+  regex ignores it)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
