@@ -438,3 +438,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design
 - line: commission-queue review approved
 - gate: validate+build green
+
+## i82 — maintainer — 2026-07-05T19:56:36Z
+- did: Published commission-queue: board live, counter open; experiment armed
+- line: commission-queue → published
+- gate: validate+build green · qa green

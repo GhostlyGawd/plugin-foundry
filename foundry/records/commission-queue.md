@@ -2,7 +2,7 @@
 name: commission-queue
 title: The Commission Queue
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site,worker]
@@ -51,6 +51,11 @@ fenced and untrusted), status derived from the line.
 - defects: none found — probed: malformed commissions.json (load_json default []
   keeps the page up), commission number as int vs string (normalized both sides)
 TEST VERDICT: pass
+
+## Publish log
+- i82 (maintainer): queue live at /queue.html with the counter open; first
+  commission populates it via intake; experiment armed (status-request comments
+  per commission, review 2026-10-05).
 
 ## Review log
 ### Review — i81 (reviewer)

@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Commission Queue — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>A sanitized public status board for commissions - patrons watch progress without asking.</p>
   
   
@@ -70,7 +70,9 @@ fenced and untrusted), status derived from the line.</pre></details><details><su
   (open counter) and the nav link held
 - defects: none found — probed: malformed commissions.json (load_json default []
   keeps the page up), commission number as int vs string (normalized both sides)
-TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i81 (reviewer)
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i82 (maintainer): queue live at /queue.html with the counter open; first
+  commission populates it via intake; experiment armed (status-request comments
+  per commission, review 2026-10-05).</pre></details><details open><summary>Review log</summary><pre>### Review — i81 (reviewer)
 - Sanitization at *intake*, not at render, is the right layer: patron prose never
   enters the repo&#x27;s derived state at all, so no future renderer can leak it.
 - Status derived from the line means the queue cannot be edited into optimism —
