@@ -2,7 +2,7 @@
 name: contributor-cards
 title: Contributor Cards
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -48,6 +48,10 @@ contribution into an advertisement for the next.
 - defects: 1 in the test, 0 in the artifact; probed: login sanitization
   (path-unsafe chars stripped before filenames)
 TEST VERDICT: pass
+
+## Publish log
+- i64 (maintainer): generator live in every build; cards appear with the first
+  real credit; experiment armed (README-referrer proxy, review 2026-10-05).
 
 ## Review log
 ### Review — i63 (reviewer)

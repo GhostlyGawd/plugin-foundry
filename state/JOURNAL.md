@@ -348,3 +348,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: contributor-cards approved: receipts-backed status, stale-card risk handled by wipe, shared aggregation with the hall
 - line: contributor-cards review approved
 - gate: validate+build green
+
+## i64 — maintainer — 2026-07-05T19:47:03Z
+- did: Published contributor-cards: generator live, first real credit mints the first card; experiment armed
+- line: contributor-cards → published
+- gate: validate+build green · qa green
