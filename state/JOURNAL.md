@@ -328,3 +328,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through
 - line: night-clerk review approved
 - gate: validate+build green
+
+## i60 — maintainer — 2026-07-05T19:44:59Z
+- did: Published night-clerk v0.1.0: marketplace entry, catalog regenerated (7 plugins, clerk lists itself), experiment armed
+- line: night-clerk → published (v0.1.0)
+- gate: validate+build green · qa green

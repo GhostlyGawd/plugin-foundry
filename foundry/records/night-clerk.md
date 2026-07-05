@@ -2,9 +2,9 @@
 name: night-clerk
 title: Night Clerk
 category: workflow
-stage: rc
+stage: published
 kind: plugin
-version: null
+version: 0.1.0
 components: [skills]
 always_on_tokens: 86
 verified: 2026-07-05
@@ -53,6 +53,11 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.
   a valid empty catalog; skill's empty path covers it), tag list parsing on
   single-tag records
 TEST VERDICT: pass
+
+## Publish log
+- i60 (maintainer): v0.1.0 on the shelf; catalog regenerated post-publish so the
+  clerk lists itself among 7; tag night-clerk-v0.1.0; experiment armed (install
+  proxy, review 2026-09-05).
 
 ## Review log
 ### Review — i59 (reviewer)

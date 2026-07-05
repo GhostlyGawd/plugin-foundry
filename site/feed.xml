@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T19:44:58Z</updated>
+  <updated>2026-07-05T19:44:59Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/counter-index.html</id>
@@ -31,6 +31,13 @@
     <link href="#"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>A window page that replays the latest shift&#x27;s journal as a slow-scrolling theater — watch the machine work.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/night-clerk.html</id>
+    <title>Night Clerk v0.1.0 — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/trust-card.html</id>

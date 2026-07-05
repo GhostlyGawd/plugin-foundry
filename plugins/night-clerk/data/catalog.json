@@ -35,6 +35,16 @@
    "install": "/plugin install fork-a-foundry@foundry"
   },
   {
+   "name": "night-clerk",
+   "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+   "tags": [
+    "discovery",
+    "meta",
+    "catalog"
+   ],
+   "install": "/plugin install night-clerk@foundry"
+  },
+  {
    "name": "plugin-smith",
    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
    "tags": [
