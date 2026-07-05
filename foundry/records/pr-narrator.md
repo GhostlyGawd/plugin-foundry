@@ -62,6 +62,14 @@ TEST VERDICT: pass
 - pair with commit-craft: clean commits in, clean narrative out
 - "describe this branch for the changelog" → same evidence, changelog voice
 
+## Example session
+you> write the PR
+pr> base detected: main · evidence: git log main..HEAD (4 commits), diff --stat
+pr> title: feat(queue): sanitized public commission board
+pr> Test notes: unit suite 5/5; no browser pass — "none" would also be an honest answer
+pr> Risk & rollback: additive page; revert the single commit to remove
+pr> gh found — run `gh pr create --title ... --body-file /tmp/pr.md`? (y/N)
+
 ## Publish log
 - i29 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   pr-narrator-v0.1.0; curated the git-flow starter kit (commit-craft +

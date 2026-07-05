@@ -60,6 +60,14 @@ TEST VERDICT: pass
 - "where did we leave off?" → latest section read back before starting
 - "hand this off to Sam" → next steps written for a stranger
 
+## Example session
+you> recap this session
+recap> evidence: git status, diff --stat, 3 decisions from this conversation
+recap> appended "## 2026-07-05 14:30 — intake hardening" to SESSION-RECAP.md
+recap> next steps written for a stranger:
+recap> - [ ] wire PINGS_ENABLED in repo settings
+recap> - [ ] re-run the adversarial pass on commission #12
+
 ## Publish log
 - i19 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   session-recap-v0.1.0.

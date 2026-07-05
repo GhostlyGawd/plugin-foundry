@@ -714,6 +714,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@NAME@@ — provenance</title>
 <style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
   .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
@@ -811,10 +813,15 @@ def build_pages(records, mp_name, cfg, reports):
         track = "".join(
             f'<span class="punch {"done" if 0 <= i <= idx else ""}" title="{t}"></span>'
             for i, t in enumerate(TRACK))
-        sections = "".join(
-            f"<details{' open' if title in ('Test log','Review log','Verdict','Kill memo','Recipes') else ''}>"
-            f"<summary>{html.escape(title)}</summary><pre>{html.escape(text)}</pre></details>"
-            for title, text in extract_sections(r.get("_body", "")))
+        def sec(title, text):
+            if title == "Example session":
+                return ("<details open><summary>Example session</summary>"
+                        "<p class=\"honestlabel\">authored example — a CI-recorded transcript "
+                        "replaces this per charter/TESTING.md</p>"
+                        f"<pre class=\"term\">{html.escape(text)}</pre></details>")
+            o = ' open' if title in ('Test log','Review log','Verdict','Kill memo','Recipes') else ''
+            return f"<details{o}><summary>{html.escape(title)}</summary><pre>{html.escape(text)}</pre></details>"
+        sections = "".join(sec(t_, x_) for t_, x_ in extract_sections(r.get("_body", "")))
         meta_bits = [r.get("kind", "plugin"), r.get("category", "?"),
                      f"v{r['version']}" if r.get("version") not in (None, "null", "") else "unversioned",
                      f"created {r.get('created', '?')}", f"updated {r.get('updated', '?')}"]

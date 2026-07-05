@@ -62,6 +62,13 @@ TEST VERDICT: pass
 - "why won't this run?" → mismatches surface with paired copyable fixes
 - CI-only failure → run inside the container image to diff environments
 
+## Example session
+you> why won't this run?
+envcheck> reading what the repo declares: package.json engines, .nvmrc found
+envcheck> ✓ git 2.43 · ✓ node 20.11 (repo wants >=20) · ✗ python 3.9 (pyproject wants >=3.11)
+envcheck> fix (copyable, not run): pyenv install 3.11 && pyenv local 3.11
+envcheck> say the word and I run exactly that command — nothing else.
+
 ## Publish log
 - i24 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   env-doctor-v0.1.0.

@@ -4,6 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Demo Transcripts — provenance</title>
 <style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
   .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
@@ -39,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Demo Transcripts — birth certificate</h1></header>
   <p class="meta">feature · quality · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.</p>
   
   
@@ -54,7 +56,11 @@ Example session that renders as a terminal on the certificate.</pre></details><d
 ### Acceptance checks
 1. All six published plugin certificates render a terminal block with the label.
 2. Records without the section render nothing extra.
-3. TESTING documents the CI recording duty.</pre></details></div>
+3. TESTING documents the CI recording duty.</pre></details><details><summary>Build log</summary><pre>- i49: Example session renders terminal-styled + open with the honesty label;
+  SCHEMA documents the section; TESTING gains the CI recording duty (recordings
+  replace authored examples, dated); six authored sessions placed — each shows
+  only behavior the plugin actually has (consent gates, honest test notes, the
+  guard explaining itself). Suite added.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

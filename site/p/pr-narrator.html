@@ -4,6 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PR Narrator — provenance</title>
 <style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
   .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
@@ -73,7 +75,12 @@
   no push/force verbs anywhere in the skill
 TEST VERDICT: pass</pre></details><details open><summary>Recipes</summary><pre>- &quot;write the PR&quot; on a finished branch → full draft from commit evidence
 - pair with commit-craft: clean commits in, clean narrative out
-- &quot;describe this branch for the changelog&quot; → same evidence, changelog voice</pre></details><details><summary>Publish log</summary><pre>- i29 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
+- &quot;describe this branch for the changelog&quot; → same evidence, changelog voice</pre></details><details open><summary>Example session</summary><p class="honestlabel">authored example — a CI-recorded transcript replaces this per charter/TESTING.md</p><pre class="term">you&gt; write the PR
+pr&gt; base detected: main · evidence: git log main..HEAD (4 commits), diff --stat
+pr&gt; title: feat(queue): sanitized public commission board
+pr&gt; Test notes: unit suite 5/5; no browser pass — &quot;none&quot; would also be an honest answer
+pr&gt; Risk &amp; rollback: additive page; revert the single commit to remove
+pr&gt; gh found — run `gh pr create --title ... --body-file /tmp/pr.md`? (y/N)</pre></details><details><summary>Publish log</summary><pre>- i29 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   pr-narrator-v0.1.0; curated the git-flow starter kit (commit-craft +
   pr-narrator) per the reviewer&#x27;s pairing note.</pre></details><details open><summary>Review log</summary><pre>### Review — i28 (reviewer)
 - Test-notes honesty clause is the differentiator — a PR tool that refuses to

@@ -4,6 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plugin Smith — provenance</title>
 <style>
+  .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
+  .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
   .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
@@ -65,7 +67,12 @@
   green via tools/validate.py + smoke.sh. Post-publish re-test is P1 in BACKLOG.
 TEST VERDICT: pass (structural only — see backlog P1 for the honest re-test)</pre></details><details open><summary>Recipes</summary><pre>- &quot;scaffold a plugin called changelog-bot with one skill&quot; → full lawful skeleton
 - &quot;doctor my plugin at ./plugins/foo&quot; → structure + manifest + quoting findings
-- pair with fork-a-foundry: smith the plugin, then give it a workshop</pre></details><details open><summary>Review log</summary><pre>REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
+- pair with fork-a-foundry: smith the plugin, then give it a workshop</pre></details><details open><summary>Example session</summary><p class="honestlabel">authored example — a CI-recorded transcript replaces this per charter/TESTING.md</p><pre class="term">you&gt; scaffold a plugin called changelog-bot with one skill
+smith&gt; reading the official plugin docs first (docs-before-invention)...
+smith&gt; created plugins/changelog-bot/.claude-plugin/plugin.json
+smith&gt; created skills/changelog/SKILL.md — description carries a &quot;Use when&quot; contract
+smith&gt; created README.md, CHANGELOG.md
+smith&gt; run `claude plugin validate ./plugins/changelog-bot --strict` to confirm</pre></details><details open><summary>Review log</summary><pre>REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
 docs 4, structure 5. The P1 re-test supersedes this the moment it runs.
 Published i0 at 0.1.0 — marketplace entry source ./plugins/plugin-smith.</pre></details></div>
   <p class="links">install: <code>/plugin install plugin-smith@foundry</code></p>

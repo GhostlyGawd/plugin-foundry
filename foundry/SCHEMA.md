@@ -23,7 +23,10 @@ updated: 2026-07-04
 ---
 ```
 
-## Sections by stage — each stage requires all previous stages' sections
+## Sections
+- `## Example session` (optional, plugins) — a short transcript showing the plugin
+  in use. Renders terminal-styled and open on the certificate, always with the
+  authored-vs-recorded honesty label until QA replaces it with a CI recording. by stage — each stage requires all previous stages' sections
 
 **idea** (Ideator)
 1. `# {title}` — one paragraph: the friction observed.

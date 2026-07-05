@@ -79,6 +79,12 @@ TEST VERDICT: pass
 - "split this into two commits" → partition proposed before anything lands
 - type `git commit -m "wip"` yourself → the guard blocks with the reason (try it)
 
+## Example session
+you> commit this
+commit> staged: 2 files (+41 -6) — reading the diff, not guessing
+commit> proposal: fix(intake): fence patron text before it reaches the backlog
+commit> committed. (try `git commit -m "wip"` yourself — the guard will explain)
+
 ## Publish log
 - i14 (maintainer): marketplace entry, version 0.1.0 synced, CHANGELOG dated,
   release tag commit-craft-v0.1.0. The workshop's own commits now pass through the

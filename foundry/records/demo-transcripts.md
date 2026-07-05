@@ -2,7 +2,7 @@
 name: demo-transcripts
 title: Demo Transcripts
 category: quality
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [site,docs]
@@ -31,3 +31,10 @@ Example session that renders as a terminal on the certificate.
 1. All six published plugin certificates render a terminal block with the label.
 2. Records without the section render nothing extra.
 3. TESTING documents the CI recording duty.
+
+## Build log
+- i49: Example session renders terminal-styled + open with the honesty label;
+  SCHEMA documents the section; TESTING gains the CI recording duty (recordings
+  replace authored examples, dated); six authored sessions placed — each shows
+  only behavior the plugin actually has (consent gates, honest test notes, the
+  guard explaining itself). Suite added.

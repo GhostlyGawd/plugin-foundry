@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:35:11.372254+00:00",
- "iteration": 48,
+ "generated_at": "2026-07-05T19:35:54.150955+00:00",
+ "iteration": 49,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 13,
-  "building": 0,
+  "spec": 12,
+  "building": 1,
   "rc": 10,
   "published": 11,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i49",
+   "role": "builder",
+   "ts": "2026-07-05T19:35:54Z",
+   "text": "demo-transcripts built: labeled terminal sessions on all six plugin certificates; SCHEMA + TESTING duties; behavior-accu \u00b7 demo-transcripts \u2192 building"
+  },
   {
    "it": "i48",
    "role": "maintainer",
@@ -54,12 +60,6 @@
    "role": "qa",
    "ts": "2026-07-05T19:33:16Z",
    "text": "trust-card QA: suite 5/5 + live curl fixture flagged-then-cleared; unreadable hooks path reports unknown, never false-no \u00b7 trust-card \u2192 rc"
-  },
-  {
-   "it": "i41",
-   "role": "builder",
-   "ts": "2026-07-05T19:32:57Z",
-   "text": "trust-card built: derivation-only footprint block on plugin certificates (hooks parsed, network heuristic labeled, no ha \u00b7 trust-card \u2192 building"
   }
  ],
  "records": [
@@ -283,7 +283,7 @@
    "name": "demo-transcripts",
    "title": "Demo Transcripts",
    "category": "quality",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site",
@@ -929,6 +929,30 @@
     "patron": null
    },
    {
+    "name": "demo-transcripts",
+    "title": "Demo Transcripts",
+    "category": "quality",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.",
+    "tags": [
+     "demos",
+     "certificates",
+     "show-dont-tell"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "embed-badges",
     "title": "Embeds & Badges",
     "category": "growth",
@@ -1231,30 +1255,6 @@
      "credit",
      "svg",
      "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "demo-transcripts",
-    "title": "Demo Transcripts",
-    "category": "quality",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.",
-    "tags": [
-     "demos",
-     "certificates",
-     "show-dont-tell"
     ],
     "commission": null,
     "kind": "feature",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 48
+   "n": 49
   }
  ],
  "repo": null

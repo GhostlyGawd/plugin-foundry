@@ -56,6 +56,14 @@ TEST VERDICT: pass (structural only — see backlog P1 for the honest re-test)
 - "doctor my plugin at ./plugins/foo" → structure + manifest + quoting findings
 - pair with fork-a-foundry: smith the plugin, then give it a workshop
 
+## Example session
+you> scaffold a plugin called changelog-bot with one skill
+smith> reading the official plugin docs first (docs-before-invention)...
+smith> created plugins/changelog-bot/.claude-plugin/plugin.json
+smith> created skills/changelog/SKILL.md — description carries a "Use when" contract
+smith> created README.md, CHANGELOG.md
+smith> run `claude plugin validate ./plugins/changelog-bot --strict` to confirm
+
 ## Review log
 REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
 docs 4, structure 5. The P1 re-test supersedes this the moment it runs.

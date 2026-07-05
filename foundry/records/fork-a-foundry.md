@@ -61,6 +61,13 @@ TEST VERDICT: pass
 - "bootstrap a fresh foundry from spec in ./new" → from-spec path, ceremony pending
 - first run after forking: `bash loop.sh 3` and watch the journal fill
 
+## Example session
+you> fork this foundry into ~/my-workshop
+bootstrap> copying LOOP.md, charter/, tools/, loop.sh — laws travel with the code
+bootstrap> your workshop has NO name yet: the Naming Ceremony is yours to hold
+bootstrap> first run: cd ~/my-workshop && bash loop.sh 3
+bootstrap> gates must pass in the new repo before I call this done... green.
+
 ## Publish log
 - i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
   0.1.0 synced, CHANGELOG dated, release tag fork-a-foundry-v0.1.0 laid. First

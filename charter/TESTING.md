@@ -18,6 +18,11 @@ rubber stamp; find the edge or document that you hunted for one.
 - No CLI in this environment? Log `TIER 2: unavailable — structural+behavioral only`
   and be harsher in Tier 3.
 
+## Session recordings (QA duty, CI shifts)
+Where the CLI exists, QA replaces a record's authored "## Example session" with a
+transcript from an actual run, noting the date. Authored examples must be plausible,
+short, and never demonstrate behavior the plugin does not have.
+
 ## Compatibility stamp (QA duty, CI shifts)
 When the official CLI is present, QA stamps `tested_with: <claude --version>` into
 the record's front matter alongside the pass. Local passes leave it absent.

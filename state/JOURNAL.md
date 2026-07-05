@@ -273,3 +273,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published window-watchability: countdown, sharpest wall, ergonomics live; experiment armed
 - line: window-watchability → published
 - gate: validate+build green · qa green
+
+## i49 — builder — 2026-07-05T19:35:54Z
+- did: demo-transcripts built: labeled terminal sessions on all six plugin certificates; SCHEMA + TESTING duties; behavior-accurate authored examples
+- line: demo-transcripts → building
+- gate: validate+build green · qa green
