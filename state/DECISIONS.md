@@ -181,7 +181,7 @@ Template:
   change; every surface reads the same name from STATE.json.
 
 ## ADR-012 — Relax the hook-quoting check to the docs pattern (i10, builder)
-- Status: proposed (two-iteration rule — apply no earlier than i12)
+- Status: accepted (proposed i10, applied i12 — two-iteration rule honored)
 - Context: tools/validate.py requires the literal token `"${CLAUDE_PLUGIN_ROOT}"`,
   which false-positives on the official docs pattern
   `"${CLAUDE_PLUGIN_ROOT}/path/script.sh"` (whole path quoted). Found by dogfood

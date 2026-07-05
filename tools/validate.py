@@ -143,7 +143,7 @@ def check_plugin_artifact(name, record, errors):
                         if h.get("type") not in HOOK_TYPES:
                             errors.append(f"{label}: unknown hook type {h.get('type')!r}")
                         cmd = h.get("command", "")
-                        if "${CLAUDE_PLUGIN_ROOT}" in cmd and '"${CLAUDE_PLUGIN_ROOT}"' not in cmd:
+                        if "${CLAUDE_PLUGIN_ROOT}" in cmd and '"${CLAUDE_PLUGIN_ROOT}' not in cmd:
                             errors.append(f"{label}: unquoted ${{CLAUDE_PLUGIN_ROOT}} in hook command")
     # Scripts must be executable with shebangs.
     for script in sorted(pdir.glob("scripts/*")):
