@@ -178,3 +178,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published pr-narrator v0.1.0 with tag; git-flow kit curated (commit-craft + pr-narrator)
 - line: pr-narrator → published
 - gate: validate+build green · qa green
+
+## i30 — maintainer — 2026-07-05T18:36:11Z
+- did: Recipes on every published certificate: 3 concrete invocations per plugin, rendered open by default (template tuple + 6 records)
+- line: n/a — catalog docs
+- gate: validate+build green · qa green

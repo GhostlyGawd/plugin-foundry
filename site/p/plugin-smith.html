@@ -56,7 +56,9 @@
    agents/ inside .claude-plugin/) reports each flaw with the fix.
 3. Doctor on plugin-smith itself reports clean.</pre></details><details><summary>Build log</summary><pre>- i0: both skills, manifest, README, CHANGELOG written at genesis.</pre></details><details open><summary>Test log</summary><pre>- i0: genesis exception — shipped without a full TESTING.md pass; structural tier
   green via tools/validate.py + smoke.sh. Post-publish re-test is P1 in BACKLOG.
-TEST VERDICT: pass (structural only — see backlog P1 for the honest re-test)</pre></details><details open><summary>Review log</summary><pre>REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
+TEST VERDICT: pass (structural only — see backlog P1 for the honest re-test)</pre></details><details open><summary>Recipes</summary><pre>- &quot;scaffold a plugin called changelog-bot with one skill&quot; → full lawful skeleton
+- &quot;doctor my plugin at ./plugins/foo&quot; → structure + manifest + quoting findings
+- pair with fork-a-foundry: smith the plugin, then give it a workshop</pre></details><details open><summary>Review log</summary><pre>REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
 docs 4, structure 5. The P1 re-test supersedes this the moment it runs.
 Published i0 at 0.1.0 — marketplace entry source ./plugins/plugin-smith.</pre></details></div>
   <p class="links">install: <code>/plugin install plugin-smith@foundry</code></p>

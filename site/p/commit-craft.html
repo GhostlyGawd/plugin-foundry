@@ -78,7 +78,9 @@
   exactly &quot;Bash&quot;, script read-only, no network, plugin-root quoted
 - defects (this pass): none — i10&#x27;s two build defects were fixed and journaled;
   probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
-TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i14 (maintainer): marketplace entry, version 0.1.0 synced, CHANGELOG dated,
+TEST VERDICT: pass</pre></details><details open><summary>Recipes</summary><pre>- &quot;commit this&quot; → skill reads the staged diff, writes `fix(auth): ...`
+- &quot;split this into two commits&quot; → partition proposed before anything lands
+- type `git commit -m &quot;wip&quot;` yourself → the guard blocks with the reason (try it)</pre></details><details><summary>Publish log</summary><pre>- i14 (maintainer): marketplace entry, version 0.1.0 synced, CHANGELOG dated,
   release tag commit-craft-v0.1.0. The workshop&#x27;s own commits now pass through the
   guard it just shipped — dogfood law satisfied.</pre></details><details open><summary>Review log</summary><pre>### Review — i13 (reviewer)
 - Skill: subject/type/body doctrine matches the spec; reads the staged diff before

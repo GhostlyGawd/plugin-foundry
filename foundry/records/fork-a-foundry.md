@@ -56,6 +56,11 @@ loop runs a green iteration.
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
 TEST VERDICT: pass
 
+## Recipes
+- "fork this foundry into ~/my-workshop" → the whole loop, laws carried
+- "bootstrap a fresh foundry from spec in ./new" → from-spec path, ceremony pending
+- first run after forking: `bash loop.sh 3` and watch the journal fill
+
 ## Publish log
 - i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
   0.1.0 synced, CHANGELOG dated, release tag fork-a-foundry-v0.1.0 laid. First

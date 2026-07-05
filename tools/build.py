@@ -718,7 +718,7 @@ def build_pages(records, mp_name, cfg, reports):
             f'<span class="punch {"done" if 0 <= i <= idx else ""}" title="{t}"></span>'
             for i, t in enumerate(TRACK))
         sections = "".join(
-            f"<details{' open' if title in ('Test log','Review log','Verdict','Kill memo') else ''}>"
+            f"<details{' open' if title in ('Test log','Review log','Verdict','Kill memo','Recipes') else ''}>"
             f"<summary>{html.escape(title)}</summary><pre>{html.escape(text)}</pre></details>"
             for title, text in extract_sections(r.get("_body", "")))
         meta_bits = [r.get("kind", "plugin"), r.get("category", "?"),

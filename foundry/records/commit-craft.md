@@ -74,6 +74,11 @@ documentation.
   probed additionally: single-quoted -m, multiline -m body (first line judged),   git commit --amend without -m (fail-open confirmed)
 TEST VERDICT: pass
 
+## Recipes
+- "commit this" → skill reads the staged diff, writes `fix(auth): ...`
+- "split this into two commits" → partition proposed before anything lands
+- type `git commit -m "wip"` yourself → the guard blocks with the reason (try it)
+
 ## Publish log
 - i14 (maintainer): marketplace entry, version 0.1.0 synced, CHANGELOG dated,
   release tag commit-craft-v0.1.0. The workshop's own commits now pass through the

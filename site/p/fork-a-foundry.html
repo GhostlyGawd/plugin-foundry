@@ -60,7 +60,9 @@
 - tier 2: unavailable locally — official --strict validate runs in the QA workflow
 - tier 3: checks 1–2 executed via foundry/tests/fork-a-foundry/structure.test.sh
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
-TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
+TEST VERDICT: pass</pre></details><details open><summary>Recipes</summary><pre>- &quot;fork this foundry into ~/my-workshop&quot; → the whole loop, laws carried
+- &quot;bootstrap a fresh foundry from spec in ./new&quot; → from-spec path, ceremony pending
+- first run after forking: `bash loop.sh 3` and watch the journal fill</pre></details><details><summary>Publish log</summary><pre>- i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
   0.1.0 synced, CHANGELOG dated, release tag fork-a-foundry-v0.1.0 laid. First
   artifact through the complete v4/v5 gate chain with zero genesis exceptions.</pre></details><details open><summary>Review log</summary><pre>### Review — i8 (reviewer)
 - QUALITY bar walked line-by-line: invoke contract present; both paths (fork /

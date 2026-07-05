@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:31:09.004267+00:00",
- "iteration": 29,
+ "generated_at": "2026-07-05T18:36:11.088276+00:00",
+ "iteration": 30,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i30",
+   "role": "maintainer",
+   "ts": "2026-07-05T18:36:11Z",
+   "text": "Recipes on every published certificate: 3 concrete invocations per plugin, rendered open by default (template tuple + 6"
+  },
   {
    "it": "i29",
    "role": "maintainer",
@@ -54,12 +60,6 @@
    "role": "reviewer",
    "ts": "2026-07-05T18:30:09Z",
    "text": "env-doctor approved: consent-gated fixes, no manufactured findings, non-destructive fix vocabulary \u00b7 env-doctor review approved"
-  },
-  {
-   "it": "i22",
-   "role": "qa",
-   "ts": "2026-07-05T18:30:09Z",
-   "text": "env-doctor three-tier pass: suite 6/6, ~110 tok stamped, zero-requirements repo handled honestly \u00b7 env-doctor \u2192 rc"
   }
  ],
  "records": [
@@ -1416,7 +1416,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 29
+   "n": 30
   }
  ],
  "repo": null

@@ -57,6 +57,11 @@ Half of "it doesn't work" is a version mismatch discovered twenty minutes in.
   fix vocabulary audited (installs/exports only, nothing destructive)
 TEST VERDICT: pass
 
+## Recipes
+- fresh clone → "env doctor" → the checklist before your first build
+- "why won't this run?" → mismatches surface with paired copyable fixes
+- CI-only failure → run inside the container image to diff environments
+
 ## Publish log
 - i24 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   env-doctor-v0.1.0.

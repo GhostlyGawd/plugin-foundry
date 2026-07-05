@@ -57,6 +57,11 @@ PR descriptions are either empty or novels; reviewers need the middle.
   no push/force verbs anywhere in the skill
 TEST VERDICT: pass
 
+## Recipes
+- "write the PR" on a finished branch → full draft from commit evidence
+- pair with commit-craft: clean commits in, clean narrative out
+- "describe this branch for the changelog" → same evidence, changelog voice
+
 ## Publish log
 - i29 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   pr-narrator-v0.1.0; curated the git-flow starter kit (commit-craft +

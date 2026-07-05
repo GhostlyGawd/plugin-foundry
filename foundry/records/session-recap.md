@@ -55,6 +55,11 @@ Context evaporates between sessions; yesterday's decisions get re-derived today.
   archive behavior is offer-only (no unasked file moves)
 TEST VERDICT: pass
 
+## Recipes
+- "recap this session" → dated section appended to SESSION-RECAP.md
+- "where did we leave off?" → latest section read back before starting
+- "hand this off to Sam" → next steps written for a stranger
+
 ## Publish log
 - i19 (maintainer): marketplace entry, version synced, CHANGELOG dated, tag
   session-recap-v0.1.0.
