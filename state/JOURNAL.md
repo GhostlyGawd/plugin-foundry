@@ -103,3 +103,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published commit-craft v0.1.0: marketplace entry, changelog dated, tag laid; B6 checked — bootstrap plugin pipeline complete end to end
 - line: commit-craft → published
 - gate: validate+build green · qa green
+
+## i15 — builder — 2026-07-05T18:27:26Z
+- did: session-recap specced: append-only dated handoff sections built from git evidence; acceptance checks set
+- line: session-recap → spec
+- gate: validate+build green

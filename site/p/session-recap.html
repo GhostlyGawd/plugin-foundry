@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Session Recap — birth certificate</h1></header>
   <p class="meta">plugin · context · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
   <p>Writes a structured recap when a session ends and recalls it when the next one starts.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** continuity across sessions without hand-written notes.
@@ -42,7 +42,18 @@
   log file, plus a `recall` skill that reads and summarizes recent entries on demand.
 - **Why a plugin:** it&#x27;s an event (hook) + a retrieval prompt (skill) — a natural
   bundle; also a clean exercise of hook-safety law (writes one project-local file,
-  documented loudly).</pre></details></div>
+  documented loudly).</pre></details><details><summary>Spec</summary><pre>- Name: `session-recap` (forever). One skill, `recap`, description (verbatim):
+  &quot;Write a durable handoff recap of this working session into SESSION-RECAP.md.
+  Use when ending a session, handing work to someone else, or the user says recap
+  this session, write a handoff, or where did we leave off.&quot;
+- Behavior: read the session&#x27;s evidence (git status, git diff --stat, recent
+  conversation decisions), then APPEND a dated section to SESSION-RECAP.md with:
+  What changed · Decisions made · Open questions · Next steps (checkboxed). Never
+  overwrite prior recaps; create the file if absent; no hooks, no network.
+### Acceptance checks
+1. Skill appends (never truncates) and dates each section.
+2. Reads git evidence before writing — no invented changes.
+3. Next steps render as actionable checkboxes.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
