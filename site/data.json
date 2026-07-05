@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-05T20:00:29.983127+00:00",
+ "generated_at": "2026-07-05T23:53:57.337238+00:00",
  "iteration": 87,
  "phase": "grow",
  "theme": null,
@@ -967,13 +967,13 @@
   }
  ],
  "stats": {
-  "stars": null,
-  "watchers": null,
+  "stars": 0,
+  "watchers": 0,
   "views_14d": null,
   "uniques_14d": null,
   "idea_votes_total": 0,
-  "field_reports": null,
-  "open_alarms": null
+  "field_reports": 0,
+  "open_alarms": 0
  },
  "votes": [],
  "roadmap": {
@@ -2204,5 +2204,5 @@
    "n": 87
   }
  ],
- "repo": null
+ "repo": "GhostlyGawd/plugin-foundry"
 }
