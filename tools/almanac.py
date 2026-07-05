@@ -20,7 +20,9 @@ def main(month=None):
     entries = re.findall(r"^## (i\d+) — ([\w-]+) — ([0-9T:\-\.Z]+)", j, re.M)
     total = len(entries)
     as_of = entries[-1][0] if entries else "i0"
-    this_month = [(i, r) for i, r, ts in entries if ts.startswith(month)]
+    this_month = [(i, r) for i, r, ts in entries if ts.startswith(month) and i != "i0"]
+    genesis_note = " (the i0 genesis stamp sits outside the count)" if any(i == "i0" and ts.startswith(month) for i, r, ts in entries) else ""
+
     roles = collections.Counter(r for _, r in this_month)
     ships, kills = [], []
     for p in sorted((ROOT / "foundry" / "records").glob("*.md")):
@@ -41,7 +43,9 @@ def main(month=None):
         budget_line = "no cost ledger yet — the operator has not armed BUDGET.jsonl; no number is invented in its place"
     qa = subprocess.run(["bash", "tools/qa.sh"], capture_output=True, text=True, cwd=ROOT)
     qa_tail = (qa.stdout.strip().splitlines() or ["qa: unavailable"])[-1]
-    edition = len(list((ROOT / "site" / "almanac").glob("2*.html"))) if (ROOT / "site" / "almanac").exists() else 0
+    adir = ROOT / "site" / "almanac"
+    months = sorted({p.stem for p in adir.glob("2*.html")} | {month}) if adir.exists() else [month]
+    edition = months.index(month)
     role_html = "".join(f"<li>{html.escape(r)} — {n} iteration{'s' if n != 1 else ''}</li>"
                         for r, n in roles.most_common())
     ship_html = "".join(f"<li>{html.escape(s)}</li>" for s in ships) or "<li>none this month</li>"
@@ -56,7 +60,7 @@ h2{{font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-top:26px
 <h1>The Almanac · Edition {edition:03d} — {month}</h1>
 <p class="note">written by the machine about itself, from ledgers only · <a href="../index.html">back to the window</a></p>
 <h2>The month in iterations</h2>
-<p>{len(this_month)} iteration{'s' if len(this_month) != 1 else ''} this month ({total} lifetime), as of {as_of}. By role:</p>
+<p>{len(this_month)} iteration{'s' if len(this_month) != 1 else ''} this month ({total} lifetime), as of {as_of}{genesis_note}. By role:</p>
 <ul>{role_html or '<li>none yet</li>'}</ul>
 <h2>Ships</h2><ul>{ship_html}</ul>
 <h2>Shelved &amp; deprecated</h2><ul>{kill_html}</ul>

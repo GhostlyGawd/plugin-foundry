@@ -74,7 +74,13 @@ TEST VERDICT: pass
 - Gate caught snapshot drift: the edition&#x27;s count went stale the moment its own
   generating iteration journaled (69/70). Editions now carry an as-of stamp
   (&quot;as of iN&quot;) and the suite compares against the ledger *at that stamp* — the
-  number is permanently true instead of momentarily true.</pre></details></div>
+  number is permanently true instead of momentarily true.
+
+### Build fix — i71
+- Ledger archaeology from the i70 gate trail: the &quot;extra&quot; entry was the i0
+  genesis stamp, not drift. Iteration counts now exclude i0 and say so in a
+  genesis note; edition numbers are the month&#x27;s stable index, not a file count
+  (regenerating a month can no longer promote it to a new edition).</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

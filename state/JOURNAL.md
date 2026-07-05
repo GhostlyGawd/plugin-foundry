@@ -383,3 +383,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: almanac hardened after gate catch: as-of iteration stamp makes edition counts permanently true; suite compares at the stamp
 - line: the-almanac snapshot-drift fix
 - gate: validate+build green · qa green
+
+## i71 — builder — 2026-07-05T19:51:16Z
+- did: almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index
+- line: the-almanac genesis + numbering fix
+- gate: validate+build green · qa green

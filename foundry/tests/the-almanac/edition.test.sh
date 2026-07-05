@@ -6,7 +6,7 @@ h = pathlib.Path('site/almanac/2026-07.html').read_text()
 j = open('state/JOURNAL.md').read()
 asof = re.search(r'as of i(\d+)', h)
 n = int(asof.group(1)) if asof else 0
-month = len([1 for it in re.findall(r'^## i(\d+) — [\w-]+ — 2026-07', j, re.M) if int(it) <= n])
+month = len([1 for it in re.findall(r'^## i(\d+) — [\w-]+ — 2026-07', j, re.M) if 0 < int(it) <= n])
 m = re.search(r'(\d+) iterations? this month', h)
 print(('ok: ' if m and asof and int(m.group(1)) == month else 'fail: ') + f'count matches the ledger at its as-of stamp ({m.group(1) if m else "?"}/{month} @ i{n})')
 led = pathlib.Path('state/BUDGET.jsonl')

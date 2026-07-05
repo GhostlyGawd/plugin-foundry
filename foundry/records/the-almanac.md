@@ -55,3 +55,9 @@ TEST VERDICT: pass
   generating iteration journaled (69/70). Editions now carry an as-of stamp
   ("as of iN") and the suite compares against the ledger *at that stamp* — the
   number is permanently true instead of momentarily true.
+
+### Build fix — i71
+- Ledger archaeology from the i70 gate trail: the "extra" entry was the i0
+  genesis stamp, not drift. Iteration counts now exclude i0 and say so in a
+  genesis note; edition numbers are the month's stable index, not a file count
+  (regenerating a month can no longer promote it to a new edition).

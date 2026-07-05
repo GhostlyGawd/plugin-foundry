@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:50:05.031937+00:00",
- "iteration": 70,
+ "generated_at": "2026-07-05T19:51:16.826748+00:00",
+ "iteration": 71,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i71",
+   "role": "builder",
+   "ts": "2026-07-05T19:51:16Z",
+   "text": "almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index \u00b7 the-almanac genesis + numbering fix"
+  },
   {
    "it": "i70",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:47:03Z",
    "text": "Published contributor-cards: generator live, first real credit mints the first card; experiment armed \u00b7 contributor-cards \u2192 published"
-  },
-  {
-   "it": "i63",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:47:02Z",
-   "text": "contributor-cards approved: receipts-backed status, stale-card risk handled by wipe, shared aggregation with the hall \u00b7 contributor-cards review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i59",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:44:58Z",
-   "text": "night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through \u00b7 night-clerk review approved"
-  },
   {
    "it": "i60",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-05T19:50:04Z",
    "text": "almanac hardened after gate catch: as-of iteration stamp makes edition counts permanently true; suite compares at the st \u00b7 the-almanac snapshot-drift fix"
+  },
+  {
+   "it": "i71",
+   "role": "builder",
+   "ts": "2026-07-05T19:51:16Z",
+   "text": "almanac: genesis i0 excluded from counts with an explicit note; edition numbering stabilized to month index \u00b7 the-almanac genesis + numbering fix"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 70
+   "n": 71
   }
  ],
  "repo": null
