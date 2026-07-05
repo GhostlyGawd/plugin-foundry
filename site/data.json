@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:35:54.150955+00:00",
- "iteration": 49,
+ "generated_at": "2026-07-05T19:36:11.444907+00:00",
+ "iteration": 50,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 12,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 11,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i50",
+   "role": "qa",
+   "ts": "2026-07-05T19:36:11Z",
+   "text": "demo-transcripts QA: suite 2/2 + per-demo behavior cross-read (no overclaimed abilities) \u2192 rc \u00b7 demo-transcripts \u2192 rc"
+  },
   {
    "it": "i49",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:33:16Z",
    "text": "trust-card approved: derivation enforced structurally, unknown-over-false-none, heuristic labeled on-page \u00b7 trust-card review approved"
-  },
-  {
-   "it": "i42",
-   "role": "qa",
-   "ts": "2026-07-05T19:33:16Z",
-   "text": "trust-card QA: suite 5/5 + live curl fixture flagged-then-cleared; unreadable hooks path reports unknown, never false-no \u00b7 trust-card \u2192 rc"
   }
  ],
  "records": [
@@ -283,7 +283,7 @@
    "name": "demo-transcripts",
    "title": "Demo Transcripts",
    "category": "quality",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site",
@@ -932,7 +932,7 @@
     "name": "demo-transcripts",
     "title": "Demo Transcripts",
     "category": "quality",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site",
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 49
+   "n": 50
   }
  ],
  "repo": null

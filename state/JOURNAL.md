@@ -278,3 +278,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: demo-transcripts built: labeled terminal sessions on all six plugin certificates; SCHEMA + TESTING duties; behavior-accurate authored examples
 - line: demo-transcripts → building
 - gate: validate+build green · qa green
+
+## i50 — qa — 2026-07-05T19:36:11Z
+- did: demo-transcripts QA: suite 2/2 + per-demo behavior cross-read (no overclaimed abilities) → rc
+- line: demo-transcripts → rc
+- gate: validate+build green · qa green

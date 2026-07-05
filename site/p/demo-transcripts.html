@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Demo Transcripts — birth certificate</h1></header>
   <p class="meta">feature · quality · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.</p>
   
   
@@ -60,7 +60,15 @@ Example session that renders as a terminal on the certificate.</pre></details><d
   SCHEMA documents the section; TESTING gains the CI recording duty (recordings
   replace authored examples, dated); six authored sessions placed — each shows
   only behavior the plugin actually has (consent gates, honest test notes, the
-  guard explaining itself). Suite added.</pre></details></div>
+  guard explaining itself). Suite added.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i50
+- tier 1: pass
+- tier 3: suite 2/2 (all six plugin certificates render labeled terminals;
+  section-less records render nothing extra); content audit — each transcript
+  cross-read against its skill: env-doctor demo shows the consent gate, pr-narrator
+  demo shows the honest test-notes clause and the gh y/N prompt, commit-craft demo
+  invites the user to trigger the guard; no demo claims an ability the skill lacks
+- defects: none found — probed: HTML-escaping of transcript angle brackets (safe)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

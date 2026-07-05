@@ -2,7 +2,7 @@
 name: demo-transcripts
 title: Demo Transcripts
 category: quality
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site,docs]
@@ -38,3 +38,14 @@ Example session that renders as a terminal on the certificate.
   replace authored examples, dated); six authored sessions placed — each shows
   only behavior the plugin actually has (consent gates, honest test notes, the
   guard explaining itself). Suite added.
+
+## Test log
+### Test pass — i50
+- tier 1: pass
+- tier 3: suite 2/2 (all six plugin certificates render labeled terminals;
+  section-less records render nothing extra); content audit — each transcript
+  cross-read against its skill: env-doctor demo shows the consent gate, pr-narrator
+  demo shows the honest test-notes clause and the gh y/N prompt, commit-craft demo
+  invites the user to trigger the guard; no demo claims an ability the skill lacks
+- defects: none found — probed: HTML-escaping of transcript angle brackets (safe)
+TEST VERDICT: pass
