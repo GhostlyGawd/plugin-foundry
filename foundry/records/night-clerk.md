@@ -53,3 +53,16 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.
   a valid empty catalog; skill's empty path covers it), tag list parsing on
   single-tag records
 TEST VERDICT: pass
+
+## Review log
+### Review — i59 (reviewer)
+- A marketplace that recommends itself could so easily lie; this one structurally
+  can't — the skill may only speak from a generated, published-only catalog, and
+  the suite proves the subset relation every run.
+- Snapshot-date disclosure in every answer is the honest fix for bundled data;
+  the anti-lore clause keeps the clerk a clerk, not a mascot.
+- Sharpest question: once published, the clerk appears in its own catalog — is
+  self-recommendation a conflict? No: it competes on the same one_liner as
+  everyone else, and "the front desk recommends the front desk" only fires when
+  the user literally asks for discovery help.
+REVIEW: approved

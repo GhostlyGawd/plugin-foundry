@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:44:57.903027+00:00",
- "iteration": 58,
+ "generated_at": "2026-07-05T19:44:58.260786+00:00",
+ "iteration": 59,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i59",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:44:58Z",
+   "text": "night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through \u00b7 night-clerk review approved"
+  },
   {
    "it": "i58",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:36:12Z",
    "text": "Published demo-transcripts: labeled sessions live; experiment armed \u00b7 demo-transcripts \u2192 published"
-  },
-  {
-   "it": "i51",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:36:11Z",
-   "text": "demo-transcripts approved: label creates a dated upgrade obligation; demos teach limits, not just features \u00b7 demo-transcripts review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i47",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:35:10Z",
-   "text": "window-watchability approved: honest static countdown, wall renders only recorded argument, ergonomics as permanent test \u00b7 window-watchability review approved"
-  },
   {
    "it": "i48",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-05T19:44:57Z",
    "text": "night-clerk QA: suite 8/8, catalog\u2286published proven, ~cost stamped; CLI validate deferred to CI \u2192 rc \u00b7 night-clerk \u2192 rc"
+  },
+  {
+   "it": "i59",
+   "role": "reviewer",
+   "ts": "2026-07-05T19:44:58Z",
+   "text": "night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through \u00b7 night-clerk review approved"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 58
+   "n": 59
   }
  ],
  "repo": null

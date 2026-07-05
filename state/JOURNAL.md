@@ -323,3 +323,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: night-clerk QA: suite 8/8, catalog⊆published proven, ~cost stamped; CLI validate deferred to CI → rc
 - line: night-clerk → rc
 - gate: validate+build green · qa green
+
+## i59 — reviewer — 2026-07-05T19:44:58Z
+- did: night-clerk approved: structural honesty (catalog-bound speech), snapshot disclosure, self-listing reasoned through
+- line: night-clerk review approved
+- gate: validate+build green

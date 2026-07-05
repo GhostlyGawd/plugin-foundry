@@ -70,7 +70,17 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.<
 - defects: none found — probed: catalog with zero published (clerkcat still writes
   a valid empty catalog; skill&#x27;s empty path covers it), tag list parsing on
   single-tag records
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i59 (reviewer)
+- A marketplace that recommends itself could so easily lie; this one structurally
+  can&#x27;t — the skill may only speak from a generated, published-only catalog, and
+  the suite proves the subset relation every run.
+- Snapshot-date disclosure in every answer is the honest fix for bundled data;
+  the anti-lore clause keeps the clerk a clerk, not a mascot.
+- Sharpest question: once published, the clerk appears in its own catalog — is
+  self-recommendation a conflict? No: it competes on the same one_liner as
+  everyone else, and &quot;the front desk recommends the front desk&quot; only fires when
+  the user literally asks for discovery help.
+REVIEW: approved</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
