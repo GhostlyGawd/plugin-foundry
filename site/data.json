@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T18:30:08.142735+00:00",
- "iteration": 20,
+ "generated_at": "2026-07-05T18:30:08.595343+00:00",
+ "iteration": 21,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 3,
-  "building": 0,
+  "spec": 2,
+  "building": 1,
   "rc": 10,
   "published": 6,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i21",
+   "role": "builder",
+   "ts": "2026-07-05T18:30:08Z",
+   "text": "Built env-doctor: requirements-first diagnosis with paired fixes and a hard consent law \u00b7 env-doctor \u2192 building"
+  },
   {
    "it": "i20",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "maintainer",
    "ts": "2026-07-05T18:26:31Z",
    "text": "Published commit-craft v0.1.0: marketplace entry, changelog dated, tag laid; B6 checked \u2014 bootstrap plugin pipeline comp \u00b7 commit-craft \u2192 published"
-  },
-  {
-   "it": "i13",
-   "role": "reviewer",
-   "ts": "2026-07-05T18:26:30Z",
-   "text": "commit-craft reviewed: skill doctrine matches spec, hook traced to exactly four exits (all lawful), fail-open disclosed  \u00b7 commit-craft review approved"
   }
  ],
  "records": [
@@ -186,7 +186,7 @@
    "name": "env-doctor",
    "title": "Env Doctor",
    "category": "quality",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "hooks"
@@ -597,6 +597,29 @@
     "patron": null
    },
    {
+    "name": "env-doctor",
+    "title": "Env Doctor",
+    "category": "quality",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
+    "tags": [
+     "environment",
+     "onboarding",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "field-reports",
     "title": "Field Reports",
     "category": "growth",
@@ -806,29 +829,6 @@
     ],
     "commission": null,
     "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "env-doctor",
-    "title": "Env Doctor",
-    "category": "quality",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "hooks"
-    ],
-    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
-    "tags": [
-     "environment",
-     "onboarding",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 20
+   "n": 21
   }
  ],
  "repo": null

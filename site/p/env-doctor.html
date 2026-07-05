@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Env Doctor — birth certificate</h1></header>
   <p class="meta">plugin · quality · unversioned · created 2026-07-04 · updated 2026-07-04</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** surface toolchain drift in the first second of a session.
@@ -56,7 +56,8 @@
 ### Acceptance checks
 1. Requirements come from repo files, not assumptions; absent files skip silently.
 2. Every ✗ pairs with a copyable fix; no fix auto-runs.
-3. PATH shadowing check present (`type -a`).</pre></details></div>
+3. PATH shadowing check present (`type -a`).</pre></details><details><summary>Build log</summary><pre>- i21: manifest, `envcheck` skill (requirements-first, ✓/✗ report, paired copyable
+  fixes, consent law, honest empty state), README with recipes, CHANGELOG, suite.</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

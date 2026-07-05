@@ -2,7 +2,7 @@
 name: env-doctor
 title: Env Doctor
 category: quality
-stage: spec
+stage: building
 version: null
 components: [hooks]
 one_liner: Checks the toolchain against the project's declared versions at session start and warns early.
@@ -40,3 +40,7 @@ Half of "it doesn't work" is a version mismatch discovered twenty minutes in.
 1. Requirements come from repo files, not assumptions; absent files skip silently.
 2. Every ✗ pairs with a copyable fix; no fix auto-runs.
 3. PATH shadowing check present (`type -a`).
+
+## Build log
+- i21: manifest, `envcheck` skill (requirements-first, ✓/✗ report, paired copyable
+  fixes, consent law, honest empty state), README with recipes, CHANGELOG, suite.

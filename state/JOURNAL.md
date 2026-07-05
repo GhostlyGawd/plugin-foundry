@@ -133,3 +133,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: env-doctor specced: repo-requirements-first diagnosis, paired copyable fixes, hard no-mutation-without-consent law (redo of rolled-back i20 — harness cwd fault, see audit)
 - line: env-doctor → spec
 - gate: validate+build green
+
+## i21 — builder — 2026-07-05T18:30:08Z
+- did: Built env-doctor: requirements-first diagnosis with paired fixes and a hard consent law
+- line: env-doctor → building
+- gate: validate+build green · qa green
