@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:33:17.008117+00:00",
- "iteration": 43,
+ "generated_at": "2026-07-05T19:33:17.597264+00:00",
+ "iteration": 44,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 14,
   "building": 0,
-  "rc": 11,
-  "published": 9,
+  "rc": 10,
+  "published": 10,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i44",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:33:17Z",
+   "text": "Published trust-card: footprint blocks live on all plugin certificates; experiment armed \u00b7 trust-card \u2192 published"
+  },
   {
    "it": "i43",
    "role": "reviewer",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T19:31:11Z",
    "text": "counter-index built: tag chips (published union, AND with text), pure filterCards() behind markers, empty state links th \u00b7 counter-index \u2192 building"
-  },
-  {
-   "it": "i36",
-   "role": "builder",
-   "ts": "2026-07-05T19:29:42Z",
-   "text": "live-shift-theater specced: verbatim journal replay, reduced-motion instant, curtain empty-state \u00b7 live-shift-theater \u2192 spec"
   }
  ],
  "records": [
@@ -825,7 +825,7 @@
    "name": "trust-card",
    "title": "Trust Card",
    "category": "quality",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -1108,29 +1108,6 @@
      "trust",
      "transparency",
      "tokens"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "trust-card",
-    "title": "Trust Card",
-    "category": "quality",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.",
-    "tags": [
-     "trust",
-     "footprint",
-     "certificates"
     ],
     "commission": null,
     "kind": "feature",
@@ -1569,6 +1546,29 @@
     "kind": "plugin",
     "always_on_tokens": "90",
     "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "trust-card",
+    "title": "Trust Card",
+    "category": "quality",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.",
+    "tags": [
+     "trust",
+     "footprint",
+     "certificates"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 43
+   "n": 44
   }
  ],
  "repo": null

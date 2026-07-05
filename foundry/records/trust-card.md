@@ -2,7 +2,7 @@
 name: trust-card
 title: Trust Card
 category: quality
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -49,6 +49,10 @@ derives from the artifact itself, so it cannot drift from the truth.
 - defects: none found — probed: unreadable hooks.json path (reports unknown, not
   a false none)
 TEST VERDICT: pass
+
+## Publish log
+- i44 (maintainer): live on every plugin certificate this build; experiment armed
+  (safety-question issue rate, review 2026-09-05).
 
 ## Review log
 ### Review — i43 (reviewer)

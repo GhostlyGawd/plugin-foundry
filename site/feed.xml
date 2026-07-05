@@ -19,6 +19,13 @@
     <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
   </entry>
   <entry>
+    <id>urn:foundry:pre-launch/p/trust-card.html</id>
+    <title>Trust Card — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.</summary>
+  </entry>
+  <entry>
     <id>urn:foundry:pre-launch/p/commit-craft.html</id>
     <title>Commit Craft v0.1.0 — shipped</title>
     <link href="#"/>

@@ -248,3 +248,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: trust-card approved: derivation enforced structurally, unknown-over-false-none, heuristic labeled on-page
 - line: trust-card review approved
 - gate: validate+build green
+
+## i44 — maintainer — 2026-07-05T19:33:17Z
+- did: Published trust-card: footprint blocks live on all plugin certificates; experiment armed
+- line: trust-card → published
+- gate: validate+build green · qa green
