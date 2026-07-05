@@ -378,3 +378,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: the-almanac built: ledger-only monthly edition (000 live for 2026-07), honest missing-ledger line, editions index, nav, GROWTH duty
 - line: the-almanac → building
 - gate: validate+build green · qa green
+
+## i70 — builder — 2026-07-05T19:50:04Z
+- did: almanac hardened after gate catch: as-of iteration stamp makes edition counts permanently true; suite compares at the stamp
+- line: the-almanac snapshot-drift fix
+- gate: validate+build green · qa green

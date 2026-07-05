@@ -2,7 +2,7 @@
 name: the-almanac
 title: The Almanac
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -37,3 +37,21 @@ ledger, every month, no adjectives it cannot back.
   gates; absent cost ledger produces the honest sentence, never an estimate;
   editions index + nav link; GROWTH monthly duty; Edition 000 generated for
   2026-07 from real data. Suite added.
+
+## Test log
+### Test pass — i70
+- tier 1: pass
+- tier 3: suite 4/4 — iteration count diffed against JOURNAL exactly (69/69),
+  money section verified against the actual ledger state (BUDGET.jsonl exists
+  with entries → real spend line renders; the honesty branch is exercised by the
+  test's iff-assertion), editions index present, nav linked; edition regenerated
+  idempotently (numbering stable)
+- defects: none found — probed: month with zero iterations (renders "none yet",
+  no invented histogram)
+TEST VERDICT: pass
+
+### Build fix — i70
+- Gate caught snapshot drift: the edition's count went stale the moment its own
+  generating iteration journaled (69/70). Editions now carry an as-of stamp
+  ("as of iN") and the suite compares against the ledger *at that stamp* — the
+  number is permanently true instead of momentarily true.

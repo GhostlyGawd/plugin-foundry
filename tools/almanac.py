@@ -19,6 +19,7 @@ def main(month=None):
     j = (ROOT / "state" / "JOURNAL.md").read_text()
     entries = re.findall(r"^## (i\d+) — ([\w-]+) — ([0-9T:\-\.Z]+)", j, re.M)
     total = len(entries)
+    as_of = entries[-1][0] if entries else "i0"
     this_month = [(i, r) for i, r, ts in entries if ts.startswith(month)]
     roles = collections.Counter(r for _, r in this_month)
     ships, kills = [], []
@@ -55,7 +56,7 @@ h2{{font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-top:26px
 <h1>The Almanac · Edition {edition:03d} — {month}</h1>
 <p class="note">written by the machine about itself, from ledgers only · <a href="../index.html">back to the window</a></p>
 <h2>The month in iterations</h2>
-<p>{len(this_month)} iteration{'s' if len(this_month) != 1 else ''} this month ({total} lifetime). By role:</p>
+<p>{len(this_month)} iteration{'s' if len(this_month) != 1 else ''} this month ({total} lifetime), as of {as_of}. By role:</p>
 <ul>{role_html or '<li>none yet</li>'}</ul>
 <h2>Ships</h2><ul>{ship_html}</ul>
 <h2>Shelved &amp; deprecated</h2><ul>{kill_html}</ul>
