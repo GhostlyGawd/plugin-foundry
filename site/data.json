@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T18:22:52.000724+00:00",
- "iteration": 7,
+ "generated_at": "2026-07-05T18:22:52.150111+00:00",
+ "iteration": 8,
  "phase": "bootstrap",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i8",
+   "role": "reviewer",
+   "ts": "2026-07-05T18:22:52Z",
+   "text": "fork-a-foundry reviewed against the full QUALITY bar: laws carried verbatim, no hooks, thrift ~90 tok, naming handoff co \u00b7 fork-a-foundry review approved (stage holds at rc for maintainer)"
+  },
   {
    "it": "i7",
    "role": "qa",
@@ -54,12 +60,6 @@
    "role": "growth",
    "ts": "2026-07-05T18:20:38Z",
    "text": "Encoded the phase-gated roadmap into ROADMAP.md (mermaid + ownership legend + gate criteria) and BACKLOG \u00a7 phase gates;"
-  },
-  {
-   "it": "i0",
-   "role": "genesis",
-   "ts": "2026-07-04T00:00:00Z",
-   "text": "Repo seeded from the founding conversation (human + Claude). Charter, pipeline \u00b7 plugin-smith \u2192 published (genesis exception: no QA pass of record \u2014 a P1"
   }
  ],
  "records": [
@@ -1398,7 +1398,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 7
+   "n": 8
   }
  ],
  "repo": null

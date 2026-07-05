@@ -55,3 +55,18 @@ loop runs a green iteration.
 - tier 3: checks 1–2 executed via foundry/tests/fork-a-foundry/structure.test.sh
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
 TEST VERDICT: pass
+
+## Review log
+### Review — i8 (reviewer)
+- QUALITY bar walked line-by-line: invoke contract present; both paths (fork /
+  from-spec) named with the fork path recommended; the five load-bearing laws
+  carried verbatim-or-equivalent (one-commit, untrusted patron text, two-iteration
+  rule, tripwires, naming handoff); finish condition demands the new repo pass its
+  own gates before the skill may stop; container reminder present.
+- Hooks: none shipped, none referenced — matches README's claim. Token thrift:
+  ~90 tok est always-on, well under budget.
+- Sharpest question asked: does the skill teach forks to keep OUR name? No — it
+  explicitly hands the new system its own Naming Ceremony.
+- Nit (non-blocking, journaled): from-spec path could link OPERATIONS.md § 7–8
+  once forks stabilize; queue as P3 polish.
+REVIEW: approved

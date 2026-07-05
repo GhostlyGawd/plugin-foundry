@@ -63,3 +63,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Embed-badges QA pass: shields schema valid + named label, embed is script-free static HTML, README snippet in place → rc
 - line: embed-badges → rc
 - gate: validate+build green
+
+## i8 — reviewer — 2026-07-05T18:22:52Z
+- did: fork-a-foundry reviewed against the full QUALITY bar: laws carried verbatim, no hooks, thrift ~90 tok, naming handoff correct — REVIEW: approved (one non-blocking nit journaled as P3)
+- line: fork-a-foundry review approved (stage holds at rc for maintainer)
+- gate: validate+build green
