@@ -31,7 +31,7 @@ untrusted text). Only the operator merges outside code.
 
 ## Secrets & blast radius
 The repo holds zero secrets — ever. Actions uses its scoped token plus
-ANTHROPIC_API_KEY; the commission worker holds Stripe/GitHub tokens off-repo. Hooks
+CLAUDE_CODE_OAUTH_TOKEN; the commission worker holds Stripe/GitHub tokens off-repo. Hooks
 ship read-only/fail-open by default (charter/QUALITY.md); scripts never call the
 network without loud README documentation. Anything that would widen this posture
 needs an Auditor-endorsed ADR.
