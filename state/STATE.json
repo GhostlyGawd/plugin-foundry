@@ -2,18 +2,17 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 86,
+  "iteration": 87,
   "phase": "grow",
   "role_queue": [
-    "growth",
-    "qa",
+    "ideator",
     "builder",
+    "qa",
     "reviewer",
     "maintainer",
-    "ideator",
-    "designer",
-    "auditor"
+    "growth"
   ],
   "notes": "Phase grow as of audit-001 (i34). Named at ADR-011. Slug 'foundry' immutable.",
-  "theme": null
+  "theme": null,
+  "note": "post-v7 (audit-002): replenish the line; almanac monthly duty from 2026-08"
 }

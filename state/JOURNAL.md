@@ -463,3 +463,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed
 - line: releases-and-reverify → published
 - gate: validate+build green · qa green
+
+## i87 — auditor — 2026-07-05T20:00:06Z
+- did: audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue → ideator
+- line: audit-002 filed
+- gate: validate+build green

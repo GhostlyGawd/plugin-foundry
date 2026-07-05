@@ -48,7 +48,7 @@ have baselines. — [ ] (auditor verifies)
 - [x] Idea pool: live-shift-theater, cross-foundry-exchange (loop)
 - [ ] First sister foundry registered; first cross-foundry idea lands (world)
 
-## v7 portfolio (slate encoded i35 - audit-002 verifies)
+## v7 portfolio — COMPLETE ✓ (i35–i86, audit-002 verified; 12/12 published)
 Build order: counter-index, trust-card, window-watchability, demo-transcripts,
 live-shift-theater, night-clerk (flagship), contributor-cards, traveler-pings,
 the-almanac, the-mailbag, commission-queue, releases-and-reverify.

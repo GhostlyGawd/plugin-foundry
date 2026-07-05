@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-05T19:59:03.827488+00:00",
- "iteration": 86,
+ "generated_at": "2026-07-05T20:00:06.511993+00:00",
+ "iteration": 87,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i87",
+   "role": "auditor",
+   "ts": "2026-07-05T20:00:06Z",
+   "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
+  },
   {
    "it": "i86",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-05T19:56:34Z",
    "text": "commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed \u2192 rc \u00b7 commission-queue \u2192 rc"
-  },
-  {
-   "it": "i79",
-   "role": "builder",
-   "ts": "2026-07-05T19:56:15Z",
-   "text": "commission-queue built: sanitizing intake ledger + derived-status queue page, open-counter empty state, nav; fixture sui \u00b7 commission-queue \u2192 building"
   }
  ],
  "journal": [
-  {
-   "it": "i75",
-   "role": "builder",
-   "ts": "2026-07-05T19:52:55Z",
-   "text": "the-mailbag built: gh-gated Mailbag in shipnotes (fail-open), question template, Lane 0 \u2014 Ask, evidence-only answering d \u00b7 the-mailbag \u2192 building"
-  },
   {
    "it": "i76",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:59:03Z",
    "text": "Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed \u00b7 releases-and-reverify \u2192 published"
+  },
+  {
+   "it": "i87",
+   "role": "auditor",
+   "ts": "2026-07-05T20:00:06Z",
+   "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
   }
  ],
  "records": [
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 86
+   "n": 87
   }
  ],
  "repo": null
