@@ -428,3 +428,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: commission-queue built: sanitizing intake ledger + derived-status queue page, open-counter empty state, nav; fixture suite 7/7
 - line: commission-queue → building
 - gate: validate+build green · qa green
+
+## i80 — qa — 2026-07-05T19:56:34Z
+- did: commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed → rc
+- line: commission-queue → rc
+- gate: validate+build green · qa green

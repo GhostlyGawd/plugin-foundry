@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Commission Queue — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>A sanitized public status board for commissions - patrons watch progress without asking.</p>
   
   
@@ -61,7 +61,16 @@ fenced and untrusted), status derived from the line.</pre></details><details><su
   stripped, 80-char cap) + a state/commissions.json ledger that rides the intake
   commit; build renders site/queue.html — status derives from the line (queued /
   on the line / delivered with paper-trail link), empty renders the open counter;
-  nav gains Queue. Fixture suite added.</pre></details></div>
+  nav gains Queue. Fixture suite added.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i80
+- tier 1: pass
+- tier 3: suite 7/7 live — sanitizer provably drops body prose, fences, backticks
+  and injected instructions (kept only the cleaned title line), truncates at 80,
+  honest placeholder for empty titles; fixture ledger rendered a delivered row
+  with its paper-trail link and a queued row; teardown restored the real state
+  (open counter) and the nav link held
+- defects: none found — probed: malformed commissions.json (load_json default []
+  keeps the page up), commission number as int vs string (normalized both sides)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

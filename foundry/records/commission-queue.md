@@ -2,7 +2,7 @@
 name: commission-queue
 title: The Commission Queue
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site,worker]
@@ -39,3 +39,15 @@ fenced and untrusted), status derived from the line.
   commit; build renders site/queue.html — status derives from the line (queued /
   on the line / delivered with paper-trail link), empty renders the open counter;
   nav gains Queue. Fixture suite added.
+
+## Test log
+### Test pass — i80
+- tier 1: pass
+- tier 3: suite 7/7 live — sanitizer provably drops body prose, fences, backticks
+  and injected instructions (kept only the cleaned title line), truncates at 80,
+  honest placeholder for empty titles; fixture ledger rendered a delivered row
+  with its paper-trail link and a queued row; teardown restored the real state
+  (open counter) and the nav link held
+- defects: none found — probed: malformed commissions.json (load_json default []
+  keeps the page up), commission number as int vs string (normalized both sides)
+TEST VERDICT: pass
