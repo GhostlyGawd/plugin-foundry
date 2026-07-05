@@ -2,7 +2,7 @@
 name: counter-index
 title: The Counter Index
 category: context
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -38,3 +38,14 @@ client-side from data.json, so filtering is a pure function away.
   toggleable, ANDs with text), extracts the predicate into pure filterCards()
   between FILTER markers for unit testing, and links the empty state to the idea
   template. Suite added (node-guarded).
+
+## Test log
+### Test pass — i38
+- tier 1: pass
+- tier 3: node unit suite 5/5 on the extracted pure function (no-filter, text over
+  one_liner+tags, tag chip, text AND tag, no-match); chips provably derive from
+  data (flatMap over entry tags in the built window — zero hardcoded tags);
+  empty state carries the idea-template link in the built page
+- defects: none found — probed: tag toggle-off (second click clears), entries
+  missing tags array (guarded with ||[])
+TEST VERDICT: pass

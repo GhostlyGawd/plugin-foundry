@@ -33,7 +33,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Counter Index — birth certificate</h1></header>
   <p class="meta">feature · context · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.</p>
   
   <div class="cert"><details><summary>Pitch</summary><pre>The shelf is past the point where scanning beats searching. Cards already render
@@ -51,7 +51,15 @@ client-side from data.json, so filtering is a pure function away.</pre></details
   scannable-window); this ship adds the tag-chip row (published-tag union,
   toggleable, ANDs with text), extracts the predicate into pure filterCards()
   between FILTER markers for unit testing, and links the empty state to the idea
-  template. Suite added (node-guarded).</pre></details></div>
+  template. Suite added (node-guarded).</pre></details><details open><summary>Test log</summary><pre>### Test pass — i38
+- tier 1: pass
+- tier 3: node unit suite 5/5 on the extracted pure function (no-filter, text over
+  one_liner+tags, tag chip, text AND tag, no-match); chips provably derive from
+  data (flatMap over entry tags in the built window — zero hardcoded tags);
+  empty state carries the idea-template link in the built page
+- defects: none found — probed: tag toggle-off (second click clears), entries
+  missing tags array (guarded with ||[])
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

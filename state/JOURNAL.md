@@ -218,3 +218,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: counter-index built: tag chips (published union, AND with text), pure filterCards() behind markers, empty state links the idea template; prior-art honesty noted
 - line: counter-index → building
 - gate: validate+build green · qa green
+
+## i38 — qa — 2026-07-05T19:31:36Z
+- did: counter-index QA: node suite 5/5 on the pure filter, chips derive from data, empty state links ideas → rc
+- line: counter-index → rc
+- gate: validate+build green · qa green

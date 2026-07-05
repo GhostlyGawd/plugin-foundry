@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:31:11.800554+00:00",
- "iteration": 37,
+ "generated_at": "2026-07-05T19:31:36.144366+00:00",
+ "iteration": 38,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 15,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 8,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i38",
+   "role": "qa",
+   "ts": "2026-07-05T19:31:36Z",
+   "text": "counter-index QA: node suite 5/5 on the pure filter, chips derive from data, empty state links ideas \u2192 rc \u00b7 counter-index \u2192 rc"
+  },
   {
    "it": "i37",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "builder",
    "ts": "2026-07-05T18:36:41Z",
    "text": "Compatibility stamps: tested_with in SCHEMA, QA stamping duty in TESTING (absent-means-unverified), certificate meta ren"
-  },
-  {
-   "it": "i30",
-   "role": "maintainer",
-   "ts": "2026-07-05T18:36:11Z",
-   "text": "Recipes on every published certificate: 3 concrete invocations per plugin, rendered open by default (template tuple + 6"
   }
  ],
  "records": [
@@ -236,7 +236,7 @@
    "name": "counter-index",
    "title": "The Counter Index",
    "category": "context",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site"
@@ -932,7 +932,7 @@
     "name": "counter-index",
     "title": "The Counter Index",
     "category": "context",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site"
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 37
+   "n": 38
   }
  ],
  "repo": null
