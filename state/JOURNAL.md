@@ -398,3 +398,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: the-almanac approved: strictest QA applied to the self-portrait, permanently checkable numbers
 - line: the-almanac review approved
 - gate: validate+build green
+
+## i74 — maintainer — 2026-07-05T19:51:37Z
+- did: Published the-almanac: Edition 000 live; monthly duty in force; experiment armed
+- line: the-almanac → published
+- gate: validate+build green · qa green

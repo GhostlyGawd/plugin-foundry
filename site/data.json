@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:51:36.166730+00:00",
- "iteration": 73,
+ "generated_at": "2026-07-05T19:51:37.249350+00:00",
+ "iteration": 74,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 7,
   "building": 0,
-  "rc": 11,
-  "published": 16,
+  "rc": 10,
+  "published": 17,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i74",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:51:37Z",
+   "text": "Published the-almanac: Edition 000 live; monthly duty in force; experiment armed \u00b7 the-almanac \u2192 published"
+  },
   {
    "it": "i73",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:48:16Z",
    "text": "traveler-pings approved: provenance-in-the-notification, deliberate arming, kill-path honesty traced \u00b7 traveler-pings review approved"
-  },
-  {
-   "it": "i66",
-   "role": "qa",
-   "ts": "2026-07-05T19:48:16Z",
-   "text": "traveler-pings QA: unit 6/6 + live dry-run correct silence; guard verified \u2192 rc \u00b7 traveler-pings \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i62",
-   "role": "qa",
-   "ts": "2026-07-05T19:47:02Z",
-   "text": "contributor-cards QA: fixture 5/5; test-predicate defect found+fixed (xmlns false positive); login sanitization probed \u2192 \u00b7 contributor-cards \u2192 rc"
-  },
   {
    "it": "i63",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:51:36Z",
    "text": "the-almanac approved: strictest QA applied to the self-portrait, permanently checkable numbers \u00b7 the-almanac review approved"
+  },
+  {
+   "it": "i74",
+   "role": "maintainer",
+   "ts": "2026-07-05T19:51:37Z",
+   "text": "Published the-almanac: Edition 000 live; monthly duty in force; experiment armed \u00b7 the-almanac \u2192 published"
   }
  ],
  "records": [
@@ -804,7 +804,7 @@
    "name": "the-almanac",
    "title": "The Almanac",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -1158,29 +1158,6 @@
      "onboarding",
      "curation",
      "installs"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "the-almanac",
-    "title": "The Almanac",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.",
-    "tags": [
-     "retrospective",
-     "accountability",
-     "content"
     ],
     "commission": null,
     "kind": "feature",
@@ -1574,6 +1551,29 @@
     "kind": "plugin",
     "always_on_tokens": "86",
     "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "the-almanac",
+    "title": "The Almanac",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.",
+    "tags": [
+     "retrospective",
+     "accountability",
+     "content"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2201,7 +2201,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 73
+   "n": 74
   }
  ],
  "repo": null

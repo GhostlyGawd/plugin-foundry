@@ -2,7 +2,7 @@
 name: the-almanac
 title: The Almanac
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -73,6 +73,10 @@ TEST VERDICT: pass
   drift (i70) and genesis miscount + file-count numbering (i71); this is the
   pipeline doing its job on the machine's own reporting tool
 TEST VERDICT: pass
+
+## Publish log
+- i74 (maintainer): Edition 000 live at /almanac/; monthly duty in force from
+  2026-08; experiment armed (path uniques vs saga, review 2026-10-05).
 
 ## Review log
 ### Review — i73 (reviewer)
