@@ -108,3 +108,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: session-recap specced: append-only dated handoff sections built from git evidence; acceptance checks set
 - line: session-recap → spec
 - gate: validate+build green
+
+## i16 — builder — 2026-07-05T18:27:26Z
+- did: Built session-recap: evidence-first append-only recap skill + suite; archive behavior is offer-only
+- line: session-recap → building
+- gate: validate+build green · qa green

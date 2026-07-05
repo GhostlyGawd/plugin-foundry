@@ -2,7 +2,7 @@
 name: session-recap
 title: Session Recap
 category: context
-stage: spec
+stage: building
 version: null
 components: [skills, hooks]
 one_liner: Writes a structured recap when a session ends and recalls it when the next one starts.
@@ -37,3 +37,8 @@ Context evaporates between sessions; yesterday's decisions get re-derived today.
 1. Skill appends (never truncates) and dates each section.
 2. Reads git evidence before writing — no invented changes.
 3. Next steps render as actionable checkboxes.
+
+## Build log
+- i16: manifest, `recap` skill (evidence-first, append-only, checkboxed next
+  steps, archive offer past ~10 sections), README with recipes, CHANGELOG,
+  executable test suite.
