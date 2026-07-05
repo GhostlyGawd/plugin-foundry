@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-05T19:32:57.704438+00:00",
- "iteration": 41,
+ "generated_at": "2026-07-05T19:33:16.768450+00:00",
+ "iteration": 42,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 14,
-  "building": 1,
-  "rc": 10,
+  "building": 0,
+  "rc": 11,
   "published": 9,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i42",
+   "role": "qa",
+   "ts": "2026-07-05T19:33:16Z",
+   "text": "trust-card QA: suite 5/5 + live curl fixture flagged-then-cleared; unreadable hooks path reports unknown, never false-no \u00b7 trust-card \u2192 rc"
+  },
   {
    "it": "i41",
    "role": "builder",
@@ -54,12 +60,6 @@
    "role": "growth",
    "ts": "2026-07-05T19:29:41Z",
    "text": "v7 slate encoded: 11 records at spec fitted to the taxonomy (experiments carry privacy-lawful proxy metrics), ROADMAP v7 \u00b7 11 records \u2192 spec (new)"
-  },
-  {
-   "it": "i34",
-   "role": "auditor",
-   "ts": "2026-07-05T18:40:00Z",
-   "text": "Audit-001: bootstrap complete \u2014 gates caught 2 real defects, 2 harness incidents rolled back pre-push and documented, ve"
   }
  ],
  "records": [
@@ -825,7 +825,7 @@
    "name": "trust-card",
    "title": "Trust Card",
    "category": "quality",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site"
@@ -1121,7 +1121,7 @@
     "name": "trust-card",
     "title": "Trust Card",
     "category": "quality",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site"
@@ -2127,7 +2127,7 @@
   },
   {
    "d": "2026-07-05",
-   "n": 41
+   "n": 42
   }
  ],
  "repo": null

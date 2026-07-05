@@ -2,7 +2,7 @@
 name: trust-card
 title: Trust Card
 category: quality
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site]
@@ -38,3 +38,14 @@ derives from the artifact itself, so it cannot drift from the truth.
   heuristic over executable surfaces (labeled as heuristic), always-on cost, and
   the uninstall line; renders only for kind: plugin; block placed above the record
   sections; suite added.
+
+## Test log
+### Test pass — i42
+- tier 1: pass
+- tier 3: suite 5/5 (hook surface parsed, hooks:none on skills-only, heuristic
+  labeled, feature certificates carry no card, derivation-only note present);
+  live fixture: a script containing curl was flagged with file+token on the
+  certificate and cleared on removal
+- defects: none found — probed: unreadable hooks.json path (reports unknown, not
+  a false none)
+TEST VERDICT: pass

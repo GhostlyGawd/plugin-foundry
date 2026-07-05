@@ -39,7 +39,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Trust Card — birth certificate</h1></header>
   <p class="meta">feature · quality · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.</p>
   
   
@@ -58,7 +58,15 @@ derives from the artifact itself, so it cannot drift from the truth.</pre></deta
 3. Block renders only for kind: plugin.</pre></details><details><summary>Build log</summary><pre>- i41: trust_card() derives components, hook surface (parsed hooks.json), network
   heuristic over executable surfaces (labeled as heuristic), always-on cost, and
   the uninstall line; renders only for kind: plugin; block placed above the record
-  sections; suite added.</pre></details></div>
+  sections; suite added.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i42
+- tier 1: pass
+- tier 3: suite 5/5 (hook surface parsed, hooks:none on skills-only, heuristic
+  labeled, feature certificates carry no card, derivation-only note present);
+  live fixture: a script containing curl was flagged with file+token on the
+  certificate and cleared on removal
+- defects: none found — probed: unreadable hooks.json path (reports unknown, not
+  a false none)
+TEST VERDICT: pass</pre></details></div>
   <p class="links">links appear once the repo is configured</p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
