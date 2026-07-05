@@ -458,3 +458,8 @@ Entry template (copy exactly; newest at the bottom):
 - did: releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failure
 - line: releases-and-reverify review approved
 - gate: validate+build green
+
+## i86 — maintainer — 2026-07-05T19:59:03Z
+- did: Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed
+- line: releases-and-reverify → published
+- gate: validate+build green · qa green

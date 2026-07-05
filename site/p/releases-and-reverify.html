@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Releases &amp; Weekly Re-verification — birth certificate</h1></header>
   <p class="meta">feature · workflow · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.</p>
   
   
@@ -74,7 +74,9 @@ freshness as a standing promise, not a launch-day claim.</pre></details><details
 - defects: none found — probed: prerelease-style versions in extract (word
   boundary holds), CHANGELOG with the version mentioned in prose only (heading
   regex ignores it)
-TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i85 (reviewer)
+TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i86 (maintainer): ADR-013 applied; QUALITY carries the exemption text; release
+  pipeline live on the next tag, re-verify cron fires Mondays 06:17 UTC;
+  experiment armed (max stamp age across published, review 2026-09-15).</pre></details><details open><summary>Review log</summary><pre>### Review — i85 (reviewer)
 - &quot;A release with no notes does not happen&quot; is refusal as a feature — the tag
   pipeline cannot ship an unexplained artifact, which is the version law&#x27;s whole
   point extended to the announcement channel.

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>urn:foundry:pre-launch</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T19:59:02Z</updated>
+  <updated>2026-07-05T19:59:03Z</updated>
   <link href="#"/>
   <entry>
     <id>urn:foundry:pre-launch/p/commission-queue.html</id>
@@ -52,6 +52,13 @@
     <link href="#"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</summary>
+  </entry>
+  <entry>
+    <id>urn:foundry:pre-launch/p/releases-and-reverify.html</id>
+    <title>Releases &amp; Weekly Re-verification — shipped</title>
+    <link href="#"/>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.</summary>
   </entry>
   <entry>
     <id>urn:foundry:pre-launch/p/the-almanac.html</id>

@@ -43,3 +43,11 @@ code on their machine, and speaks for this marketplace. Judge accordingly.
 - Shipping process files (records, test scratch) inside `plugins/<name>/` — bounce.
 - Editing a published plugin without a version bump + CHANGELOG entry — Version-law
   violation; Maintainer reverts or completes it.
+
+## The metadata exemption (ADR-013)
+Weekly re-verification refreshes `verified:` (and `tested_with` when the CLI is
+present) on published records. These are metadata-only writes: exempt from the
+version-bump law because no plugin file changes and behavior is untouched. Any
+write under plugins/ remains fully bound — version numbers keep meaning
+"behavior changed". Stamps are withheld from records whose suites fail; a stale
+stamp is a signal, never a cosmetic.

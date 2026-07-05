@@ -2,7 +2,7 @@
 name: releases-and-reverify
 title: Releases & Weekly Re-verification
 category: workflow
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [workflow]
@@ -55,6 +55,11 @@ freshness as a standing promise, not a launch-day claim.
   boundary holds), CHANGELOG with the version mentioned in prose only (heading
   regex ignores it)
 TEST VERDICT: pass
+
+## Publish log
+- i86 (maintainer): ADR-013 applied; QUALITY carries the exemption text; release
+  pipeline live on the next tag, re-verify cron fires Mondays 06:17 UTC;
+  experiment armed (max stamp age across published, review 2026-09-15).
 
 ## Review log
 ### Review — i85 (reviewer)

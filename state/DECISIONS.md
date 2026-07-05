@@ -194,7 +194,7 @@ Template:
   affected (fix lands before commit-craft publishes).
 
 ## ADR-013 — Metadata-only re-verification stamps are exempt from the version law (i83, builder)
-- Status: proposed (i83) — two-iteration rule: apply no earlier than i85
+- Status: accepted (proposed i83, applied i86 — two-iteration rule honored)
 - Context: the weekly re-verify job re-runs every published suite and refreshes
   `verified:` (and `tested_with` when the CLI is present) on records. The version
   law says changes to a published plugin bump semver + CHANGELOG + tag — but these
