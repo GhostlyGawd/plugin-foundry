@@ -733,3 +733,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa pins the no-placeholder check
 - notes: n/a
+
+## i116 — qa — 2026-07-06T01:49:00Z
+- did: embed-badges re-test 3/3; placeholder drift now impossible to reintroduce
+  silently while config is set
+- line: embed-badges: building → rc
+- files: foundry/tests/embed-badges/badge.test.sh, foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: reviewer re-checks the snippet as pasted
+- notes: n/a

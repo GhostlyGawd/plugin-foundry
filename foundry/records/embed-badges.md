@@ -2,7 +2,7 @@
 name: embed-badges
 title: Embeds & Badges
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site, docs]
@@ -73,3 +73,13 @@ deriving it from site-config so it can't drift again).
   param percent-encoded so it works as pasted in more renderers). README is
   hand-maintained prose, so drift-proofing lands as a QA check rather than a
   generator — the suite fails if config is set and placeholders remain.
+
+### Test pass — i116 (post-bounce re-test)
+- tier 1: executable suite (foundry/tests/embed-badges/badge.test.sh) 3/3 —
+  shields schema with counts substantiated against data.json (message parsed and
+  cross-checked), embed.html static/iframe-safe/reduced-motion, i114 regression:
+  config-set ⇒ README carries the real URL (skip-legal only while unset)
+- tier 2: n/a (site feature)
+- tier 3: badge message re-derives per build (25 shipped · i114 at test time)
+- defects: none found
+TEST VERDICT: pass
