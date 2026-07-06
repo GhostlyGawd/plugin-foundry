@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T01:03:18.817766+00:00",
- "iteration": 138,
+ "generated_at": "2026-07-06T01:04:08.903816+00:00",
+ "iteration": 139,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i139",
+   "role": "builder",
+   "ts": "2026-07-06T03:36:00Z",
+   "text": "validator freshness law (ADR-016 #2) \u2014 published shelf \u2286 night-clerk"
+  },
   {
    "it": "i138",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:52:00Z",
    "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
-  },
-  {
-   "it": "i131",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:50:00Z",
-   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i127",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:36:00Z",
-   "text": "community-hall approved \u2014 re-verified substantiation post-Breakers \u00b7 community-hall: review approved (stays rc)"
-  },
   {
    "it": "i128",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T03:30:00Z",
    "text": "night-clerk 0.1.1 (#2+#8) \u2014 snapshot regenerated via clerkcat (8 plugins; \u00b7 night-clerk 0.1.0 \u2192 0.1.1 (no stage move)"
+  },
+  {
+   "it": "i139",
+   "role": "builder",
+   "ts": "2026-07-06T03:36:00Z",
+   "text": "validator freshness law (ADR-016 #2) \u2014 published shelf \u2286 night-clerk"
   }
  ],
  "records": [
@@ -2358,7 +2358,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 51
+   "n": 52
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

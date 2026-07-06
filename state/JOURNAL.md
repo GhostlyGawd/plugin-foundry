@@ -963,3 +963,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder lands the validator freshness law so drift goes red
   at commit time
 - notes: n/a
+
+## i139 — builder — 2026-07-06T03:36:00Z
+- did: validator freshness law (ADR-016 #2) — published shelf ⊆ night-clerk
+  snapshot, ghosts flagged too; skips cleanly if the clerk is ever unpublished;
+  negative probe run (removed a snapshot entry → validator RED with a
+  run-clerkcat hint → restored)
+- line: n/a (tools; ADR-016 is the prior-iteration record)
+- files: tools/validate.py
+- validation: pass (green after restore; red proven during probe)
+- next-suggestion: maintainer hygiene pass (#3)
+- notes: drift class from IMPROVEMENTS #2 is now structurally extinct
