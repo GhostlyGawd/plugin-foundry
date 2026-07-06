@@ -1411,3 +1411,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (fixture-verified both empty and populated)
 - next-suggestion: qa suite → rc.
 - notes: n/a
+
+## i175 — qa (directed, v10 #14) — 2026-07-06T21:11:27Z
+- did: foundry-network QA — acceptance checks 1–3 executable, 6/6 green;
+  adversarial probes on empty-pages entries and note escaping. TEST VERDICT:
+  pass.
+- line: foundry-network building → rc
+- files: foundry/tests/foundry-network/checks.test.sh, record
+- validation: pass
+- next-suggestion: reviewer, then publish.
+- notes: check3 greps the renderer for fetch/iframe — the "no remote content"
+  law is now machine-checked, not just promised.

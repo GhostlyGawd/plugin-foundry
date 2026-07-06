@@ -47,7 +47,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>The Foundry Network — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.</p>
   
   
@@ -72,7 +72,17 @@ every fork a distribution channel for the rest.</pre></details><details><summary
   nothing while network.json is empty — verified with a fixture entry both
   ways), CONTRIBUTING Lane 4 with the maintainer verification duty
   (LOOP.md + records present before merge). Names + links only — no remote
-  content is fetched or inlined anywhere. Build complete per spec.</pre></details></div>
+  content is fetched or inlined anywhere. Build complete per spec.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i175 (qa)
+- tier 1: validate + build green; suite executable.
+- tier 3: acceptance checks 1–3 executable (6 checks green): empty network
+  renders nothing on window data or saga; fixture entry reaches both surfaces
+  and restores cleanly; registration path documented with the verification
+  duty in BOTH the template and CONTRIBUTING Lane 4; renderNetwork proven
+  fetch/iframe-free (links out only).
+- defects: none found — probed: entry with empty pages field (window link
+  simply absent, no broken anchor), note field escaped via esc() like all
+  visitor text.
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/foundry-network.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/foundry-network.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

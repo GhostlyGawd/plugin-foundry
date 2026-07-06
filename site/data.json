@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-07-06T21:10:41.409151+00:00",
- "iteration": 174,
+ "generated_at": "2026-07-06T21:11:28.029470+00:00",
+ "iteration": 175,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 2,
-  "building": 1,
-  "rc": 0,
+  "building": 0,
+  "rc": 1,
   "published": 33,
   "deprecated": 0,
   "shelved": 0
@@ -498,7 +498,7 @@
    "name": "foundry-network",
    "title": "The Foundry Network",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "site",
@@ -1096,7 +1096,7 @@
     "name": "foundry-network",
     "title": "The Foundry Network",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "site",

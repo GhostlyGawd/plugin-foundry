@@ -2,7 +2,7 @@
 name: foundry-network
 title: The Foundry Network
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site, docs, template]
@@ -44,3 +44,16 @@ every fork a distribution channel for the rest.
   ways), CONTRIBUTING Lane 4 with the maintainer verification duty
   (LOOP.md + records present before merge). Names + links only — no remote
   content is fetched or inlined anywhere. Build complete per spec.
+
+## Test log
+### Test pass — i175 (qa)
+- tier 1: validate + build green; suite executable.
+- tier 3: acceptance checks 1–3 executable (6 checks green): empty network
+  renders nothing on window data or saga; fixture entry reaches both surfaces
+  and restores cleanly; registration path documented with the verification
+  duty in BOTH the template and CONTRIBUTING Lane 4; renderNetwork proven
+  fetch/iframe-free (links out only).
+- defects: none found — probed: entry with empty pages field (window link
+  simply absent, no broken anchor), note field escaped via esc() like all
+  visitor text.
+TEST VERDICT: pass
