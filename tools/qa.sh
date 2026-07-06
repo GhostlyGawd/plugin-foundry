@@ -12,7 +12,14 @@ run_suite() {
   [ -d "$dir" ] || { echo "qa: $name — no test suite (fine before rc; required at rc+)"; return; }
   local found=0
   for t in "$dir"/*.test.sh; do
-    [ -f "$t" ] && [ -x "$t" ] || continue
+    [ -f "$t" ] || continue
+    # a test that lost its exec bit is a silently-disabled test — that's a FAIL,
+    # not a skip (audit-004 P3; the validator only catches the zero-executables
+    # case at rc+, this catches the one-lost-chmod case everywhere)
+    if [ ! -x "$t" ]; then
+      echo "  [$name] fail: $t exists but is not executable (chmod +x)"
+      FAIL=$((FAIL + 1)); found=1; continue
+    fi
     found=1
     local out rc
     out=$(PLUGIN_DIR="plugins/$name" REPO_ROOT="$PWD" bash "$t" 2>&1); rc=$?
@@ -23,7 +30,7 @@ run_suite() {
     [ "$rc" -ne 0 ] && [ "$f" -eq 0 ] && f=1
     FAIL=$((FAIL + f))
   done
-  [ "$found" -eq 0 ] && echo "qa: $name — suite dir exists but no executable *.test.sh"
+  [ "$found" -eq 0 ] && echo "qa: $name — suite dir exists but holds no *.test.sh"
 }
 
 if [ "${1:-}" ]; then run_suite "$1"; else

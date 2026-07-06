@@ -1237,3 +1237,15 @@ Entry template (copy exactly; newest at the bottom):
   zero-executables case; the one-lost-chmod case is qa.sh's to catch).
 - notes: the fixture pattern means future validator laws ship with a red/green
   proof instead of a promise.
+
+## i161 — builder (directed, v10 #7) — 2026-07-06T20:53:43Z
+- did: qa.sh silent-skip fixed (audit-004 P3) — a *.test.sh that exists but lost
+  its exec bit is now an explicit FAIL with the chmod hint, at every stage; the
+  validator keeps owning the zero-executables case at rc+. Proven red (chmod -x
+  a real suite → harness fails) then green (179 ok / 0 fail).
+- line: n/a (tools, ADR-018)
+- files: tools/qa.sh
+- validation: pass
+- next-suggestion: v10 #8 — parse_front_matter dedup into tools/lib.py (the
+  _tools fixtures now guard the refactor).
+- notes: also updates BACKLOG — the P3 filed at i151 closes with this.
