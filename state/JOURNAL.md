@@ -714,3 +714,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes embed-badges (Pillar 3)
 - notes: experiment "review after 3 notes" stands in BACKLOG
+
+## i114 — reviewer — 2026-07-06T01:42:00Z
+- did: embed-badges BOUNCED — README snippet still says <pages_url> though the
+  config is set; "works as pasted" fails for real visitors today
+- line: embed-badges: rc → building (bounce)
+- files: foundry/records/embed-badges.md, state/STATE.json (fix cycle)
+- validation: pass
+- next-suggestion: builder bakes the real URL; QA pins "no placeholders in
+  README once config is set"
+- notes: n/a
