@@ -91,7 +91,19 @@ REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
 - tier 3: check 3 re-run against the live 2-member kits — copy-block now pastes
   one runnable command per line
 - defects: none found — probed: published=false-but-listed inversion, empty kits
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass
+
+### Review — i92 (post-bounce)
+- i89 defect fixed exactly and narrowly: `.kit .install{white-space:pre}` scoped to
+  kits; shelf cards keep nowrap (single command + overflow-x — correct there).
+- Regression is pinned by an executable check, not a promise — the new suite fails
+  if the override ever disappears. Member-flag honesty test guards both directions
+  (overselling and underselling).
+- Kit copy explicitly honest (&quot;finishing on the line&quot; for unpublished members);
+  no dark-pattern surface.
+- Axes: scope 5 · prompt n/a (site feature) · thrift 5 · hook-safety n/a ·
+  docs-truth 5 · structure 5.
+REVIEW: approved — bounce cured, regression executable, copy honest.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/starter-kits.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/starter-kits.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -513,3 +513,13 @@ Entry template (copy exactly; newest at the bottom):
   other 9 rc features — reviewers should weigh it per-record
 - notes: executable-suite gap on v5 features is systemic; flagging for the
   closing audit rather than blocking each record on it
+
+## i92 — reviewer — 2026-07-06T00:22:00Z
+- did: starter-kits re-reviewed post-fix — approved; fix narrow, regression
+  executable, kit copy honest
+- line: starter-kits: review approved (stays rc; maintainer publishes next)
+- files: foundry/records/starter-kits.md
+- validation: pass
+- next-suggestion: maintainer publishes starter-kits (feature: stage flip +
+  experiment stays armed on its 21-day post-deploy clock)
+- notes: n/a

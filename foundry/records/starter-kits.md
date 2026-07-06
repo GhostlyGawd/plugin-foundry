@@ -82,3 +82,15 @@ REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
   one runnable command per line
 - defects: none found — probed: published=false-but-listed inversion, empty kits
 TEST VERDICT: pass
+
+### Review — i92 (post-bounce)
+- i89 defect fixed exactly and narrowly: `.kit .install{white-space:pre}` scoped to
+  kits; shelf cards keep nowrap (single command + overflow-x — correct there).
+- Regression is pinned by an executable check, not a promise — the new suite fails
+  if the override ever disappears. Member-flag honesty test guards both directions
+  (overselling and underselling).
+- Kit copy explicitly honest ("finishing on the line" for unpublished members);
+  no dark-pattern surface.
+- Axes: scope 5 · prompt n/a (site feature) · thrift 5 · hook-safety n/a ·
+  docs-truth 5 · structure 5.
+REVIEW: approved — bounce cured, regression executable, copy honest.
