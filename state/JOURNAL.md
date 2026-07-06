@@ -552,3 +552,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa pins the stale threshold with an executable check
 - notes: n/a
+
+## i96 — qa — 2026-07-06T00:34:00Z
+- did: token-cost-badges re-test 3/3 with new executable suite; stale-dimming
+  regression pinned; badge numbers substantiated against records
+- line: token-cost-badges: building → rc
+- files: foundry/tests/token-cost-badges/badges.test.sh, foundry/records/token-cost-badges.md
+- validation: pass (validate+build+qa.sh+smoke.sh green)
+- next-suggestion: reviewer re-reads the stale path
+- notes: n/a

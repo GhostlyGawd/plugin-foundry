@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Token-Cost Badges — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Every card shows what a plugin costs your context — est. always-on tokens, and when it was last verified.</p>
   
   
@@ -87,7 +87,19 @@ justification that survives a stopped factory); add an executable check.</pre></
   a build-time check would itself freeze if the factory stopped, which is the exact
   failure the reviewer named. Certificates already print the literal verified date
   in the meta line (self-dating, reader can judge), so the card badge — a bare ✓ —
-  was the only misleading surface. Under ADR-009 feature authorization.</pre></details></div>
+  was the only misleading surface. Under ADR-009 feature authorization.
+
+### Test pass — i96 (post-bounce re-test)
+- tier 1: executable suite landed (foundry/tests/token-cost-badges/badges.test.sh)
+  3/3: estimator determinism across all 7 published plugins, badge-number
+  substantiation vs records (both type-normalized), stale-dimming regression
+  pinned at the 60-day threshold
+- tier 2: n/a (site feature)
+- tier 3: title copy explains WHY a chip is dim (&quot;verification older than 60
+  days&quot;) — honest degradation, not decoration
+- defects: none in product — one test-harness type mismatch (data.json strings vs
+  record ints) fixed in the test itself
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/token-cost-badges.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/token-cost-badges.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

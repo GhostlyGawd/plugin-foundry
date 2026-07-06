@@ -2,7 +2,7 @@
 name: token-cost-badges
 title: Token-Cost Badges
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site, docs]
@@ -78,3 +78,15 @@ justification that survives a stopped factory); add an executable check.
   failure the reviewer named. Certificates already print the literal verified date
   in the meta line (self-dating, reader can judge), so the card badge — a bare ✓ —
   was the only misleading surface. Under ADR-009 feature authorization.
+
+### Test pass — i96 (post-bounce re-test)
+- tier 1: executable suite landed (foundry/tests/token-cost-badges/badges.test.sh)
+  3/3: estimator determinism across all 7 published plugins, badge-number
+  substantiation vs records (both type-normalized), stale-dimming regression
+  pinned at the 60-day threshold
+- tier 2: n/a (site feature)
+- tier 3: title copy explains WHY a chip is dim ("verification older than 60
+  days") — honest degradation, not decoration
+- defects: none in product — one test-harness type mismatch (data.json strings vs
+  record ints) fixed in the test itself
+TEST VERDICT: pass
