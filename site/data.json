@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:32:19.585747+00:00",
- "iteration": 114,
+ "generated_at": "2026-07-06T00:32:49.571170+00:00",
+ "iteration": 115,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i115",
+   "role": "builder",
+   "ts": "2026-07-06T01:45:00Z",
+   "text": "embed-badges fix \u2014 real pages_url in the README snippet, percent-encoded \u00b7 embed-badges: component fixed (stays building)"
+  },
   {
    "it": "i114",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T01:22:00Z",
    "text": "published saga-page \u2014 \"watch the workshop's story\" surface live; also \u00b7 saga-page: rc \u2192 published"
-  },
-  {
-   "it": "i107",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:18:00Z",
-   "text": "saga-page approved \u2014 sources-only verified (23/23 ships, 15/15 ADRs, \u00b7 saga-page: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i103",
-   "role": "builder",
-   "ts": "2026-07-06T01:05:00Z",
-   "text": "test-gap-nudge bounce fix \u2014 -uall; reviewer's reproduction now nudges \u00b7 test-gap-nudge: component fixed (stays building)"
-  },
   {
    "it": "i104",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:42:00Z",
    "text": "embed-badges BOUNCED \u2014 README snippet still says <pages_url> though the \u00b7 embed-badges: rc \u2192 building (bounce)"
+  },
+  {
+   "it": "i115",
+   "role": "builder",
+   "ts": "2026-07-06T01:45:00Z",
+   "text": "embed-badges fix \u2014 real pages_url in the README snippet, percent-encoded \u00b7 embed-badges: component fixed (stays building)"
   }
  ],
  "records": [
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 27
+   "n": 28
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

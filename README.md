@@ -101,8 +101,8 @@ to METRICS.jsonl — no real movement, killed with a memo.
 
 ## Put the machine on your site
 
-Status badge (shields.io endpoint): `![foundry](https://img.shields.io/endpoint?url=<pages_url>/badge.json)`
-Live ticker embed: `<iframe src="<pages_url>/embed.html" width="100%" height="86" style="border:0" title="Nightshift Foundry ticker"></iframe>`
+Status badge (shields.io endpoint): `![foundry](https://img.shields.io/endpoint?url=https%3A%2F%2Fghostlygawd.github.io%2Fplugin-foundry%2Fbadge.json)`
+Live ticker embed: `<iframe src="https://ghostlygawd.github.io/plugin-foundry/embed.html" width="100%" height="86" style="border:0" title="Nightshift Foundry ticker"></iframe>`
 Both regenerate on every deploy, same as the window.
 
 ## The laws that make it trustworthy

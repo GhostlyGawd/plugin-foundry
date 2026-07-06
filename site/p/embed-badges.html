@@ -79,7 +79,10 @@ TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pr
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
   structure 5.
 REVIEW: bounced — bake the real pages_url into the README snippet (and prefer
-deriving it from site-config so it can&#x27;t drift again).</pre></details></div>
+deriving it from site-config so it can&#x27;t drift again).</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i115: README snippet bakes the real pages_url from site-config (shields URL
+  param percent-encoded so it works as pasted in more renderers). README is
+  hand-maintained prose, so drift-proofing lands as a QA check rather than a
+  generator — the suite fails if config is set and placeholders remain.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/embed-badges.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/embed-badges.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

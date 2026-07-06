@@ -724,3 +724,12 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder bakes the real URL; QA pins "no placeholders in
   README once config is set"
 - notes: n/a
+
+## i115 — builder — 2026-07-06T01:45:00Z
+- did: embed-badges fix — real pages_url in the README snippet, percent-encoded
+  for the shields endpoint param
+- line: embed-badges: component fixed (stays building)
+- files: README.md, foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: qa pins the no-placeholder check
+- notes: n/a

@@ -67,3 +67,9 @@ TEST VERDICT: pass
   structure 5.
 REVIEW: bounced — bake the real pages_url into the README snippet (and prefer
 deriving it from site-config so it can't drift again).
+
+## Build log (post-bounce)
+- i115: README snippet bakes the real pages_url from site-config (shields URL
+  param percent-encoded so it works as pasted in more renderers). README is
+  hand-maintained prose, so drift-proofing lands as a QA check rather than a
+  generator — the suite fails if config is set and placeholders remain.
