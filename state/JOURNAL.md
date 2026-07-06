@@ -1459,3 +1459,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builds when the first sister registers — building it
   earlier would be machinery for a family that doesn't exist yet.
 - notes: v10 #14 complete — foundry-network published, exchange specced.
+
+## i179 — auditor (directed) — 2026-07-06T21:14:28Z
+- did: audit-005 filed — v10 slate 14/14 lawful: 7 releases under version law
+  (tags local-only, operator push flagged), ADR-018 two-iteration rule held,
+  two records walked the full line with genuine review findings, two
+  self-caught incidents on the record (catalog ordering ×2; one committed-red
+  fixed-then-amended). qa 201/0/0, smoke 8/8, validate 39 records / 34
+  published. IMPROVEMENTS.md header marked BUILT.
+- line: audit-005 filed
+- files: reviews/audit-005.md, IMPROVEMENTS.md, state/{STATE.json,JOURNAL.md}
+- validation: pass
+- next-suggestion: operator merges PR #13, pushes tags, and spends the
+  preflight 15 minutes — Gate A is still the whole game.
+- notes: the tripwire stayed honest: both reviews drew blood.
