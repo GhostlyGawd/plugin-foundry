@@ -1386,3 +1386,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: maintainer publishes.
 - notes: a trust product that oversells is worse than none — the fix was the
   review's whole value.
+
+## i173 — maintainer (directed, v10 #13) — 2026-07-06T21:08:47Z
+- did: verified-by-foundry published. The foundry's machinery points outward
+  for the first time: any plugin repo can run the doctor in CI with one
+  paste-block; a public green run + issue earns a dated, run-linked listing.
+- line: verified-by-foundry rc → published (v10 #13 complete: idea→published
+  in five lawful stages, i168–i173)
+- files: foundry/records/verified-by-foundry.md, site/*
+- validation: pass
+- next-suggestion: v10 #14 — foundry-network spec → building.
+- notes: first registry entry will be the experiment's first data point.

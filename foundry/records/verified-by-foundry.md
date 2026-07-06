@@ -2,7 +2,7 @@
 name: verified-by-foundry
 title: Verified by the Foundry
 category: growth
-stage: rc
+stage: published
 version: null
 kind: feature
 components: [workflow, site, docs]
@@ -114,3 +114,10 @@ TEST VERDICT: pass
   No — the entry states exactly what happened (doctor green, date, public run
   link) and now states what that does NOT mean, in the same breath.
 REVIEW: approved
+
+## Publish log
+- i173 (maintainer): published — the action is live at
+  GhostlyGawd/plugin-foundry/.github/actions/foundry-doctor@main the moment
+  this lands on main; README paste-block is the storefront; registry opens
+  empty by law. Experiment armed (registry entries + views_14d, review
+  2026-09-06). kind:feature — no marketplace entry, no version tag.
