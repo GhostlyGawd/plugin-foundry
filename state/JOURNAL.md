@@ -1089,3 +1089,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: builder ships tools/preflight.py + operator checklist (#13)
 - notes: recordings are repo metadata (ADR-013 spirit) — no version bumps
+
+## i150 — builder — 2026-07-06T04:50:00Z
+- did: go-live assist pack (#13) — tools/preflight.py: read-only readiness pass
+  (config, workflows, gates, funding state; secret NAMES only, never values) +
+  the distilled 15-minute operator click-list ending at the first CI shift;
+  OPERATIONS gains §0 pointing at it; live run shows 7 OK / 3 operator-optional
+- line: n/a (tools, ADR-016; v9 slate items #1–#13 all built)
+- files: tools/preflight.py, OPERATIONS.md
+- validation: pass
+- next-suggestion: auditor closes the v9 slate (audit-004), then push + PR
+- notes: the only remaining unlocks are the operator's clicks — by design

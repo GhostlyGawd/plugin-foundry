@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T01:15:06.547328+00:00",
- "iteration": 149,
+ "generated_at": "2026-07-06T01:16:19.817941+00:00",
+ "iteration": 150,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i150",
+   "role": "builder",
+   "ts": "2026-07-06T04:50:00Z",
+   "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
+  },
   {
    "it": "i149",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-06T03:57:00Z",
    "text": "copy-to-clipboard (#6) \u2014 click any .install block (shelf cards and kits)"
-  },
-  {
-   "it": "i142",
-   "role": "builder",
-   "ts": "2026-07-06T03:52:00Z",
-   "text": "OG/twitter meta (#5) on the window and all 38 certificates \u2014 titles,"
   }
  ],
  "journal": [
-  {
-   "it": "i138",
-   "role": "builder",
-   "ts": "2026-07-06T03:30:00Z",
-   "text": "night-clerk 0.1.1 (#2+#8) \u2014 snapshot regenerated via clerkcat (8 plugins; \u00b7 night-clerk 0.1.0 \u2192 0.1.1 (no stage move)"
-  },
   {
    "it": "i139",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T04:42:00Z",
    "text": "recorded-demo pipeline (#12) \u2014 monthly/dispatch workflow records headless"
+  },
+  {
+   "it": "i150",
+   "role": "builder",
+   "ts": "2026-07-06T04:50:00Z",
+   "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
   }
  ],
  "records": [
@@ -2383,7 +2383,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 62
+   "n": 63
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

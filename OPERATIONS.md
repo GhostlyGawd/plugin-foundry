@@ -3,6 +3,10 @@
 The repo is the database, Actions are the factory, Pages is the window, Stripe is
 the till. One-time human setup, then the machine runs on schedule.
 
+## 0 · Preflight (run this first)
+`python3 tools/preflight.py` — one read-only pass that checks everything
+checkable from inside the repo and prints the exact click-list for the rest.
+
 ## 1 · Put it on GitHub
 ```bash
 cd pluginfoundry && git init -q && git add -A
