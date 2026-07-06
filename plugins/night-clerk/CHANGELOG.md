@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 — 2026-07-06
+- catalog snapshot: solo-dev kit added (env-doctor + test-gap-nudge +
+  session-recap) — the clerk can now bundle the one-person-repo workflow
+
 ## 0.1.1 — 2026-07-06
 - catalog snapshot regenerated: all 8 published plugins (test-gap-nudge was
   missing — the front desk was a day behind the shelf)

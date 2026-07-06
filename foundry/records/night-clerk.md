@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.1.1
+version: 0.1.2
 components: [skills]
 always_on_tokens: 86
 verified: 2026-07-05

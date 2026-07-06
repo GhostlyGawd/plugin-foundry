@@ -104,6 +104,16 @@
     "/plugin install commit-craft@foundry",
     "/plugin install pr-narrator@foundry"
    ]
+  },
+  {
+   "id": "solo-dev",
+   "name": "Solo dev kit",
+   "desc": "Run a healthy one-person repo: diagnose your environment, get nudged when code ships without tests, end every session with a written handoff.",
+   "install": [
+    "/plugin install env-doctor@foundry",
+    "/plugin install test-gap-nudge@foundry",
+    "/plugin install session-recap@foundry"
+   ]
   }
  ]
 }

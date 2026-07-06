@@ -984,3 +984,16 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer curates the solo dev kit (#4)
 - notes: n/a
+
+## i141 — maintainer — 2026-07-06T03:45:00Z
+- did: solo-dev kit curated (#4) — env-doctor + test-gap-nudge + session-recap;
+  the uncovered half of the shelf now has a bundle; clerk snapshot regenerated in
+  the same iteration as night-clerk 0.1.2 (kits ride the catalog, so kit changes
+  are version-law events for the clerk now — noted as standing duty)
+- line: night-clerk 0.1.1 → 0.1.2 (no stage move)
+- files: foundry/kits.json, plugins/night-clerk/{data/catalog.json,CHANGELOG.md,.claude-plugin/plugin.json},
+  foundry/records/night-clerk.md
+- validation: pass (kits suite 3/3, clerk suite 11/11, strict validate)
+- next-suggestion: builder lands OG meta (#5, ADR-016 template authorization)
+- notes: starter-kits experiment (review 2026-07-26) now measures 3 kits, 7 of 8
+  plugins covered
