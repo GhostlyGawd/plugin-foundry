@@ -1397,3 +1397,17 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: v10 #14 — foundry-network spec → building.
 - notes: first registry entry will be the experiment's first data point.
+
+## i174 — builder (directed, v10 #14) — 2026-07-06T21:10:41Z
+- did: foundry-network built to its own spec — registration template, window
+  strip, saga family tree (all hall-law: nothing renders while empty),
+  CONTRIBUTING Lane 4 with verification duty. Deliberately did NOT build the
+  interop feed from IMPROVEMENTS #14 — the record's spec says names + links
+  only, and the spec is the law; richer exchange stays parked in
+  cross-foundry-exchange behind this record's verdict.
+- line: foundry-network spec → building (build complete in one pass)
+- files: .github/ISSUE_TEMPLATE/sister-foundry.yml, tools/build.py,
+  CONTRIBUTING.md, foundry/records/foundry-network.md, site/*
+- validation: pass (fixture-verified both empty and populated)
+- next-suggestion: qa suite → rc.
+- notes: n/a

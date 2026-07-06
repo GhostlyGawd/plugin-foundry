@@ -428,6 +428,11 @@ TEMPLATE = """<!DOCTYPE html>
     <div class="hall" id="verifiedbox"></div>
   </div>
 
+  <div id="networkwrap">
+    <h3 class="rule" id="network" style="display:none">Sister foundries — the network</h3>
+    <div class="hall" id="networkbox"></div>
+  </div>
+
   <div class="duo">
     <section class="panel" id="request">
       <h5>The request box — @@PRICE@@</h5>
@@ -710,6 +715,21 @@ function renderVerified(){
     (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('') +
     '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee</p>';
 }
+/* sister foundries (v10 #14, foundry-network spec) — names + links only, never
+   remote content; renders nothing while the network is empty. */
+function renderNetwork(){
+  const N = DATA.network || [];
+  const head = document.getElementById('network');
+  const box = document.getElementById('networkbox');
+  if (!N.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
+  head.style.display = 'block'; box.style.display = 'block';
+  box.innerHTML = N.map(n =>
+    '<div class="hrow"><b>' + esc(n.name) + '</b><em>registered ' + esc(n.registered) +
+    (n.note ? ' · ' + esc(n.note) : '') + '</em>' +
+    ' <a href="' + esc(n.url) + '">repo →</a>' +
+    (n.pages ? ' <a href="' + esc(n.pages) + '">window →</a>' : '') + '</div>').join('') +
+    '<p class="vnone">by their own declaration, URL verified by a maintainer shift — links out only</p>';
+}
 function renderHall(){
   const H = DATA.hall || {prospectors: [], patrons: [], breakers: []};
   const head = document.getElementById('hall');
@@ -734,7 +754,7 @@ function ago(iso){
 }
 function renderAll(){
   renderGrid(); renderTape(); renderTheme(); renderLanes(); renderStats();
-  renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall(); renderVerified();
+  renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall(); renderVerified(); renderNetwork();
   // copy-to-clipboard (ADR-016 #6): click any install block to copy it whole.
   // Degrades silently without a secure context — user-select:all still works.
   document.addEventListener('click', ev => {
@@ -1039,6 +1059,14 @@ def build_saga(records, state, cfg):
         for a in reversed(adrs))
     wall_html = "".join(
         f"<li><b>{html.escape(t)}</b> — {html.escape(q)}</li>" for t, q in sharpest)
+    # family tree (v10 #14, foundry-network spec): who forked whom, by their own
+    # declaration — names + links only, section absent while the network is empty
+    network = load_json(ROOT / "foundry" / "network.json", {}).get("network", [])
+    net_html = "".join(
+        f"<li><em>{html.escape(n.get('registered', '?'))}</em> · "
+        f"<b><a href=\"{html.escape(n.get('url', '#'))}\">{html.escape(n.get('name', '?'))}</a></b>"
+        f"{' — ' + html.escape(n['note']) if n.get('note') else ''}</li>"
+        for n in network)
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>the saga</title>
@@ -1059,6 +1087,7 @@ def build_saga(records, state, cfg):
 <p><a href="index.html">← back to the window</a></p>
 <h1>The saga — the workshop's own story</h1>
 <h2>Ships &amp; fates</h2><ul>{naming}{fate_html}</ul>
+{('<h2>Family tree — sister foundries, by their own declaration</h2><ul>' + net_html + '</ul>') if net_html else ''}
 {('<h2>Questions the line asked itself</h2><p class="wallnote">the hardest question each review recorded — argument, on the record</p><ul class="wall">' + wall_html + '</ul>') if wall_html else ''}
 <h2>Charter decisions (ADRs)</h2><ul>{adr_html}</ul>
 <footer>Derived entirely from state/DECISIONS.md and the records — no editorializing,
@@ -1284,6 +1313,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "alarms": alarms,
         "hall": hall,
         "verified": load_json(ROOT / "foundry" / "verified.json", {}).get("verified", []),
+        "network": load_json(ROOT / "foundry" / "network.json", {}).get("network", []),
         "streak": streak,
         "repo": cfg.get("repo") or None,
     }

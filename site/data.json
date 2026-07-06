@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-07-06T21:08:47.620285+00:00",
- "iteration": 173,
+ "generated_at": "2026-07-06T21:10:41.409151+00:00",
+ "iteration": 174,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
-  "spec": 3,
-  "building": 0,
+  "spec": 2,
+  "building": 1,
   "rc": 0,
   "published": 33,
   "deprecated": 0,
@@ -498,7 +498,7 @@
    "name": "foundry-network",
    "title": "The Foundry Network",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "site",
@@ -1091,7 +1091,33 @@
  ],
  "roadmap": {
   "commissioned": [],
-  "building": [],
+  "building": [
+   {
+    "name": "foundry-network",
+    "title": "The Foundry Network",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "site",
+     "docs",
+     "template"
+    ],
+    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
+    "tags": [
+     "network",
+     "forks",
+     "federation"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   }
+  ],
   "next": [
    {
     "name": "commission-tiers",
@@ -1108,31 +1134,6 @@
      "pricing",
      "patrons",
      "experiment"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "foundry-network",
-    "title": "The Foundry Network",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "site",
-     "docs",
-     "template"
-    ],
-    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
-    "tags": [
-     "network",
-     "forks",
-     "federation"
     ],
     "commission": null,
     "kind": "feature",
@@ -2099,6 +2100,7 @@
   "breakers": []
  },
  "verified": [],
+ "network": [],
  "streak": [
   {
    "d": "2026-04-14",
