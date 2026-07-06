@@ -839,3 +839,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes community-hall
 - notes: n/a
+
+## i127 — reviewer — 2026-07-06T02:36:00Z
+- did: community-hall approved — re-verified substantiation post-Breakers
+  addition; hide-when-empty covers all three lists
+- line: community-hall: review approved (stays rc)
+- files: foundry/records/community-hall.md
+- validation: pass
+- next-suggestion: maintainer publishes community-hall
+- notes: n/a
+

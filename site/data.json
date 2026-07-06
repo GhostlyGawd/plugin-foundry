@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:42:15.296140+00:00",
- "iteration": 126,
+ "generated_at": "2026-07-06T00:42:59.979329+00:00",
+ "iteration": 127,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i127",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:36:00Z",
+   "text": "community-hall approved \u2014 re-verified substantiation post-Breakers \u00b7 community-hall: review approved (stays rc)"
+  },
   {
    "it": "i126",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-06T02:08:00Z",
    "text": "applied ADR-015 \u2014 intake.py grows the idea lane: open `idea` issues land"
-  },
-  {
-   "it": "i119",
-   "role": "growth",
-   "ts": "2026-07-06T02:00:00Z",
-   "text": "seeded the boards honestly \u2014 3 idea issues (#4 dep-bump-brief, #5"
   }
  ],
  "journal": [
-  {
-   "it": "i115",
-   "role": "builder",
-   "ts": "2026-07-06T01:45:00Z",
-   "text": "embed-badges fix \u2014 real pages_url in the README snippet, percent-encoded \u00b7 embed-badges: component fixed (stays building)"
-  },
   {
    "it": "i116",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:32:00Z",
    "text": "published field-reports \u00b7 field-reports: rc \u2192 published"
+  },
+  {
+   "it": "i127",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:36:00Z",
+   "text": "community-hall approved \u2014 re-verified substantiation post-Breakers \u00b7 community-hall: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 39
+   "n": 40
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
