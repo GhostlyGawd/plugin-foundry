@@ -1262,3 +1262,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v10 #9 — SECURITY.md.
 - notes: three parsers had already drifted (clerkcat parsed tags as a string);
   the drift class is now extinct the same way the catalog one was.
+
+## i163 — maintainer (directed, v10 #9) — 2026-07-06T20:56:39Z
+- did: root SECURITY.md — GitHub-recognized policy: private vulnerability
+  reporting path (Security → advisories), public bug lane for non-exploitable
+  defects with the LOOP.md priority promise, supported-versions statement
+  (latest published only, updates ride semver), and the hook-safety law
+  restated as user-facing commitments (fail-open, no network, narrow matchers,
+  zero secrets) with the commit-craft guard exception disclosed honestly.
+- line: n/a (docs/policy)
+- files: SECURITY.md
+- validation: pass
+- next-suggestion: v10 #10 — hook debug mode (ends with a clerk catalog refresh).
+- notes: charter/SECURITY.md stays the internal law; root SECURITY.md is its
+  public face — same posture, different audience.
