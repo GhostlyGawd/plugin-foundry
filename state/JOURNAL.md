@@ -532,3 +532,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes token-cost-badges (next rc in slate order)
 - notes: experiment review-after 2026-07-26 stands (BACKLOG § Experiments)
+
+## i94 — reviewer — 2026-07-06T00:28:00Z
+- did: token-cost-badges reviewed and BOUNCED — the spec's >60-day stale-verified
+  dimming was never built; freshness stamps would overstate forever if CI pauses
+- line: token-cost-badges: rc → building (bounce)
+- files: foundry/records/token-cost-badges.md, state/STATE.json (fix cycle seeded)
+- validation: pass
+- next-suggestion: builder adds the dimmed state + executable check; estimator
+  itself is sound (re-verified 113/90)
+- notes: second unlogged spec deviation found in the v5 rc pool — pattern for
+  the closing audit

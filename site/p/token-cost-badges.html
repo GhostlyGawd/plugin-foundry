@@ -40,8 +40,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Token-Cost Badges — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>Every card shows what a plugin costs your context — est. always-on tokens, and when it was last verified.</p>
   
   
@@ -67,7 +67,22 @@
 - tier 3: checks 1–3 → stable estimates, badge/unmeasured states render, zero
   unsubstantiated numbers found
 - defects: none found — probed: missing keys, malformed verified date, zero-desc plugin
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i94
+- Estimator honest and stable: chars/4 ceil over always-loaded frontmatter only;
+  re-ran plugin-smith (113) and fork-a-foundry (90) — matches the Test log.
+  All 7 published plugins carry always_on_tokens + verified. &quot;est.&quot; labeling
+  everywhere the number appears (cards, certificates, INDEX). Zero-desc edge
+  renders &quot;unmeasured&quot; (0 is falsy) — more honest than &quot;~0 tok&quot;; acceptable.
+- DEFECT (docs truth / the feature&#x27;s own trust promise): spec says stale
+  `verified` dates (&gt; 60 days) render dimmed. No such logic exists in build.py —
+  a ✓ stamp looks equally fresh at 6 days and 6 months. Weekly re-verify masks
+  this only while CI runs; if the factory pauses, every badge quietly overstates
+  freshness — precisely what this feature exists to prevent. Unlogged deviation,
+  load-bearing clause.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
+  structure 5.
+REVIEW: bounced — implement the &gt;60-day dimmed state (or amend the spec with a
+justification that survives a stopped factory); add an executable check.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/token-cost-badges.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/token-cost-badges.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

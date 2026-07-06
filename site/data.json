@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:15:40.205429+00:00",
- "iteration": 93,
+ "generated_at": "2026-07-06T00:16:51.164306+00:00",
+ "iteration": 94,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 4,
   "spec": 4,
-  "building": 0,
-  "rc": 9,
+  "building": 1,
+  "rc": 8,
   "published": 21,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i94",
+   "role": "reviewer",
+   "ts": "2026-07-06T00:28:00Z",
+   "text": "token-cost-badges reviewed and BOUNCED \u2014 the spec's >60-day stale-verified \u00b7 token-cost-badges: rc \u2192 building (bounce)"
+  },
   {
    "it": "i93",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "auditor",
    "ts": "2026-07-05T20:00:06Z",
    "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
-  },
-  {
-   "it": "i86",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:59:03Z",
-   "text": "Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed \u00b7 releases-and-reverify \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i82",
-   "role": "maintainer",
-   "ts": "2026-07-05T19:56:36Z",
-   "text": "Published commission-queue: board live, counter open; experiment armed \u00b7 commission-queue \u2192 published"
-  },
   {
    "it": "i83",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T00:24:00Z",
    "text": "published starter-kits \u2014 bounced once, fixed, re-tested with an executable \u00b7 starter-kits: rc \u2192 published"
+  },
+  {
+   "it": "i94",
+   "role": "reviewer",
+   "ts": "2026-07-06T00:28:00Z",
+   "text": "token-cost-badges reviewed and BOUNCED \u2014 the spec's >60-day stale-verified \u00b7 token-cost-badges: rc \u2192 building (bounce)"
   }
  ],
  "records": [
@@ -921,7 +921,7 @@
    "name": "token-cost-badges",
    "title": "Token-Cost Badges",
    "category": "growth",
-   "stage": "rc",
+   "stage": "building",
    "version": null,
    "components": [
     "site",
@@ -1216,7 +1216,7 @@
     "name": "token-cost-badges",
     "title": "Token-Cost Badges",
     "category": "growth",
-    "stage": "rc",
+    "stage": "building",
     "version": null,
     "components": [
      "site",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 6
+   "n": 7
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
