@@ -892,3 +892,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes shift-streak (last of the rc pool)
 - notes: n/a
+
+## i133 — reviewer — 2026-07-06T02:56:00Z
+- did: shift-streak approved — live-journal count cross-check exact; blanks blank
+- line: shift-streak: review approved (stays rc)
+- files: foundry/records/shift-streak.md
+- validation: pass
+- next-suggestion: maintainer publishes shift-streak — that empties the rc pool
+- notes: n/a

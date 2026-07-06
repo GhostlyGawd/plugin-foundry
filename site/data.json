@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:44:45.374263+00:00",
- "iteration": 132,
+ "generated_at": "2026-07-06T00:45:06.088795+00:00",
+ "iteration": 133,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i133",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:56:00Z",
+   "text": "shift-streak approved \u2014 live-journal count cross-check exact; blanks blank \u00b7 shift-streak: review approved (stays rc)"
+  },
   {
    "it": "i132",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:32:00Z",
    "text": "published field-reports \u00b7 field-reports: rc \u2192 published"
-  },
-  {
-   "it": "i125",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:30:00Z",
-   "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i121",
-   "role": "builder",
-   "ts": "2026-07-06T02:15:00Z",
-   "text": "adversarial-qa-bounties built \u2014 bounty checkbox, SECURITY cross-ref, \u00b7 adversarial-qa-bounties: spec \u2192 building (build complete)"
-  },
   {
    "it": "i122",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:52:00Z",
    "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
+  },
+  {
+   "it": "i133",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:56:00Z",
+   "text": "shift-streak approved \u2014 live-journal count cross-check exact; blanks blank \u00b7 shift-streak: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 45
+   "n": 46
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
