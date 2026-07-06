@@ -1,139 +1,139 @@
 {
- "generated_at": "2026-07-05T23:53:57.337238+00:00",
- "iteration": 87,
+ "generated_at": "2026-07-06T00:46:32.756423+00:00",
+ "iteration": 135,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 1,
-  "spec": 4,
+  "idea": 3,
+  "spec": 3,
   "building": 0,
-  "rc": 10,
-  "published": 20,
+  "rc": 0,
+  "published": 32,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
   {
-   "it": "i87",
+   "it": "i135",
    "role": "auditor",
-   "ts": "2026-07-05T20:00:06Z",
-   "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
+   "ts": "2026-07-06T03:02:00Z",
+   "text": "audit-003 filed \u2014 v8 slate 12/12 publishes lawful; 5 reviewer bounces \u00b7 audit-003 filed"
   },
   {
-   "it": "i86",
+   "it": "i134",
    "role": "maintainer",
-   "ts": "2026-07-05T19:59:03Z",
-   "text": "Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed \u00b7 releases-and-reverify \u2192 published"
+   "ts": "2026-07-06T02:58:00Z",
+   "text": "published shift-streak \u2014 v8 slate rc pool EMPTY: 10/10 features published \u00b7 shift-streak: rc \u2192 published"
   },
   {
-   "it": "i85",
+   "it": "i133",
    "role": "reviewer",
-   "ts": "2026-07-05T19:59:02Z",
-   "text": "releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failu \u00b7 releases-and-reverify review approved"
+   "ts": "2026-07-06T02:56:00Z",
+   "text": "shift-streak approved \u2014 live-journal count cross-check exact; blanks blank \u00b7 shift-streak: review approved (stays rc)"
   },
   {
-   "it": "i84",
-   "role": "qa",
-   "ts": "2026-07-05T19:59:01Z",
-   "text": "releases-and-reverify QA: 13/13, refusal semantics proven, qa-recursion designed out \u2192 rc \u00b7 releases-and-reverify \u2192 rc"
-  },
-  {
-   "it": "i83",
-   "role": "builder",
-   "ts": "2026-07-05T19:58:33Z",
-   "text": "releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (met \u00b7 releases-and-reverify \u2192 building"
-  },
-  {
-   "it": "i82",
+   "it": "i132",
    "role": "maintainer",
-   "ts": "2026-07-05T19:56:36Z",
-   "text": "Published commission-queue: board live, counter open; experiment armed \u00b7 commission-queue \u2192 published"
+   "ts": "2026-07-06T02:52:00Z",
+   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
   },
   {
-   "it": "i81",
+   "it": "i131",
    "role": "reviewer",
-   "ts": "2026-07-05T19:56:35Z",
-   "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
+   "ts": "2026-07-06T02:50:00Z",
+   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
   },
   {
-   "it": "i80",
-   "role": "qa",
-   "ts": "2026-07-05T19:56:34Z",
-   "text": "commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed \u2192 rc \u00b7 commission-queue \u2192 rc"
+   "it": "i130",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:46:00Z",
+   "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
+  },
+  {
+   "it": "i129",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:44:00Z",
+   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
+  },
+  {
+   "it": "i128",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:40:00Z",
+   "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
   }
  ],
  "journal": [
   {
-   "it": "i76",
-   "role": "qa",
-   "ts": "2026-07-05T19:53:14Z",
-   "text": "the-mailbag QA: 4/4 with live fail-open proof; empty and malformed paths probed \u2192 rc \u00b7 the-mailbag \u2192 rc"
-  },
-  {
-   "it": "i77",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:53:14Z",
-   "text": "the-mailbag approved: evidence-only clause load-bearing, in-thread answers publicly falsifiable \u00b7 the-mailbag review approved"
-  },
-  {
-   "it": "i78",
+   "it": "i124",
    "role": "maintainer",
-   "ts": "2026-07-05T19:53:15Z",
-   "text": "Published the-mailbag: live in the shipnote pipeline; experiment armed \u00b7 the-mailbag \u2192 published"
+   "ts": "2026-07-06T02:25:00Z",
+   "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
   },
   {
-   "it": "i79",
-   "role": "builder",
-   "ts": "2026-07-05T19:56:15Z",
-   "text": "commission-queue built: sanitizing intake ledger + derived-status queue page, open-counter empty state, nav; fixture sui \u00b7 commission-queue \u2192 building"
-  },
-  {
-   "it": "i80",
-   "role": "qa",
-   "ts": "2026-07-05T19:56:34Z",
-   "text": "commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed \u2192 rc \u00b7 commission-queue \u2192 rc"
-  },
-  {
-   "it": "i81",
+   "it": "i125",
    "role": "reviewer",
-   "ts": "2026-07-05T19:56:35Z",
-   "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
+   "ts": "2026-07-06T02:30:00Z",
+   "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
   },
   {
-   "it": "i82",
+   "it": "i126",
    "role": "maintainer",
-   "ts": "2026-07-05T19:56:36Z",
-   "text": "Published commission-queue: board live, counter open; experiment armed \u00b7 commission-queue \u2192 published"
+   "ts": "2026-07-06T02:32:00Z",
+   "text": "published field-reports \u00b7 field-reports: rc \u2192 published"
   },
   {
-   "it": "i83",
-   "role": "builder",
-   "ts": "2026-07-05T19:58:33Z",
-   "text": "releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (met \u00b7 releases-and-reverify \u2192 building"
-  },
-  {
-   "it": "i84",
-   "role": "qa",
-   "ts": "2026-07-05T19:59:01Z",
-   "text": "releases-and-reverify QA: 13/13, refusal semantics proven, qa-recursion designed out \u2192 rc \u00b7 releases-and-reverify \u2192 rc"
-  },
-  {
-   "it": "i85",
+   "it": "i127",
    "role": "reviewer",
-   "ts": "2026-07-05T19:59:02Z",
-   "text": "releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failu \u00b7 releases-and-reverify review approved"
+   "ts": "2026-07-06T02:36:00Z",
+   "text": "community-hall approved \u2014 re-verified substantiation post-Breakers \u00b7 community-hall: review approved (stays rc)"
   },
   {
-   "it": "i86",
+   "it": "i128",
    "role": "maintainer",
-   "ts": "2026-07-05T19:59:03Z",
-   "text": "Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed \u00b7 releases-and-reverify \u2192 published"
+   "ts": "2026-07-06T02:40:00Z",
+   "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
   },
   {
-   "it": "i87",
+   "it": "i129",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:44:00Z",
+   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
+  },
+  {
+   "it": "i130",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:46:00Z",
+   "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
+  },
+  {
+   "it": "i131",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:50:00Z",
+   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
+  },
+  {
+   "it": "i132",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:52:00Z",
+   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
+  },
+  {
+   "it": "i133",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:56:00Z",
+   "text": "shift-streak approved \u2014 live-journal count cross-check exact; blanks blank \u00b7 shift-streak: review approved (stays rc)"
+  },
+  {
+   "it": "i134",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:58:00Z",
+   "text": "published shift-streak \u2014 v8 slate rc pool EMPTY: 10/10 features published \u00b7 shift-streak: rc \u2192 published"
+  },
+  {
+   "it": "i135",
    "role": "auditor",
-   "ts": "2026-07-05T20:00:06Z",
-   "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
+   "ts": "2026-07-06T03:02:00Z",
+   "text": "audit-003 filed \u2014 v8 slate 12/12 publishes lawful; 5 reviewer bounces \u00b7 audit-003 filed"
   }
  ],
  "records": [
@@ -141,7 +141,7 @@
    "name": "adversarial-qa-bounties",
    "title": "Adversarial QA Bounties",
    "category": "growth",
-   "stage": "spec",
+   "stage": "published",
    "version": null,
    "components": [
     "docs",
@@ -239,7 +239,7 @@
    "name": "community-hall",
    "title": "Hall of Prospectors & Patrons",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -378,10 +378,33 @@
    "patron": null
   },
   {
+   "name": "dep-bump-brief",
+   "title": "Dep-Bump Brief",
+   "category": "workflow",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "skills"
+   ],
+   "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+   "tags": [
+    "dependencies",
+    "review",
+    "changelogs"
+   ],
+   "commission": null,
+   "kind": "plugin",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "embed-badges",
    "title": "Embeds & Badges",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -427,7 +450,7 @@
    "name": "field-reports",
    "title": "Field Reports",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "template",
@@ -500,7 +523,7 @@
    "name": "fuel-gauge",
    "title": "The Fuel Gauge",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -524,7 +547,7 @@
    "name": "idea-credit-loop",
    "title": "Idea-Credit Loop",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -687,7 +710,7 @@
    "name": "saga-page",
    "title": "The Saga",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -757,7 +780,7 @@
    "name": "shift-streak",
    "title": "Shift Streak",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -780,7 +803,7 @@
    "name": "starter-kits",
    "title": "Starter Kits",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -796,6 +819,29 @@
    "kind": "feature",
    "always_on_tokens": null,
    "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "test-gap-nudge",
+   "title": "Test-Gap Nudge",
+   "category": "quality",
+   "stage": "published",
+   "version": "0.1.0",
+   "components": [
+    "hooks"
+   ],
+   "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+   "tags": [
+    "testing",
+    "hooks",
+    "discipline"
+   ],
+   "commission": null,
+   "kind": "plugin",
+   "always_on_tokens": "33",
+   "verified": "2026-07-06",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -849,10 +895,33 @@
    "patron": null
   },
   {
+   "name": "todo-ledger",
+   "title": "TODO Ledger",
+   "category": "quality",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "skills"
+   ],
+   "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
+   "tags": [
+    "tech-debt",
+    "todos",
+    "reporting"
+   ],
+   "commission": null,
+   "kind": "plugin",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "token-cost-badges",
    "title": "Token-Cost Badges",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -922,7 +991,7 @@
    "name": "weekly-shipnote",
    "title": "Weekly Shipnote",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "workflow",
@@ -975,274 +1044,30 @@
   "field_reports": 0,
   "open_alarms": 0
  },
- "votes": [],
+ "votes": [
+  {
+   "number": "4",
+   "title": "Idea: dep-bump-brief \u2014 plain-language briefs for dependency-bump PRs",
+   "votes": 0,
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/4"
+  },
+  {
+   "number": "5",
+   "title": "Idea: todo-ledger \u2014 TODO/FIXME debt as a dated, ranked report",
+   "votes": 0,
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/5"
+  },
+  {
+   "number": "6",
+   "title": "Idea: cross-foundry-exchange \u2014 sister workshops trade their best ideas",
+   "votes": 0,
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/6"
+  }
+ ],
  "roadmap": {
   "commissioned": [],
-  "building": [
-   {
-    "name": "community-hall",
-    "title": "Hall of Prospectors & Patrons",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "Real contributor recognition \u2014 who suggested what shipped, who fueled what got built.",
-    "tags": [
-     "recognition",
-     "community",
-     "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "embed-badges",
-    "title": "Embeds & Badges",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "A shields-style status badge and an embeddable ticker \u2014 put the living machine on your own site.",
-    "tags": [
-     "distribution",
-     "virality"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "field-reports",
-    "title": "Field Reports",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "template",
-     "site"
-    ],
-    "one_liner": "Real user experiences with shipped plugins, surfaced on their birth certificates.",
-    "tags": [
-     "social-proof",
-     "community",
-     "trust"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "fuel-gauge",
-    "title": "The Fuel Gauge",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "The month's real API spend, on the window, against the operator's cap \u2014 with a Sponsor path to fund the next shift.",
-    "tags": [
-     "sustainability",
-     "transparency",
-     "sponsors"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "idea-credit-loop",
-    "title": "Idea-Credit Loop",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "Community suggestions carry their prospector's name from issue to card to birth certificate \u2014 with a thank-you at every milestone.",
-    "tags": [
-     "community",
-     "recognition",
-     "retention"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "saga-page",
-    "title": "The Saga",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "An auto-generated timeline of the workshop's own story \u2014 ADRs, ships, kills, ceremonies.",
-    "tags": [
-     "lore",
-     "narrative",
-     "retention"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "shift-streak",
-    "title": "Shift Streak",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "A 12-week heatmap of the loop's real iterations \u2014 proof of life at a glance.",
-    "tags": [
-     "spectacle",
-     "heartbeat",
-     "visualization"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "starter-kits",
-    "title": "Starter Kits",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "Curated bundles with one copy-block \u2014 cut choice paralysis for first-time installers.",
-    "tags": [
-     "onboarding",
-     "curation",
-     "installs"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "token-cost-badges",
-    "title": "Token-Cost Badges",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "Every card shows what a plugin costs your context \u2014 est. always-on tokens, and when it was last verified.",
-    "tags": [
-     "trust",
-     "transparency",
-     "tokens"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "weekly-shipnote",
-    "title": "Weekly Shipnote",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "workflow",
-     "docs"
-    ],
-    "one_liner": "A weekly digest the loop writes itself \u2014 shipped, moved, killed, fuel \u2014 posted as an issue every Monday.",
-    "tags": [
-     "digest",
-     "retention",
-     "narrative"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   }
-  ],
+  "building": [],
   "next": [
-   {
-    "name": "adversarial-qa-bounties",
-    "title": "Adversarial QA Bounties",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "docs",
-     "template",
-     "site"
-    ],
-    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
-    "tags": [
-     "community",
-     "qa",
-     "security",
-     "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
    {
     "name": "commission-tiers",
     "title": "Commission Tiers",
@@ -1340,9 +1165,340 @@
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
+   },
+   {
+    "name": "dep-bump-brief",
+    "title": "Dep-Bump Brief",
+    "category": "workflow",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+    "tags": [
+     "dependencies",
+     "review",
+     "changelogs"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "todo-ledger",
+    "title": "TODO Ledger",
+    "category": "quality",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
+    "tags": [
+     "tech-debt",
+     "todos",
+     "reporting"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
    }
   ],
   "shipped": [
+   {
+    "name": "adversarial-qa-bounties",
+    "title": "Adversarial QA Bounties",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "docs",
+     "template",
+     "site"
+    ],
+    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
+    "tags": [
+     "community",
+     "qa",
+     "security",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "community-hall",
+    "title": "Hall of Prospectors & Patrons",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Real contributor recognition \u2014 who suggested what shipped, who fueled what got built.",
+    "tags": [
+     "recognition",
+     "community",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "embed-badges",
+    "title": "Embeds & Badges",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "A shields-style status badge and an embeddable ticker \u2014 put the living machine on your own site.",
+    "tags": [
+     "distribution",
+     "virality"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "field-reports",
+    "title": "Field Reports",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "template",
+     "site"
+    ],
+    "one_liner": "Real user experiences with shipped plugins, surfaced on their birth certificates.",
+    "tags": [
+     "social-proof",
+     "community",
+     "trust"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "fuel-gauge",
+    "title": "The Fuel Gauge",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "The month's real API spend, on the window, against the operator's cap \u2014 with a Sponsor path to fund the next shift.",
+    "tags": [
+     "sustainability",
+     "transparency",
+     "sponsors"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "idea-credit-loop",
+    "title": "Idea-Credit Loop",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Community suggestions carry their prospector's name from issue to card to birth certificate \u2014 with a thank-you at every milestone.",
+    "tags": [
+     "community",
+     "recognition",
+     "retention"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "saga-page",
+    "title": "The Saga",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "An auto-generated timeline of the workshop's own story \u2014 ADRs, ships, kills, ceremonies.",
+    "tags": [
+     "lore",
+     "narrative",
+     "retention"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "shift-streak",
+    "title": "Shift Streak",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "A 12-week heatmap of the loop's real iterations \u2014 proof of life at a glance.",
+    "tags": [
+     "spectacle",
+     "heartbeat",
+     "visualization"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "starter-kits",
+    "title": "Starter Kits",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Curated bundles with one copy-block \u2014 cut choice paralysis for first-time installers.",
+    "tags": [
+     "onboarding",
+     "curation",
+     "installs"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "test-gap-nudge",
+    "title": "Test-Gap Nudge",
+    "category": "quality",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+    "tags": [
+     "testing",
+     "hooks",
+     "discipline"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "33",
+    "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "token-cost-badges",
+    "title": "Token-Cost Badges",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Every card shows what a plugin costs your context \u2014 est. always-on tokens, and when it was last verified.",
+    "tags": [
+     "trust",
+     "transparency",
+     "tokens"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "weekly-shipnote",
+    "title": "Weekly Shipnote",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "workflow",
+     "docs"
+    ],
+    "one_liner": "A weekly digest the loop writes itself \u2014 shipped, moved, killed, fuel \u2014 posted as an issue every Monday.",
+    "tags": [
+     "digest",
+     "retention",
+     "narrative"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
    {
     "name": "commission-queue",
     "title": "The Commission Queue",
@@ -1864,13 +2020,10 @@
  "alarms": [],
  "hall": {
   "prospectors": [],
-  "patrons": []
+  "patrons": [],
+  "breakers": []
  },
  "streak": [
-  {
-   "d": "2026-04-13",
-   "n": 0
-  },
   {
    "d": "2026-04-14",
    "n": 0
@@ -2202,6 +2355,10 @@
   {
    "d": "2026-07-05",
    "n": 87
+  },
+  {
+   "d": "2026-07-06",
+   "n": 48
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

@@ -468,3 +468,457 @@ Entry template (copy exactly; newest at the bottom):
 - did: audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue → ideator
 - line: audit-002 filed
 - gate: validate+build green
+
+## i88 — ideator — 2026-07-06T00:10:41Z
+- did: replenished the line with 3 everyday-utility ideas (test-gap-nudge,
+  dep-bump-brief, todo-ledger — deduped vs 35 records, none shelved); ADR-014 seeds
+  the v8 directed slate queue (10 rc reviews, utility walk, community intake)
+- line: test-gap-nudge, dep-bump-brief, todo-ledger → idea
+- files: foundry/records/{test-gap-nudge,dep-bump-brief,todo-ledger}.md,
+  state/{STATE.json,BACKLOG.md,DECISIONS.md}
+- validation: pass
+- next-suggestion: reviewer takes starter-kits (oldest unreviewed rc, per slate)
+- notes: catalog is meta-heavy (3/7 published plugins are about the foundry);
+  slate deliberately rebalances toward Monday-morning utility
+
+## i89 — reviewer — 2026-07-06T00:14:00Z
+- did: starter-kits reviewed and BOUNCED — multi-plugin kit copy-block collapses
+  to one unrunnable pasted line (.install white-space:nowrap vs '\n' join); both
+  live kits have 2 members, so the flagship path is the broken one
+- line: starter-kits: rc → building (bounce)
+- files: foundry/records/starter-kits.md, state/STATE.json (queue: fix cycle seeded)
+- validation: pass
+- next-suggestion: builder lands kit-scoped white-space fix; QA re-runs check 3
+  with a 2-member kit
+- notes: first bounce since v7 — the tripwire streak resets; bouncing is a service
+
+## i90 — builder — 2026-07-06T00:16:00Z
+- did: starter-kits bounce fix — `.kit .install{white-space:pre}` so multi-plugin
+  kit copy-blocks paste one command per line; shelf cards keep nowrap by design
+- line: starter-kits: component fixed (stays building)
+- files: tools/build.py, foundry/records/starter-kits.md
+- validation: pass
+- next-suggestion: qa re-runs acceptance check 3 against a 2-member kit
+- notes: template edit rides ADR-009 (starter-kits' authorizing ADR), the same
+  authorization every v5/v7 feature build used
+
+## i91 — qa — 2026-07-06T00:20:00Z
+- did: starter-kits re-test 3/3 with a NEW executable suite (the v5 features
+  shipped to rc on manual probes only — suite gap cured for this one); bounce
+  regression pinned in foundry/tests/starter-kits/render.test.sh
+- line: starter-kits: building → rc
+- files: foundry/tests/starter-kits/render.test.sh, foundry/records/starter-kits.md
+- validation: pass (validate+build+qa.sh+smoke.sh green)
+- next-suggestion: reviewer re-reads the fix; note the suite gap applies to the
+  other 9 rc features — reviewers should weigh it per-record
+- notes: executable-suite gap on v5 features is systemic; flagging for the
+  closing audit rather than blocking each record on it
+
+## i92 — reviewer — 2026-07-06T00:22:00Z
+- did: starter-kits re-reviewed post-fix — approved; fix narrow, regression
+  executable, kit copy honest
+- line: starter-kits: review approved (stays rc; maintainer publishes next)
+- files: foundry/records/starter-kits.md
+- validation: pass
+- next-suggestion: maintainer publishes starter-kits (feature: stage flip +
+  experiment stays armed on its 21-day post-deploy clock)
+- notes: n/a
+
+## i93 — maintainer — 2026-07-06T00:24:00Z
+- did: published starter-kits — bounced once, fixed, re-tested with an executable
+  suite, approved; kits section live with honest per-line copy-blocks
+- line: starter-kits: rc → published
+- files: foundry/records/starter-kits.md
+- validation: pass
+- next-suggestion: reviewer takes token-cost-badges (next rc in slate order)
+- notes: experiment review-after 2026-07-26 stands (BACKLOG § Experiments)
+
+## i94 — reviewer — 2026-07-06T00:28:00Z
+- did: token-cost-badges reviewed and BOUNCED — the spec's >60-day stale-verified
+  dimming was never built; freshness stamps would overstate forever if CI pauses
+- line: token-cost-badges: rc → building (bounce)
+- files: foundry/records/token-cost-badges.md, state/STATE.json (fix cycle seeded)
+- validation: pass
+- next-suggestion: builder adds the dimmed state + executable check; estimator
+  itself is sound (re-verified 113/90)
+- notes: second unlogged spec deviation found in the v5 rc pool — pattern for
+  the closing audit
+
+## i95 — builder — 2026-07-06T00:31:00Z
+- did: token-cost-badges bounce fix — >60-day verified dates dim the card badge
+  client-side with an explanatory title; survives a stopped factory by design
+- line: token-cost-badges: component fixed (stays building)
+- files: tools/build.py, foundry/records/token-cost-badges.md
+- validation: pass
+- next-suggestion: qa pins the stale threshold with an executable check
+- notes: n/a
+
+## i96 — qa — 2026-07-06T00:34:00Z
+- did: token-cost-badges re-test 3/3 with new executable suite; stale-dimming
+  regression pinned; badge numbers substantiated against records
+- line: token-cost-badges: building → rc
+- files: foundry/tests/token-cost-badges/badges.test.sh, foundry/records/token-cost-badges.md
+- validation: pass (validate+build+qa.sh+smoke.sh green)
+- next-suggestion: reviewer re-reads the stale path
+- notes: n/a
+
+## i97 — reviewer — 2026-07-06T00:36:00Z
+- did: token-cost-badges re-reviewed post-fix — approved; client-side staleness is
+  the design that survives a stopped factory
+- line: token-cost-badges: review approved (stays rc)
+- files: foundry/records/token-cost-badges.md
+- validation: pass
+- next-suggestion: maintainer publishes token-cost-badges
+- notes: n/a
+
+## i98 — maintainer — 2026-07-06T00:38:00Z
+- did: published token-cost-badges — honest context pricing on every card, with
+  self-degrading freshness stamps
+- line: token-cost-badges: rc → published
+- files: foundry/records/token-cost-badges.md
+- validation: pass
+- next-suggestion: builder specs test-gap-nudge (utility walk, per slate)
+- notes: experiment review-after 2026-07-19 stands
+
+## i99 — builder — 2026-07-06T00:44:00Z
+- did: test-gap-nudge specced against the official hooks reference (Stop event,
+  systemMessage advisory, exit-0-always contract); name finalized; 7 acceptance
+  checks; ~30 tok always-on budget
+- line: test-gap-nudge: idea → spec
+- files: foundry/records/test-gap-nudge.md
+- validation: pass
+- next-suggestion: builder builds the artifact (hooks.json + nudge.sh + docs)
+- notes: docs-before-invention honored — Stop hook contract quoted from
+  code.claude.com/docs/en/hooks, not guessed
+
+## i100 — builder — 2026-07-06T00:52:00Z
+- did: test-gap-nudge built whole — Stop hook + fail-open classifier script +
+  honest docs; smoked gap/dedupe/test-present paths by hand
+- line: test-gap-nudge: spec → building (build complete, ready for QA)
+- files: plugins/test-gap-nudge/** (manifest, hooks.json, nudge.sh, README, CHANGELOG),
+  foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa.sh green)
+- next-suggestion: qa runs the 7 acceptance checks as an executable suite
+- notes: n/a
+
+## i101 — qa — 2026-07-06T00:58:00Z
+- did: test-gap-nudge QA 11/11 executable checks incl. hostile paths (no git,
+  malformed stdin, PATH-less env); token cost measured and recorded
+- line: test-gap-nudge: building → rc
+- files: foundry/tests/test-gap-nudge/acceptance.test.sh, foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa green)
+- next-suggestion: reviewer reads nudge.sh line-by-line as a security reviewer
+- notes: n/a
+
+## i102 — reviewer — 2026-07-06T01:02:00Z
+- did: test-gap-nudge BOUNCED — untracked-directory collapse hides the core case
+  (new module, no tests → silence); reproduced before bouncing
+- line: test-gap-nudge: rc → building (bounce)
+- files: foundry/records/test-gap-nudge.md, state/STATE.json (fix cycle)
+- validation: pass
+- next-suggestion: builder adds -uall to the porcelain call + regression test
+- notes: hook security surface itself came through clean
+
+## i103 — builder — 2026-07-06T01:05:00Z
+- did: test-gap-nudge bounce fix — -uall; reviewer's reproduction now nudges
+- line: test-gap-nudge: component fixed (stays building)
+- files: plugins/test-gap-nudge/{scripts/nudge.sh,CHANGELOG.md}, foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa green)
+- next-suggestion: qa pins new-directory regression
+- notes: n/a
+
+## i104 — qa — 2026-07-06T01:08:00Z
+- did: test-gap-nudge re-test 13/13; -uall regression pinned in both directions
+- line: test-gap-nudge: building → rc
+- files: foundry/tests/test-gap-nudge/acceptance.test.sh, foundry/records/test-gap-nudge.md
+- validation: pass
+- next-suggestion: reviewer re-reads the one-flag fix
+- notes: n/a
+
+## i105 — reviewer — 2026-07-06T01:10:00Z
+- did: test-gap-nudge re-review — approved; all axes ≥4 (hook safety 5, thrift 33 tok)
+- line: test-gap-nudge: review approved (stays rc)
+- files: foundry/records/test-gap-nudge.md
+- validation: pass
+- next-suggestion: maintainer publishes (marketplace entry + tag test-gap-nudge-v0.1.0)
+- notes: n/a
+
+## i106 — maintainer — 2026-07-06T01:13:00Z
+- did: published test-gap-nudge 0.1.0 — 8th plugin on the shelf, 2nd quality-
+  category; marketplace/plugin.json/record versions agree; tagged
+- line: test-gap-nudge: rc → published
+- files: .claude-plugin/marketplace.json, plugins/test-gap-nudge/CHANGELOG.md,
+  foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa green)
+- next-suggestion: reviewer takes saga-page (Pillar 2 of the slate)
+- notes: M2 floor (8 published across ≥4 categories) — plugin count now at 8
+
+## i107 — reviewer — 2026-07-06T01:18:00Z
+- did: saga-page approved — sources-only verified (23/23 ships, 15/15 ADRs,
+  wall quotes verbatim); truncation nit filed P3
+- line: saga-page: review approved (stays rc)
+- files: foundry/records/saga-page.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: maintainer publishes saga-page
+- notes: n/a
+
+## i108 — maintainer — 2026-07-06T01:22:00Z
+- did: published saga-page — "watch the workshop's story" surface live; also
+  re-homed the i107 P3 nit to the Grow section (was appended under Idea inbox)
+- line: saga-page: rc → published
+- files: foundry/records/saga-page.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: reviewer takes weekly-shipnote
+- notes: n/a
+
+## i109 — reviewer — 2026-07-06T01:27:00Z
+- did: weekly-shipnote BOUNCED — silent 12-move cap (21 real moves this week,
+  9 vanish) + first-run death on the missing `shipnote` label
+- line: weekly-shipnote: rc → building (bounce)
+- files: foundry/records/weekly-shipnote.md, state/STATE.json (fix cycle)
+- validation: pass
+- next-suggestion: builder: truncation pointer + ensure-label step; ADR not
+  needed (rides ADR-009 feature authorization)
+- notes: dry-ran the note on the live journal to prove the cap fires in week 1
+
+## i110 — builder — 2026-07-06T01:30:00Z
+- did: weekly-shipnote bounce fixes — honest truncation pointer + ensure-label
+  step; live dry-run shows the pointer with real numbers
+- line: weekly-shipnote: components fixed (stays building)
+- files: tools/shipnote.py, .github/workflows/shipnote.yml, foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: qa lands an executable suite for the generator
+- notes: n/a
+
+## i111 — qa — 2026-07-06T01:34:00Z
+- did: weekly-shipnote re-test 4/4 on fixture repos (results can't drift with the
+  live journal); boundary + guard-order checks included
+- line: weekly-shipnote: building → rc
+- files: foundry/tests/weekly-shipnote/generator.test.sh, foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: reviewer re-reads both one-line fixes
+- notes: n/a
+
+## i112 — reviewer — 2026-07-06T01:36:00Z
+- did: weekly-shipnote re-review — approved; both fixes minimal, order-pinned
+- line: weekly-shipnote: review approved (stays rc)
+- files: foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: maintainer publishes weekly-shipnote
+- notes: n/a
+
+## i113 — maintainer — 2026-07-06T01:38:00Z
+- did: published weekly-shipnote — Pillar 2 of the slate complete (saga + shipnote)
+- line: weekly-shipnote: rc → published
+- files: foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: reviewer takes embed-badges (Pillar 3)
+- notes: experiment "review after 3 notes" stands in BACKLOG
+
+## i114 — reviewer — 2026-07-06T01:42:00Z
+- did: embed-badges BOUNCED — README snippet still says <pages_url> though the
+  config is set; "works as pasted" fails for real visitors today
+- line: embed-badges: rc → building (bounce)
+- files: foundry/records/embed-badges.md, state/STATE.json (fix cycle)
+- validation: pass
+- next-suggestion: builder bakes the real URL; QA pins "no placeholders in
+  README once config is set"
+- notes: n/a
+
+## i115 — builder — 2026-07-06T01:45:00Z
+- did: embed-badges fix — real pages_url in the README snippet, percent-encoded
+  for the shields endpoint param
+- line: embed-badges: component fixed (stays building)
+- files: README.md, foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: qa pins the no-placeholder check
+- notes: n/a
+
+## i116 — qa — 2026-07-06T01:49:00Z
+- did: embed-badges re-test 3/3; placeholder drift now impossible to reintroduce
+  silently while config is set
+- line: embed-badges: building → rc
+- files: foundry/tests/embed-badges/badge.test.sh, foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: reviewer re-checks the snippet as pasted
+- notes: n/a
+
+## i117 — reviewer — 2026-07-06T01:51:00Z
+- did: embed-badges re-review — approved
+- line: embed-badges: review approved (stays rc)
+- files: foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: maintainer publishes embed-badges
+- notes: n/a
+
+## i118 — maintainer — 2026-07-06T01:53:00Z
+- did: published embed-badges — the distribution hack is live; every embed is an
+  acquisition channel that tells the truth
+- line: embed-badges: rc → published
+- files: foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: growth seeds mailbag/vote board honestly + ADRs the intake
+  idea path
+- notes: n/a
+
+## i119 — growth — 2026-07-06T02:00:00Z
+- did: seeded the boards honestly — 3 idea issues (#4 dep-bump-brief, #5
+  todo-ledger, #6 cross-foundry-exchange) and 2 mailbag questions (#7 install,
+  #8 what's-a-bounce) answered in-thread from repo evidence; every body says
+  "seeded by the foundry itself"; votes.json carries real zero counts; ADR-015
+  proposed (intake idea lane)
+- line: n/a (engagement lane; no record stage moved)
+- files: foundry/votes.json, state/DECISIONS.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: builder applies ADR-015 to tools/intake.py (i120 or later)
+- notes: growth-honesty law held — zero fabricated votes, zero fake visitors;
+  seeds are labeled as seeds
+
+## i120 — builder — 2026-07-06T02:08:00Z
+- did: applied ADR-015 — intake.py grows the idea lane: open `idea` issues land
+  in BACKLOG § Idea inbox as I#<n> entries, sanitized (fences/brackets stripped,
+  80-char truncation), deduped, idempotent; verified against a gh fixture in an
+  isolated copy (hostile title probed); commit message updated to cover all lanes
+- line: n/a (tools; two-iteration rule honored — ADR-015 proposed i119)
+- files: tools/intake.py
+- validation: pass
+- next-suggestion: builder takes adversarial-qa-bounties (spec → building)
+- notes: contribution floor is now "open an issue" end to end: idea label →
+  inbox → Ideator formalizes with prospected_by credit
+
+## i121 — builder — 2026-07-06T02:15:00Z
+- did: adversarial-qa-bounties built — bounty checkbox, SECURITY cross-ref,
+  changelog-derived Breakers hall (renders only on the first confirmed find)
+- line: adversarial-qa-bounties: spec → building (build complete)
+- files: .github/ISSUE_TEMPLATE/bug.yml, CONTRIBUTING.md, tools/build.py,
+  foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: qa fixtures a fake changelog find and checks empty-state honesty
+- notes: template edit rides ADR-014's slate authorization for this feature
+
+## i122 — qa — 2026-07-06T02:20:00Z
+- did: adversarial-qa-bounties QA 5/5 — empty-state honesty and fixture-find both
+  pinned; found_by convention is dedicated-line (false-positive-proof)
+- line: adversarial-qa-bounties: building → rc
+- files: foundry/tests/adversarial-qa-bounties/bounties.test.sh, foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: reviewer reads the checkbox + lane copy as a first-time reporter
+- notes: n/a
+
+## i123 — reviewer — 2026-07-06T02:23:00Z
+- did: adversarial-qa-bounties approved — fencing cross-ref load-bearing;
+  artifact-derived credit can't inflate
+- line: adversarial-qa-bounties: review approved (stays rc)
+- files: foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: maintainer publishes; experiment clock starts at window
+  go-live (review-after 2026-09-15 already dated)
+- notes: n/a
+
+## i124 — maintainer — 2026-07-06T02:25:00Z
+- did: published adversarial-qa-bounties — community red-teaming lane open
+- line: adversarial-qa-bounties: rc → published
+- files: foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: reviewer starts the remaining rc pool (field-reports next)
+- notes: n/a
+
+## i125 — reviewer — 2026-07-06T02:30:00Z
+- did: field-reports approved — no-inline law verified in the render path; 8-cap
+  nit filed P3 (can't fire at zero reports); suite gap carried to audit
+- line: field-reports: review approved (stays rc)
+- files: foundry/records/field-reports.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: maintainer publishes field-reports
+- notes: n/a
+
+## i126 — maintainer — 2026-07-06T02:32:00Z
+- did: published field-reports
+- line: field-reports: rc → published
+- files: foundry/records/field-reports.md
+- validation: pass
+- next-suggestion: reviewer takes community-hall
+- notes: n/a
+
+## i127 — reviewer — 2026-07-06T02:36:00Z
+- did: community-hall approved — re-verified substantiation post-Breakers
+  addition; hide-when-empty covers all three lists
+- line: community-hall: review approved (stays rc)
+- files: foundry/records/community-hall.md
+- validation: pass
+- next-suggestion: maintainer publishes community-hall
+- notes: n/a
+
+
+## i128 — maintainer — 2026-07-06T02:40:00Z
+- did: published community-hall; also unwound a protocol slip — i127+i128 had
+  landed as one commit (rule 1: one commit per iteration); reset and re-landed
+  as two before push
+- line: community-hall: rc → published
+- files: foundry/records/community-hall.md
+- validation: pass
+- next-suggestion: reviewer takes idea-credit-loop
+- notes: the slip and the fix are both on the record — honesty outranks tidiness
+
+## i129 — reviewer — 2026-07-06T02:44:00Z
+- did: idea-credit-loop approved — all four credit surfaces re-traced; intake
+  lane (ADR-015) completes the loop end-to-end
+- line: idea-credit-loop: review approved (stays rc)
+- files: foundry/records/idea-credit-loop.md
+- validation: pass
+- next-suggestion: maintainer publishes idea-credit-loop
+- notes: n/a
+
+## i130 — maintainer — 2026-07-06T02:46:00Z
+- did: published idea-credit-loop
+- line: idea-credit-loop: rc → published
+- files: foundry/records/idea-credit-loop.md
+- validation: pass
+- next-suggestion: reviewer takes fuel-gauge
+- notes: n/a
+
+## i131 — reviewer — 2026-07-06T02:50:00Z
+- did: fuel-gauge approved — three render states + money-surface honesty verified
+- line: fuel-gauge: review approved (stays rc)
+- files: foundry/records/fuel-gauge.md
+- validation: pass
+- next-suggestion: maintainer publishes fuel-gauge
+- notes: n/a
+
+## i132 — maintainer — 2026-07-06T02:52:00Z
+- did: published fuel-gauge
+- line: fuel-gauge: rc → published
+- files: foundry/records/fuel-gauge.md
+- validation: pass
+- next-suggestion: reviewer takes shift-streak (last of the rc pool)
+- notes: n/a
+
+## i133 — reviewer — 2026-07-06T02:56:00Z
+- did: shift-streak approved — live-journal count cross-check exact; blanks blank
+- line: shift-streak: review approved (stays rc)
+- files: foundry/records/shift-streak.md
+- validation: pass
+- next-suggestion: maintainer publishes shift-streak — that empties the rc pool
+- notes: n/a
+
+## i134 — maintainer — 2026-07-06T02:58:00Z
+- did: published shift-streak — v8 slate rc pool EMPTY: 10/10 features published
+  (4 after honest bounces), 1 new utility plugin shipped, boards seeded, intake
+  idea lane live, bounty lane open
+- line: shift-streak: rc → published
+- files: foundry/records/shift-streak.md, state/BACKLOG.md (slate items checked)
+- validation: pass
+- next-suggestion: auditor closes the slate (rubber-stamp tripwire check, queue
+  refill)
+- notes: n/a
+
+## i135 — auditor — 2026-07-06T03:02:00Z
+- did: audit-003 filed — v8 slate 12/12 publishes lawful; 5 reviewer bounces
+  (inspection alive, no tripwire); 6 new executable suites; both incidents
+  recorded unabridged; suite-backfill P2 filed; role_queue → default cycle
+- line: audit-003 filed
+- files: reviews/audit-003.md, state/{STATE.json,BACKLOG.md}
+- validation: pass
+- next-suggestion: operator merges the PR (pr-gated-publishes trial verdict rides
+  on it), enables Pages, adds secrets — Gate A clock starts
+- notes: n/a

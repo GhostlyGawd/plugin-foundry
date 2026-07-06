@@ -2,8 +2,92 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ghostlygawd.github.io/plugin-foundry</id>
   <title>foundry — ships</title>
-  <updated>2026-07-05T23:53:57Z</updated>
+  <updated>2026-07-06T00:46:32Z</updated>
   <link href="https://ghostlygawd.github.io/plugin-foundry"/>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/adversarial-qa-bounties.html</id>
+    <title>Adversarial QA Bounties — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/adversarial-qa-bounties.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/community-hall.html</id>
+    <title>Hall of Prospectors &amp; Patrons — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/community-hall.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Real contributor recognition — who suggested what shipped, who fueled what got built.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/embed-badges.html</id>
+    <title>Embeds &amp; Badges — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/embed-badges.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>A shields-style status badge and an embeddable ticker — put the living machine on your own site.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/field-reports.html</id>
+    <title>Field Reports — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/field-reports.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Real user experiences with shipped plugins, surfaced on their birth certificates.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/fuel-gauge.html</id>
+    <title>The Fuel Gauge — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/fuel-gauge.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>The month&#x27;s real API spend, on the window, against the operator&#x27;s cap — with a Sponsor path to fund the next shift.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/idea-credit-loop.html</id>
+    <title>Idea-Credit Loop — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/idea-credit-loop.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Community suggestions carry their prospector&#x27;s name from issue to card to birth certificate — with a thank-you at every milestone.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/saga-page.html</id>
+    <title>The Saga — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/saga-page.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>An auto-generated timeline of the workshop&#x27;s own story — ADRs, ships, kills, ceremonies.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/shift-streak.html</id>
+    <title>Shift Streak — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/shift-streak.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>A 12-week heatmap of the loop&#x27;s real iterations — proof of life at a glance.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/starter-kits.html</id>
+    <title>Starter Kits — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/starter-kits.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Curated bundles with one copy-block — cut choice paralysis for first-time installers.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html</id>
+    <title>Test-Gap Nudge v0.1.0 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>A polite Stop-hook that notices source changes with no matching test changes and says so once.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/token-cost-badges.html</id>
+    <title>Token-Cost Badges — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/token-cost-badges.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Every card shows what a plugin costs your context — est. always-on tokens, and when it was last verified.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/weekly-shipnote.html</id>
+    <title>Weekly Shipnote — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/weekly-shipnote.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>A weekly digest the loop writes itself — shipped, moved, killed, fuel — posted as an issue every Monday.</summary>
+  </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/commission-queue.html</id>
     <title>The Commission Queue — shipped</title>

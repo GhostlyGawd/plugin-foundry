@@ -40,8 +40,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Starter Kits — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Curated bundles with one copy-block — cut choice paralysis for first-time installers.</p>
   
   
@@ -64,7 +64,50 @@
 - tier 3: checks 1–3 → mixed-stage kit renders one install line + one pending note;
   copy-block audited
 - defects: none found — probed: empty kits array, kit of only-unpublished members
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i89
+- renderKits logic honest: only published members emit install lines; pending
+  members named with stage (&quot;finishing on the line&quot;); validator law (check_kits)
+  fails unknown members — acceptance checks 1–2 hold as built.
+- Escaping audited: name/desc/title/stage all pass through esc(). Good.
+- DEFECT (docs truth / the feature&#x27;s one job): kit copy-blocks join commands with
+  &#x27;\n&#x27;, but `.install` CSS says `white-space:nowrap` — a 2-plugin kit renders and
+  *pastes* as a single line: `/plugin install a@foundry /plugin install b@foundry`,
+  which is not runnable as pasted. Acceptance check 3 passes only for 1-plugin
+  kits; both live kits have 2 members. Fix: kit-scoped `white-space:pre` (or
+  per-line divs) so each command pastes on its own line.
+- Axes: scope 5 · prompt n/a (site feature) · thrift 5 · hook-safety n/a ·
+  docs-truth 3 · structure 5.
+REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
+(white-space:nowrap); fix and re-run check 3 with a 2-member kit before rc.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i90: kit-scoped `.kit .install{white-space:pre}` overrides the shelf&#x27;s nowrap —
+  each kit command now renders and pastes on its own line; shelf cards (single
+  command + horizontal scroll) intentionally keep nowrap. Under ADR-009&#x27;s feature
+  authorization, as with all v5/v7 template work.
+
+### Test pass — i91 (post-bounce re-test)
+- tier 1: executable suite landed (foundry/tests/starter-kits/render.test.sh) — 3/3:
+  white-space:pre regression check (the i89 bounce), member-flag honesty vs
+  marketplace.json (both directions), validator negative on unknown member
+- tier 2: n/a (site feature)
+- tier 3: check 3 re-run against the live 2-member kits — copy-block now pastes
+  one runnable command per line
+- defects: none found — probed: published=false-but-listed inversion, empty kits
+TEST VERDICT: pass
+
+### Review — i92 (post-bounce)
+- i89 defect fixed exactly and narrowly: `.kit .install{white-space:pre}` scoped to
+  kits; shelf cards keep nowrap (single command + overflow-x — correct there).
+- Regression is pinned by an executable check, not a promise — the new suite fails
+  if the override ever disappears. Member-flag honesty test guards both directions
+  (overselling and underselling).
+- Kit copy explicitly honest (&quot;finishing on the line&quot; for unpublished members);
+  no dark-pattern surface.
+- Axes: scope 5 · prompt n/a (site feature) · thrift 5 · hook-safety n/a ·
+  docs-truth 5 · structure 5.
+REVIEW: approved — bounce cured, regression executable, copy honest.
+
+### Published — i93 (maintainer)
+Feature live on the window: kits render one copy-block per bundle, one command per
+line. Experiment stays armed — review 21 days post-deploy (clones/uniques ratio).</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/starter-kits.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/starter-kits.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

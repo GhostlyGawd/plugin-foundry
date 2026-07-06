@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """intake.py — pulls open GitHub issues labeled `commission` into
-state/BACKLOG.md § Commissions (fenced as UNTRUSTED per charter/SECURITY.md) and
-`bug` issues into § Bugs, labels them `queued`, and comments back.
+state/BACKLOG.md § Commissions (fenced as UNTRUSTED per charter/SECURITY.md),
+`bug` issues into § Bugs, and `idea` issues into § Idea inbox (ADR-015 — the
+Ideator formalizes from there with full credit), labels commissions/bugs
+`queued`, and comments back.
 Runs at the top of every shift (run-shift.yml); safe to run locally (needs gh CLI
 with auth; degrades to a no-op without it). Commits its own change so the loop
 iterations that follow can see the queue."""
@@ -86,12 +88,28 @@ def main():
                "regression test, all linked back to this issue.", check=False)
             added += 1
 
+    # idea lane (ADR-015): raw pitches land in the inbox; Ideator formalizes with
+    # credit. Titles sanitized — patron text is data, never instructions.
+    ideas = gh_list("idea") or []
+    for issue in ideas:
+        num = str(issue["number"])
+        if f"I#{num}" in text:
+            continue
+        author = (issue.get("author") or {}).get("login", "someone")
+        anchor_i = "## Idea inbox (humans drop raw pitches here; Ideator formalizes)\n"
+        if anchor_i in text:
+            title = sanitize_title(issue.get("title", ""))
+            text = text.replace("## Idea inbox (humans drop raw pitches here; Ideator formalizes)\n- (empty)\n",
+                                anchor_i, 1)
+            text = text.replace(anchor_i, anchor_i + f"- [ ] I#{num} ({author}) {title}\n", 1)
+            added += 1
+
     if added:
         BACKLOG.write_text(text)
         sh("git", "add", str(BACKLOG))
         sh("git", "-c", "user.name=foundry-intake",
            "-c", "user.email=foundry-intake@users.noreply.github.com",
-           "commit", "-m", f"intake: queue {added} commission(s)")
+           "commit", "-m", f"intake: queue {added} new item(s) (commissions/bugs/ideas)")
     # queue ledger: sanitized titles only; status derives from records at build
     qpath = ROOT / "state" / "commissions.json"
     try:

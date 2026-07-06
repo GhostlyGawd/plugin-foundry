@@ -2,14 +2,14 @@
 name: shift-streak
 title: Shift Streak
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
 one_liner: A 12-week heatmap of the loop's real iterations — proof of life at a glance.
 tags: [spectacle, heartbeat, visualization]
 created: 2026-07-04
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # Shift Streak
@@ -53,3 +53,20 @@ per iteration — render its own heatmap on the window.
   probe confirms blanks stay blank; file:// render verified
 - defects: none found — probed: journal entry with unparseable timestamp
 TEST VERDICT: pass
+
+## Review log
+### Review — i133
+- Re-verified acceptance 1 against today's live journal: per-day counts in
+  data.json match the header grep exactly (2026-07-04/05/06 all agree); 84-day
+  window with quiet days at 0, rendered blank — no padding, no back-fill.
+- Timestamp parse is prefix-based (ts[:10]) — malformed stamps drop the entry
+  from the streak rather than inventing a day (QA probed).
+- The surface can only ever flatter the machine as much as the machine works —
+  the honesty is structural.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — constancy rendered from the only source that can prove it.
+
+### Published — i134 (maintainer)
+Live: 84-day heatmap, real entries only, quiet days blank. Experiment review
+2026-07-19 stands. This publish empties the v8 slate's rc pool.

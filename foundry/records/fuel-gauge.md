@@ -2,14 +2,14 @@
 name: fuel-gauge
 title: The Fuel Gauge
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
 one_liner: The month's real API spend, on the window, against the operator's cap — with a Sponsor path to fund the next shift.
 tags: [sustainability, transparency, sponsors]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # The Fuel Gauge
@@ -54,3 +54,19 @@ sustainability into part of the spectacle instead of a secret.
   honestly; no sponsor claims anywhere
 - defects: none found — probed: malformed ledger line (skipped, not guessed)
 TEST VERDICT: pass
+
+## Review log
+### Review — i131
+- All three gauge states re-traced in renderFuel: empty ledger → the arming
+  message verbatim from spec; entries without cap → spend-only; cap → percentage
+  bar clamped at 100. Malformed ledger lines skipped, never guessed (QA probed).
+- Sponsor surface is a link to the repo, not a claim — FUNDING.yml ships
+  commented with operator instructions; nothing renders sponsorship GitHub can't
+  show. Dark-pattern law holds on the money surface, where it matters most.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the tank is honest in all three states.
+
+### Published — i132 (maintainer)
+Live: gauge shows the honest arming message until the first CI shift writes the
+ledger. Experiment review 2026-08-04 stands.

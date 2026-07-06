@@ -16,6 +16,13 @@ body:
       placeholder: Steps, actual behavior, expected behavior.
     validations:
       required: true
+  - type: checkboxes
+    id: bounty
+    attributes:
+      label: Adversarial QA bounty
+      description: See CONTRIBUTING.md Lane 3 — confirmed breaks earn a permanent Hall entry and found_by credit in the fix's changelog.
+      options:
+        - label: This reproduces a break of a claim the plugin's record makes (e.g. "fails open", "never mutates unasked").
   - type: markdown
     attributes:
       value: |

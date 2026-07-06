@@ -110,7 +110,18 @@ def collect_hall(records):
         if r.get("patron"):
             patrons.append(str(r["patron"]))
     ranked = sorted(prospectors.values(), key=lambda e: (-e["shipped"], -e["total"], e["login"]))
-    return {"prospectors": ranked, "patrons": sorted(set(patrons))}
+    # Breakers (adversarial-qa-bounties): confirmed finds are exactly the
+    # `found_by: <handle>` lines in shipped changelogs — credit derived from the
+    # artifact, never hand-tallied. Empty until the first confirmed break.
+    breakers = {}
+    for log in sorted((ROOT / "plugins").glob("*/CHANGELOG.md")):
+        for m in re.finditer(r"^\s*-?\s*found_by:\s*@?([\w-]+)", log.read_text(), re.M):
+            b = breakers.setdefault(m.group(1), {"login": m.group(1), "finds": 0, "plugins": set()})
+            b["finds"] += 1
+            b["plugins"].add(log.parent.name)
+    ranked_b = [{**b, "plugins": sorted(b["plugins"])}
+                for b in sorted(breakers.values(), key=lambda e: (-e["finds"], e["login"]))]
+    return {"prospectors": ranked, "patrons": sorted(set(patrons)), "breakers": ranked_b}
 
 
 def load_json(path, default):
@@ -309,6 +320,7 @@ TEMPLATE = """<!DOCTYPE html>
     padding:1px 7px; color:var(--dim)}
   .chip.comm{border-color:var(--stamp); color:var(--stamp)}
   .chip.tok{border-style:dotted}
+  .chip.tok.stale{opacity:.5}
   .credit{font-size:11px; color:var(--dim)}
   .install{background:var(--ink); color:var(--paper); font-size:11.5px; padding:7px 9px;
     overflow-x:auto; white-space:nowrap; user-select:all; cursor:text}
@@ -318,6 +330,7 @@ TEMPLATE = """<!DOCTYPE html>
   .kit h4{font-size:13px; letter-spacing:.12em; text-transform:uppercase}
   .kit p{color:var(--dim); font-size:12.5px; margin:6px 0 10px}
   .kit .pending{font-size:11px; color:var(--dim)}
+  .kit .install{white-space:pre}
   .lanes{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; padding:12px 0}
   .col{border:1px solid var(--line); background:var(--card)}
   .col h4{font-size:10px; letter-spacing:.18em; text-transform:uppercase; padding:8px 10px;
@@ -474,8 +487,10 @@ function esc(s){ const d=document.createElement('span'); d.textContent=s??''; re
 
 function badge(e){
   if (e.always_on_tokens) {
+    const stale = e.verified && (Date.now() - Date.parse(e.verified)) > 60*86400000;
     const v = e.verified ? ' · ✓' + esc(e.verified) : '';
-    return '<span class="chip tok" title="always-on context cost, estimated">~' + esc(e.always_on_tokens) + ' tok · est' + v + '</span>';
+    const t = 'always-on context cost, estimated' + (stale ? ' — verification older than 60 days' : '');
+    return '<span class="chip tok' + (stale ? ' stale' : '') + '" title="' + t + '">~' + esc(e.always_on_tokens) + ' tok · est' + v + '</span>';
   }
   return '<span class="chip tok" title="not yet measured by QA">unmeasured</span>';
 }
@@ -640,15 +655,18 @@ function renderKits(){
   }).join('') : '<p class="vnone">Kits open once the maintainer curates the first bundle.</p>';
 }
 function renderHall(){
-  const H = DATA.hall || {prospectors: [], patrons: []};
+  const H = DATA.hall || {prospectors: [], patrons: [], breakers: []};
   const head = document.getElementById('hall');
   const box = document.getElementById('hallbox');
-  if (!H.prospectors.length && !H.patrons.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
+  const B = H.breakers || [];
+  if (!H.prospectors.length && !H.patrons.length && !B.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
   head.style.display = 'block'; box.style.display = 'block';
   box.innerHTML =
     H.prospectors.map(p =>
       '<div class="hrow"><b>@' + esc(p.login) + '</b><em>' + p.shipped + ' shipped · ' + p.total + ' formalized</em>' + (p.card ? ' <a href="' + esc(p.card) + '">card →</a>' : '') + '</div>').join('') +
-    (H.patrons.length ? '<div class="hrow"><b>Patrons:</b><em>' + H.patrons.map(esc).join(' · ') + '</em></div>' : '');
+    (H.patrons.length ? '<div class="hrow"><b>Patrons:</b><em>' + H.patrons.map(esc).join(' · ') + '</em></div>' : '') +
+    (B.length ? '<div class="hrow"><b>Breakers</b><em>confirmed adversarial finds — from found_by lines in shipped changelogs (CONTRIBUTING Lane 3)</em></div>' +
+      B.map(b => '<div class="hrow"><b>@' + esc(b.login) + '</b><em>' + b.finds + ' confirmed find(s) · ' + b.plugins.map(esc).join(', ') + '</em></div>').join('') : '');
 }
 function ago(iso){
   const s = (Date.now() - Date.parse(iso)) / 1000;

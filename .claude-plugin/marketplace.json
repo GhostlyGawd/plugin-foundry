@@ -38,6 +38,11 @@
    "name": "night-clerk",
    "source": "./plugins/night-clerk",
    "description": "The foundry's front desk inside your terminal: ask what plugin helps with a task and get real recommendations with exact install lines from a bundled catalog snapshot."
+  },
+  {
+   "name": "test-gap-nudge",
+   "source": "./plugins/test-gap-nudge",
+   "description": "Notices when a session changed source files but no tests, and says so once — a polite Stop-hook nudge, never a block."
   }
  ]
 }

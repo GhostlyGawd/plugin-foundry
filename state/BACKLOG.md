@@ -37,8 +37,9 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] P3 (builder) fork-a-foundry polish: from-spec path links OPERATIONS §7–8 (reviewer nit, i8).
 - [ ] P1 (growth) Run the pr-gated-publishes trial per its spec; verdict decides the
       scheduled default.
-- [ ] P1 (qa) QA fixture passes for the four building-stage v5 features
-      (field-reports, community-hall, saga-page, embed-badges) → rc, then review → publish.
+- [x] P1 (qa) QA fixture passes for the four building-stage v5 features
+      (field-reports, community-hall, saga-page, embed-badges) → rc, then review
+      → publish. DONE — all four published in the v8 slate (i107–i128).
 - [ ] P2 (operator+growth) Wire commission tiers per foundry/records/commission-tiers.md,
       then start its 45-day pricing experiment.
 - [ ] P1 Walk session-recap through spec (hooks + skill combo — good hook-safety exercise).
@@ -64,6 +65,23 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 
 - [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
       of the documented constant (drift risk noted at i46).
+- [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
+      truncation (cuts mid-word today; reviewer nit, i107).
+- [ ] P3 (designer) field reports: when a certificate hits the 8-report cap,
+      link the full label search (reviewer nit, i125).
+- [ ] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
+      published on manual probes (audit-003 finding #3) — one suite per pass.
+
+## v8 slate (ADR-014 — operator-directed; role_queue seeded for it)
+- [x] P1 (line) Publish-or-bounce the ten rc features: reviewer+maintainer pairs in
+      ADR-014 order; genuine reviews, tripwire stands. DONE i89–i134: 10/10
+      published, 4 bounced first (starter-kits, token-cost-badges,
+      weekly-shipnote, embed-badges) and fixed with pinned regressions.
+- [x] P1 (builder) Walk test-gap-nudge idea → published — DONE i99–i106, tag
+      test-gap-nudge-v0.1.0 (bounced once at review; -uall fix + regression).
+- [x] P2 (growth) Seed mailbag FAQ + vote board with clearly foundry-authored
+      content (growth-honesty law: no simulated activity) and ADR the intake.py
+      idea-label path; builder applies it next iteration.
 
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
 Populated by `tools/intake.py` from issues labeled `bug`.

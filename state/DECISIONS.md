@@ -205,3 +205,43 @@ Template:
   fully bound. charter/QUALITY.md gains the exemption text when this applies.
 - Consequences: freshness becomes a standing, dated promise; version numbers keep
   meaning "behavior changed".
+
+## ADR-014 — v8 directed slate: activation first, then community (i88, ideator)
+- Status: accepted (queue seeding follows audit precedent: audit-001/002 both set
+  role_queue to match upcoming work; LOOP.md's default-cycle refill is the fallback,
+  not a ceiling)
+- Context: an operator-directed session ordered the roadmap recommendations built in
+  sequence: (1) publish the ten rc features stalled behind review (starter-kits,
+  token-cost-badges, saga-page, weekly-shipnote, embed-badges, field-reports,
+  community-hall, idea-credit-loop, fuel-gauge, shift-streak), (2) rebalance the
+  catalog toward everyday-utility plugins (the shelf is meta-heavy: 3 of 7 published
+  plugins are about the foundry itself), (3) lower the community contribution floor
+  (idea-label intake, seeded boards, adversarial-qa-bounties).
+- Decision: role_queue seeded for the full slate — reviewer/maintainer pairs per rc
+  record, builder/builder/qa/reviewer/maintainer for one utility-plugin walk
+  (test-gap-nudge first: hook-only, smallest, exercises hook-safety law), a growth
+  iteration for honest board seeding + the intake ADR, builders for intake.py and
+  adversarial-qa-bounties, and a closing auditor. Reviews stay genuine — bouncing is
+  a service, and the rubber-stamp tripwire stands: if the slate's reviews bounce
+  nothing, the closing audit runs as P0.
+- Work rides the operator's PR branch (claude/product-roadmap-ux-f11e8a) — this doubles
+  as the pr-gated-publishes trial run (see that record's spec): publishes land on main
+  only when the PR merges, giving the operator a veto window over the whole slate.
+- Consequences: ten features exit rc limbo or bounce honestly; first utility plugin
+  since v5 walks the full line; community intake path opens. Counts stay floors, not
+  the point.
+
+## ADR-015 — intake.py grows an `idea` lane (i119, growth)
+- Status: accepted (proposed i119, applied i120 — two-iteration rule honored)
+- Context: the co-op lane's floor is a spec PR — high for a passerby. The vote
+  board and mailbag now open with foundry-authored seeds, but a visitor's raw
+  pitch still has no automated path into the workshop: intake.py handles only
+  `commission` and `bug` labels; `idea` issues are read for votes but never land
+  in BACKLOG § Idea inbox.
+- Decision (proposed): intake.py also lists open `idea`-labeled issues and
+  appends any new ones to BACKLOG § Idea inbox as
+  `- [ ] I#<issue> (<author>) <title>` (deduped by issue number, patron-text law:
+  titles fenced as data). The Ideator formalizes from the inbox with full credit
+  (`prospected_by`/`suggested_in`), which idea-credit-loop already renders.
+- Consequences: pitch → inbox → formalized → credited becomes fully automatic;
+  the contribution floor drops from "write a spec PR" to "open an issue".

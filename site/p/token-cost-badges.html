@@ -40,8 +40,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Token-Cost Badges — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Every card shows what a plugin costs your context — est. always-on tokens, and when it was last verified.</p>
   
   
@@ -67,7 +67,54 @@
 - tier 3: checks 1–3 → stable estimates, badge/unmeasured states render, zero
   unsubstantiated numbers found
 - defects: none found — probed: missing keys, malformed verified date, zero-desc plugin
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i94
+- Estimator honest and stable: chars/4 ceil over always-loaded frontmatter only;
+  re-ran plugin-smith (113) and fork-a-foundry (90) — matches the Test log.
+  All 7 published plugins carry always_on_tokens + verified. &quot;est.&quot; labeling
+  everywhere the number appears (cards, certificates, INDEX). Zero-desc edge
+  renders &quot;unmeasured&quot; (0 is falsy) — more honest than &quot;~0 tok&quot;; acceptable.
+- DEFECT (docs truth / the feature&#x27;s own trust promise): spec says stale
+  `verified` dates (&gt; 60 days) render dimmed. No such logic exists in build.py —
+  a ✓ stamp looks equally fresh at 6 days and 6 months. Weekly re-verify masks
+  this only while CI runs; if the factory pauses, every badge quietly overstates
+  freshness — precisely what this feature exists to prevent. Unlogged deviation,
+  load-bearing clause.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
+  structure 5.
+REVIEW: bounced — implement the &gt;60-day dimmed state (or amend the spec with a
+justification that survives a stopped factory); add an executable check.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i95: stale state built client-side in badge(): verified &gt; 60 days → chip dims
+  (.chip.tok.stale, opacity .5) and the title says why. Client-side deliberately —
+  a build-time check would itself freeze if the factory stopped, which is the exact
+  failure the reviewer named. Certificates already print the literal verified date
+  in the meta line (self-dating, reader can judge), so the card badge — a bare ✓ —
+  was the only misleading surface. Under ADR-009 feature authorization.
+
+### Test pass — i96 (post-bounce re-test)
+- tier 1: executable suite landed (foundry/tests/token-cost-badges/badges.test.sh)
+  3/3: estimator determinism across all 7 published plugins, badge-number
+  substantiation vs records (both type-normalized), stale-dimming regression
+  pinned at the 60-day threshold
+- tier 2: n/a (site feature)
+- tier 3: title copy explains WHY a chip is dim (&quot;verification older than 60
+  days&quot;) — honest degradation, not decoration
+- defects: none in product — one test-harness type mismatch (data.json strings vs
+  record ints) fixed in the test itself
+TEST VERDICT: pass
+
+### Review — i97 (post-bounce)
+- i94 defect cured the right way: client-side check means the dimming keeps
+  working precisely when the factory stops — the failure mode that motivated the
+  bounce. Threshold and copy pinned by an executable regression.
+- Certificates print the literal verified date (self-dating); the bare-✓ card was
+  the misleading surface and is the one fixed. Scope judgment sound.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — spec and shipped artifact now agree; staleness degrades honestly.
+
+### Published — i98 (maintainer)
+Live: every card shows its context price or says &quot;unmeasured&quot;; stale verifications
+dim honestly. Experiment armed — review 14 days post-deploy (clones per unique vs
+prior snapshots).</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/token-cost-badges.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/token-cost-badges.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

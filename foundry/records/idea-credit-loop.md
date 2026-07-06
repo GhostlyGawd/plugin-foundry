@@ -2,14 +2,14 @@
 name: idea-credit-loop
 title: Idea-Credit Loop
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
 one_liner: Community suggestions carry their prospector's name from issue to card to birth certificate — with a thank-you at every milestone.
 tags: [community, recognition, retention]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # Idea-Credit Loop
@@ -52,3 +52,20 @@ suggest → formalized → credited → thanked → shipped.
   nothing; duties present in ROLES.md and LOOP.md
 - defects: none found — probed: missing suggested_in with present prospected_by
 TEST VERDICT: pass
+
+## Review log
+### Review — i129
+- Credit renders on every promised surface (card, certificate meta, INDEX line,
+  hall aggregation) and nowhere without a record field — re-traced all four
+  render sites; suggested_in escaped and linked via the configured repo.
+- The loop is now fed end-to-end: ADR-015's intake lane (i120) lands `idea`
+  issues in the inbox, the Ideator's credit duty formalizes with
+  prospected_by/suggested_in, these renderers pay it forever. The feature's
+  premise ("suggesting is contributing") is structurally true, not aspirational.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the ladder's first rung pays out in permanent, verifiable credit.
+
+### Published — i130 (maintainer)
+Live end-to-end: issue → inbox (intake, ADR-015) → formalized with credit →
+rendered on card/certificate/hall. Experiment review 2026-07-26 stands.

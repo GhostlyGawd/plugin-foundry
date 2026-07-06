@@ -40,8 +40,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Weekly Shipnote — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-04 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">feature · growth · unversioned · created 2026-07-04 · updated 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>A weekly digest the loop writes itself — shipped, moved, killed, fuel — posted as an issue every Monday.</p>
   
   
@@ -66,7 +66,48 @@
 - tier 3: check 1 executed live (30-day run produced Shipped + Moved + Fuel from
   real journal/ledger); check 2 via empty-window dry run
 - defects: none found — probed: malformed journal timestamp (skipped cleanly)
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i109
+- Substantiation law holds: every section derives from journal/records/ledger/gh;
+  quiet-week copy honest; duplicate-week gate read and sound (search+grep per ISO
+  week); mailbag section evidence-labeled and fail-open when gh is absent.
+- DEFECT 1 (honest-compression): &quot;Moved&quot; silently caps at the last 12 — dry-run
+  on the live journal shows 21 moves this week, 9 dropped without a trace. House
+  precedent (theater, i-v7 review): a windowed view must say where the unabridged
+  version lives. First real shipnote would ship the violation.
+- DEFECT 2 (ops): `gh issue create --label shipnote` hard-fails when the label
+  doesn&#x27;t exist in the repo — nothing creates it, OPERATIONS doesn&#x27;t mention it;
+  the first Monday run would die before posting note #1. Ensure-label step (or
+  fail-open create without label) required.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
+  structure 4.
+REVIEW: bounced — silent 12-move cap (add the &quot;N more, see journal&quot; line) and
+first-run label failure; both one-liners, both provable by test.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i110: (1) truncation pointer — &gt;12 moves appends &quot;…and N earlier move(s) this
+  week — unabridged in state/JOURNAL.md&quot;; verified live (9 earlier moves named).
+  (2) shipnote.yml ensures the label exists before create (`gh label create ||
+  true` — idempotent, fail-open). Tools edit rides ADR-009 feature authorization.
+
+### Test pass — i111 (post-bounce re-test)
+- tier 1: executable fixture suite (foundry/tests/weekly-shipnote/generator.test.sh)
+  4/4 — busy week (sections + pointer with exact count), quiet week (honest copy,
+  no phantom pointer), 12-move boundary, workflow guards (dup-week gate + label
+  ensured BEFORE create, order-checked)
+- tier 2: n/a (workflow)
+- tier 3: live dry-run — pointer names 91 real earlier moves; nothing retouched
+- defects: none found
+TEST VERDICT: pass
+
+### Review — i112 (post-bounce)
+- Both defects cured minimally: pointer states the exact dropped count and the
+  unabridged source; label ensure is idempotent, fail-open, and ordered before
+  create (order pinned by test). Fixture-based suite means the checks won&#x27;t rot
+  as the journal grows — right call by QA.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the digest now compresses honestly and survives its first Monday.
+
+### Published — i113 (maintainer)
+Live: Monday cron posts the note once per ISO week; label self-ensures; truncation
+says what it dropped. Experiment armed — review after 3 notes (watchers trend).</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/weekly-shipnote.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/weekly-shipnote.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
