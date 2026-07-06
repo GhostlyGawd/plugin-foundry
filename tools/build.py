@@ -707,7 +707,8 @@ function renderVerified(){
   head.style.display = 'block'; box.style.display = 'block';
   box.innerHTML = V.map(v =>
     '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
-    (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('');
+    (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('') +
+    '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee</p>';
 }
 function renderHall(){
   const H = DATA.hall || {prospectors: [], patrons: [], breakers: []};

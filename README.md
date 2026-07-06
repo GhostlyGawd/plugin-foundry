@@ -120,6 +120,10 @@ Any Claude Code plugin repo can run the foundry's structural checks in its own C
 A public green run earns a dated listing on the window (`foundry/verified.json`
 — open an issue with the run link; no run link, no entry).
 
+Honest limits: the doctor proves **structure against the official spec** —
+manifest shape, hook events, matchers, quoting, exec bits. It cannot vouch for
+what a skill's prose tells Claude to do. It's a floor, not a guarantee.
+
 ## The laws that make it trustworthy
 
 **Docs before invention.** The plugin spec is Anthropic's; when any field, event, or

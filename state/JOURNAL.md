@@ -1373,3 +1373,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: reviewer for the publish gate.
 - notes: check2 asserts each law is NAMED, not just that the doctor fails —
   a doctor that says "something's wrong" without saying what is no doctor.
+
+## i172 — reviewer (directed, v10 #13) — 2026-07-06T21:08:28Z
+- did: verified-by-foundry reviewed — approved with one required fix, applied
+  and verified in-pass: honest-limits copy on every trust surface (README,
+  window footer, action description) so "verified" cannot be read as "safe".
+  Structure-not-intent is now stated wherever the badge appears.
+- line: verified-by-foundry stays rc (review gate cleared; publish next)
+- files: foundry/records/verified-by-foundry.md, README.md, tools/build.py,
+  .github/actions/foundry-doctor/action.yml, site/*
+- validation: pass (suite 12/12 after edits)
+- next-suggestion: maintainer publishes.
+- notes: a trust product that oversells is worse than none — the fix was the
+  review's whole value.

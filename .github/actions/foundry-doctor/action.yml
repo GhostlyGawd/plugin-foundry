@@ -8,8 +8,11 @@
 #
 # A green run is the evidence for a listing in foundry/verified.json — open an
 # issue with the public run link to claim it.
+# Honest limits: structural checks only — the doctor proves spec-compliance
+# (manifest, hooks, quoting, exec bits), not what a skill's prose does.
+# Runner needs python3 on PATH (ubuntu-latest and macos runners have it).
 name: Foundry Doctor
-description: Structural health-check for a Claude Code plugin, against the official spec, by Nightshift Foundry.
+description: Structural health-check for a Claude Code plugin, against the official spec, by Nightshift Foundry. Proves structure, not intent.
 inputs:
   plugin-dir:
     description: Path to the plugin directory inside the caller's checkout

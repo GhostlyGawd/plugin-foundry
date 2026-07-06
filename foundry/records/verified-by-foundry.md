@@ -94,3 +94,23 @@ a shields endpoint. All of it points inward at 8 plugins.
   (github.action_path/../../../tools/doctor.py resolves inside the action
   checkout by construction).
 TEST VERDICT: pass
+
+## Review log
+### Review — i172 (reviewer)
+- The doctor's teeth are real: every law it enforces is the same table
+  validate.py enforces on this shelf (single import, no copy), and the suite
+  asserts each violation is NAMED — a diagnosis, not a verdict.
+- Registry law holds structurally: entries are maintainer-curated JSON, the
+  section renders nothing while empty, and the inline _law note travels with
+  the file.
+- **Required before approval (applied and verified in-pass):** a "verified"
+  badge for a trust product must state its limits or it lies by implication.
+  The doctor proves structure, not intent — a spec-perfect plugin can still
+  carry a hostile skill body. Honest-limits copy now on all three surfaces:
+  README ("a floor, not a guarantee"), window section footer, action
+  description ("Proves structure, not intent"). Runner python3 requirement
+  documented in the action header.
+- Sharpest question: does listing external repos on the window endorse them?
+  No — the entry states exactly what happened (doctor green, date, public run
+  link) and now states what that does NOT mean, in the same breath.
+REVIEW: approved
