@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-07-06T21:12:41.430933+00:00",
- "iteration": 176,
+ "generated_at": "2026-07-06T21:13:09.307997+00:00",
+ "iteration": 177,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 2,
   "building": 0,
-  "rc": 1,
-  "published": 33,
+  "rc": 0,
+  "published": 34,
   "deprecated": 0,
   "shelved": 0
  },
@@ -498,7 +498,7 @@
    "name": "foundry-network",
    "title": "The Foundry Network",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -1091,33 +1091,7 @@
  ],
  "roadmap": {
   "commissioned": [],
-  "building": [
-   {
-    "name": "foundry-network",
-    "title": "The Foundry Network",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs",
-     "template"
-    ],
-    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
-    "tags": [
-     "network",
-     "forks",
-     "federation"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   }
-  ],
+  "building": [],
   "next": [
    {
     "name": "commission-tiers",
@@ -1403,6 +1377,31 @@
     "kind": "plugin",
     "always_on_tokens": "90",
     "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "foundry-network",
+    "title": "The Foundry Network",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs",
+     "template"
+    ],
+    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
+    "tags": [
+     "network",
+     "forks",
+     "federation"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null

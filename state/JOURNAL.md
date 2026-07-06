@@ -1437,3 +1437,14 @@ Entry template (copy exactly; newest at the bottom):
   spec now that the network's verdict machinery exists.
 - notes: the charter catch is exactly why reviews exist — the builder wrote
   the PR path from the record's spec, which predates the co-op lane law.
+
+## i177 — maintainer (directed, v10 #14) — 2026-07-06T21:13:09Z
+- did: foundry-network published — registration lane open end to end (template
+  → maintainer verification → entry → strip + family tree). The workshop can
+  now grow a family the moment fork-a-foundry produces one.
+- line: foundry-network rc → published
+- files: foundry/records/foundry-network.md, site/*
+- validation: pass
+- next-suggestion: cross-foundry-exchange idea → spec (parked behind this
+  record's verdict — the verdict machinery now exists).
+- notes: n/a

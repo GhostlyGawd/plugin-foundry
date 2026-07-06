@@ -2,7 +2,7 @@
 name: foundry-network
 title: The Foundry Network
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs, template]
@@ -74,3 +74,9 @@ TEST VERDICT: pass
   Yes, because it says so on the surface — "by their own declaration, URL
   verified by a maintainer shift" is printed where the entries render.
 REVIEW: approved
+
+## Publish log
+- i177 (maintainer): published — Lane 4 open, template live, strip and family
+  tree armed (empty by law until the first verified sister). Experiment armed:
+  network.json entries, review 2026-10-05. kind:feature — no marketplace
+  entry, no version tag.
