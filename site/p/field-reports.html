@@ -66,7 +66,19 @@
   plugin-smith certificate with titles+authors+links only (no bodies inlined);
   fork-a-foundry certificate untouched; empty-state restore renders nothing
 - defects: none found — probed: report on unknown plugin key (ignored cleanly)
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i125
+- SECURITY posture is the feature: titles/authors/links only, bodies stay on
+  GitHub — re-read the render path, nothing inlines report prose. Empty state
+  renders nothing (no begging). Unknown-plugin keys ignored (QA probed).
+- Cap check ([:8] per certificate): unlike the shipnote&#x27;s week-one cap (i109
+  bounce), this cannot fire until one plugin accumulates 9 reports — today the
+  file is `{}`. Nit filed with the saga nit class, not a bounce: add an
+  &quot;all N reports →&quot; label-search link when the cap engages.
+- Suite gap noted (manual fixture QA at i3, no executable suite) — carried to the
+  closing audit with the systemic v5/v7 pattern, consistent with saga-page (i107).
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — un-gameable social proof, honestly empty until the field speaks.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/field-reports.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/field-reports.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:41:07.699200+00:00",
- "iteration": 124,
+ "generated_at": "2026-07-06T00:42:03.602519+00:00",
+ "iteration": 125,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i125",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:30:00Z",
+   "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
+  },
   {
    "it": "i124",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T01:53:00Z",
    "text": "published embed-badges \u2014 the distribution hack is live; every embed is an \u00b7 embed-badges: rc \u2192 published"
-  },
-  {
-   "it": "i117",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:51:00Z",
-   "text": "embed-badges re-review \u2014 approved \u00b7 embed-badges: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i113",
-   "role": "maintainer",
-   "ts": "2026-07-06T01:38:00Z",
-   "text": "published weekly-shipnote \u2014 Pillar 2 of the slate complete (saga + shipnote) \u00b7 weekly-shipnote: rc \u2192 published"
-  },
   {
    "it": "i114",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:25:00Z",
    "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
+  },
+  {
+   "it": "i125",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:30:00Z",
+   "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 37
+   "n": 38
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

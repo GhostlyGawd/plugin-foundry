@@ -822,3 +822,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer starts the remaining rc pool (field-reports next)
 - notes: n/a
+
+## i125 — reviewer — 2026-07-06T02:30:00Z
+- did: field-reports approved — no-inline law verified in the render path; 8-cap
+  nit filed P3 (can't fire at zero reports); suite gap carried to audit
+- line: field-reports: review approved (stays rc)
+- files: foundry/records/field-reports.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: maintainer publishes field-reports
+- notes: n/a

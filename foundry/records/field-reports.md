@@ -51,3 +51,18 @@ Qualitative, attributed, un-gameable social proof — the opposite of star ratin
   fork-a-foundry certificate untouched; empty-state restore renders nothing
 - defects: none found — probed: report on unknown plugin key (ignored cleanly)
 TEST VERDICT: pass
+
+## Review log
+### Review — i125
+- SECURITY posture is the feature: titles/authors/links only, bodies stay on
+  GitHub — re-read the render path, nothing inlines report prose. Empty state
+  renders nothing (no begging). Unknown-plugin keys ignored (QA probed).
+- Cap check ([:8] per certificate): unlike the shipnote's week-one cap (i109
+  bounce), this cannot fire until one plugin accumulates 9 reports — today the
+  file is `{}`. Nit filed with the saga nit class, not a bounce: add an
+  "all N reports →" label-search link when the cap engages.
+- Suite gap noted (manual fixture QA at i3, no executable suite) — carried to the
+  closing audit with the systemic v5/v7 pattern, consistent with saga-page (i107).
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — un-gameable social proof, honestly empty until the field speaks.

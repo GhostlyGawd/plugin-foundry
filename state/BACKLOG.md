@@ -66,6 +66,8 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
       of the documented constant (drift risk noted at i46).
 - [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
       truncation (cuts mid-word today; reviewer nit, i107).
+- [ ] P3 (designer) field reports: when a certificate hits the 8-report cap,
+      link the full label search (reviewer nit, i125).
 
 ## v8 slate (ADR-014 — operator-directed; role_queue seeded for it)
 - [ ] P1 (line) Publish-or-bounce the ten rc features: reviewer+maintainer pairs in
