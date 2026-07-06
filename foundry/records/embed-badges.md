@@ -2,7 +2,7 @@
 name: embed-badges
 title: Embeds & Badges
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
@@ -91,3 +91,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — embeds are now true as pasted, not merely derivable.
+
+### Published — i118 (maintainer)
+Live: badge endpoint + iframe ticker + working README snippets. Experiment armed —
+review 30 days post-deploy (views_14d, stars).

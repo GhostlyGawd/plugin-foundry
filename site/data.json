@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:33:49.251190+00:00",
- "iteration": 117,
+ "generated_at": "2026-07-06T00:33:49.509263+00:00",
+ "iteration": 118,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 4,
   "building": 0,
-  "rc": 6,
-  "published": 25,
+  "rc": 5,
+  "published": 26,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i118",
+   "role": "maintainer",
+   "ts": "2026-07-06T01:53:00Z",
+   "text": "published embed-badges \u2014 the distribution hack is live; every embed is an \u00b7 embed-badges: rc \u2192 published"
+  },
   {
    "it": "i117",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-06T01:34:00Z",
    "text": "weekly-shipnote re-test 4/4 on fixture repos (results can't drift with the \u00b7 weekly-shipnote: building \u2192 rc"
-  },
-  {
-   "it": "i110",
-   "role": "builder",
-   "ts": "2026-07-06T01:30:00Z",
-   "text": "weekly-shipnote bounce fixes \u2014 honest truncation pointer + ensure-label \u00b7 weekly-shipnote: components fixed (stays building)"
   }
  ],
  "journal": [
-  {
-   "it": "i106",
-   "role": "maintainer",
-   "ts": "2026-07-06T01:13:00Z",
-   "text": "published test-gap-nudge 0.1.0 \u2014 8th plugin on the shelf, 2nd quality- \u00b7 test-gap-nudge: rc \u2192 published"
-  },
   {
    "it": "i107",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:51:00Z",
    "text": "embed-badges re-review \u2014 approved \u00b7 embed-badges: review approved (stays rc)"
+  },
+  {
+   "it": "i118",
+   "role": "maintainer",
+   "ts": "2026-07-06T01:53:00Z",
+   "text": "published embed-badges \u2014 the distribution hack is live; every embed is an \u00b7 embed-badges: rc \u2192 published"
   }
  ],
  "records": [
@@ -404,7 +404,7 @@
    "name": "embed-badges",
    "title": "Embeds & Badges",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -1072,29 +1072,6 @@
     "patron": null
    },
    {
-    "name": "embed-badges",
-    "title": "Embeds & Badges",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "A shields-style status badge and an embeddable ticker \u2014 put the living machine on your own site.",
-    "tags": [
-     "distribution",
-     "virality"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "field-reports",
     "title": "Field Reports",
     "category": "growth",
@@ -1363,6 +1340,29 @@
    }
   ],
   "shipped": [
+   {
+    "name": "embed-badges",
+    "title": "Embeds & Badges",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "A shields-style status badge and an embeddable ticker \u2014 put the living machine on your own site.",
+    "tags": [
+     "distribution",
+     "virality"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
    {
     "name": "saga-page",
     "title": "The Saga",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 30
+   "n": 31
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

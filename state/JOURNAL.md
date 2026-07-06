@@ -750,3 +750,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes embed-badges
 - notes: n/a
+
+## i118 — maintainer — 2026-07-06T01:53:00Z
+- did: published embed-badges — the distribution hack is live; every embed is an
+  acquisition channel that tells the truth
+- line: embed-badges: rc → published
+- files: foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: growth seeds mailbag/vote board honestly + ADRs the intake
+  idea path
+- notes: n/a
