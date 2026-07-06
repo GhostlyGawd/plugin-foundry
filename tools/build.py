@@ -324,7 +324,9 @@ TEMPLATE = """<!DOCTYPE html>
   .chip.tok.stale{opacity:.5}
   .credit{font-size:11px; color:var(--dim)}
   .install{background:var(--ink); color:var(--paper); font-size:11.5px; padding:7px 9px;
-    overflow-x:auto; white-space:nowrap; user-select:all; cursor:text}
+    overflow-x:auto; white-space:nowrap; user-select:all; cursor:copy; position:relative}
+  .install[data-copied]::after{content:"copied ✓"; position:absolute; right:6px; top:6px;
+    font-size:10px; letter-spacing:.08em; color:var(--paper); opacity:.85}
   .note{font-size:10.5px; color:var(--dim); letter-spacing:.06em}
   .prov{font-size:11px; letter-spacing:.08em}
   .kit{border:1.5px solid var(--ink); background:var(--card); padding:14px; margin:12px 0}
@@ -680,6 +682,16 @@ function ago(iso){
 function renderAll(){
   renderGrid(); renderTape(); renderTheme(); renderLanes(); renderStats();
   renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall();
+  // copy-to-clipboard (ADR-016 #6): click any install block to copy it whole.
+  // Degrades silently without a secure context — user-select:all still works.
+  document.addEventListener('click', ev => {
+    const el = ev.target.closest('.install');
+    if (!el || !navigator.clipboard) return;
+    navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+      el.dataset.copied = '1';
+      setTimeout(() => { delete el.dataset.copied; }, 1400);
+    }).catch(() => { /* selection fallback remains */ });
+  });
   document.getElementById('iter').textContent = String(DATA.iteration).padStart(3,'0');
   document.getElementById('phase').textContent = DATA.phase;
   document.getElementById('lastshift').textContent = ago(DATA.generated_at);

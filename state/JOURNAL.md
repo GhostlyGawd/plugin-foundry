@@ -1008,3 +1008,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: builder adds copy-to-clipboard (#6)
 - notes: shares of the window and any certificate now unfurl with real numbers
+
+## i143 — builder — 2026-07-06T03:57:00Z
+- did: copy-to-clipboard (#6) — click any .install block (shelf cards and kits)
+  to copy it whole, "copied ✓" flash for 1.4s; delegated handler so re-rendered
+  blocks keep working; degrades silently without a secure context, where
+  user-select:all remains the fallback
+- line: n/a (site template, ADR-016 authorization)
+- files: tools/build.py, site/index.html (regenerated)
+- validation: pass
+- next-suggestion: growth files the pr-gated-publishes verdict (#7)
+- notes: n/a
