@@ -1337,3 +1337,16 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: builder specs it (verbatim acceptance checks; Experiment).
 - notes: the moat is the law book, not the badge.
+
+## i169 — builder (directed, v10 #13) — 2026-07-06T21:04:39Z
+- did: verified-by-foundry specced — doctor.py contract (standalone, one-plugin,
+  law tables imported from validate.py so there is exactly one law book),
+  composite-action interface, registry schema with the substantiated-numbers
+  law (no public run link, no entry), and the renders-nothing-empty window
+  section. Four executable acceptance checks.
+- line: verified-by-foundry idea → spec
+- files: foundry/records/verified-by-foundry.md
+- validation: pass
+- next-suggestion: builder builds (doctor.py + action + registry + window).
+- notes: registry entries are maintainer-curated from public run links — the
+  badge can't be self-awarded by a stranger's fork.

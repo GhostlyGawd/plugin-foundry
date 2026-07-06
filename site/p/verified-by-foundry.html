@@ -47,7 +47,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Verified by the Foundry — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
   <p>The foundry&#x27;s verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.</p>
   
   
@@ -63,7 +63,38 @@
   hall law), and a window section listing verified externals with dates.
 - **Why the foundry and no one else:** the laws are already written, tested
   (foundry/tests/_tools/), and enforced in anger on a real shelf. Competitors
-  would have to adopt the whole law book to copy the badge.</pre></details></div>
+  would have to adopt the whole law book to copy the badge.</pre></details><details><summary>Spec</summary><pre>- `tools/doctor.py &lt;plugin-dir&gt;`: standalone structural checker for ONE plugin
+  directory, importable nowhere-else assumptions (no records, no marketplace):
+  manifest exists/parses, kebab-case name, semver version (if present), only
+  plugin.json inside .claude-plugin/, `./`-relative manifest paths, skill/
+  command/agent frontmatter completeness, hook events/types against the
+  verified spec tables (imported from validate.py — one law book), no `.*`
+  matchers, quoted `&quot;${CLAUDE_PLUGIN_ROOT}&quot;`, executable scripts with shebangs.
+  Exit 0 with &quot;DOCTOR: OK&quot; or exit 1 listing every violation. Stdlib only.
+- `.github/actions/foundry-doctor/action.yml`: composite Action; input
+  `plugin-dir` (default `.`); runs the doctor from the checked-out action repo
+  against the caller&#x27;s checkout. README section documents one paste-block:
+  `uses: GhostlyGawd/plugin-foundry/.github/actions/foundry-doctor@main`.
+- `foundry/verified.json`: registry of externally verified repos
+  (`{&quot;repo&quot;, &quot;plugin_dir&quot;, &quot;verified&quot;, &quot;run_url&quot;}`); entries added by the
+  maintainer from a passing public Actions run link (substantiated-numbers law:
+  no run link, no entry). Renders nothing until it has a first name.
+- Window: &quot;Verified externals&quot; section on the index, only when registry is
+  non-empty; each entry shows repo, date, and links to the run.
+
+### Acceptance checks
+1. doctor.py passes every shipped plugin on this shelf (8/8 OK).
+2. doctor.py fails a broken fixture with the specific law named (bad hook
+   event, `.*` matcher, unquoted root, lost exec bit — each detected).
+3. action.yml is valid YAML, composite, references the doctor relative to the
+   action path, and defaults plugin-dir to `.`.
+4. verified.json with zero entries renders no window section; with a fixture
+   entry, the section appears with repo + date + run link.</pre></details><details><summary>Experiment</summary><pre>- **Hypothesis:** outward verification becomes the foundry&#x27;s top referral
+  source — external repos carrying the badge/action link back, measurable as
+  `views_14d` referrers and registry growth.
+- **Metric:** entries in foundry/verified.json; `views_14d` in METRICS.jsonl.
+- **Baseline:** 0 external repos; views null until the window is live.
+- **Review-after:** 2026-09-06 (60 days — outward adoption is slow).</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/verified-by-foundry.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/verified-by-foundry.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
