@@ -120,4 +120,6 @@ Format: `- [ ] C#<issue> (<author>) <title> — <summary>`
 - Companion mining: popular CLIs and services without a good MCP/LSP bridge.
 
 ## Idea inbox (humans drop raw pitches here; Ideator formalizes)
-- (empty)
+- [ ] I#4 (GhostlyGawd) Idea: dep-bump-brief — plain-language briefs for dependency-bump PRs
+- [ ] I#5 (GhostlyGawd) Idea: todo-ledger — TODO/FIXME debt as a dated, ranked report
+- [ ] I#6 (GhostlyGawd) Idea: cross-foundry-exchange — sister workshops trade their best ideas
