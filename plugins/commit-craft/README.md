@@ -38,3 +38,9 @@ the list it enforced.
 
 ## Changelog
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## Debugging the guard
+
+Set `COMMIT_CRAFT_DEBUG=1` and the guard appends every decision (pass reason,
+or BLOCK with the enforced type list) to `$TMPDIR/commit-craft-debug.log`.
+Off by default; behavior is identical with it unset.

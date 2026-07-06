@@ -25,3 +25,10 @@ payload '"git commit -m \"build: wire ci\""' | bash "$S" >/dev/null 2>&1
 [ $? -eq 2 ] && echo "ok: knob default still blocks unconfigured type" || echo "fail: default admitted unconfigured type"
 payload '"git commit -m \"zzz: nope\""' | COMMIT_CRAFT_TYPES='.*' bash "$S" >/dev/null 2>&1
 [ $? -eq 2 ] && echo "ok: knob regex injection dropped (default enforced)" || echo "fail: regex injection changed guard behavior"
+
+# i164 (v10 #10): debug trail — off by default, on when asked, behavior identical
+DT=$(mktemp -d); trap 'rm -rf "$DT"' EXIT
+payload '"git commit -m \"bad message\""' | TMPDIR="$DT" bash "$S" >/dev/null 2>&1
+[ ! -f "$DT/commit-craft-debug.log" ] && echo "ok: dbg-off writes no log" || echo "fail: dbg-off wrote a log"
+payload '"git commit -m \"bad message\""' | TMPDIR="$DT" COMMIT_CRAFT_DEBUG=1 bash "$S" >/dev/null 2>&1
+[ $? -eq 2 ] && grep -q 'BLOCK: unconventional' "$DT/commit-craft-debug.log" && echo "ok: dbg-on logs BLOCK, still exit 2" || echo "fail: dbg-on changed behavior or logged nothing"

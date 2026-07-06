@@ -57,3 +57,10 @@ Path conventions are heuristics. A repo that keeps tests beside sources with
 unusual names (e.g. `checks.py`) will get a false nudge; a change that edits a test
 file cosmetically counts as "tests touched." It's a nudge, not a gate — pair it
 with real CI for enforcement.
+
+## Debugging a silent hook
+
+The hook fails open by design, so "it never fires" has no visible error. Set
+`TEST_GAP_NUDGE_DEBUG=1` and it appends its decision trail (why it stayed
+silent, or why it nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Unset the
+variable and behavior is exactly as before — the log is the only difference.

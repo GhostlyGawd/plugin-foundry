@@ -100,3 +100,13 @@ out=$( ( cd "$d" && printf '{"session_id":"k4"}' | TEST_GAP_NUDGE_EXTS='%%%' bas
 if [ "$rc" -eq 0 ] && echo "$out" | grep -q 'app.py'; then
   echo "ok: knob4 all-garbage value falls back to defaults"
 else echo "fail: knob4 — rc=$rc out=$out"; fi
+
+# i164 (v10 #10): debug trail — off by default, on when asked, behavior identical
+d=$(mkrepo dbg1); echo x > "$d/app.py"
+out=$( ( cd "$d" && printf '{"session_id":"dz1"}' | bash "$SCRIPT" ) ); rc=$?
+[ ! -f "$TMPDIR/test-gap-nudge-debug.log" ] && echo "ok: dbg-off writes no log" || echo "fail: dbg-off wrote a log"
+d=$(mkrepo dbg2); echo x > "$d/app.py"
+out2=$( ( cd "$d" && printf '{"session_id":"dz2"}' | TEST_GAP_NUDGE_DEBUG=1 bash "$SCRIPT" ) ); rc2=$?
+if [ "$rc" -eq "$rc2" ] && echo "$out2" | grep -q '"systemMessage"' && grep -q 'nudge: 1 source' "$TMPDIR/test-gap-nudge-debug.log"; then
+  echo "ok: dbg-on logs trail, output/exit unchanged"
+else echo "fail: dbg-on — rc=$rc2 out=$out2"; fi

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T20:56:39.615121+00:00",
- "iteration": 163,
+ "generated_at": "2026-07-06T20:58:38.968617+00:00",
+ "iteration": 164,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -216,7 +216,7 @@
    "title": "Commit Craft",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.0",
+   "version": "0.3.0",
    "components": [
     "skills",
     "hooks"
@@ -828,7 +828,7 @@
    "title": "Test-Gap Nudge",
    "category": "quality",
    "stage": "published",
-   "version": "0.2.0",
+   "version": "0.3.0",
    "components": [
     "hooks"
    ],
@@ -1245,7 +1245,7 @@
     "title": "Commit Craft",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "components": [
      "skills",
      "hooks"
@@ -1598,7 +1598,7 @@
     "title": "Test-Gap Nudge",
     "category": "quality",
     "stage": "published",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "components": [
      "hooks"
     ],

@@ -3,7 +3,7 @@ name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
 stage: published
-version: 0.2.0
+version: 0.3.0
 kind: plugin
 components: [hooks]
 one_liner: A polite Stop-hook that notices source changes with no matching test changes and says so once.
@@ -156,3 +156,5 @@ slate — bounced once on the core case, fixed, both directions pinned.
   injected), empty → default. Fail-open contract unchanged; suite +3 checks
   (override respected, hostile value stripped, default regression). Tag
   test-gap-nudge-v0.2.0.
+- i164 (builder, v10 #10): v0.3.0 — TEST_GAP_NUDGE_DEBUG=1 decision-trail log
+  in TMPDIR; debug-off byte-identical (suite-proven). Tag test-gap-nudge-v0.3.0.

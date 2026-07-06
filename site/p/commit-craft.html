@@ -46,7 +46,7 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Commit Craft — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · v0.2.0 · created 2026-07-04 · updated 2026-07-06 · ~88 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · workflow · v0.3.0 · created 2026-07-04 · updated 2026-07-06 · ~88 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>PreToolUse · matcher: Bash</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~88 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall commit-craft — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
@@ -91,6 +91,12 @@ the list it enforced.
 
 ## Changelog
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## Debugging the guard
+
+Set `COMMIT_CRAFT_DEBUG=1` and the guard appends every decision (pass reason,
+or BLOCK with the enforced type list) to `$TMPDIR/commit-craft-debug.log`.
+Off by default; behavior is identical with it unset.
 </pre></details><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
 - **User:** anyone using Claude Code in a repo with commit standards.
 - **Components:** one skill (draft the message), one PreToolUse hook (guard the format).
@@ -154,7 +160,9 @@ REVIEW: approved</pre></details><details><summary>Maintenance log</summary><pre>
   allowed type list; tokens restricted to lowercase letters (regex injection
   structurally impossible), empty/malformed → default. Fail-open unchanged;
   block message names the enforced list; suite +3 checks (override allows,
-  injection dropped, default regression). Tag commit-craft-v0.2.0.</pre></details></div>
+  injection dropped, default regression). Tag commit-craft-v0.2.0.
+- i164 (builder, v10 #10): v0.3.0 — COMMIT_CRAFT_DEBUG=1 decision-trail log in
+  TMPDIR; debug-off byte-identical (suite-proven). Tag commit-craft-v0.3.0.</pre></details></div>
   <p class="links">install: <code>/plugin install commit-craft@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/commit-craft.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/commit-craft.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/commit-craft">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -1276,3 +1276,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v10 #10 — hook debug mode (ends with a clerk catalog refresh).
 - notes: charter/SECURITY.md stays the internal law; root SECURITY.md is its
   public face — same posture, different audience.
+
+## i164 — builder (directed, v10 #10) — 2026-07-06T20:58:38Z
+- did: opt-in debug trails for both fail-open hooks — test-gap-nudge 0.3.0
+  (TEST_GAP_NUDGE_DEBUG=1 → why-silent/why-nudged log in TMPDIR) and
+  commit-craft 0.3.0 (COMMIT_CRAFT_DEBUG=1 → pass reason or BLOCK + enforced
+  list). Debug-off proven byte-identical (no log file, same output, same exit
+  codes) by new suite checks; 19/19 and 9/9 green, smoke green.
+- line: both stay published (version law: 0.3.0 ×2 + CHANGELOGs + tags)
+- files: plugins/{test-gap-nudge,commit-craft}/*, records ×2, suites ×2
+- validation: pass
+- next-suggestion: clerk catalog refresh (i156 style), then v10 #11.
+- notes: "fails silently by design" now has a diagnosable mode — the organic-bug
+  lane Gate B waits on needs users who can SEE what a hook decided.

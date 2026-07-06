@@ -46,7 +46,7 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Test-Gap Nudge — birth certificate</h1></header>
-  <p class="meta">plugin · quality · v0.2.0 · created 2026-07-06 · updated 2026-07-06 · ~33 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · quality · v0.3.0 · created 2026-07-06 · updated 2026-07-06 · ~33 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>A polite Stop-hook that notices source changes with no matching test changes and says so once.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>Stop · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~33 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall test-gap-nudge — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
@@ -110,6 +110,13 @@ Path conventions are heuristics. A repo that keeps tests beside sources with
 unusual names (e.g. `checks.py`) will get a false nudge; a change that edits a test
 file cosmetically counts as &quot;tests touched.&quot; It&#x27;s a nudge, not a gate — pair it
 with real CI for enforcement.
+
+## Debugging a silent hook
+
+The hook fails open by design, so &quot;it never fires&quot; has no visible error. Set
+`TEST_GAP_NUDGE_DEBUG=1` and it appends its decision trail (why it stayed
+silent, or why it nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Unset the
+variable and behavior is exactly as before — the log is the only difference.
 </pre></details><details><summary>Pitch</summary><pre>- **Job:** at session stop, if the working tree has modified source files but no
   modified test files, say so — once, briefly, with the file list.
 - **User:** any developer using Claude Code in a repo with a test suite; teams that
@@ -225,7 +232,9 @@ slate — bounced once on the core case, fixed, both directions pinned.</pre></d
   extension list; value sanitized to `[A-Za-z0-9|]` (regex can&#x27;t be broken or
   injected), empty → default. Fail-open contract unchanged; suite +3 checks
   (override respected, hostile value stripped, default regression). Tag
-  test-gap-nudge-v0.2.0.</pre></details></div>
+  test-gap-nudge-v0.2.0.
+- i164 (builder, v10 #10): v0.3.0 — TEST_GAP_NUDGE_DEBUG=1 decision-trail log
+  in TMPDIR; debug-off byte-identical (suite-proven). Tag test-gap-nudge-v0.3.0.</pre></details></div>
   <p class="links">install: <code>/plugin install test-gap-nudge@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/test-gap-nudge.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/test-gap-nudge.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/test-gap-nudge">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

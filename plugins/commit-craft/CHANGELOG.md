@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 — 2026-07-06
+- debug: `COMMIT_CRAFT_DEBUG=1` appends the guard's decision trail (pass reason
+  or BLOCK + enforced type list) to `$TMPDIR/commit-craft-debug.log`. Off by
+  default; behavior unchanged when unset.
+
 ## 0.2.0 — 2026-07-06
 - config: `COMMIT_CRAFT_TYPES` replaces the guard's allowed type list
   (pipe/comma/space-separated). Tokens are restricted to lowercase letters —
