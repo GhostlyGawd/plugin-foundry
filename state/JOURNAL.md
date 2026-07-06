@@ -859,3 +859,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes idea-credit-loop
 - notes: the slip and the fix are both on the record — honesty outranks tidiness
+
+## i129 — reviewer — 2026-07-06T02:44:00Z
+- did: idea-credit-loop approved — all four credit surfaces re-traced; intake
+  lane (ADR-015) completes the loop end-to-end
+- line: idea-credit-loop: review approved (stays rc)
+- files: foundry/records/idea-credit-loop.md
+- validation: pass
+- next-suggestion: maintainer publishes idea-credit-loop
+- notes: n/a

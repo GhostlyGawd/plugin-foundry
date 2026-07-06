@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:43:15.495209+00:00",
- "iteration": 128,
+ "generated_at": "2026-07-06T00:43:50.797994+00:00",
+ "iteration": 129,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i129",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:44:00Z",
+   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
+  },
   {
    "it": "i128",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-06T02:20:00Z",
    "text": "adversarial-qa-bounties QA 5/5 \u2014 empty-state honesty and fixture-find both \u00b7 adversarial-qa-bounties: building \u2192 rc"
-  },
-  {
-   "it": "i121",
-   "role": "builder",
-   "ts": "2026-07-06T02:15:00Z",
-   "text": "adversarial-qa-bounties built \u2014 bounty checkbox, SECURITY cross-ref, \u00b7 adversarial-qa-bounties: spec \u2192 building (build complete)"
   }
  ],
  "journal": [
-  {
-   "it": "i117",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:51:00Z",
-   "text": "embed-badges re-review \u2014 approved \u00b7 embed-badges: review approved (stays rc)"
-  },
   {
    "it": "i118",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:40:00Z",
    "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
+  },
+  {
+   "it": "i129",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:44:00Z",
+   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 41
+   "n": 42
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
