@@ -1029,3 +1029,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: designer polish pass (#9 — saga ellipsis + report-cap link)
 - notes: no default flipped on proxy data — the experiment keeps its integrity
+
+## i145 — designer — 2026-07-06T04:10:00Z
+- did: polish pass (#9) — saga/ADR truncations now clip at a word boundary with a
+  visible ellipsis (clip() helper); certificates over the 8-report cap link
+  "all N reports →" to the label search (probed with a 9-report fixture, then
+  restored); both P3 nits closed
+- line: n/a (site template, ADR-016 authorization)
+- files: tools/build.py, state/BACKLOG.md, site/** (regenerated)
+- validation: pass
+- next-suggestion: qa suite backfill ×2 (#10)
+- notes: n/a

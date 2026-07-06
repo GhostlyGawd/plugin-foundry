@@ -893,6 +893,9 @@ def build_pages(records, mp_name, cfg, reports):
                 f'<a href="{html.escape(rep.get("url", "#"))}">'
                 f'{html.escape(rep.get("title", "field report"))} — @{html.escape(rep.get("author", ""))}</a>'
                 for rep in plugin_reports[:8])
+            if len(plugin_reports) > 8 and repo:
+                items += (f'<a href="https://github.com/{repo}/issues?q=label%3Afield-report+{name}">'
+                          f'all {len(plugin_reports)} reports \u2192</a>')
             reports_html = f'<div class="field"><b>From the field</b>{items}</div>'
         links = []
         if r.get("stage") == "published" and r.get("kind", "plugin") == "plugin":
@@ -921,6 +924,13 @@ def build_pages(records, mp_name, cfg, reports):
         (outdir / f"{name}.html").write_text(page)
 
 
+def clip(text, limit):
+    """Truncate at a word boundary with a visible ellipsis (i107 nit)."""
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0] + " …"
+
+
 def build_saga(records, state, cfg):
     """Timeline from ADRs + record fates. Only what the sources say."""
     decisions = (ROOT / "state" / "DECISIONS.md").read_text()
@@ -929,13 +939,13 @@ def build_saga(records, state, cfg):
                          decisions, re.M | re.S):
         ctx = re.search(r"- Context:\s*(.+)", m.group(5))
         adrs.append({"id": m.group(1), "title": m.group(2), "when": m.group(3),
-                     "line": " ".join((ctx.group(1) if ctx else "").split())[:180]})
+                     "line": clip(" ".join((ctx.group(1) if ctx else "").split()), 180)})
     sharpest = []
     for r in records:
         for m in re.finditer(r"Sharpest question[^:]*:?\s*(.+?)(?=\n\s*-|\n\s*REVIEW|\n##|\Z)", r.get("_body", ""), re.S):
             qtxt = " ".join(m.group(1).split())
             if qtxt:
-                sharpest.append((r.get("title", r.get("name", "?")), qtxt[:220]))
+                sharpest.append((r.get("title", r.get("name", "?")), clip(qtxt, 220)))
     fates = []
     for r in records:
         if r.get("stage") == "published":

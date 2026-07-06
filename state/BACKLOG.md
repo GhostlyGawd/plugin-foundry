@@ -72,10 +72,8 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 
 - [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
       of the documented constant (drift risk noted at i46).
-- [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
-      truncation (cuts mid-word today; reviewer nit, i107).
-- [ ] P3 (designer) field reports: when a certificate hits the 8-report cap,
-      link the full label search (reviewer nit, i125).
+- [x] P3 (designer) saga wall ellipsis — DONE i145 (word-boundary clip()).
+- [x] P3 (designer) field-report cap link — DONE i145 ("all N reports →" when >8).
 - [ ] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
       published on manual probes (audit-003 finding #3) — one suite per pass.
 
