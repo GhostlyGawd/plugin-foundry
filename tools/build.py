@@ -21,32 +21,16 @@ TRACK = ["idea", "spec", "building", "rc", "published"]
 
 
 # ---------------------------------------------------------------- collectors --
-def parse_front_matter(text):
-    parts = text.split("---", 2)
-    meta = {}
-    if len(parts) < 3:
-        return meta
-    for line in parts[1].strip().splitlines():
-        if ":" not in line or line.strip().startswith("#"):
-            continue
-        key, _, raw = line.partition(":")
-        key, raw = key.strip(), raw.split(" #")[0].strip()
-        if raw.startswith("[") and raw.endswith("]"):
-            inner = raw[1:-1].strip()
-            meta[key] = [v.strip() for v in inner.split(",") if v.strip()] if inner else []
-        else:
-            meta[key] = raw
-    return meta
+from lib import parse_front_matter  # noqa: E402 — one parser, one truth (v10 #8)
 
 
 def collect_records():
     out = []
     for path in sorted(RECORDS.glob("*.md")):
         text = path.read_text()
-        meta = parse_front_matter(text)
+        meta, body = parse_front_matter(text)
         meta["record_path"] = str(path.relative_to(ROOT))
-        parts = text.split("---", 2)
-        meta["_body"] = parts[2] if len(parts) >= 3 else text
+        meta["_body"] = body
         out.append(meta)
     return out
 

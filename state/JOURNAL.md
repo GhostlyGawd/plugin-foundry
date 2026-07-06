@@ -1249,3 +1249,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v10 #8 — parse_front_matter dedup into tools/lib.py (the
   _tools fixtures now guard the refactor).
 - notes: also updates BACKLOG — the P3 filed at i151 closes with this.
+
+## i162 — builder (directed, v10 #8) — 2026-07-06T20:55:54Z
+- did: one parser, one truth — parse_front_matter extracted to tools/lib.py
+  (strict mode with error reporting for validate.py; lenient for build.py and
+  clerkcat.py, whose hand-rolled regex variant is gone too). Gate fixtures
+  guarded the refactor: 179/179 green, clerkcat output byte-identical so no
+  night-clerk bump owed.
+- line: n/a (tools, ADR-018)
+- files: tools/{lib.py,validate.py,build.py,clerkcat.py}
+- validation: pass (full qa green; catalog diff empty)
+- next-suggestion: v10 #9 — SECURITY.md.
+- notes: three parsers had already drifted (clerkcat parsed tags as a string);
+  the drift class is now extinct the same way the catalog one was.

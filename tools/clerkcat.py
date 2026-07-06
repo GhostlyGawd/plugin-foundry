@@ -2,26 +2,18 @@
 """clerkcat — regenerate night-clerk's bundled catalog from the records.
 Published plugins only. Run by the maintainer whenever the shelf changes;
 each regeneration ships inside a night-clerk patch bump (version law)."""
-import json, re, datetime, pathlib, sys
+import json, datetime, pathlib, sys
+
+from lib import parse_front_matter  # one parser, one truth (v10 #8)
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-
-def front(path):
-    t = path.read_text()
-    m = re.match(r"---\n(.*?)\n---", t, re.S)
-    meta = {}
-    for line in (m.group(1) if m else "").splitlines():
-        if ":" in line:
-            k, v = line.split(":", 1)
-            meta[k.strip()] = v.strip()
-    return meta
 
 def main():
     plugins = []
     for p in sorted((ROOT / "foundry" / "records").glob("*.md")):
-        m = front(p)
+        m, _ = parse_front_matter(p.read_text())
         if m.get("stage") == "published" and m.get("kind", "plugin") == "plugin":
-            tags = [t.strip() for t in m.get("tags", "").strip("[]").split(",") if t.strip()]
+            tags = m.get("tags", []) if isinstance(m.get("tags"), list) else []
             plugins.append({
                 "name": m["name"],
                 "version": m.get("version", ""),
