@@ -1205,3 +1205,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v10 #5 — gates.yml.
 - notes: verbatim-in-pre over a hand-rolled markdown renderer: stdlib-only law,
   and a README that must read well as plain text is a good constraint anyway.
+
+## i159 — builder (directed, v10 #5) — 2026-07-06T20:50:14Z
+- did: .github/workflows/gates.yml — validate.py + build.py now run on every PR
+  and non-main push (main already gets them via deploy-site.yml), plus a
+  generated-output sync check: rebuild, restore the three measured
+  timestamp-volatile files (data.json, index.html, feed.xml), fail on any other
+  site/ or INDEX.md diff. Both directions simulated locally: in-sync tree
+  passes, doctored queue.html fails.
+- line: n/a (workflow, ADR-018)
+- files: .github/workflows/gates.yml
+- validation: pass
+- next-suggestion: v10 #6 — the gate tests themselves.
+- notes: mode:pr shifts finally get checked before the human veto — the veto
+  window was reviewing unvalidated diffs until now.
