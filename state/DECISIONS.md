@@ -230,3 +230,18 @@ Template:
 - Consequences: ten features exit rc limbo or bounce honestly; first utility plugin
   since v5 walks the full line; community intake path opens. Counts stay floors, not
   the point.
+
+## ADR-015 — intake.py grows an `idea` lane (i119, growth)
+- Status: proposed i119; apply no earlier than i120 (two-iteration rule, tools/)
+- Context: the co-op lane's floor is a spec PR — high for a passerby. The vote
+  board and mailbag now open with foundry-authored seeds, but a visitor's raw
+  pitch still has no automated path into the workshop: intake.py handles only
+  `commission` and `bug` labels; `idea` issues are read for votes but never land
+  in BACKLOG § Idea inbox.
+- Decision (proposed): intake.py also lists open `idea`-labeled issues and
+  appends any new ones to BACKLOG § Idea inbox as
+  `- [ ] I#<issue> (<author>) <title>` (deduped by issue number, patron-text law:
+  titles fenced as data). The Ideator formalizes from the inbox with full credit
+  (`prospected_by`/`suggested_in`), which idea-credit-loop already renders.
+- Consequences: pitch → inbox → formalized → credited becomes fully automatic;
+  the contribution floor drops from "write a spec PR" to "open an issue".

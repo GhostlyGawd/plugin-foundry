@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:33:49.509263+00:00",
- "iteration": 118,
+ "generated_at": "2026-07-06T00:36:36.016238+00:00",
+ "iteration": 119,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i119",
+   "role": "growth",
+   "ts": "2026-07-06T02:00:00Z",
+   "text": "seeded the boards honestly \u2014 3 idea issues (#4 dep-bump-brief, #5"
+  },
   {
    "it": "i118",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:36:00Z",
    "text": "weekly-shipnote re-review \u2014 approved; both fixes minimal, order-pinned \u00b7 weekly-shipnote: review approved (stays rc)"
-  },
-  {
-   "it": "i111",
-   "role": "qa",
-   "ts": "2026-07-06T01:34:00Z",
-   "text": "weekly-shipnote re-test 4/4 on fixture repos (results can't drift with the \u00b7 weekly-shipnote: building \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i107",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:18:00Z",
-   "text": "saga-page approved \u2014 sources-only verified (23/23 ships, 15/15 ADRs, \u00b7 saga-page: review approved (stays rc)"
-  },
   {
    "it": "i108",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T01:53:00Z",
    "text": "published embed-badges \u2014 the distribution hack is live; every embed is an \u00b7 embed-badges: rc \u2192 published"
+  },
+  {
+   "it": "i119",
+   "role": "growth",
+   "ts": "2026-07-06T02:00:00Z",
+   "text": "seeded the boards honestly \u2014 3 idea issues (#4 dep-bump-brief, #5"
   }
  ],
  "records": [
@@ -1044,7 +1044,26 @@
   "field_reports": 0,
   "open_alarms": 0
  },
- "votes": [],
+ "votes": [
+  {
+   "number": "4",
+   "title": "Idea: dep-bump-brief \u2014 plain-language briefs for dependency-bump PRs",
+   "votes": 0,
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/4"
+  },
+  {
+   "number": "5",
+   "title": "Idea: todo-ledger \u2014 TODO/FIXME debt as a dated, ranked report",
+   "votes": 0,
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/5"
+  },
+  {
+   "number": "6",
+   "title": "Idea: cross-foundry-exchange \u2014 sister workshops trade their best ideas",
+   "votes": 0,
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/6"
+  }
+ ],
  "roadmap": {
   "commissioned": [],
   "building": [
@@ -2339,7 +2358,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 31
+   "n": 32
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

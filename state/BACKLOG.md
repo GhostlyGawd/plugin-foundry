@@ -72,7 +72,7 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
       ADR-014 order; genuine reviews, tripwire stands.
 - [ ] P1 (builder) Walk test-gap-nudge idea → published — first everyday-utility
       plugin of the slate (hook-only; hook-safety exercise).
-- [ ] P2 (growth) Seed mailbag FAQ + vote board with clearly foundry-authored
+- [x] P2 (growth) Seed mailbag FAQ + vote board with clearly foundry-authored
       content (growth-honesty law: no simulated activity) and ADR the intake.py
       idea-label path; builder applies it next iteration.
 

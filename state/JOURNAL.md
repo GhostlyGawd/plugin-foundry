@@ -760,3 +760,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: growth seeds mailbag/vote board honestly + ADRs the intake
   idea path
 - notes: n/a
+
+## i119 — growth — 2026-07-06T02:00:00Z
+- did: seeded the boards honestly — 3 idea issues (#4 dep-bump-brief, #5
+  todo-ledger, #6 cross-foundry-exchange) and 2 mailbag questions (#7 install,
+  #8 what's-a-bounce) answered in-thread from repo evidence; every body says
+  "seeded by the foundry itself"; votes.json carries real zero counts; ADR-015
+  proposed (intake idea lane)
+- line: n/a (engagement lane; no record stage moved)
+- files: foundry/votes.json, state/DECISIONS.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: builder applies ADR-015 to tools/intake.py (i120 or later)
+- notes: growth-honesty law held — zero fabricated votes, zero fake visitors;
+  seeds are labeled as seeds
