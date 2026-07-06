@@ -25,4 +25,5 @@ jobs:
             echo "shipnote: $WEEK already posted"; exit 0
           fi
           python3 tools/shipnote.py > /tmp/note.md
+          gh label create shipnote --description "weekly digest written by the loop" --color 2F5A8F || true
           gh issue create --title "Shipnote $WEEK" --label shipnote --body-file /tmp/note.md

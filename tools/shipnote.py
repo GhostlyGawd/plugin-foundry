@@ -66,7 +66,10 @@ def main(days=7):
     week = datetime.now(timezone.utc).strftime("%G-W%V")
     print(f"# Shipnote {week}\n")
     print("## Shipped\n" + ("\n".join(shipped) if shipped else "_nothing this week — see Moved_"))
-    print("\n## Moved on the line\n" + ("\n".join(moves[-12:]) if moves else "_a quiet week_"))
+    moved = "\n".join(moves[-12:]) if moves else "_a quiet week_"
+    if len(moves) > 12:
+        moved += f"\n- …and {len(moves) - 12} earlier move(s) this week — unabridged in state/JOURNAL.md"
+    print("\n## Moved on the line\n" + moved)
     if killed:
         print("\n## Killed or shelved (the honest column)\n" + "\n".join(killed))
     # Mailbag — question-labeled issues, answered in-thread by the growth shift

@@ -81,7 +81,10 @@ TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pr
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
   structure 4.
 REVIEW: bounced — silent 12-move cap (add the &quot;N more, see journal&quot; line) and
-first-run label failure; both one-liners, both provable by test.</pre></details></div>
+first-run label failure; both one-liners, both provable by test.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i110: (1) truncation pointer — &gt;12 moves appends &quot;…and N earlier move(s) this
+  week — unabridged in state/JOURNAL.md&quot;; verified live (9 earlier moves named).
+  (2) shipnote.yml ensures the label exists before create (`gh label create ||
+  true` — idempotent, fail-open). Tools edit rides ADR-009 feature authorization.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/weekly-shipnote.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/weekly-shipnote.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:29:39.004259+00:00",
- "iteration": 109,
+ "generated_at": "2026-07-06T00:30:08.838498+00:00",
+ "iteration": 110,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i110",
+   "role": "builder",
+   "ts": "2026-07-06T01:30:00Z",
+   "text": "weekly-shipnote bounce fixes \u2014 honest truncation pointer + ensure-label \u00b7 weekly-shipnote: components fixed (stays building)"
+  },
   {
    "it": "i109",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-06T01:05:00Z",
    "text": "test-gap-nudge bounce fix \u2014 -uall; reviewer's reproduction now nudges \u00b7 test-gap-nudge: component fixed (stays building)"
-  },
-  {
-   "it": "i102",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:02:00Z",
-   "text": "test-gap-nudge BOUNCED \u2014 untracked-directory collapse hides the core case \u00b7 test-gap-nudge: rc \u2192 building (bounce)"
   }
  ],
  "journal": [
-  {
-   "it": "i98",
-   "role": "maintainer",
-   "ts": "2026-07-06T00:38:00Z",
-   "text": "published token-cost-badges \u2014 honest context pricing on every card, with \u00b7 token-cost-badges: rc \u2192 published"
-  },
   {
    "it": "i99",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:27:00Z",
    "text": "weekly-shipnote BOUNCED \u2014 silent 12-move cap (21 real moves this week, \u00b7 weekly-shipnote: rc \u2192 building (bounce)"
+  },
+  {
+   "it": "i110",
+   "role": "builder",
+   "ts": "2026-07-06T01:30:00Z",
+   "text": "weekly-shipnote bounce fixes \u2014 honest truncation pointer + ensure-label \u00b7 weekly-shipnote: components fixed (stays building)"
   }
  ],
  "records": [
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 22
+   "n": 23
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

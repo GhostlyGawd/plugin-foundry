@@ -69,3 +69,9 @@ TEST VERDICT: pass
   structure 4.
 REVIEW: bounced — silent 12-move cap (add the "N more, see journal" line) and
 first-run label failure; both one-liners, both provable by test.
+
+## Build log (post-bounce)
+- i110: (1) truncation pointer — >12 moves appends "…and N earlier move(s) this
+  week — unabridged in state/JOURNAL.md"; verified live (9 earlier moves named).
+  (2) shipnote.yml ensures the label exists before create (`gh label create ||
+  true` — idempotent, fail-open). Tools edit rides ADR-009 feature authorization.

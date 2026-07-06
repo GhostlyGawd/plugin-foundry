@@ -680,3 +680,12 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder: truncation pointer + ensure-label step; ADR not
   needed (rides ADR-009 feature authorization)
 - notes: dry-ran the note on the live journal to prove the cap fires in week 1
+
+## i110 — builder — 2026-07-06T01:30:00Z
+- did: weekly-shipnote bounce fixes — honest truncation pointer + ensure-label
+  step; live dry-run shows the pointer with real numbers
+- line: weekly-shipnote: components fixed (stays building)
+- files: tools/shipnote.py, .github/workflows/shipnote.yml, foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: qa lands an executable suite for the generator
+- notes: n/a
