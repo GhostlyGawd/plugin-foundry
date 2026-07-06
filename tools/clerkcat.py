@@ -24,6 +24,7 @@ def main():
             tags = [t.strip() for t in m.get("tags", "").strip("[]").split(",") if t.strip()]
             plugins.append({
                 "name": m["name"],
+                "version": m.get("version", ""),
                 "one_liner": m.get("one_liner", ""),
                 "tags": tags,
                 "install": f"/plugin install {m['name']}@foundry",

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T20:37:00.330788+00:00",
- "iteration": 153,
+ "generated_at": "2026-07-06T20:40:57.285087+00:00",
+ "iteration": 154,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -595,7 +595,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.2",
+   "version": "0.2.0",
    "components": [
     "skills"
    ],
@@ -607,7 +607,7 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": "86",
+   "always_on_tokens": "129",
    "verified": "2026-07-06",
    "prospected_by": null,
    "suggested_in": null,
@@ -1434,7 +1434,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "components": [
      "skills"
     ],
@@ -1446,7 +1446,7 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": "86",
+    "always_on_tokens": "129",
     "verified": "2026-07-06",
     "prospected_by": null,
     "suggested_in": null,

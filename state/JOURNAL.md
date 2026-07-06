@@ -1136,3 +1136,19 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: #1 — clerkcat.py version field + night-clerk whats-new (0.2.0).
 - notes: full autonomy granted by operator; the veto window is the PR itself.
+
+## i154 — builder (directed, v10 #1) — 2026-07-06T20:40:57Z
+- did: night-clerk 0.2.0 — new `whats-new` skill (installed versions via
+  `claude plugin list` vs shelf versions in the snapshot, exact
+  `claude plugin update` lines, snapshot disclosure, never-invent; CLI facts
+  verified against the official plugins reference); clerkcat.py now stamps each
+  catalog entry with its record's version; suite +6 checks (semver present,
+  catalog⇄record version drift, whats-new contract) — the drift check caught a
+  real mid-iteration drift before commit; always-on re-measured 86 → 129 tok est.
+- line: night-clerk stays published (version law: 0.2.0 + CHANGELOG + tag)
+- files: tools/clerkcat.py, plugins/night-clerk/{.claude-plugin/plugin.json,
+  CHANGELOG.md,README.md,skills/whats-new/SKILL.md,data/catalog.json},
+  foundry/records/night-clerk.md, foundry/tests/night-clerk/*
+- validation: pass (qa 17/17 incl. official validate; smoke green)
+- next-suggestion: v10 #2 — hook config knobs (test-gap-nudge + commit-craft).
+- notes: minor bump, not patch — a new skill is new surface.

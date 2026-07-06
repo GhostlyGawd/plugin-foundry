@@ -4,9 +4,9 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.1.2
+version: 0.2.0
 components: [skills]
-always_on_tokens: 86
+always_on_tokens: 129
 verified: 2026-07-06
 one_liner: Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.
 tags: [discovery, meta, catalog]
@@ -58,6 +58,10 @@ TEST VERDICT: pass
 - i60 (maintainer): v0.1.0 on the shelf; catalog regenerated post-publish so the
   clerk lists itself among 7; tag night-clerk-v0.1.0; experiment armed (install
   proxy, review 2026-09-05).
+- i154 (builder, v10 #1): v0.2.0 — `whats-new` skill (installed vs shelf via
+  `claude plugin list`, update lines, snapshot disclosure, never-invent);
+  catalog entries gain `version` (clerkcat.py, ADR-018); always-on re-measured
+  86 → 129 tok est; tag night-clerk-v0.2.0.
 
 ## Review log
 ### Review — i59 (reviewer)
