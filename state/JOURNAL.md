@@ -1422,3 +1422,18 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: reviewer, then publish.
 - notes: check3 greps the renderer for fetch/iframe — the "no remote content"
   law is now machine-checked, not just promised.
+
+## i176 — reviewer (directed, v10 #14) — 2026-07-06T21:12:12Z
+- did: foundry-network reviewed — approved with two required fixes applied
+  in-pass: Lane 4 no longer implies the loop merges external PRs (charter
+  conflict), and the renderer enforces https:// on declared links
+  (defense-in-depth under the verification duty).
+- line: foundry-network stays rc (review gate cleared)
+- files: record, CONTRIBUTING.md, tools/build.py, site/*
+- validation: fixed-then-pass — the Lane 4 rewrite pushed 'foundry/records/'
+  past check2c's grep -A6 window; widened to -A10, suite 6/6. Caught because
+  the suite reran post-commit; amended in the same iteration.
+- next-suggestion: maintainer publishes; then cross-foundry-exchange gets its
+  spec now that the network's verdict machinery exists.
+- notes: the charter catch is exactly why reviews exist — the builder wrote
+  the PR path from the record's spec, which predates the co-op lane law.

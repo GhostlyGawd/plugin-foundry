@@ -718,7 +718,9 @@ function renderVerified(){
 /* sister foundries (v10 #14, foundry-network spec) — names + links only, never
    remote content; renders nothing while the network is empty. */
 function renderNetwork(){
-  const N = DATA.network || [];
+  // defense-in-depth beyond the maintainer's verification duty: declared
+  // links render only when https — a hostile scheme never becomes an anchor.
+  const N = (DATA.network || []).filter(n => (n.url || '').startsWith('https://'));
   const head = document.getElementById('network');
   const box = document.getElementById('networkbox');
   if (!N.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
@@ -727,7 +729,7 @@ function renderNetwork(){
     '<div class="hrow"><b>' + esc(n.name) + '</b><em>registered ' + esc(n.registered) +
     (n.note ? ' · ' + esc(n.note) : '') + '</em>' +
     ' <a href="' + esc(n.url) + '">repo →</a>' +
-    (n.pages ? ' <a href="' + esc(n.pages) + '">window →</a>' : '') + '</div>').join('') +
+    ((n.pages || '').startsWith('https://') ? ' <a href="' + esc(n.pages) + '">window →</a>' : '') + '</div>').join('') +
     '<p class="vnone">by their own declaration, URL verified by a maintainer shift — links out only</p>';
 }
 function renderHall(){

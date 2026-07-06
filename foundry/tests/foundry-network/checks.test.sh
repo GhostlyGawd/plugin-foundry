@@ -37,7 +37,7 @@ grep -q "sister-foundry" .github/ISSUE_TEMPLATE/sister-foundry.yml 2>/dev/null |
   && echo "ok: check2a issue template exists" || echo "fail: check2a issue template missing"
 grep -q "LOOP.md" .github/ISSUE_TEMPLATE/sister-foundry.yml && grep -qi "verifies\|verification" .github/ISSUE_TEMPLATE/sister-foundry.yml \
   && echo "ok: check2b template states the verification duty" || echo "fail: check2b verification duty not in template"
-grep -q "Lane 4" CONTRIBUTING.md && grep -A6 "Lane 4" CONTRIBUTING.md | grep -q "foundry/records" \
+grep -q "Lane 4" CONTRIBUTING.md && grep -A10 "Lane 4" CONTRIBUTING.md | grep -q "foundry/records" \
   && echo "ok: check2c CONTRIBUTING Lane 4 carries the duty" || echo "fail: check2c Lane 4 missing or duty absent"
 
 # 3 — links out only: the renderer never fetches; entries carry no remote content fields

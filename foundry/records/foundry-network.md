@@ -57,3 +57,20 @@ every fork a distribution channel for the rest.
   simply absent, no broken anchor), note field escaped via esc() like all
   visitor text.
 TEST VERDICT: pass
+
+## Review log
+### Review — i176 (reviewer)
+- The hall law and the no-remote-content law are both machine-checked (suite
+  check3 greps the renderer) — promises with teeth.
+- **Required before approval (applied and verified in-pass), two findings:**
+  1. Lane 4's PR path read as if the loop might merge external network PRs —
+     charter/SECURITY.md forbids that. Copy now names the issue template as
+     canonical and states plainly: only the human operator merges outside PRs.
+  2. Declared URLs rendered as anchors on verification trust alone. The
+     renderer now drops entries whose url isn't https:// and suppresses
+     non-https pages links — a hostile scheme never becomes an anchor even if
+     verification slips.
+- Sharpest question: is a self-declared family tree honest enough for the saga?
+  Yes, because it says so on the surface — "by their own declaration, URL
+  verified by a maintainer shift" is printed where the entries render.
+REVIEW: approved
