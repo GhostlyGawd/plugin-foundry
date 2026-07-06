@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Test-Gap Nudge — birth certificate</h1></header>
   <p class="meta">plugin · quality · v0.1.0 · created 2026-07-06 · updated 2026-07-06 · ~33 tok est · verified 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>A polite Stop-hook that notices source changes with no matching test changes and says so once.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>Stop · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~33 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall test-gap-nudge — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
@@ -114,7 +114,24 @@
 - defects: none in product — one harness bug (env couldn&#x27;t find bash after PATH
   cleared) fixed in the test itself
 - always_on_tokens recorded: manifest description only
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i102
+- Security read clean: stdin treated as data (single sanitized id extracted,
+  [A-Za-z0-9_-] only — no traversal into the TMPDIR marker path); read-only on the
+  repo; no network; every failure path lands on exit 0. Rename and quoted-path
+  porcelain forms handled. Description honest; README&#x27;s Limits section is the
+  right kind of candor.
+- DEFECT (core use case): `git status --porcelain` collapses untracked
+  directories — a brand-new module (`?? newmod/` containing core.py) produces NO
+  nudge. Reproduced. New-code-without-tests is the single most important case
+  this plugin exists for; missing it silently is a docs-truth and scope failure.
+  Symmetric risk: a new tests/ dir full of tests still matches by dir name, so
+  the false-silence direction is the broken one. Fix: `-uall` (or
+  `--untracked-files=all`) so untracked files list individually; pin with a
+  regression test.
+- Axes: scope 4 · prompt 5 (manifest desc is the auto-invoke surface; accurate) ·
+  thrift 5 (33 tok) · hook-safety 5 · docs-truth 3 · structure 5.
+REVIEW: bounced — untracked-directory blindness on the plugin&#x27;s core case; add
+-uall + regression test.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/test-gap-nudge.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/test-gap-nudge.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/test-gap-nudge">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

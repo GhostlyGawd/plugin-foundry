@@ -2,7 +2,7 @@
 name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
-stage: rc
+stage: building
 version: 0.1.0
 kind: plugin
 components: [hooks]
@@ -101,3 +101,23 @@ don't fire at that moment; a hook can.
   cleared) fixed in the test itself
 - always_on_tokens recorded: manifest description only
 TEST VERDICT: pass
+
+## Review log
+### Review — i102
+- Security read clean: stdin treated as data (single sanitized id extracted,
+  [A-Za-z0-9_-] only — no traversal into the TMPDIR marker path); read-only on the
+  repo; no network; every failure path lands on exit 0. Rename and quoted-path
+  porcelain forms handled. Description honest; README's Limits section is the
+  right kind of candor.
+- DEFECT (core use case): `git status --porcelain` collapses untracked
+  directories — a brand-new module (`?? newmod/` containing core.py) produces NO
+  nudge. Reproduced. New-code-without-tests is the single most important case
+  this plugin exists for; missing it silently is a docs-truth and scope failure.
+  Symmetric risk: a new tests/ dir full of tests still matches by dir name, so
+  the false-silence direction is the broken one. Fix: `-uall` (or
+  `--untracked-files=all`) so untracked files list individually; pin with a
+  regression test.
+- Axes: scope 4 · prompt 5 (manifest desc is the auto-invoke surface; accurate) ·
+  thrift 5 (33 tok) · hook-safety 5 · docs-truth 3 · structure 5.
+REVIEW: bounced — untracked-directory blindness on the plugin's core case; add
+-uall + regression test.

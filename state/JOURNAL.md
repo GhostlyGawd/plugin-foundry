@@ -609,3 +609,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (validate+build+smoke+qa green)
 - next-suggestion: reviewer reads nudge.sh line-by-line as a security reviewer
 - notes: n/a
+
+## i102 — reviewer — 2026-07-06T01:02:00Z
+- did: test-gap-nudge BOUNCED — untracked-directory collapse hides the core case
+  (new module, no tests → silence); reproduced before bouncing
+- line: test-gap-nudge: rc → building (bounce)
+- files: foundry/records/test-gap-nudge.md, state/STATE.json (fix cycle)
+- validation: pass
+- next-suggestion: builder adds -uall to the porcelain call + regression test
+- notes: hook security surface itself came through clean
