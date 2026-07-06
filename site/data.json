@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-07-06T21:01:13.586789+00:00",
- "iteration": 167,
+ "generated_at": "2026-07-06T21:04:12.546949+00:00",
+ "iteration": 168,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 3,
+  "idea": 4,
   "spec": 3,
   "building": 0,
   "rc": 0,
@@ -988,6 +988,31 @@
    "patron": null
   },
   {
+   "name": "verified-by-foundry",
+   "title": "Verified by the Foundry",
+   "category": "growth",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "workflow",
+    "site",
+    "docs"
+   ],
+   "one_liner": "The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.",
+   "tags": [
+    "trust",
+    "ecosystem",
+    "verification"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "weekly-shipnote",
    "title": "Weekly Shipnote",
    "category": "growth",
@@ -1206,6 +1231,31 @@
     ],
     "commission": null,
     "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "verified-by-foundry",
+    "title": "Verified by the Foundry",
+    "category": "growth",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "workflow",
+     "site",
+     "docs"
+    ],
+    "one_liner": "The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.",
+    "tags": [
+     "trust",
+     "ecosystem",
+     "verification"
+    ],
+    "commission": null,
+    "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,

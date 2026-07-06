@@ -1325,3 +1325,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: v10 #13 — verified-by-foundry enters the line as an idea.
 - notes: rollback is now "download the zip from the last good release".
+
+## i168 — ideator (directed, v10 #13) — 2026-07-06T21:04:12Z
+- did: verified-by-foundry pitched — the verification machinery pointed outward:
+  standalone doctor + composite Action any plugin repo can run in CI + a
+  registry/hall that renders nothing until it has a first name. Deduped against
+  records (plugin-smith's doctor skill is interactive and inward; this is CI
+  and outward).
+- line: verified-by-foundry → idea (record created)
+- files: foundry/records/verified-by-foundry.md
+- validation: pass
+- next-suggestion: builder specs it (verbatim acceptance checks; Experiment).
+- notes: the moat is the law book, not the badge.
