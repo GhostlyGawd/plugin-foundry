@@ -94,7 +94,16 @@ first-run label failure; both one-liners, both provable by test.</pre></details>
 - tier 2: n/a (workflow)
 - tier 3: live dry-run — pointer names 91 real earlier moves; nothing retouched
 - defects: none found
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass
+
+### Review — i112 (post-bounce)
+- Both defects cured minimally: pointer states the exact dropped count and the
+  unabridged source; label ensure is idempotent, fail-open, and ordered before
+  create (order pinned by test). Fixture-based suite means the checks won&#x27;t rot
+  as the journal grows — right call by QA.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the digest now compresses honestly and survives its first Monday.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/weekly-shipnote.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/weekly-shipnote.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

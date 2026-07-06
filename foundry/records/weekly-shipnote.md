@@ -85,3 +85,12 @@ first-run label failure; both one-liners, both provable by test.
 - tier 3: live dry-run — pointer names 91 real earlier moves; nothing retouched
 - defects: none found
 TEST VERDICT: pass
+
+### Review — i112 (post-bounce)
+- Both defects cured minimally: pointer states the exact dropped count and the
+  unabridged source; label ensure is idempotent, fail-open, and ordered before
+  create (order pinned by test). Fixture-based suite means the checks won't rot
+  as the journal grows — right call by QA.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the digest now compresses honestly and survives its first Monday.

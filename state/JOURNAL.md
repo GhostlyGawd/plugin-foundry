@@ -698,3 +698,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer re-reads both one-line fixes
 - notes: n/a
+
+## i112 — reviewer — 2026-07-06T01:36:00Z
+- did: weekly-shipnote re-review — approved; both fixes minimal, order-pinned
+- line: weekly-shipnote: review approved (stays rc)
+- files: foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: maintainer publishes weekly-shipnote
+- notes: n/a
