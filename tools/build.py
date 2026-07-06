@@ -870,6 +870,16 @@ def build_pages(records, mp_name, cfg, reports):
             for i, t in enumerate(TRACK))
         def sec(title, text):
             if title == "Example session":
+                demo = ROOT / "foundry" / "demos" / f"{name}.txt"
+                if demo.exists():
+                    lines = demo.read_text().splitlines()
+                    stamp = lines[0].replace("recorded:", "").strip() if lines and lines[0].startswith("recorded:") else "?"
+                    body = "\n".join(lines[1:]).strip()
+                    if body:
+                        return ("<details open><summary>Example session</summary>"
+                                f"<p class=\"honestlabel\">CI-recorded transcript — {html.escape(stamp)} "
+                                "(charter/TESTING.md)</p>"
+                                f"<pre class=\"term\">{html.escape(body)}</pre></details>")
                 return ("<details open><summary>Example session</summary>"
                         "<p class=\"honestlabel\">authored example — a CI-recorded transcript "
                         "replaces this per charter/TESTING.md</p>"

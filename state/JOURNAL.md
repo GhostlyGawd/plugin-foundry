@@ -1074,3 +1074,18 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder ships the recorded-transcript pipeline (#12)
 - notes: almanac pages render from their own template (monthly duty) — dark
   variant there rides the first almanac pass in August
+
+## i149 — builder — 2026-07-06T04:42:00Z
+- did: recorded-demo pipeline (#12) — monthly/dispatch workflow records headless
+  sessions per foundry/demos/prompts/*.prompt (plugins load via the documented
+  skills-directory mechanism, no invented CLI), writes dated transcripts to
+  foundry/demos/<name>.txt; certificates flip "authored example" →
+  "CI-recorded transcript — <date>" when a recording exists (probed both
+  directions); no-credential and failed-run paths stay honest (labels don't lie);
+  prompts seeded for commit-craft and test-gap-nudge
+- line: n/a (workflow + template; ADR-016)
+- files: .github/workflows/record-demos.yml, foundry/demos/prompts/*,
+  tools/build.py
+- validation: pass
+- next-suggestion: builder ships tools/preflight.py + operator checklist (#13)
+- notes: recordings are repo metadata (ADR-013 spirit) — no version bumps

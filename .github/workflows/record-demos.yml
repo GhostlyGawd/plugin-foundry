@@ -1,0 +1,51 @@
+# Recorded demo transcripts (ADR-016 #12, charter/TESTING.md): replace each
+# certificate's "authored example" with a real headless session, dated.
+# Plugins load via the documented skills-directory mechanism (plugins-reference:
+# any folder under ~/.claude/skills with a .claude-plugin/plugin.json loads as
+# <name>@skills-dir — no marketplace, no install step). Recordings are repo
+# metadata like re-verify stamps (ADR-013 spirit): no version bump.
+name: Record demo transcripts
+on:
+  schedule:
+    - cron: "41 6 5 * *"   # monthly, the 5th — publish-time recordings via dispatch
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record each prompted plugin in a fixture repo
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ] && [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "record-demos: no credentials — skipping honestly (labels stay 'authored')"; exit 0
+          fi
+          npm install -g @anthropic-ai/claude-code
+          mkdir -p ~/.claude/skills
+          DAY=$(date -u +%Y-%m-%d)
+          for pf in foundry/demos/prompts/*.prompt; do
+            [ -f "$pf" ] || continue
+            name=$(basename "$pf" .prompt)
+            [ -d "plugins/$name" ] || { echo "record-demos: $name has a prompt but no artifact — skipped"; continue; }
+            ln -sfn "$PWD/plugins/$name" ~/.claude/skills/"$name"
+            FIX=$(mktemp -d); git -C "$FIX" init -q .
+            echo "record-demos: $name"
+            OUT=$( cd "$FIX" && timeout 300 claude -p "$(cat "$OLDPWD/$pf")" 2>&1 ) || {
+              echo "record-demos: $name run failed — keeping previous recording"; rm -rf "$FIX"; continue; }
+            { echo "recorded: $DAY"; printf '$ claude -p "%s"\n%s\n' "$(cat "$pf")" "$OUT"; } > "foundry/demos/$name.txt"
+            rm -f ~/.claude/skills/"$name"; rm -rf "$FIX"
+          done
+          python3 tools/build.py
+          if ! git diff --quiet; then
+            git config user.name "foundry-demos"
+            git config user.email "foundry-demos@users.noreply.github.com"
+            git add foundry/demos site
+            git commit -m "demos: CI-recorded transcripts, $DAY"
+            git push
+          else
+            echo "record-demos: nothing new to record"
+          fi
