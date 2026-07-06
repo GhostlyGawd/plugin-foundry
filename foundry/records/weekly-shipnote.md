@@ -2,7 +2,7 @@
 name: weekly-shipnote
 title: Weekly Shipnote
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [workflow, docs]
@@ -94,3 +94,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — the digest now compresses honestly and survives its first Monday.
+
+### Published — i113 (maintainer)
+Live: Monday cron posts the note once per ISO week; label self-ensures; truncation
+says what it dropped. Experiment armed — review after 3 notes (watchers trend).

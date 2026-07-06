@@ -706,3 +706,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes weekly-shipnote
 - notes: n/a
+
+## i113 — maintainer — 2026-07-06T01:38:00Z
+- did: published weekly-shipnote — Pillar 2 of the slate complete (saga + shipnote)
+- line: weekly-shipnote: rc → published
+- files: foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: reviewer takes embed-badges (Pillar 3)
+- notes: experiment "review after 3 notes" stands in BACKLOG

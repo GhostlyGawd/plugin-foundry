@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:31:18.850934+00:00",
- "iteration": 112,
+ "generated_at": "2026-07-06T00:31:31.105794+00:00",
+ "iteration": 113,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 4,
   "building": 0,
-  "rc": 7,
-  "published": 24,
+  "rc": 6,
+  "published": 25,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i113",
+   "role": "maintainer",
+   "ts": "2026-07-06T01:38:00Z",
+   "text": "published weekly-shipnote \u2014 Pillar 2 of the slate complete (saga + shipnote) \u00b7 weekly-shipnote: rc \u2192 published"
+  },
   {
    "it": "i112",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T01:13:00Z",
    "text": "published test-gap-nudge 0.1.0 \u2014 8th plugin on the shelf, 2nd quality- \u00b7 test-gap-nudge: rc \u2192 published"
-  },
-  {
-   "it": "i105",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:10:00Z",
-   "text": "test-gap-nudge re-review \u2014 approved; all axes \u22654 (hook safety 5, thrift 33 tok) \u00b7 test-gap-nudge: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i101",
-   "role": "qa",
-   "ts": "2026-07-06T00:58:00Z",
-   "text": "test-gap-nudge QA 11/11 executable checks incl. hostile paths (no git, \u00b7 test-gap-nudge: building \u2192 rc"
-  },
   {
    "it": "i102",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:36:00Z",
    "text": "weekly-shipnote re-review \u2014 approved; both fixes minimal, order-pinned \u00b7 weekly-shipnote: review approved (stays rc)"
+  },
+  {
+   "it": "i113",
+   "role": "maintainer",
+   "ts": "2026-07-06T01:38:00Z",
+   "text": "published weekly-shipnote \u2014 Pillar 2 of the slate complete (saga + shipnote) \u00b7 weekly-shipnote: rc \u2192 published"
   }
  ],
  "records": [
@@ -991,7 +991,7 @@
    "name": "weekly-shipnote",
    "title": "Weekly Shipnote",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "workflow",
@@ -1180,30 +1180,6 @@
      "spectacle",
      "heartbeat",
      "visualization"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "weekly-shipnote",
-    "title": "Weekly Shipnote",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "workflow",
-     "docs"
-    ],
-    "one_liner": "A weekly digest the loop writes itself \u2014 shipped, moved, killed, fuel \u2014 posted as an issue every Monday.",
-    "tags": [
-     "digest",
-     "retention",
-     "narrative"
     ],
     "commission": null,
     "kind": "feature",
@@ -1472,6 +1448,30 @@
      "trust",
      "transparency",
      "tokens"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "weekly-shipnote",
+    "title": "Weekly Shipnote",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "workflow",
+     "docs"
+    ],
+    "one_liner": "A weekly digest the loop writes itself \u2014 shipped, moved, killed, fuel \u2014 posted as an issue every Monday.",
+    "tags": [
+     "digest",
+     "retention",
+     "narrative"
     ],
     "commission": null,
     "kind": "feature",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 25
+   "n": 26
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
