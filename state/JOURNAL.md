@@ -579,3 +579,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: builder specs test-gap-nudge (utility walk, per slate)
 - notes: experiment review-after 2026-07-19 stands
+
+## i99 — builder — 2026-07-06T00:44:00Z
+- did: test-gap-nudge specced against the official hooks reference (Stop event,
+  systemMessage advisory, exit-0-always contract); name finalized; 7 acceptance
+  checks; ~30 tok always-on budget
+- line: test-gap-nudge: idea → spec
+- files: foundry/records/test-gap-nudge.md
+- validation: pass
+- next-suggestion: builder builds the artifact (hooks.json + nudge.sh + docs)
+- notes: docs-before-invention honored — Stop hook contract quoted from
+  code.claude.com/docs/en/hooks, not guessed

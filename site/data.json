@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-07-06T00:18:58.904211+00:00",
- "iteration": 98,
+ "generated_at": "2026-07-06T00:21:11.118807+00:00",
+ "iteration": 99,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 4,
-  "spec": 4,
+  "idea": 3,
+  "spec": 5,
   "building": 0,
   "rc": 8,
   "published": 22,
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i99",
+   "role": "builder",
+   "ts": "2026-07-06T00:44:00Z",
+   "text": "test-gap-nudge specced against the official hooks reference (Stop event, \u00b7 test-gap-nudge: idea \u2192 spec"
+  },
   {
    "it": "i98",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T00:22:00Z",
    "text": "starter-kits re-reviewed post-fix \u2014 approved; fix narrow, regression \u00b7 starter-kits: review approved (stays rc; maintainer publishes next)"
-  },
-  {
-   "it": "i91",
-   "role": "qa",
-   "ts": "2026-07-06T00:20:00Z",
-   "text": "starter-kits re-test 3/3 with a NEW executable suite (the v5 features \u00b7 starter-kits: building \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i87",
-   "role": "auditor",
-   "ts": "2026-07-05T20:00:06Z",
-   "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
-  },
   {
    "it": "i88",
    "role": "ideator",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T00:38:00Z",
    "text": "published token-cost-badges \u2014 honest context pricing on every card, with \u00b7 token-cost-badges: rc \u2192 published"
+  },
+  {
+   "it": "i99",
+   "role": "builder",
+   "ts": "2026-07-06T00:44:00Z",
+   "text": "test-gap-nudge specced against the official hooks reference (Stop event, \u00b7 test-gap-nudge: idea \u2192 spec"
   }
  ],
  "records": [
@@ -827,7 +827,7 @@
    "name": "test-gap-nudge",
    "title": "Test-Gap Nudge",
    "category": "quality",
-   "stage": "idea",
+   "stage": "spec",
    "version": null,
    "components": [
     "hooks"
@@ -1335,6 +1335,29 @@
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
+   },
+   {
+    "name": "test-gap-nudge",
+    "title": "Test-Gap Nudge",
+    "category": "quality",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+    "tags": [
+     "testing",
+     "hooks",
+     "discipline"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
    }
   ],
   "ideas": [
@@ -1376,29 +1399,6 @@
      "dependencies",
      "review",
      "changelogs"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "test-gap-nudge",
-    "title": "Test-Gap Nudge",
-    "category": "quality",
-    "stage": "idea",
-    "version": null,
-    "components": [
-     "hooks"
-    ],
-    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
-    "tags": [
-     "testing",
-     "hooks",
-     "discipline"
     ],
     "commission": null,
     "kind": "plugin",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 11
+   "n": 12
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
