@@ -689,3 +689,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa lands an executable suite for the generator
 - notes: n/a
+
+## i111 — qa — 2026-07-06T01:34:00Z
+- did: weekly-shipnote re-test 4/4 on fixture repos (results can't drift with the
+  live journal); boundary + guard-order checks included
+- line: weekly-shipnote: building → rc
+- files: foundry/tests/weekly-shipnote/generator.test.sh, foundry/records/weekly-shipnote.md
+- validation: pass
+- next-suggestion: reviewer re-reads both one-line fixes
+- notes: n/a

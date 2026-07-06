@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:30:08.838498+00:00",
- "iteration": 110,
+ "generated_at": "2026-07-06T00:30:59.575428+00:00",
+ "iteration": 111,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 4,
-  "building": 1,
-  "rc": 6,
+  "building": 0,
+  "rc": 7,
   "published": 24,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i111",
+   "role": "qa",
+   "ts": "2026-07-06T01:34:00Z",
+   "text": "weekly-shipnote re-test 4/4 on fixture repos (results can't drift with the \u00b7 weekly-shipnote: building \u2192 rc"
+  },
   {
    "it": "i110",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "qa",
    "ts": "2026-07-06T01:08:00Z",
    "text": "test-gap-nudge re-test 13/13; -uall regression pinned in both directions \u00b7 test-gap-nudge: building \u2192 rc"
-  },
-  {
-   "it": "i103",
-   "role": "builder",
-   "ts": "2026-07-06T01:05:00Z",
-   "text": "test-gap-nudge bounce fix \u2014 -uall; reviewer's reproduction now nudges \u00b7 test-gap-nudge: component fixed (stays building)"
   }
  ],
  "journal": [
-  {
-   "it": "i99",
-   "role": "builder",
-   "ts": "2026-07-06T00:44:00Z",
-   "text": "test-gap-nudge specced against the official hooks reference (Stop event, \u00b7 test-gap-nudge: idea \u2192 spec"
-  },
   {
    "it": "i100",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T01:30:00Z",
    "text": "weekly-shipnote bounce fixes \u2014 honest truncation pointer + ensure-label \u00b7 weekly-shipnote: components fixed (stays building)"
+  },
+  {
+   "it": "i111",
+   "role": "qa",
+   "ts": "2026-07-06T01:34:00Z",
+   "text": "weekly-shipnote re-test 4/4 on fixture repos (results can't drift with the \u00b7 weekly-shipnote: building \u2192 rc"
   }
  ],
  "records": [
@@ -991,7 +991,7 @@
    "name": "weekly-shipnote",
    "title": "Weekly Shipnote",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "workflow",
@@ -1193,7 +1193,7 @@
     "name": "weekly-shipnote",
     "title": "Weekly Shipnote",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "workflow",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 23
+   "n": 24
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

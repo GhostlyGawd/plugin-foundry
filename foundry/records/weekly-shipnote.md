@@ -2,7 +2,7 @@
 name: weekly-shipnote
 title: Weekly Shipnote
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [workflow, docs]
@@ -75,3 +75,13 @@ first-run label failure; both one-liners, both provable by test.
   week — unabridged in state/JOURNAL.md"; verified live (9 earlier moves named).
   (2) shipnote.yml ensures the label exists before create (`gh label create ||
   true` — idempotent, fail-open). Tools edit rides ADR-009 feature authorization.
+
+### Test pass — i111 (post-bounce re-test)
+- tier 1: executable fixture suite (foundry/tests/weekly-shipnote/generator.test.sh)
+  4/4 — busy week (sections + pointer with exact count), quiet week (honest copy,
+  no phantom pointer), 12-move boundary, workflow guards (dup-week gate + label
+  ensured BEFORE create, order-checked)
+- tier 2: n/a (workflow)
+- tier 3: live dry-run — pointer names 91 real earlier moves; nothing retouched
+- defects: none found
+TEST VERDICT: pass
