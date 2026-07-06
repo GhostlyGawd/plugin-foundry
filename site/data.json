@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:22:29.256627+00:00",
- "iteration": 100,
+ "generated_at": "2026-07-06T00:23:48.550256+00:00",
+ "iteration": 101,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 4,
-  "building": 1,
-  "rc": 8,
+  "building": 0,
+  "rc": 9,
   "published": 22,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i101",
+   "role": "qa",
+   "ts": "2026-07-06T00:58:00Z",
+   "text": "test-gap-nudge QA 11/11 executable checks incl. hostile paths (no git, \u00b7 test-gap-nudge: building \u2192 rc"
+  },
   {
    "it": "i100",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T00:28:00Z",
    "text": "token-cost-badges reviewed and BOUNCED \u2014 the spec's >60-day stale-verified \u00b7 token-cost-badges: rc \u2192 building (bounce)"
-  },
-  {
-   "it": "i93",
-   "role": "maintainer",
-   "ts": "2026-07-06T00:24:00Z",
-   "text": "published starter-kits \u2014 bounced once, fixed, re-tested with an executable \u00b7 starter-kits: rc \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i89",
-   "role": "reviewer",
-   "ts": "2026-07-06T00:14:00Z",
-   "text": "starter-kits reviewed and BOUNCED \u2014 multi-plugin kit copy-block collapses \u00b7 starter-kits: rc \u2192 building (bounce)"
-  },
   {
    "it": "i90",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T00:52:00Z",
    "text": "test-gap-nudge built whole \u2014 Stop hook + fail-open classifier script + \u00b7 test-gap-nudge: spec \u2192 building (build complete, ready for QA)"
+  },
+  {
+   "it": "i101",
+   "role": "qa",
+   "ts": "2026-07-06T00:58:00Z",
+   "text": "test-gap-nudge QA 11/11 executable checks incl. hostile paths (no git, \u00b7 test-gap-nudge: building \u2192 rc"
   }
  ],
  "records": [
@@ -827,8 +827,8 @@
    "name": "test-gap-nudge",
    "title": "Test-Gap Nudge",
    "category": "quality",
-   "stage": "building",
-   "version": null,
+   "stage": "rc",
+   "version": "0.1.0",
    "components": [
     "hooks"
    ],
@@ -840,8 +840,8 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": null,
-   "verified": null,
+   "always_on_tokens": "33",
+   "verified": "2026-07-06",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -1216,8 +1216,8 @@
     "name": "test-gap-nudge",
     "title": "Test-Gap Nudge",
     "category": "quality",
-    "stage": "building",
-    "version": null,
+    "stage": "rc",
+    "version": "0.1.0",
     "components": [
      "hooks"
     ],
@@ -1229,8 +1229,8 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
+    "always_on_tokens": "33",
+    "verified": "2026-07-06",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 13
+   "n": 14
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

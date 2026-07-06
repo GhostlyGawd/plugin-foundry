@@ -40,10 +40,10 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Test-Gap Nudge — birth certificate</h1></header>
-  <p class="meta">plugin · quality · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <p class="meta">plugin · quality · v0.1.0 · created 2026-07-06 · updated 2026-07-06 · ~33 tok est · verified 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>A polite Stop-hook that notices source changes with no matching test changes and says so once.</p>
-  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>Stop · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>unmeasured</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall test-gap-nudge — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>Stop · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~33 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall test-gap-nudge — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** at session stop, if the working tree has modified source files but no
   modified test files, say so — once, briefly, with the file list.
@@ -102,7 +102,19 @@
   guards, porcelain classifier handling renames and quoted paths, once-per-session
   TMPDIR marker with repo-cksum fallback, JSON-escaped systemMessage), README with
   an honest Limits section, CHANGELOG 0.1.0-Unreleased. Hand-smoked the three core
-  paths (gap → nudge; same session → silent; test present → silent) before QA.</pre></details></div>
+  paths (gap → nudge; same session → silent; test present → silent) before QA.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i101
+- tier 1: executable suite (foundry/tests/test-gap-nudge/acceptance.test.sh),
+  11/11 across all 7 spec checks + a bonus (*.spec.* beside source): gap→nudge,
+  once-per-session marker, tracked+untracked test silencing, clean-tree/non-repo/
+  no-git-on-PATH silence, malformed &amp; empty stdin exit 0, docs-only silence,
+  structural (Stop event, quoted root, executable shebang script)
+- tier 2: official `claude plugin validate --strict` PASS (smoke.sh)
+- tier 3: hand-read the nudge copy as a user — names ≤3 files then &quot;…&quot;, says what
+  and why in one line, no imperative tone
+- defects: none in product — one harness bug (env couldn&#x27;t find bash after PATH
+  cleared) fixed in the test itself
+- always_on_tokens recorded: manifest description only
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/test-gap-nudge.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/test-gap-nudge.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/test-gap-nudge">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -2,12 +2,14 @@
 name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
-stage: building
-version: null
+stage: rc
+version: 0.1.0
 kind: plugin
 components: [hooks]
 one_liner: A polite Stop-hook that notices source changes with no matching test changes and says so once.
 tags: [testing, hooks, discipline]
+always_on_tokens: 33
+verified: 2026-07-06
 created: 2026-07-06
 updated: 2026-07-06
 ---
@@ -84,3 +86,18 @@ don't fire at that moment; a hook can.
   TMPDIR marker with repo-cksum fallback, JSON-escaped systemMessage), README with
   an honest Limits section, CHANGELOG 0.1.0-Unreleased. Hand-smoked the three core
   paths (gap → nudge; same session → silent; test present → silent) before QA.
+
+## Test log
+### Test pass — i101
+- tier 1: executable suite (foundry/tests/test-gap-nudge/acceptance.test.sh),
+  11/11 across all 7 spec checks + a bonus (*.spec.* beside source): gap→nudge,
+  once-per-session marker, tracked+untracked test silencing, clean-tree/non-repo/
+  no-git-on-PATH silence, malformed & empty stdin exit 0, docs-only silence,
+  structural (Stop event, quoted root, executable shebang script)
+- tier 2: official `claude plugin validate --strict` PASS (smoke.sh)
+- tier 3: hand-read the nudge copy as a user — names ≤3 files then "…", says what
+  and why in one line, no imperative tone
+- defects: none in product — one harness bug (env couldn't find bash after PATH
+  cleared) fixed in the test itself
+- always_on_tokens recorded: manifest description only
+TEST VERDICT: pass

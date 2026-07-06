@@ -600,3 +600,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (validate+build+smoke+qa.sh green)
 - next-suggestion: qa runs the 7 acceptance checks as an executable suite
 - notes: n/a
+
+## i101 — qa — 2026-07-06T00:58:00Z
+- did: test-gap-nudge QA 11/11 executable checks incl. hostile paths (no git,
+  malformed stdin, PATH-less env); token cost measured and recorded
+- line: test-gap-nudge: building → rc
+- files: foundry/tests/test-gap-nudge/acceptance.test.sh, foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa green)
+- next-suggestion: reviewer reads nudge.sh line-by-line as a security reviewer
+- notes: n/a
