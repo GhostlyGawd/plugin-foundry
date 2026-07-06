@@ -35,8 +35,12 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 ## Grow (worked after bootstrap)
 - [x] P1 Review + publish fork-a-foundry — DONE i8/i9, tag fork-a-foundry-v0.1.0.
 - [ ] P3 (builder) fork-a-foundry polish: from-spec path links OPERATIONS §7–8 (reviewer nit, i8).
-- [ ] P1 (growth) Run the pr-gated-publishes trial per its spec; verdict decides the
-      scheduled default.
+- [x] P1 (growth) Run the pr-gated-publishes trial — interim verdict i144/ADR-017:
+      directed slates ride PRs (proven, PR #9); cron default deferred to real
+      mode:pr shift data once the factory is live.
+- [ ] P2 (growth) pr-gated-publishes: rule on the CRON default after 10 mode:pr
+      shifts or 21 days of a live factory (spec terms; successor to the i144
+      interim verdict).
 - [x] P1 (qa) QA fixture passes for the four building-stage v5 features
       (field-reports, community-hall, saga-page, embed-badges) → rc, then review
       → publish. DONE — all four published in the v8 slate (i107–i128).

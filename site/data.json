@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T01:07:15.272368+00:00",
- "iteration": 143,
+ "generated_at": "2026-07-06T01:08:02.409157+00:00",
+ "iteration": 144,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i144",
+   "role": "growth",
+   "ts": "2026-07-06T04:03:00Z",
+   "text": "pr-gated-publishes interim verdict (#7) \u2014 directed slates ride PRs \u00b7 pr-gated-publishes: trial log added (stays spec \u2014 armed, not finished)"
+  },
   {
    "it": "i143",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T03:22:00Z",
    "text": "version-law README sweep (#1 tail) \u2014 7 published plugins' install lines \u00b7 7 plugins bumped 0.1.0 \u2192 0.1.1 (no stage moves)"
-  },
-  {
-   "it": "i136",
-   "role": "maintainer",
-   "ts": "2026-07-06T03:15:00Z",
-   "text": "v9 slate opened (ADR-016, IMPROVEMENTS.md committed); #1 fixed \u2014 README"
   }
  ],
  "journal": [
-  {
-   "it": "i132",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:52:00Z",
-   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
-  },
   {
    "it": "i133",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T03:57:00Z",
    "text": "copy-to-clipboard (#6) \u2014 click any .install block (shelf cards and kits)"
+  },
+  {
+   "it": "i144",
+   "role": "growth",
+   "ts": "2026-07-06T04:03:00Z",
+   "text": "pr-gated-publishes interim verdict (#7) \u2014 directed slates ride PRs \u00b7 pr-gated-publishes: trial log added (stays spec \u2014 armed, not finished)"
   }
  ],
  "records": [
@@ -2383,7 +2383,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 56
+   "n": 57
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

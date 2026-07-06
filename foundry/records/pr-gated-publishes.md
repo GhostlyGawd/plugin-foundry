@@ -44,3 +44,14 @@ becomes the default.
   latency and veto count from the trial's PRs.
 - **Baseline:** to be read from the ledger when the trial starts.
 - **Review-after:** 10 shift-PRs or 21 days, whichever first.
+
+## Trial log — i144 (growth, interim)
+Observed data (operator-directed session PRs, not yet cron `mode: pr` shifts):
+- PR #9 (v8 slate): 48 commits / 12 publishes gated behind the operator; merged
+  ~3 minutes after ready-for-review; zero vetoes; every gate green pre-merge.
+- v9 slate (this PR): same mechanism, second run.
+INTERIM VERDICT: directed multi-iteration slates ride PRs from now on (ADR-017) —
+the veto window demonstrably costs nothing when the work is clean. The *scheduled*
+default stays `direct` until real `mode: pr` cron shifts produce the 10-PR/21-day
+data this spec demands; that clock starts with the factory (Gate A). Record stays
+at spec until then — the experiment is armed, not finished.

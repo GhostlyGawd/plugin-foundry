@@ -265,3 +265,15 @@ Template:
   designer(dark mode), builder(transcripts), builder(preflight), auditor.
 - Consequences: the funnel is honest before the first measured visitor; the
   clerk can never drift again; the window earns shares and dark rooms.
+
+## ADR-017 — Directed slates publish via PR; cron default deferred (i144, growth)
+- Status: accepted
+- Context: pr-gated-publishes specs a trial of `mode: pr` cron shifts (10 PRs or
+  21 days). The factory isn't live, but two operator-directed slates (v8: PR #9
+  merged in minutes with zero vetoes; v9: in flight) exercised the same veto
+  window end to end.
+- Decision: multi-iteration directed sessions always land as PRs (this codifies
+  existing practice). The scheduled-shift default remains `direct` until the
+  spec's own cron-shift data exists — no default flipped on proxy data.
+- Consequences: humans get a costless veto exactly where stakes are highest
+  (large slates); the experiment's terms stay intact for the real trial.

@@ -1019,3 +1019,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: growth files the pr-gated-publishes verdict (#7)
 - notes: n/a
+
+## i144 — growth — 2026-07-06T04:03:00Z
+- did: pr-gated-publishes interim verdict (#7) — directed slates ride PRs
+  (ADR-017, codifying PR #9's zero-cost veto data); cron default honestly
+  deferred to the spec's own mode:pr terms; successor backlog item filed
+- line: pr-gated-publishes: trial log added (stays spec — armed, not finished)
+- files: foundry/records/pr-gated-publishes.md, state/{DECISIONS.md,BACKLOG.md}
+- validation: pass
+- next-suggestion: designer polish pass (#9 — saga ellipsis + report-cap link)
+- notes: no default flipped on proxy data — the experiment keeps its integrity
