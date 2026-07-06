@@ -1126,3 +1126,13 @@ Entry template (copy exactly; newest at the bottom):
   the mode:pr CI hole; ADR alongside per the two-iteration rule.
 - notes: directed session riding a PR per ADR-017; role_queue untouched — the
   default cycle resumes at the next shift.
+
+## i153 — maintainer (directed) — 2026-07-06T20:37:00Z
+- did: ADR-018 filed — v10 slate opens; IMPROVEMENTS.md #1→#14 will be worked in
+  order as directed iterations riding a PR (ADR-017 lane). Two-iteration rule:
+  tools/template/workflow items apply from i154+.
+- line: n/a (ADR only)
+- files: state/DECISIONS.md, state/STATE.json, state/JOURNAL.md
+- validation: pass
+- next-suggestion: #1 — clerkcat.py version field + night-clerk whats-new (0.2.0).
+- notes: full autonomy granted by operator; the veto window is the PR itself.
