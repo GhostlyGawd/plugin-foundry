@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:44:30.515152+00:00",
- "iteration": 131,
+ "generated_at": "2026-07-06T00:44:45.374263+00:00",
+ "iteration": 132,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
   "building": 0,
-  "rc": 2,
-  "published": 30,
+  "rc": 1,
+  "published": 31,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i132",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:52:00Z",
+   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
+  },
   {
    "it": "i131",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T02:30:00Z",
    "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
-  },
-  {
-   "it": "i124",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:25:00Z",
-   "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i120",
-   "role": "builder",
-   "ts": "2026-07-06T02:08:00Z",
-   "text": "applied ADR-015 \u2014 intake.py grows the idea lane: open `idea` issues land"
-  },
   {
    "it": "i121",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T02:50:00Z",
    "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
+  },
+  {
+   "it": "i132",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:52:00Z",
+   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
   }
  ],
  "records": [
@@ -523,7 +523,7 @@
    "name": "fuel-gauge",
    "title": "The Fuel Gauge",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -1068,30 +1068,6 @@
   "commissioned": [],
   "building": [
    {
-    "name": "fuel-gauge",
-    "title": "The Fuel Gauge",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "The month's real API spend, on the window, against the operator's cap \u2014 with a Sponsor path to fund the next shift.",
-    "tags": [
-     "sustainability",
-     "transparency",
-     "sponsors"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "shift-streak",
     "title": "Shift Streak",
     "category": "growth",
@@ -1349,6 +1325,30 @@
      "social-proof",
      "community",
      "trust"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "fuel-gauge",
+    "title": "The Fuel Gauge",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "The month's real API spend, on the window, against the operator's cap \u2014 with a Sponsor path to fund the next shift.",
+    "tags": [
+     "sustainability",
+     "transparency",
+     "sponsors"
     ],
     "commission": null,
     "kind": "feature",
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 44
+   "n": 45
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

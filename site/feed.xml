@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ghostlygawd.github.io/plugin-foundry</id>
   <title>foundry — ships</title>
-  <updated>2026-07-06T00:44:30Z</updated>
+  <updated>2026-07-06T00:44:45Z</updated>
   <link href="https://ghostlygawd.github.io/plugin-foundry"/>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/adversarial-qa-bounties.html</id>
@@ -31,6 +31,13 @@
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/field-reports.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>Real user experiences with shipped plugins, surfaced on their birth certificates.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/fuel-gauge.html</id>
+    <title>The Fuel Gauge — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/fuel-gauge.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>The month&#x27;s real API spend, on the window, against the operator&#x27;s cap — with a Sponsor path to fund the next shift.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/idea-credit-loop.html</id>

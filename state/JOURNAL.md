@@ -884,3 +884,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes fuel-gauge
 - notes: n/a
+
+## i132 — maintainer — 2026-07-06T02:52:00Z
+- did: published fuel-gauge
+- line: fuel-gauge: rc → published
+- files: foundry/records/fuel-gauge.md
+- validation: pass
+- next-suggestion: reviewer takes shift-streak (last of the rc pool)
+- notes: n/a

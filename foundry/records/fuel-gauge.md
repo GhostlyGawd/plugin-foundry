@@ -2,14 +2,14 @@
 name: fuel-gauge
 title: The Fuel Gauge
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
 one_liner: The month's real API spend, on the window, against the operator's cap — with a Sponsor path to fund the next shift.
 tags: [sustainability, transparency, sponsors]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # The Fuel Gauge
@@ -66,3 +66,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — the tank is honest in all three states.
+
+### Published — i132 (maintainer)
+Live: gauge shows the honest arming message until the first CI shift writes the
+ledger. Experiment review 2026-08-04 stands.
