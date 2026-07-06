@@ -24,7 +24,7 @@ jobs:
           if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ] && [ -z "$ANTHROPIC_API_KEY" ]; then
             echo "record-demos: no credentials — skipping honestly (labels stay 'authored')"; exit 0
           fi
-          npm install -g @anthropic-ai/claude-code
+          npm install -g "@anthropic-ai/claude-code@$(cat .claude-code-version)"
           mkdir -p ~/.claude/skills
           DAY=$(date -u +%Y-%m-%d)
           for pf in foundry/demos/prompts/*.prompt; do

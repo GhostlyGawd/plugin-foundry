@@ -1299,3 +1299,16 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (qa 17/17)
 - next-suggestion: v10 #11 — pin the CI toolchain.
 - notes: n/a
+
+## i166 — builder (directed, v10 #11) — 2026-07-06T21:00:00Z
+- did: CI toolchain pinned — .claude-code-version (2.1.201, the exact CLI every
+  suite and smoke ran green against today) is now the single source; qa.yml
+  (both jobs), record-demos.yml, and run-shift.yml install
+  @anthropic-ai/claude-code@$(cat .claude-code-version) instead of floating
+  latest. Bumps are now a deliberate one-line diff that CI re-verifies.
+- line: n/a (workflows, ADR-018)
+- files: .claude-code-version, .github/workflows/{qa,record-demos,run-shift}.yml
+- validation: pass
+- next-suggestion: v10 #12 — release assets.
+- notes: a weekly re-verify that floats its own harness wasn't re-verifying —
+  tested_with stamps now mean one thing.
