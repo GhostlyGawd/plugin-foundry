@@ -1050,3 +1050,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa backfills field-reports (the no-inline law deserves a test)
 - notes: n/a
+
+## i147 — qa — 2026-07-06T04:20:00Z
+- did: suite backfill 2/2 for this slate (#10) — field-reports' no-inline law
+  pinned with a hostile fixture; 4/4 green; remaining unsuited features stay on
+  the P2 (one per qa pass, standing)
+- line: n/a (published record gains its suite)
+- files: foundry/tests/field-reports/reports.test.sh, foundry/records/field-reports.md
+- validation: pass
+- next-suggestion: designer dark mode (#11)
+- notes: n/a

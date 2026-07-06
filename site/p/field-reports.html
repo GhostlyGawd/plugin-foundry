@@ -87,7 +87,14 @@ REVIEW: approved — un-gameable social proof, honestly empty until the field sp
 
 ### Published — i126 (maintainer)
 Live: certificates carry &quot;From the field&quot; when reports exist, &quot;file a field
-report&quot; link always. Experiment armed — review 30 days post-deploy.</pre></details></div>
+report&quot; link always. Experiment armed — review 30 days post-deploy.
+
+### Test pass — i147 (suite backfill, audit-003 #3)
+- executable suite landed: fixture report renders title/author/link on the right
+  certificate; hostile body (script tag + injection text) NEVER reaches the
+  window; unreported plugins render nothing; fixture restored + rebuilt in a
+  finally block so the suite can&#x27;t dirty the site
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/field-reports.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/field-reports.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
