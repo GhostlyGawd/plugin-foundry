@@ -134,3 +134,12 @@ REVIEW: bounced — untracked-directory blindness on the plugin's core case; add
 - tier 3: reviewer's exact reproduction re-run by hand — nudges with the path
 - defects: none found
 TEST VERDICT: pass
+
+### Review — i105 (post-bounce)
+- One-flag fix, exactly as prescribed; regression pinned in both directions so
+  the collapse can't quietly return. CHANGELOG credits the catch — version story
+  stays honest for 0.1.0.
+- Re-read the full script post-change: no new surface, contract unchanged.
+- Axes: scope 5 · prompt 5 · thrift 5 (33 tok) · hook-safety 5 · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — core case covered, both directions pinned.

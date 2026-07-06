@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:25:38.083963+00:00",
- "iteration": 104,
+ "generated_at": "2026-07-06T00:25:52.216321+00:00",
+ "iteration": 105,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i105",
+   "role": "reviewer",
+   "ts": "2026-07-06T01:10:00Z",
+   "text": "test-gap-nudge re-review \u2014 approved; all axes \u22654 (hook safety 5, thrift 33 tok) \u00b7 test-gap-nudge: review approved (stays rc)"
+  },
   {
    "it": "i104",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T00:38:00Z",
    "text": "published token-cost-badges \u2014 honest context pricing on every card, with \u00b7 token-cost-badges: rc \u2192 published"
-  },
-  {
-   "it": "i97",
-   "role": "reviewer",
-   "ts": "2026-07-06T00:36:00Z",
-   "text": "token-cost-badges re-reviewed post-fix \u2014 approved; client-side staleness is \u00b7 token-cost-badges: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i93",
-   "role": "maintainer",
-   "ts": "2026-07-06T00:24:00Z",
-   "text": "published starter-kits \u2014 bounced once, fixed, re-tested with an executable \u00b7 starter-kits: rc \u2192 published"
-  },
   {
    "it": "i94",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-06T01:08:00Z",
    "text": "test-gap-nudge re-test 13/13; -uall regression pinned in both directions \u00b7 test-gap-nudge: building \u2192 rc"
+  },
+  {
+   "it": "i105",
+   "role": "reviewer",
+   "ts": "2026-07-06T01:10:00Z",
+   "text": "test-gap-nudge re-review \u2014 approved; all axes \u22654 (hook safety 5, thrift 33 tok) \u00b7 test-gap-nudge: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 17
+   "n": 18
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

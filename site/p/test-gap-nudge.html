@@ -141,7 +141,16 @@ REVIEW: bounced — untracked-directory blindness on the plugin&#x27;s core case
 - tier 2: official strict validate PASS
 - tier 3: reviewer&#x27;s exact reproduction re-run by hand — nudges with the path
 - defects: none found
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass
+
+### Review — i105 (post-bounce)
+- One-flag fix, exactly as prescribed; regression pinned in both directions so
+  the collapse can&#x27;t quietly return. CHANGELOG credits the catch — version story
+  stays honest for 0.1.0.
+- Re-read the full script post-change: no new surface, contract unchanged.
+- Axes: scope 5 · prompt 5 · thrift 5 (33 tok) · hook-safety 5 · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — core case covered, both directions pinned.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/test-gap-nudge.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/test-gap-nudge.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/test-gap-nudge">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

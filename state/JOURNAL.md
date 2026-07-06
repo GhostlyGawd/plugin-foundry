@@ -634,3 +634,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer re-reads the one-flag fix
 - notes: n/a
+
+## i105 — reviewer — 2026-07-06T01:10:00Z
+- did: test-gap-nudge re-review — approved; all axes ≥4 (hook safety 5, thrift 33 tok)
+- line: test-gap-nudge: review approved (stays rc)
+- files: foundry/records/test-gap-nudge.md
+- validation: pass
+- next-suggestion: maintainer publishes (marketplace entry + tag test-gap-nudge-v0.1.0)
+- notes: n/a
