@@ -1312,3 +1312,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v10 #12 — release assets.
 - notes: a weekly re-verify that floats its own harness wasn't re-verifying —
   tested_with stamps now mean one thing.
+
+## i167 — builder (directed, v10 #12) — 2026-07-06T21:01:13Z
+- did: releases now carry the artifact — release-on-tag.yml zips plugins/<name>/
+  exactly as installers receive it and attaches it plus the plugin's
+  marketplace.json entry to every release; refuses to attach a ghost entry if
+  the name isn't on the shelf. Steps simulated locally against
+  night-clerk-v0.2.2 (zip 12 files, entry extracted); run block extracted from
+  the YAML and bash -n clean.
+- line: n/a (workflow, ADR-018; extends the releases-and-reverify feature)
+- files: .github/workflows/release-on-tag.yml
+- validation: pass
+- next-suggestion: v10 #13 — verified-by-foundry enters the line as an idea.
+- notes: rollback is now "download the zip from the last good release".
