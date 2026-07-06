@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2 — 2026-07-06
+- catalog snapshot refreshed: shelf versions 0.3.0 for commit-craft and
+  test-gap-nudge (debug trails)
+
 ## 0.2.1 — 2026-07-06
 - catalog snapshot refreshed: shelf versions 0.2.0 for commit-craft and
   test-gap-nudge (config knobs) — whats-new answers stay true

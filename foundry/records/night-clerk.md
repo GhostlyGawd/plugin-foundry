@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.1
+version: 0.2.2
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-06
@@ -78,3 +78,6 @@ REVIEW: approved
 - i156 (maintainer): v0.2.1 — snapshot refresh after the v10 #2 hook bumps;
   the i154 version-drift check forced this, exactly as designed. Tag
   night-clerk-v0.2.1.
+- i165 (maintainer): v0.2.2 — snapshot refresh after the v10 #10 hook bumps
+  (regenerated last this time; the i156 ordering note holds). Tag
+  night-clerk-v0.2.2.

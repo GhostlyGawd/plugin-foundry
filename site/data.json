@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T20:58:38.968617+00:00",
- "iteration": 164,
+ "generated_at": "2026-07-06T20:58:59.750343+00:00",
+ "iteration": 165,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -595,7 +595,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.1",
+   "version": "0.2.2",
    "components": [
     "skills"
    ],
@@ -1434,7 +1434,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "components": [
      "skills"
     ],

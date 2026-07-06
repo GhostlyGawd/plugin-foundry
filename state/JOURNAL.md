@@ -1289,3 +1289,13 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: clerk catalog refresh (i156 style), then v10 #11.
 - notes: "fails silently by design" now has a diagnosable mode — the organic-bug
   lane Gate B waits on needs users who can SEE what a hook decided.
+
+## i165 — maintainer (directed) — 2026-07-06T20:58:59Z
+- did: night-clerk 0.2.2 — catalog refresh after the v10 #10 hook bumps
+  (0.3.0 ×2 on the shelf). Regenerated after the record bump this time; drift
+  check green on the first run.
+- line: night-clerk stays published (version law: 0.2.2 + CHANGELOG + tag)
+- files: plugins/night-clerk/{.claude-plugin/plugin.json,CHANGELOG.md,data/catalog.json}, foundry/records/night-clerk.md
+- validation: pass (qa 17/17)
+- next-suggestion: v10 #11 — pin the CI toolchain.
+- notes: n/a
