@@ -814,3 +814,11 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: maintainer publishes; experiment clock starts at window
   go-live (review-after 2026-09-15 already dated)
 - notes: n/a
+
+## i124 — maintainer — 2026-07-06T02:25:00Z
+- did: published adversarial-qa-bounties — community red-teaming lane open
+- line: adversarial-qa-bounties: rc → published
+- files: foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: reviewer starts the remaining rc pool (field-reports next)
+- notes: n/a

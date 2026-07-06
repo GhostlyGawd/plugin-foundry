@@ -2,7 +2,7 @@
 name: adversarial-qa-bounties
 title: Adversarial QA Bounties
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [docs, template, site]
@@ -74,3 +74,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — invites the skeptics and pays them only in verifiable truth.
+
+### Published — i124 (maintainer)
+Live: Lane 3 open for business — bounty checkbox on the bug template, Breakers
+hall armed (renders on first confirmed find). Experiment review 2026-09-15.

@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:41:07.446401+00:00",
- "iteration": 123,
+ "generated_at": "2026-07-06T00:41:07.699200+00:00",
+ "iteration": 124,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
   "building": 0,
-  "rc": 6,
-  "published": 26,
+  "rc": 5,
+  "published": 27,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i124",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:25:00Z",
+   "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
+  },
   {
    "it": "i123",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:51:00Z",
    "text": "embed-badges re-review \u2014 approved \u00b7 embed-badges: review approved (stays rc)"
-  },
-  {
-   "it": "i116",
-   "role": "qa",
-   "ts": "2026-07-06T01:49:00Z",
-   "text": "embed-badges re-test 3/3; placeholder drift now impossible to reintroduce \u00b7 embed-badges: building \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i112",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:36:00Z",
-   "text": "weekly-shipnote re-review \u2014 approved; both fixes minimal, order-pinned \u00b7 weekly-shipnote: review approved (stays rc)"
-  },
   {
    "it": "i113",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T02:23:00Z",
    "text": "adversarial-qa-bounties approved \u2014 fencing cross-ref load-bearing; \u00b7 adversarial-qa-bounties: review approved (stays rc)"
+  },
+  {
+   "it": "i124",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:25:00Z",
+   "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
   }
  ],
  "records": [
@@ -141,7 +141,7 @@
    "name": "adversarial-qa-bounties",
    "title": "Adversarial QA Bounties",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "docs",
@@ -1068,32 +1068,6 @@
   "commissioned": [],
   "building": [
    {
-    "name": "adversarial-qa-bounties",
-    "title": "Adversarial QA Bounties",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "docs",
-     "template",
-     "site"
-    ],
-    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
-    "tags": [
-     "community",
-     "qa",
-     "security",
-     "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -1359,6 +1333,32 @@
    }
   ],
   "shipped": [
+   {
+    "name": "adversarial-qa-bounties",
+    "title": "Adversarial QA Bounties",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "docs",
+     "template",
+     "site"
+    ],
+    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
+    "tags": [
+     "community",
+     "qa",
+     "security",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
    {
     "name": "embed-badges",
     "title": "Embeds & Badges",
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 36
+   "n": 37
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
