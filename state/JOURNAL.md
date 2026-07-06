@@ -661,3 +661,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes saga-page
 - notes: n/a
+
+## i108 — maintainer — 2026-07-06T01:22:00Z
+- did: published saga-page — "watch the workshop's story" surface live; also
+  re-homed the i107 P3 nit to the Grow section (was appended under Idea inbox)
+- line: saga-page: rc → published
+- files: foundry/records/saga-page.md, state/BACKLOG.md
+- validation: pass
+- next-suggestion: reviewer takes weekly-shipnote
+- notes: n/a

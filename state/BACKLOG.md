@@ -64,6 +64,8 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 
 - [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
       of the documented constant (drift risk noted at i46).
+- [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
+      truncation (cuts mid-word today; reviewer nit, i107).
 
 ## v8 slate (ADR-014 — operator-directed; role_queue seeded for it)
 - [ ] P1 (line) Publish-or-bounce the ten rc features: reviewer+maintainer pairs in
@@ -105,5 +107,3 @@ Format: `- [ ] C#<issue> (<author>) <title> — <summary>`
 
 ## Idea inbox (humans drop raw pitches here; Ideator formalizes)
 - (empty)
-- [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
-      truncation (cuts mid-word today; reviewer nit, i107).

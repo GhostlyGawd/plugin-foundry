@@ -2,14 +2,14 @@
 name: saga-page
 title: The Saga
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
 one_liner: An auto-generated timeline of the workshop's own story — ADRs, ships, kills, ceremonies.
 tags: [lore, narrative, retention]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # The Saga
@@ -68,3 +68,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — the repo tells its own story without embellishment.
+
+### Published — i108 (maintainer)
+Saga live and self-extending — this slate's own ships and ADR-014 already on the
+page. Experiment armed: review 30 days post-deploy (uniques_14d trend).
