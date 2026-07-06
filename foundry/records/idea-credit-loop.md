@@ -2,14 +2,14 @@
 name: idea-credit-loop
 title: Idea-Credit Loop
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
 one_liner: Community suggestions carry their prospector's name from issue to card to birth certificate — with a thank-you at every milestone.
 tags: [community, recognition, retention]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # Idea-Credit Loop
@@ -65,3 +65,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — the ladder's first rung pays out in permanent, verifiable credit.
+
+### Published — i130 (maintainer)
+Live end-to-end: issue → inbox (intake, ADR-015) → formalized with credit →
+rendered on card/certificate/hall. Experiment review 2026-07-26 stands.

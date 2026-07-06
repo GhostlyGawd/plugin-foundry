@@ -868,3 +868,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes idea-credit-loop
 - notes: n/a
+
+## i130 — maintainer — 2026-07-06T02:46:00Z
+- did: published idea-credit-loop
+- line: idea-credit-loop: rc → published
+- files: foundry/records/idea-credit-loop.md
+- validation: pass
+- next-suggestion: reviewer takes fuel-gauge
+- notes: n/a
