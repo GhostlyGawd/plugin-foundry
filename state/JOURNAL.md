@@ -922,3 +922,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: operator merges the PR (pr-gated-publishes trial verdict rides
   on it), enables Pages, adds secrets — Gate A clock starts
 - notes: n/a
+
+## i136 — maintainer — 2026-07-06T03:15:00Z
+- did: v9 slate opened (ADR-016, IMPROVEMENTS.md committed); #1 fixed — README
+  quickstart now says `/plugin marketplace add GhostlyGawd/plugin-foundry`,
+  pinned by a new check in the embed-badges suite (repo-set ⇒ no placeholder);
+  sweep found the same placeholder in all 8 plugin READMEs → next iteration
+  (version law applies there)
+- line: n/a (docs/process)
+- files: README.md, IMPROVEMENTS.md, foundry/tests/embed-badges/badge.test.sh,
+  state/{DECISIONS.md,STATE.json}
+- validation: pass
+- next-suggestion: maintainer README sweep across 7 plugins (night-clerk waits
+  for its 0.1.1 so it bumps once)
+- notes: n/a
