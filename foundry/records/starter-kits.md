@@ -2,7 +2,7 @@
 name: starter-kits
 title: Starter Kits
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [site, docs]
@@ -72,3 +72,13 @@ REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
   each kit command now renders and pastes on its own line; shelf cards (single
   command + horizontal scroll) intentionally keep nowrap. Under ADR-009's feature
   authorization, as with all v5/v7 template work.
+
+### Test pass — i91 (post-bounce re-test)
+- tier 1: executable suite landed (foundry/tests/starter-kits/render.test.sh) — 3/3:
+  white-space:pre regression check (the i89 bounce), member-flag honesty vs
+  marketplace.json (both directions), validator negative on unknown member
+- tier 2: n/a (site feature)
+- tier 3: check 3 re-run against the live 2-member kits — copy-block now pastes
+  one runnable command per line
+- defects: none found — probed: published=false-but-listed inversion, empty kits
+TEST VERDICT: pass

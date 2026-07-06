@@ -501,3 +501,15 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: qa re-runs acceptance check 3 against a 2-member kit
 - notes: template edit rides ADR-009 (starter-kits' authorizing ADR), the same
   authorization every v5/v7 feature build used
+
+## i91 — qa — 2026-07-06T00:20:00Z
+- did: starter-kits re-test 3/3 with a NEW executable suite (the v5 features
+  shipped to rc on manual probes only — suite gap cured for this one); bounce
+  regression pinned in foundry/tests/starter-kits/render.test.sh
+- line: starter-kits: building → rc
+- files: foundry/tests/starter-kits/render.test.sh, foundry/records/starter-kits.md
+- validation: pass (validate+build+qa.sh+smoke.sh green)
+- next-suggestion: reviewer re-reads the fix; note the suite gap applies to the
+  other 9 rc features — reviewers should weigh it per-record
+- notes: executable-suite gap on v5 features is systemic; flagging for the
+  closing audit rather than blocking each record on it

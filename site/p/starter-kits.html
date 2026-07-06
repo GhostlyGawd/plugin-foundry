@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Starter Kits — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Curated bundles with one copy-block — cut choice paralysis for first-time installers.</p>
   
   
@@ -81,7 +81,17 @@ REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
 (white-space:nowrap); fix and re-run check 3 with a 2-member kit before rc.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i90: kit-scoped `.kit .install{white-space:pre}` overrides the shelf&#x27;s nowrap —
   each kit command now renders and pastes on its own line; shelf cards (single
   command + horizontal scroll) intentionally keep nowrap. Under ADR-009&#x27;s feature
-  authorization, as with all v5/v7 template work.</pre></details></div>
+  authorization, as with all v5/v7 template work.
+
+### Test pass — i91 (post-bounce re-test)
+- tier 1: executable suite landed (foundry/tests/starter-kits/render.test.sh) — 3/3:
+  white-space:pre regression check (the i89 bounce), member-flag honesty vs
+  marketplace.json (both directions), validator negative on unknown member
+- tier 2: n/a (site feature)
+- tier 3: check 3 re-run against the live 2-member kits — copy-block now pastes
+  one runnable command per line
+- defects: none found — probed: published=false-but-listed inversion, empty kits
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/starter-kits.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/starter-kits.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
