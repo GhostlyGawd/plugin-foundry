@@ -876,3 +876,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes fuel-gauge
 - notes: n/a
+
+## i131 — reviewer — 2026-07-06T02:50:00Z
+- did: fuel-gauge approved — three render states + money-surface honesty verified
+- line: fuel-gauge: review approved (stays rc)
+- files: foundry/records/fuel-gauge.md
+- validation: pass
+- next-suggestion: maintainer publishes fuel-gauge
+- notes: n/a

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:44:08.086454+00:00",
- "iteration": 130,
+ "generated_at": "2026-07-06T00:44:30.515152+00:00",
+ "iteration": 131,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i131",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:50:00Z",
+   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
+  },
   {
    "it": "i130",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:25:00Z",
    "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
-  },
-  {
-   "it": "i123",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:23:00Z",
-   "text": "adversarial-qa-bounties approved \u2014 fencing cross-ref load-bearing; \u00b7 adversarial-qa-bounties: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i119",
-   "role": "growth",
-   "ts": "2026-07-06T02:00:00Z",
-   "text": "seeded the boards honestly \u2014 3 idea issues (#4 dep-bump-brief, #5"
-  },
   {
    "it": "i120",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:46:00Z",
    "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
+  },
+  {
+   "it": "i131",
+   "role": "reviewer",
+   "ts": "2026-07-06T02:50:00Z",
+   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 43
+   "n": 44
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

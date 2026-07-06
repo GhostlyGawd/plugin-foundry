@@ -54,3 +54,15 @@ sustainability into part of the spectacle instead of a secret.
   honestly; no sponsor claims anywhere
 - defects: none found — probed: malformed ledger line (skipped, not guessed)
 TEST VERDICT: pass
+
+## Review log
+### Review — i131
+- All three gauge states re-traced in renderFuel: empty ledger → the arming
+  message verbatim from spec; entries without cap → spend-only; cap → percentage
+  bar clamped at 100. Malformed ledger lines skipped, never guessed (QA probed).
+- Sponsor surface is a link to the repo, not a claim — FUNDING.yml ships
+  commented with operator instructions; nothing renders sponsorship GitHub can't
+  show. Dark-pattern law holds on the money surface, where it matters most.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the tank is honest in all three states.

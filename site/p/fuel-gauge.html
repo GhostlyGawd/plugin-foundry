@@ -68,7 +68,16 @@
 - tier 3: checks 1–3 → spend/cap, null-cap, and empty-ledger states all render
   honestly; no sponsor claims anywhere
 - defects: none found — probed: malformed ledger line (skipped, not guessed)
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i131
+- All three gauge states re-traced in renderFuel: empty ledger → the arming
+  message verbatim from spec; entries without cap → spend-only; cap → percentage
+  bar clamped at 100. Malformed ledger lines skipped, never guessed (QA probed).
+- Sponsor surface is a link to the repo, not a claim — FUNDING.yml ships
+  commented with operator instructions; nothing renders sponsorship GitHub can&#x27;t
+  show. Dark-pattern law holds on the money surface, where it matters most.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the tank is honest in all three states.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/fuel-gauge.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/fuel-gauge.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
