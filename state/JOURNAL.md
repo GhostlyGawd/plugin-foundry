@@ -1165,3 +1165,17 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (qa green, smoke green)
 - next-suggestion: v10 #3 — storefront picker (template change under ADR-018).
 - notes: knobs replace, not extend — one rule to document, one to test.
+
+## i156 — maintainer (directed) — 2026-07-06T20:44:55Z
+- did: night-clerk 0.2.1 — snapshot refresh after the v10 #2 hook bumps (catalog
+  now says 0.2.0 for commit-craft and test-gap-nudge). The i154 version-drift
+  check went red and forced this, exactly as designed; process note for future
+  iterations: regenerate the catalog LAST, after the record bump, or the check
+  trips on the clerk itself (bit me twice today).
+- line: night-clerk stays published (version law: 0.2.1 + CHANGELOG + tag)
+- files: plugins/night-clerk/{.claude-plugin/plugin.json,CHANGELOG.md,data/catalog.json}, foundry/records/night-clerk.md
+- validation: pass (qa 17/17)
+- next-suggestion: v10 #3 — storefront picker; and #10 should end with one
+  clerk refresh in the same style.
+- notes: any shelf version bump now implies a clerk patch — that's the price of
+  a front desk that never lies about versions. Worth it.

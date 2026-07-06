@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.0
+version: 0.2.1
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-06
@@ -75,3 +75,6 @@ TEST VERDICT: pass
   everyone else, and "the front desk recommends the front desk" only fires when
   the user literally asks for discovery help.
 REVIEW: approved
+- i156 (maintainer): v0.2.1 — snapshot refresh after the v10 #2 hook bumps;
+  the i154 version-drift check forced this, exactly as designed. Tag
+  night-clerk-v0.2.1.

@@ -5,7 +5,7 @@
  "plugins": [
   {
    "name": "commit-craft",
-   "version": "0.1.1",
+   "version": "0.2.0",
    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
    "tags": [
     "git",
@@ -39,7 +39,7 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
    "tags": [
     "discovery",
@@ -84,7 +84,7 @@
   },
   {
    "name": "test-gap-nudge",
-   "version": "0.1.1",
+   "version": "0.2.0",
    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
    "tags": [
     "testing",

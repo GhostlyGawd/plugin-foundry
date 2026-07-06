@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — 2026-07-06
+- catalog snapshot refreshed: shelf versions 0.2.0 for commit-craft and
+  test-gap-nudge (config knobs) — whats-new answers stay true
+
 ## 0.2.0 — 2026-07-06
 - new skill `whats-new`: compares installed foundry plugin versions (via
   `claude plugin list`) against the bundled catalog and hands you the exact
