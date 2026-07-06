@@ -9,7 +9,9 @@ description: Search the Nightshift Foundry catalog and recommend plugins for a t
    (fields: snapshot date, plugins with name / one_liner / tags / install).
 2. Match the user's task against one_liners and tags. Recommend **at most 3**,
    best fit first — each with its one_liner and the exact install line, e.g.
-   `/plugin install commit-craft@foundry`.
+   `/plugin install commit-craft@foundry`. If the task maps to a curated bundle
+   in the catalog's `kits` array (e.g. setting up a whole workflow), offer that
+   kit as ONE of the three — its name, desc, and install lines verbatim.
 3. Always state the catalog snapshot date ("catalog as of <snapshot>") — the
    shelf may have grown since; `/plugin marketplace update` refreshes.
 4. **NEVER invent a plugin, capability, or install line.** If nothing in the

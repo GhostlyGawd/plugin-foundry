@@ -949,3 +949,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder ships night-clerk 0.1.1 — fresh snapshot + kits (#2/#8)
 - notes: tags are local; tag pushes 403 on this credential — operator or CI lays
   them on the remote (same as test-gap-nudge-v0.1.0, audit-003)
+
+## i138 — builder — 2026-07-06T03:30:00Z
+- did: night-clerk 0.1.1 (#2+#8) — snapshot regenerated via clerkcat (8 plugins;
+  was 7, a day stale), catalog gains kits (published-members-only), SKILL step 2
+  teaches bundle offers, README slug fixed; freshness regression added
+  (marketplace ⊆ snapshot, both directions) — caught my own harness slip: the
+  new test file lacked its shebang/exec bit and qa.sh skipped it silently
+- line: night-clerk 0.1.0 → 0.1.1 (no stage move)
+- files: tools/clerkcat.py (ADR-016), plugins/night-clerk/**, foundry/records/night-clerk.md,
+  foundry/tests/night-clerk/catalog.test.sh
+- validation: pass (validate+build+smoke+qa 11/11 night-clerk)
+- next-suggestion: builder lands the validator freshness law so drift goes red
+  at commit time
+- notes: n/a

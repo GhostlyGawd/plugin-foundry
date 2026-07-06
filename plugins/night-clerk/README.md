@@ -6,7 +6,7 @@ exact install lines — from a bundled catalog snapshot, never from imagination.
 
 ## Install
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install night-clerk@foundry
 ```
 
