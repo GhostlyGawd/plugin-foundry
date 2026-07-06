@@ -561,3 +561,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (validate+build+qa.sh+smoke.sh green)
 - next-suggestion: reviewer re-reads the stale path
 - notes: n/a
+
+## i97 — reviewer — 2026-07-06T00:36:00Z
+- did: token-cost-badges re-reviewed post-fix — approved; client-side staleness is
+  the design that survives a stopped factory
+- line: token-cost-badges: review approved (stays rc)
+- files: foundry/records/token-cost-badges.md
+- validation: pass
+- next-suggestion: maintainer publishes token-cost-badges
+- notes: n/a

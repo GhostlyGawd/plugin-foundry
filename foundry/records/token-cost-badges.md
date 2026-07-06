@@ -90,3 +90,13 @@ justification that survives a stopped factory); add an executable check.
 - defects: none in product — one test-harness type mismatch (data.json strings vs
   record ints) fixed in the test itself
 TEST VERDICT: pass
+
+### Review — i97 (post-bounce)
+- i94 defect cured the right way: client-side check means the dimming keeps
+  working precisely when the factory stops — the failure mode that motivated the
+  bounce. Threshold and copy pinned by an executable regression.
+- Certificates print the literal verified date (self-dating); the bare-✓ card was
+  the misleading surface and is the one fixed. Scope judgment sound.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — spec and shipped artifact now agree; staleness degrades honestly.
