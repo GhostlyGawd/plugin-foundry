@@ -2,14 +2,14 @@
 name: shift-streak
 title: Shift Streak
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
 one_liner: A 12-week heatmap of the loop's real iterations — proof of life at a glance.
 tags: [spectacle, heartbeat, visualization]
 created: 2026-07-04
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # Shift Streak
@@ -66,3 +66,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — constancy rendered from the only source that can prove it.
+
+### Published — i134 (maintainer)
+Live: 84-day heatmap, real entries only, quiet days blank. Experiment review
+2026-07-19 stands. This publish empties the v8 slate's rc pool.
