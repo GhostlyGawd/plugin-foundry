@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T01:05:08.895920+00:00",
- "iteration": 141,
+ "generated_at": "2026-07-06T01:06:35.252705+00:00",
+ "iteration": 142,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i142",
+   "role": "builder",
+   "ts": "2026-07-06T03:52:00Z",
+   "text": "OG/twitter meta (#5) on the window and all 38 certificates \u2014 titles,"
+  },
   {
    "it": "i141",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "auditor",
    "ts": "2026-07-06T03:02:00Z",
    "text": "audit-003 filed \u2014 v8 slate 12/12 publishes lawful; 5 reviewer bounces \u00b7 audit-003 filed"
-  },
-  {
-   "it": "i134",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:58:00Z",
-   "text": "published shift-streak \u2014 v8 slate rc pool EMPTY: 10/10 features published \u00b7 shift-streak: rc \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i130",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:46:00Z",
-   "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
-  },
   {
    "it": "i131",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T03:45:00Z",
    "text": "solo-dev kit curated (#4) \u2014 env-doctor + test-gap-nudge + session-recap; \u00b7 night-clerk 0.1.1 \u2192 0.1.2 (no stage move)"
+  },
+  {
+   "it": "i142",
+   "role": "builder",
+   "ts": "2026-07-06T03:52:00Z",
+   "text": "OG/twitter meta (#5) on the window and all 38 certificates \u2014 titles,"
   }
  ],
  "records": [
@@ -2383,7 +2383,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 54
+   "n": 55
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

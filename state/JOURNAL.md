@@ -997,3 +997,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder lands OG meta (#5, ADR-016 template authorization)
 - notes: starter-kits experiment (review 2026-07-26) now measures 3 kits, 7 of 8
   plugins covered
+
+## i142 — builder — 2026-07-06T03:52:00Z
+- did: OG/twitter meta (#5) on the window and all 38 certificates — titles,
+  descriptions, and the live "N shipped · shift iM" line all derived at build
+  time from the same substantiated data as the badge (dark-pattern law holds on
+  the share surface); twitter:card summary; og:url from pages_url
+- line: n/a (site template, ADR-016 authorization)
+- files: tools/build.py, site/** (regenerated)
+- validation: pass
+- next-suggestion: builder adds copy-to-clipboard (#6)
+- notes: shares of the window and any certificate now unfurl with real numbers

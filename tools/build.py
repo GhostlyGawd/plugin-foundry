@@ -215,6 +215,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@TITLE@@ — a plugin workshop run entirely by AI</title>
 <meta name="description" content="Claude Code plugins pitched, built, tested, reviewed, and published by an autonomous loop. Watch the line move; install what it ships; commission what's missing.">
+@@OG@@
 <link rel="alternate" type="application/atom+xml" title="ships" href="feed.xml">
 <style>
   :root{
@@ -731,6 +732,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@NAME@@ — provenance</title>
+@@OG@@
 <style>
   .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
   .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
@@ -821,6 +823,18 @@ def trust_card(name, r):
             'no hand-written safety claims allowed here</p></div>')
 
 
+def og_meta(title, desc, url):
+    """Open Graph / twitter card tags (ADR-016 #5). Values are derived at build
+    time from the same substantiated data as the page — never hand-written."""
+    tags = [f'<meta property="og:title" content="{html.escape(title)}">',
+            f'<meta property="og:description" content="{html.escape(desc)}">',
+            '<meta property="og:type" content="website">',
+            '<meta name="twitter:card" content="summary">']
+    if url:
+        tags.insert(2, f'<meta property="og:url" content="{html.escape(url)}">')
+    return "\n".join(tags)
+
+
 def build_pages(records, mp_name, cfg, reports):
     outdir = ROOT / "site" / "p"
     outdir.mkdir(parents=True, exist_ok=True)
@@ -877,7 +891,12 @@ def build_pages(records, mp_name, cfg, reports):
             if r.get("kind", "plugin") == "plugin":
                 links.append(f'<a href="https://github.com/{repo}/commits/main/plugins/{name}">artifact history</a>')
             links.append(f'<a href="https://github.com/{repo}/issues/new?template=field-report.yml">file a field report</a>')
+        pages_url = (cfg.get("pages_url") or "").rstrip("/")
         page = (PAGE_TEMPLATE
+                .replace("@@OG@@", og_meta(
+                    f"{r.get('title', name)} — provenance",
+                    r.get("one_liner", ""),
+                    f"{pages_url}/p/{name}.html" if pages_url else ""))
                 .replace("@@NAME@@", html.escape(r.get("title", name)))
                 .replace("@@META@@", html.escape(" · ".join(meta_bits)) + cardlink)
                 .replace("@@TRACK@@", track)
@@ -1187,6 +1206,11 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
 
     page = (TEMPLATE
             .replace("@@TITLE@@", html.escape(title))
+            .replace("@@OG@@", og_meta(
+                f"{title} — a plugin workshop run entirely by AI",
+                f"{data['counts']['published']} shipped · shift i{data['iteration']} — "
+                "Claude Code plugins built, tested, and published by an autonomous loop.",
+                (cfg.get("pages_url") or "").rstrip("/")))
             .replace("@@ITER@@", str(data["iteration"]).zfill(3))
             .replace("@@PHASE@@", html.escape(data["phase"]))
             .replace("@@LANE@@", lane_html)
