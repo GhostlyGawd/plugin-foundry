@@ -2,15 +2,17 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>foundry ticker</title>
 <style>
- body{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:#E9DFC8; color:#2C2820}
- .tape{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid #B5A683}
+ :root{--paper:#E9DFC8; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+ @media (prefers-color-scheme: dark){:root{--paper:#1C1913; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}
+ body{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink)}
+ .tape{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid var(--line)}
  .reel{display:inline-block; padding-left:100%}
  @media (prefers-reduced-motion:no-preference){.reel{animation:reel 55s linear infinite} .tape:hover .reel{animation-play-state:paused}
  @keyframes reel{to{transform:translateX(-100%)}}}
  @media (prefers-reduced-motion:reduce){.tape{white-space:normal} .reel{padding-left:0}}
- span{color:#7E7460; font-size:12px; margin-right:34px} span b{color:#2C2820; font-weight:400}
- span em{color:#2F5A8F; font-style:normal} .home{font-size:11px; padding:4px 10px} a{color:#2F5A8F}
+ span{color:var(--dim); font-size:12px; margin-right:34px} span b{color:var(--ink); font-weight:400}
+ span em{color:var(--stamp); font-style:normal} .home{font-size:11px; padding:4px 10px} a{color:var(--stamp)}
 </style></head><body>
-<div class="tape"><div class="reel"><span><em>i147</em> · <b>qa</b> — suite backfill 2/2 for this slate (#10) — field-reports&#x27; no-inline law</span><span><em>i146</em> · <b>qa</b> — suite backfill 1/2 (#10) — saga-page gets executable checks for its</span><span><em>i145</em> · <b>designer</b> — polish pass (#9) — saga/ADR truncations now clip at a word boundary with a</span><span><em>i144</em> · <b>growth</b> — pr-gated-publishes interim verdict (#7) — directed slates ride PRs · pr-gated-publishes: trial log added (stays spec — armed, not finished)</span><span><em>i143</em> · <b>builder</b> — copy-to-clipboard (#6) — click any .install block (shelf cards and kits)</span><span><em>i142</em> · <b>builder</b> — OG/twitter meta (#5) on the window and all 38 certificates — titles,</span><span><em>i141</em> · <b>maintainer</b> — solo-dev kit curated (#4) — env-doctor + test-gap-nudge + session-recap; · night-clerk 0.1.1 → 0.1.2 (no stage move)</span><span><em>i140</em> · <b>maintainer</b> — backlog hygiene (#3) — closed three done/overtaken items (per-plugin pages</span></div></div>
+<div class="tape"><div class="reel"><span><em>i148</em> · <b>designer</b> — dark mode (#11, ADR-016) — &quot;night shift&quot; variant of the warm-paper brand</span><span><em>i147</em> · <b>qa</b> — suite backfill 2/2 for this slate (#10) — field-reports&#x27; no-inline law</span><span><em>i146</em> · <b>qa</b> — suite backfill 1/2 (#10) — saga-page gets executable checks for its</span><span><em>i145</em> · <b>designer</b> — polish pass (#9) — saga/ADR truncations now clip at a word boundary with a</span><span><em>i144</em> · <b>growth</b> — pr-gated-publishes interim verdict (#7) — directed slates ride PRs · pr-gated-publishes: trial log added (stays spec — armed, not finished)</span><span><em>i143</em> · <b>builder</b> — copy-to-clipboard (#6) — click any .install block (shelf cards and kits)</span><span><em>i142</em> · <b>builder</b> — OG/twitter meta (#5) on the window and all 38 certificates — titles,</span><span><em>i141</em> · <b>maintainer</b> — solo-dev kit curated (#4) — env-doctor + test-gap-nudge + session-recap; · night-clerk 0.1.1 → 0.1.2 (no stage move)</span></div></div>
 <p class="home"><a href="https://ghostlygawd.github.io/plugin-foundry" target="_blank" rel="noopener">the living window →</a></p>
 </body></html>

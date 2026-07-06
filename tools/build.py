@@ -222,6 +222,10 @@ TEMPLATE = """<!DOCTYPE html>
     --paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683;
     --dim:#7E7460; --stamp:#2F5A8F; --hole:#CDBF9E; --live:#3F7D4E; --amber:#B07818;
   }
+  @media (prefers-color-scheme: dark){:root{
+    --paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232;
+    --dim:#9A8E74; --stamp:#8FB0DC; --hole:#332D23; --live:#6FB07E; --amber:#D19A3D;
+  }}
   *{box-sizing:border-box; margin:0}
   html{scroll-behavior:smooth}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
@@ -238,6 +242,7 @@ TEMPLATE = """<!DOCTYPE html>
   .tagchips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
   .tagbtn{cursor:pointer;background:transparent;font:inherit;min-height:44px}
   .tagbtn.active{background:#2C2820;color:#F3ECDA;border-color:#2C2820}
+  @media (prefers-color-scheme: dark){.tagbtn.active{background:#E4D8BC;color:#26211A;border-color:#E4D8BC}}
   @media (prefers-reduced-motion:no-preference){
     .dot{animation:beat 2.4s ease-in-out infinite}
     @keyframes beat{0%,100%{opacity:1}50%{opacity:.25}}}
@@ -272,6 +277,11 @@ TEMPLATE = """<!DOCTYPE html>
   .day.n1{background:#C9CDA4; border-color:#B5A683}
   .day.n2{background:#8FA86B; border-color:#7E9757}
   .day.n3{background:#4F7D3F; border-color:#3F6A31}
+  @media (prefers-color-scheme: dark){
+    .day.n1{background:#3E4A2C; border-color:#4A4232}
+    .day.n2{background:#55703F; border-color:#4A5A34}
+    .day.n3{background:#6FB07E; border-color:#5A9468}
+  }
   .streaklabel{font-size:10px; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; max-width:120px}
   /* stats + fuel */
   .stats{display:flex; border-bottom:1px solid var(--line)}
@@ -748,13 +758,14 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <style>
   .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
   .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
-  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust{border:2px solid var(--ink);background:var(--card);padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
   .trow b{min-width:110px}
   .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
 
   :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  @media (prefers-color-scheme: dark){:root{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}
   *{box-sizing:border-box; margin:0}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
     color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
@@ -971,6 +982,7 @@ def build_saga(records, state, cfg):
 <title>the saga</title>
 <style>
  :root{{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}}
+ @media (prefers-color-scheme: dark){{:root{{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}}}
  body{{font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink);
    font-size:14px; line-height:1.6; padding:20px}}
  .sheet{{max-width:760px; margin:0 auto}} a{{color:var(--stamp)}}
@@ -1003,14 +1015,16 @@ def build_embed(ticker, cfg):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>foundry ticker</title>
 <style>
- body{{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:#E9DFC8; color:#2C2820}}
- .tape{{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid #B5A683}}
+ :root{{--paper:#E9DFC8; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}}
+ @media (prefers-color-scheme: dark){{:root{{--paper:#1C1913; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}}}
+ body{{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink)}}
+ .tape{{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid var(--line)}}
  .reel{{display:inline-block; padding-left:100%}}
  @media (prefers-reduced-motion:no-preference){{.reel{{animation:reel 55s linear infinite}} .tape:hover .reel{{animation-play-state:paused}}
  @keyframes reel{{to{{transform:translateX(-100%)}}}}}}
  @media (prefers-reduced-motion:reduce){{.tape{{white-space:normal}} .reel{{padding-left:0}}}}
- span{{color:#7E7460; font-size:12px; margin-right:34px}} span b{{color:#2C2820; font-weight:400}}
- span em{{color:#2F5A8F; font-style:normal}} .home{{font-size:11px; padding:4px 10px}} a{{color:#2F5A8F}}
+ span{{color:var(--dim); font-size:12px; margin-right:34px}} span b{{color:var(--ink); font-weight:400}}
+ span em{{color:var(--stamp); font-style:normal}} .home{{font-size:11px; padding:4px 10px}} a{{color:var(--stamp)}}
 </style></head><body>
 <div class="tape"><div class="reel">{spans}</div></div>
 <p class="home">{home}</p>

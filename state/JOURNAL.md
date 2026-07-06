@@ -1060,3 +1060,17 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: designer dark mode (#11)
 - notes: n/a
+
+## i148 — designer — 2026-07-06T04:30:00Z
+- did: dark mode (#11, ADR-016) — "night shift" variant of the warm-paper brand
+  via prefers-color-scheme on every generated surface: window (9-var palette +
+  active-chip + streak greens redrawn for dark), certificates (trust card moved
+  off hardcoded paper hexes to vars), saga, embed ticker (hardcoded hexes →
+  vars). Terminal panels (.term) stay dark in both schemes by design. Contrast
+  spot-checked: ink/paper and dim/paper both clear 4.5:1 in dark.
+- line: n/a (site template)
+- files: tools/build.py, site/** (regenerated)
+- validation: pass (validate + full qa 149 green)
+- next-suggestion: builder ships the recorded-transcript pipeline (#12)
+- notes: almanac pages render from their own template (monthly duty) — dark
+  variant there rides the first almanac pass in August
