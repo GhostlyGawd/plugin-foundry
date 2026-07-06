@@ -2,14 +2,14 @@
 name: adversarial-qa-bounties
 title: Adversarial QA Bounties
 category: growth
-stage: spec
+stage: building
 kind: feature
 version: null
 components: [docs, template, site]
 one_liner: Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.
 tags: [community, qa, security, ladder]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 ## Pitch
@@ -36,3 +36,11 @@ the shelf's honesty *tested* honesty.
 1. Lane documented with rules of engagement; SECURITY cross-ref in place.
 2. Hall renders a Breakers section only when a confirmed find exists.
 3. Fix changelogs carry found_by credit.
+
+## Build log
+- i121: build complete — (1) bug template gains the bounty checkbox (claim-at-stake
+  framing verbatim from spec); (2) CONTRIBUTING Lane 3 gains the SECURITY.md
+  fencing cross-ref and names the Breakers mechanism; (3) collect_hall derives a
+  ranked Breakers list from `found_by:` lines in shipped CHANGELOGs — credit is
+  substantiated by the artifact, never hand-tallied — and renderHall shows the
+  section only when at least one confirmed find exists (empty today, honestly).

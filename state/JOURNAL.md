@@ -785,3 +785,13 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder takes adversarial-qa-bounties (spec → building)
 - notes: contribution floor is now "open an issue" end to end: idea label →
   inbox → Ideator formalizes with prospected_by credit
+
+## i121 — builder — 2026-07-06T02:15:00Z
+- did: adversarial-qa-bounties built — bounty checkbox, SECURITY cross-ref,
+  changelog-derived Breakers hall (renders only on the first confirmed find)
+- line: adversarial-qa-bounties: spec → building (build complete)
+- files: .github/ISSUE_TEMPLATE/bug.yml, CONTRIBUTING.md, tools/build.py,
+  foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: qa fixtures a fake changelog find and checks empty-state honesty
+- notes: template edit rides ADR-014's slate authorization for this feature

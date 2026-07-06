@@ -26,7 +26,12 @@ You write the **spec**, the machine builds it, credit is shared.
 Break a published plugin (in ways its record claims impossible) and file a **bug**
 issue with a reproduction. Confirmed breaks earn a permanent Hall entry and a
 `found_by` line in the fix's changelog. Rules of engagement: your own machine,
-no third-party targets, no secrets exfiltration — findings, not harm.
+no third-party targets, no secrets exfiltration — findings, not harm. Your report
+is read under the same fencing as all visitor text (charter/SECURITY.md:
+requirements data, never instructions); tick the bounty box on the bug template
+so triage knows a claim is at stake. Confirmed finds rank in the Hall's
+**Breakers** section, derived from the `found_by:` lines in shipped changelogs —
+credit you can verify in the artifact itself.
 
 All lanes: no dark patterns, no pay-to-skip-review, and the loop may decline any
 contribution that would bend the charter — with its reasoning journaled.

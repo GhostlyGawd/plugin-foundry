@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:37:52.287785+00:00",
- "iteration": 120,
+ "generated_at": "2026-07-06T00:39:38.381713+00:00",
+ "iteration": 121,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
-  "spec": 4,
-  "building": 0,
+  "spec": 3,
+  "building": 1,
   "rc": 5,
   "published": 26,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i121",
+   "role": "builder",
+   "ts": "2026-07-06T02:15:00Z",
+   "text": "adversarial-qa-bounties built \u2014 bounty checkbox, SECURITY cross-ref, \u00b7 adversarial-qa-bounties: spec \u2192 building (build complete)"
+  },
   {
    "it": "i120",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T01:42:00Z",
    "text": "embed-badges BOUNCED \u2014 README snippet still says <pages_url> though the \u00b7 embed-badges: rc \u2192 building (bounce)"
-  },
-  {
-   "it": "i113",
-   "role": "maintainer",
-   "ts": "2026-07-06T01:38:00Z",
-   "text": "published weekly-shipnote \u2014 Pillar 2 of the slate complete (saga + shipnote) \u00b7 weekly-shipnote: rc \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i109",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:27:00Z",
-   "text": "weekly-shipnote BOUNCED \u2014 silent 12-move cap (21 real moves this week, \u00b7 weekly-shipnote: rc \u2192 building (bounce)"
-  },
   {
    "it": "i110",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T02:08:00Z",
    "text": "applied ADR-015 \u2014 intake.py grows the idea lane: open `idea` issues land"
+  },
+  {
+   "it": "i121",
+   "role": "builder",
+   "ts": "2026-07-06T02:15:00Z",
+   "text": "adversarial-qa-bounties built \u2014 bounty checkbox, SECURITY cross-ref, \u00b7 adversarial-qa-bounties: spec \u2192 building (build complete)"
   }
  ],
  "records": [
@@ -141,7 +141,7 @@
    "name": "adversarial-qa-bounties",
    "title": "Adversarial QA Bounties",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "docs",
@@ -1068,6 +1068,32 @@
   "commissioned": [],
   "building": [
    {
+    "name": "adversarial-qa-bounties",
+    "title": "Adversarial QA Bounties",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "docs",
+     "template",
+     "site"
+    ],
+    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
+    "tags": [
+     "community",
+     "qa",
+     "security",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -1187,32 +1213,6 @@
    }
   ],
   "next": [
-   {
-    "name": "adversarial-qa-bounties",
-    "title": "Adversarial QA Bounties",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "docs",
-     "template",
-     "site"
-    ],
-    "one_liner": "Break a published plugin, earn a permanent Hall entry \u2014 community red-teaming as a growth loop.",
-    "tags": [
-     "community",
-     "qa",
-     "security",
-     "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
    {
     "name": "commission-tiers",
     "title": "Commission Tiers",
@@ -2021,7 +2021,8 @@
  "alarms": [],
  "hall": {
   "prospectors": [],
-  "patrons": []
+  "patrons": [],
+  "breakers": []
  },
  "streak": [
   {
@@ -2358,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 33
+   "n": 34
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

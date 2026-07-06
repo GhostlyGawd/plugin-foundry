@@ -110,7 +110,18 @@ def collect_hall(records):
         if r.get("patron"):
             patrons.append(str(r["patron"]))
     ranked = sorted(prospectors.values(), key=lambda e: (-e["shipped"], -e["total"], e["login"]))
-    return {"prospectors": ranked, "patrons": sorted(set(patrons))}
+    # Breakers (adversarial-qa-bounties): confirmed finds are exactly the
+    # `found_by: <handle>` lines in shipped changelogs — credit derived from the
+    # artifact, never hand-tallied. Empty until the first confirmed break.
+    breakers = {}
+    for log in sorted((ROOT / "plugins").glob("*/CHANGELOG.md")):
+        for m in re.finditer(r"^\s*-?\s*found_by:\s*@?([\w-]+)", log.read_text(), re.M):
+            b = breakers.setdefault(m.group(1), {"login": m.group(1), "finds": 0, "plugins": set()})
+            b["finds"] += 1
+            b["plugins"].add(log.parent.name)
+    ranked_b = [{**b, "plugins": sorted(b["plugins"])}
+                for b in sorted(breakers.values(), key=lambda e: (-e["finds"], e["login"]))]
+    return {"prospectors": ranked, "patrons": sorted(set(patrons)), "breakers": ranked_b}
 
 
 def load_json(path, default):
@@ -644,15 +655,18 @@ function renderKits(){
   }).join('') : '<p class="vnone">Kits open once the maintainer curates the first bundle.</p>';
 }
 function renderHall(){
-  const H = DATA.hall || {prospectors: [], patrons: []};
+  const H = DATA.hall || {prospectors: [], patrons: [], breakers: []};
   const head = document.getElementById('hall');
   const box = document.getElementById('hallbox');
-  if (!H.prospectors.length && !H.patrons.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
+  const B = H.breakers || [];
+  if (!H.prospectors.length && !H.patrons.length && !B.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
   head.style.display = 'block'; box.style.display = 'block';
   box.innerHTML =
     H.prospectors.map(p =>
       '<div class="hrow"><b>@' + esc(p.login) + '</b><em>' + p.shipped + ' shipped · ' + p.total + ' formalized</em>' + (p.card ? ' <a href="' + esc(p.card) + '">card →</a>' : '') + '</div>').join('') +
-    (H.patrons.length ? '<div class="hrow"><b>Patrons:</b><em>' + H.patrons.map(esc).join(' · ') + '</em></div>' : '');
+    (H.patrons.length ? '<div class="hrow"><b>Patrons:</b><em>' + H.patrons.map(esc).join(' · ') + '</em></div>' : '') +
+    (B.length ? '<div class="hrow"><b>Breakers</b><em>confirmed adversarial finds — from found_by lines in shipped changelogs (CONTRIBUTING Lane 3)</em></div>' +
+      B.map(b => '<div class="hrow"><b>@' + esc(b.login) + '</b><em>' + b.finds + ' confirmed find(s) · ' + b.plugins.map(esc).join(', ') + '</em></div>').join('') : '');
 }
 function ago(iso){
   const s = (Date.now() - Date.parse(iso)) / 1000;
