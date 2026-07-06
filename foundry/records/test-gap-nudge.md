@@ -2,7 +2,7 @@
 name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
-stage: spec
+stage: building
 version: null
 kind: plugin
 components: [hooks]
@@ -76,3 +76,11 @@ don't fire at that moment; a hook can.
 6. Docs-only change (README.md) → silent.
 7. hooks.json: Stop event, quoted `"${CLAUDE_PLUGIN_ROOT}"`; script executable
    with shebang (validate.py + official strict validate green).
+
+## Build log
+- i100: full component inventory landed per spec — manifest (0.1.0), Stop hook
+  (no matcher; quoted plugin root), nudge.sh (fail-open: trap→exit 0, git/repo
+  guards, porcelain classifier handling renames and quoted paths, once-per-session
+  TMPDIR marker with repo-cksum fallback, JSON-escaped systemMessage), README with
+  an honest Limits section, CHANGELOG 0.1.0-Unreleased. Hand-smoked the three core
+  paths (gap → nudge; same session → silent; test present → silent) before QA.

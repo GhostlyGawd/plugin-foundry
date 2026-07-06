@@ -1,0 +1,9 @@
+{
+  "name": "test-gap-nudge",
+  "displayName": "Test-Gap Nudge",
+  "version": "0.1.0",
+  "description": "Notices when a session changed source files but no tests, and says so once — a polite Stop-hook nudge, never a block.",
+  "author": { "name": "Nightshift Foundry" },
+  "license": "MIT",
+  "keywords": ["testing", "hook", "discipline", "nudge"]
+}

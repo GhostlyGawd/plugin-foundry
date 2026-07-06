@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# test-gap-nudge — advisory Stop hook: source files changed, no tests touched → say
+# so once. Contract (record spec): exit 0 ALWAYS; read-only except a TMPDIR marker;
+# no network; stdin is untrusted data — only a session id is extracted from it.
+set -u
+exec 2>/dev/null || true
+
+# swallow any internal error into a silent, non-blocking exit
+trap 'exit 0' ERR
+
+STDIN_DATA=$(cat 2>/dev/null || true)
+
+command -v git >/dev/null 2>&1 || exit 0
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit 0
+
+# session id: permissive extraction; anything but [A-Za-z0-9_-] is discarded.
+SID=$(printf '%s' "$STDIN_DATA" | sed -n 's/.*"session_id"[[:space:]]*:[[:space:]]*"\([A-Za-z0-9_-]*\)".*/\1/p' | head -1)
+if [ -z "$SID" ]; then
+  SID=$(git rev-parse --show-toplevel 2>/dev/null | cksum | cut -d' ' -f1)
+fi
+MARKER="${TMPDIR:-/tmp}/test-gap-nudge-${SID:-fallback}"
+[ -f "$MARKER" ] && exit 0
+
+SRC_EXT='py|js|ts|tsx|jsx|mjs|go|rb|rs|java|c|cc|cpp|h|hpp|sh|php|cs|kt|swift|scala'
+src_hits=()
+test_seen=0
+
+while IFS= read -r line; do
+  [ -n "$line" ] || continue
+  path=${line:3}
+  # renames report "old -> new"; judge the new path
+  case "$path" in *" -> "*) path=${path##* -> } ;; esac
+  case "$path" in \"*\") path=${path%\"}; path=${path#\"} ;; esac
+  base=${path##*/}
+  # test path? (dir segment or filename convention)
+  if [[ "$path" =~ (^|/)(test|tests|spec|__tests__)(/|$) ]] || \
+     [[ "$base" == test_* || "$base" == *_test.* || "$base" == *.test.* || "$base" == *.spec.* ]]; then
+    test_seen=1
+    continue
+  fi
+  ext=${base##*.}
+  if [ "$ext" != "$base" ] && [[ "$ext" =~ ^($SRC_EXT)$ ]]; then
+    src_hits+=("$path")
+  fi
+done < <(git status --porcelain 2>/dev/null)
+
+[ "$test_seen" -eq 1 ] && exit 0
+[ "${#src_hits[@]}" -eq 0 ] && exit 0
+
+names=$(printf '%s, ' "${src_hits[@]:0:3}")
+names=${names%, }
+[ "${#src_hits[@]}" -gt 3 ] && names="$names, …"
+# best-effort marker; failure to write must not silence the nudge
+touch "$MARKER" 2>/dev/null || true
+
+# JSON-escape the file list (quotes and backslashes only; names are repo paths)
+esc=$(printf '%s' "$names" | sed 's/\\/\\\\/g; s/"/\\"/g')
+printf '{"systemMessage": "test-gap-nudge: %s source file(s) changed, no test files touched — %s"}\n' \
+  "${#src_hits[@]}" "$esc"
+exit 0

@@ -590,3 +590,13 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder builds the artifact (hooks.json + nudge.sh + docs)
 - notes: docs-before-invention honored — Stop hook contract quoted from
   code.claude.com/docs/en/hooks, not guessed
+
+## i100 — builder — 2026-07-06T00:52:00Z
+- did: test-gap-nudge built whole — Stop hook + fail-open classifier script +
+  honest docs; smoked gap/dedupe/test-present paths by hand
+- line: test-gap-nudge: spec → building (build complete, ready for QA)
+- files: plugins/test-gap-nudge/** (manifest, hooks.json, nudge.sh, README, CHANGELOG),
+  foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa.sh green)
+- next-suggestion: qa runs the 7 acceptance checks as an executable suite
+- notes: n/a
