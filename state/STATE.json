@@ -2,10 +2,9 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 106,
+  "iteration": 107,
   "phase": "grow",
   "role_queue": [
-    "reviewer",
     "maintainer",
     "reviewer",
     "maintainer",

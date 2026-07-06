@@ -52,3 +52,19 @@ Lore is retention. The repo already contains the whole story — render it.
   resolved to Nightshift Foundry post-ADR-011
 - defects: none found — probed: ADR heading without Context bullet (renders empty line, not junk)
 TEST VERDICT: pass
+
+## Review log
+### Review — i107
+- Sources-only law verified end-to-end: ADR entries regex-scraped from
+  DECISIONS.md headings (template heading can't match — space breaks the id
+  group); fates from record stage+updated only; wall quotes lifted verbatim from
+  Review logs. Zero invented milestones — SHIPPED count equals published records
+  exactly (23/23, re-counted today including this slate's three ships).
+- ADR-014 (this slate) already renders with its context line — the saga extends
+  itself without anyone touching the page. That's the design working.
+- Escaping audited on every interpolation. Newest-first holds.
+- Nit (non-blocking): 220-char wall truncation cuts mid-word with no ellipsis
+  (Night Clerk, Traveler Pings entries) — filed P3; cosmetic, not dishonest.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — the repo tells its own story without embellishment.

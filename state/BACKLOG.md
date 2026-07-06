@@ -105,3 +105,5 @@ Format: `- [ ] C#<issue> (<author>) <title> — <summary>`
 
 ## Idea inbox (humans drop raw pitches here; Ideator formalizes)
 - (empty)
+- [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
+      truncation (cuts mid-word today; reviewer nit, i107).
