@@ -7,7 +7,7 @@ directory against the official schema and a strict quality bar.
 ## Install
 
 ```
-/plugin marketplace add <this-repo>        # once, for this marketplace
+/plugin marketplace add GhostlyGawd/plugin-foundry        # once, for this marketplace
 /plugin install plugin-smith@foundry
 ```
 

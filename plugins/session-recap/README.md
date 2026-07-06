@@ -6,7 +6,7 @@ open questions, and checkboxed next steps someone else could pick up cold.
 
 ## Install
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install session-recap@foundry
 ```
 

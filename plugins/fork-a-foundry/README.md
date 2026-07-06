@@ -7,7 +7,7 @@ rotation, stage-gated pipeline, executable QA, security laws, living window.
 ## Install
 
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install fork-a-foundry@foundry
 ```
 

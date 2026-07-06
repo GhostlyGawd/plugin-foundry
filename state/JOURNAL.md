@@ -936,3 +936,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: maintainer README sweep across 7 plugins (night-clerk waits
   for its 0.1.1 so it bumps once)
 - notes: n/a
+
+## i137 — maintainer — 2026-07-06T03:22:00Z
+- did: version-law README sweep (#1 tail) — 7 published plugins' install lines
+  bake the real slug; each shipped as 0.1.1 with CHANGELOG (top entry — the
+  validator taught me where it goes) and annotated tag; night-clerk deliberately
+  held for its 0.1.2 snapshot release next iteration
+- line: 7 plugins bumped 0.1.0 → 0.1.1 (no stage moves)
+- files: plugins/{commit-craft,env-doctor,fork-a-foundry,plugin-smith,pr-narrator,session-recap,test-gap-nudge}/{README.md,CHANGELOG.md,.claude-plugin/plugin.json},
+  foundry/records/*.md (version mirrors)
+- validation: pass (validate+build+smoke+qa 142 green)
+- next-suggestion: builder ships night-clerk 0.1.1 — fresh snapshot + kits (#2/#8)
+- notes: tags are local; tag pushes 403 on this credential — operator or CI lays
+  them on the remote (same as test-gap-nudge-v0.1.0, audit-003)

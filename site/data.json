@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T01:00:18.424470+00:00",
- "iteration": 136,
+ "generated_at": "2026-07-06T01:01:20.098718+00:00",
+ "iteration": 137,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i137",
+   "role": "maintainer",
+   "ts": "2026-07-06T03:22:00Z",
+   "text": "version-law README sweep (#1 tail) \u2014 7 published plugins' install lines \u00b7 7 plugins bumped 0.1.0 \u2192 0.1.1 (no stage moves)"
+  },
   {
    "it": "i136",
    "role": "maintainer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-06T02:46:00Z",
    "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
-  },
-  {
-   "it": "i129",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:44:00Z",
-   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
   }
  ],
  "journal": [
-  {
-   "it": "i125",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:30:00Z",
-   "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
-  },
   {
    "it": "i126",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "maintainer",
    "ts": "2026-07-06T03:15:00Z",
    "text": "v9 slate opened (ADR-016, IMPROVEMENTS.md committed); #1 fixed \u2014 README"
+  },
+  {
+   "it": "i137",
+   "role": "maintainer",
+   "ts": "2026-07-06T03:22:00Z",
+   "text": "version-law README sweep (#1 tail) \u2014 7 published plugins' install lines \u00b7 7 plugins bumped 0.1.0 \u2192 0.1.1 (no stage moves)"
   }
  ],
  "records": [
@@ -216,7 +216,7 @@
    "title": "Commit Craft",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills",
     "hooks"
@@ -428,7 +428,7 @@
    "title": "Env Doctor",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "hooks"
    ],
@@ -475,7 +475,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills"
    ],
@@ -618,7 +618,7 @@
    "title": "Plugin Smith",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills"
    ],
@@ -665,7 +665,7 @@
    "title": "PR Narrator",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "agents"
    ],
@@ -757,7 +757,7 @@
    "title": "Session Recap",
    "category": "context",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills",
     "hooks"
@@ -828,7 +828,7 @@
    "title": "Test-Gap Nudge",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "hooks"
    ],
@@ -1241,6 +1241,30 @@
     "patron": null
    },
    {
+    "name": "commit-craft",
+    "title": "Commit Craft",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
+    "tags": [
+     "git",
+     "conventional-commits",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -1287,6 +1311,29 @@
     "patron": null
    },
    {
+    "name": "env-doctor",
+    "title": "Env Doctor",
+    "category": "quality",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
+    "tags": [
+     "environment",
+     "onboarding",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "110",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "field-reports",
     "title": "Field Reports",
     "category": "growth",
@@ -1306,6 +1353,30 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "fork-a-foundry",
+    "title": "Fork a Foundry",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "tags": [
+     "meta",
+     "bootstrap",
+     "viral",
+     "dogfood"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "90",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1359,6 +1430,53 @@
     "patron": null
    },
    {
+    "name": "plugin-smith",
+    "title": "Plugin Smith",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
+    "tags": [
+     "meta",
+     "scaffolding",
+     "validation",
+     "dogfood"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "113",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "pr-narrator",
+    "title": "PR Narrator",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "agents"
+    ],
+    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
+    "tags": [
+     "pull-requests",
+     "agents",
+     "writing"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1377,6 +1495,30 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "session-recap",
+    "title": "Session Recap",
+    "category": "context",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
+    "tags": [
+     "memory",
+     "sessions",
+     "continuity"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "93",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1433,7 +1575,7 @@
     "title": "Test-Gap Nudge",
     "category": "quality",
     "stage": "published",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "components": [
      "hooks"
     ],
@@ -1589,30 +1731,6 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "fork-a-foundry",
-    "title": "Fork a Foundry",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
-    "tags": [
-     "meta",
-     "bootstrap",
-     "viral",
-     "dogfood"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "90",
-    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1804,30 +1922,6 @@
     "patron": null
    },
    {
-    "name": "commit-craft",
-    "title": "Commit Craft",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
-    "tags": [
-     "git",
-     "conventional-commits",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "88",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "community-voting",
     "title": "Community Voting",
     "category": "growth",
@@ -1853,76 +1947,6 @@
     "patron": null
    },
    {
-    "name": "env-doctor",
-    "title": "Env Doctor",
-    "category": "quality",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "hooks"
-    ],
-    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
-    "tags": [
-     "environment",
-     "onboarding",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "110",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "plugin-smith",
-    "title": "Plugin Smith",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
-    "tags": [
-     "meta",
-     "scaffolding",
-     "validation",
-     "dogfood"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "113",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "pr-narrator",
-    "title": "PR Narrator",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "agents"
-    ],
-    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
-    "tags": [
-     "pull-requests",
-     "agents",
-     "writing"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "88",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "scannable-window",
     "title": "Scannable Window",
     "category": "growth",
@@ -1941,30 +1965,6 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "session-recap",
-    "title": "Session Recap",
-    "category": "context",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
-    "tags": [
-     "memory",
-     "sessions",
-     "continuity"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "93",
-    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2358,7 +2358,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 49
+   "n": 50
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
