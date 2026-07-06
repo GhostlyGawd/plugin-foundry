@@ -831,3 +831,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes field-reports
 - notes: n/a
+
+## i126 — maintainer — 2026-07-06T02:32:00Z
+- did: published field-reports
+- line: field-reports: rc → published
+- files: foundry/records/field-reports.md
+- validation: pass
+- next-suggestion: reviewer takes community-hall
+- notes: n/a

@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:42:03.602519+00:00",
- "iteration": 125,
+ "generated_at": "2026-07-06T00:42:15.296140+00:00",
+ "iteration": 126,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
   "building": 0,
-  "rc": 5,
-  "published": 27,
+  "rc": 4,
+  "published": 28,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i126",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:32:00Z",
+   "text": "published field-reports \u00b7 field-reports: rc \u2192 published"
+  },
   {
    "it": "i125",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "growth",
    "ts": "2026-07-06T02:00:00Z",
    "text": "seeded the boards honestly \u2014 3 idea issues (#4 dep-bump-brief, #5"
-  },
-  {
-   "it": "i118",
-   "role": "maintainer",
-   "ts": "2026-07-06T01:53:00Z",
-   "text": "published embed-badges \u2014 the distribution hack is live; every embed is an \u00b7 embed-badges: rc \u2192 published"
   }
  ],
  "journal": [
-  {
-   "it": "i114",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:42:00Z",
-   "text": "embed-badges BOUNCED \u2014 README snippet still says <pages_url> though the \u00b7 embed-badges: rc \u2192 building (bounce)"
-  },
   {
    "it": "i115",
    "role": "builder",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T02:30:00Z",
    "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
+  },
+  {
+   "it": "i126",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:32:00Z",
+   "text": "published field-reports \u00b7 field-reports: rc \u2192 published"
   }
  ],
  "records": [
@@ -450,7 +450,7 @@
    "name": "field-reports",
    "title": "Field Reports",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "template",
@@ -1091,30 +1091,6 @@
     "patron": null
    },
    {
-    "name": "field-reports",
-    "title": "Field Reports",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "template",
-     "site"
-    ],
-    "one_liner": "Real user experiences with shipped plugins, surfaced on their birth certificates.",
-    "tags": [
-     "social-proof",
-     "community",
-     "trust"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "fuel-gauge",
     "title": "The Fuel Gauge",
     "category": "growth",
@@ -1373,6 +1349,30 @@
     "tags": [
      "distribution",
      "virality"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "field-reports",
+    "title": "Field Reports",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "template",
+     "site"
+    ],
+    "one_liner": "Real user experiences with shipped plugins, surfaced on their birth certificates.",
+    "tags": [
+     "social-proof",
+     "community",
+     "trust"
     ],
     "commission": null,
     "kind": "feature",
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 38
+   "n": 39
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

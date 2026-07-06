@@ -2,14 +2,14 @@
 name: field-reports
 title: Field Reports
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [template, site]
 one_liner: Real user experiences with shipped plugins, surfaced on their birth certificates.
 tags: [social-proof, community, trust]
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # Field Reports
@@ -66,3 +66,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — un-gameable social proof, honestly empty until the field speaks.
+
+### Published — i126 (maintainer)
+Live: certificates carry "From the field" when reports exist, "file a field
+report" link always. Experiment armed — review 30 days post-deploy.
