@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:42:59.979329+00:00",
- "iteration": 127,
+ "generated_at": "2026-07-06T00:43:15.495209+00:00",
+ "iteration": 128,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
   "building": 0,
-  "rc": 4,
-  "published": 28,
+  "rc": 3,
+  "published": 29,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i128",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:40:00Z",
+   "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
+  },
   {
    "it": "i127",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-06T02:15:00Z",
    "text": "adversarial-qa-bounties built \u2014 bounty checkbox, SECURITY cross-ref, \u00b7 adversarial-qa-bounties: spec \u2192 building (build complete)"
-  },
-  {
-   "it": "i120",
-   "role": "builder",
-   "ts": "2026-07-06T02:08:00Z",
-   "text": "applied ADR-015 \u2014 intake.py grows the idea lane: open `idea` issues land"
   }
  ],
  "journal": [
-  {
-   "it": "i116",
-   "role": "qa",
-   "ts": "2026-07-06T01:49:00Z",
-   "text": "embed-badges re-test 3/3; placeholder drift now impossible to reintroduce \u00b7 embed-badges: building \u2192 rc"
-  },
   {
    "it": "i117",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T02:36:00Z",
    "text": "community-hall approved \u2014 re-verified substantiation post-Breakers \u00b7 community-hall: review approved (stays rc)"
+  },
+  {
+   "it": "i128",
+   "role": "maintainer",
+   "ts": "2026-07-06T02:40:00Z",
+   "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
   }
  ],
  "records": [
@@ -239,7 +239,7 @@
    "name": "community-hall",
    "title": "Hall of Prospectors & Patrons",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site"
@@ -1068,29 +1068,6 @@
   "commissioned": [],
   "building": [
    {
-    "name": "community-hall",
-    "title": "Hall of Prospectors & Patrons",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site"
-    ],
-    "one_liner": "Real contributor recognition \u2014 who suggested what shipped, who fueled what got built.",
-    "tags": [
-     "recognition",
-     "community",
-     "ladder"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "fuel-gauge",
     "title": "The Fuel Gauge",
     "category": "growth",
@@ -1325,6 +1302,29 @@
      "community",
      "qa",
      "security",
+     "ladder"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "community-hall",
+    "title": "Hall of Prospectors & Patrons",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site"
+    ],
+    "one_liner": "Real contributor recognition \u2014 who suggested what shipped, who fueled what got built.",
+    "tags": [
+     "recognition",
+     "community",
      "ladder"
     ],
     "commission": null,
@@ -2359,7 +2359,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 40
+   "n": 41
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

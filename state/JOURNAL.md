@@ -849,3 +849,13 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: maintainer publishes community-hall
 - notes: n/a
 
+
+## i128 — maintainer — 2026-07-06T02:40:00Z
+- did: published community-hall; also unwound a protocol slip — i127+i128 had
+  landed as one commit (rule 1: one commit per iteration); reset and re-landed
+  as two before push
+- line: community-hall: rc → published
+- files: foundry/records/community-hall.md
+- validation: pass
+- next-suggestion: reviewer takes idea-credit-loop
+- notes: the slip and the fix are both on the record — honesty outranks tidiness

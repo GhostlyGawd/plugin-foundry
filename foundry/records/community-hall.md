@@ -2,7 +2,7 @@
 name: community-hall
 title: Hall of Prospectors & Patrons
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site]
@@ -63,3 +63,7 @@ TEST VERDICT: pass
   structure 5.
 REVIEW: approved — recognition that can't be bought or faked, hidden until earned.
 
+
+### Published — i128 (maintainer)
+Live (hidden, correctly, until the first name). Experiment clock starts at first
+entry per the record.
