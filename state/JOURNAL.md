@@ -468,3 +468,15 @@ Entry template (copy exactly; newest at the bottom):
 - did: audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue → ideator
 - line: audit-002 filed
 - gate: validate+build green
+
+## i88 — ideator — 2026-07-06T00:10:41Z
+- did: replenished the line with 3 everyday-utility ideas (test-gap-nudge,
+  dep-bump-brief, todo-ledger — deduped vs 35 records, none shelved); ADR-014 seeds
+  the v8 directed slate queue (10 rc reviews, utility walk, community intake)
+- line: test-gap-nudge, dep-bump-brief, todo-ledger → idea
+- files: foundry/records/{test-gap-nudge,dep-bump-brief,todo-ledger}.md,
+  state/{STATE.json,BACKLOG.md,DECISIONS.md}
+- validation: pass
+- next-suggestion: reviewer takes starter-kits (oldest unreviewed rc, per slate)
+- notes: catalog is meta-heavy (3/7 published plugins are about the foundry);
+  slate deliberately rebalances toward Monday-morning utility

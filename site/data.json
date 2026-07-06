@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-07-05T23:53:57.337238+00:00",
- "iteration": 87,
+ "generated_at": "2026-07-06T00:11:12.437622+00:00",
+ "iteration": 88,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 1,
+  "idea": 4,
   "spec": 4,
   "building": 0,
   "rc": 10,
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i88",
+   "role": "ideator",
+   "ts": "2026-07-06T00:10:41Z",
+   "text": "replenished the line with 3 everyday-utility ideas (test-gap-nudge, \u00b7 test-gap-nudge, dep-bump-brief, todo-ledger \u2192 idea"
+  },
   {
    "it": "i87",
    "role": "auditor",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-05T19:56:35Z",
    "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
-  },
-  {
-   "it": "i80",
-   "role": "qa",
-   "ts": "2026-07-05T19:56:34Z",
-   "text": "commission-queue QA: 7/7 with injection-bearing fixture; malformed-ledger and type-normalization probed \u2192 rc \u00b7 commission-queue \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i76",
-   "role": "qa",
-   "ts": "2026-07-05T19:53:14Z",
-   "text": "the-mailbag QA: 4/4 with live fail-open proof; empty and malformed paths probed \u2192 rc \u00b7 the-mailbag \u2192 rc"
-  },
   {
    "it": "i77",
    "role": "reviewer",
@@ -134,6 +128,12 @@
    "role": "auditor",
    "ts": "2026-07-05T20:00:06Z",
    "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
+  },
+  {
+   "it": "i88",
+   "role": "ideator",
+   "ts": "2026-07-06T00:10:41Z",
+   "text": "replenished the line with 3 everyday-utility ideas (test-gap-nudge, \u00b7 test-gap-nudge, dep-bump-brief, todo-ledger \u2192 idea"
   }
  ],
  "records": [
@@ -371,6 +371,29 @@
    ],
    "commission": null,
    "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "dep-bump-brief",
+   "title": "Dep-Bump Brief",
+   "category": "workflow",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "skills"
+   ],
+   "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+   "tags": [
+    "dependencies",
+    "review",
+    "changelogs"
+   ],
+   "commission": null,
+   "kind": "plugin",
    "always_on_tokens": null,
    "verified": null,
    "prospected_by": null,
@@ -801,6 +824,29 @@
    "patron": null
   },
   {
+   "name": "test-gap-nudge",
+   "title": "Test-Gap Nudge",
+   "category": "quality",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "hooks"
+   ],
+   "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+   "tags": [
+    "testing",
+    "hooks",
+    "discipline"
+   ],
+   "commission": null,
+   "kind": "plugin",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "the-almanac",
    "title": "The Almanac",
    "category": "growth",
@@ -842,6 +888,29 @@
    ],
    "commission": null,
    "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
+   "name": "todo-ledger",
+   "title": "TODO Ledger",
+   "category": "quality",
+   "stage": "idea",
+   "version": null,
+   "components": [
+    "skills"
+   ],
+   "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
+   "tags": [
+    "tech-debt",
+    "todos",
+    "reporting"
+   ],
+   "commission": null,
+   "kind": "plugin",
    "always_on_tokens": null,
    "verified": null,
    "prospected_by": null,
@@ -1335,6 +1404,75 @@
     ],
     "commission": null,
     "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "dep-bump-brief",
+    "title": "Dep-Bump Brief",
+    "category": "workflow",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+    "tags": [
+     "dependencies",
+     "review",
+     "changelogs"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "test-gap-nudge",
+    "title": "Test-Gap Nudge",
+    "category": "quality",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+    "tags": [
+     "testing",
+     "hooks",
+     "discipline"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "todo-ledger",
+    "title": "TODO Ledger",
+    "category": "quality",
+    "stage": "idea",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
+    "tags": [
+     "tech-debt",
+     "todos",
+     "reporting"
+    ],
+    "commission": null,
+    "kind": "plugin",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,
@@ -1868,10 +2006,6 @@
  },
  "streak": [
   {
-   "d": "2026-04-13",
-   "n": 0
-  },
-  {
    "d": "2026-04-14",
    "n": 0
   },
@@ -2202,6 +2336,10 @@
   {
    "d": "2026-07-05",
    "n": 87
+  },
+  {
+   "d": "2026-07-06",
+   "n": 1
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

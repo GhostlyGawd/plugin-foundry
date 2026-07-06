@@ -65,6 +65,15 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 - [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
       of the documented constant (drift risk noted at i46).
 
+## v8 slate (ADR-014 — operator-directed; role_queue seeded for it)
+- [ ] P1 (line) Publish-or-bounce the ten rc features: reviewer+maintainer pairs in
+      ADR-014 order; genuine reviews, tripwire stands.
+- [ ] P1 (builder) Walk test-gap-nudge idea → published — first everyday-utility
+      plugin of the slate (hook-only; hook-safety exercise).
+- [ ] P2 (growth) Seed mailbag FAQ + vote board with clearly foundry-authored
+      content (growth-honesty law: no simulated activity) and ADR the intake.py
+      idea-label path; builder applies it next iteration.
+
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
 Populated by `tools/intake.py` from issues labeled `bug`.
 Format: `- [ ] B#<issue> <plugin> — <summary>`
