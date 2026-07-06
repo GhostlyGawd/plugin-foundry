@@ -396,7 +396,7 @@ TEMPLATE = """<!DOCTYPE html>
   redeploys each time it works. Scroll the shelf, watch the roadmap move, or
   <a href="#request">commission the next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
   <div id="themebox"></div>
   <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -406,6 +406,12 @@ TEMPLATE = """<!DOCTYPE html>
   </div>
   <div class="stats" id="stats" aria-label="substantiated numbers only"></div>
   <div class="fuelrow" id="fuelrow" aria-label="the fuel gauge — real ledger spend"></div>
+
+  <h3 class="rule" id="clerk">The front desk — say what you're working on</h3>
+  <div class="tools">
+    <input id="clerkq" type="search" placeholder="e.g. commit messages · PR descriptions · broken dev env · session handoffs" aria-label="Describe your task and get plugin recommendations">
+  </div>
+  <div id="clerkout" aria-live="polite"></div>
 
   <h3 class="rule" id="shelf">The shelf — tap a stage to filter</h3>
   <nav class="lane" aria-label="pipeline filter">@@LANE@@</nav>
@@ -459,7 +465,7 @@ TEMPLATE = """<!DOCTYPE html>
 
   <footer>
     <span>window: rebuilt on every loop commit · heartbeat: data.json · <a href="feed.xml">atom feed</a> · <a href="embed.html">embed the ticker</a> · <a href="badge.json">badge endpoint</a></span>
-    <span>@@TITLE@@ — the workshop that works while you sleep · window v0.5</span>
+    <span>@@TITLE@@ — the workshop that works while you sleep · window v0.6</span>
     <span>generated <span id="stamp">@@STAMP@@</span> by tools/build.py</span>
   </footer>
 </div>
@@ -654,6 +660,41 @@ function renderVotes(){
     : '<p class="vnone">No open ideas yet — the pool is waiting for its first suggestion' +
       (suggest ? ' (<a href="' + suggest + '">make one, free</a>)' : '') + '.</p>';
 }
+/* the front desk (v10 #3) — the night-clerk's matching, for visitors who
+   haven't installed anything yet. Same generated data, same honesty rules:
+   published plugins only, nothing invented, honest empty answer. */
+function renderClerk(){
+  const box = document.getElementById('clerkout');
+  const raw = (document.getElementById('clerkq').value || '').toLowerCase().trim();
+  const terms = raw.split(/[^a-z0-9]+/).filter(t => t.length > 2);
+  if (!terms.length){ box.innerHTML = ''; return; }
+  const score = hay => terms.reduce((s, t) => s + (hay.includes(t) ? 1 : 0), 0);
+  const hits = DATA.records
+    .filter(e => e.stage === 'published' && e.kind === 'plugin')
+    .map(e => [score((e.name + ' ' + e.title + ' ' + e.one_liner + ' ' + (e.tags || []).join(' ')).toLowerCase()), e])
+    .filter(([s]) => s > 0)
+    .sort((a, b) => b[0] - a[0])
+    .slice(0, 3);
+  const kitHit = (DATA.kits || [])
+    .map(k => [score((k.name + ' ' + k.desc).toLowerCase()), k])
+    .filter(([s, k]) => s > 0 && k.members.some(m => m.published))
+    .sort((a, b) => b[0] - a[0])[0];
+  if (!hits.length && !kitHit){
+    const idea = DATA.repo ? ' — <a href="https://github.com/' + DATA.repo + '/issues/new?template=idea.yml">suggest it as an idea, free</a>' : '';
+    box.innerHTML = '<p class="vnone">Nothing on the shelf fits that yet' + idea + '. The clerk never invents a plugin.</p>';
+    return;
+  }
+  let out = hits.map(([s, e]) =>
+    '<div class="kit"><h4>' + esc(e.title) + '</h4><p>' + esc(e.one_liner) + '</p>' +
+    '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div></div>').join('');
+  if (kitHit){
+    const k = kitHit[1];
+    const block = k.members.filter(m => m.published).map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
+    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div></div>';
+  }
+  out += '<p class="vnone">Matched against the same generated catalog the night-clerk plugin bundles — click a block to copy.</p>';
+  box.innerHTML = out;
+}
 function renderKits(){
   const box = document.getElementById('kitbox');
   const kits = DATA.kits || [];
@@ -709,6 +750,7 @@ function renderAll(){
     { const s=b.dataset.stage; const n=DATA.counts[s]; if(n!==undefined) b.querySelector('.n').textContent = n; }
 }
 q.addEventListener('input', renderGrid);
+document.getElementById('clerkq').addEventListener('input', renderClerk);
 for (const btn of document.querySelectorAll('.lanebtn')){
   btn.addEventListener('click', () => {
     const s = btn.dataset.stage;

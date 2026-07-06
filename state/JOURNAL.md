@@ -1179,3 +1179,17 @@ Entry template (copy exactly; newest at the bottom):
   clerk refresh in the same style.
 - notes: any shelf version bump now implies a clerk patch — that's the price of
   a front desk that never lies about versions. Worth it.
+
+## i157 — builder (directed, v10 #3) — 2026-07-06T20:48:29Z
+- did: the front desk on the window — a picker above the shelf ("say what you're
+  working on") that scores published plugins + kits against the query and answers
+  with ≤3 real install blocks, the night-clerk's honesty rules intact (published
+  only, honest empty answer + idea route, nothing invented, copy-to-clipboard
+  free via the existing delegate). Template change under ADR-018; window v0.6.
+  Verified in real Chromium: commit query → commit-craft, nonsense → honest
+  empty, workflow query surfaces a kit, zero page errors.
+- line: n/a (window feature)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (browser-verified; gates green)
+- next-suggestion: v10 #4 — READMEs on certificate pages.
+- notes: the picker is the clerk for people who haven't installed the clerk.
