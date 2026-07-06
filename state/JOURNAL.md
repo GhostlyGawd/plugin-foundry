@@ -543,3 +543,12 @@ Entry template (copy exactly; newest at the bottom):
   itself is sound (re-verified 113/90)
 - notes: second unlogged spec deviation found in the v5 rc pool — pattern for
   the closing audit
+
+## i95 — builder — 2026-07-06T00:31:00Z
+- did: token-cost-badges bounce fix — >60-day verified dates dim the card badge
+  client-side with an explanatory title; survives a stopped factory by design
+- line: token-cost-badges: component fixed (stays building)
+- files: tools/build.py, foundry/records/token-cost-badges.md
+- validation: pass
+- next-suggestion: qa pins the stale threshold with an executable check
+- notes: n/a

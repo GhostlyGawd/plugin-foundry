@@ -82,7 +82,12 @@ TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pr
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
   structure 5.
 REVIEW: bounced — implement the &gt;60-day dimmed state (or amend the spec with a
-justification that survives a stopped factory); add an executable check.</pre></details></div>
+justification that survives a stopped factory); add an executable check.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i95: stale state built client-side in badge(): verified &gt; 60 days → chip dims
+  (.chip.tok.stale, opacity .5) and the title says why. Client-side deliberately —
+  a build-time check would itself freeze if the factory stopped, which is the exact
+  failure the reviewer named. Certificates already print the literal verified date
+  in the meta line (self-dating, reader can judge), so the card badge — a bare ✓ —
+  was the only misleading surface. Under ADR-009 feature authorization.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/token-cost-badges.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/token-cost-badges.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -70,3 +70,11 @@ TEST VERDICT: pass
   structure 5.
 REVIEW: bounced — implement the >60-day dimmed state (or amend the spec with a
 justification that survives a stopped factory); add an executable check.
+
+## Build log (post-bounce)
+- i95: stale state built client-side in badge(): verified > 60 days → chip dims
+  (.chip.tok.stale, opacity .5) and the title says why. Client-side deliberately —
+  a build-time check would itself freeze if the factory stopped, which is the exact
+  failure the reviewer named. Certificates already print the literal verified date
+  in the meta line (self-dating, reader can judge), so the card badge — a bare ✓ —
+  was the only misleading surface. Under ADR-009 feature authorization.

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:16:51.164306+00:00",
- "iteration": 94,
+ "generated_at": "2026-07-06T00:17:38.730267+00:00",
+ "iteration": 95,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i95",
+   "role": "builder",
+   "ts": "2026-07-06T00:31:00Z",
+   "text": "token-cost-badges bounce fix \u2014 >60-day verified dates dim the card badge \u00b7 token-cost-badges: component fixed (stays building)"
+  },
   {
    "it": "i94",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "ideator",
    "ts": "2026-07-06T00:10:41Z",
    "text": "replenished the line with 3 everyday-utility ideas (test-gap-nudge, \u00b7 test-gap-nudge, dep-bump-brief, todo-ledger \u2192 idea"
-  },
-  {
-   "it": "i87",
-   "role": "auditor",
-   "ts": "2026-07-05T20:00:06Z",
-   "text": "audit-002: v7 slate 12/12 verified lawful; incidents+gate-catches recorded unabridged; risks carried; role_queue \u2192 ideat \u00b7 audit-002 filed"
   }
  ],
  "journal": [
-  {
-   "it": "i83",
-   "role": "builder",
-   "ts": "2026-07-05T19:58:33Z",
-   "text": "releases-and-reverify built: changelog-cut releases, weekly re-verify with withheld-stamp honesty, ADR-013 proposed (met \u00b7 releases-and-reverify \u2192 building"
-  },
   {
    "it": "i84",
    "role": "qa",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T00:28:00Z",
    "text": "token-cost-badges reviewed and BOUNCED \u2014 the spec's >60-day stale-verified \u00b7 token-cost-badges: rc \u2192 building (bounce)"
+  },
+  {
+   "it": "i95",
+   "role": "builder",
+   "ts": "2026-07-06T00:31:00Z",
+   "text": "token-cost-badges bounce fix \u2014 >60-day verified dates dim the card badge \u00b7 token-cost-badges: component fixed (stays building)"
   }
  ],
  "records": [
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 7
+   "n": 8
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

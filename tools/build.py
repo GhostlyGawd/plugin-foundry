@@ -309,6 +309,7 @@ TEMPLATE = """<!DOCTYPE html>
     padding:1px 7px; color:var(--dim)}
   .chip.comm{border-color:var(--stamp); color:var(--stamp)}
   .chip.tok{border-style:dotted}
+  .chip.tok.stale{opacity:.5}
   .credit{font-size:11px; color:var(--dim)}
   .install{background:var(--ink); color:var(--paper); font-size:11.5px; padding:7px 9px;
     overflow-x:auto; white-space:nowrap; user-select:all; cursor:text}
@@ -475,8 +476,10 @@ function esc(s){ const d=document.createElement('span'); d.textContent=s??''; re
 
 function badge(e){
   if (e.always_on_tokens) {
+    const stale = e.verified && (Date.now() - Date.parse(e.verified)) > 60*86400000;
     const v = e.verified ? ' · ✓' + esc(e.verified) : '';
-    return '<span class="chip tok" title="always-on context cost, estimated">~' + esc(e.always_on_tokens) + ' tok · est' + v + '</span>';
+    const t = 'always-on context cost, estimated' + (stale ? ' — verification older than 60 days' : '');
+    return '<span class="chip tok' + (stale ? ' stale' : '') + '" title="' + t + '">~' + esc(e.always_on_tokens) + ' tok · est' + v + '</span>';
   }
   return '<span class="chip tok" title="not yet measured by QA">unmeasured</span>';
 }
