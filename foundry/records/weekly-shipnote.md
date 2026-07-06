@@ -2,14 +2,14 @@
 name: weekly-shipnote
 title: Weekly Shipnote
 category: growth
-stage: rc
+stage: building
 kind: feature
 version: null
 components: [workflow, docs]
 one_liner: A weekly digest the loop writes itself — shipped, moved, killed, fuel — posted as an issue every Monday.
 tags: [digest, retention, narrative]
 created: 2026-07-04
-updated: 2026-07-05
+updated: 2026-07-06
 ---
 
 # Weekly Shipnote
@@ -51,3 +51,21 @@ Ticker lines are for the floor; returners want the week's story.
   real journal/ledger); check 2 via empty-window dry run
 - defects: none found — probed: malformed journal timestamp (skipped cleanly)
 TEST VERDICT: pass
+
+## Review log
+### Review — i109
+- Substantiation law holds: every section derives from journal/records/ledger/gh;
+  quiet-week copy honest; duplicate-week gate read and sound (search+grep per ISO
+  week); mailbag section evidence-labeled and fail-open when gh is absent.
+- DEFECT 1 (honest-compression): "Moved" silently caps at the last 12 — dry-run
+  on the live journal shows 21 moves this week, 9 dropped without a trace. House
+  precedent (theater, i-v7 review): a windowed view must say where the unabridged
+  version lives. First real shipnote would ship the violation.
+- DEFECT 2 (ops): `gh issue create --label shipnote` hard-fails when the label
+  doesn't exist in the repo — nothing creates it, OPERATIONS doesn't mention it;
+  the first Monday run would die before posting note #1. Ensure-label step (or
+  fail-open create without label) required.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
+  structure 4.
+REVIEW: bounced — silent 12-move cap (add the "N more, see journal" line) and
+first-run label failure; both one-liners, both provable by test.

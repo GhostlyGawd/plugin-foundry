@@ -670,3 +670,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer takes weekly-shipnote
 - notes: n/a
+
+## i109 — reviewer — 2026-07-06T01:27:00Z
+- did: weekly-shipnote BOUNCED — silent 12-move cap (21 real moves this week,
+  9 vanish) + first-run death on the missing `shipnote` label
+- line: weekly-shipnote: rc → building (bounce)
+- files: foundry/records/weekly-shipnote.md, state/STATE.json (fix cycle)
+- validation: pass
+- next-suggestion: builder: truncation pointer + ensure-label step; ADR not
+  needed (rides ADR-009 feature authorization)
+- notes: dry-ran the note on the live journal to prove the cap fires in week 1

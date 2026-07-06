@@ -40,8 +40,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Weekly Shipnote — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-04 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
+  <p class="meta">feature · growth · unversioned · created 2026-07-04 · updated 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>A weekly digest the loop writes itself — shipped, moved, killed, fuel — posted as an issue every Monday.</p>
   
   
@@ -66,7 +66,22 @@
 - tier 3: check 1 executed live (30-day run produced Shipped + Moved + Fuel from
   real journal/ledger); check 2 via empty-window dry run
 - defects: none found — probed: malformed journal timestamp (skipped cleanly)
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i109
+- Substantiation law holds: every section derives from journal/records/ledger/gh;
+  quiet-week copy honest; duplicate-week gate read and sound (search+grep per ISO
+  week); mailbag section evidence-labeled and fail-open when gh is absent.
+- DEFECT 1 (honest-compression): &quot;Moved&quot; silently caps at the last 12 — dry-run
+  on the live journal shows 21 moves this week, 9 dropped without a trace. House
+  precedent (theater, i-v7 review): a windowed view must say where the unabridged
+  version lives. First real shipnote would ship the violation.
+- DEFECT 2 (ops): `gh issue create --label shipnote` hard-fails when the label
+  doesn&#x27;t exist in the repo — nothing creates it, OPERATIONS doesn&#x27;t mention it;
+  the first Monday run would die before posting note #1. Ensure-label step (or
+  fail-open create without label) required.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 3 ·
+  structure 4.
+REVIEW: bounced — silent 12-move cap (add the &quot;N more, see journal&quot; line) and
+first-run label failure; both one-liners, both provable by test.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/weekly-shipnote.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/weekly-shipnote.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
