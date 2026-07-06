@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:15:05.762117+00:00",
- "iteration": 92,
+ "generated_at": "2026-07-06T00:15:40.205429+00:00",
+ "iteration": 93,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 4,
   "spec": 4,
   "building": 0,
-  "rc": 10,
-  "published": 20,
+  "rc": 9,
+  "published": 21,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i93",
+   "role": "maintainer",
+   "ts": "2026-07-06T00:24:00Z",
+   "text": "published starter-kits \u2014 bounced once, fixed, re-tested with an executable \u00b7 starter-kits: rc \u2192 published"
+  },
   {
    "it": "i92",
    "role": "reviewer",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:59:03Z",
    "text": "Published releases-and-reverify: ADR-013 applied, QUALITY exemption on the books, pipelines armed; experiment armed \u00b7 releases-and-reverify \u2192 published"
-  },
-  {
-   "it": "i85",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:59:02Z",
-   "text": "releases-and-reverify approved: refusal-as-feature, visible staleness, ADR-013 window honored; race traced to safe failu \u00b7 releases-and-reverify review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i81",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:56:35Z",
-   "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
-  },
   {
    "it": "i82",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "reviewer",
    "ts": "2026-07-06T00:22:00Z",
    "text": "starter-kits re-reviewed post-fix \u2014 approved; fix narrow, regression \u00b7 starter-kits: review approved (stays rc; maintainer publishes next)"
+  },
+  {
+   "it": "i93",
+   "role": "maintainer",
+   "ts": "2026-07-06T00:24:00Z",
+   "text": "published starter-kits \u2014 bounced once, fixed, re-tested with an executable \u00b7 starter-kits: rc \u2192 published"
   }
  ],
  "records": [
@@ -803,7 +803,7 @@
    "name": "starter-kits",
    "title": "Starter Kits",
    "category": "growth",
-   "stage": "rc",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -1213,30 +1213,6 @@
     "patron": null
    },
    {
-    "name": "starter-kits",
-    "title": "Starter Kits",
-    "category": "growth",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "site",
-     "docs"
-    ],
-    "one_liner": "Curated bundles with one copy-block \u2014 cut choice paralysis for first-time installers.",
-    "tags": [
-     "onboarding",
-     "curation",
-     "installs"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "token-cost-badges",
     "title": "Token-Cost Badges",
     "category": "growth",
@@ -1481,6 +1457,30 @@
    }
   ],
   "shipped": [
+   {
+    "name": "starter-kits",
+    "title": "Starter Kits",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs"
+    ],
+    "one_liner": "Curated bundles with one copy-block \u2014 cut choice paralysis for first-time installers.",
+    "tags": [
+     "onboarding",
+     "curation",
+     "installs"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
    {
     "name": "commission-queue",
     "title": "The Commission Queue",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 5
+   "n": 6
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

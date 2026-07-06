@@ -523,3 +523,12 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: maintainer publishes starter-kits (feature: stage flip +
   experiment stays armed on its 21-day post-deploy clock)
 - notes: n/a
+
+## i93 — maintainer — 2026-07-06T00:24:00Z
+- did: published starter-kits — bounced once, fixed, re-tested with an executable
+  suite, approved; kits section live with honest per-line copy-blocks
+- line: starter-kits: rc → published
+- files: foundry/records/starter-kits.md
+- validation: pass
+- next-suggestion: reviewer takes token-cost-badges (next rc in slate order)
+- notes: experiment review-after 2026-07-26 stands (BACKLOG § Experiments)

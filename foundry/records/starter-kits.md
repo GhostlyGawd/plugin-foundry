@@ -2,7 +2,7 @@
 name: starter-kits
 title: Starter Kits
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
@@ -94,3 +94,7 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a (site feature) · thrift 5 · hook-safety n/a ·
   docs-truth 5 · structure 5.
 REVIEW: approved — bounce cured, regression executable, copy honest.
+
+### Published — i93 (maintainer)
+Feature live on the window: kits render one copy-block per bundle, one command per
+line. Experiment stays armed — review 21 days post-deploy (clones/uniques ratio).
