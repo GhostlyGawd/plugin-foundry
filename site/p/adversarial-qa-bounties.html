@@ -41,7 +41,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Adversarial QA Bounties — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.</p>
   
   
@@ -66,7 +66,19 @@ the shelf&#x27;s honesty *tested* honesty.</pre></details><details><summary>Spec
   fencing cross-ref and names the Breakers mechanism; (3) collect_hall derives a
   ranked Breakers list from `found_by:` lines in shipped CHANGELOGs — credit is
   substantiated by the artifact, never hand-tallied — and renderHall shows the
-  section only when at least one confirmed find exists (empty today, honestly).</pre></details></div>
+  section only when at least one confirmed find exists (empty today, honestly).</pre></details><details open><summary>Test log</summary><pre>### Test pass — i122
+- tier 1: executable suite (foundry/tests/adversarial-qa-bounties/bounties.test.sh)
+  5/5 — lane docs + SECURITY cross-ref, bounty checkbox present, zero-find empty
+  state (no phantom breakers on today&#x27;s window), fixture found_by line surfaces
+  as a ranked breaker via collect_hall against an isolated ROOT, window render
+  gated on non-empty
+- tier 2: n/a (docs/template/site feature)
+- tier 3: read the checkbox copy as a reporter — &quot;claim the record makes&quot; framing
+  keeps scope to published claims, matching the rules of engagement
+- defects: none in product — fixture initially wrote found_by mid-line; the
+  collector&#x27;s dedicated-line convention is the stricter, false-positive-proof
+  choice, fixture corrected to match
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/adversarial-qa-bounties.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/adversarial-qa-bounties.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

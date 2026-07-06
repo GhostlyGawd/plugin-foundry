@@ -2,7 +2,7 @@
 name: adversarial-qa-bounties
 title: Adversarial QA Bounties
 category: growth
-stage: building
+stage: rc
 kind: feature
 version: null
 components: [docs, template, site]
@@ -44,3 +44,18 @@ the shelf's honesty *tested* honesty.
   ranked Breakers list from `found_by:` lines in shipped CHANGELOGs — credit is
   substantiated by the artifact, never hand-tallied — and renderHall shows the
   section only when at least one confirmed find exists (empty today, honestly).
+
+## Test log
+### Test pass — i122
+- tier 1: executable suite (foundry/tests/adversarial-qa-bounties/bounties.test.sh)
+  5/5 — lane docs + SECURITY cross-ref, bounty checkbox present, zero-find empty
+  state (no phantom breakers on today's window), fixture found_by line surfaces
+  as a ranked breaker via collect_hall against an isolated ROOT, window render
+  gated on non-empty
+- tier 2: n/a (docs/template/site feature)
+- tier 3: read the checkbox copy as a reporter — "claim the record makes" framing
+  keeps scope to published claims, matching the rules of engagement
+- defects: none in product — fixture initially wrote found_by mid-line; the
+  collector's dedicated-line convention is the stricter, false-positive-proof
+  choice, fixture corrected to match
+TEST VERDICT: pass

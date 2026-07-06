@@ -795,3 +795,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa fixtures a fake changelog find and checks empty-state honesty
 - notes: template edit rides ADR-014's slate authorization for this feature
+
+## i122 — qa — 2026-07-06T02:20:00Z
+- did: adversarial-qa-bounties QA 5/5 — empty-state honesty and fixture-find both
+  pinned; found_by convention is dedicated-line (false-positive-proof)
+- line: adversarial-qa-bounties: building → rc
+- files: foundry/tests/adversarial-qa-bounties/bounties.test.sh, foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: reviewer reads the checkbox + lane copy as a first-time reporter
+- notes: n/a
