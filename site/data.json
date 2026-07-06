@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:11:12.437622+00:00",
- "iteration": 88,
+ "generated_at": "2026-07-06T00:12:47.677297+00:00",
+ "iteration": 89,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 4,
   "spec": 4,
-  "building": 0,
-  "rc": 10,
+  "building": 1,
+  "rc": 9,
   "published": 20,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i89",
+   "role": "reviewer",
+   "ts": "2026-07-06T00:14:00Z",
+   "text": "starter-kits reviewed and BOUNCED \u2014 multi-plugin kit copy-block collapses \u00b7 starter-kits: rc \u2192 building (bounce)"
+  },
   {
    "it": "i88",
    "role": "ideator",
@@ -54,21 +60,9 @@
    "role": "maintainer",
    "ts": "2026-07-05T19:56:36Z",
    "text": "Published commission-queue: board live, counter open; experiment armed \u00b7 commission-queue \u2192 published"
-  },
-  {
-   "it": "i81",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:56:35Z",
-   "text": "commission-queue approved: sanitize-at-intake layering, un-editable optimism, no-amounts by design \u00b7 commission-queue review approved"
   }
  ],
  "journal": [
-  {
-   "it": "i77",
-   "role": "reviewer",
-   "ts": "2026-07-05T19:53:14Z",
-   "text": "the-mailbag approved: evidence-only clause load-bearing, in-thread answers publicly falsifiable \u00b7 the-mailbag review approved"
-  },
   {
    "it": "i78",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "ideator",
    "ts": "2026-07-06T00:10:41Z",
    "text": "replenished the line with 3 everyday-utility ideas (test-gap-nudge, \u00b7 test-gap-nudge, dep-bump-brief, todo-ledger \u2192 idea"
+  },
+  {
+   "it": "i89",
+   "role": "reviewer",
+   "ts": "2026-07-06T00:14:00Z",
+   "text": "starter-kits reviewed and BOUNCED \u2014 multi-plugin kit copy-block collapses \u00b7 starter-kits: rc \u2192 building (bounce)"
   }
  ],
  "records": [
@@ -803,7 +803,7 @@
    "name": "starter-kits",
    "title": "Starter Kits",
    "category": "growth",
-   "stage": "rc",
+   "stage": "building",
    "version": null,
    "components": [
     "site",
@@ -1216,7 +1216,7 @@
     "name": "starter-kits",
     "title": "Starter Kits",
     "category": "growth",
-    "stage": "rc",
+    "stage": "building",
     "version": null,
     "components": [
      "site",
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 1
+   "n": 2
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

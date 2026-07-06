@@ -480,3 +480,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: reviewer takes starter-kits (oldest unreviewed rc, per slate)
 - notes: catalog is meta-heavy (3/7 published plugins are about the foundry);
   slate deliberately rebalances toward Monday-morning utility
+
+## i89 — reviewer — 2026-07-06T00:14:00Z
+- did: starter-kits reviewed and BOUNCED — multi-plugin kit copy-block collapses
+  to one unrunnable pasted line (.install white-space:nowrap vs '\n' join); both
+  live kits have 2 members, so the flagship path is the broken one
+- line: starter-kits: rc → building (bounce)
+- files: foundry/records/starter-kits.md, state/STATE.json (queue: fix cycle seeded)
+- validation: pass
+- next-suggestion: builder lands kit-scoped white-space fix; QA re-runs check 3
+  with a 2-member kit
+- notes: first bounce since v7 — the tripwire streak resets; bouncing is a service
