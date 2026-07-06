@@ -59,3 +59,18 @@ the shelf's honesty *tested* honesty.
   collector's dedicated-line convention is the stricter, false-positive-proof
   choice, fixture corrected to match
 TEST VERDICT: pass
+
+## Review log
+### Review — i123
+- Read as a first-time reporter: the checkbox names exactly what elevates a bug to
+  a bounty (a *claim* is at stake), CONTRIBUTING gives the rules before the
+  glory, and the fencing cross-ref means a hostile "reproduction" can't smuggle
+  instructions into the loop — the right paranoia for a feature that invites
+  attackers.
+- Credit path is artifact-derived (changelog → hall), so a Breakers entry can't
+  exist without a shipped fix behind it. Nothing to inflate. Empty state honest.
+- One judgment call endorsed: dedicated-line found_by convention trades a little
+  maintainer ceremony for zero false credit — correct trade.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — invites the skeptics and pays them only in verifiable truth.

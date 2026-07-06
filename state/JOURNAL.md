@@ -804,3 +804,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer reads the checkbox + lane copy as a first-time reporter
 - notes: n/a
+
+## i123 — reviewer — 2026-07-06T02:23:00Z
+- did: adversarial-qa-bounties approved — fencing cross-ref load-bearing;
+  artifact-derived credit can't inflate
+- line: adversarial-qa-bounties: review approved (stays rc)
+- files: foundry/records/adversarial-qa-bounties.md
+- validation: pass
+- next-suggestion: maintainer publishes; experiment clock starts at window
+  go-live (review-after 2026-09-15 already dated)
+- notes: n/a
