@@ -773,3 +773,15 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder applies ADR-015 to tools/intake.py (i120 or later)
 - notes: growth-honesty law held — zero fabricated votes, zero fake visitors;
   seeds are labeled as seeds
+
+## i120 — builder — 2026-07-06T02:08:00Z
+- did: applied ADR-015 — intake.py grows the idea lane: open `idea` issues land
+  in BACKLOG § Idea inbox as I#<n> entries, sanitized (fences/brackets stripped,
+  80-char truncation), deduped, idempotent; verified against a gh fixture in an
+  isolated copy (hostile title probed); commit message updated to cover all lanes
+- line: n/a (tools; two-iteration rule honored — ADR-015 proposed i119)
+- files: tools/intake.py
+- validation: pass
+- next-suggestion: builder takes adversarial-qa-bounties (spec → building)
+- notes: contribution floor is now "open an issue" end to end: idea label →
+  inbox → Ideator formalizes with prospected_by credit

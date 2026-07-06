@@ -232,7 +232,7 @@ Template:
   the point.
 
 ## ADR-015 — intake.py grows an `idea` lane (i119, growth)
-- Status: proposed i119; apply no earlier than i120 (two-iteration rule, tools/)
+- Status: accepted (proposed i119, applied i120 — two-iteration rule honored)
 - Context: the co-op lane's floor is a spec PR — high for a passerby. The vote
   board and mailbag now open with foundry-authored seeds, but a visitor's raw
   pitch still has no automated path into the workshop: intake.py handles only
