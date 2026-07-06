@@ -21,32 +21,16 @@ TRACK = ["idea", "spec", "building", "rc", "published"]
 
 
 # ---------------------------------------------------------------- collectors --
-def parse_front_matter(text):
-    parts = text.split("---", 2)
-    meta = {}
-    if len(parts) < 3:
-        return meta
-    for line in parts[1].strip().splitlines():
-        if ":" not in line or line.strip().startswith("#"):
-            continue
-        key, _, raw = line.partition(":")
-        key, raw = key.strip(), raw.split(" #")[0].strip()
-        if raw.startswith("[") and raw.endswith("]"):
-            inner = raw[1:-1].strip()
-            meta[key] = [v.strip() for v in inner.split(",") if v.strip()] if inner else []
-        else:
-            meta[key] = raw
-    return meta
+from lib import parse_front_matter  # noqa: E402 — one parser, one truth (v10 #8)
 
 
 def collect_records():
     out = []
     for path in sorted(RECORDS.glob("*.md")):
         text = path.read_text()
-        meta = parse_front_matter(text)
+        meta, body = parse_front_matter(text)
         meta["record_path"] = str(path.relative_to(ROOT))
-        parts = text.split("---", 2)
-        meta["_body"] = parts[2] if len(parts) >= 3 else text
+        meta["_body"] = body
         out.append(meta)
     return out
 
@@ -396,7 +380,7 @@ TEMPLATE = """<!DOCTYPE html>
   redeploys each time it works. Scroll the shelf, watch the roadmap move, or
   <a href="#request">commission the next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
   <div id="themebox"></div>
   <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -406,6 +390,12 @@ TEMPLATE = """<!DOCTYPE html>
   </div>
   <div class="stats" id="stats" aria-label="substantiated numbers only"></div>
   <div class="fuelrow" id="fuelrow" aria-label="the fuel gauge — real ledger spend"></div>
+
+  <h3 class="rule" id="clerk">The front desk — say what you're working on</h3>
+  <div class="tools">
+    <input id="clerkq" type="search" placeholder="e.g. commit messages · PR descriptions · broken dev env · session handoffs" aria-label="Describe your task and get plugin recommendations">
+  </div>
+  <div id="clerkout" aria-live="polite"></div>
 
   <h3 class="rule" id="shelf">The shelf — tap a stage to filter</h3>
   <nav class="lane" aria-label="pipeline filter">@@LANE@@</nav>
@@ -431,6 +421,16 @@ TEMPLATE = """<!DOCTYPE html>
   <div id="hallwrap">
     <h3 class="rule" id="hall" style="display:none">Hall of prospectors &amp; patrons</h3>
     <div class="hall" id="hallbox"></div>
+  </div>
+
+  <div id="verifiedwrap">
+    <h3 class="rule" id="verified" style="display:none">Verified externals — the doctor, run in their CI</h3>
+    <div class="hall" id="verifiedbox"></div>
+  </div>
+
+  <div id="networkwrap">
+    <h3 class="rule" id="network" style="display:none">Sister foundries — the network</h3>
+    <div class="hall" id="networkbox"></div>
   </div>
 
   <div class="duo">
@@ -459,7 +459,7 @@ TEMPLATE = """<!DOCTYPE html>
 
   <footer>
     <span>window: rebuilt on every loop commit · heartbeat: data.json · <a href="feed.xml">atom feed</a> · <a href="embed.html">embed the ticker</a> · <a href="badge.json">badge endpoint</a></span>
-    <span>@@TITLE@@ — the workshop that works while you sleep · window v0.5</span>
+    <span>@@TITLE@@ — the workshop that works while you sleep · window v0.6</span>
     <span>generated <span id="stamp">@@STAMP@@</span> by tools/build.py</span>
   </footer>
 </div>
@@ -654,6 +654,41 @@ function renderVotes(){
     : '<p class="vnone">No open ideas yet — the pool is waiting for its first suggestion' +
       (suggest ? ' (<a href="' + suggest + '">make one, free</a>)' : '') + '.</p>';
 }
+/* the front desk (v10 #3) — the night-clerk's matching, for visitors who
+   haven't installed anything yet. Same generated data, same honesty rules:
+   published plugins only, nothing invented, honest empty answer. */
+function renderClerk(){
+  const box = document.getElementById('clerkout');
+  const raw = (document.getElementById('clerkq').value || '').toLowerCase().trim();
+  const terms = raw.split(/[^a-z0-9]+/).filter(t => t.length > 2);
+  if (!terms.length){ box.innerHTML = ''; return; }
+  const score = hay => terms.reduce((s, t) => s + (hay.includes(t) ? 1 : 0), 0);
+  const hits = DATA.records
+    .filter(e => e.stage === 'published' && e.kind === 'plugin')
+    .map(e => [score((e.name + ' ' + e.title + ' ' + e.one_liner + ' ' + (e.tags || []).join(' ')).toLowerCase()), e])
+    .filter(([s]) => s > 0)
+    .sort((a, b) => b[0] - a[0])
+    .slice(0, 3);
+  const kitHit = (DATA.kits || [])
+    .map(k => [score((k.name + ' ' + k.desc).toLowerCase()), k])
+    .filter(([s, k]) => s > 0 && k.members.some(m => m.published))
+    .sort((a, b) => b[0] - a[0])[0];
+  if (!hits.length && !kitHit){
+    const idea = DATA.repo ? ' — <a href="https://github.com/' + DATA.repo + '/issues/new?template=idea.yml">suggest it as an idea, free</a>' : '';
+    box.innerHTML = '<p class="vnone">Nothing on the shelf fits that yet' + idea + '. The clerk never invents a plugin.</p>';
+    return;
+  }
+  let out = hits.map(([s, e]) =>
+    '<div class="kit"><h4>' + esc(e.title) + '</h4><p>' + esc(e.one_liner) + '</p>' +
+    '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div></div>').join('');
+  if (kitHit){
+    const k = kitHit[1];
+    const block = k.members.filter(m => m.published).map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
+    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div></div>';
+  }
+  out += '<p class="vnone">Matched against the same generated catalog the night-clerk plugin bundles — click a block to copy.</p>';
+  box.innerHTML = out;
+}
 function renderKits(){
   const box = document.getElementById('kitbox');
   const kits = DATA.kits || [];
@@ -666,6 +701,36 @@ function renderKits(){
       (pending.length ? '<p class="pending">+ ' + pending.map(m => esc(m.title) + ' (' + esc(m.stage) + ')').join(', ') + ' — finishing on the line</p>' : '') +
       '</div>';
   }).join('') : '<p class="vnone">Kits open once the maintainer curates the first bundle.</p>';
+}
+/* verified externals (v10 #13) — hall law: renders nothing until it has a
+   first name; every entry is substantiated by a public Actions run link. */
+function renderVerified(){
+  const V = DATA.verified || [];
+  const head = document.getElementById('verified');
+  const box = document.getElementById('verifiedbox');
+  if (!V.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
+  head.style.display = 'block'; box.style.display = 'block';
+  box.innerHTML = V.map(v =>
+    '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
+    (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('') +
+    '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee</p>';
+}
+/* sister foundries (v10 #14, foundry-network spec) — names + links only, never
+   remote content; renders nothing while the network is empty. */
+function renderNetwork(){
+  // defense-in-depth beyond the maintainer's verification duty: declared
+  // links render only when https — a hostile scheme never becomes an anchor.
+  const N = (DATA.network || []).filter(n => (n.url || '').startsWith('https://'));
+  const head = document.getElementById('network');
+  const box = document.getElementById('networkbox');
+  if (!N.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
+  head.style.display = 'block'; box.style.display = 'block';
+  box.innerHTML = N.map(n =>
+    '<div class="hrow"><b>' + esc(n.name) + '</b><em>registered ' + esc(n.registered) +
+    (n.note ? ' · ' + esc(n.note) : '') + '</em>' +
+    ' <a href="' + esc(n.url) + '">repo →</a>' +
+    ((n.pages || '').startsWith('https://') ? ' <a href="' + esc(n.pages) + '">window →</a>' : '') + '</div>').join('') +
+    '<p class="vnone">by their own declaration, URL verified by a maintainer shift — links out only</p>';
 }
 function renderHall(){
   const H = DATA.hall || {prospectors: [], patrons: [], breakers: []};
@@ -691,7 +756,7 @@ function ago(iso){
 }
 function renderAll(){
   renderGrid(); renderTape(); renderTheme(); renderLanes(); renderStats();
-  renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall();
+  renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall(); renderVerified(); renderNetwork();
   // copy-to-clipboard (ADR-016 #6): click any install block to copy it whole.
   // Degrades silently without a secure context — user-select:all still works.
   document.addEventListener('click', ev => {
@@ -709,6 +774,7 @@ function renderAll(){
     { const s=b.dataset.stage; const n=DATA.counts[s]; if(n!==undefined) b.querySelector('.n').textContent = n; }
 }
 q.addEventListener('input', renderGrid);
+document.getElementById('clerkq').addEventListener('input', renderClerk);
 for (const btn of document.querySelectorAll('.lanebtn')){
   btn.addEventListener('click', () => {
     const s = btn.dataset.stage;
@@ -887,6 +953,14 @@ def build_pages(records, mp_name, cfg, reports):
             o = ' open' if title in ('Test log','Review log','Verdict','Kill memo','Recipes') else ''
             return f"<details{o}><summary>{html.escape(title)}</summary><pre>{html.escape(text)}</pre></details>"
         sections = "".join(sec(t_, x_) for t_, x_ in extract_sections(r.get("_body", "")))
+        # v10 #4: the certificate carries the shipped README verbatim — a visitor
+        # can read what the plugin does without leaving for the file tree.
+        readme_path = ROOT / "plugins" / name / "README.md"
+        if r.get("kind", "plugin") == "plugin" and readme_path.exists():
+            sections = (
+                "<details open><summary>README — exactly what installers receive</summary>"
+                f"<pre>{html.escape(readme_path.read_text())}</pre></details>"
+            ) + sections
         meta_bits = [r.get("kind", "plugin"), r.get("category", "?"),
                      f"v{r['version']}" if r.get("version") not in (None, "null", "") else "unversioned",
                      f"created {r.get('created', '?')}", f"updated {r.get('updated', '?')}"]
@@ -987,6 +1061,14 @@ def build_saga(records, state, cfg):
         for a in reversed(adrs))
     wall_html = "".join(
         f"<li><b>{html.escape(t)}</b> — {html.escape(q)}</li>" for t, q in sharpest)
+    # family tree (v10 #14, foundry-network spec): who forked whom, by their own
+    # declaration — names + links only, section absent while the network is empty
+    network = load_json(ROOT / "foundry" / "network.json", {}).get("network", [])
+    net_html = "".join(
+        f"<li><em>{html.escape(n.get('registered', '?'))}</em> · "
+        f"<b><a href=\"{html.escape(n.get('url', '#'))}\">{html.escape(n.get('name', '?'))}</a></b>"
+        f"{' — ' + html.escape(n['note']) if n.get('note') else ''}</li>"
+        for n in network)
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>the saga</title>
@@ -1007,6 +1089,7 @@ def build_saga(records, state, cfg):
 <p><a href="index.html">← back to the window</a></p>
 <h1>The saga — the workshop's own story</h1>
 <h2>Ships &amp; fates</h2><ul>{naming}{fate_html}</ul>
+{('<h2>Family tree — sister foundries, by their own declaration</h2><ul>' + net_html + '</ul>') if net_html else ''}
 {('<h2>Questions the line asked itself</h2><p class="wallnote">the hardest question each review recorded — argument, on the record</p><ul class="wall">' + wall_html + '</ul>') if wall_html else ''}
 <h2>Charter decisions (ADRs)</h2><ul>{adr_html}</ul>
 <footer>Derived entirely from state/DECISIONS.md and the records — no editorializing,
@@ -1231,6 +1314,8 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "fuel": fuel_state,
         "alarms": alarms,
         "hall": hall,
+        "verified": load_json(ROOT / "foundry" / "verified.json", {}).get("verified", []),
+        "network": load_json(ROOT / "foundry" / "network.json", {}).get("network", []),
         "streak": streak,
         "repo": cfg.get("repo") or None,
     }

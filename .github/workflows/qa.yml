@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Claude Code (enables official validate in tests)
-        run: npm install -g @anthropic-ai/claude-code
+        run: npm install -g "@anthropic-ai/claude-code@$(cat .claude-code-version)"
       - run: bash tools/qa.sh
 
   reverify:
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Claude Code (best effort — enables tested_with refresh)
         continue-on-error: true
-        run: npm install -g @anthropic-ai/claude-code
+        run: npm install -g "@anthropic-ai/claude-code@$(cat .claude-code-version)"
       - name: Re-run every suite and re-stamp freshness (metadata-only, ADR-013)
         id: restamp
         continue-on-error: true

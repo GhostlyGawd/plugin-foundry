@@ -28,6 +28,19 @@ test-gap-nudge: 2 source file(s) changed, no test files touched — src/auth.py,
 
 Docs and config changes (`.md`, `.json`, `.yml`, …) never trigger it.
 
+## Configuration
+
+`TEST_GAP_NUDGE_EXTS` — override which extensions count as "source"
+(pipe/comma/space-separated), e.g. in your shell profile:
+
+```
+export TEST_GAP_NUDGE_EXTS="py|rs|zig"
+```
+
+Anything outside `[A-Za-z0-9|]` is stripped before use, so a malformed value can
+never break the hook; an empty result falls back to the default list. Unset it
+to get the defaults back.
+
 ## The hook, honestly
 
 - **Advisory only.** Always exits 0; it cannot block Claude from stopping, ever.
@@ -44,3 +57,10 @@ Path conventions are heuristics. A repo that keeps tests beside sources with
 unusual names (e.g. `checks.py`) will get a false nudge; a change that edits a test
 file cosmetically counts as "tests touched." It's a nudge, not a gate — pair it
 with real CI for enforcement.
+
+## Debugging a silent hook
+
+The hook fails open by design, so "it never fires" has no visible error. Set
+`TEST_GAP_NUDGE_DEBUG=1` and it appends its decision trail (why it stayed
+silent, or why it nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Unset the
+variable and behavior is exactly as before — the log is the only difference.

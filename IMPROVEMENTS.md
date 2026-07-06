@@ -1,5 +1,9 @@
 # IMPROVEMENTS — Product Improvement Discovery (2026-07-06, post-v9 slate)
 
+> **Status: BUILT as the v10 slate** — 14/14, iterations i153–i178 under
+> ADR-018, audited in `reviews/audit-005.md`. Kept verbatim below as the
+> record of what was asked.
+
 Discovery-only audit. Every item cites repo evidence; nothing here is implemented.
 The previous slate (post-v8, i136/ADR-016) was built in full as v9 — 13/13 lawful
 per `reviews/audit-004.md` — and is preserved in git history. This slate is deduped

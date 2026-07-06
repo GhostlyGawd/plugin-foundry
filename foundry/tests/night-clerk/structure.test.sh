@@ -22,3 +22,9 @@ PY
 if command -v claude >/dev/null 2>&1; then
   claude plugin validate "./$P" --strict >/dev/null 2>&1 && echo "ok: official validate" || echo "fail: official validate"
 else echo "skip: official validate (CLI absent here; green in CI)"; fi
+
+# i154 (v10 #1): whats-new skill contract
+grep -q '^description: .*Use when' plugins/night-clerk/skills/whats-new/SKILL.md && echo "ok: whats-new invoke contract" || echo "fail: whats-new invoke contract"
+grep -q 'NEVER invent' plugins/night-clerk/skills/whats-new/SKILL.md && echo "ok: whats-new never-invent clause" || echo "fail: whats-new never-invent"
+grep -q 'claude plugin update' plugins/night-clerk/skills/whats-new/SKILL.md && echo "ok: whats-new gives real update lines" || echo "fail: whats-new update lines"
+grep -q 'snapshot date' plugins/night-clerk/skills/whats-new/SKILL.md && echo "ok: whats-new snapshot disclosure" || echo "fail: whats-new snapshot duty"

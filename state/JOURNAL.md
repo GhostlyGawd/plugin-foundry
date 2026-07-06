@@ -1126,3 +1126,350 @@ Entry template (copy exactly; newest at the bottom):
   the mode:pr CI hole; ADR alongside per the two-iteration rule.
 - notes: directed session riding a PR per ADR-017; role_queue untouched — the
   default cycle resumes at the next shift.
+
+## i153 — maintainer (directed) — 2026-07-06T20:37:00Z
+- did: ADR-018 filed — v10 slate opens; IMPROVEMENTS.md #1→#14 will be worked in
+  order as directed iterations riding a PR (ADR-017 lane). Two-iteration rule:
+  tools/template/workflow items apply from i154+.
+- line: n/a (ADR only)
+- files: state/DECISIONS.md, state/STATE.json, state/JOURNAL.md
+- validation: pass
+- next-suggestion: #1 — clerkcat.py version field + night-clerk whats-new (0.2.0).
+- notes: full autonomy granted by operator; the veto window is the PR itself.
+
+## i154 — builder (directed, v10 #1) — 2026-07-06T20:40:57Z
+- did: night-clerk 0.2.0 — new `whats-new` skill (installed versions via
+  `claude plugin list` vs shelf versions in the snapshot, exact
+  `claude plugin update` lines, snapshot disclosure, never-invent; CLI facts
+  verified against the official plugins reference); clerkcat.py now stamps each
+  catalog entry with its record's version; suite +6 checks (semver present,
+  catalog⇄record version drift, whats-new contract) — the drift check caught a
+  real mid-iteration drift before commit; always-on re-measured 86 → 129 tok est.
+- line: night-clerk stays published (version law: 0.2.0 + CHANGELOG + tag)
+- files: tools/clerkcat.py, plugins/night-clerk/{.claude-plugin/plugin.json,
+  CHANGELOG.md,README.md,skills/whats-new/SKILL.md,data/catalog.json},
+  foundry/records/night-clerk.md, foundry/tests/night-clerk/*
+- validation: pass (qa 17/17 incl. official validate; smoke green)
+- next-suggestion: v10 #2 — hook config knobs (test-gap-nudge + commit-craft).
+- notes: minor bump, not patch — a new skill is new surface.
+
+## i155 — builder (directed, v10 #2) — 2026-07-06T20:44:04Z
+- did: hook configurability convention — test-gap-nudge 0.2.0 gains
+  TEST_GAP_NUDGE_EXTS (source-extension override, sanitized to [A-Za-z0-9|]);
+  commit-craft 0.2.0 gains COMMIT_CRAFT_TYPES (type-list override, lowercase
+  tokens only — regex injection structurally impossible). Both fail open on
+  malformed values (empty → defaults); READMEs document the knobs; suites +7
+  checks incl. hostile-value and injection probes, all green (17/17, 7/7).
+- line: both stay published (version law: 0.2.0 ×2 + CHANGELOGs + tags)
+- files: plugins/{test-gap-nudge,commit-craft}/*, foundry/records/{test-gap-nudge,commit-craft}.md, foundry/tests/{test-gap-nudge/acceptance,commit-craft/hook}.test.sh
+- validation: pass (qa green, smoke green)
+- next-suggestion: v10 #3 — storefront picker (template change under ADR-018).
+- notes: knobs replace, not extend — one rule to document, one to test.
+
+## i156 — maintainer (directed) — 2026-07-06T20:44:55Z
+- did: night-clerk 0.2.1 — snapshot refresh after the v10 #2 hook bumps (catalog
+  now says 0.2.0 for commit-craft and test-gap-nudge). The i154 version-drift
+  check went red and forced this, exactly as designed; process note for future
+  iterations: regenerate the catalog LAST, after the record bump, or the check
+  trips on the clerk itself (bit me twice today).
+- line: night-clerk stays published (version law: 0.2.1 + CHANGELOG + tag)
+- files: plugins/night-clerk/{.claude-plugin/plugin.json,CHANGELOG.md,data/catalog.json}, foundry/records/night-clerk.md
+- validation: pass (qa 17/17)
+- next-suggestion: v10 #3 — storefront picker; and #10 should end with one
+  clerk refresh in the same style.
+- notes: any shelf version bump now implies a clerk patch — that's the price of
+  a front desk that never lies about versions. Worth it.
+
+## i157 — builder (directed, v10 #3) — 2026-07-06T20:48:29Z
+- did: the front desk on the window — a picker above the shelf ("say what you're
+  working on") that scores published plugins + kits against the query and answers
+  with ≤3 real install blocks, the night-clerk's honesty rules intact (published
+  only, honest empty answer + idea route, nothing invented, copy-to-clipboard
+  free via the existing delegate). Template change under ADR-018; window v0.6.
+  Verified in real Chromium: commit query → commit-craft, nonsense → honest
+  empty, workflow query surfaces a kit, zero page errors.
+- line: n/a (window feature)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (browser-verified; gates green)
+- next-suggestion: v10 #4 — READMEs on certificate pages.
+- notes: the picker is the clerk for people who haven't installed the clerk.
+
+## i158 — builder (directed, v10 #4) — 2026-07-06T20:49:08Z
+- did: certificate pages now open with the shipped README, verbatim and escaped
+  ("README — exactly what installers receive") for plugin-kind records with an
+  artifact on disk; feature certificates unaffected. The storefront is
+  self-contained at the install decision — no more leaving for the file tree.
+- line: n/a (window feature, ADR-018)
+- files: tools/build.py, site/p/* (regenerated)
+- validation: pass (assertions: present on 3 plugin pages, absent on feature page)
+- next-suggestion: v10 #5 — gates.yml.
+- notes: verbatim-in-pre over a hand-rolled markdown renderer: stdlib-only law,
+  and a README that must read well as plain text is a good constraint anyway.
+
+## i159 — builder (directed, v10 #5) — 2026-07-06T20:50:14Z
+- did: .github/workflows/gates.yml — validate.py + build.py now run on every PR
+  and non-main push (main already gets them via deploy-site.yml), plus a
+  generated-output sync check: rebuild, restore the three measured
+  timestamp-volatile files (data.json, index.html, feed.xml), fail on any other
+  site/ or INDEX.md diff. Both directions simulated locally: in-sync tree
+  passes, doctored queue.html fails.
+- line: n/a (workflow, ADR-018)
+- files: .github/workflows/gates.yml
+- validation: pass
+- next-suggestion: v10 #6 — the gate tests themselves.
+- notes: mode:pr shifts finally get checked before the human veto — the veto
+  window was reviewing unvalidated diffs until now.
+
+## i160 — qa (directed, v10 #6) — 2026-07-06T20:52:39Z
+- did: the gates get their own gate — foundry/tests/_tools/: fixture.py builds a
+  minimal VALID foundry (published plugin, record, artifact, suite, marketplace);
+  gates.test.sh proves baseline green then breaks one law per case and asserts
+  the exact error fires: missing section, bad semver, version drift, unlisted
+  publish, unknown hook event, banned .* matcher, unquoted plugin root,
+  unterminated front matter, lost exec bits (suite + shipped script), missing
+  review approval, orphan artifact — and build.py runs green on the fixture.
+  14/14; rides qa.sh like every other suite, so gates.yml runs it in CI when
+  tests change.
+- line: n/a (test infrastructure, ADR-018)
+- files: foundry/tests/_tools/{fixture.py,gates.test.sh}
+- validation: pass (full qa green)
+- next-suggestion: v10 #7 — qa.sh per-file exec-bit fail (validator covers the
+  zero-executables case; the one-lost-chmod case is qa.sh's to catch).
+- notes: the fixture pattern means future validator laws ship with a red/green
+  proof instead of a promise.
+
+## i161 — builder (directed, v10 #7) — 2026-07-06T20:53:43Z
+- did: qa.sh silent-skip fixed (audit-004 P3) — a *.test.sh that exists but lost
+  its exec bit is now an explicit FAIL with the chmod hint, at every stage; the
+  validator keeps owning the zero-executables case at rc+. Proven red (chmod -x
+  a real suite → harness fails) then green (179 ok / 0 fail).
+- line: n/a (tools, ADR-018)
+- files: tools/qa.sh
+- validation: pass
+- next-suggestion: v10 #8 — parse_front_matter dedup into tools/lib.py (the
+  _tools fixtures now guard the refactor).
+- notes: also updates BACKLOG — the P3 filed at i151 closes with this.
+
+## i162 — builder (directed, v10 #8) — 2026-07-06T20:55:54Z
+- did: one parser, one truth — parse_front_matter extracted to tools/lib.py
+  (strict mode with error reporting for validate.py; lenient for build.py and
+  clerkcat.py, whose hand-rolled regex variant is gone too). Gate fixtures
+  guarded the refactor: 179/179 green, clerkcat output byte-identical so no
+  night-clerk bump owed.
+- line: n/a (tools, ADR-018)
+- files: tools/{lib.py,validate.py,build.py,clerkcat.py}
+- validation: pass (full qa green; catalog diff empty)
+- next-suggestion: v10 #9 — SECURITY.md.
+- notes: three parsers had already drifted (clerkcat parsed tags as a string);
+  the drift class is now extinct the same way the catalog one was.
+
+## i163 — maintainer (directed, v10 #9) — 2026-07-06T20:56:39Z
+- did: root SECURITY.md — GitHub-recognized policy: private vulnerability
+  reporting path (Security → advisories), public bug lane for non-exploitable
+  defects with the LOOP.md priority promise, supported-versions statement
+  (latest published only, updates ride semver), and the hook-safety law
+  restated as user-facing commitments (fail-open, no network, narrow matchers,
+  zero secrets) with the commit-craft guard exception disclosed honestly.
+- line: n/a (docs/policy)
+- files: SECURITY.md
+- validation: pass
+- next-suggestion: v10 #10 — hook debug mode (ends with a clerk catalog refresh).
+- notes: charter/SECURITY.md stays the internal law; root SECURITY.md is its
+  public face — same posture, different audience.
+
+## i164 — builder (directed, v10 #10) — 2026-07-06T20:58:38Z
+- did: opt-in debug trails for both fail-open hooks — test-gap-nudge 0.3.0
+  (TEST_GAP_NUDGE_DEBUG=1 → why-silent/why-nudged log in TMPDIR) and
+  commit-craft 0.3.0 (COMMIT_CRAFT_DEBUG=1 → pass reason or BLOCK + enforced
+  list). Debug-off proven byte-identical (no log file, same output, same exit
+  codes) by new suite checks; 19/19 and 9/9 green, smoke green.
+- line: both stay published (version law: 0.3.0 ×2 + CHANGELOGs + tags)
+- files: plugins/{test-gap-nudge,commit-craft}/*, records ×2, suites ×2
+- validation: pass
+- next-suggestion: clerk catalog refresh (i156 style), then v10 #11.
+- notes: "fails silently by design" now has a diagnosable mode — the organic-bug
+  lane Gate B waits on needs users who can SEE what a hook decided.
+
+## i165 — maintainer (directed) — 2026-07-06T20:58:59Z
+- did: night-clerk 0.2.2 — catalog refresh after the v10 #10 hook bumps
+  (0.3.0 ×2 on the shelf). Regenerated after the record bump this time; drift
+  check green on the first run.
+- line: night-clerk stays published (version law: 0.2.2 + CHANGELOG + tag)
+- files: plugins/night-clerk/{.claude-plugin/plugin.json,CHANGELOG.md,data/catalog.json}, foundry/records/night-clerk.md
+- validation: pass (qa 17/17)
+- next-suggestion: v10 #11 — pin the CI toolchain.
+- notes: n/a
+
+## i166 — builder (directed, v10 #11) — 2026-07-06T21:00:00Z
+- did: CI toolchain pinned — .claude-code-version (2.1.201, the exact CLI every
+  suite and smoke ran green against today) is now the single source; qa.yml
+  (both jobs), record-demos.yml, and run-shift.yml install
+  @anthropic-ai/claude-code@$(cat .claude-code-version) instead of floating
+  latest. Bumps are now a deliberate one-line diff that CI re-verifies.
+- line: n/a (workflows, ADR-018)
+- files: .claude-code-version, .github/workflows/{qa,record-demos,run-shift}.yml
+- validation: pass
+- next-suggestion: v10 #12 — release assets.
+- notes: a weekly re-verify that floats its own harness wasn't re-verifying —
+  tested_with stamps now mean one thing.
+
+## i167 — builder (directed, v10 #12) — 2026-07-06T21:01:13Z
+- did: releases now carry the artifact — release-on-tag.yml zips plugins/<name>/
+  exactly as installers receive it and attaches it plus the plugin's
+  marketplace.json entry to every release; refuses to attach a ghost entry if
+  the name isn't on the shelf. Steps simulated locally against
+  night-clerk-v0.2.2 (zip 12 files, entry extracted); run block extracted from
+  the YAML and bash -n clean.
+- line: n/a (workflow, ADR-018; extends the releases-and-reverify feature)
+- files: .github/workflows/release-on-tag.yml
+- validation: pass
+- next-suggestion: v10 #13 — verified-by-foundry enters the line as an idea.
+- notes: rollback is now "download the zip from the last good release".
+
+## i168 — ideator (directed, v10 #13) — 2026-07-06T21:04:12Z
+- did: verified-by-foundry pitched — the verification machinery pointed outward:
+  standalone doctor + composite Action any plugin repo can run in CI + a
+  registry/hall that renders nothing until it has a first name. Deduped against
+  records (plugin-smith's doctor skill is interactive and inward; this is CI
+  and outward).
+- line: verified-by-foundry → idea (record created)
+- files: foundry/records/verified-by-foundry.md
+- validation: pass
+- next-suggestion: builder specs it (verbatim acceptance checks; Experiment).
+- notes: the moat is the law book, not the badge.
+
+## i169 — builder (directed, v10 #13) — 2026-07-06T21:04:39Z
+- did: verified-by-foundry specced — doctor.py contract (standalone, one-plugin,
+  law tables imported from validate.py so there is exactly one law book),
+  composite-action interface, registry schema with the substantiated-numbers
+  law (no public run link, no entry), and the renders-nothing-empty window
+  section. Four executable acceptance checks.
+- line: verified-by-foundry idea → spec
+- files: foundry/records/verified-by-foundry.md
+- validation: pass
+- next-suggestion: builder builds (doctor.py + action + registry + window).
+- notes: registry entries are maintainer-curated from public run links — the
+  badge can't be self-awarded by a stranger's fork.
+
+## i170 — builder (directed, v10 #13) — 2026-07-06T21:06:32Z
+- did: verified-by-foundry built — doctor.py (8/8 shelf OK; hostile fixture:
+  every law named), composite action, empty registry with the
+  no-run-link-no-entry law inline, window section (renders nothing empty),
+  README paste-block for third-party repos.
+- line: verified-by-foundry spec → building (build complete in one pass)
+- files: tools/doctor.py, .github/actions/foundry-doctor/action.yml,
+  foundry/verified.json, tools/build.py, README.md, record, site/*
+- validation: pass
+- next-suggestion: qa runs the acceptance checks as an executable suite → rc.
+- notes: doctor imports validate's tables — the law book stays singular.
+
+## i171 — qa (directed, v10 #13) — 2026-07-06T21:07:19Z
+- did: verified-by-foundry QA — acceptance checks 1–4 executable
+  (foundry/tests/verified-by-foundry/, 12 checks green), adversarial probes on
+  the doctor (no-manifest dir) and the action path. TEST VERDICT: pass.
+- line: verified-by-foundry building → rc
+- files: foundry/tests/verified-by-foundry/checks.test.sh, record
+- validation: pass (qa 12/12)
+- next-suggestion: reviewer for the publish gate.
+- notes: check2 asserts each law is NAMED, not just that the doctor fails —
+  a doctor that says "something's wrong" without saying what is no doctor.
+
+## i172 — reviewer (directed, v10 #13) — 2026-07-06T21:08:28Z
+- did: verified-by-foundry reviewed — approved with one required fix, applied
+  and verified in-pass: honest-limits copy on every trust surface (README,
+  window footer, action description) so "verified" cannot be read as "safe".
+  Structure-not-intent is now stated wherever the badge appears.
+- line: verified-by-foundry stays rc (review gate cleared; publish next)
+- files: foundry/records/verified-by-foundry.md, README.md, tools/build.py,
+  .github/actions/foundry-doctor/action.yml, site/*
+- validation: pass (suite 12/12 after edits)
+- next-suggestion: maintainer publishes.
+- notes: a trust product that oversells is worse than none — the fix was the
+  review's whole value.
+
+## i173 — maintainer (directed, v10 #13) — 2026-07-06T21:08:47Z
+- did: verified-by-foundry published. The foundry's machinery points outward
+  for the first time: any plugin repo can run the doctor in CI with one
+  paste-block; a public green run + issue earns a dated, run-linked listing.
+- line: verified-by-foundry rc → published (v10 #13 complete: idea→published
+  in five lawful stages, i168–i173)
+- files: foundry/records/verified-by-foundry.md, site/*
+- validation: pass
+- next-suggestion: v10 #14 — foundry-network spec → building.
+- notes: first registry entry will be the experiment's first data point.
+
+## i174 — builder (directed, v10 #14) — 2026-07-06T21:10:41Z
+- did: foundry-network built to its own spec — registration template, window
+  strip, saga family tree (all hall-law: nothing renders while empty),
+  CONTRIBUTING Lane 4 with verification duty. Deliberately did NOT build the
+  interop feed from IMPROVEMENTS #14 — the record's spec says names + links
+  only, and the spec is the law; richer exchange stays parked in
+  cross-foundry-exchange behind this record's verdict.
+- line: foundry-network spec → building (build complete in one pass)
+- files: .github/ISSUE_TEMPLATE/sister-foundry.yml, tools/build.py,
+  CONTRIBUTING.md, foundry/records/foundry-network.md, site/*
+- validation: pass (fixture-verified both empty and populated)
+- next-suggestion: qa suite → rc.
+- notes: n/a
+
+## i175 — qa (directed, v10 #14) — 2026-07-06T21:11:27Z
+- did: foundry-network QA — acceptance checks 1–3 executable, 6/6 green;
+  adversarial probes on empty-pages entries and note escaping. TEST VERDICT:
+  pass.
+- line: foundry-network building → rc
+- files: foundry/tests/foundry-network/checks.test.sh, record
+- validation: pass
+- next-suggestion: reviewer, then publish.
+- notes: check3 greps the renderer for fetch/iframe — the "no remote content"
+  law is now machine-checked, not just promised.
+
+## i176 — reviewer (directed, v10 #14) — 2026-07-06T21:12:12Z
+- did: foundry-network reviewed — approved with two required fixes applied
+  in-pass: Lane 4 no longer implies the loop merges external PRs (charter
+  conflict), and the renderer enforces https:// on declared links
+  (defense-in-depth under the verification duty).
+- line: foundry-network stays rc (review gate cleared)
+- files: record, CONTRIBUTING.md, tools/build.py, site/*
+- validation: fixed-then-pass — the Lane 4 rewrite pushed 'foundry/records/'
+  past check2c's grep -A6 window; widened to -A10, suite 6/6. Caught because
+  the suite reran post-commit; amended in the same iteration.
+- next-suggestion: maintainer publishes; then cross-foundry-exchange gets its
+  spec now that the network's verdict machinery exists.
+- notes: the charter catch is exactly why reviews exist — the builder wrote
+  the PR path from the record's spec, which predates the co-op lane law.
+
+## i177 — maintainer (directed, v10 #14) — 2026-07-06T21:13:09Z
+- did: foundry-network published — registration lane open end to end (template
+  → maintainer verification → entry → strip + family tree). The workshop can
+  now grow a family the moment fork-a-foundry produces one.
+- line: foundry-network rc → published
+- files: foundry/records/foundry-network.md, site/*
+- validation: pass
+- next-suggestion: cross-foundry-exchange idea → spec (parked behind this
+  record's verdict — the verdict machinery now exists).
+- notes: n/a
+
+## i178 — builder (directed, v10 #14) — 2026-07-06T21:13:33Z
+- did: cross-foundry-exchange specced — referrals only, label-gated, links
+  derived solely from network.json, provably inert while the network is empty.
+  Un-parked now that foundry-network published (its stated revival condition).
+- line: cross-foundry-exchange idea → spec
+- files: foundry/records/cross-foundry-exchange.md
+- validation: pass
+- next-suggestion: builds when the first sister registers — building it
+  earlier would be machinery for a family that doesn't exist yet.
+- notes: v10 #14 complete — foundry-network published, exchange specced.
+
+## i179 — auditor (directed) — 2026-07-06T21:14:28Z
+- did: audit-005 filed — v10 slate 14/14 lawful: 7 releases under version law
+  (tags local-only, operator push flagged), ADR-018 two-iteration rule held,
+  two records walked the full line with genuine review findings, two
+  self-caught incidents on the record (catalog ordering ×2; one committed-red
+  fixed-then-amended). qa 201/0/0, smoke 8/8, validate 39 records / 34
+  published. IMPROVEMENTS.md header marked BUILT.
+- line: audit-005 filed
+- files: reviews/audit-005.md, IMPROVEMENTS.md, state/{STATE.json,JOURNAL.md}
+- validation: pass
+- next-suggestion: operator merges PR #13, pushes tags, and spends the
+  preflight 15 minutes — Gate A is still the whole game.
+- notes: the tripwire stayed honest: both reviews drew blood.

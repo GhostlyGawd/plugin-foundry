@@ -20,3 +20,21 @@ bad = [k["id"] for k in cat.get("kits", [])
 print("ok: kit install lines are published-members-only" if not bad
       else f"fail: kit(s) with unpublished members: {bad}")
 PY
+
+# i154 (v10 #1): every catalog entry carries the shelf version, matching its record
+python3 - << 'PY'
+import json, re, pathlib
+cat = json.load(open("plugins/night-clerk/data/catalog.json"))
+bad = [p["name"] for p in cat["plugins"]
+       if not re.match(r"^\d+\.\d+\.\d+$", p.get("version", ""))]
+print("ok: every catalog entry has a semver version" if not bad
+      else f"fail: entries without a semver version: {bad}")
+drift = []
+for p in cat["plugins"]:
+    rec = pathlib.Path(f"foundry/records/{p['name']}.md").read_text()
+    m = re.search(r"^version: (.+)$", rec, re.M)
+    if not m or m.group(1).strip() != p.get("version"):
+        drift.append(p["name"])
+print("ok: catalog versions match the records" if not drift
+      else f"fail: catalog version drift vs records: {drift}")
+PY

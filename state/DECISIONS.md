@@ -277,3 +277,27 @@ Template:
   spec's own cron-shift data exists — no default flipped on proxy data.
 - Consequences: humans get a costless veto exactly where stakes are highest
   (large slates); the experiment's terms stay intact for the real trial.
+
+## ADR-018 — v10 slate: the post-v9 discovery report, in order (i153, directed)
+- Status: accepted (tools/, template, and workflow items apply from i154+ under
+  the two-iteration rule with this ADR as the prior-iteration record)
+- Context: operator merged the post-v9 discovery slate (IMPROVEMENTS.md, PR #12)
+  and directed: build everything, in order, autonomously. 14 items: shelf value
+  (update awareness, hook knobs, storefront picker, certificate READMEs), the
+  untested gates (PR CI, gate tests, qa.sh silent-skip, parser dedup),
+  productization (SECURITY.md, hook debug mode, CI pin, release assets), and two
+  line-riders (verified-by-foundry, foundry-network) that advance one stage per
+  iteration like everything else.
+- Decision: work IMPROVEMENTS.md #1→#14 as directed iterations riding a PR
+  (ADR-017 lane). This ADR authorizes the slate's tools/ and workflow work:
+  clerkcat.py version field (#1), build.py template changes (picker #3,
+  certificate READMEs #4, verified hall #13, network cross-list #14), new
+  .github/workflows/gates.yml (#5), foundry/tests/_tools/ gate suite (#6),
+  qa.sh rc+ silent-skip fail (#7), tools/lib.py extraction (#8), workflow pins
+  (#11), release assets (#12), and tools/doctor.py (#13). Version law applies
+  in full to every published-plugin change (patch/minor bumps + CHANGELOG +
+  tag). Roles are named per iteration in the journal; role_queue stays the
+  default cycle for future shifts (i152 precedent).
+- Consequences: installed users learn about updates; the gates that guard
+  everything gain their own guard; PRs stop merging unchecked; the machinery
+  points outward for the first time (verification and federation).

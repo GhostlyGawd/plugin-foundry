@@ -46,12 +46,41 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Night Clerk — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · v0.1.2 · created 2026-07-05 · updated 2026-07-06 · ~86 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · workflow · v0.2.2 · created 2026-07-05 · updated 2026-07-06 · ~129 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</p>
-  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~86 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall night-clerk — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~129 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall night-clerk — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>Discovery should live where the need occurs: the terminal. A bundled catalog
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Night Clerk
+
+The marketplace&#x27;s front desk, installed in your terminal. Two skills:
+
+- `clerk` — ask &quot;what plugin helps with X?&quot; and get up to three real
+  recommendations with exact install lines — from a bundled catalog snapshot,
+  never from imagination.
+- `whats-new` — ask &quot;are my plugins up to date?&quot; and the clerk compares what
+  `claude plugin list` reports against the shelf versions in the snapshot,
+  handing you `claude plugin update &lt;name&gt;` lines for anything behind.
+
+## Install
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install night-clerk@foundry
+```
+
+## Recipes
+- &quot;what plugin helps with commit messages?&quot; → commit-craft, with the install line
+- &quot;browse the foundry&quot; → the shelf, three at a time, snapshot date stated
+- &quot;find me a plugin for handoffs&quot; → session-recap, or an honest &quot;nothing fits yet&quot; + the idea route
+- &quot;are my foundry plugins up to date?&quot; → installed vs shelf versions, update lines included
+
+## Honest disclosures
+The catalog is a **snapshot** (date stated in every answer), regenerated and
+shipped with each clerk release; `/plugin marketplace update` pulls the freshest.
+The clerk cannot install anything itself and will never invent a plugin.
+
+See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>Discovery should live where the need occurs: the terminal. A bundled catalog
 snapshot makes the marketplace self-recommending, offline, with zero invention.</pre></details><details><summary>Spec</summary><pre>- One skill, clerk, description (verbatim): &quot;Search the Nightshift Foundry
   catalog and recommend plugins for a task. Use when the user asks what plugin
   helps with X, browse the foundry, or find me a plugin.&quot;
@@ -78,7 +107,11 @@ snapshot makes the marketplace self-recommending, offline, with zero invention.<
   single-tag records
 TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- i60 (maintainer): v0.1.0 on the shelf; catalog regenerated post-publish so the
   clerk lists itself among 7; tag night-clerk-v0.1.0; experiment armed (install
-  proxy, review 2026-09-05).</pre></details><details open><summary>Review log</summary><pre>### Review — i59 (reviewer)
+  proxy, review 2026-09-05).
+- i154 (builder, v10 #1): v0.2.0 — `whats-new` skill (installed vs shelf via
+  `claude plugin list`, update lines, snapshot disclosure, never-invent);
+  catalog entries gain `version` (clerkcat.py, ADR-018); always-on re-measured
+  86 → 129 tok est; tag night-clerk-v0.2.0.</pre></details><details open><summary>Review log</summary><pre>### Review — i59 (reviewer)
 - A marketplace that recommends itself could so easily lie; this one structurally
   can&#x27;t — the skill may only speak from a generated, published-only catalog, and
   the suite proves the subset relation every run.
@@ -88,7 +121,13 @@ TEST VERDICT: pass</pre></details><details><summary>Publish log</summary><pre>- 
   self-recommendation a conflict? No: it competes on the same one_liner as
   everyone else, and &quot;the front desk recommends the front desk&quot; only fires when
   the user literally asks for discovery help.
-REVIEW: approved</pre></details></div>
+REVIEW: approved
+- i156 (maintainer): v0.2.1 — snapshot refresh after the v10 #2 hook bumps;
+  the i154 version-drift check forced this, exactly as designed. Tag
+  night-clerk-v0.2.1.
+- i165 (maintainer): v0.2.2 — snapshot refresh after the v10 #10 hook bumps
+  (regenerated last this time; the i156 ordering note holds). Tag
+  night-clerk-v0.2.2.</pre></details></div>
   <p class="links">install: <code>/plugin install night-clerk@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/night-clerk.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/night-clerk.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/night-clerk">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

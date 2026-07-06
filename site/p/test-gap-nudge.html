@@ -46,12 +46,78 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Test-Gap Nudge — birth certificate</h1></header>
-  <p class="meta">plugin · quality · v0.1.1 · created 2026-07-06 · updated 2026-07-06 · ~33 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · quality · v0.3.0 · created 2026-07-06 · updated 2026-07-06 · ~33 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>A polite Stop-hook that notices source changes with no matching test changes and says so once.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>Stop · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~33 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall test-gap-nudge — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** at session stop, if the working tree has modified source files but no
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Test-Gap Nudge
+
+A Stop hook that notices when your session changed source files but never touched a
+test, and says so — once, politely, with the file names. It never blocks anything.
+
+## Install
+
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install test-gap-nudge@foundry
+```
+
+## What it does
+
+When Claude finishes responding, the hook runs `git status --porcelain` and
+classifies changed paths:
+
+- **tests**: anything under `test/`, `tests/`, `spec/`, `__tests__/`, or named
+  `test_*`, `*_test.*`, `*.test.*`, `*.spec.*`
+- **source**: other changed files with common code extensions (`.py .js .ts .go
+  .rb .rs .java .c .sh …`)
+
+If source moved and tests didn&#x27;t, you get one line:
+
+```
+test-gap-nudge: 2 source file(s) changed, no test files touched — src/auth.py, src/db.py
+```
+
+Docs and config changes (`.md`, `.json`, `.yml`, …) never trigger it.
+
+## Configuration
+
+`TEST_GAP_NUDGE_EXTS` — override which extensions count as &quot;source&quot;
+(pipe/comma/space-separated), e.g. in your shell profile:
+
+```
+export TEST_GAP_NUDGE_EXTS=&quot;py|rs|zig&quot;
+```
+
+Anything outside `[A-Za-z0-9|]` is stripped before use, so a malformed value can
+never break the hook; an empty result falls back to the default list. Unset it
+to get the defaults back.
+
+## The hook, honestly
+
+- **Advisory only.** Always exits 0; it cannot block Claude from stopping, ever.
+- **Once per session.** A marker file in your temp dir keyed by session id keeps it
+  from nagging; delete the marker (or start a new session) to re-arm.
+- **Read-only** on your repo. Its only write is that temp marker.
+- **No network. No jq. Fails open** — no git, not a repo, weird input: it stays
+  silent and exits 0.
+- Remove the plugin and the hook is gone.
+
+## Limits, honestly
+
+Path conventions are heuristics. A repo that keeps tests beside sources with
+unusual names (e.g. `checks.py`) will get a false nudge; a change that edits a test
+file cosmetically counts as &quot;tests touched.&quot; It&#x27;s a nudge, not a gate — pair it
+with real CI for enforcement.
+
+## Debugging a silent hook
+
+The hook fails open by design, so &quot;it never fires&quot; has no visible error. Set
+`TEST_GAP_NUDGE_DEBUG=1` and it appends its decision trail (why it stayed
+silent, or why it nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Unset the
+variable and behavior is exactly as before — the log is the only difference.
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** at session stop, if the working tree has modified source files but no
   modified test files, say so — once, briefly, with the file list.
 - **User:** any developer using Claude Code in a repo with a test suite; teams that
   keep &quot;add tests&quot; rules in CLAUDE.md and watch them get ignored.
@@ -162,7 +228,13 @@ REVIEW: approved — core case covered, both directions pinned.
 Marketplace entry live (source ./plugins/test-gap-nudge), v0.1.0, CHANGELOG dated
 2026-07-06, tag test-gap-nudge-v0.1.0. Install:
 `/plugin install test-gap-nudge@foundry`. First everyday-utility ship of the v8
-slate — bounced once on the core case, fixed, both directions pinned.</pre></details></div>
+slate — bounced once on the core case, fixed, both directions pinned.</pre></details><details><summary>Maintenance log</summary><pre>- i155 (builder, v10 #2): v0.2.0 — `TEST_GAP_NUDGE_EXTS` overrides the source
+  extension list; value sanitized to `[A-Za-z0-9|]` (regex can&#x27;t be broken or
+  injected), empty → default. Fail-open contract unchanged; suite +3 checks
+  (override respected, hostile value stripped, default regression). Tag
+  test-gap-nudge-v0.2.0.
+- i164 (builder, v10 #10): v0.3.0 — TEST_GAP_NUDGE_DEBUG=1 decision-trail log
+  in TMPDIR; debug-off byte-identical (suite-proven). Tag test-gap-nudge-v0.3.0.</pre></details></div>
   <p class="links">install: <code>/plugin install test-gap-nudge@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/test-gap-nudge.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/test-gap-nudge.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/test-gap-nudge">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

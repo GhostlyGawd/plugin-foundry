@@ -46,14 +46,31 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Cross-Foundry Exchange — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-06</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
   <p>Sister foundries pass ideas (and someday commissions) to whichever workshop fits best — a federation of night shifts.</p>
   
   
   <div class="cert"><details><summary>Pitch</summary><pre>Once the network page exists, the next primitive is a hand-off: an idea issue
 labeled `exchange:&lt;sister&gt;` gets a courteous referral comment linking their
-intake. Parked behind foundry-network&#x27;s verdict.</pre></details></div>
+intake. Parked behind foundry-network&#x27;s verdict.</pre></details><details><summary>Spec</summary><pre>- Scope (deliberately small): REFERRALS ONLY. An idea issue labeled
+  `exchange:&lt;sister&gt;` (sister = a name present in foundry/network.json) gets a
+  single courteous comment: &quot;this fits &lt;sister&gt;&#x27;s line better — their intake:
+  &lt;url from network.json&gt;/issues/new?template=idea.yml&quot; — and stays open here
+  unless the author closes it. No automation moves content between repos.
+- The maintainer applies the label during intake triage, only when a registered
+  sister&#x27;s declared focus (its network.json note) clearly fits better.
+- Nothing fires while network.json is empty; no sister, no exchange.
+
+### Acceptance checks
+1. Referral comment template documented; links derive ONLY from network.json
+   entries (never free-typed URLs).
+2. No workflow or tool auto-closes or auto-moves an exchanged issue.
+3. With an empty network, the exchange path is provably inert.</pre></details><details><summary>Experiment</summary><pre>- **Hypothesis:** referrals make sisters reciprocate — ≥1 inbound referral
+  within 60 days of the first outbound one.
+- **Metric:** issues labeled exchange:* here; inbound referral mentions.
+- **Baseline:** 0 (no sisters registered yet).
+- **Review-after:** 2026-11-06.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/cross-foundry-exchange.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/cross-foundry-exchange.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

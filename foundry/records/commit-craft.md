@@ -3,7 +3,7 @@ name: commit-craft
 title: Commit Craft
 category: workflow
 stage: published
-version: 0.1.1
+version: 0.3.0
 always_on_tokens: 88
 verified: 2026-07-06
 components: [skills, hooks]
@@ -102,3 +102,12 @@ commit> committed. (try `git commit -m "wip"` yourself — the guard will explai
 - Sharpest question: can the hook block anything but a malformed `git commit -m`?
   No — traced all four exits.
 REVIEW: approved
+
+## Maintenance log
+- i155 (builder, v10 #2): v0.2.0 — `COMMIT_CRAFT_TYPES` replaces the guard's
+  allowed type list; tokens restricted to lowercase letters (regex injection
+  structurally impossible), empty/malformed → default. Fail-open unchanged;
+  block message names the enforced list; suite +3 checks (override allows,
+  injection dropped, default regression). Tag commit-craft-v0.2.0.
+- i164 (builder, v10 #10): v0.3.0 — COMMIT_CRAFT_DEBUG=1 decision-trail log in
+  TMPDIR; debug-off byte-identical (suite-proven). Tag commit-craft-v0.3.0.

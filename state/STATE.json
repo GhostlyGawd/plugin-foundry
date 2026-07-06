@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 152,
+  "iteration": 179,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -22,6 +22,6 @@
     "reviewer",
     "auditor"
   ],
-  "notes": "Phase grow as of audit-001 (i34). Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v9 (audit-004): operator's 15 minutes (preflight \u00a70) is the only gate left",
+  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v10 (audit-005): slate 14/14 built; operator's 15 minutes (preflight \u00a70) still the only gate left; tags await operator push",
   "theme": null
 }

@@ -1,0 +1,33 @@
+# The gates on every PR (ADR-018, v10 #5): validate.py + build.py used to run in
+# CI only on push to main (deploy-site.yml), so a PR touching foundry/records/,
+# state/, or tools/ merged with zero checks — including mode:pr shift PRs, the
+# human-veto lane. This closes that hole, and proves generated output (site/,
+# INDEX.md) was committed in sync with its inputs.
+name: Gates
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]   # main pushes already run the gates in deploy-site.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate (sync laws + structural checks)
+        run: python3 tools/validate.py
+      - name: Build (regenerates site/ + INDEX.md)
+        run: python3 tools/build.py
+      - name: Generated output committed in sync
+        run: |
+          # build.py stamps a timestamp into exactly these three on every run
+          # (measured: data.json generated_at, index.html stamp, feed.xml
+          # updated); that churn is not drift. Fail on anything else.
+          git checkout -- site/data.json site/index.html site/feed.xml
+          git diff --exit-code -- site/ foundry/INDEX.md \
+            || { echo "::error::site/ or INDEX.md is out of sync — run python3 tools/build.py and commit the result"; exit 1; }

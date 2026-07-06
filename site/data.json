@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-07-06T20:30:59.917382+00:00",
- "iteration": 152,
+ "generated_at": "2026-07-06T21:14:36.089352+00:00",
+ "iteration": 179,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 3,
+  "idea": 2,
   "spec": 3,
   "building": 0,
   "rc": 0,
-  "published": 32,
+  "published": 34,
   "deprecated": 0,
   "shelved": 0
  },
@@ -216,7 +216,7 @@
    "title": "Commit Craft",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.3.0",
    "components": [
     "skills",
     "hooks"
@@ -333,7 +333,7 @@
    "name": "cross-foundry-exchange",
    "title": "Cross-Foundry Exchange",
    "category": "growth",
-   "stage": "idea",
+   "stage": "spec",
    "version": null,
    "components": [
     "docs",
@@ -498,7 +498,7 @@
    "name": "foundry-network",
    "title": "The Foundry Network",
    "category": "growth",
-   "stage": "spec",
+   "stage": "published",
    "version": null,
    "components": [
     "site",
@@ -595,7 +595,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.2",
+   "version": "0.2.2",
    "components": [
     "skills"
    ],
@@ -607,7 +607,7 @@
    ],
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": "86",
+   "always_on_tokens": "129",
    "verified": "2026-07-06",
    "prospected_by": null,
    "suggested_in": null,
@@ -828,7 +828,7 @@
    "title": "Test-Gap Nudge",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.3.0",
    "components": [
     "hooks"
    ],
@@ -988,6 +988,31 @@
    "patron": null
   },
   {
+   "name": "verified-by-foundry",
+   "title": "Verified by the Foundry",
+   "category": "growth",
+   "stage": "published",
+   "version": null,
+   "components": [
+    "workflow",
+    "site",
+    "docs"
+   ],
+   "one_liner": "The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.",
+   "tags": [
+    "trust",
+    "ecosystem",
+    "verification"
+   ],
+   "commission": null,
+   "kind": "feature",
+   "always_on_tokens": null,
+   "verified": null,
+   "prospected_by": null,
+   "suggested_in": null,
+   "patron": null
+  },
+  {
    "name": "weekly-shipnote",
    "title": "Weekly Shipnote",
    "category": "growth",
@@ -1093,21 +1118,20 @@
     "patron": null
    },
    {
-    "name": "foundry-network",
-    "title": "The Foundry Network",
+    "name": "cross-foundry-exchange",
+    "title": "Cross-Foundry Exchange",
     "category": "growth",
     "stage": "spec",
     "version": null,
     "components": [
-     "site",
      "docs",
-     "template"
+     "workflow"
     ],
-    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
+    "one_liner": "Sister foundries pass ideas (and someday commissions) to whichever workshop fits best \u2014 a federation of night shifts.",
     "tags": [
      "network",
-     "forks",
-     "federation"
+     "federation",
+     "moonshot"
     ],
     "commission": null,
     "kind": "feature",
@@ -1142,30 +1166,6 @@
    }
   ],
   "ideas": [
-   {
-    "name": "cross-foundry-exchange",
-    "title": "Cross-Foundry Exchange",
-    "category": "growth",
-    "stage": "idea",
-    "version": null,
-    "components": [
-     "docs",
-     "workflow"
-    ],
-    "one_liner": "Sister foundries pass ideas (and someday commissions) to whichever workshop fits best \u2014 a federation of night shifts.",
-    "tags": [
-     "network",
-     "federation",
-     "moonshot"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
    {
     "name": "dep-bump-brief",
     "title": "Dep-Bump Brief",
@@ -1245,7 +1245,7 @@
     "title": "Commit Craft",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.3.0",
     "components": [
      "skills",
      "hooks"
@@ -1382,6 +1382,31 @@
     "patron": null
    },
    {
+    "name": "foundry-network",
+    "title": "The Foundry Network",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "site",
+     "docs",
+     "template"
+    ],
+    "one_liner": "Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.",
+    "tags": [
+     "network",
+     "forks",
+     "federation"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "fuel-gauge",
     "title": "The Fuel Gauge",
     "category": "growth",
@@ -1434,7 +1459,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.2",
+    "version": "0.2.2",
     "components": [
      "skills"
     ],
@@ -1446,7 +1471,7 @@
     ],
     "commission": null,
     "kind": "plugin",
-    "always_on_tokens": "86",
+    "always_on_tokens": "129",
     "verified": "2026-07-06",
     "prospected_by": null,
     "suggested_in": null,
@@ -1598,7 +1623,7 @@
     "title": "Test-Gap Nudge",
     "category": "quality",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.3.0",
     "components": [
      "hooks"
     ],
@@ -1636,6 +1661,31 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "verified-by-foundry",
+    "title": "Verified by the Foundry",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "workflow",
+     "site",
+     "docs"
+    ],
+    "one_liner": "The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.",
+    "tags": [
+     "trust",
+     "ecosystem",
+     "verification"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2048,6 +2098,8 @@
   "patrons": [],
   "breakers": []
  },
+ "verified": [],
+ "network": [],
  "streak": [
   {
    "d": "2026-04-14",

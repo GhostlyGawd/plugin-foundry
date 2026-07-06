@@ -1,5 +1,16 @@
 # Changelog — test-gap-nudge
 
+## 0.3.0 — 2026-07-06
+- debug: `TEST_GAP_NUDGE_DEBUG=1` appends the decision trail (why silent / why
+  nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Off by default; with it unset,
+  behavior is byte-identical — proven by suite checks.
+
+## 0.2.0 — 2026-07-06
+- config: `TEST_GAP_NUDGE_EXTS` overrides the source-extension list
+  (pipe/comma/space-separated). Sanitized to `[A-Za-z0-9|]` so a malformed
+  value can never break the hook; empty → default list. The hook stays a guest:
+  fail-open behavior is unchanged and covered by new suite checks.
+
 ## 0.1.1 — 2026-07-06
 - docs: README install line bakes the real marketplace slug
   (`GhostlyGawd/plugin-foundry`) instead of a placeholder — works as pasted.

@@ -42,29 +42,7 @@ HOOK_EVENTS = {
 HOOK_TYPES = {"command", "http", "mcp_tool", "prompt", "agent"}
 
 
-def parse_front_matter(text, errors, label):
-    if not text.startswith("---"):
-        errors.append(f"{label}: missing front matter")
-        return {}, text
-    parts = text.split("---", 2)
-    if len(parts) < 3:
-        errors.append(f"{label}: unterminated front matter")
-        return {}, text
-    meta = {}
-    for line in parts[1].strip().splitlines():
-        if not line.strip() or line.strip().startswith("#"):
-            continue
-        if ":" not in line:
-            errors.append(f"{label}: bad front matter line: {line!r}")
-            continue
-        key, _, raw = line.partition(":")
-        key, raw = key.strip(), raw.split(" #")[0].strip()
-        if raw.startswith("[") and raw.endswith("]"):
-            inner = raw[1:-1].strip()
-            meta[key] = [v.strip() for v in inner.split(",") if v.strip()] if inner else []
-        else:
-            meta[key] = raw
-    return meta, parts[2]
+from lib import parse_front_matter  # noqa: E402 — one parser, one truth (v10 #8)
 
 
 def cumulative_sections(stage):

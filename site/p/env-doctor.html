@@ -51,7 +51,26 @@
   <p>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~110 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall env-doctor — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** surface toolchain drift in the first second of a session.
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Env Doctor
+
+One skill, `envcheck`: compares your machine against what the repo *actually
+declares* (engines, .nvmrc, requires-python, .tool-versions, go.mod, .env.example)
+and reports ✓/✗ per line with a copyable fix for every ✗. It never installs,
+switches, or mutates anything without your yes to the specific command.
+
+## Install
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install env-doctor@foundry
+```
+
+## Recipes
+- fresh clone → &quot;env doctor&quot; → the checklist before your first build
+- &quot;why won&#x27;t this run?&quot; → mismatches surface with paired fixes
+- CI-only failure → run it inside the container image to diff environments
+
+No hooks, no network, no unasked changes. See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** surface toolchain drift in the first second of a session.
 - **User:** teams with .tool-versions/.nvmrc/pinned runtimes.
 - **Components:** one SessionStart command hook running a read-only script that
   compares installed versions to declared ones and prints warnings.

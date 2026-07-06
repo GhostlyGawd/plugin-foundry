@@ -51,7 +51,25 @@
   <p>Writes a structured recap when a session ends and recalls it when the next one starts.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~93 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall session-recap — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** continuity across sessions without hand-written notes.
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Session Recap
+
+One skill, `recap`: ends a working session with a dated, append-only handoff in
+`SESSION-RECAP.md` — what changed (from git evidence, not memory), decisions made,
+open questions, and checkboxed next steps someone else could pick up cold.
+
+## Install
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install session-recap@foundry
+```
+
+## Recipes
+- &quot;recap this session&quot; → appends today&#x27;s section
+- &quot;where did we leave off?&quot; → reads the latest section back before starting
+- &quot;hand this off to Sam&quot; → recap with next steps written for a stranger
+
+No hooks, nothing runs in the background. See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** continuity across sessions without hand-written notes.
 - **User:** anyone running multi-day work in one repo.
 - **Components:** a Stop/SessionEnd hook appending a dated recap stub to a project
   log file, plus a `recall` skill that reads and summarizes recent entries on demand.

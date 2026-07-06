@@ -76,8 +76,9 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 - [x] P3 (designer) field-report cap link — DONE i145 ("all N reports →" when >8).
 - [ ] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
       published on manual probes (audit-003 finding #3) — one suite per pass.
-- [ ] P3 (builder) qa.sh: warn on non-executable *.test.sh files instead of
+- [x] P3 (builder) qa.sh: warn on non-executable *.test.sh files instead of
       silent skip (sharp edge, audit-004; tools/ change — ADR first).
+      DONE i161 (v10 #7, ADR-018): went further than warn — per-file FAIL.
 
 ## v8 slate (ADR-014 — operator-directed; role_queue seeded for it)
 - [x] P1 (line) Publish-or-bounce the ten rc features: reviewer+maintainer pairs in

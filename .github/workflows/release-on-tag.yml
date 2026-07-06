@@ -1,6 +1,9 @@
 # Releases-and-reverify (record: releases-and-reverify): every *-v* tag becomes a
 # GitHub Release whose notes are the matching CHANGELOG section — extracted, never
 # retyped. A release with no notes does not happen; failures raise an ops-alarm.
+# v10 #12 (ADR-018): each release also carries the shipped artifact — a zip of
+# plugins/<name>/ exactly as installers receive it, plus its marketplace entry —
+# so a known-good state is pinnable and rollback is an operation, not archaeology.
 name: Release on tag
 on:
   push:
@@ -23,7 +26,17 @@ jobs:
           NAME="${TAG%-v*}"
           VER="${TAG##*-v}"
           python3 tools/relnotes.py "plugins/${NAME}/CHANGELOG.md" "${VER}" > /tmp/notes.md
-          gh release create "${TAG}" --title "${NAME} v${VER}" --notes-file /tmp/notes.md
+          (cd plugins && zip -rq "/tmp/${NAME}-${VER}.zip" "${NAME}")
+          python3 - "${NAME}" > "/tmp/${NAME}-marketplace-entry.json" << 'PY'
+          import json, sys
+          mp = json.load(open(".claude-plugin/marketplace.json"))
+          entry = next((p for p in mp["plugins"] if p["name"] == sys.argv[1]), None)
+          if entry is None:
+              sys.exit(f"{sys.argv[1]} not in marketplace.json — refusing to attach a ghost entry")
+          json.dump(entry, sys.stdout, indent=1)
+          PY
+          gh release create "${TAG}" --title "${NAME} v${VER}" --notes-file /tmp/notes.md \
+            "/tmp/${NAME}-${VER}.zip" "/tmp/${NAME}-marketplace-entry.json"
       - name: Ops alarm on failure (fail-soft, never silent)
         if: steps.cut.outcome == 'failure'
         env:

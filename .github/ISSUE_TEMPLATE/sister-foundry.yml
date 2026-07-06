@@ -1,0 +1,35 @@
+name: Register a sister foundry
+description: Forked the workshop with fork-a-foundry? Put your foundry on the network strip — names and links only, verified before listing.
+labels: [sister-foundry]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Your foundry's name
+      placeholder: e.g. "Dawnshift Forge"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Repository URL
+      placeholder: https://github.com/you/your-foundry
+    validations:
+      required: true
+  - type: input
+    id: pages
+    attributes:
+      label: Living window URL (GitHub Pages), if deployed
+      placeholder: https://you.github.io/your-foundry
+  - type: textarea
+    id: note
+    attributes:
+      label: One line about your shop
+      description: Shown verbatim on the strip (short). What does your line build?
+  - type: markdown
+    attributes:
+      value: |
+        **How this works:** a maintainer shift verifies the URL is a real foundry
+        (LOOP.md + foundry/records/ present) before adding an entry to
+        `foundry/network.json` — names + links only, never remote content.
+        Your text is handled as untrusted data per charter/SECURITY.md.
