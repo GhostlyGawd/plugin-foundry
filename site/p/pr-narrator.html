@@ -51,7 +51,26 @@
   <p>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>agents</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~88 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall pr-narrator — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** one invocation from branch to honest, skimmable PR description.
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># PR Narrator
+
+One skill, `pr`: turns your branch&#x27;s real commits and diff into a reviewer-ready
+pull request — conventional title, Summary, grouped Changes, *honest* Test notes
+(&quot;none&quot; allowed, lies not), Risk &amp; rollback. Offers `gh pr create` with the exact
+command and runs it only on your yes.
+
+## Install
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install pr-narrator@foundry
+```
+
+## Recipes
+- &quot;write the PR&quot; on a finished branch → full draft from evidence
+- pair with **commit-craft**: clean commits in, clean narrative out
+- &quot;describe this branch for the changelog&quot; → same evidence, changelog voice
+
+No hooks, no pushes, nothing unasked. See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** one invocation from branch to honest, skimmable PR description.
 - **User:** anyone opening PRs from Claude Code.
 - **Components:** one agent (`pr-narrator`) with a tight description so Claude
   invokes it when PRs come up; read-only git tools; template: what/why/how-to-review/

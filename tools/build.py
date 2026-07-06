@@ -929,6 +929,14 @@ def build_pages(records, mp_name, cfg, reports):
             o = ' open' if title in ('Test log','Review log','Verdict','Kill memo','Recipes') else ''
             return f"<details{o}><summary>{html.escape(title)}</summary><pre>{html.escape(text)}</pre></details>"
         sections = "".join(sec(t_, x_) for t_, x_ in extract_sections(r.get("_body", "")))
+        # v10 #4: the certificate carries the shipped README verbatim — a visitor
+        # can read what the plugin does without leaving for the file tree.
+        readme_path = ROOT / "plugins" / name / "README.md"
+        if r.get("kind", "plugin") == "plugin" and readme_path.exists():
+            sections = (
+                "<details open><summary>README — exactly what installers receive</summary>"
+                f"<pre>{html.escape(readme_path.read_text())}</pre></details>"
+            ) + sections
         meta_bits = [r.get("kind", "plugin"), r.get("category", "?"),
                      f"v{r['version']}" if r.get("version") not in (None, "null", "") else "unversioned",
                      f"created {r.get('created', '?')}", f"updated {r.get('updated', '?')}"]

@@ -51,7 +51,47 @@
   <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>PreToolUse · matcher: Bash</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~88 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall commit-craft — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Commit Craft
+
+Conventional-commit discipline, both directions: a `commit` skill that reads your
+staged diff and writes the message properly, and a PreToolUse guard hook that
+blocks malformed `git commit -m` messages with a printed reason.
+
+## Install
+
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install commit-craft@foundry
+```
+
+## The hook, honestly
+Narrow matcher (`Bash` only), read-only, no network, **fails open**: garbled input,
+interactive commits, and non-commit commands always pass. It only ever blocks a
+`git commit -m` whose subject isn&#x27;t `type(scope): subject` — and it tells you why
+on stderr. Remove the plugin, the hook is gone.
+
+## Configuration
+
+`COMMIT_CRAFT_TYPES` — replace the allowed type list (pipe/comma/space-separated),
+e.g. to adopt the full conventional-commits set:
+
+```
+export COMMIT_CRAFT_TYPES=&quot;feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert&quot;
+```
+
+Tokens must be lowercase letters; anything else is dropped (so the value can
+never inject regex), and an empty result falls back to the default
+`feat|fix|docs|refactor|test|chore|perf`. The guard&#x27;s block message always names
+the list it enforced.
+
+## Recipes
+- &quot;commit this&quot; → skill stages nothing new, reads the diff, writes `fix(auth): …`
+- &quot;split this into two commits&quot; → skill proposes the partition first
+- Type `git commit -m &quot;wip&quot;` yourself → hook blocks with the reason (try it)
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
 - **User:** anyone using Claude Code in a repo with commit standards.
 - **Components:** one skill (draft the message), one PreToolUse hook (guard the format).
 - **Why a plugin:** it pairs a prompt with an enforcement hook — exactly what plugins

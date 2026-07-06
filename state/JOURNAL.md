@@ -1193,3 +1193,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (browser-verified; gates green)
 - next-suggestion: v10 #4 — READMEs on certificate pages.
 - notes: the picker is the clerk for people who haven't installed the clerk.
+
+## i158 — builder (directed, v10 #4) — 2026-07-06T20:49:08Z
+- did: certificate pages now open with the shipped README, verbatim and escaped
+  ("README — exactly what installers receive") for plugin-kind records with an
+  artifact on disk; feature certificates unaffected. The storefront is
+  self-contained at the install decision — no more leaving for the file tree.
+- line: n/a (window feature, ADR-018)
+- files: tools/build.py, site/p/* (regenerated)
+- validation: pass (assertions: present on 3 plugin pages, absent on feature page)
+- next-suggestion: v10 #5 — gates.yml.
+- notes: verbatim-in-pre over a hand-rolled markdown renderer: stdlib-only law,
+  and a README that must read well as plain text is a good constraint anyway.

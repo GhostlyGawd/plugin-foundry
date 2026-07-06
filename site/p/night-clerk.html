@@ -51,7 +51,36 @@
   <p>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~129 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall night-clerk — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>Discovery should live where the need occurs: the terminal. A bundled catalog
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Night Clerk
+
+The marketplace&#x27;s front desk, installed in your terminal. Two skills:
+
+- `clerk` — ask &quot;what plugin helps with X?&quot; and get up to three real
+  recommendations with exact install lines — from a bundled catalog snapshot,
+  never from imagination.
+- `whats-new` — ask &quot;are my plugins up to date?&quot; and the clerk compares what
+  `claude plugin list` reports against the shelf versions in the snapshot,
+  handing you `claude plugin update &lt;name&gt;` lines for anything behind.
+
+## Install
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install night-clerk@foundry
+```
+
+## Recipes
+- &quot;what plugin helps with commit messages?&quot; → commit-craft, with the install line
+- &quot;browse the foundry&quot; → the shelf, three at a time, snapshot date stated
+- &quot;find me a plugin for handoffs&quot; → session-recap, or an honest &quot;nothing fits yet&quot; + the idea route
+- &quot;are my foundry plugins up to date?&quot; → installed vs shelf versions, update lines included
+
+## Honest disclosures
+The catalog is a **snapshot** (date stated in every answer), regenerated and
+shipped with each clerk release; `/plugin marketplace update` pulls the freshest.
+The clerk cannot install anything itself and will never invent a plugin.
+
+See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>Discovery should live where the need occurs: the terminal. A bundled catalog
 snapshot makes the marketplace self-recommending, offline, with zero invention.</pre></details><details><summary>Spec</summary><pre>- One skill, clerk, description (verbatim): &quot;Search the Nightshift Foundry
   catalog and recommend plugins for a task. Use when the user asks what plugin
   helps with X, browse the foundry, or find me a plugin.&quot;

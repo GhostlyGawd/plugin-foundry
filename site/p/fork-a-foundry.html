@@ -51,7 +51,26 @@
   <p>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~90 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall fork-a-foundry — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** anyone with Claude Code gets their own autonomous plugin factory in
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Fork a Foundry
+
+One skill, `bootstrap`, that stands up your own self-running plugin workshop — the
+same architecture that built and maintains this marketplace: loop protocol, role
+rotation, stage-gated pipeline, executable QA, security laws, living window.
+
+## Install
+
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install fork-a-foundry@foundry
+```
+
+Then: &quot;bootstrap a foundry in ~/my-foundry&quot;. The skill offers a fast fork path or a
+from-spec scaffold, carries the laws over verbatim, and doesn&#x27;t finish until the new
+loop runs one green iteration. No hooks, nothing runs in the background.
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** anyone with Claude Code gets their own autonomous plugin factory in
   minutes.
 - **User:** developers who watched the window and thought &quot;I want one.&quot;
 - **Components:** a single `bootstrap` skill (fork path + from-spec scaffold).

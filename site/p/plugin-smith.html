@@ -51,7 +51,39 @@
   <p>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~113 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall plugin-smith — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** make &quot;start a plugin right&quot; and &quot;check a plugin honestly&quot; one invocation each.
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Plugin Smith
+
+Two skills for building Claude Code plugins correctly: `scaffold` generates a new
+plugin skeleton with the official layout, and `doctor` audits an existing plugin
+directory against the official schema and a strict quality bar.
+
+## Install
+
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry        # once, for this marketplace
+/plugin install plugin-smith@foundry
+```
+
+Or try it for one session without installing:
+
+```
+claude --plugin-dir ./plugins/plugin-smith
+```
+
+## Skills
+
+- **plugin-smith:scaffold** — &quot;Scaffold a new Claude Code plugin…&quot; Give it a name
+  and component list; it produces a correct tree, manifest, README, CHANGELOG, and
+  prints the validate/test commands.
+- **plugin-smith:doctor** — &quot;Audit a Claude Code plugin directory…&quot; Point it at a
+  plugin path; it reports BLOCKER/WARN/NIT findings with exact fixes and a verdict.
+
+No hooks, no MCP servers, nothing runs in the background.
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md).
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** make &quot;start a plugin right&quot; and &quot;check a plugin honestly&quot; one invocation each.
 - **User:** this loop&#x27;s builder role, and any human developing plugins in this repo.
 - **Components:** two skills — `scaffold` (generate a correct skeleton) and `doctor`
   (audit an existing plugin directory).
