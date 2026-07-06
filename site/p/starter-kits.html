@@ -78,7 +78,10 @@ TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pr
 - Axes: scope 5 · prompt n/a (site feature) · thrift 5 · hook-safety n/a ·
   docs-truth 3 · structure 5.
 REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
-(white-space:nowrap); fix and re-run check 3 with a 2-member kit before rc.</pre></details></div>
+(white-space:nowrap); fix and re-run check 3 with a 2-member kit before rc.</pre></details><details><summary>Build log (post-bounce)</summary><pre>- i90: kit-scoped `.kit .install{white-space:pre}` overrides the shelf&#x27;s nowrap —
+  each kit command now renders and pastes on its own line; shelf cards (single
+  command + horizontal scroll) intentionally keep nowrap. Under ADR-009&#x27;s feature
+  authorization, as with all v5/v7 template work.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/starter-kits.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/starter-kits.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

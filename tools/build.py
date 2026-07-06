@@ -318,6 +318,7 @@ TEMPLATE = """<!DOCTYPE html>
   .kit h4{font-size:13px; letter-spacing:.12em; text-transform:uppercase}
   .kit p{color:var(--dim); font-size:12.5px; margin:6px 0 10px}
   .kit .pending{font-size:11px; color:var(--dim)}
+  .kit .install{white-space:pre}
   .lanes{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; padding:12px 0}
   .col{border:1px solid var(--line); background:var(--card)}
   .col h4{font-size:10px; letter-spacing:.18em; text-transform:uppercase; padding:8px 10px;

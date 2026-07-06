@@ -491,3 +491,13 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder lands kit-scoped white-space fix; QA re-runs check 3
   with a 2-member kit
 - notes: first bounce since v7 — the tripwire streak resets; bouncing is a service
+
+## i90 — builder — 2026-07-06T00:16:00Z
+- did: starter-kits bounce fix — `.kit .install{white-space:pre}` so multi-plugin
+  kit copy-blocks paste one command per line; shelf cards keep nowrap by design
+- line: starter-kits: component fixed (stays building)
+- files: tools/build.py, foundry/records/starter-kits.md
+- validation: pass
+- next-suggestion: qa re-runs acceptance check 3 against a 2-member kit
+- notes: template edit rides ADR-009 (starter-kits' authorizing ADR), the same
+  authorization every v5/v7 feature build used

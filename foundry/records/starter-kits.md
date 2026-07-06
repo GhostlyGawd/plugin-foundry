@@ -66,3 +66,9 @@ TEST VERDICT: pass
   docs-truth 3 · structure 5.
 REVIEW: bounced — multi-line kit copy-block collapses to one unrunnable line
 (white-space:nowrap); fix and re-run check 3 with a 2-member kit before rc.
+
+## Build log (post-bounce)
+- i90: kit-scoped `.kit .install{white-space:pre}` overrides the shelf's nowrap —
+  each kit command now renders and pastes on its own line; shelf cards (single
+  command + horizontal scroll) intentionally keep nowrap. Under ADR-009's feature
+  authorization, as with all v5/v7 template work.
