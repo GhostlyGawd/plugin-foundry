@@ -1040,3 +1040,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa suite backfill ×2 (#10)
 - notes: n/a
+
+## i146 — qa — 2026-07-06T04:15:00Z
+- did: suite backfill 1/2 (#10) — saga-page gets executable checks for its
+  honesty claims (ADR count, invented-milestone guard, ellipsis regression,
+  STATE sync); 4/4 green
+- line: n/a (published record gains its suite; no stage move)
+- files: foundry/tests/saga-page/saga.test.sh, foundry/records/saga-page.md
+- validation: pass
+- next-suggestion: qa backfills field-reports (the no-inline law deserves a test)
+- notes: n/a
