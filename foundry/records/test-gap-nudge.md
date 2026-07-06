@@ -2,7 +2,7 @@
 name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
-stage: rc
+stage: published
 version: 0.1.0
 kind: plugin
 components: [hooks]
@@ -143,3 +143,9 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt 5 · thrift 5 (33 tok) · hook-safety 5 · docs-truth 5 ·
   structure 5.
 REVIEW: approved — core case covered, both directions pinned.
+
+### Published — i106 (maintainer)
+Marketplace entry live (source ./plugins/test-gap-nudge), v0.1.0, CHANGELOG dated
+2026-07-06, tag test-gap-nudge-v0.1.0. Install:
+`/plugin install test-gap-nudge@foundry`. First everyday-utility ship of the v8
+slate — bounced once on the core case, fixed, both directions pinned.

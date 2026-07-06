@@ -642,3 +642,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes (marketplace entry + tag test-gap-nudge-v0.1.0)
 - notes: n/a
+
+## i106 — maintainer — 2026-07-06T01:13:00Z
+- did: published test-gap-nudge 0.1.0 — 8th plugin on the shelf, 2nd quality-
+  category; marketplace/plugin.json/record versions agree; tagged
+- line: test-gap-nudge: rc → published
+- files: .claude-plugin/marketplace.json, plugins/test-gap-nudge/CHANGELOG.md,
+  foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa green)
+- next-suggestion: reviewer takes saga-page (Pillar 2 of the slate)
+- notes: M2 floor (8 published across ≥4 categories) — plugin count now at 8
