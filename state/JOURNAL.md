@@ -1448,3 +1448,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: cross-foundry-exchange idea → spec (parked behind this
   record's verdict — the verdict machinery now exists).
 - notes: n/a
+
+## i178 — builder (directed, v10 #14) — 2026-07-06T21:13:33Z
+- did: cross-foundry-exchange specced — referrals only, label-gated, links
+  derived solely from network.json, provably inert while the network is empty.
+  Un-parked now that foundry-network published (its stated revival condition).
+- line: cross-foundry-exchange idea → spec
+- files: foundry/records/cross-foundry-exchange.md
+- validation: pass
+- next-suggestion: builds when the first sister registers — building it
+  earlier would be machinery for a family that doesn't exist yet.
+- notes: v10 #14 complete — foundry-network published, exchange specced.

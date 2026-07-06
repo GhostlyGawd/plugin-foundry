@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-07-06T21:13:09.307997+00:00",
- "iteration": 177,
+ "generated_at": "2026-07-06T21:13:33.456383+00:00",
+ "iteration": 178,
  "phase": "grow",
  "theme": null,
  "counts": {
-  "idea": 3,
-  "spec": 2,
+  "idea": 2,
+  "spec": 3,
   "building": 0,
   "rc": 0,
   "published": 34,
@@ -333,7 +333,7 @@
    "name": "cross-foundry-exchange",
    "title": "Cross-Foundry Exchange",
    "category": "growth",
-   "stage": "idea",
+   "stage": "spec",
    "version": null,
    "components": [
     "docs",
@@ -1118,6 +1118,30 @@
     "patron": null
    },
    {
+    "name": "cross-foundry-exchange",
+    "title": "Cross-Foundry Exchange",
+    "category": "growth",
+    "stage": "spec",
+    "version": null,
+    "components": [
+     "docs",
+     "workflow"
+    ],
+    "one_liner": "Sister foundries pass ideas (and someday commissions) to whichever workshop fits best \u2014 a federation of night shifts.",
+    "tags": [
+     "network",
+     "federation",
+     "moonshot"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "pr-gated-publishes",
     "title": "PR-Gated Publishes",
     "category": "growth",
@@ -1142,30 +1166,6 @@
    }
   ],
   "ideas": [
-   {
-    "name": "cross-foundry-exchange",
-    "title": "Cross-Foundry Exchange",
-    "category": "growth",
-    "stage": "idea",
-    "version": null,
-    "components": [
-     "docs",
-     "workflow"
-    ],
-    "one_liner": "Sister foundries pass ideas (and someday commissions) to whichever workshop fits best \u2014 a federation of night shifts.",
-    "tags": [
-     "network",
-     "federation",
-     "moonshot"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
    {
     "name": "dep-bump-brief",
     "title": "Dep-Bump Brief",
