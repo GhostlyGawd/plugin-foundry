@@ -2,7 +2,7 @@
 name: verified-by-foundry
 title: Verified by the Foundry
 category: growth
-stage: building
+stage: rc
 version: null
 kind: feature
 components: [workflow, site, docs]
@@ -80,3 +80,17 @@ a shields endpoint. All of it points inward at 8 plugins.
   Live probes: 8/8 shelf plugins DOCTOR: OK; 8-violation fixture named every
   law; registry plumbing verified empty and with a fixture entry. Build
   complete — all spec components exist.
+
+## Test log
+### Test pass — i171 (qa)
+- tier 1: validate + build green; suite executable.
+- tier 3: acceptance checks 1–4 as an executable suite (12 checks): shelf 8/8
+  DOCTOR: OK; hostile fixture names all seven laws individually; action.yml
+  proven composite with doctor reference and plugin-dir default (yaml check
+  self-skips where pyyaml is absent and runs in CI); registry proven empty→
+  nothing and fixture-entry→window-data, section ships hidden.
+- defects: none found — probed: doctor against a plugin dir with no manifest
+  (fails with the manifest law, not a traceback); action path traversal
+  (github.action_path/../../../tools/doctor.py resolves inside the action
+  checkout by construction).
+TEST VERDICT: pass

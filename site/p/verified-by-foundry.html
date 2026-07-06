@@ -47,7 +47,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Verified by the Foundry — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch " title="published"></span><span>rc</span></div>
   <p>The foundry&#x27;s verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.</p>
   
   
@@ -101,7 +101,18 @@
   externals&quot; section (hall law: hidden while empty), README paste-block.
   Live probes: 8/8 shelf plugins DOCTOR: OK; 8-violation fixture named every
   law; registry plumbing verified empty and with a fixture entry. Build
-  complete — all spec components exist.</pre></details></div>
+  complete — all spec components exist.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i171 (qa)
+- tier 1: validate + build green; suite executable.
+- tier 3: acceptance checks 1–4 as an executable suite (12 checks): shelf 8/8
+  DOCTOR: OK; hostile fixture names all seven laws individually; action.yml
+  proven composite with doctor reference and plugin-dir default (yaml check
+  self-skips where pyyaml is absent and runs in CI); registry proven empty→
+  nothing and fixture-entry→window-data, section ships hidden.
+- defects: none found — probed: doctor against a plugin dir with no manifest
+  (fails with the manifest law, not a traceback); action path traversal
+  (github.action_path/../../../tools/doctor.py resolves inside the action
+  checkout by construction).
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/verified-by-foundry.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/verified-by-foundry.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

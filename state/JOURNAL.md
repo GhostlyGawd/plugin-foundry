@@ -1362,3 +1362,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa runs the acceptance checks as an executable suite → rc.
 - notes: doctor imports validate's tables — the law book stays singular.
+
+## i171 — qa (directed, v10 #13) — 2026-07-06T21:07:19Z
+- did: verified-by-foundry QA — acceptance checks 1–4 executable
+  (foundry/tests/verified-by-foundry/, 12 checks green), adversarial probes on
+  the doctor (no-manifest dir) and the action path. TEST VERDICT: pass.
+- line: verified-by-foundry building → rc
+- files: foundry/tests/verified-by-foundry/checks.test.sh, record
+- validation: pass (qa 12/12)
+- next-suggestion: reviewer for the publish gate.
+- notes: check2 asserts each law is NAMED, not just that the doctor fails —
+  a doctor that says "something's wrong" without saying what is no doctor.

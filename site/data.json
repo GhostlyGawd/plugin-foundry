@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-07-06T21:06:32.311681+00:00",
- "iteration": 170,
+ "generated_at": "2026-07-06T21:07:19.203021+00:00",
+ "iteration": 171,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 3,
-  "building": 1,
-  "rc": 0,
+  "building": 0,
+  "rc": 1,
   "published": 32,
   "deprecated": 0,
   "shelved": 0
@@ -991,7 +991,7 @@
    "name": "verified-by-foundry",
    "title": "Verified by the Foundry",
    "category": "growth",
-   "stage": "building",
+   "stage": "rc",
    "version": null,
    "components": [
     "workflow",
@@ -1096,7 +1096,7 @@
     "name": "verified-by-foundry",
     "title": "Verified by the Foundry",
     "category": "growth",
-    "stage": "building",
+    "stage": "rc",
     "version": null,
     "components": [
      "workflow",
