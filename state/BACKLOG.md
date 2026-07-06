@@ -45,13 +45,16 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] P1 Walk session-recap through spec (hooks + skill combo — good hook-safety exercise).
 - [ ] P1 Post-publish re-test of plugin-smith (it shipped at genesis without a QA pass
       of record — hold it to the same bar; Version law applies to any fixes).
-- [ ] P2 Per-plugin detail pages on the catalog (ADR first; template change).
+- [x] P2 Per-plugin detail pages on the catalog — already exist: 38 birth
+      certificates at site/p/<name>.html (build_pages); stale item, closed i140.
 - [ ] P2 CONTRIBUTING.md for humans proposing plugin ideas.
 - [ ] P1 Go-live (human-assisted): fill foundry/site-config.json, push to GitHub,
       enable Pages (Actions source), add ANTHROPIC_API_KEY secret — per OPERATIONS.md.
 - [ ] P1 (designer) First Theme of the Month via ADR once in grow phase.
-- [ ] P2 (growth) Spec shift-streak once METRICS has ≥2 real snapshots for a baseline.
-- [ ] P2 (growth) Spec weekly-shipnote; pair with maintainer for the workflow step.
+- [x] P2 (growth) Spec shift-streak — OBE: specced, built, and published in the
+      v8 slate (i134); baseline arms at go-live. Closed i140.
+- [x] P2 (growth) Spec weekly-shipnote — OBE: published i113 with fixture suite.
+      Closed i140.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
 
 ## v7 slate — SHIPPED ✓ (audit-002)

@@ -974,3 +974,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (green after restore; red proven during probe)
 - next-suggestion: maintainer hygiene pass (#3)
 - notes: drift class from IMPROVEMENTS #2 is now structurally extinct
+
+## i140 — maintainer — 2026-07-06T03:40:00Z
+- did: backlog hygiene (#3) — closed three done/overtaken items (per-plugin pages
+  exist as certificates; shift-streak and weekly-shipnote both published in v8)
+  with pointers; merged STATE.json's twin note/notes keys into one
+- line: n/a (state hygiene)
+- files: state/{BACKLOG.md,STATE.json}
+- validation: pass
+- next-suggestion: maintainer curates the solo dev kit (#4)
+- notes: n/a
