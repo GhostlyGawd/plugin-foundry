@@ -1219,3 +1219,21 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v10 #6 — the gate tests themselves.
 - notes: mode:pr shifts finally get checked before the human veto — the veto
   window was reviewing unvalidated diffs until now.
+
+## i160 — qa (directed, v10 #6) — 2026-07-06T20:52:39Z
+- did: the gates get their own gate — foundry/tests/_tools/: fixture.py builds a
+  minimal VALID foundry (published plugin, record, artifact, suite, marketplace);
+  gates.test.sh proves baseline green then breaks one law per case and asserts
+  the exact error fires: missing section, bad semver, version drift, unlisted
+  publish, unknown hook event, banned .* matcher, unquoted plugin root,
+  unterminated front matter, lost exec bits (suite + shipped script), missing
+  review approval, orphan artifact — and build.py runs green on the fixture.
+  14/14; rides qa.sh like every other suite, so gates.yml runs it in CI when
+  tests change.
+- line: n/a (test infrastructure, ADR-018)
+- files: foundry/tests/_tools/{fixture.py,gates.test.sh}
+- validation: pass (full qa green)
+- next-suggestion: v10 #7 — qa.sh per-file exec-bit fail (validator covers the
+  zero-executables case; the one-lost-chmod case is qa.sh's to catch).
+- notes: the fixture pattern means future validator laws ship with a red/green
+  proof instead of a promise.
