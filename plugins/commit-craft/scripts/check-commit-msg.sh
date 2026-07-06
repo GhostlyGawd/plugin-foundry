@@ -18,11 +18,17 @@ m = re.search(r"-m\s+\"((?:[^\"\\]|\\.)*)\"", cmd) or re.search(r"-m\s+'([^']*)'
 if not m:
     sys.exit(0)  # interactive/editor commit -> can't check, fail open
 msg = m.group(1).replace('\\"', '"')
-if re.match(r"^(feat|fix|docs|refactor|test|chore|perf)(\(.+\))?: .{1,72}$", msg.splitlines()[0]):
+# allowed types — override the FULL list with COMMIT_CRAFT_TYPES (pipe/comma/
+# space-separated, e.g. "feat|fix|build|ci"); tokens must be lowercase letters,
+# anything else is dropped; empty/malformed -> default (fail open, never closed)
+raw = os.environ.get("COMMIT_CRAFT_TYPES", "")
+tokens = [t for t in re.split(r"[|,\s]+", raw) if re.fullmatch(r"[a-z]+", t)]
+types = "|".join(tokens) or "feat|fix|docs|refactor|test|chore|perf"
+if re.match(r"^(%s)(\(.+\))?: .{1,72}$" % types, msg.splitlines()[0]):
     sys.exit(0)
 print("commit-craft: message %r isn't conventional — want `type(scope): subject` "
-      "with type in feat|fix|docs|refactor|test|chore|perf and subject <=72 chars. "
-      "The commit skill writes these for you." % msg.splitlines()[0][:80], file=sys.stderr)
+      "with type in %s and subject <=72 chars. "
+      "The commit skill writes these for you." % (msg.splitlines()[0][:80], types), file=sys.stderr)
 sys.exit(2)
 PY
 exit $?

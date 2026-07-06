@@ -17,3 +17,11 @@ payload '"ls -la"' | bash "$S" >/dev/null 2>&1
 [ $? -eq 0 ] && echo "ok: non-commit command ignored (fail-open)" || echo "fail: non-commit command blocked"
 printf 'not json at all' | bash "$S" >/dev/null 2>&1
 [ $? -eq 0 ] && echo "ok: garbled payload fails open" || echo "fail: garbled payload did not fail open"
+
+# i155 (v10 #2): COMMIT_CRAFT_TYPES knob
+payload '"git commit -m \"build: wire ci\""' | COMMIT_CRAFT_TYPES="feat fix build" bash "$S" >/dev/null 2>&1
+[ $? -eq 0 ] && echo "ok: knob override admits configured type" || echo "fail: knob override rejected configured type"
+payload '"git commit -m \"build: wire ci\""' | bash "$S" >/dev/null 2>&1
+[ $? -eq 2 ] && echo "ok: knob default still blocks unconfigured type" || echo "fail: default admitted unconfigured type"
+payload '"git commit -m \"zzz: nope\""' | COMMIT_CRAFT_TYPES='.*' bash "$S" >/dev/null 2>&1
+[ $? -eq 2 ] && echo "ok: knob regex injection dropped (default enforced)" || echo "fail: regex injection changed guard behavior"

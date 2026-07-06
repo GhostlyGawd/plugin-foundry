@@ -21,7 +21,13 @@ fi
 MARKER="${TMPDIR:-/tmp}/test-gap-nudge-${SID:-fallback}"
 [ -f "$MARKER" ] && exit 0
 
-SRC_EXT='py|js|ts|tsx|jsx|mjs|go|rb|rs|java|c|cc|cpp|h|hpp|sh|php|cs|kt|swift|scala'
+# which extensions count as "source" — override with TEST_GAP_NUDGE_EXTS
+# (pipe/comma/space-separated, e.g. "py|rs|zig"); anything but [A-Za-z0-9|] is
+# stripped so a malformed value can never break the regex; empty → default.
+SRC_EXT_DEFAULT='py|js|ts|tsx|jsx|mjs|go|rb|rs|java|c|cc|cpp|h|hpp|sh|php|cs|kt|swift|scala'
+SRC_EXT=$(printf '%s' "${TEST_GAP_NUDGE_EXTS:-}" | tr ', ' '||' | tr -cd 'A-Za-z0-9|' | tr -s '|')
+SRC_EXT=${SRC_EXT#|}; SRC_EXT=${SRC_EXT%|}
+[ -z "$SRC_EXT" ] && SRC_EXT="$SRC_EXT_DEFAULT"
 src_hits=()
 test_seen=0
 

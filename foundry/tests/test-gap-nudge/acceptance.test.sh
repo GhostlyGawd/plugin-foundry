@@ -80,3 +80,23 @@ d=$(mkrepo eightb); git -C "$d" commit -q --allow-empty -m base
 echo x > "$d/app.py"; mkdir -p "$d/tests"; echo t > "$d/tests/test_core.py"
 out=$(run "$d" s8b); rc=$?
 [ "$rc" -eq 0 ] && [ -z "$out" ] && echo "ok: check8b new tests dir silences" || echo "fail: check8b — rc=$rc out=$out"
+
+# i155 (v10 #2): TEST_GAP_NUDGE_EXTS knob
+d=$(mkrepo knob1); echo x > "$d/app.zig"
+out=$( ( cd "$d" && printf '{"session_id":"k1"}' | TEST_GAP_NUDGE_EXTS="zig" bash "$SCRIPT" ) ); rc=$?
+if [ "$rc" -eq 0 ] && echo "$out" | grep -q 'app.zig'; then
+  echo "ok: knob1 custom extension nudges"
+else echo "fail: knob1 — rc=$rc out=$out"; fi
+d=$(mkrepo knob2); echo x > "$d/app.py"
+out=$( ( cd "$d" && printf '{"session_id":"k2"}' | TEST_GAP_NUDGE_EXTS="zig" bash "$SCRIPT" ) ); rc=$?
+[ "$rc" -eq 0 ] && [ -z "$out" ] && echo "ok: knob2 override excludes defaults" || echo "fail: knob2 — rc=$rc out=$out"
+d=$(mkrepo knob3); echo x > "$d/app.zig"
+out=$( ( cd "$d" && printf '{"session_id":"k3"}' | TEST_GAP_NUDGE_EXTS='$(boom)|zig' bash "$SCRIPT" ) ); rc=$?
+if [ "$rc" -eq 0 ] && echo "$out" | grep -q 'app.zig'; then
+  echo "ok: knob3 hostile chars stripped, knob still works"
+else echo "fail: knob3 — rc=$rc out=$out"; fi
+d=$(mkrepo knob4); echo x > "$d/app.py"
+out=$( ( cd "$d" && printf '{"session_id":"k4"}' | TEST_GAP_NUDGE_EXTS='%%%' bash "$SCRIPT" ) ); rc=$?
+if [ "$rc" -eq 0 ] && echo "$out" | grep -q 'app.py'; then
+  echo "ok: knob4 all-garbage value falls back to defaults"
+else echo "fail: knob4 — rc=$rc out=$out"; fi

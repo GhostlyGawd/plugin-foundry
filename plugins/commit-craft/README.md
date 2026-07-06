@@ -17,6 +17,20 @@ interactive commits, and non-commit commands always pass. It only ever blocks a
 `git commit -m` whose subject isn't `type(scope): subject` — and it tells you why
 on stderr. Remove the plugin, the hook is gone.
 
+## Configuration
+
+`COMMIT_CRAFT_TYPES` — replace the allowed type list (pipe/comma/space-separated),
+e.g. to adopt the full conventional-commits set:
+
+```
+export COMMIT_CRAFT_TYPES="feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert"
+```
+
+Tokens must be lowercase letters; anything else is dropped (so the value can
+never inject regex), and an empty result falls back to the default
+`feat|fix|docs|refactor|test|chore|perf`. The guard's block message always names
+the list it enforced.
+
 ## Recipes
 - "commit this" → skill stages nothing new, reads the diff, writes `fix(auth): …`
 - "split this into two commits" → skill proposes the partition first

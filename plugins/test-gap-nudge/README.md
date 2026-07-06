@@ -28,6 +28,19 @@ test-gap-nudge: 2 source file(s) changed, no test files touched — src/auth.py,
 
 Docs and config changes (`.md`, `.json`, `.yml`, …) never trigger it.
 
+## Configuration
+
+`TEST_GAP_NUDGE_EXTS` — override which extensions count as "source"
+(pipe/comma/space-separated), e.g. in your shell profile:
+
+```
+export TEST_GAP_NUDGE_EXTS="py|rs|zig"
+```
+
+Anything outside `[A-Za-z0-9|]` is stripped before use, so a malformed value can
+never break the hook; an empty result falls back to the default list. Unset it
+to get the defaults back.
+
 ## The hook, honestly
 
 - **Advisory only.** Always exits 0; it cannot block Claude from stopping, ever.

@@ -3,7 +3,7 @@ name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
 stage: published
-version: 0.1.1
+version: 0.2.0
 kind: plugin
 components: [hooks]
 one_liner: A polite Stop-hook that notices source changes with no matching test changes and says so once.
@@ -149,3 +149,10 @@ Marketplace entry live (source ./plugins/test-gap-nudge), v0.1.0, CHANGELOG date
 2026-07-06, tag test-gap-nudge-v0.1.0. Install:
 `/plugin install test-gap-nudge@foundry`. First everyday-utility ship of the v8
 slate — bounced once on the core case, fixed, both directions pinned.
+
+## Maintenance log
+- i155 (builder, v10 #2): v0.2.0 — `TEST_GAP_NUDGE_EXTS` overrides the source
+  extension list; value sanitized to `[A-Za-z0-9|]` (regex can't be broken or
+  injected), empty → default. Fail-open contract unchanged; suite +3 checks
+  (override respected, hostile value stripped, default regression). Tag
+  test-gap-nudge-v0.2.0.

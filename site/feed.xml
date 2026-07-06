@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ghostlygawd.github.io/plugin-foundry</id>
   <title>foundry — ships</title>
-  <updated>2026-07-06T20:40:57Z</updated>
+  <updated>2026-07-06T20:44:04Z</updated>
   <link href="https://ghostlygawd.github.io/plugin-foundry"/>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/adversarial-qa-bounties.html</id>
@@ -13,7 +13,7 @@
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html</id>
-    <title>Commit Craft v0.1.1 — shipped</title>
+    <title>Commit Craft v0.2.0 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>Drafts conventional commits from the staged diff and guards message format at commit time.</summary>
@@ -118,7 +118,7 @@
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html</id>
-    <title>Test-Gap Nudge v0.1.1 — shipped</title>
+    <title>Test-Gap Nudge v0.2.0 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>A polite Stop-hook that notices source changes with no matching test changes and says so once.</summary>

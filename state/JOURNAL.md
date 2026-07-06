@@ -1152,3 +1152,16 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (qa 17/17 incl. official validate; smoke green)
 - next-suggestion: v10 #2 — hook config knobs (test-gap-nudge + commit-craft).
 - notes: minor bump, not patch — a new skill is new surface.
+
+## i155 — builder (directed, v10 #2) — 2026-07-06T20:44:04Z
+- did: hook configurability convention — test-gap-nudge 0.2.0 gains
+  TEST_GAP_NUDGE_EXTS (source-extension override, sanitized to [A-Za-z0-9|]);
+  commit-craft 0.2.0 gains COMMIT_CRAFT_TYPES (type-list override, lowercase
+  tokens only — regex injection structurally impossible). Both fail open on
+  malformed values (empty → defaults); READMEs document the knobs; suites +7
+  checks incl. hostile-value and injection probes, all green (17/17, 7/7).
+- line: both stay published (version law: 0.2.0 ×2 + CHANGELOGs + tags)
+- files: plugins/{test-gap-nudge,commit-craft}/*, foundry/records/{test-gap-nudge,commit-craft}.md, foundry/tests/{test-gap-nudge/acceptance,commit-craft/hook}.test.sh
+- validation: pass (qa green, smoke green)
+- next-suggestion: v10 #3 — storefront picker (template change under ADR-018).
+- notes: knobs replace, not extend — one rule to document, one to test.
