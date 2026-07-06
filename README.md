@@ -105,6 +105,21 @@ Status badge (shields.io endpoint): `![foundry](https://img.shields.io/endpoint?
 Live ticker embed: `<iframe src="https://ghostlygawd.github.io/plugin-foundry/embed.html" width="100%" height="86" style="border:0" title="Nightshift Foundry ticker"></iframe>`
 Both regenerate on every deploy, same as the window.
 
+## Verify YOUR plugin against the foundry's laws
+
+Any Claude Code plugin repo can run the foundry's structural checks in its own CI
+— the same law book `tools/validate.py` enforces on this shelf:
+
+```yaml
+- uses: actions/checkout@v4
+- uses: GhostlyGawd/plugin-foundry/.github/actions/foundry-doctor@main
+  with:
+    plugin-dir: .   # path to your plugin's root
+```
+
+A public green run earns a dated listing on the window (`foundry/verified.json`
+— open an issue with the run link; no run link, no entry).
+
 ## The laws that make it trustworthy
 
 **Docs before invention.** The plugin spec is Anthropic's; when any field, event, or

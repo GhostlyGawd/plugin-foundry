@@ -1350,3 +1350,15 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: builder builds (doctor.py + action + registry + window).
 - notes: registry entries are maintainer-curated from public run links — the
   badge can't be self-awarded by a stranger's fork.
+
+## i170 — builder (directed, v10 #13) — 2026-07-06T21:06:32Z
+- did: verified-by-foundry built — doctor.py (8/8 shelf OK; hostile fixture:
+  every law named), composite action, empty registry with the
+  no-run-link-no-entry law inline, window section (renders nothing empty),
+  README paste-block for third-party repos.
+- line: verified-by-foundry spec → building (build complete in one pass)
+- files: tools/doctor.py, .github/actions/foundry-doctor/action.yml,
+  foundry/verified.json, tools/build.py, README.md, record, site/*
+- validation: pass
+- next-suggestion: qa runs the acceptance checks as an executable suite → rc.
+- notes: doctor imports validate's tables — the law book stays singular.

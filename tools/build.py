@@ -423,6 +423,11 @@ TEMPLATE = """<!DOCTYPE html>
     <div class="hall" id="hallbox"></div>
   </div>
 
+  <div id="verifiedwrap">
+    <h3 class="rule" id="verified" style="display:none">Verified externals — the doctor, run in their CI</h3>
+    <div class="hall" id="verifiedbox"></div>
+  </div>
+
   <div class="duo">
     <section class="panel" id="request">
       <h5>The request box — @@PRICE@@</h5>
@@ -692,6 +697,18 @@ function renderKits(){
       '</div>';
   }).join('') : '<p class="vnone">Kits open once the maintainer curates the first bundle.</p>';
 }
+/* verified externals (v10 #13) — hall law: renders nothing until it has a
+   first name; every entry is substantiated by a public Actions run link. */
+function renderVerified(){
+  const V = DATA.verified || [];
+  const head = document.getElementById('verified');
+  const box = document.getElementById('verifiedbox');
+  if (!V.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
+  head.style.display = 'block'; box.style.display = 'block';
+  box.innerHTML = V.map(v =>
+    '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
+    (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('');
+}
 function renderHall(){
   const H = DATA.hall || {prospectors: [], patrons: [], breakers: []};
   const head = document.getElementById('hall');
@@ -716,7 +733,7 @@ function ago(iso){
 }
 function renderAll(){
   renderGrid(); renderTape(); renderTheme(); renderLanes(); renderStats();
-  renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall();
+  renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall(); renderVerified();
   // copy-to-clipboard (ADR-016 #6): click any install block to copy it whole.
   // Degrades silently without a secure context — user-select:all still works.
   document.addEventListener('click', ev => {
@@ -1265,6 +1282,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "fuel": fuel_state,
         "alarms": alarms,
         "hall": hall,
+        "verified": load_json(ROOT / "foundry" / "verified.json", {}).get("verified", []),
         "streak": streak,
         "repo": cfg.get("repo") or None,
     }

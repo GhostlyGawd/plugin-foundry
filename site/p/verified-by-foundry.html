@@ -47,7 +47,7 @@
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Verified by the Foundry — birth certificate</h1></header>
   <p class="meta">feature · growth · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>building</span></div>
   <p>The foundry&#x27;s verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.</p>
   
   
@@ -94,7 +94,14 @@
   `views_14d` referrers and registry growth.
 - **Metric:** entries in foundry/verified.json; `views_14d` in METRICS.jsonl.
 - **Baseline:** 0 external repos; views null until the window is live.
-- **Review-after:** 2026-09-06 (60 days — outward adoption is slow).</pre></details></div>
+- **Review-after:** 2026-09-06 (60 days — outward adoption is slow).</pre></details><details><summary>Build log</summary><pre>- i170: tools/doctor.py (standalone one-plugin checker, law tables imported
+  from validate.py), .github/actions/foundry-doctor/action.yml (composite,
+  plugin-dir input, runs the doctor from the action checkout),
+  foundry/verified.json (empty registry + law note), window &quot;Verified
+  externals&quot; section (hall law: hidden while empty), README paste-block.
+  Live probes: 8/8 shelf plugins DOCTOR: OK; 8-violation fixture named every
+  law; registry plumbing verified empty and with a fixture entry. Build
+  complete — all spec components exist.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/verified-by-foundry.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/verified-by-foundry.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

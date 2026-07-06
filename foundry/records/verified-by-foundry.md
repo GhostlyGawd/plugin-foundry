@@ -2,7 +2,7 @@
 name: verified-by-foundry
 title: Verified by the Foundry
 category: growth
-stage: spec
+stage: building
 version: null
 kind: feature
 components: [workflow, site, docs]
@@ -70,3 +70,13 @@ a shields endpoint. All of it points inward at 8 plugins.
 - **Metric:** entries in foundry/verified.json; `views_14d` in METRICS.jsonl.
 - **Baseline:** 0 external repos; views null until the window is live.
 - **Review-after:** 2026-09-06 (60 days — outward adoption is slow).
+
+## Build log
+- i170: tools/doctor.py (standalone one-plugin checker, law tables imported
+  from validate.py), .github/actions/foundry-doctor/action.yml (composite,
+  plugin-dir input, runs the doctor from the action checkout),
+  foundry/verified.json (empty registry + law note), window "Verified
+  externals" section (hall law: hidden while empty), README paste-block.
+  Live probes: 8/8 shelf plugins DOCTOR: OK; 8-violation fixture named every
+  law; registry plumbing verified empty and with a fixture entry. Build
+  complete — all spec components exist.

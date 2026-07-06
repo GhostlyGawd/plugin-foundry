@@ -1,0 +1,23 @@
+# Foundry Doctor — run the Nightshift Foundry's structural plugin checks in any
+# repo's CI (verified-by-foundry record). One paste-block in the caller:
+#
+#   - uses: actions/checkout@v4
+#   - uses: GhostlyGawd/plugin-foundry/.github/actions/foundry-doctor@main
+#     with:
+#       plugin-dir: .            # path to your plugin's root
+#
+# A green run is the evidence for a listing in foundry/verified.json — open an
+# issue with the public run link to claim it.
+name: Foundry Doctor
+description: Structural health-check for a Claude Code plugin, against the official spec, by Nightshift Foundry.
+inputs:
+  plugin-dir:
+    description: Path to the plugin directory inside the caller's checkout
+    required: false
+    default: "."
+runs:
+  using: composite
+  steps:
+    - name: Doctor
+      shell: bash
+      run: python3 "${{ github.action_path }}/../../../tools/doctor.py" "${{ inputs.plugin-dir }}"

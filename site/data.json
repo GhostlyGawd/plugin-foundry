@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-07-06T21:04:40.013758+00:00",
- "iteration": 169,
+ "generated_at": "2026-07-06T21:06:32.311681+00:00",
+ "iteration": 170,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
-  "spec": 4,
-  "building": 0,
+  "spec": 3,
+  "building": 1,
   "rc": 0,
   "published": 32,
   "deprecated": 0,
@@ -991,7 +991,7 @@
    "name": "verified-by-foundry",
    "title": "Verified by the Foundry",
    "category": "growth",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "workflow",
@@ -1091,7 +1091,33 @@
  ],
  "roadmap": {
   "commissioned": [],
-  "building": [],
+  "building": [
+   {
+    "name": "verified-by-foundry",
+    "title": "Verified by the Foundry",
+    "category": "growth",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "workflow",
+     "site",
+     "docs"
+    ],
+    "one_liner": "The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.",
+    "tags": [
+     "trust",
+     "ecosystem",
+     "verification"
+    ],
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   }
+  ],
   "next": [
    {
     "name": "commission-tiers",
@@ -1156,31 +1182,6 @@
      "governance",
      "trust",
      "veto"
-    ],
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "verified-by-foundry",
-    "title": "Verified by the Foundry",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "workflow",
-     "site",
-     "docs"
-    ],
-    "one_liner": "The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.",
-    "tags": [
-     "trust",
-     "ecosystem",
-     "verification"
     ],
     "commission": null,
     "kind": "feature",
@@ -2098,6 +2099,7 @@
   "patrons": [],
   "breakers": []
  },
+ "verified": [],
  "streak": [
   {
    "d": "2026-04-14",
