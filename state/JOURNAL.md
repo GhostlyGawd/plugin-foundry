@@ -626,3 +626,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (validate+build+smoke+qa green)
 - next-suggestion: qa pins new-directory regression
 - notes: n/a
+
+## i104 — qa — 2026-07-06T01:08:00Z
+- did: test-gap-nudge re-test 13/13; -uall regression pinned in both directions
+- line: test-gap-nudge: building → rc
+- files: foundry/tests/test-gap-nudge/acceptance.test.sh, foundry/records/test-gap-nudge.md
+- validation: pass
+- next-suggestion: reviewer re-reads the one-flag fix
+- notes: n/a

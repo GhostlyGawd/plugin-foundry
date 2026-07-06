@@ -1,18 +1,24 @@
 {
- "generated_at": "2026-07-06T00:25:09.672337+00:00",
- "iteration": 103,
+ "generated_at": "2026-07-06T00:25:38.083963+00:00",
+ "iteration": 104,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 3,
   "spec": 4,
-  "building": 1,
-  "rc": 8,
+  "building": 0,
+  "rc": 9,
   "published": 22,
   "deprecated": 0,
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i104",
+   "role": "qa",
+   "ts": "2026-07-06T01:08:00Z",
+   "text": "test-gap-nudge re-test 13/13; -uall regression pinned in both directions \u00b7 test-gap-nudge: building \u2192 rc"
+  },
   {
    "it": "i103",
    "role": "builder",
@@ -54,21 +60,9 @@
    "role": "reviewer",
    "ts": "2026-07-06T00:36:00Z",
    "text": "token-cost-badges re-reviewed post-fix \u2014 approved; client-side staleness is \u00b7 token-cost-badges: review approved (stays rc)"
-  },
-  {
-   "it": "i96",
-   "role": "qa",
-   "ts": "2026-07-06T00:34:00Z",
-   "text": "token-cost-badges re-test 3/3 with new executable suite; stale-dimming \u00b7 token-cost-badges: building \u2192 rc"
   }
  ],
  "journal": [
-  {
-   "it": "i92",
-   "role": "reviewer",
-   "ts": "2026-07-06T00:22:00Z",
-   "text": "starter-kits re-reviewed post-fix \u2014 approved; fix narrow, regression \u00b7 starter-kits: review approved (stays rc; maintainer publishes next)"
-  },
   {
    "it": "i93",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "builder",
    "ts": "2026-07-06T01:05:00Z",
    "text": "test-gap-nudge bounce fix \u2014 -uall; reviewer's reproduction now nudges \u00b7 test-gap-nudge: component fixed (stays building)"
+  },
+  {
+   "it": "i104",
+   "role": "qa",
+   "ts": "2026-07-06T01:08:00Z",
+   "text": "test-gap-nudge re-test 13/13; -uall regression pinned in both directions \u00b7 test-gap-nudge: building \u2192 rc"
   }
  ],
  "records": [
@@ -827,7 +827,7 @@
    "name": "test-gap-nudge",
    "title": "Test-Gap Nudge",
    "category": "quality",
-   "stage": "building",
+   "stage": "rc",
    "version": "0.1.0",
    "components": [
     "hooks"
@@ -1216,7 +1216,7 @@
     "name": "test-gap-nudge",
     "title": "Test-Gap Nudge",
     "category": "quality",
-    "stage": "building",
+    "stage": "rc",
     "version": "0.1.0",
     "components": [
      "hooks"
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 16
+   "n": 17
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

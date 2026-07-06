@@ -2,7 +2,7 @@
 name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
-stage: building
+stage: rc
 version: 0.1.0
 kind: plugin
 components: [hooks]
@@ -126,3 +126,11 @@ REVIEW: bounced — untracked-directory blindness on the plugin's core case; add
 - i103: `-uall` on the porcelain call — untracked files inside new directories now
   classify individually; CHANGELOG credits the review catch. Re-ran the reviewer's
   reproduction: new module now nudges.
+
+### Test pass — i104 (post-bounce re-test)
+- tier 1: suite now 13/13 — i102 regression pinned both directions (new source
+  dir nudges; new tests dir silences); all prior checks green
+- tier 2: official strict validate PASS
+- tier 3: reviewer's exact reproduction re-run by hand — nudges with the path
+- defects: none found
+TEST VERDICT: pass

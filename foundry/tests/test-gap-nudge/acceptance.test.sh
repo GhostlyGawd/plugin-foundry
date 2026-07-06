@@ -66,3 +66,17 @@ assert '\"\${CLAUDE_PLUGIN_ROOT}' in cmd, 'quoting'
 " 2>/dev/null && [ -x "$SCRIPT" ] && head -1 "$SCRIPT" | grep -q '^#!'; then
   echo "ok: check7 hooks.json Stop + quoted root + executable shebang script"
 else echo "fail: check7 structural"; fi
+
+# 8 — i102 bounce regression: source file inside a brand-new directory still nudges
+d=$(mkrepo eight); git -C "$d" commit -q --allow-empty -m base
+mkdir -p "$d/newmod"; echo x > "$d/newmod/core.py"
+out=$(run "$d" s8); rc=$?
+if [ "$rc" -eq 0 ] && echo "$out" | grep -q 'newmod/core.py'; then
+  echo "ok: check8 new-directory source nudges (-uall regression)"
+else echo "fail: check8 — rc=$rc out=$out"; fi
+
+# 8b — and a brand-new tests directory still silences
+d=$(mkrepo eightb); git -C "$d" commit -q --allow-empty -m base
+echo x > "$d/app.py"; mkdir -p "$d/tests"; echo t > "$d/tests/test_core.py"
+out=$(run "$d" s8b); rc=$?
+[ "$rc" -eq 0 ] && [ -z "$out" ] && echo "ok: check8b new tests dir silences" || echo "fail: check8b — rc=$rc out=$out"
