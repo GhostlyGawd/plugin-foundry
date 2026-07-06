@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [site]
 one_liner: A shareable, kraft-styled SVG credit card per contributor - prospects, patronages, breaks, since-date.
 tags: [credit, svg, ladder]

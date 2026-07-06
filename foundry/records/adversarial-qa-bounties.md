@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [docs, template, site]
 one_liner: Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.
 tags: [community, qa, security, ladder]

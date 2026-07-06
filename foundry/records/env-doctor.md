@@ -5,7 +5,7 @@ category: quality
 stage: published
 version: 0.1.1
 always_on_tokens: 110
-verified: 2026-07-05
+verified: 2026-07-06
 components: [hooks]
 one_liner: Checks the toolchain against the project's declared versions at session start and warns early.
 tags: [environment, onboarding, hooks]

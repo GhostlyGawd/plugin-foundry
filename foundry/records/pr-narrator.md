@@ -5,7 +5,7 @@ category: workflow
 stage: published
 version: 0.1.1
 always_on_tokens: 88
-verified: 2026-07-05
+verified: 2026-07-06
 components: [agents]
 one_liner: A subagent that turns a branch's commits and diff into a reviewer-ready PR description.
 tags: [pull-requests, agents, writing]

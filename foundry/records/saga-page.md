@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [site]
 one_liner: An auto-generated timeline of the workshop's own story — ADRs, ships, kills, ceremonies.
 tags: [lore, narrative, retention]

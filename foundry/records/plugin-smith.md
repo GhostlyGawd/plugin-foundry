@@ -6,7 +6,7 @@ stage: published
 version: 0.1.1
 components: [skills]
 always_on_tokens: 113
-verified: 2026-07-05
+verified: 2026-07-06
 one_liner: Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.
 tags: [meta, scaffolding, validation, dogfood]
 created: 2026-07-04

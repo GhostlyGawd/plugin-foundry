@@ -5,7 +5,7 @@ category: context
 stage: published
 version: 0.1.1
 always_on_tokens: 93
-verified: 2026-07-05
+verified: 2026-07-06
 components: [skills, hooks]
 one_liner: Writes a structured recap when a session ends and recalls it when the next one starts.
 tags: [memory, sessions, continuity]

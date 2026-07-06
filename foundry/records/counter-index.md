@@ -5,6 +5,7 @@ category: context
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [site]
 one_liner: Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.
 tags: [search, filters, shelf]

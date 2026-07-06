@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [workflow]
 one_liner: When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.
 tags: [issues, notifications, credit]

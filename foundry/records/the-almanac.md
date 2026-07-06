@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [site]
 one_liner: A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.
 tags: [retrospective, accountability, content]

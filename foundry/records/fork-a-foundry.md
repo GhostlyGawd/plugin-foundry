@@ -7,7 +7,7 @@ kind: plugin
 version: 0.1.1
 components: [skills]
 always_on_tokens: 90
-verified: 2026-07-05
+verified: 2026-07-06
 one_liner: One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.
 tags: [meta, bootstrap, viral, dogfood]
 created: 2026-07-05

@@ -5,6 +5,7 @@ category: quality
 stage: published
 kind: feature
 version: null
+verified: 2026-07-06
 components: [site,docs]
 one_liner: Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.
 tags: [demos, certificates, show-dont-tell]
