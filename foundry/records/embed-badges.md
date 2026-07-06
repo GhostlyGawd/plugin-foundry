@@ -83,3 +83,11 @@ deriving it from site-config so it can't drift again).
 - tier 3: badge message re-derives per build (25 shipped · i114 at test time)
 - defects: none found
 TEST VERDICT: pass
+
+### Review — i117 (post-bounce)
+- Snippet re-read as pasted: badge URL percent-encoded for the shields param,
+  iframe src literal and correct; both trace to site-config. The QA check makes
+  the drift class (config moves, prose doesn't) fail loudly next time.
+- Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
+  structure 5.
+REVIEW: approved — embeds are now true as pasted, not merely derivable.

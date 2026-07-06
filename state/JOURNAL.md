@@ -742,3 +742,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: reviewer re-checks the snippet as pasted
 - notes: n/a
+
+## i117 — reviewer — 2026-07-06T01:51:00Z
+- did: embed-badges re-review — approved
+- line: embed-badges: review approved (stays rc)
+- files: foundry/records/embed-badges.md
+- validation: pass
+- next-suggestion: maintainer publishes embed-badges
+- notes: n/a

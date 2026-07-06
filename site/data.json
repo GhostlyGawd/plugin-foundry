@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:33:30.304752+00:00",
- "iteration": 116,
+ "generated_at": "2026-07-06T00:33:49.251190+00:00",
+ "iteration": 117,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -13,6 +13,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i117",
+   "role": "reviewer",
+   "ts": "2026-07-06T01:51:00Z",
+   "text": "embed-badges re-review \u2014 approved \u00b7 embed-badges: review approved (stays rc)"
+  },
   {
    "it": "i116",
    "role": "qa",
@@ -54,21 +60,9 @@
    "role": "builder",
    "ts": "2026-07-06T01:30:00Z",
    "text": "weekly-shipnote bounce fixes \u2014 honest truncation pointer + ensure-label \u00b7 weekly-shipnote: components fixed (stays building)"
-  },
-  {
-   "it": "i109",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:27:00Z",
-   "text": "weekly-shipnote BOUNCED \u2014 silent 12-move cap (21 real moves this week, \u00b7 weekly-shipnote: rc \u2192 building (bounce)"
   }
  ],
  "journal": [
-  {
-   "it": "i105",
-   "role": "reviewer",
-   "ts": "2026-07-06T01:10:00Z",
-   "text": "test-gap-nudge re-review \u2014 approved; all axes \u22654 (hook safety 5, thrift 33 tok) \u00b7 test-gap-nudge: review approved (stays rc)"
-  },
   {
    "it": "i106",
    "role": "maintainer",
@@ -134,6 +128,12 @@
    "role": "qa",
    "ts": "2026-07-06T01:49:00Z",
    "text": "embed-badges re-test 3/3; placeholder drift now impossible to reintroduce \u00b7 embed-badges: building \u2192 rc"
+  },
+  {
+   "it": "i117",
+   "role": "reviewer",
+   "ts": "2026-07-06T01:51:00Z",
+   "text": "embed-badges re-review \u2014 approved \u00b7 embed-badges: review approved (stays rc)"
   }
  ],
  "records": [
@@ -2339,7 +2339,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 29
+   "n": 30
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"
