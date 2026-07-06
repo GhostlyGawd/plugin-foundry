@@ -2,7 +2,7 @@
 name: token-cost-badges
 title: Token-Cost Badges
 category: growth
-stage: rc
+stage: published
 kind: feature
 version: null
 components: [site, docs]
@@ -100,3 +100,8 @@ TEST VERDICT: pass
 - Axes: scope 5 · prompt n/a · thrift 5 · hook-safety n/a · docs-truth 5 ·
   structure 5.
 REVIEW: approved — spec and shipped artifact now agree; staleness degrades honestly.
+
+### Published — i98 (maintainer)
+Live: every card shows its context price or says "unmeasured"; stale verifications
+dim honestly. Experiment armed — review 14 days post-deploy (clones per unique vs
+prior snapshots).

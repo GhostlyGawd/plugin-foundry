@@ -570,3 +570,12 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: maintainer publishes token-cost-badges
 - notes: n/a
+
+## i98 — maintainer — 2026-07-06T00:38:00Z
+- did: published token-cost-badges — honest context pricing on every card, with
+  self-degrading freshness stamps
+- line: token-cost-badges: rc → published
+- files: foundry/records/token-cost-badges.md
+- validation: pass
+- next-suggestion: builder specs test-gap-nudge (utility walk, per slate)
+- notes: experiment review-after 2026-07-19 stands
