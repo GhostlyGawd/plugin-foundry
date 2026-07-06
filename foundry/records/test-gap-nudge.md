@@ -121,3 +121,8 @@ TEST VERDICT: pass
   thrift 5 (33 tok) · hook-safety 5 · docs-truth 3 · structure 5.
 REVIEW: bounced — untracked-directory blindness on the plugin's core case; add
 -uall + regression test.
+
+## Build log (post-bounce)
+- i103: `-uall` on the porcelain call — untracked files inside new directories now
+  classify individually; CHANGELOG credits the review catch. Re-ran the reviewer's
+  reproduction: new module now nudges.

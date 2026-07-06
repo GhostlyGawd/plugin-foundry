@@ -618,3 +618,11 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: builder adds -uall to the porcelain call + regression test
 - notes: hook security surface itself came through clean
+
+## i103 — builder — 2026-07-06T01:05:00Z
+- did: test-gap-nudge bounce fix — -uall; reviewer's reproduction now nudges
+- line: test-gap-nudge: component fixed (stays building)
+- files: plugins/test-gap-nudge/{scripts/nudge.sh,CHANGELOG.md}, foundry/records/test-gap-nudge.md
+- validation: pass (validate+build+smoke+qa green)
+- next-suggestion: qa pins new-directory regression
+- notes: n/a

@@ -42,7 +42,7 @@ while IFS= read -r line; do
   if [ "$ext" != "$base" ] && [[ "$ext" =~ ^($SRC_EXT)$ ]]; then
     src_hits+=("$path")
   fi
-done < <(git status --porcelain 2>/dev/null)
+done < <(git status --porcelain -uall 2>/dev/null)
 
 [ "$test_seen" -eq 1 ] && exit 0
 [ "${#src_hits[@]}" -eq 0 ] && exit 0
