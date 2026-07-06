@@ -1110,3 +1110,19 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: operator runs tools/preflight.py and spends the 15 minutes
 - notes: n/a
+
+## i152 — auditor (directed) — 2026-07-06T20:45:00Z
+- did: post-v9 discovery slate — IMPROVEMENTS.md refreshed (prior post-v8 slate
+  fully built as v9 per audit-004; preserved in git history). 14 items across
+  four lanes, all deduped against v9: user value on the shelf (update awareness,
+  hook config knobs, clerk-on-window, READMEs on certificates), the untested
+  gates (gates.yml PR CI, pytest for validate/build, qa.sh silent-skip, parser
+  dedup), productization (SECURITY.md, hook debug mode, CI pin, release assets),
+  differentiation (verified-by-foundry registry, foundry network).
+- line: n/a (discovery only; nothing implemented)
+- files: IMPROVEMENTS.md, state/STATE.json, state/JOURNAL.md (+ site/ regen)
+- validation: pass
+- next-suggestion: open the slate with #5 (gates.yml) — smallest effort, closes
+  the mode:pr CI hole; ADR alongside per the two-iteration rule.
+- notes: directed session riding a PR per ADR-017; role_queue untouched — the
+  default cycle resumes at the next shift.
