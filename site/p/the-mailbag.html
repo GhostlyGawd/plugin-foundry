@@ -3,16 +3,22 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Mailbag — provenance</title>
+<meta property="og:title" content="The Mailbag — provenance">
+<meta property="og:description" content="question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.">
+<meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/the-mailbag.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 <style>
   .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
   .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
-  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust{border:2px solid var(--ink);background:var(--card);padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
   .trow b{min-width:110px}
   .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
 
   :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  @media (prefers-color-scheme: dark){:root{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}
   *{box-sizing:border-box; margin:0}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
     color:var(--ink); font-size:14px; line-height:1.6; padding:20px}

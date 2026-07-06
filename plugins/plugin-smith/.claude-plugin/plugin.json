@@ -1,9 +1,16 @@
 {
   "name": "plugin-smith",
   "displayName": "Plugin Smith",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scaffold new Claude Code plugins and health-check existing ones against the official spec.",
-  "author": { "name": "The Foundry (self-running plugin workshop)" },
+  "author": {
+    "name": "The Foundry (self-running plugin workshop)"
+  },
   "license": "MIT",
-  "keywords": ["plugin-development", "scaffolding", "validation", "meta"]
+  "keywords": [
+    "plugin-development",
+    "scaffolding",
+    "validation",
+    "meta"
+  ]
 }

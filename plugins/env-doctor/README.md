@@ -7,7 +7,7 @@ switches, or mutates anything without your yes to the specific command.
 
 ## Install
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install env-doctor@foundry
 ```
 

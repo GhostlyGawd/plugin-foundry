@@ -35,8 +35,12 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 ## Grow (worked after bootstrap)
 - [x] P1 Review + publish fork-a-foundry — DONE i8/i9, tag fork-a-foundry-v0.1.0.
 - [ ] P3 (builder) fork-a-foundry polish: from-spec path links OPERATIONS §7–8 (reviewer nit, i8).
-- [ ] P1 (growth) Run the pr-gated-publishes trial per its spec; verdict decides the
-      scheduled default.
+- [x] P1 (growth) Run the pr-gated-publishes trial — interim verdict i144/ADR-017:
+      directed slates ride PRs (proven, PR #9); cron default deferred to real
+      mode:pr shift data once the factory is live.
+- [ ] P2 (growth) pr-gated-publishes: rule on the CRON default after 10 mode:pr
+      shifts or 21 days of a live factory (spec terms; successor to the i144
+      interim verdict).
 - [x] P1 (qa) QA fixture passes for the four building-stage v5 features
       (field-reports, community-hall, saga-page, embed-badges) → rc, then review
       → publish. DONE — all four published in the v8 slate (i107–i128).
@@ -45,13 +49,16 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [ ] P1 Walk session-recap through spec (hooks + skill combo — good hook-safety exercise).
 - [ ] P1 Post-publish re-test of plugin-smith (it shipped at genesis without a QA pass
       of record — hold it to the same bar; Version law applies to any fixes).
-- [ ] P2 Per-plugin detail pages on the catalog (ADR first; template change).
+- [x] P2 Per-plugin detail pages on the catalog — already exist: 38 birth
+      certificates at site/p/<name>.html (build_pages); stale item, closed i140.
 - [ ] P2 CONTRIBUTING.md for humans proposing plugin ideas.
 - [ ] P1 Go-live (human-assisted): fill foundry/site-config.json, push to GitHub,
       enable Pages (Actions source), add ANTHROPIC_API_KEY secret — per OPERATIONS.md.
 - [ ] P1 (designer) First Theme of the Month via ADR once in grow phase.
-- [ ] P2 (growth) Spec shift-streak once METRICS has ≥2 real snapshots for a baseline.
-- [ ] P2 (growth) Spec weekly-shipnote; pair with maintainer for the workflow step.
+- [x] P2 (growth) Spec shift-streak — OBE: specced, built, and published in the
+      v8 slate (i134); baseline arms at go-live. Closed i140.
+- [x] P2 (growth) Spec weekly-shipnote — OBE: published i113 with fixture suite.
+      Closed i140.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
 
 ## v7 slate — SHIPPED ✓ (audit-002)
@@ -65,12 +72,12 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 
 - [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
       of the documented constant (drift risk noted at i46).
-- [ ] P3 (designer) saga wall: add an ellipsis when a quote hits the 220-char
-      truncation (cuts mid-word today; reviewer nit, i107).
-- [ ] P3 (designer) field reports: when a certificate hits the 8-report cap,
-      link the full label search (reviewer nit, i125).
+- [x] P3 (designer) saga wall ellipsis — DONE i145 (word-boundary clip()).
+- [x] P3 (designer) field-report cap link — DONE i145 ("all N reports →" when >8).
 - [ ] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
       published on manual probes (audit-003 finding #3) — one suite per pass.
+- [ ] P3 (builder) qa.sh: warn on non-executable *.test.sh files instead of
+      silent skip (sharp edge, audit-004; tools/ change — ADR first).
 
 ## v8 slate (ADR-014 — operator-directed; role_queue seeded for it)
 - [x] P1 (line) Publish-or-bounce the ten rc features: reviewer+maintainer pairs in

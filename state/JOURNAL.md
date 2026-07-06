@@ -922,3 +922,191 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: operator merges the PR (pr-gated-publishes trial verdict rides
   on it), enables Pages, adds secrets — Gate A clock starts
 - notes: n/a
+
+## i136 — maintainer — 2026-07-06T03:15:00Z
+- did: v9 slate opened (ADR-016, IMPROVEMENTS.md committed); #1 fixed — README
+  quickstart now says `/plugin marketplace add GhostlyGawd/plugin-foundry`,
+  pinned by a new check in the embed-badges suite (repo-set ⇒ no placeholder);
+  sweep found the same placeholder in all 8 plugin READMEs → next iteration
+  (version law applies there)
+- line: n/a (docs/process)
+- files: README.md, IMPROVEMENTS.md, foundry/tests/embed-badges/badge.test.sh,
+  state/{DECISIONS.md,STATE.json}
+- validation: pass
+- next-suggestion: maintainer README sweep across 7 plugins (night-clerk waits
+  for its 0.1.1 so it bumps once)
+- notes: n/a
+
+## i137 — maintainer — 2026-07-06T03:22:00Z
+- did: version-law README sweep (#1 tail) — 7 published plugins' install lines
+  bake the real slug; each shipped as 0.1.1 with CHANGELOG (top entry — the
+  validator taught me where it goes) and annotated tag; night-clerk deliberately
+  held for its 0.1.2 snapshot release next iteration
+- line: 7 plugins bumped 0.1.0 → 0.1.1 (no stage moves)
+- files: plugins/{commit-craft,env-doctor,fork-a-foundry,plugin-smith,pr-narrator,session-recap,test-gap-nudge}/{README.md,CHANGELOG.md,.claude-plugin/plugin.json},
+  foundry/records/*.md (version mirrors)
+- validation: pass (validate+build+smoke+qa 142 green)
+- next-suggestion: builder ships night-clerk 0.1.1 — fresh snapshot + kits (#2/#8)
+- notes: tags are local; tag pushes 403 on this credential — operator or CI lays
+  them on the remote (same as test-gap-nudge-v0.1.0, audit-003)
+
+## i138 — builder — 2026-07-06T03:30:00Z
+- did: night-clerk 0.1.1 (#2+#8) — snapshot regenerated via clerkcat (8 plugins;
+  was 7, a day stale), catalog gains kits (published-members-only), SKILL step 2
+  teaches bundle offers, README slug fixed; freshness regression added
+  (marketplace ⊆ snapshot, both directions) — caught my own harness slip: the
+  new test file lacked its shebang/exec bit and qa.sh skipped it silently
+- line: night-clerk 0.1.0 → 0.1.1 (no stage move)
+- files: tools/clerkcat.py (ADR-016), plugins/night-clerk/**, foundry/records/night-clerk.md,
+  foundry/tests/night-clerk/catalog.test.sh
+- validation: pass (validate+build+smoke+qa 11/11 night-clerk)
+- next-suggestion: builder lands the validator freshness law so drift goes red
+  at commit time
+- notes: n/a
+
+## i139 — builder — 2026-07-06T03:36:00Z
+- did: validator freshness law (ADR-016 #2) — published shelf ⊆ night-clerk
+  snapshot, ghosts flagged too; skips cleanly if the clerk is ever unpublished;
+  negative probe run (removed a snapshot entry → validator RED with a
+  run-clerkcat hint → restored)
+- line: n/a (tools; ADR-016 is the prior-iteration record)
+- files: tools/validate.py
+- validation: pass (green after restore; red proven during probe)
+- next-suggestion: maintainer hygiene pass (#3)
+- notes: drift class from IMPROVEMENTS #2 is now structurally extinct
+
+## i140 — maintainer — 2026-07-06T03:40:00Z
+- did: backlog hygiene (#3) — closed three done/overtaken items (per-plugin pages
+  exist as certificates; shift-streak and weekly-shipnote both published in v8)
+  with pointers; merged STATE.json's twin note/notes keys into one
+- line: n/a (state hygiene)
+- files: state/{BACKLOG.md,STATE.json}
+- validation: pass
+- next-suggestion: maintainer curates the solo dev kit (#4)
+- notes: n/a
+
+## i141 — maintainer — 2026-07-06T03:45:00Z
+- did: solo-dev kit curated (#4) — env-doctor + test-gap-nudge + session-recap;
+  the uncovered half of the shelf now has a bundle; clerk snapshot regenerated in
+  the same iteration as night-clerk 0.1.2 (kits ride the catalog, so kit changes
+  are version-law events for the clerk now — noted as standing duty)
+- line: night-clerk 0.1.1 → 0.1.2 (no stage move)
+- files: foundry/kits.json, plugins/night-clerk/{data/catalog.json,CHANGELOG.md,.claude-plugin/plugin.json},
+  foundry/records/night-clerk.md
+- validation: pass (kits suite 3/3, clerk suite 11/11, strict validate)
+- next-suggestion: builder lands OG meta (#5, ADR-016 template authorization)
+- notes: starter-kits experiment (review 2026-07-26) now measures 3 kits, 7 of 8
+  plugins covered
+
+## i142 — builder — 2026-07-06T03:52:00Z
+- did: OG/twitter meta (#5) on the window and all 38 certificates — titles,
+  descriptions, and the live "N shipped · shift iM" line all derived at build
+  time from the same substantiated data as the badge (dark-pattern law holds on
+  the share surface); twitter:card summary; og:url from pages_url
+- line: n/a (site template, ADR-016 authorization)
+- files: tools/build.py, site/** (regenerated)
+- validation: pass
+- next-suggestion: builder adds copy-to-clipboard (#6)
+- notes: shares of the window and any certificate now unfurl with real numbers
+
+## i143 — builder — 2026-07-06T03:57:00Z
+- did: copy-to-clipboard (#6) — click any .install block (shelf cards and kits)
+  to copy it whole, "copied ✓" flash for 1.4s; delegated handler so re-rendered
+  blocks keep working; degrades silently without a secure context, where
+  user-select:all remains the fallback
+- line: n/a (site template, ADR-016 authorization)
+- files: tools/build.py, site/index.html (regenerated)
+- validation: pass
+- next-suggestion: growth files the pr-gated-publishes verdict (#7)
+- notes: n/a
+
+## i144 — growth — 2026-07-06T04:03:00Z
+- did: pr-gated-publishes interim verdict (#7) — directed slates ride PRs
+  (ADR-017, codifying PR #9's zero-cost veto data); cron default honestly
+  deferred to the spec's own mode:pr terms; successor backlog item filed
+- line: pr-gated-publishes: trial log added (stays spec — armed, not finished)
+- files: foundry/records/pr-gated-publishes.md, state/{DECISIONS.md,BACKLOG.md}
+- validation: pass
+- next-suggestion: designer polish pass (#9 — saga ellipsis + report-cap link)
+- notes: no default flipped on proxy data — the experiment keeps its integrity
+
+## i145 — designer — 2026-07-06T04:10:00Z
+- did: polish pass (#9) — saga/ADR truncations now clip at a word boundary with a
+  visible ellipsis (clip() helper); certificates over the 8-report cap link
+  "all N reports →" to the label search (probed with a 9-report fixture, then
+  restored); both P3 nits closed
+- line: n/a (site template, ADR-016 authorization)
+- files: tools/build.py, state/BACKLOG.md, site/** (regenerated)
+- validation: pass
+- next-suggestion: qa suite backfill ×2 (#10)
+- notes: n/a
+
+## i146 — qa — 2026-07-06T04:15:00Z
+- did: suite backfill 1/2 (#10) — saga-page gets executable checks for its
+  honesty claims (ADR count, invented-milestone guard, ellipsis regression,
+  STATE sync); 4/4 green
+- line: n/a (published record gains its suite; no stage move)
+- files: foundry/tests/saga-page/saga.test.sh, foundry/records/saga-page.md
+- validation: pass
+- next-suggestion: qa backfills field-reports (the no-inline law deserves a test)
+- notes: n/a
+
+## i147 — qa — 2026-07-06T04:20:00Z
+- did: suite backfill 2/2 for this slate (#10) — field-reports' no-inline law
+  pinned with a hostile fixture; 4/4 green; remaining unsuited features stay on
+  the P2 (one per qa pass, standing)
+- line: n/a (published record gains its suite)
+- files: foundry/tests/field-reports/reports.test.sh, foundry/records/field-reports.md
+- validation: pass
+- next-suggestion: designer dark mode (#11)
+- notes: n/a
+
+## i148 — designer — 2026-07-06T04:30:00Z
+- did: dark mode (#11, ADR-016) — "night shift" variant of the warm-paper brand
+  via prefers-color-scheme on every generated surface: window (9-var palette +
+  active-chip + streak greens redrawn for dark), certificates (trust card moved
+  off hardcoded paper hexes to vars), saga, embed ticker (hardcoded hexes →
+  vars). Terminal panels (.term) stay dark in both schemes by design. Contrast
+  spot-checked: ink/paper and dim/paper both clear 4.5:1 in dark.
+- line: n/a (site template)
+- files: tools/build.py, site/** (regenerated)
+- validation: pass (validate + full qa 149 green)
+- next-suggestion: builder ships the recorded-transcript pipeline (#12)
+- notes: almanac pages render from their own template (monthly duty) — dark
+  variant there rides the first almanac pass in August
+
+## i149 — builder — 2026-07-06T04:42:00Z
+- did: recorded-demo pipeline (#12) — monthly/dispatch workflow records headless
+  sessions per foundry/demos/prompts/*.prompt (plugins load via the documented
+  skills-directory mechanism, no invented CLI), writes dated transcripts to
+  foundry/demos/<name>.txt; certificates flip "authored example" →
+  "CI-recorded transcript — <date>" when a recording exists (probed both
+  directions); no-credential and failed-run paths stay honest (labels don't lie);
+  prompts seeded for commit-craft and test-gap-nudge
+- line: n/a (workflow + template; ADR-016)
+- files: .github/workflows/record-demos.yml, foundry/demos/prompts/*,
+  tools/build.py
+- validation: pass
+- next-suggestion: builder ships tools/preflight.py + operator checklist (#13)
+- notes: recordings are repo metadata (ADR-013 spirit) — no version bumps
+
+## i150 — builder — 2026-07-06T04:50:00Z
+- did: go-live assist pack (#13) — tools/preflight.py: read-only readiness pass
+  (config, workflows, gates, funding state; secret NAMES only, never values) +
+  the distilled 15-minute operator click-list ending at the first CI shift;
+  OPERATIONS gains §0 pointing at it; live run shows 7 OK / 3 operator-optional
+- line: n/a (tools, ADR-016; v9 slate items #1–#13 all built)
+- files: tools/preflight.py, OPERATIONS.md
+- validation: pass
+- next-suggestion: auditor closes the v9 slate (audit-004), then push + PR
+- notes: the only remaining unlocks are the operator's clicks — by design
+
+## i151 — auditor — 2026-07-06T04:58:00Z
+- did: audit-004 filed — v9 slate 13/13 lawful (9 releases under version law,
+  2 ADRs, suites extended); self-caught incidents recorded; qa.sh silent-skip
+  sharp edge filed P3; role_queue → default cycle
+- line: audit-004 filed
+- files: reviews/audit-004.md, state/{STATE.json,BACKLOG.md}
+- validation: pass
+- next-suggestion: operator runs tools/preflight.py and spends the 15 minutes
+- notes: n/a

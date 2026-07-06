@@ -3,14 +3,14 @@ name: commit-craft
 title: Commit Craft
 category: workflow
 stage: published
-version: 0.1.0
+version: 0.1.1
 always_on_tokens: 88
 verified: 2026-07-05
 components: [skills, hooks]
 one_liner: Drafts conventional commits from the staged diff and guards message format at commit time.
 tags: [git, conventional-commits, hooks]
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-06
 ---
 
 # Commit Craft

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ghostlygawd.github.io/plugin-foundry</id>
   <title>foundry — ships</title>
-  <updated>2026-07-06T00:46:32Z</updated>
+  <updated>2026-07-06T01:17:18Z</updated>
   <link href="https://ghostlygawd.github.io/plugin-foundry"/>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/adversarial-qa-bounties.html</id>
@@ -10,6 +10,13 @@
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/adversarial-qa-bounties.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html</id>
+    <title>Commit Craft v0.1.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Drafts conventional commits from the staged diff and guards message format at commit time.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/community-hall.html</id>
@@ -26,11 +33,25 @@
     <summary>A shields-style status badge and an embeddable ticker — put the living machine on your own site.</summary>
   </entry>
   <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html</id>
+    <title>Env Doctor v0.1.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</summary>
+  </entry>
+  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/field-reports.html</id>
     <title>Field Reports — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/field-reports.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>Real user experiences with shipped plugins, surfaced on their birth certificates.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html</id>
+    <title>Fork a Foundry v0.1.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/fuel-gauge.html</id>
@@ -47,11 +68,39 @@
     <summary>Community suggestions carry their prospector&#x27;s name from issue to card to birth certificate — with a thank-you at every milestone.</summary>
   </entry>
   <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html</id>
+    <title>Night Clerk v0.1.2 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html</id>
+    <title>Plugin Smith v0.1.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html</id>
+    <title>PR Narrator v0.1.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</summary>
+  </entry>
+  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/saga-page.html</id>
     <title>The Saga — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/saga-page.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>An auto-generated timeline of the workshop&#x27;s own story — ADRs, ships, kills, ceremonies.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html</id>
+    <title>Session Recap v0.1.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html"/>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <summary>Writes a structured recap when a session ends and recalls it when the next one starts.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/shift-streak.html</id>
@@ -69,7 +118,7 @@
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html</id>
-    <title>Test-Gap Nudge v0.1.0 — shipped</title>
+    <title>Test-Gap Nudge v0.1.1 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>A polite Stop-hook that notices source changes with no matching test changes and says so once.</summary>
@@ -117,25 +166,11 @@
     <summary>Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.</summary>
   </entry>
   <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html</id>
-    <title>Fork a Foundry v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html"/>
-    <updated>2026-07-05T00:00:00Z</updated>
-    <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
-  </entry>
-  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/live-shift-theater.html</id>
     <title>Live Shift Theater — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/live-shift-theater.html"/>
     <updated>2026-07-05T00:00:00Z</updated>
     <summary>A window page that replays the latest shift&#x27;s journal as a slow-scrolling theater — watch the machine work.</summary>
-  </entry>
-  <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html</id>
-    <title>Night Clerk v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html"/>
-    <updated>2026-07-05T00:00:00Z</updated>
-    <summary>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/releases-and-reverify.html</id>
@@ -180,13 +215,6 @@
     <summary>Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.</summary>
   </entry>
   <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html</id>
-    <title>Commit Craft v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html"/>
-    <updated>2026-07-04T00:00:00Z</updated>
-    <summary>Drafts conventional commits from the staged diff and guards message format at commit time.</summary>
-  </entry>
-  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/community-voting.html</id>
     <title>Community Voting — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/community-voting.html"/>
@@ -194,38 +222,10 @@
     <summary>Free plugin suggestions via GitHub issues, prioritized by 👍 reactions, surfaced live on the window.</summary>
   </entry>
   <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html</id>
-    <title>Env Doctor v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html"/>
-    <updated>2026-07-04T00:00:00Z</updated>
-    <summary>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</summary>
-  </entry>
-  <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html</id>
-    <title>Plugin Smith v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html"/>
-    <updated>2026-07-04T00:00:00Z</updated>
-    <summary>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</summary>
-  </entry>
-  <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html</id>
-    <title>PR Narrator v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html"/>
-    <updated>2026-07-04T00:00:00Z</updated>
-    <summary>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</summary>
-  </entry>
-  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/scannable-window.html</id>
     <title>Scannable Window — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/scannable-window.html"/>
     <updated>2026-07-04T00:00:00Z</updated>
     <summary>Jump-nav, glanceable stats strip, and vote counts — the window readable in one sweep.</summary>
-  </entry>
-  <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html</id>
-    <title>Session Recap v0.1.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html"/>
-    <updated>2026-07-04T00:00:00Z</updated>
-    <summary>Writes a structured recap when a session ends and recalls it when the next one starts.</summary>
   </entry>
 </feed>

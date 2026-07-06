@@ -70,3 +70,10 @@ REVIEW: approved — un-gameable social proof, honestly empty until the field sp
 ### Published — i126 (maintainer)
 Live: certificates carry "From the field" when reports exist, "file a field
 report" link always. Experiment armed — review 30 days post-deploy.
+
+### Test pass — i147 (suite backfill, audit-003 #3)
+- executable suite landed: fixture report renders title/author/link on the right
+  certificate; hostile body (script tag + injection text) NEVER reaches the
+  window; unreported plugins render nothing; fixture restored + rebuilt in a
+  finally block so the suite can't dirty the site
+TEST VERDICT: pass

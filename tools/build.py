@@ -215,12 +215,17 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@TITLE@@ — a plugin workshop run entirely by AI</title>
 <meta name="description" content="Claude Code plugins pitched, built, tested, reviewed, and published by an autonomous loop. Watch the line move; install what it ships; commission what's missing.">
+@@OG@@
 <link rel="alternate" type="application/atom+xml" title="ships" href="feed.xml">
 <style>
   :root{
     --paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683;
     --dim:#7E7460; --stamp:#2F5A8F; --hole:#CDBF9E; --live:#3F7D4E; --amber:#B07818;
   }
+  @media (prefers-color-scheme: dark){:root{
+    --paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232;
+    --dim:#9A8E74; --stamp:#8FB0DC; --hole:#332D23; --live:#6FB07E; --amber:#D19A3D;
+  }}
   *{box-sizing:border-box; margin:0}
   html{scroll-behavior:smooth}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
@@ -237,6 +242,7 @@ TEMPLATE = """<!DOCTYPE html>
   .tagchips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
   .tagbtn{cursor:pointer;background:transparent;font:inherit;min-height:44px}
   .tagbtn.active{background:#2C2820;color:#F3ECDA;border-color:#2C2820}
+  @media (prefers-color-scheme: dark){.tagbtn.active{background:#E4D8BC;color:#26211A;border-color:#E4D8BC}}
   @media (prefers-reduced-motion:no-preference){
     .dot{animation:beat 2.4s ease-in-out infinite}
     @keyframes beat{0%,100%{opacity:1}50%{opacity:.25}}}
@@ -271,6 +277,11 @@ TEMPLATE = """<!DOCTYPE html>
   .day.n1{background:#C9CDA4; border-color:#B5A683}
   .day.n2{background:#8FA86B; border-color:#7E9757}
   .day.n3{background:#4F7D3F; border-color:#3F6A31}
+  @media (prefers-color-scheme: dark){
+    .day.n1{background:#3E4A2C; border-color:#4A4232}
+    .day.n2{background:#55703F; border-color:#4A5A34}
+    .day.n3{background:#6FB07E; border-color:#5A9468}
+  }
   .streaklabel{font-size:10px; color:var(--dim); letter-spacing:.14em; text-transform:uppercase; max-width:120px}
   /* stats + fuel */
   .stats{display:flex; border-bottom:1px solid var(--line)}
@@ -323,7 +334,9 @@ TEMPLATE = """<!DOCTYPE html>
   .chip.tok.stale{opacity:.5}
   .credit{font-size:11px; color:var(--dim)}
   .install{background:var(--ink); color:var(--paper); font-size:11.5px; padding:7px 9px;
-    overflow-x:auto; white-space:nowrap; user-select:all; cursor:text}
+    overflow-x:auto; white-space:nowrap; user-select:all; cursor:copy; position:relative}
+  .install[data-copied]::after{content:"copied ✓"; position:absolute; right:6px; top:6px;
+    font-size:10px; letter-spacing:.08em; color:var(--paper); opacity:.85}
   .note{font-size:10.5px; color:var(--dim); letter-spacing:.06em}
   .prov{font-size:11px; letter-spacing:.08em}
   .kit{border:1.5px solid var(--ink); background:var(--card); padding:14px; margin:12px 0}
@@ -679,6 +692,16 @@ function ago(iso){
 function renderAll(){
   renderGrid(); renderTape(); renderTheme(); renderLanes(); renderStats();
   renderVotes(); renderStreak(); renderFuel(); renderAlarms(); renderKits(); renderHall();
+  // copy-to-clipboard (ADR-016 #6): click any install block to copy it whole.
+  // Degrades silently without a secure context — user-select:all still works.
+  document.addEventListener('click', ev => {
+    const el = ev.target.closest('.install');
+    if (!el || !navigator.clipboard) return;
+    navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+      el.dataset.copied = '1';
+      setTimeout(() => { delete el.dataset.copied; }, 1400);
+    }).catch(() => { /* selection fallback remains */ });
+  });
   document.getElementById('iter').textContent = String(DATA.iteration).padStart(3,'0');
   document.getElementById('phase').textContent = DATA.phase;
   document.getElementById('lastshift').textContent = ago(DATA.generated_at);
@@ -731,16 +754,18 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@NAME@@ — provenance</title>
+@@OG@@
 <style>
   .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
   .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
-  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust{border:2px solid var(--ink);background:var(--card);padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
   .trow b{min-width:110px}
   .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
 
   :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  @media (prefers-color-scheme: dark){:root{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}
   *{box-sizing:border-box; margin:0}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
     color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
@@ -821,6 +846,18 @@ def trust_card(name, r):
             'no hand-written safety claims allowed here</p></div>')
 
 
+def og_meta(title, desc, url):
+    """Open Graph / twitter card tags (ADR-016 #5). Values are derived at build
+    time from the same substantiated data as the page — never hand-written."""
+    tags = [f'<meta property="og:title" content="{html.escape(title)}">',
+            f'<meta property="og:description" content="{html.escape(desc)}">',
+            '<meta property="og:type" content="website">',
+            '<meta name="twitter:card" content="summary">']
+    if url:
+        tags.insert(2, f'<meta property="og:url" content="{html.escape(url)}">')
+    return "\n".join(tags)
+
+
 def build_pages(records, mp_name, cfg, reports):
     outdir = ROOT / "site" / "p"
     outdir.mkdir(parents=True, exist_ok=True)
@@ -833,6 +870,16 @@ def build_pages(records, mp_name, cfg, reports):
             for i, t in enumerate(TRACK))
         def sec(title, text):
             if title == "Example session":
+                demo = ROOT / "foundry" / "demos" / f"{name}.txt"
+                if demo.exists():
+                    lines = demo.read_text().splitlines()
+                    stamp = lines[0].replace("recorded:", "").strip() if lines and lines[0].startswith("recorded:") else "?"
+                    body = "\n".join(lines[1:]).strip()
+                    if body:
+                        return ("<details open><summary>Example session</summary>"
+                                f"<p class=\"honestlabel\">CI-recorded transcript — {html.escape(stamp)} "
+                                "(charter/TESTING.md)</p>"
+                                f"<pre class=\"term\">{html.escape(body)}</pre></details>")
                 return ("<details open><summary>Example session</summary>"
                         "<p class=\"honestlabel\">authored example — a CI-recorded transcript "
                         "replaces this per charter/TESTING.md</p>"
@@ -867,6 +914,9 @@ def build_pages(records, mp_name, cfg, reports):
                 f'<a href="{html.escape(rep.get("url", "#"))}">'
                 f'{html.escape(rep.get("title", "field report"))} — @{html.escape(rep.get("author", ""))}</a>'
                 for rep in plugin_reports[:8])
+            if len(plugin_reports) > 8 and repo:
+                items += (f'<a href="https://github.com/{repo}/issues?q=label%3Afield-report+{name}">'
+                          f'all {len(plugin_reports)} reports \u2192</a>')
             reports_html = f'<div class="field"><b>From the field</b>{items}</div>'
         links = []
         if r.get("stage") == "published" and r.get("kind", "plugin") == "plugin":
@@ -877,7 +927,12 @@ def build_pages(records, mp_name, cfg, reports):
             if r.get("kind", "plugin") == "plugin":
                 links.append(f'<a href="https://github.com/{repo}/commits/main/plugins/{name}">artifact history</a>')
             links.append(f'<a href="https://github.com/{repo}/issues/new?template=field-report.yml">file a field report</a>')
+        pages_url = (cfg.get("pages_url") or "").rstrip("/")
         page = (PAGE_TEMPLATE
+                .replace("@@OG@@", og_meta(
+                    f"{r.get('title', name)} — provenance",
+                    r.get("one_liner", ""),
+                    f"{pages_url}/p/{name}.html" if pages_url else ""))
                 .replace("@@NAME@@", html.escape(r.get("title", name)))
                 .replace("@@META@@", html.escape(" · ".join(meta_bits)) + cardlink)
                 .replace("@@TRACK@@", track)
@@ -890,6 +945,13 @@ def build_pages(records, mp_name, cfg, reports):
         (outdir / f"{name}.html").write_text(page)
 
 
+def clip(text, limit):
+    """Truncate at a word boundary with a visible ellipsis (i107 nit)."""
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0] + " …"
+
+
 def build_saga(records, state, cfg):
     """Timeline from ADRs + record fates. Only what the sources say."""
     decisions = (ROOT / "state" / "DECISIONS.md").read_text()
@@ -898,13 +960,13 @@ def build_saga(records, state, cfg):
                          decisions, re.M | re.S):
         ctx = re.search(r"- Context:\s*(.+)", m.group(5))
         adrs.append({"id": m.group(1), "title": m.group(2), "when": m.group(3),
-                     "line": " ".join((ctx.group(1) if ctx else "").split())[:180]})
+                     "line": clip(" ".join((ctx.group(1) if ctx else "").split()), 180)})
     sharpest = []
     for r in records:
         for m in re.finditer(r"Sharpest question[^:]*:?\s*(.+?)(?=\n\s*-|\n\s*REVIEW|\n##|\Z)", r.get("_body", ""), re.S):
             qtxt = " ".join(m.group(1).split())
             if qtxt:
-                sharpest.append((r.get("title", r.get("name", "?")), qtxt[:220]))
+                sharpest.append((r.get("title", r.get("name", "?")), clip(qtxt, 220)))
     fates = []
     for r in records:
         if r.get("stage") == "published":
@@ -930,6 +992,7 @@ def build_saga(records, state, cfg):
 <title>the saga</title>
 <style>
  :root{{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}}
+ @media (prefers-color-scheme: dark){{:root{{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}}}
  body{{font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink);
    font-size:14px; line-height:1.6; padding:20px}}
  .sheet{{max-width:760px; margin:0 auto}} a{{color:var(--stamp)}}
@@ -962,14 +1025,16 @@ def build_embed(ticker, cfg):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>foundry ticker</title>
 <style>
- body{{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:#E9DFC8; color:#2C2820}}
- .tape{{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid #B5A683}}
+ :root{{--paper:#E9DFC8; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}}
+ @media (prefers-color-scheme: dark){{:root{{--paper:#1C1913; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}}}
+ body{{margin:0; font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink)}}
+ .tape{{overflow:hidden; white-space:nowrap; padding:8px 10px; border:1px solid var(--line)}}
  .reel{{display:inline-block; padding-left:100%}}
  @media (prefers-reduced-motion:no-preference){{.reel{{animation:reel 55s linear infinite}} .tape:hover .reel{{animation-play-state:paused}}
  @keyframes reel{{to{{transform:translateX(-100%)}}}}}}
  @media (prefers-reduced-motion:reduce){{.tape{{white-space:normal}} .reel{{padding-left:0}}}}
- span{{color:#7E7460; font-size:12px; margin-right:34px}} span b{{color:#2C2820; font-weight:400}}
- span em{{color:#2F5A8F; font-style:normal}} .home{{font-size:11px; padding:4px 10px}} a{{color:#2F5A8F}}
+ span{{color:var(--dim); font-size:12px; margin-right:34px}} span b{{color:var(--ink); font-weight:400}}
+ span em{{color:var(--stamp); font-style:normal}} .home{{font-size:11px; padding:4px 10px}} a{{color:var(--stamp)}}
 </style></head><body>
 <div class="tape"><div class="reel">{spans}</div></div>
 <p class="home">{home}</p>
@@ -1187,6 +1252,11 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
 
     page = (TEMPLATE
             .replace("@@TITLE@@", html.escape(title))
+            .replace("@@OG@@", og_meta(
+                f"{title} — a plugin workshop run entirely by AI",
+                f"{data['counts']['published']} shipped · shift i{data['iteration']} — "
+                "Claude Code plugins built, tested, and published by an autonomous loop.",
+                (cfg.get("pages_url") or "").rstrip("/")))
             .replace("@@ITER@@", str(data["iteration"]).zfill(3))
             .replace("@@PHASE@@", html.escape(data["phase"]))
             .replace("@@LANE@@", lane_html)

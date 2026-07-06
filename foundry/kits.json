@@ -18,6 +18,16 @@
     "commit-craft",
     "pr-narrator"
    ]
+  },
+  {
+   "id": "solo-dev",
+   "name": "Solo dev kit",
+   "desc": "Run a healthy one-person repo: diagnose your environment, get nudged when code ships without tests, end every session with a written handoff.",
+   "plugins": [
+    "env-doctor",
+    "test-gap-nudge",
+    "session-recap"
+   ]
   }
  ]
 }

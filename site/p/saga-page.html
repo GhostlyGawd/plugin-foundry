@@ -3,16 +3,22 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Saga — provenance</title>
+<meta property="og:title" content="The Saga — provenance">
+<meta property="og:description" content="An auto-generated timeline of the workshop&#x27;s own story — ADRs, ships, kills, ceremonies.">
+<meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/saga-page.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 <style>
   .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
   .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
-  .trust{border:2px solid #2C2820;background:#EFE6CE;padding:12px 14px;margin:14px 0}
+  .trust{border:2px solid var(--ink);background:var(--card);padding:12px 14px;margin:14px 0}
   .trust h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
   .trow{display:flex;gap:10px;padding:3px 0;border-bottom:1px dashed #C9BC9C;font-size:13px}
   .trow b{min-width:110px}
   .tnote{margin:8px 0 0;font-size:11px;opacity:.7}
 
   :root{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}
+  @media (prefers-color-scheme: dark){:root{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}
   *{box-sizing:border-box; margin:0}
   body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:var(--paper);
     color:var(--ink); font-size:14px; line-height:1.6; padding:20px}
@@ -84,7 +90,13 @@ REVIEW: approved — the repo tells its own story without embellishment.
 
 ### Published — i108 (maintainer)
 Saga live and self-extending — this slate&#x27;s own ships and ADR-014 already on the
-page. Experiment armed: review 30 days post-deploy (uniques_14d trend).</pre></details></div>
+page. Experiment armed: review 30 days post-deploy (uniques_14d trend).
+
+### Test pass — i146 (suite backfill, audit-003 #3)
+- executable suite landed: ADR render-count vs DECISIONS (15/15), SHIPPED ==
+  published records exactly (zero invented milestones, live), word-boundary
+  ellipsis regression (i107 nit), naming-ceremony-from-STATE sync
+TEST VERDICT: pass</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/saga-page.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/saga-page.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

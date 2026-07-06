@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-06T00:46:32.756423+00:00",
- "iteration": 135,
+ "generated_at": "2026-07-06T01:17:18.493345+00:00",
+ "iteration": 151,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -14,126 +14,126 @@
  },
  "ticker": [
   {
-   "it": "i135",
+   "it": "i151",
    "role": "auditor",
-   "ts": "2026-07-06T03:02:00Z",
-   "text": "audit-003 filed \u2014 v8 slate 12/12 publishes lawful; 5 reviewer bounces \u00b7 audit-003 filed"
+   "ts": "2026-07-06T04:58:00Z",
+   "text": "audit-004 filed \u2014 v9 slate 13/13 lawful (9 releases under version law, \u00b7 audit-004 filed"
   },
   {
-   "it": "i134",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:58:00Z",
-   "text": "published shift-streak \u2014 v8 slate rc pool EMPTY: 10/10 features published \u00b7 shift-streak: rc \u2192 published"
+   "it": "i150",
+   "role": "builder",
+   "ts": "2026-07-06T04:50:00Z",
+   "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
   },
   {
-   "it": "i133",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:56:00Z",
-   "text": "shift-streak approved \u2014 live-journal count cross-check exact; blanks blank \u00b7 shift-streak: review approved (stays rc)"
+   "it": "i149",
+   "role": "builder",
+   "ts": "2026-07-06T04:42:00Z",
+   "text": "recorded-demo pipeline (#12) \u2014 monthly/dispatch workflow records headless"
   },
   {
-   "it": "i132",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:52:00Z",
-   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
+   "it": "i148",
+   "role": "designer",
+   "ts": "2026-07-06T04:30:00Z",
+   "text": "dark mode (#11, ADR-016) \u2014 \"night shift\" variant of the warm-paper brand"
   },
   {
-   "it": "i131",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:50:00Z",
-   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
+   "it": "i147",
+   "role": "qa",
+   "ts": "2026-07-06T04:20:00Z",
+   "text": "suite backfill 2/2 for this slate (#10) \u2014 field-reports' no-inline law"
   },
   {
-   "it": "i130",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:46:00Z",
-   "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
+   "it": "i146",
+   "role": "qa",
+   "ts": "2026-07-06T04:15:00Z",
+   "text": "suite backfill 1/2 (#10) \u2014 saga-page gets executable checks for its"
   },
   {
-   "it": "i129",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:44:00Z",
-   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
+   "it": "i145",
+   "role": "designer",
+   "ts": "2026-07-06T04:10:00Z",
+   "text": "polish pass (#9) \u2014 saga/ADR truncations now clip at a word boundary with a"
   },
   {
-   "it": "i128",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:40:00Z",
-   "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
+   "it": "i144",
+   "role": "growth",
+   "ts": "2026-07-06T04:03:00Z",
+   "text": "pr-gated-publishes interim verdict (#7) \u2014 directed slates ride PRs \u00b7 pr-gated-publishes: trial log added (stays spec \u2014 armed, not finished)"
   }
  ],
  "journal": [
   {
-   "it": "i124",
+   "it": "i140",
    "role": "maintainer",
-   "ts": "2026-07-06T02:25:00Z",
-   "text": "published adversarial-qa-bounties \u2014 community red-teaming lane open \u00b7 adversarial-qa-bounties: rc \u2192 published"
+   "ts": "2026-07-06T03:40:00Z",
+   "text": "backlog hygiene (#3) \u2014 closed three done/overtaken items (per-plugin pages"
   },
   {
-   "it": "i125",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:30:00Z",
-   "text": "field-reports approved \u2014 no-inline law verified in the render path; 8-cap \u00b7 field-reports: review approved (stays rc)"
-  },
-  {
-   "it": "i126",
+   "it": "i141",
    "role": "maintainer",
-   "ts": "2026-07-06T02:32:00Z",
-   "text": "published field-reports \u00b7 field-reports: rc \u2192 published"
+   "ts": "2026-07-06T03:45:00Z",
+   "text": "solo-dev kit curated (#4) \u2014 env-doctor + test-gap-nudge + session-recap; \u00b7 night-clerk 0.1.1 \u2192 0.1.2 (no stage move)"
   },
   {
-   "it": "i127",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:36:00Z",
-   "text": "community-hall approved \u2014 re-verified substantiation post-Breakers \u00b7 community-hall: review approved (stays rc)"
+   "it": "i142",
+   "role": "builder",
+   "ts": "2026-07-06T03:52:00Z",
+   "text": "OG/twitter meta (#5) on the window and all 38 certificates \u2014 titles,"
   },
   {
-   "it": "i128",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:40:00Z",
-   "text": "published community-hall; also unwound a protocol slip \u2014 i127+i128 had \u00b7 community-hall: rc \u2192 published"
+   "it": "i143",
+   "role": "builder",
+   "ts": "2026-07-06T03:57:00Z",
+   "text": "copy-to-clipboard (#6) \u2014 click any .install block (shelf cards and kits)"
   },
   {
-   "it": "i129",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:44:00Z",
-   "text": "idea-credit-loop approved \u2014 all four credit surfaces re-traced; intake \u00b7 idea-credit-loop: review approved (stays rc)"
+   "it": "i144",
+   "role": "growth",
+   "ts": "2026-07-06T04:03:00Z",
+   "text": "pr-gated-publishes interim verdict (#7) \u2014 directed slates ride PRs \u00b7 pr-gated-publishes: trial log added (stays spec \u2014 armed, not finished)"
   },
   {
-   "it": "i130",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:46:00Z",
-   "text": "published idea-credit-loop \u00b7 idea-credit-loop: rc \u2192 published"
+   "it": "i145",
+   "role": "designer",
+   "ts": "2026-07-06T04:10:00Z",
+   "text": "polish pass (#9) \u2014 saga/ADR truncations now clip at a word boundary with a"
   },
   {
-   "it": "i131",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:50:00Z",
-   "text": "fuel-gauge approved \u2014 three render states + money-surface honesty verified \u00b7 fuel-gauge: review approved (stays rc)"
+   "it": "i146",
+   "role": "qa",
+   "ts": "2026-07-06T04:15:00Z",
+   "text": "suite backfill 1/2 (#10) \u2014 saga-page gets executable checks for its"
   },
   {
-   "it": "i132",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:52:00Z",
-   "text": "published fuel-gauge \u00b7 fuel-gauge: rc \u2192 published"
+   "it": "i147",
+   "role": "qa",
+   "ts": "2026-07-06T04:20:00Z",
+   "text": "suite backfill 2/2 for this slate (#10) \u2014 field-reports' no-inline law"
   },
   {
-   "it": "i133",
-   "role": "reviewer",
-   "ts": "2026-07-06T02:56:00Z",
-   "text": "shift-streak approved \u2014 live-journal count cross-check exact; blanks blank \u00b7 shift-streak: review approved (stays rc)"
+   "it": "i148",
+   "role": "designer",
+   "ts": "2026-07-06T04:30:00Z",
+   "text": "dark mode (#11, ADR-016) \u2014 \"night shift\" variant of the warm-paper brand"
   },
   {
-   "it": "i134",
-   "role": "maintainer",
-   "ts": "2026-07-06T02:58:00Z",
-   "text": "published shift-streak \u2014 v8 slate rc pool EMPTY: 10/10 features published \u00b7 shift-streak: rc \u2192 published"
+   "it": "i149",
+   "role": "builder",
+   "ts": "2026-07-06T04:42:00Z",
+   "text": "recorded-demo pipeline (#12) \u2014 monthly/dispatch workflow records headless"
   },
   {
-   "it": "i135",
+   "it": "i150",
+   "role": "builder",
+   "ts": "2026-07-06T04:50:00Z",
+   "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
+  },
+  {
+   "it": "i151",
    "role": "auditor",
-   "ts": "2026-07-06T03:02:00Z",
-   "text": "audit-003 filed \u2014 v8 slate 12/12 publishes lawful; 5 reviewer bounces \u00b7 audit-003 filed"
+   "ts": "2026-07-06T04:58:00Z",
+   "text": "audit-004 filed \u2014 v9 slate 13/13 lawful (9 releases under version law, \u00b7 audit-004 filed"
   }
  ],
  "records": [
@@ -216,7 +216,7 @@
    "title": "Commit Craft",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills",
     "hooks"
@@ -428,7 +428,7 @@
    "title": "Env Doctor",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "hooks"
    ],
@@ -475,7 +475,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills"
    ],
@@ -595,7 +595,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.2",
    "components": [
     "skills"
    ],
@@ -618,7 +618,7 @@
    "title": "Plugin Smith",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills"
    ],
@@ -665,7 +665,7 @@
    "title": "PR Narrator",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "agents"
    ],
@@ -757,7 +757,7 @@
    "title": "Session Recap",
    "category": "context",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills",
     "hooks"
@@ -828,7 +828,7 @@
    "title": "Test-Gap Nudge",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "hooks"
    ],
@@ -1241,6 +1241,30 @@
     "patron": null
    },
    {
+    "name": "commit-craft",
+    "title": "Commit Craft",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
+    "tags": [
+     "git",
+     "conventional-commits",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "community-hall",
     "title": "Hall of Prospectors & Patrons",
     "category": "growth",
@@ -1287,6 +1311,29 @@
     "patron": null
    },
    {
+    "name": "env-doctor",
+    "title": "Env Doctor",
+    "category": "quality",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
+    "tags": [
+     "environment",
+     "onboarding",
+     "hooks"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "110",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "field-reports",
     "title": "Field Reports",
     "category": "growth",
@@ -1306,6 +1353,30 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "fork-a-foundry",
+    "title": "Fork a Foundry",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "tags": [
+     "meta",
+     "bootstrap",
+     "viral",
+     "dogfood"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "90",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1359,6 +1430,76 @@
     "patron": null
    },
    {
+    "name": "night-clerk",
+    "title": "Night Clerk",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.2",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+    "tags": [
+     "discovery",
+     "meta",
+     "catalog"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "86",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "plugin-smith",
+    "title": "Plugin Smith",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
+    "tags": [
+     "meta",
+     "scaffolding",
+     "validation",
+     "dogfood"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "113",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "pr-narrator",
+    "title": "PR Narrator",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "agents"
+    ],
+    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
+    "tags": [
+     "pull-requests",
+     "agents",
+     "writing"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "88",
+    "verified": "2026-07-05",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1377,6 +1518,30 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "session-recap",
+    "title": "Session Recap",
+    "category": "context",
+    "stage": "published",
+    "version": "0.1.1",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
+    "tags": [
+     "memory",
+     "sessions",
+     "continuity"
+    ],
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "93",
+    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1433,7 +1598,7 @@
     "title": "Test-Gap Nudge",
     "category": "quality",
     "stage": "published",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "components": [
      "hooks"
     ],
@@ -1594,30 +1759,6 @@
     "patron": null
    },
    {
-    "name": "fork-a-foundry",
-    "title": "Fork a Foundry",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
-    "tags": [
-     "meta",
-     "bootstrap",
-     "viral",
-     "dogfood"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "90",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "live-shift-theater",
     "title": "Live Shift Theater",
     "category": "growth",
@@ -1636,29 +1777,6 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "night-clerk",
-    "title": "Night Clerk",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
-    "tags": [
-     "discovery",
-     "meta",
-     "catalog"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "86",
-    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1804,30 +1922,6 @@
     "patron": null
    },
    {
-    "name": "commit-craft",
-    "title": "Commit Craft",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
-    "tags": [
-     "git",
-     "conventional-commits",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "88",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "community-voting",
     "title": "Community Voting",
     "category": "growth",
@@ -1853,76 +1947,6 @@
     "patron": null
    },
    {
-    "name": "env-doctor",
-    "title": "Env Doctor",
-    "category": "quality",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "hooks"
-    ],
-    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
-    "tags": [
-     "environment",
-     "onboarding",
-     "hooks"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "110",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "plugin-smith",
-    "title": "Plugin Smith",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
-    "tags": [
-     "meta",
-     "scaffolding",
-     "validation",
-     "dogfood"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "113",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "pr-narrator",
-    "title": "PR Narrator",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "agents"
-    ],
-    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
-    "tags": [
-     "pull-requests",
-     "agents",
-     "writing"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "88",
-    "verified": "2026-07-05",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "scannable-window",
     "title": "Scannable Window",
     "category": "growth",
@@ -1941,30 +1965,6 @@
     "kind": "feature",
     "always_on_tokens": null,
     "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "session-recap",
-    "title": "Session Recap",
-    "category": "context",
-    "stage": "published",
-    "version": "0.1.0",
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
-    "tags": [
-     "memory",
-     "sessions",
-     "continuity"
-    ],
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "93",
-    "verified": "2026-07-05",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2006,6 +2006,31 @@
     {
      "name": "pr-narrator",
      "title": "PR Narrator",
+     "stage": "published",
+     "published": true
+    }
+   ]
+  },
+  {
+   "id": "solo-dev",
+   "name": "Solo dev kit",
+   "desc": "Run a healthy one-person repo: diagnose your environment, get nudged when code ships without tests, end every session with a written handoff.",
+   "members": [
+    {
+     "name": "env-doctor",
+     "title": "Env Doctor",
+     "stage": "published",
+     "published": true
+    },
+    {
+     "name": "test-gap-nudge",
+     "title": "Test-Gap Nudge",
+     "stage": "published",
+     "published": true
+    },
+    {
+     "name": "session-recap",
+     "title": "Session Recap",
      "stage": "published",
      "published": true
     }
@@ -2358,7 +2383,7 @@
   },
   {
    "d": "2026-07-06",
-   "n": 48
+   "n": 64
   }
  ],
  "repo": "GhostlyGawd/plugin-foundry"

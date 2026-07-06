@@ -3,14 +3,14 @@ name: pr-narrator
 title: PR Narrator
 category: workflow
 stage: published
-version: 0.1.0
+version: 0.1.1
 always_on_tokens: 88
 verified: 2026-07-05
 components: [agents]
 one_liner: A subagent that turns a branch's commits and diff into a reviewer-ready PR description.
 tags: [pull-requests, agents, writing]
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-06
 ---
 
 # PR Narrator

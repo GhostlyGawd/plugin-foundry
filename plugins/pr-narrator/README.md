@@ -7,7 +7,7 @@ command and runs it only on your yes.
 
 ## Install
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install pr-narrator@foundry
 ```
 

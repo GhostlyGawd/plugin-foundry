@@ -25,7 +25,7 @@ Manual mode: open Claude Code here and use `/loop` (one iteration) or `/status`
 ## Quickstart — install what it builds
 
 ```
-/plugin marketplace add <this-repo-or-path>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install plugin-smith@foundry
 ```
 

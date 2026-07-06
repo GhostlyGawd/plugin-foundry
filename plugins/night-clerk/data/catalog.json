@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-07-05",
+ "snapshot": "2026-07-06",
  "marketplace": "foundry",
  "idea_template": "issues/new?template=idea.yml",
  "plugins": [
@@ -74,6 +74,46 @@
     "continuity"
    ],
    "install": "/plugin install session-recap@foundry"
+  },
+  {
+   "name": "test-gap-nudge",
+   "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+   "tags": [
+    "testing",
+    "hooks",
+    "discipline"
+   ],
+   "install": "/plugin install test-gap-nudge@foundry"
+  }
+ ],
+ "kits": [
+  {
+   "id": "plugin-maker",
+   "name": "Plugin-maker kit",
+   "desc": "Everything for building Claude Code plugins the disciplined way \u2014 scaffold, audit, and eventually your own factory.",
+   "install": [
+    "/plugin install plugin-smith@foundry",
+    "/plugin install fork-a-foundry@foundry"
+   ]
+  },
+  {
+   "id": "git-flow",
+   "name": "Git-flow kit",
+   "desc": "Clean commits in, clean pull requests out \u2014 the disciplined git loop.",
+   "install": [
+    "/plugin install commit-craft@foundry",
+    "/plugin install pr-narrator@foundry"
+   ]
+  },
+  {
+   "id": "solo-dev",
+   "name": "Solo dev kit",
+   "desc": "Run a healthy one-person repo: diagnose your environment, get nudged when code ships without tests, end every session with a written handoff.",
+   "install": [
+    "/plugin install env-doctor@foundry",
+    "/plugin install test-gap-nudge@foundry",
+    "/plugin install session-recap@foundry"
+   ]
   }
  ]
 }

@@ -28,11 +28,24 @@ def main():
                 "tags": tags,
                 "install": f"/plugin install {m['name']}@foundry",
             })
+    # kits (ADR-016 #8): the clerk may offer a curated bundle when the task maps
+    # to one. Published members only — the clerk never recommends vaporware.
+    published = {p["name"] for p in plugins}
+    kits = []
+    kits_path = ROOT / "foundry" / "kits.json"
+    if kits_path.exists():
+        for k in json.loads(kits_path.read_text()).get("kits", []):
+            ready = [m for m in k.get("plugins", []) if m in published]
+            if ready:
+                kits.append({"id": k["id"], "name": k.get("name", k["id"]),
+                             "desc": k.get("desc", ""),
+                             "install": [f"/plugin install {m}@foundry" for m in ready]})
     out = {
         "snapshot": datetime.date.today().isoformat(),
         "marketplace": "foundry",
         "idea_template": "issues/new?template=idea.yml",
         "plugins": plugins,
+        "kits": kits,
     }
     dest = ROOT / "plugins" / "night-clerk" / "data" / "catalog.json"
     dest.parent.mkdir(parents=True, exist_ok=True)

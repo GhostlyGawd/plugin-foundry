@@ -1,9 +1,16 @@
 {
   "name": "session-recap",
   "displayName": "Session Recap",
-  "version": "0.1.0",
-  "description": "One command ends the session properly: an appended, dated handoff in SESSION-RECAP.md — what changed, decisions, open questions, next steps.",
-  "author": { "name": "Nightshift Foundry" },
+  "version": "0.1.1",
+  "description": "One command ends the session properly: an appended, dated handoff in SESSION-RECAP.md \u2014 what changed, decisions, open questions, next steps.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
   "license": "MIT",
-  "keywords": ["handoff", "recap", "session", "notes"]
+  "keywords": [
+    "handoff",
+    "recap",
+    "session",
+    "notes"
+  ]
 }

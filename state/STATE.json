@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 135,
+  "iteration": 151,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -22,7 +22,6 @@
     "reviewer",
     "auditor"
   ],
-  "notes": "Phase grow as of audit-001 (i34). Named at ADR-011. Slug 'foundry' immutable.",
-  "theme": null,
-  "note": "post-v8 (audit-003): operator go-live is the unblock; utility ideas #4/#5 open for votes"
+  "notes": "Phase grow as of audit-001 (i34). Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v9 (audit-004): operator's 15 minutes (preflight \u00a70) is the only gate left",
+  "theme": null
 }

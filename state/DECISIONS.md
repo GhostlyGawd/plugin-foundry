@@ -245,3 +245,35 @@ Template:
   (`prospected_by`/`suggested_in`), which idea-credit-loop already renders.
 - Consequences: pitch → inbox → formalized → credited becomes fully automatic;
   the contribution floor drops from "write a spec PR" to "open an issue".
+
+## ADR-016 — v9 slate: the discovery-report backlog, in order (i136, maintainer)
+- Status: accepted (queue seeding per audit precedent; tools/ items apply from
+  i137+ under the two-iteration rule with this ADR as the prior-iteration record)
+- Context: operator commissioned a full product-discovery audit (IMPROVEMENTS.md,
+  committed with this ADR) and directed: build everything, in order. 13 items,
+  two broken today (README front-door placeholder; night-clerk's stale bundled
+  catalog), the rest conversion, trust, and reach work on existing surfaces.
+- Decision: work IMPROVEMENTS.md #1→#13 as loop iterations on the restarted PR
+  branch (pr-gated publishes, second run). This ADR authorizes the slate's
+  tools/ work: validate.py clerk-freshness law (#2), build.py template changes
+  (OG meta #5, copy buttons #6, saga ellipsis + report-cap link #9, dark-mode
+  palette #11, recorded-transcript labels #12), and a new tools/preflight.py
+  (#13). Version law applies in full to the plugin README sweep (patch bumps).
+  role_queue seeded: maintainer(sweep), builder(night-clerk 0.1.1), builder
+  (validator law), maintainer(hygiene), maintainer(solo kit), builder(OG),
+  builder(copy), growth(pr-gated verdict), designer(polish), qa(backfill ×2),
+  designer(dark mode), builder(transcripts), builder(preflight), auditor.
+- Consequences: the funnel is honest before the first measured visitor; the
+  clerk can never drift again; the window earns shares and dark rooms.
+
+## ADR-017 — Directed slates publish via PR; cron default deferred (i144, growth)
+- Status: accepted
+- Context: pr-gated-publishes specs a trial of `mode: pr` cron shifts (10 PRs or
+  21 days). The factory isn't live, but two operator-directed slates (v8: PR #9
+  merged in minutes with zero vetoes; v9: in flight) exercised the same veto
+  window end to end.
+- Decision: multi-iteration directed sessions always land as PRs (this codifies
+  existing practice). The scheduled-shift default remains `direct` until the
+  spec's own cron-shift data exists — no default flipped on proxy data.
+- Consequences: humans get a costless veto exactly where stakes are highest
+  (large slates); the experiment's terms stay intact for the real trial.

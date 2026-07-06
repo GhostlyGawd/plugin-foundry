@@ -268,6 +268,29 @@ def check_kits(seen, errors):
                 errors.append(f"kits.json: kit {kit.get('id')!r} references unknown plugin {member!r}")
 
 
+def check_clerk_snapshot(seen, errors):
+    """ADR-016 #2: night-clerk's bundled catalog may never trail the shelf.
+    Every published plugin must appear in the snapshot (and no ghosts), or the
+    front desk recommends from a stale shelf. Skips cleanly if night-clerk is
+    absent or no longer published."""
+    clerk = seen.get("night-clerk")
+    if not clerk or clerk.get("stage") != "published":
+        return
+    path = ROOT / "plugins" / "night-clerk" / "data" / "catalog.json"
+    try:
+        snap = {p["name"] for p in json.loads(path.read_text()).get("plugins", [])}
+    except Exception as exc:  # noqa: BLE001
+        errors.append(f"night-clerk catalog: unreadable ({exc})")
+        return
+    shelf = {n for n, m in seen.items()
+             if m.get("stage") == "published" and m.get("kind", "plugin") == "plugin"}
+    for name in sorted(shelf - snap):
+        errors.append(f"night-clerk catalog: stale — published plugin {name!r} missing "
+                      f"(run tools/clerkcat.py inside a night-clerk version bump)")
+    for name in sorted(snap - shelf):
+        errors.append(f"night-clerk catalog: ghost — {name!r} in snapshot but not published")
+
+
 def check_marketplace(seen, errors):
     mp = load_json(ROOT / ".claude-plugin" / "marketplace.json", errors, "marketplace.json")
     if mp is None:
@@ -316,6 +339,7 @@ def main():
                 errors.append(f"plugins/{pdir.name}: no foundry record (every artifact needs its traveler)")
     check_marketplace(seen, errors)
     check_kits(seen, errors)
+    check_clerk_snapshot(seen, errors)
 
     if errors:
         print(f"VALIDATE: FAIL — {len(errors)} problem(s)")

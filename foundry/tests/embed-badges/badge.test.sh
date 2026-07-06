@@ -35,6 +35,12 @@ if cfg.get("pages_url"):
             and (enc + "%2Fbadge.json") in rd)
     print("ok: README snippet works as pasted (real url, no placeholders)" if good
           else "fail: README snippet — placeholder remains or url mismatch with site-config")
+    # i136 (v9 #1): the install line is the same drift class — repo set ⇒ no placeholder
+    if cfg.get("repo"):
+        good2 = ("<this-repo" not in rd
+                 and f"/plugin marketplace add {cfg['repo']}" in rd)
+        print("ok: README install line works as pasted (real repo slug)" if good2
+              else "fail: README install line — placeholder remains or slug mismatch")
 else:
     print("skip: pages_url unset — placeholder snippet acceptable until go-live")
 PY

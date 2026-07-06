@@ -6,7 +6,7 @@ test, and says so — once, politely, with the file names. It never blocks anyth
 ## Install
 
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install test-gap-nudge@foundry
 ```
 

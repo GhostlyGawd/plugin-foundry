@@ -3,7 +3,7 @@ name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
 stage: published
-version: 0.1.0
+version: 0.1.1
 kind: plugin
 components: [hooks]
 one_liner: A polite Stop-hook that notices source changes with no matching test changes and says so once.

@@ -7,7 +7,7 @@ blocks malformed `git commit -m` messages with a printed reason.
 ## Install
 
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install commit-craft@foundry
 ```
 

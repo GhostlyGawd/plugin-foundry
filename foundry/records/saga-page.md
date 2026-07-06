@@ -72,3 +72,9 @@ REVIEW: approved — the repo tells its own story without embellishment.
 ### Published — i108 (maintainer)
 Saga live and self-extending — this slate's own ships and ADR-014 already on the
 page. Experiment armed: review 30 days post-deploy (uniques_14d trend).
+
+### Test pass — i146 (suite backfill, audit-003 #3)
+- executable suite landed: ADR render-count vs DECISIONS (15/15), SHIPPED ==
+  published records exactly (zero invented milestones, live), word-boundary
+  ellipsis regression (i107 nit), naming-ceremony-from-STATE sync
+TEST VERDICT: pass
