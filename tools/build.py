@@ -475,17 +475,19 @@ const grid = document.getElementById('grid');
 const empty = document.getElementById('empty');
 const q = document.getElementById('q');
 /*SHIFT-START*/
+// shift schedule derived from .github/workflows/run-shift.yml cron at build time
+const SHIFT_MIN = @@SHIFT_MIN@@;
+const SHIFT_HOURS = @@SHIFT_HOURS@@;
 function nextShift(now){
-  // shifts fire at minute 17 past hours 0, 8, 16 UTC (cron: 17 0,8,16 * * *)
-  const HOURS = [0, 8, 16];
   const d = new Date(now.getTime());
   for (let add = 0; add <= 1; add++){
-    for (const h of HOURS){
-      const c = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + add, h, 17, 0));
+    for (const h of SHIFT_HOURS){
+      const c = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + add, h, SHIFT_MIN, 0));
       if (c > now) return c;
     }
   }
-  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 2, 0, 17, 0));
+  const h0 = SHIFT_HOURS.length ? SHIFT_HOURS[0] : 0;
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 2, h0, SHIFT_MIN, 0));
 }
 /*SHIFT-END*/
 function renderNextShift(){
@@ -495,7 +497,7 @@ function renderNextShift(){
   const ms = n - new Date();
   const h = Math.floor(ms / 3600000), m = Math.floor((ms % 3600000) / 60000);
   el.textContent = 'next shift in ~' + (h ? h + 'h ' : '') + m + 'm (' +
-    String(n.getUTCHours()).padStart(2,'0') + ':17 UTC)';
+    String(n.getUTCHours()).padStart(2,'0') + ':' + String(SHIFT_MIN).padStart(2,'0') + ' UTC)';
 }
 let activeStage = null;
 let activeTag = null;
@@ -1388,6 +1390,44 @@ def build_feed(records, cfg):
 
 
 # --------------------------------------------------------------- index page --
+def _cron_hours(spec):
+    """Expand a cron hour field (`*`, `*/8`, `0,8,16`, `0-23/8`, `5`) to a list."""
+    hours = set()
+    for part in spec.split(","):
+        part = part.strip()
+        step = 1
+        base = part
+        if "/" in part:
+            base, _, s = part.partition("/")
+            step = int(s)
+        if base == "*":
+            lo, hi = 0, 23
+        elif "-" in base:
+            lo, hi = (int(x) for x in base.split("-", 1))
+        else:
+            lo = hi = int(base)
+        hours.update(range(lo, hi + 1, step))
+    return sorted(hours)
+
+
+def shift_schedule():
+    """Derive (minute, [hours]) from run-shift.yml's cron so the window countdown
+    can't drift from the real schedule (P3, v14/ADR-024). Falls back to the
+    documented default if the cron can't be read or parsed."""
+    default = (17, [0, 8, 16])
+    try:
+        text = (ROOT / ".github" / "workflows" / "run-shift.yml").read_text()
+        m = re.search(r'cron:\s*["\']?([0-9*,/ \-]+)', text)
+        if not m:
+            return default
+        fields = m.group(1).split()
+        if len(fields) < 2:
+            return default
+        return (int(fields[0]), _cron_hours(fields[1]) or default[1])
+    except Exception:  # noqa: BLE001 — a countdown must never break the build
+        return default
+
+
 def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, alarms, hall, streak):
     title = state.get("name") or "UNNAMED"
 
@@ -1464,7 +1504,10 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
     suggest = (f'<a href="https://github.com/{html.escape(repo)}/issues/new?template=idea.yml">'
                f'suggest an idea, free</a>' if repo else "suggesting ideas opens with the repo (free)")
 
+    shift_min, shift_hours = shift_schedule()
     page = (TEMPLATE
+            .replace("@@SHIFT_MIN@@", str(shift_min))
+            .replace("@@SHIFT_HOURS@@", json.dumps(shift_hours))
             .replace("@@TITLE@@", html.escape(title))
             .replace("@@OG@@", og_meta(
                 f"{title} — a plugin workshop run entirely by AI",
@@ -1489,6 +1532,9 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
 
 
 def main():
+    # a fresh checkout has no site/ dir; build writes into it, so make it first
+    # (bug: the firstborn crashed here at genesis — v14/ADR-024).
+    (ROOT / "site").mkdir(parents=True, exist_ok=True)
     state = json.loads((ROOT / "state" / "STATE.json").read_text())
     mp = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text())
     cfg = json.loads((ROOT / "foundry" / "site-config.json").read_text())
