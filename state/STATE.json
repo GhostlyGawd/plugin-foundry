@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 195,
+  "iteration": 196,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -22,6 +22,6 @@
     "reviewer",
     "auditor"
   ],
-  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v11 (audit-006): UX slate 12/12 built; operator's 15 minutes (preflight \u00a70, now --issue tickable) + tag push are the gates left",
+  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v11 + ADR-020 ops: window LIVE, 15 releases cut, all clicks automated except the Anthropic secret (+ optional budget/goat/funding)",
   "theme": null
 }

@@ -1685,3 +1685,28 @@ Entry template (copy exactly; newest at the bottom):
   sha; then deploy-site.
 - notes: the 7 that slipped through predate gates.yml-era workflow changes —
   consistent with the diff-against-default-branch theory; not relying on it.
+
+## i196 — maintainer (directed, ADR-020 ops close) — 2026-07-07T02:19:29Z
+- did: the dispatch sequence ran to completion. (1) lay-tags run 1: 7 tags laid,
+  then GitHub's App-token wall (tag→commit whose workflows differ from main).
+  (2) i195 fix: releases API path; second wall hit (403 on --target ee44316) —
+  resolved by cutting the 8 at main head c466a59 after verifying plugins/ is
+  byte-identical between the intended commit and main (artifacts exact; re-point
+  journaled here as the honest trade). (3) All 15 releases cut with changelog
+  notes + zips; all 15 tags on the remote; TAGS-PENDING emptied. (4) deploy-site
+  dispatched with Pages enablement — THE WINDOW IS LIVE at
+  https://ghostlygawd.github.io/plugin-foundry (index/badge/feed/certificates
+  all 200; v11 strap + merged discovery input confirmed in production).
+  (5) Config presence probe (names only): CLAUDE_CODE_OAUTH_TOKEN false,
+  ANTHROPIC_API_KEY false, GOATCOUNTER_TOKEN false, LOOP_MONTHLY_BUDGET_USD
+  false → run-shift NOT dispatched, per ADR-020's own rule.
+- line: n/a (operations)
+- files: state/TAGS-PENDING.json, state/STATE.json, state/JOURNAL.md
+- validation: pass
+- next-suggestion: operator adds ONE secret (CLAUDE_CODE_OAUTH_TOKEN or
+  ANTHROPIC_API_KEY); any session can then dispatch the first shift and Gate
+  A's clock starts. Optional: budget var, GoatCounter, FUNDING handle. Also
+  nit for the bug lane: release-on-tag's ops-alarm step needs the 'ops-alarm'
+  label to exist (creation failed silently during the misfires).
+- notes: two GitHub walls in one night, both documented with the workaround
+  that beat them — future forks inherit the map.
