@@ -1720,3 +1720,18 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: 1.1+2.4 — ops-guard.
 - notes: n/a
+
+## i198 — builder (directed, v12 1.1+2.4) — 2026-07-07T02:35:06Z
+- did: ops-guard.yml — (1.1) idempotent ensure-labels for all ten assumed
+  labels (idea/bug/question/field-report/sister-foundry/commission/ops-alarm/
+  ops-golive/shipnote/human-review), weekly + dispatchable; (2.4) failure
+  catcher: any of the eight named workflows concluding in failure opens or
+  extends an ops-alarm issue with the run link — the silent-red class (lay-tags
+  run 1) is extinct. Excludes itself from its own watch list.
+- line: n/a (workflow, ADR-021)
+- files: .github/workflows/ops-guard.yml
+- validation: fixed-then-pass — first cut committed with a YAML-breaking
+  unindented heredoc body in the catcher (caught by the unchained check,
+  post-commit); moved the body to printf + --body-file, amended.
+- next-suggestion: 1.2 — dep-bump-brief enters spec.
+- notes: label colors/descriptions double as documentation of each lane.
