@@ -1826,3 +1826,17 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (_tools suite green incl. gates)
 - next-suggestion: 2.2 — backlog hygiene.
 - notes: the stub-gh seam generalizes to metrics.py for 2.3.
+
+## i207 — maintainer (directed, v12 2.2) — 2026-07-07T02:45:38Z
+- did: backlog hygiene — 9 provably-done items checked off WITH evidence lines
+  (session-recap published, plugin-smith re-test satisfied by its suite +
+  weekly reverify, CONTRIBUTING exists, go-live done at i196, suite backfill
+  done in v9 #10, three Idea-inbox entries formalized incl. dep-bump-brief now
+  published). 15 remain open, all genuinely open (operator/world-gated,
+  future review dates, or real P2/P3 work). Check-off-don't-delete held.
+- line: n/a (state hygiene)
+- files: state/BACKLOG.md
+- validation: pass
+- next-suggestion: 2.3 — governor tool tests.
+- notes: the backlog steers every future shift; stale items were active
+  misdirection.
