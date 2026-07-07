@@ -380,3 +380,47 @@ Template:
   stops failing silently; the shelf grows; and if 4.1 lands, the family tree
   gets its first name from the only entity that could honestly claim it —
   the foundry's own child.
+
+## ADR-022 — v13 slate: the shelf, not the window, in order (directed)
+- Status: accepted (workflow/tools items apply in later commits of this slate
+  under the two-iteration rule with this ADR as the prior-iteration record).
+- Context: fourth operator-directed discovery pass (IMPROVEMENTS v13, merged
+  PR #20). Operator directive: "Build all in order." 14 items across four
+  lanes — shelf-truth (the catalog misdescribes two plugins), plugin depth
+  (a missing companion hook, cross-plugin synergies, catalog decay, README
+  drift), the gates (a spuriously-failing PR gate, an inert money path,
+  silent truncation, a re-verify crash, a test-filter hole), and an honest
+  reckoning with a traffic count of zero.
+- Two ground truths found while building, that widen A1: **both** mislabeled
+  records contradict themselves. `pr-narrator` front matter says
+  `components: [agents]` but its Spec/Build log say "one skill" — it ships a
+  skill. `env-doctor` front matter says `components: [hooks]` but its Spec
+  says "one skill" — it ships a skill with no hook. So A1 relabels
+  pr-narrator to the truth (skill), and A2 resolves env-doctor's
+  contradiction toward value by building the SessionStart hook its catalog
+  already promises — after which env-doctor legitimately carries
+  `[skills, hooks]` and its "at session start" one-liner becomes true.
+- Decisions:
+  1. **Catalog regenerated once.** night-clerk's bundled `data/catalog.json`
+     embeds every plugin's version and one-liner; many v13 items bump
+     versions. Rather than churn night-clerk once per bump, all
+     catalog-affecting plugin changes land first, then `tools/clerkcat.py`
+     regenerates the catalog inside a single night-clerk bump (B7). The
+     validator's clerk-snapshot law checks only the plugin *name* set (no
+     plugin added or removed here), so gates stay green throughout.
+  2. **One bump per plugin.** Where several items touch one plugin (e.g.
+     session-recap: B5 hook + B6 synergy + B8 README), the changes land in a
+     single semver bump + CHANGELOG entry, not one per item — one meaningful
+     bump per slate serves installed users better than a stutter of patches.
+  3. **This ADR authorizes** the later-commit changes to `.github/workflows/`
+     (`gates.yml` sitemap-drift fix C9, `qa.yml` tools path filter C13) and
+     `tools/` (`intake.py`/`metrics.py` issue-limit fix C11, `restamp.py`
+     None-guard + routing four stragglers through `lib.parse_front_matter`
+     C12). New hooks (env-doctor SessionStart, session-recap Stop) ride the
+     hooks-are-guests law: narrow matchers, fail-open, quoted roots,
+     executable shebang scripts, and a regression suite each.
+- Consequences: the shelf stops lying, the flagship gate stops crying wolf,
+  the money path survives its first dollar, and the growth ledger stops
+  counting experiments toward a kill they were never given traffic to avoid.
+  Slate rides a PR (ADR-017 precedent); nothing autonomous — the STOP file
+  stays, the Claude secret remains the operator's alone.
