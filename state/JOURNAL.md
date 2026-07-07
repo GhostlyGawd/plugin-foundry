@@ -1587,3 +1587,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #9 — follow-the-shelf chip.
 - notes: the 2-word threshold is the intuition: "commit" is a search,
   "commit messages" is a request for help.
+
+## i189 — builder (directed, v11 #9) — 2026-07-07T01:26:33Z
+- did: follow-the-shelf — the tools row next to search now carries "follow the
+  shelf ⤳" (feed.xml, with a tooltip saying what it delivers) and a
+  "releases ⤳" chip that renders only when site-config has a repo (links the
+  GitHub releases page, which since v10 #12 serves changelogs + plugin zips).
+  Browser-verified: both chips render, releases href substantiated.
+- line: n/a (window feature, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #10 — preflight --issue.
+- notes: the feed existed since v4; it was just buried in the footer where no
+  installer ever looked.

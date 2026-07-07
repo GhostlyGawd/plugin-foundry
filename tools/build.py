@@ -393,6 +393,8 @@ TEMPLATE = """<!DOCTYPE html>
     <input id="q" type="search" placeholder="A name, a tag, or your task — e.g. commit messages · broken dev env" aria-label="Search plugins or describe your task">
     <div class="tagchips" id="tagchips" role="group" aria-label="filter by tag"></div>
     <span class="chip" id="nextshift" title="computed from the shift cron, no server involved"></span>
+    <a class="chip" href="feed.xml" title="Atom feed — every publish and version bump, as it happens">follow the shelf ⤳</a>
+    <a class="chip" id="relchip" style="display:none" title="GitHub releases — changelogs + downloadable plugin zips">releases ⤳</a>
   </div>
   <div id="clerkout" aria-live="polite"></div>
   <main id="grid"></main>
@@ -777,6 +779,11 @@ function renderAll(){
       setTimeout(() => { delete el.dataset.copied; }, 1400);
     }).catch(() => { /* selection fallback remains */ });
   });
+  if (DATA.repo){
+    const rel = document.getElementById('relchip');
+    rel.href = 'https://github.com/' + DATA.repo + '/releases';
+    rel.style.display = '';
+  }
   document.getElementById('iter').textContent = String(DATA.iteration).padStart(3,'0');
   document.getElementById('phase').textContent = DATA.phase;
   document.getElementById('lastshift').textContent = ago(DATA.generated_at);
