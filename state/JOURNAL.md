@@ -1473,3 +1473,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: operator merges PR #13, pushes tags, and spends the
   preflight 15 minutes — Gate A is still the whole game.
 - notes: the tripwire stayed honest: both reviews drew blood.
+
+## i180 — maintainer (directed) — 2026-07-07T01:17:08Z
+- did: ADR-019 filed — v11 UX slate opens (12 items, three personas), slate
+  table appended to IMPROVEMENTS.md. Two-iteration rule: template/tools/skill
+  items apply from i181+.
+- line: n/a (ADR only)
+- files: state/DECISIONS.md, IMPROVEMENTS.md, state/STATE.json
+- validation: pass
+- next-suggestion: v11 #1 — plain-language layer.
+- notes: principle for the slate: add a plain layer, never strip the lore —
+  spectators are customers too.

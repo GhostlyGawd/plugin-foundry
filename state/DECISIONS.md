@@ -301,3 +301,24 @@ Template:
 - Consequences: installed users learn about updates; the gates that guard
   everything gain their own guard; PRs stop merging unchecked; the machinery
   points outward for the first time (verification and federation).
+
+## ADR-019 — v11 slate: the UX audit, in order (i180, directed)
+- Status: accepted (tools/, template, and skill items apply from i181+ under
+  the two-iteration rule with this ADR as the prior-iteration record)
+- Context: operator reviewed the merged v10 build-out and directed a UX pass:
+  "more user friendly, easy to use, and intuitive" — 12 items across three
+  personas (installers, window visitors, operator/contributors), appended to
+  IMPROVEMENTS.md with this ADR. The lore is an asset for spectators and a tax
+  on installers; the fix is a plain-language layer, never lore removal.
+- Decision: work the v11 items #1→#12 as directed iterations riding a PR
+  (ADR-017 lane). This ADR authorizes: build.py template changes (strap +
+  card-link language #1, card changelog links #3, kit paste note #5,
+  visitor-first reorder #6, nav grouping #7, unified discovery input #8,
+  follow chip #9), the 8-README Manage sweep with patch bumps under full
+  version law + plugin-smith scaffold template (#2, #4), preflight.py growth
+  (--issue checklist #10, tag-drift check #11), and a new /backlog command
+  (#12). Window minor-versions once at the end of the template run. Roles
+  named per iteration in the journal; role_queue untouched (i152 precedent).
+- Consequences: the funnel reads human at first contact; every installed
+  README answers "how do I manage this thing"; the operator's two known
+  footguns (unchecked go-live list, stranded local tags) become visible.
