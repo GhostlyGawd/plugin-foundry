@@ -46,8 +46,8 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Dep-Bump Brief — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <p class="meta">plugin · workflow · unversioned · created 2026-07-06 · updated 2026-07-07</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
   <p>Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.</p>
   
   
@@ -63,7 +63,32 @@
   &quot;changelog not checked&quot; rather than guessing.
 - **Why a plugin:** the workflow is identical every time and spans git, grep, and
   synthesis — a versioned skill beats a prompt retyped weekly, and the honesty
-  rules (never invent changelog content) deserve review and a changelog of their own.</pre></details></div>
+  rules (never invent changelog content) deserve review and a changelog of their own.</pre></details><details><summary>Spec</summary><pre>- One skill, `dep-brief`, description (verbatim): &quot;Summarize dependency bumps
+  in the current branch or diff into an honest review brief. Use when the user
+  asks to review a dependency PR, summarize dependabot or renovate changes, or
+  asks what changed in this bump.&quot;
+- Procedure: (1) find bumped packages from the manifest/lockfile diff against
+  the base branch — package.json/package-lock, requirements*.txt/poetry/uv,
+  Cargo.toml/Cargo.lock, go.mod/go.sum; (2) per bump: old → new, semver
+  distance (major/minor/patch — flag major loudly); (3) grep the repo for
+  usage sites of each bumped package and turn real call sites into a concrete
+  &quot;what to check&quot; list; (4) changelog/release notes: read them only if
+  reachable with available tools — otherwise the brief says exactly
+  &quot;changelog not checked&quot; for that package.
+- Honesty rules (review these hardest): **NEVER invent changelog content,
+  breaking changes, or version facts**; unreachable sources are named as
+  unchecked, not summarized from memory; usage sites quoted from this repo
+  only.
+- Output: one short brief per bump + a single risk line (highest semver
+  distance × usage-site count), suitable for pasting into the PR review.
+
+### Acceptance checks
+1. SKILL.md frontmatter complete; description carries the invoke contract
+   (&quot;Use when&quot;) verbatim from this spec.
+2. The honesty rules are present verbatim: &quot;changelog not checked&quot; path and
+   the never-invent clause.
+3. All four ecosystems named in the procedure (js, python, rust, go).
+4. Suite green; always-on token estimate stamped; official validate passes.</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/dep-bump-brief.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/dep-bump-brief.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/dep-bump-brief">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

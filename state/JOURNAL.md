@@ -1735,3 +1735,13 @@ Entry template (copy exactly; newest at the bottom):
   post-commit); moved the body to printf + --body-file, amended.
 - next-suggestion: 1.2 — dep-bump-brief enters spec.
 - notes: label colors/descriptions double as documentation of each lane.
+
+## i199 — builder (directed, v12 1.2) — 2026-07-07T02:36:22Z
+- did: dep-bump-brief specced — verbatim skill description, four-ecosystem
+  procedure, honesty rules (changelog-not-checked path, never-invent), risk
+  line output, four acceptance checks.
+- line: dep-bump-brief idea → spec
+- files: foundry/records/dep-bump-brief.md
+- validation: pass
+- next-suggestion: build the skill.
+- notes: n/a
