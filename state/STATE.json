@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 215,
+  "iteration": 216,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -23,5 +23,5 @@
     "auditor"
   ],
   "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v13 (ADR-022/023): 14/14 built as a directed PR \u2014 shelf-truth (catalog no longer misdescribes 2 plugins), 2 new hooks (env-doctor SessionStart, session-recap Stop/recall), gates unbroken (sitemap drift, worker idempotency, truncation, dedup), dormant-experiment rubric. 9 plugins, 8 version bumps. Gate left: Claude secret",
-  "theme": null
+  "theme": {"name": "Repo hygiene", "month": "2026-07", "note": "Plugins that surface the quiet debt a codebase accumulates — stale TODOs, missing tests, drifted toolchains, unreviewed dep bumps — and make it legible before it bites."}
 }

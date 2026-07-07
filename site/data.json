@@ -1,8 +1,12 @@
 {
- "generated_at": "2026-07-07T13:46:51.567392+00:00",
- "iteration": 215,
+ "generated_at": "2026-07-07T14:12:10.647409+00:00",
+ "iteration": 216,
  "phase": "grow",
- "theme": null,
+ "theme": {
+  "name": "Repo hygiene",
+  "month": "2026-07",
+  "note": "Plugins that surface the quiet debt a codebase accumulates \u2014 stale TODOs, missing tests, drifted toolchains, unreviewed dep bumps \u2014 and make it legible before it bites."
+ },
  "counts": {
   "idea": 1,
   "spec": 3,
