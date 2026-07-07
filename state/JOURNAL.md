@@ -1669,3 +1669,19 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: push, PR, merge, then the dispatch sequence.
 - notes: fetch-depth 0 was the near-miss — a shallow clone can't tag history.
+
+## i195 — builder (directed, ADR-020 bug-fix lane) — 2026-07-07T02:09:25Z
+- did: lay-tags run 1 laid 7/15 then hit GitHub's App-token wall — a tag push
+  is rejected when the tagged commit's workflow files differ from the default
+  branch's, and GITHUB_TOKEN cannot hold the 'workflows' permission at all.
+  Fix rides the releases API (the path release bots use): release-on-tag.yml
+  dispatch gains an optional 'sha' input — when the tag doesn't exist,
+  'gh release create --target SHA' creates tag + release in one step, checkout
+  pinned to the sha so the zip is still the tag's own tree.
+- line: n/a (workflow bug fix within ADR-020's dispatch-mode decision)
+- files: .github/workflows/release-on-tag.yml
+- validation: pass (yaml + bash -n)
+- next-suggestion: dispatch releases — 7 existing tags plain, 8 missing with
+  sha; then deploy-site.
+- notes: the 7 that slipped through predate gates.yml-era workflow changes —
+  consistent with the diff-against-default-branch theory; not relying on it.

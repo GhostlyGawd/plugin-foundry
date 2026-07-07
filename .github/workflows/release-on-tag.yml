@@ -11,8 +11,11 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Existing *-v* tag to cut a release for (ADR-020 — tags laid by lay-tags.yml don't fire push events)"
+        description: "*-v* tag to cut a release for (ADR-020 — tags laid by lay-tags.yml don't fire push events)"
         required: true
+      sha:
+        description: "Commit to tag via the release itself (--target) when the tag doesn't exist yet — the releases API path is exempt from the App-token workflows-permission wall that blocks plain tag pushes"
+        required: false
 permissions:
   contents: write
   issues: write
@@ -24,7 +27,7 @@ jobs:
         with:
           # cut from the TAG'S OWN tree — zipping the current tree would attach
           # wrong-version artifacts on dispatch or re-run (latent defect, ADR-020)
-          ref: ${{ inputs.tag || github.ref }}
+          ref: ${{ inputs.sha || inputs.tag || github.ref }}
       - name: Cut the release from the changelog
         id: cut
         continue-on-error: true
@@ -44,7 +47,9 @@ jobs:
               sys.exit(f"{sys.argv[1]} not in marketplace.json — refusing to attach a ghost entry")
           json.dump(entry, sys.stdout, indent=1)
           PY
-          gh release create "${TAG}" --title "${NAME} v${VER}" --notes-file /tmp/notes.md \
+          TARGET=""
+          [ -n "${{ inputs.sha }}" ] && TARGET="--target ${{ inputs.sha }}"
+          gh release create "${TAG}" ${TARGET} --title "${NAME} v${VER}" --notes-file /tmp/notes.md \
             "/tmp/${NAME}-${VER}.zip" "/tmp/${NAME}-marketplace-entry.json"
       - name: Ops alarm on failure (fail-soft, never silent)
         if: steps.cut.outcome == 'failure'
