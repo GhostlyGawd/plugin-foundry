@@ -3,7 +3,7 @@ name: plugin-smith
 title: Plugin Smith
 category: meta
 stage: published
-version: 0.1.1
+version: 0.1.2
 components: [skills]
 always_on_tokens: 113
 verified: 2026-07-06
@@ -68,3 +68,4 @@ smith> run `claude plugin validate ./plugins/changelog-bot --strict` to confirm
 REVIEW: approved — genesis self-review; axes: scope 5, prompt 4, thrift 5, hooks n/a,
 docs 4, structure 5. The P1 re-test supersedes this the moment it runs.
 Published i0 at 0.1.0 — marketplace entry source ./plugins/plugin-smith.
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag plugin-smith-v0.1.2.

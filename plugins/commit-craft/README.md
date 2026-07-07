@@ -44,3 +44,10 @@ See [CHANGELOG.md](./CHANGELOG.md).
 Set `COMMIT_CRAFT_DEBUG=1` and the guard appends every decision (pass reason,
 or BLOCK with the enforced type list) to `$TMPDIR/commit-craft-debug.log`.
 Off by default; behavior is identical with it unset.
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update commit-craft`
+- **Disable / re-enable:** `claude plugin disable commit-craft` / `claude plugin enable commit-craft` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall commit-craft` — removes everything the plugin added
+- **On disk:** nothing, unless `COMMIT_CRAFT_DEBUG=1` is set — then a decision log at `$TMPDIR/commit-craft-debug.log` (see Debugging the guard). Uninstalling removes the guard hook with everything else.

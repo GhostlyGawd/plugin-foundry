@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-07T01:18:10.233294+00:00",
- "iteration": 181,
+ "generated_at": "2026-07-07T01:20:18.266812+00:00",
+ "iteration": 182,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -216,7 +216,7 @@
    "title": "Commit Craft",
    "category": "workflow",
    "stage": "published",
-   "version": "0.3.0",
+   "version": "0.3.1",
    "components": [
     "skills",
     "hooks"
@@ -428,7 +428,7 @@
    "title": "Env Doctor",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "components": [
     "hooks"
    ],
@@ -475,7 +475,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "components": [
     "skills"
    ],
@@ -595,7 +595,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.2",
+   "version": "0.2.3",
    "components": [
     "skills"
    ],
@@ -618,7 +618,7 @@
    "title": "Plugin Smith",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "components": [
     "skills"
    ],
@@ -665,7 +665,7 @@
    "title": "PR Narrator",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "components": [
     "agents"
    ],
@@ -757,7 +757,7 @@
    "title": "Session Recap",
    "category": "context",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "components": [
     "skills",
     "hooks"
@@ -828,7 +828,7 @@
    "title": "Test-Gap Nudge",
    "category": "quality",
    "stage": "published",
-   "version": "0.3.0",
+   "version": "0.3.1",
    "components": [
     "hooks"
    ],
@@ -1245,7 +1245,7 @@
     "title": "Commit Craft",
     "category": "workflow",
     "stage": "published",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "components": [
      "skills",
      "hooks"
@@ -1315,7 +1315,7 @@
     "title": "Env Doctor",
     "category": "quality",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "components": [
      "hooks"
     ],
@@ -1362,7 +1362,7 @@
     "title": "Fork a Foundry",
     "category": "meta",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "components": [
      "skills"
     ],
@@ -1459,7 +1459,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "components": [
      "skills"
     ],
@@ -1482,7 +1482,7 @@
     "title": "Plugin Smith",
     "category": "meta",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "components": [
      "skills"
     ],
@@ -1506,7 +1506,7 @@
     "title": "PR Narrator",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "components": [
      "agents"
     ],
@@ -1552,7 +1552,7 @@
     "title": "Session Recap",
     "category": "context",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "components": [
      "skills",
      "hooks"
@@ -1623,7 +1623,7 @@
     "title": "Test-Gap Nudge",
     "category": "quality",
     "stage": "published",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "components": [
      "hooks"
     ],

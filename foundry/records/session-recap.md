@@ -3,7 +3,7 @@ name: session-recap
 title: Session Recap
 category: context
 stage: published
-version: 0.1.1
+version: 0.1.2
 always_on_tokens: 93
 verified: 2026-07-06
 components: [skills, hooks]
@@ -81,3 +81,4 @@ recap> - [ ] re-run the adversarial pass on commission #12
 - Sharpest question: can it fabricate a change log with no git repo present? No —
   status/diff steps precede writing; absent evidence yields absent claims.
 REVIEW: approved
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag session-recap-v0.1.2.

@@ -27,3 +27,10 @@ shipped with each clerk release; `/plugin marketplace update` pulls the freshest
 The clerk cannot install anything itself and will never invent a plugin.
 
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update night-clerk`
+- **Disable / re-enable:** `claude plugin disable night-clerk` / `claude plugin enable night-clerk` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall night-clerk` — removes everything the plugin added
+- **Check for updates from inside a session:** ask "are my plugins up to date?" — the `whats-new` skill compares installed versions against the shelf.

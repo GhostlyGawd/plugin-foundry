@@ -1497,3 +1497,20 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: v11 #2 — the Manage-section sweep (8 patch bumps).
 - notes: n/a
+
+## i182 — maintainer (directed, v11 #2) — 2026-07-07T01:20:18Z
+- did: the Manage sweep — every shipped README ends with a standard ## Manage
+  section (update / disable / uninstall via the official CLI commands, verified
+  against the plugins reference; hook plugins additionally state their on-disk
+  footprint and debug var; night-clerk points at whats-new). plugin-smith's
+  scaffold now teaches the same section, so future plugins inherit it. 8 patch
+  bumps under full version law; catalog regenerated last (drift check green on
+  first run).
+- line: all 8 stay published (version law ×8 + CHANGELOGs + tags)
+- files: plugins/*/README.md, plugins/*/CHANGELOG.md,
+  plugins/*/.claude-plugin/plugin.json, foundry/records/*.md ×8,
+  plugins/plugin-smith/skills/scaffold/SKILL.md, plugins/night-clerk/data/catalog.json
+- validation: pass (qa 201/201, smoke 8/8)
+- next-suggestion: v11 #3 — card updated-date + changelog link.
+- notes: uninstall/disable commands verified against the official reference
+  before writing (claude plugin uninstall|disable|enable) — docs before invention.

@@ -64,3 +64,10 @@ The hook fails open by design, so "it never fires" has no visible error. Set
 `TEST_GAP_NUDGE_DEBUG=1` and it appends its decision trail (why it stayed
 silent, or why it nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Unset the
 variable and behavior is exactly as before — the log is the only difference.
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update test-gap-nudge`
+- **Disable / re-enable:** `claude plugin disable test-gap-nudge` / `claude plugin enable test-gap-nudge` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall test-gap-nudge` — removes everything the plugin added
+- **On disk:** a once-per-session marker in your temp dir, plus `$TMPDIR/test-gap-nudge-debug.log` when `TEST_GAP_NUDGE_DEBUG=1` (see Debugging a silent hook). Uninstalling removes the hook with everything else.

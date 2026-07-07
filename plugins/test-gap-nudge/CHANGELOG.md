@@ -1,5 +1,9 @@
 # Changelog — test-gap-nudge
 
+## 0.3.1 — 2026-07-06
+- docs: standard `## Manage` section — update, disable/enable, uninstall,
+  and on-disk footprint in one place (v11 #2 README sweep).
+
 ## 0.3.0 — 2026-07-06
 - debug: `TEST_GAP_NUDGE_DEBUG=1` appends the decision trail (why silent / why
   nudged) to `$TMPDIR/test-gap-nudge-debug.log`. Off by default; with it unset,

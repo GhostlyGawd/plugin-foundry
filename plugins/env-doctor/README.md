@@ -17,3 +17,9 @@ switches, or mutates anything without your yes to the specific command.
 - CI-only failure → run it inside the container image to diff environments
 
 No hooks, no network, no unasked changes. See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update env-doctor`
+- **Disable / re-enable:** `claude plugin disable env-doctor` / `claude plugin enable env-doctor` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall env-doctor` — removes everything the plugin added

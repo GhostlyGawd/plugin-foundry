@@ -17,3 +17,9 @@ command and runs it only on your yes.
 - "describe this branch for the changelog" → same evidence, changelog voice
 
 No hooks, no pushes, nothing unasked. See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update pr-narrator`
+- **Disable / re-enable:** `claude plugin disable pr-narrator` / `claude plugin enable pr-narrator` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall pr-narrator` — removes everything the plugin added

@@ -16,3 +16,9 @@ open questions, and checkboxed next steps someone else could pick up cold.
 - "hand this off to Sam" → recap with next steps written for a stranger
 
 No hooks, nothing runs in the background. See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update session-recap`
+- **Disable / re-enable:** `claude plugin disable session-recap` / `claude plugin enable session-recap` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall session-recap` — removes everything the plugin added

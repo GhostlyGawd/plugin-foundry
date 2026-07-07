@@ -35,7 +35,12 @@ missing.
    parsing doubt) unless the user explicitly wants blocking behavior — then exit 2
    with a one-line reason on stderr.
 5. Always create `README.md` (what it does, install lines, each component, how to
-   disable any hook) and `CHANGELOG.md` (`## 0.1.0 — Unreleased`).
+   disable any hook) and `CHANGELOG.md` (`## 0.1.0 — Unreleased`). End the README
+   with a `## Manage` section so users never hunt for lifecycle commands:
+   update (`/plugin marketplace update` + `claude plugin update <name>`),
+   disable/re-enable (`claude plugin disable|enable <name>` or the `/plugin`
+   menu), uninstall (`claude plugin uninstall <name>`), and — when the plugin
+   ships hooks — what it writes on disk (temp files) and its debug env var.
 6. Finish by printing the tree and the two test commands:
    `claude plugin validate ./<plugin-name> --strict` and
    `claude --plugin-dir ./<plugin-name>`.

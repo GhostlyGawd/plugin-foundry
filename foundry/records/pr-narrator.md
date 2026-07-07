@@ -3,7 +3,7 @@ name: pr-narrator
 title: PR Narrator
 category: workflow
 stage: published
-version: 0.1.1
+version: 0.1.2
 always_on_tokens: 88
 verified: 2026-07-06
 components: [agents]
@@ -83,3 +83,4 @@ pr> gh found — run `gh pr create --title ... --body-file /tmp/pr.md`? (y/N)
   with the literal command shown; zero push verbs.
 - Pairs cleanly with commit-craft (clean commits → clean narrative) — kit-worthy.
 REVIEW: approved
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag pr-narrator-v0.1.2.
