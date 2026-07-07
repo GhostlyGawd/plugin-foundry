@@ -49,10 +49,10 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Session Recap — birth certificate</h1></header>
-  <p class="meta">plugin · context · v0.1.2 · created 2026-07-04 · updated 2026-07-06 · ~93 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · context · v0.2.0 · created 2026-07-04 · updated 2026-07-07 · ~93 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Writes a structured recap when a session ends and recalls it when the next one starts.</p>
-  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~93 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall session-recap — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>SessionStart · matcher: *; Stop · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~93 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall session-recap — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Session Recap
 
@@ -70,13 +70,22 @@ open questions, and checkboxed next steps someone else could pick up cold.
 - &quot;recap this session&quot; → appends today&#x27;s section
 - &quot;where did we leave off?&quot; → reads the latest section back before starting
 - &quot;hand this off to Sam&quot; → recap with next steps written for a stranger
+- pairs with **test-gap-nudge**: source changed without tests lands under the
+  recap&#x27;s Open questions, so the gap survives the handoff
 
-No hooks, nothing runs in the background. See [CHANGELOG.md](./CHANGELOG.md).
+## The hooks, honestly
+Two read-only hooks, both **fail open** (exit 0 always, never block a session):
+a `Stop` nudge that suggests a recap once per session when there&#x27;s uncommitted
+work and none was written today, and a `SessionStart` recall that surfaces the
+last handoff&#x27;s title. Silence both with `SESSION_RECAP_SILENT=1`
+(`SESSION_RECAP_DEBUG=1` writes a decision trail to `${TMPDIR}`). See
+[CHANGELOG.md](./CHANGELOG.md).
 
 ## Manage
 
 - **Update:** `/plugin marketplace update`, then `claude plugin update session-recap`
 - **Disable / re-enable:** `claude plugin disable session-recap` / `claude plugin enable session-recap` (or the `/plugin` menu — no uninstall needed)
+- **Silence the hooks** (keep the skill): `export SESSION_RECAP_SILENT=1`
 - **Uninstall:** `claude plugin uninstall session-recap` — removes everything the plugin added
 </pre></details><details><summary>Pitch</summary><pre>- **Job:** continuity across sessions without hand-written notes.
 - **User:** anyone running multi-day work in one repo.
@@ -120,7 +129,34 @@ recap&gt; - [ ] re-run the adversarial pass on commission #12</pre></details><de
 - Sharpest question: can it fabricate a change log with no git repo present? No —
   status/diff steps precede writing; absent evidence yields absent claims.
 REVIEW: approved
-- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag session-recap-v0.1.2.</pre></details></div>
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag session-recap-v0.1.2.</pre></details><details><summary>Maintenance log</summary><pre>- v13 B5+B6 (feature, v0.1.2 → v0.2.0): the record carried `components:
+  [skills, hooks]` and a one-liner promising &quot;when a session ends … the next
+  one starts&quot;, but the plugin shipped skill-only (the Spec even said &quot;no
+  hooks&quot;). Rather than the originally-pitched stub-writing hook (which would
+  write a file unasked — against hook-safety law), shipped two **read-only,
+  fail-open** hooks: a `Stop` nudge (`scripts/recap-nudge.sh`) that suggests a
+  recap once per session when there&#x27;s uncommitted work and none written today,
+  and a `SessionStart` recall (`scripts/recap-recall.sh`) that surfaces the
+  last handoff&#x27;s title. `components` is now true; the one-liner is true. B6
+  synergy: the `recap` skill now files source-changed-without-tests (the
+  test-gap-nudge signal) under Open questions. Suite:
+  `foundry/tests/session-recap/hooks.test.sh` (8 checks). Tag session-recap-v0.2.0.
+### Test pass — v13 B5 (qa)
+- tier 1: hooks suite 8/8 + skill suite 6/6 (15 ok · 0 fail via tools/qa.sh);
+  official validate --strict passes the two-hook manifest.
+- tier 3: SessionStart + Stop events valid, matcher-free, quoted roots,
+  executable shebang scripts; read-only (git status + file reads only);
+  fail-open verified on clean tree / recapped-today / no-file / garbage stdin /
+  opt-out; once-per-session marker honored.
+- defects: none found — probed double-nudge (marker), post-recap silence
+  (today&#x27;s date match), and recall with multiple sections (newest wins).
+TEST VERDICT: pass
+### Review — v13 B5 (reviewer)
+- Hook-safety bar met: no file writes (the pitch&#x27;s stub-writer was correctly
+  dropped as unasked-write), exit 0 always, opt-out + debug documented.
+- The two hooks finally make a self-contradicting record honest without
+  overclaiming — nudge suggests, never writes; recall reads, never mutates.
+REVIEW: approved</pre></details></div>
   <p class="links">install: <code>/plugin install session-recap@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/session-recap.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/session-recap.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/session-recap">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

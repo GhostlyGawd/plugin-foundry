@@ -4,14 +4,14 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.4
+version: 0.2.5
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-06
 one_liner: Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.
 tags: [discovery, meta, catalog]
 created: 2026-07-05
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 ## Pitch
@@ -83,3 +83,10 @@ REVIEW: approved
   night-clerk-v0.2.2.
 - i182 (maintainer, v11 #2): v0.2.3 — README Manage section (docs sweep). Tag night-clerk-v0.2.3.
 - i203 (maintainer): v0.2.4 — snapshot refresh: dep-bump-brief joins (9 plugins). Tag night-clerk-v0.2.4.
+- v13 A1+B7: v0.2.5 — the front desk stops misdescribing the shelf. Regenerated
+  the bundled catalog after the v13 record fixes: pr-narrator now reads "skill"
+  (was "subagent", tag agents→skills) and env-doctor's "at session start" +
+  `hooks` are true now that it ships the SessionStart hook (v0.2.0). Snapshot
+  also carries the other v13 version bumps. Clerk skill now flags the snapshot as
+  point-in-time for "newest" asks. Tag night-clerk-v0.2.5. This is the single
+  catalog regeneration for the slate (ADR-022 sequencing).

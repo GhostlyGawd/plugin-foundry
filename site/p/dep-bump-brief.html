@@ -49,7 +49,7 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Dep-Bump Brief — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · v0.1.0 · created 2026-07-06 · updated 2026-07-07 · ~105 tok est</p>
+  <p class="meta">plugin · workflow · v0.1.1 · created 2026-07-06 · updated 2026-07-07 · ~105 tok est</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~105 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall dep-bump-brief — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
@@ -73,6 +73,11 @@ says `changelog not checked` instead of guessing.
 - &quot;review this dependabot PR&quot; → per-bump brief + risk line, pasteable into the review
 - &quot;what changed in this bump?&quot; → old → new, semver distance, your usage sites
 - &quot;is this lodash bump safe?&quot; → MAJOR/minor/patch flag + the files that import it
+- pairs with **pr-narrator**: the brief&#x27;s risk line drops straight into the PR&#x27;s
+  **Risk &amp; rollback** section — same diff, one honest sentence
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md).
 
 ## Honest disclosures
 - **Never invents version facts.** Changelog content appears only when the
@@ -154,7 +159,10 @@ REVIEW: approved</pre></details><details><summary>Publish log</summary><pre>- i2
   full line on the post-v11 machinery (gates.yml CI, doctor in suite, Manage
   convention from scaffold). Tag dep-bump-brief-v0.1.0 cut via release
   dispatch post-merge (ADR-020 path). Experiment: none — utility plugin;
-  install proxy rides the shelf-wide metric.</pre></details></div>
+  install proxy rides the shelf-wide metric.
+- v13 B6+B8: v0.1.1 — README gains the standard `## Changelog` link and a
+  pr-narrator pairing recipe (the risk line → PR Risk &amp; rollback). Docs-only;
+  Tag dep-bump-brief-v0.1.1.</pre></details></div>
   <p class="links">install: <code>/plugin install dep-bump-brief@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/dep-bump-brief.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/dep-bump-brief.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/dep-bump-brief">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

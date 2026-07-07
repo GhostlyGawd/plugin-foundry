@@ -15,6 +15,11 @@ Then: "bootstrap a foundry in ~/my-foundry". The skill offers a fast fork path o
 from-spec scaffold, carries the laws over verbatim, and doesn't finish until the new
 loop runs one green iteration. No hooks, nothing runs in the background.
 
+## Recipes
+- "bootstrap a foundry in ~/my-foundry" → fast fork path, laws carried verbatim
+- "scaffold a foundry from spec" → the from-spec build when you want to read every law
+- "turn this repo into a self-running workshop" → adapts the loop onto an existing repo
+
 ## Changelog
 See [CHANGELOG.md](./CHANGELOG.md).
 

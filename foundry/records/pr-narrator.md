@@ -3,7 +3,7 @@ name: pr-narrator
 title: PR Narrator
 category: workflow
 stage: published
-version: 0.1.2
+version: 0.1.3
 always_on_tokens: 88
 verified: 2026-07-06
 components: [skills]
@@ -97,3 +97,6 @@ REVIEW: approved
   (an aspirational "agent-component exercise") is left as written — the line
   never grew a real agent, and that gap is noted for a future idea, not
   rewritten here.
+- v13 B6: v0.1.2 → v0.1.3 — README + `pr` skill now pair with dep-bump-brief:
+  on a dependency PR, the brief's risk line drops straight into Risk & rollback.
+  Docs-only; Tag pr-narrator-v0.1.3.

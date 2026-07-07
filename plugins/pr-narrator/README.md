@@ -14,6 +14,8 @@ command and runs it only on your yes.
 ## Recipes
 - "write the PR" on a finished branch → full draft from evidence
 - pair with **commit-craft**: clean commits in, clean narrative out
+- pair with **dep-bump-brief** on a dependency PR: paste its risk line straight
+  into the **Risk & rollback** section — same diff, one honest sentence
 - "describe this branch for the changelog" → same evidence, changelog voice
 
 No hooks, no pushes, nothing unasked. See [CHANGELOG.md](./CHANGELOG.md).

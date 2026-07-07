@@ -28,22 +28,22 @@ _none_
 - [contributor-cards](records/contributor-cards.md) `growth` `site` — A shareable, kraft-styled SVG credit card per contributor - prospects, patronages, breaks, since-date.
 - [counter-index](records/counter-index.md) `context` `site` — Fuzzy search and tag filters on the shelf - find the right plugin in two keystrokes.
 - [demo-transcripts](records/demo-transcripts.md) `quality` `site+docs` — Certificates show the plugin working - a terminal-styled example session, honestly labeled until CI records the real thing.
-- [dep-bump-brief v0.1.0](records/dep-bump-brief.md) `workflow` `skills` — Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check. — install: `/plugin install dep-bump-brief@foundry`
+- [dep-bump-brief v0.1.1](records/dep-bump-brief.md) `workflow` `skills` — Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check. — install: `/plugin install dep-bump-brief@foundry`
 - [embed-badges](records/embed-badges.md) `growth` `site+docs` — A shields-style status badge and an embeddable ticker — put the living machine on your own site.
 - [env-doctor v0.2.0](records/env-doctor.md) `quality` `skills+hooks` — Checks the toolchain against the project's declared versions at session start and warns early. — install: `/plugin install env-doctor@foundry`
 - [field-reports](records/field-reports.md) `growth` `template+site` — Real user experiences with shipped plugins, surfaced on their birth certificates.
-- [fork-a-foundry v0.1.2](records/fork-a-foundry.md) `meta` `skills` — One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself. — install: `/plugin install fork-a-foundry@foundry`
+- [fork-a-foundry v0.1.3](records/fork-a-foundry.md) `meta` `skills` — One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself. — install: `/plugin install fork-a-foundry@foundry`
 - [foundry-network](records/foundry-network.md) `growth` `site+docs+template` — Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.
 - [fuel-gauge](records/fuel-gauge.md) `growth` `site+docs` — The month's real API spend, on the window, against the operator's cap — with a Sponsor path to fund the next shift.
 - [idea-credit-loop](records/idea-credit-loop.md) `growth` `site+docs` — Community suggestions carry their prospector's name from issue to card to birth certificate — with a thank-you at every milestone.
 - [live-shift-theater](records/live-shift-theater.md) `growth` `site` — A window page that replays the latest shift's journal as a slow-scrolling theater — watch the machine work.
-- [night-clerk v0.2.4](records/night-clerk.md) `workflow` `skills` — Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line. — install: `/plugin install night-clerk@foundry`
+- [night-clerk v0.2.5](records/night-clerk.md) `workflow` `skills` — Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line. — install: `/plugin install night-clerk@foundry`
 - [plugin-smith v0.1.3](records/plugin-smith.md) `meta` `skills` — Scaffolds new Claude Code plugins and health-checks existing ones against the official spec. — install: `/plugin install plugin-smith@foundry`
-- [pr-narrator v0.1.2](records/pr-narrator.md) `workflow` `skills` — A skill that turns a branch's commits and diff into a reviewer-ready PR description. — install: `/plugin install pr-narrator@foundry`
+- [pr-narrator v0.1.3](records/pr-narrator.md) `workflow` `skills` — A skill that turns a branch's commits and diff into a reviewer-ready PR description. — install: `/plugin install pr-narrator@foundry`
 - [releases-and-reverify](records/releases-and-reverify.md) `workflow` `workflow` — Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.
 - [saga-page](records/saga-page.md) `growth` `site` — An auto-generated timeline of the workshop's own story — ADRs, ships, kills, ceremonies.
 - [scannable-window](records/scannable-window.md) `growth` `site` — Jump-nav, glanceable stats strip, and vote counts — the window readable in one sweep.
-- [session-recap v0.1.2](records/session-recap.md) `context` `skills+hooks` — Writes a structured recap when a session ends and recalls it when the next one starts. — install: `/plugin install session-recap@foundry`
+- [session-recap v0.2.0](records/session-recap.md) `context` `skills+hooks` — Writes a structured recap when a session ends and recalls it when the next one starts. — install: `/plugin install session-recap@foundry`
 - [shift-streak](records/shift-streak.md) `growth` `site` — A 12-week heatmap of the loop's real iterations — proof of life at a glance.
 - [starter-kits](records/starter-kits.md) `growth` `site+docs` — Curated bundles with one copy-block — cut choice paralysis for first-time installers.
 - [test-gap-nudge v0.3.1](records/test-gap-nudge.md) `quality` `hooks` — A polite Stop-hook that notices source changes with no matching test changes and says so once. — install: `/plugin install test-gap-nudge@foundry`

@@ -14,7 +14,8 @@ description: Draft a pull-request title and description from this branch's actua
    - **Changes** — grouped bullets built from the real commit list
    - **Test notes** — only what was actually run; **"none" is a valid and honest
      answer** — never claim untested coverage
-   - **Risk & rollback** — blast radius in one line + how to revert
+   - **Risk & rollback** — blast radius in one line + how to revert. If this is a
+     dependency bump and a dep-bump-brief risk line exists, use it here verbatim.
 4. Show the draft. If `gh` is installed, offer:
    `gh pr create --title "..." --body-file <tmp>` — show the exact command and run
    it only after the user says yes. Never push, never force-anything, never open

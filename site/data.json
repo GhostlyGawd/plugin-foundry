@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-07T13:19:03.191902+00:00",
+ "generated_at": "2026-07-07T13:29:38.352077+00:00",
  "iteration": 214,
  "phase": "grow",
  "theme": null,
@@ -392,7 +392,7 @@
    "title": "Dep-Bump Brief",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills"
    ],
@@ -490,7 +490,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.2",
+   "version": "0.1.3",
    "components": [
     "skills"
    ],
@@ -501,7 +501,7 @@
     "viral",
     "dogfood"
    ],
-   "updated": "2026-07-06",
+   "updated": "2026-07-07",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "90",
@@ -615,7 +615,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.4",
+   "version": "0.2.5",
    "components": [
     "skills"
    ],
@@ -625,7 +625,7 @@
     "meta",
     "catalog"
    ],
-   "updated": "2026-07-06",
+   "updated": "2026-07-07",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "129",
@@ -688,7 +688,7 @@
    "title": "PR Narrator",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.2",
+   "version": "0.1.3",
    "components": [
     "skills"
    ],
@@ -784,7 +784,7 @@
    "title": "Session Recap",
    "category": "context",
    "stage": "published",
-   "version": "0.1.2",
+   "version": "0.2.0",
    "components": [
     "skills",
     "hooks"
@@ -795,7 +795,7 @@
     "sessions",
     "continuity"
    ],
-   "updated": "2026-07-06",
+   "updated": "2026-07-07",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "93",
@@ -1265,7 +1265,7 @@
     "title": "Dep-Bump Brief",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "components": [
      "skills"
     ],
@@ -1310,6 +1310,55 @@
     "patron": null
    },
    {
+    "name": "fork-a-foundry",
+    "title": "Fork a Foundry",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.1.3",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "tags": [
+     "meta",
+     "bootstrap",
+     "viral",
+     "dogfood"
+    ],
+    "updated": "2026-07-07",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "90",
+    "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "night-clerk",
+    "title": "Night Clerk",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.2.5",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+    "tags": [
+     "discovery",
+     "meta",
+     "catalog"
+    ],
+    "updated": "2026-07-07",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "129",
+    "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "plugin-smith",
     "title": "Plugin Smith",
     "category": "meta",
@@ -1339,7 +1388,7 @@
     "title": "PR Narrator",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "components": [
      "skills"
     ],
@@ -1353,6 +1402,31 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "88",
+    "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "session-recap",
+    "title": "Session Recap",
+    "category": "context",
+    "stage": "published",
+    "version": "0.2.0",
+    "components": [
+     "skills",
+     "hooks"
+    ],
+    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
+    "tags": [
+     "memory",
+     "sessions",
+     "continuity"
+    ],
+    "updated": "2026-07-07",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "93",
     "verified": "2026-07-06",
     "prospected_by": null,
     "suggested_in": null,
@@ -1459,31 +1533,6 @@
     "patron": null
    },
    {
-    "name": "fork-a-foundry",
-    "title": "Fork a Foundry",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.1.2",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
-    "tags": [
-     "meta",
-     "bootstrap",
-     "viral",
-     "dogfood"
-    ],
-    "updated": "2026-07-06",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "90",
-    "verified": "2026-07-06",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "foundry-network",
     "title": "The Foundry Network",
     "category": "growth",
@@ -1560,30 +1609,6 @@
     "patron": null
    },
    {
-    "name": "night-clerk",
-    "title": "Night Clerk",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.2.4",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
-    "tags": [
-     "discovery",
-     "meta",
-     "catalog"
-    ],
-    "updated": "2026-07-06",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "129",
-    "verified": "2026-07-06",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "saga-page",
     "title": "The Saga",
     "category": "growth",
@@ -1602,31 +1627,6 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "session-recap",
-    "title": "Session Recap",
-    "category": "context",
-    "stage": "published",
-    "version": "0.1.2",
-    "components": [
-     "skills",
-     "hooks"
-    ],
-    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
-    "tags": [
-     "memory",
-     "sessions",
-     "continuity"
-    ],
-    "updated": "2026-07-06",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "93",
     "verified": "2026-07-06",
     "prospected_by": null,
     "suggested_in": null,

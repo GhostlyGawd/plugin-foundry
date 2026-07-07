@@ -4,14 +4,14 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.1.2
+version: 0.1.3
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-06
 one_liner: One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.
 tags: [meta, bootstrap, viral, dogfood]
 created: 2026-07-05
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 # Fork a Foundry
@@ -94,3 +94,6 @@ REVIEW: approved
   seeded whole by the genesis ceremony (ADR-021) and registered on the
   network. The record's promise ("the loop that built this one, in a box")
   is now backed by a birth, not a fixture. No artifact change; no bump.
+- v13 B8: v0.1.2 → v0.1.3 — author normalized to "Nightshift Foundry" (matched
+  the shelf) and a standard `## Recipes` section added. Docs-only; Tag
+  fork-a-foundry-v0.1.3.
