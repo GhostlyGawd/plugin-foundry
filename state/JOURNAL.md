@@ -1840,3 +1840,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: 2.3 — governor tool tests.
 - notes: the backlog steers every future shift; stale items were active
   misdirection.
+
+## i208 — qa (directed, v12 2.3) — 2026-07-07T02:47:31Z
+- did: governor suite — budget.py (idle without a cap, parses real claude
+  cost json, unparseable → null never a guess, corrupt ledger line skipped,
+  GOVERNOR HALT exit 1 over cap, report reads the marketplace) and metrics.py
+  (stub gh: real values recorded, 403ing traffic API → honest null, votes.json
+  +1 counts, dead API → every remote field null). 9 checks; first run caught
+  my stub reading the wrong argv slot — fixed, all green.
+- line: n/a (test infrastructure, ADR-021)
+- files: foundry/tests/_tools/governor.test.sh
+- validation: pass (_tools 34 ok)
+- next-suggestion: 3.1 — shift-zero feedback.
+- notes: the safety rails are now regression-tested before they've ever fired
+  in anger — the right order.
