@@ -64,12 +64,16 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [x] P2 (growth) Spec weekly-shipnote — OBE: published i113 with fixture suite.
       Closed i140.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
-- [ ] P1 (operator) Genesis ceremony unblock (v12 4.1, ADR-021 — blessing on
+- [x] P1 (operator) Genesis ceremony unblock (v12 4.1, ADR-021 — blessing on
       record): create ONE empty public repo (suggested name: dawnshift-forge);
       a session then seeds it per fork-a-foundry and registers the first
       sister. Attempted i212: create_repository → 403, no session or workflow
       token can create repos. Everything downstream is built and waiting
       (network strip, family tree, Lane 4 verification, badges).
+      DONE i214: operator created GhostlyGawd/test; parent seeded it whole
+      (protocol, charter, tools, workflows, one idea record, reciprocal network
+      entry), child's own gates ran green pre-push, Lane 4 duty verified
+      (LOOP.md + records present), registered as the first sister.
 
 ## v7 slate — SHIPPED ✓ (audit-002)
 All 12 published i35–i86; experiments armed with dated reviews. World-gated
@@ -103,6 +107,8 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
       idea-label path; builder applies it next iteration.
 
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
+- [ ] P3 (builder) build.py assumes site/ exists (crashes on a fresh checkout
+      without it — found by the firstborn at genesis, i214); mkdir it in main().
 Populated by `tools/intake.py` from issues labeled `bug`.
 Format: `- [ ] B#<issue> <plugin> — <summary>`
 - (none yet)

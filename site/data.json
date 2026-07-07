@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-07T02:53:42.720374+00:00",
- "iteration": 213,
+ "generated_at": "2026-07-07T03:07:03.408414+00:00",
+ "iteration": 214,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -2177,7 +2177,15 @@
   "breakers": []
  },
  "verified": [],
- "network": [],
+ "network": [
+  {
+   "name": "test (pre-brand)",
+   "url": "https://github.com/GhostlyGawd/test",
+   "pages": "",
+   "registered": "2026-07-07",
+   "note": "firstborn \u2014 seeded whole by this workshop's genesis ceremony (ADR-021); names itself at its own Ceremony"
+  }
+ ],
  "streak": [
   {
    "d": "2026-04-15",

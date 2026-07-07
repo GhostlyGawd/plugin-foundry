@@ -1,1 +1,11 @@
-{ "network": [] }
+{
+ "network": [
+  {
+   "name": "test (pre-brand)",
+   "url": "https://github.com/GhostlyGawd/test",
+   "pages": "",
+   "registered": "2026-07-07",
+   "note": "firstborn \u2014 seeded whole by this workshop's genesis ceremony (ADR-021); names itself at its own Ceremony"
+  }
+ ]
+}
