@@ -5,7 +5,7 @@ category: meta
 stage: published
 version: 0.1.3
 components: [skills]
-always_on_tokens: 113
+always_on_tokens: 137
 verified: 2026-07-06
 one_liner: Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.
 tags: [meta, scaffolding, validation, dogfood]

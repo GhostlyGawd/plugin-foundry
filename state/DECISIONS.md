@@ -381,7 +381,7 @@ Template:
   gets its first name from the only entity that could honestly claim it —
   the foundry's own child.
 
-## ADR-022 — v13 slate: the shelf, not the window, in order (directed)
+## ADR-022 — v13 slate: the shelf, not the window, in order (i214, directed)
 - Status: accepted (workflow/tools items apply in later commits of this slate
   under the two-iteration rule with this ADR as the prior-iteration record).
 - Context: fourth operator-directed discovery pass (IMPROVEMENTS v13, merged

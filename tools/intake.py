@@ -32,7 +32,11 @@ def sanitize_title(raw, limit=80):
 def main():
     def gh_list(label):
         try:
+            # explicit high --limit: gh defaults to 30, silently dropping older
+            # commissions/bugs/ideas past that — a paying patron's issue must not
+            # fall off the queue because 30 newer ones exist (v13 C11).
             out = sh("gh", "issue", "list", "--label", label, "--state", "open",
+                     "--limit", "500",
                      "--json", "number,title,body,author,createdAt").stdout
             return json.loads(out or "[]")
         except (FileNotFoundError, subprocess.CalledProcessError):

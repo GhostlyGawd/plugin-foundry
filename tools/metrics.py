@@ -26,6 +26,27 @@ def gh_api(path):
         return None
 
 
+def gh_api_all(path, per_page=100, cap=1000):
+    """Paginate an array endpoint (page=N) until a short page or the cap.
+    A number shown to visitors that silently trails past the first 100 issues
+    would violate growth-honesty (charter/GROWTH.md) by undercounting, so we
+    follow the pages instead of trusting page 1 (v13 C11). Returns None only if
+    the very first request errors (so callers can still distinguish gh-absent)."""
+    sep = "&" if "?" in path else "?"
+    items, page = [], 1
+    while len(items) < cap:
+        batch = gh_api(f"{path}{sep}per_page={per_page}&page={page}")
+        if batch is None:
+            return items if page > 1 else None
+        if not batch:
+            break
+        items.extend(batch)
+        if len(batch) < per_page:
+            break
+        page += 1
+    return items
+
+
 def goatcounter(cfg):
     """Optional privacy-respecting pageviews. Operator wires site + token per
     GoatCounter's current API docs (OPERATIONS.md § 6); any failure -> null."""
@@ -54,10 +75,10 @@ def main():
     info = gh_api(f"repos/{repo}") or {}
     views = gh_api(f"repos/{repo}/traffic/views") or {}
     clones = gh_api(f"repos/{repo}/traffic/clones") or {}
-    ideas = gh_api(f"repos/{repo}/issues?labels=idea&state=open&per_page=100") or []
-    commissions = gh_api(f"repos/{repo}/issues?labels=commission&state=open&per_page=100") or []
+    ideas = gh_api_all(f"repos/{repo}/issues?labels=idea&state=open") or []
+    commissions = gh_api_all(f"repos/{repo}/issues?labels=commission&state=open") or []
 
-    reports_raw = gh_api(f"repos/{repo}/issues?labels=field-report&state=all&per_page=100") or []
+    reports_raw = gh_api_all(f"repos/{repo}/issues?labels=field-report&state=all") or []
     reports = {}
     for issue in reports_raw:
         if "pull_request" in issue:
@@ -73,7 +94,7 @@ def main():
              "author": (issue.get("user") or {}).get("login", "")})
     (ROOT / "foundry" / "reports.json").write_text(json.dumps(reports, indent=1))
 
-    alarms_raw = gh_api(f"repos/{repo}/issues?labels=ops-alarm&state=open&per_page=50") or []
+    alarms_raw = gh_api_all(f"repos/{repo}/issues?labels=ops-alarm&state=open") or []
     alarms = [{"title": i.get("title", ""), "url": i.get("html_url", "")}
               for i in alarms_raw if "pull_request" not in i]
     (ROOT / "foundry" / "alarms.json").write_text(json.dumps(alarms, indent=1))

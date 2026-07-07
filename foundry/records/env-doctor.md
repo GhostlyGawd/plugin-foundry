@@ -4,7 +4,7 @@ title: Env Doctor
 category: quality
 stage: published
 version: 0.2.0
-always_on_tokens: 110
+always_on_tokens: 130
 verified: 2026-07-06
 components: [skills, hooks]
 one_liner: Checks the toolchain against the project's declared versions at session start and warns early.

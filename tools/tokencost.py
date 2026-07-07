@@ -11,15 +11,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+from lib import parse_front_matter  # one parser, one truth (v13 C12)
+
 
 def desc_of(md_path):
-    text = md_path.read_text()
-    chars = 0
-    for key in ("name", "description"):
-        m = re.search(rf"^{key}:\s*(.+)$", text.split("---")[1] if text.startswith("---") else "", re.M)
-        if m:
-            chars += len(m.group(1))
-    return chars
+    meta, _ = parse_front_matter(md_path.read_text())
+    return sum(len(str(meta.get(key, ""))) for key in ("name", "description"))
 
 
 def estimate(name):

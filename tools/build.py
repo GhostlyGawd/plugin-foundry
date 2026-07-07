@@ -1295,10 +1295,21 @@ def build_sitemap(records, cfg):
     base = (cfg.get("pages_url") or "").rstrip("/")
     if not base:
         return
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    urls = [f"{base}/", f"{base}/saga.html", f"{base}/queue.html", f"{base}/theater.html"]
-    urls += [f"{base}/p/{r['name']}.html" for r in records if r.get("name")]
-    body = "".join(f"<url><loc>{html.escape(u)}</loc><lastmod>{today}</lastmod></url>" for u in urls)
+    # lastmod reflects real content dates, not the run date (v13 C9): stamping
+    # today into every entry churned sitemap.xml on every rebuild, so any CI run
+    # dated after the committed file spuriously failed the gates' sync check.
+    # Certificate pages carry their record's `updated`; the top-level pages carry
+    # the newest record date (the last time the shelf actually moved). Now the
+    # file changes only when content does — exactly when it's legitimately recommitted.
+    dates = [r.get("updated") for r in records if r.get("updated")]
+    newest = max(dates) if dates else datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    entries = [(u, newest) for u in
+               (f"{base}/", f"{base}/saga.html", f"{base}/queue.html", f"{base}/theater.html")]
+    entries += [(f"{base}/p/{r['name']}.html", r.get("updated") or newest)
+                for r in records if r.get("name")]
+    body = "".join(
+        f"<url><loc>{html.escape(u)}</loc><lastmod>{html.escape(str(d))}</lastmod></url>"
+        for u, d in entries)
     (ROOT / "site" / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>'
         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>\n')

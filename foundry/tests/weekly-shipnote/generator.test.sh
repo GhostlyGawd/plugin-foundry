@@ -9,6 +9,7 @@ mkfix() { # mkfix <name> — skeleton repo with tools/shipnote.py
   local d="$WORK/$1"
   mkdir -p "$d/tools" "$d/state" "$d/.claude-plugin" "$d/foundry/records"
   cp tools/shipnote.py "$d/tools/"
+  cp tools/lib.py "$d/tools/"   # shipnote imports the shared front-matter parser (v13 C12)
   echo '{"name":"foundry","plugins":[]}' > "$d/.claude-plugin/marketplace.json"
   echo "$d"
 }

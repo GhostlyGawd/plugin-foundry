@@ -33,7 +33,12 @@ def main():
         t = p.read_text()
         if not re.search(r"^stage: published$", t, re.M):
             continue
-        name = re.search(r"^name: (.+)$", t, re.M).group(1)
+        m = re.search(r"^name: (.+)$", t, re.M)
+        if not m:
+            # a published record with no name: line is malformed — skip it, never
+            # crash the whole weekly re-verify on one bad file (v13 C12).
+            continue
+        name = m.group(1).strip()
         if not (ROOT / "foundry" / "tests" / name).is_dir():
             continue
         if name in failed:

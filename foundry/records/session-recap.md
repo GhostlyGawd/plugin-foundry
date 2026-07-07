@@ -4,7 +4,7 @@ title: Session Recap
 category: context
 stage: published
 version: 0.2.0
-always_on_tokens: 93
+always_on_tokens: 115
 verified: 2026-07-06
 components: [skills, hooks]
 one_liner: Writes a structured recap when a session ends and recalls it when the next one starts.

@@ -3,16 +3,12 @@
 Usage: python3 tools/almanac.py [YYYY-MM]   (defaults to current month)"""
 import collections, datetime, html, json, pathlib, re, subprocess, sys
 
+from lib import parse_front_matter  # one parser, one truth (v13 C12)
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 def front(p):
-    m = re.match(r"---\n(.*?)\n---", p.read_text(), re.S)
-    d = {}
-    for line in (m.group(1) if m else "").splitlines():
-        if ":" in line:
-            k, v = line.split(":", 1)
-            d[k.strip()] = v.strip()
-    return d
+    return parse_front_matter(p.read_text())[0]
 
 def main(month=None):
     month = month or datetime.date.today().strftime("%Y-%m")
