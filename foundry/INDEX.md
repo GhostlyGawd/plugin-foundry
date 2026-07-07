@@ -3,10 +3,10 @@
 
 39 records · iteration 216 · phase grow
 
-**Line:** idea:1 → spec:3 → building:0 → rc:0 → published:35 · deprecated:0 · shelved:0
+**Line:** idea:0 → spec:3 → building:0 → rc:0 → published:36 · deprecated:0 · shelved:0
 
-## idea (1)
-- [todo-ledger](records/todo-ledger.md) `quality` `skills` — Inventories TODO/FIXME/HACK comments with git-blame age and owners — tech debt as a dated, ranked ledger.
+## idea (0)
+_none_
 
 ## spec (3)
 - [commission-tiers](records/commission-tiers.md) `growth` `worker+docs` — A pricing experiment — standard, rush, and named-sponsor commissions.
@@ -19,7 +19,7 @@ _none_
 ## rc (0)
 _none_
 
-## published (35)
+## published (36)
 - [adversarial-qa-bounties](records/adversarial-qa-bounties.md) `growth` `docs+template+site` — Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.
 - [commission-queue](records/commission-queue.md) `growth` `site+worker` — A sanitized public status board for commissions - patrons watch progress without asking.
 - [commit-craft v0.3.2](records/commit-craft.md) `workflow` `skills+hooks` — Drafts conventional commits from the staged diff and guards message format at commit time. — install: `/plugin install commit-craft@foundry`
@@ -37,7 +37,7 @@ _none_
 - [fuel-gauge](records/fuel-gauge.md) `growth` `site+docs` — The month's real API spend, on the window, against the operator's cap — with a Sponsor path to fund the next shift.
 - [idea-credit-loop](records/idea-credit-loop.md) `growth` `site+docs` — Community suggestions carry their prospector's name from issue to card to birth certificate — with a thank-you at every milestone.
 - [live-shift-theater](records/live-shift-theater.md) `growth` `site` — A window page that replays the latest shift's journal as a slow-scrolling theater — watch the machine work.
-- [night-clerk v0.2.5](records/night-clerk.md) `workflow` `skills` — Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line. — install: `/plugin install night-clerk@foundry`
+- [night-clerk v0.2.6](records/night-clerk.md) `workflow` `skills` — Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line. — install: `/plugin install night-clerk@foundry`
 - [plugin-smith v0.1.3](records/plugin-smith.md) `meta` `skills` — Scaffolds new Claude Code plugins and health-checks existing ones against the official spec. — install: `/plugin install plugin-smith@foundry`
 - [pr-narrator v0.1.3](records/pr-narrator.md) `workflow` `skills` — A skill that turns a branch's commits and diff into a reviewer-ready PR description. — install: `/plugin install pr-narrator@foundry`
 - [releases-and-reverify](records/releases-and-reverify.md) `workflow` `workflow` — Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.
@@ -49,6 +49,7 @@ _none_
 - [test-gap-nudge v0.3.1](records/test-gap-nudge.md) `quality` `hooks` — A polite Stop-hook that notices source changes with no matching test changes and says so once. — install: `/plugin install test-gap-nudge@foundry`
 - [the-almanac](records/the-almanac.md) `growth` `site` — A monthly, auto-generated state-of-the-shift: ships, kill rate, cost per ship, the best defect the gates caught.
 - [the-mailbag](records/the-mailbag.md) `growth` `workflow+docs+template` — question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.
+- [todo-ledger v0.1.0](records/todo-ledger.md) `quality` `skills` — Inventories TODO/FIXME/HACK comments with git-blame age and owners — tech debt as a dated, ranked ledger. — install: `/plugin install todo-ledger@foundry`
 - [token-cost-badges](records/token-cost-badges.md) `growth` `site+docs` — Every card shows what a plugin costs your context — est. always-on tokens, and when it was last verified.
 - [traveler-pings](records/traveler-pings.md) `growth` `workflow` — When a suggested idea changes stage, the original issue hears about it - suggesters watch their idea move down the line.
 - [trust-card](records/trust-card.md) `quality` `site` — A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.

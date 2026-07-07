@@ -1,0 +1,16 @@
+{
+  "name": "todo-ledger",
+  "displayName": "TODO Ledger",
+  "version": "0.1.0",
+  "description": "Inventories a repo's TODO/FIXME/HACK/XXX comments into a ranked, dated ledger — git-blame age and author per hit, oldest first, with a worst-offenders summary and copyable file:line references.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
+  "license": "MIT",
+  "keywords": [
+    "tech-debt",
+    "todos",
+    "fixme",
+    "reporting"
+  ]
+}

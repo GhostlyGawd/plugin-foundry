@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-07T14:14:56.669529+00:00",
+ "generated_at": "2026-07-07T14:19:09.845088+00:00",
  "iteration": 216,
  "phase": "grow",
  "theme": {
@@ -8,11 +8,11 @@
   "note": "Plugins that surface the quiet debt a codebase accumulates \u2014 stale TODOs, missing tests, drifted toolchains, unreviewed dep bumps \u2014 and make it legible before it bites."
  },
  "counts": {
-  "idea": 1,
+  "idea": 0,
   "spec": 3,
   "building": 0,
   "rc": 0,
-  "published": 35,
+  "published": 36,
   "deprecated": 0,
   "shelved": 0
  },
@@ -619,7 +619,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.5",
+   "version": "0.2.6",
    "components": [
     "skills"
    ],
@@ -935,8 +935,8 @@
    "name": "todo-ledger",
    "title": "TODO Ledger",
    "category": "quality",
-   "stage": "idea",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "skills"
    ],
@@ -946,10 +946,10 @@
     "todos",
     "reporting"
    ],
-   "updated": "2026-07-06",
+   "updated": "2026-07-07",
    "commission": null,
    "kind": "plugin",
-   "always_on_tokens": null,
+   "always_on_tokens": "108",
    "verified": null,
    "prospected_by": null,
    "suggested_in": null,
@@ -1212,32 +1212,7 @@
     "patron": null
    }
   ],
-  "ideas": [
-   {
-    "name": "todo-ledger",
-    "title": "TODO Ledger",
-    "category": "quality",
-    "stage": "idea",
-    "version": null,
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
-    "tags": [
-     "tech-debt",
-     "todos",
-     "reporting"
-    ],
-    "updated": "2026-07-06",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   }
-  ],
+  "ideas": [],
   "shipped": [
    {
     "name": "commit-craft",
@@ -1343,7 +1318,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "components": [
      "skills"
     ],
@@ -1432,6 +1407,30 @@
     "kind": "plugin",
     "always_on_tokens": "115",
     "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "todo-ledger",
+    "title": "TODO Ledger",
+    "category": "quality",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
+    "tags": [
+     "tech-debt",
+     "todos",
+     "reporting"
+    ],
+    "updated": "2026-07-07",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "108",
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null

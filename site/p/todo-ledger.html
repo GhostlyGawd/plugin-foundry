@@ -49,12 +49,48 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>TODO Ledger — birth certificate</h1></header>
-  <p class="meta">plugin · quality · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <p class="meta">plugin · quality · v0.1.0 · created 2026-07-06 · updated 2026-07-07 · ~108 tok est</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Inventories TODO/FIXME/HACK comments with git-blame age and owners — tech debt as a dated, ranked ledger.</p>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~108 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall todo-ledger — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** produce a ledger of debt comments (TODO/FIXME/HACK/XXX) ranked by age
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># TODO Ledger
+
+One skill, `ledger`: turns the sediment of `TODO` / `FIXME` / `HACK` / `XXX`
+comments scattered across a repo into a **ranked, dated ledger** — each hit
+carries its git-blame age and author, sorted oldest-first, with a worst-offenders
+summary and copyable `file:line` references. The five-year-old FIXME stops looking
+like Friday&#x27;s.
+
+## Install
+
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install todo-ledger@foundry
+```
+
+## Recipes
+- &quot;list the TODOs&quot; → the full ledger, oldest debt first
+- &quot;what&#x27;s the worst tech debt here?&quot; → the worst-offenders top 5 with authors
+- &quot;save a TODO report&quot; → writes a dated `TODO-LEDGER-&lt;date&gt;.md` (only when asked)
+
+## Honest disclosures
+- **Never invents a date.** Age and author come from `git blame`; an unblameable
+  or uncommitted line is labeled &quot;unknown&quot;/&quot;uncommitted&quot;, never a guessed date.
+- **Read-only by default.** It reports; it never edits, deletes, or &quot;fixes&quot; a
+  marker. The dated file is written only on an explicit request.
+- Outside a git repo it still lists the markers, and says so — age and author are
+  unavailable without history.
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update todo-ledger`
+- **Disable / re-enable:** `claude plugin disable todo-ledger` / `claude plugin enable todo-ledger` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall todo-ledger` — removes everything the plugin added
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** produce a ledger of debt comments (TODO/FIXME/HACK/XXX) ranked by age
   (git blame) and grouped by area, with a short &quot;worst offenders&quot; summary and
   copyable file:line references.
 - **User:** tech leads before planning; new maintainers inheriting a codebase;
@@ -65,8 +101,57 @@
   a comment unasked.
 - **Why a plugin:** the grep+blame+rank recipe is mechanical and identical across
   repos, but tedious enough that nobody does it by hand twice. One job, no always-on
-  cost, obviously shareable.</pre></details></div>
-  <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/todo-ledger.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/todo-ledger.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/todo-ledger">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
+  cost, obviously shareable.</pre></details><details><summary>Spec</summary><pre>- Name: `todo-ledger` (forever). One skill, `ledger`, description (verbatim):
+  &quot;Inventory a repo&#x27;s TODO/FIXME/HACK/XXX comments into a ranked, dated ledger
+  with git-blame age and author. Use when the user says list the TODOs, audit the
+  tech debt, what FIXMEs are in here, or before planning a cleanup.&quot;
+- Behavior: find markers with `git grep -nE &#x27;\b(TODO|FIXME|HACK|XXX)\b&#x27;` (tracked
+  files only; recursive grep fallback outside git, with age/author declared
+  unavailable); blame each `file:line` for author + author-time; age in whole
+  days, with &quot;uncommitted&quot;/&quot;unknown&quot; for unblameable lines — never a guessed
+  date; rank oldest-first, group by top-level dir, FIXME/HACK above TODO on ties;
+  report a summary line + worst-offenders top 5 + the grouped ledger with copyable
+  `file:line` refs; write a dated `TODO-LEDGER-&lt;date&gt;.md` only on request.
+  Read-only otherwise — never edits or deletes a marker.
+### Acceptance checks
+1. Markers found via git grep on tracked files; non-git repo degrades gracefully
+   (lists markers, says age/author unavailable).
+2. Each hit carries git-blame age + author, or an honest &quot;unknown&quot;/&quot;uncommitted&quot;
+   — never a guessed date.
+3. Ranking is oldest-first with a worst-offenders summary; references are copyable
+   `file:line`.
+4. Never writes or edits unasked; the dated report file is opt-in.</pre></details><details><summary>Build log</summary><pre>- v14 (builder, ADR-024): scaffolded to the official layout (plugin.json, `ledger`
+  skill, README with recipes + honest disclosures, CHANGELOG 0.1.0), plus the
+  executable suite. One skill, no hooks, no network — the tenth plugin and the
+  first exhibit of July&#x27;s &quot;Repo hygiene&quot; theme.</pre></details><details open><summary>Test log</summary><pre>### Test pass — v14 (qa)
+- tier 1: structure suite 9/9 (manifest, invoke contract, git-grep + non-git
+  fallback, blame + honest-unknown, oldest-first + worst-offenders + copyable,
+  read-only + opt-in write, docs present, skills-only, official validate).
+- tier 2: always-on cost 108 tok (est., tokencost) — under the 300 budget; one
+  skill description, no hooks.
+- tier 3: acceptance checks 1–4 traced through the skill text; probed the
+  dating-honesty clause (unblameable → &quot;unknown&quot;, never invented) and the
+  read-only default (dated file is opt-in, never unasked).
+- defects: none found.
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — v14 (reviewer)
+- Scope discipline (5): one job — inventory debt comments — done whole; no
+  always-on hook, no mutation, no scope creep into &quot;fixing&quot; TODOs.
+- Prompt craft (5): the description carries concrete trigger phrases (&quot;list the
+  TODOs&quot;, &quot;audit the tech debt&quot;, &quot;what FIXMEs are in here&quot;) — it fires when it
+  should; the body names inputs (git grep/blame), outputs (summary + worst
+  offenders + grouped ledger), and edge behavior (non-git, unblameable lines).
+- Docs truth (5): README recipes and disclosures match the skill; the
+  never-invent-a-date and read-only clauses are load-bearing and stated plainly.
+- Structure (5): official layout, kebab-case name, semver, CHANGELOG top entry
+  matches; validator + official --strict green.
+- Sharpest question: could it fabricate an age with no git history? No — the spec
+  routes unblameable lines to &quot;unknown&quot;/&quot;uncommitted&quot; and the suite pins it.
+REVIEW: approved</pre></details><details><summary>Publish log</summary><pre>- v14 (maintainer): marketplace entry (source ./plugins/todo-ledger), version
+  0.1.0 synced across plugin.json + record + CHANGELOG, night-clerk catalog
+  regenerated (tenth plugin joins the snapshot). Tag todo-ledger-v0.1.0 to be
+  cut via release dispatch post-merge (ADR-020 path). Experiment: none — utility
+  plugin; install proxy rides the shelf-wide metric.</pre></details></div>
+  <p class="links">install: <code>/plugin install todo-ledger@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/todo-ledger.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/todo-ledger.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/todo-ledger">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
   the window.</footer>

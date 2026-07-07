@@ -50,7 +50,7 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.5",
+   "version": "0.2.6",
    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
    "tags": [
     "discovery",
@@ -103,6 +103,17 @@
     "discipline"
    ],
    "install": "/plugin install test-gap-nudge@foundry"
+  },
+  {
+   "name": "todo-ledger",
+   "version": "0.1.0",
+   "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
+   "tags": [
+    "tech-debt",
+    "todos",
+    "reporting"
+   ],
+   "install": "/plugin install todo-ledger@foundry"
   }
  ],
  "kits": [

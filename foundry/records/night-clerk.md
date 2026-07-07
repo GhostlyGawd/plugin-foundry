@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.5
+version: 0.2.6
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-06
@@ -90,3 +90,5 @@ REVIEW: approved
   also carries the other v13 version bumps. Clerk skill now flags the snapshot as
   point-in-time for "newest" asks. Tag night-clerk-v0.2.5. This is the single
   catalog regeneration for the slate (ADR-022 sequencing).
+- v14 (maintainer, ADR-024): v0.2.6 — snapshot refresh: todo-ledger joins the
+  shelf (ten plugins). Tag night-clerk-v0.2.6.
