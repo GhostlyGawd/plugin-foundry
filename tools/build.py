@@ -1258,6 +1258,48 @@ h1{{font-size:18px;letter-spacing:.12em;text-transform:uppercase;border-bottom:3
     (ROOT / "site" / "queue.html").write_text(page)
 
 
+def build_notfound(cfg, mp_name):
+    """v12 3.2: a branded 404 in the clerk's voice — GitHub Pages serves
+    404.html automatically for unknown paths."""
+    base = (cfg.get("pages_url") or "").rstrip("/")
+    home = f'{html.escape(base)}/' if base else "index.html"
+    (ROOT / "site" / "404.html").write_text(f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — nothing on this shelf</title>
+<style>
+ :root{{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}}
+ @media (prefers-color-scheme: dark){{:root{{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}}}
+ body{{font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink);
+   display:grid; place-items:center; min-height:90vh; padding:20px}}
+ .card{{max-width:520px; border:1.5px solid var(--ink); background:var(--card); padding:26px}}
+ h1{{font-size:16px; letter-spacing:.14em; text-transform:uppercase; border-bottom:2px solid var(--ink); padding-bottom:8px}}
+ p{{font-size:13px; line-height:1.6; color:var(--dim)}} a{{color:var(--stamp)}}
+</style></head><body><div class="card">
+<h1>404 — nothing on this shelf</h1>
+<p>The clerk checked the back room: no such page. Published names are immutable
+here, so if a link brought you to this, the link was wrong — the shelf never
+moves its stock.</p>
+<p><a href="{home}">← back to the window</a> · everything shipped is searchable there.</p>
+</div></body></html>""")
+
+
+def build_sitemap(records, cfg):
+    """v12 3.3: sitemap.xml + robots.txt — 39 certificates deserve indexing.
+    Emitted only with a configured pages_url (absolute URLs or nothing)."""
+    base = (cfg.get("pages_url") or "").rstrip("/")
+    if not base:
+        return
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    urls = [f"{base}/", f"{base}/saga.html", f"{base}/queue.html", f"{base}/theater.html"]
+    urls += [f"{base}/p/{r['name']}.html" for r in records if r.get("name")]
+    body = "".join(f"<url><loc>{html.escape(u)}</loc><lastmod>{today}</lastmod></url>" for u in urls)
+    (ROOT / "site" / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>\n')
+    (ROOT / "site" / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+
+
 def build_badge(records, state):
     shipped = sum(1 for r in records if r.get("stage") == "published")
     (ROOT / "site" / "badge.json").write_text(json.dumps({
@@ -1429,6 +1471,8 @@ def main():
     build_queue(records, cfg)
     build_badge(records, state)
     build_feed(records, cfg)
+    build_notfound(cfg, mp_name)
+    build_sitemap(records, cfg)
     print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates")
 
 

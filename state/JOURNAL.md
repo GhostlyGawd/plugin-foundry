@@ -1866,3 +1866,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (yaml, bash -n, sed simulation)
 - next-suggestion: 3.2+3.3 — 404 + sitemap/robots.
 - notes: the operator learns the factory started without opening Actions.
+
+## i210 — builder (directed, v12 3.2+3.3) — 2026-07-07T02:49:32Z
+- did: (3.2) site/404.html in the clerk's voice — "published names are
+  immutable here; the shelf never moves its stock" — Pages serves it for any
+  unknown path; (3.3) sitemap.xml (43 URLs: window, saga, queue, theater +
+  39 certificates, absolute-URLs-or-nothing per substantiation law) and
+  robots.txt pointing at it. Both emitted by build.py every build.
+- line: n/a (window features, ADR-021)
+- files: tools/build.py, site/{404.html,sitemap.xml,robots.txt}, site/*
+- validation: pass (asserted contents + URL count)
+- next-suggestion: 4.2 — verified badges.
+- notes: gates.yml's sync check covers the new emitted files automatically.
