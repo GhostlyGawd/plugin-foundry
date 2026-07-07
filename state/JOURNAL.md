@@ -1813,3 +1813,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: 2.1 — intake hostile fixtures.
 - notes: re-shoot the PNG when the hero changes; it's a committed asset, not
   a build product, so the build stays browserless.
+
+## i206 — qa (directed, v12 2.1) — 2026-07-07T02:44:25Z
+- did: intake.py hostile-fixture suite — a stub gh on PATH serves crafted
+  issues into a scratch repo, zero changes to intake itself. 11 checks green
+  on first run: fence-escape via commission body neutralized, injected
+  P0/B#/I# checkbox lines never materialize, backticks and angle brackets
+  stripped, dedupe idempotent, ledger titles sanitized, graceful no-op
+  without gh. The patron-text law now has teeth in CI.
+- line: n/a (test infrastructure, ADR-021)
+- files: foundry/tests/_tools/intake.test.sh
+- validation: pass (_tools suite green incl. gates)
+- next-suggestion: 2.2 — backlog hygiene.
+- notes: the stub-gh seam generalizes to metrics.py for 2.3.
