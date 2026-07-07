@@ -1976,3 +1976,35 @@ Entry template (copy exactly; newest at the bottom):
   resolved toward truth or toward value, never papered over. Tripwire untouched:
   QA caught 4 real regressions mid-build (fixture lib-copy, stale trust-card
   example, ADR header format) — all fixed at the source, not the test.
+
+## i216 — directed (v14 — finish the buildable line) — 2026-07-07T14:22:38Z
+- did: built everything the line could still build without operator/world/
+  community gating (operator: "build all until fully complete"). **Tenth plugin
+  todo-ledger**, walked idea → published in one directed pass (ADR-024): a
+  `ledger` skill that greps TODO/FIXME/HACK/XXX, blames each for age + author
+  (honest "unknown" for unblameable lines, never a guessed date), ranks
+  oldest-first with a worst-offenders summary and copyable file:line refs;
+  read-only, dated report opt-in; suite 9/9, official --strict, 108 tok. **First
+  Theme of the Month** (BRAND.md): July 2026 = "Repo hygiene" — todo-ledger is
+  its first exhibit; the community-vote path is dormant until traffic (ADR-023).
+  **Bug fix** (bug lane): build.py mkdirs site/ so a fresh checkout no longer
+  crashes (the firstborn hit this). **P3s:** the window countdown derives shift
+  hours from run-shift.yml's cron (no more drift from a hardcoded constant);
+  fork-a-foundry's from-spec path links OPERATIONS §7–8 (v0.1.4).
+- line: todo-ledger idea → published (10 plugins now); night-clerk v0.2.6
+  (catalog +todo-ledger); fork-a-foundry v0.1.4. None else moved stage.
+- files: plugins/todo-ledger/* (new), foundry/records/todo-ledger.md,
+  foundry/tests/todo-ledger/*, marketplace.json, night-clerk + fork-a-foundry
+  (records + CHANGELOGs + manifests), tools/build.py, state/{STATE,DECISIONS,
+  BACKLOG}, charter (theme via ADR), site/* (regenerated).
+- validation: pass — validate (36 published), build, qa 257 ok · 1 skip · 0 fail,
+  smoke official --strict, build-from-bare-checkout verified.
+- next-suggestion: auditor close (audit-009); merge; release dispatches for the
+  new tags. What remains open is exactly the gated set — commission tiers and
+  GoatCounter (operator), pr-gated CRON default and roadmap gates A/B/C (world/
+  community). Nothing buildable left un-built.
+- notes: the catalog-regen-once rule (ADR-022) bit again mid-batch — todo-ledger
+  and fork-a-foundry both touch the snapshot; folded both into night-clerk 0.2.6
+  (one iteration = one bump) rather than stuttering 0.2.6/0.2.7. Theme steers the
+  next ideator toward more "repo hygiene" pitches; the auditor's monthly read
+  will judge whether it earned its keep.

@@ -34,7 +34,8 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 
 ## Grow (worked after bootstrap)
 - [x] P1 Review + publish fork-a-foundry — DONE i8/i9, tag fork-a-foundry-v0.1.0.
-- [ ] P3 (builder) fork-a-foundry polish: from-spec path links OPERATIONS §7–8 (reviewer nit, i8).
+- [x] P3 (builder) fork-a-foundry polish: from-spec path links OPERATIONS §7–8 (reviewer nit, i8).
+      DONE i216 (v14) — from-spec path links §7–8; fork-a-foundry v0.1.4.
 - [x] P1 (growth) Run the pr-gated-publishes trial — interim verdict i144/ADR-017:
       directed slates ride PRs (proven, PR #9); cron default deferred to real
       mode:pr shift data once the factory is live.
@@ -58,7 +59,9 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [x] P1 Go-live (human-assisted): fill foundry/site-config.json, push to GitHub,
       enable Pages (Actions source), add ANTHROPIC_API_KEY secret — per OPERATIONS.md.
       DONE i196 (ADR-020): Pages enabled via dispatch, window LIVE at the pages_url; only the Claude secret remains (hygiene i207).
-- [ ] P1 (designer) First Theme of the Month via ADR once in grow phase.
+- [x] P1 (designer) First Theme of the Month via ADR once in grow phase.
+      DONE i216 (v14, ADR-024): July 2026 = "Repo hygiene"; set in STATE.theme,
+      banners the window. Community-vote path dormant until traffic (ADR-023).
 - [x] P2 (growth) Spec shift-streak — OBE: specced, built, and published in the
       v8 slate (i134); baseline arms at go-live. Closed i140.
 - [x] P2 (growth) Spec weekly-shipnote — OBE: published i113 with fixture suite.
@@ -84,8 +87,9 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
 - [ ] GATE B — ≥8 shipped, ≥2 public verdicts, first bug survived well [GATED: world]
 - [ ] GATE C — ≥3 community ships, 1st paid commission, ≥1 sponsored shift [GATED: community]
 
-- [ ] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
+- [x] P3 (builder) countdown: derive shift hours from run-shift.yml cron instead
       of the documented constant (drift risk noted at i46).
+      DONE i216 (v14, ADR-024): build.py parses the cron → SHIFT_MIN/SHIFT_HOURS.
 - [x] P3 (designer) saga wall ellipsis — DONE i145 (word-boundary clip()).
 - [x] P3 (designer) field-report cap link — DONE i145 ("all N reports →" when >8).
 - [x] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
@@ -116,9 +120,18 @@ Gates: C9 sitemap content-dated · C10 worker idempotency + cap + parse-in-try �
 C11 intake/metrics truncation · C12 restamp guard + parser dedup · C13 qa.yml
 tools/**. Honest-zero: D14 dormant experiments (ADR-023). qa 248 ok · 0 fail.
 
+## v14 — SHIPPED ✓ (ADR-024, directed PR) — the buildable line, finished
+i216: tenth plugin **todo-ledger** walked idea → published (108 tok, suite 9/9);
+first **Theme of the Month** (July = "Repo hygiene"); **bug** build.py mkdirs
+site/; **P3s** countdown derives shift hours from cron + fork-a-foundry from-spec
+→ OPERATIONS §7–8. qa 257 ok · 0 fail. **What remains is gated, not buildable by
+the line:** commission tiers + GoatCounter (operator); pr-gated CRON default and
+roadmap gates A/B/C (world/community). The line has nothing left it can build alone.
+
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
-- [ ] P3 (builder) build.py assumes site/ exists (crashes on a fresh checkout
+- [x] P3 (builder) build.py assumes site/ exists (crashes on a fresh checkout
       without it — found by the firstborn at genesis, i214); mkdir it in main().
+      DONE i216 (v14): main() mkdirs site/ first; verified from a bare copy.
 Populated by `tools/intake.py` from issues labeled `bug`.
 Format: `- [ ] B#<issue> <plugin> — <summary>`
 - (none yet)
@@ -157,6 +170,7 @@ tripwire (charter/GROWTH.md).
 - [x] I#4 (GhostlyGawd) Idea: dep-bump-brief — plain-language briefs for dependency-bump PRs
       FORMALIZED and PUBLISHED v0.1.0 (i199–i203, v12 1.2).
 - [x] I#5 (GhostlyGawd) Idea: todo-ledger — TODO/FIXME debt as a dated, ranked report
-      FORMALIZED — record at stage idea (foundry/records/todo-ledger.md).
+      FORMALIZED and PUBLISHED v0.1.0 (i216, v14) — the tenth plugin, first
+      exhibit of July's "Repo hygiene" theme.
 - [x] I#6 (GhostlyGawd) Idea: cross-foundry-exchange — sister workshops trade their best ideas
       FORMALIZED — record at stage spec (i178).
