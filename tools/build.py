@@ -548,6 +548,9 @@ function card(e){
     '<div class="track">' + track + '</div>' +
     '<div class="chips">' + comm + tok + e.components.map(c => '<span class="chip">' + esc(c) + '</span>').join('') + '</div>' +
     install +
+    ((e.stage === 'published' && e.kind === 'plugin' && DATA.repo)
+      ? '<a class="prov" href="https://github.com/' + DATA.repo + '/blob/main/plugins/' + esc(e.name) + '/CHANGELOG.md">updated ' + esc(e.updated || '?') + " — what's new →</a>"
+      : '') +
     '<a class="prov" href="p/' + esc(e.name) + '.html">docs &amp; history — the full paper trail →</a>';
   return el;
 }
@@ -1276,6 +1279,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
             "components": r.get("components", []),
             "one_liner": r.get("one_liner", ""),
             "tags": r.get("tags", []),
+            "updated": r.get("updated"),
             "commission": r.get("commission"),
             "kind": r.get("kind", "plugin"),
             "always_on_tokens": r.get("always_on_tokens"),

@@ -1514,3 +1514,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #3 — card updated-date + changelog link.
 - notes: uninstall/disable commands verified against the official reference
   before writing (claude plugin uninstall|disable|enable) — docs before invention.
+
+## i183 — builder (directed, v11 #3) — 2026-07-07T01:20:55Z
+- did: shelf cards for published plugins now carry "updated <date> — what's
+  new →" linking straight to the shipped CHANGELOG on GitHub (renders only
+  when site-config has a repo, per the substantiated-links pattern); record
+  'updated' field added to the slim data.
+- line: n/a (window feature, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #4 — doctor disambiguation.
+- notes: the update decision now takes one click instead of a certificate visit.
