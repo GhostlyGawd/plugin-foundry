@@ -1854,3 +1854,15 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: 3.1 — shift-zero feedback.
 - notes: the safety rails are now regression-tested before they've ever fired
   in anger — the right order.
+
+## i209 — builder (directed, v12 3.1) — 2026-07-07T02:48:23Z
+- did: shift-zero feedback — run-shift gains a fail-soft step that, when the
+  ops-golive checklist issue still shows the first-shift box unticked, ticks
+  it and comments "First shift complete — Gate A's 14-day clock is running."
+  Fires once by construction (the tick removes its own trigger); silent no-op
+  without the issue. Tick sed simulated against a real preflight --issue body.
+- line: n/a (workflow, ADR-021)
+- files: .github/workflows/run-shift.yml
+- validation: pass (yaml, bash -n, sed simulation)
+- next-suggestion: 3.2+3.3 — 404 + sitemap/robots.
+- notes: the operator learns the factory started without opening Actions.
