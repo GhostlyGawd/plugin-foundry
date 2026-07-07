@@ -88,3 +88,9 @@ bootstrap> gates must pass in the new repo before I call this done... green.
   once forks stabilize; queue as P3 polish.
 REVIEW: approved
 - i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag fork-a-foundry-v0.1.2.
+
+## Maintenance log
+- i214 (maintainer, v12 4.1): the first real fork exists — GhostlyGawd/test,
+  seeded whole by the genesis ceremony (ADR-021) and registered on the
+  network. The record's promise ("the loop that built this one, in a box")
+  is now backed by a birth, not a fixture. No artifact change; no bump.
