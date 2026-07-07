@@ -15,6 +15,17 @@
    "install": "/plugin install commit-craft@foundry"
   },
   {
+   "name": "dep-bump-brief",
+   "version": "0.1.0",
+   "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+   "tags": [
+    "dependencies",
+    "review",
+    "changelogs"
+   ],
+   "install": "/plugin install dep-bump-brief@foundry"
+  },
+  {
    "name": "env-doctor",
    "version": "0.1.2",
    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
@@ -39,7 +50,7 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.3",
+   "version": "0.2.4",
    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
    "tags": [
     "discovery",

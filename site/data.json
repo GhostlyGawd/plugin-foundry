@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-07-07T02:38:44.358366+00:00",
- "iteration": 202,
+ "generated_at": "2026-07-07T02:39:17.465657+00:00",
+ "iteration": 203,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
   "spec": 3,
   "building": 0,
-  "rc": 1,
-  "published": 34,
+  "rc": 0,
+  "published": 35,
   "deprecated": 0,
   "shelved": 0
  },
@@ -391,8 +391,8 @@
    "name": "dep-bump-brief",
    "title": "Dep-Bump Brief",
    "category": "workflow",
-   "stage": "rc",
-   "version": null,
+   "stage": "published",
+   "version": "0.1.0",
    "components": [
     "skills"
    ],
@@ -614,7 +614,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.3",
+   "version": "0.2.4",
    "components": [
     "skills"
    ],
@@ -1130,32 +1130,7 @@
  ],
  "roadmap": {
   "commissioned": [],
-  "building": [
-   {
-    "name": "dep-bump-brief",
-    "title": "Dep-Bump Brief",
-    "category": "workflow",
-    "stage": "rc",
-    "version": null,
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
-    "tags": [
-     "dependencies",
-     "review",
-     "changelogs"
-    ],
-    "updated": "2026-07-07",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "105",
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   }
-  ],
+  "building": [],
   "next": [
    {
     "name": "commission-tiers",
@@ -1259,6 +1234,30 @@
    }
   ],
   "shipped": [
+   {
+    "name": "dep-bump-brief",
+    "title": "Dep-Bump Brief",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.1.0",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+    "tags": [
+     "dependencies",
+     "review",
+     "changelogs"
+    ],
+    "updated": "2026-07-07",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "105",
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
    {
     "name": "adversarial-qa-bounties",
     "title": "Adversarial QA Bounties",
@@ -1514,7 +1513,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "components": [
      "skills"
     ],

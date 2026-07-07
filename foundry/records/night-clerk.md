@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.3
+version: 0.2.4
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-06
@@ -82,3 +82,4 @@ REVIEW: approved
   (regenerated last this time; the i156 ordering note holds). Tag
   night-clerk-v0.2.2.
 - i182 (maintainer, v11 #2): v0.2.3 — README Manage section (docs sweep). Tag night-clerk-v0.2.3.
+- i203 (maintainer): v0.2.4 — snapshot refresh: dep-bump-brief joins (9 plugins). Tag night-clerk-v0.2.4.

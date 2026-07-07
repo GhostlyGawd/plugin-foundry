@@ -1777,3 +1777,14 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: maintainer publishes (marketplace, version, clerk refresh,
   tag via dispatch post-merge).
 - notes: n/a
+
+## i203 — maintainer (directed, v12 1.2) — 2026-07-07T02:39:17Z
+- did: dep-bump-brief 0.1.0 PUBLISHED — ninth plugin on the shelf; marketplace
+  entry, CHANGELOG dated, night-clerk 0.2.4 catalog refresh (regenerated last).
+  Tags cut via release dispatch after this slate merges (ADR-020 path).
+- line: dep-bump-brief rc → published; night-clerk stays published (0.2.4)
+- files: record, plugins/dep-bump-brief/CHANGELOG.md,
+  .claude-plugin/marketplace.json, plugins/night-clerk/*, night-clerk record
+- validation: pass (qa green ×2, smoke green)
+- next-suggestion: 1.3+3.4 — release bodies.
+- notes: v12 1.2 complete — idea→published in five iterations, i199–i203.

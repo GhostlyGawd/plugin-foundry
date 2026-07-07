@@ -42,7 +42,12 @@
   {
    "name": "test-gap-nudge",
    "source": "./plugins/test-gap-nudge",
-   "description": "Notices when a session changed source files but no tests, and says so once — a polite Stop-hook nudge, never a block."
+   "description": "Notices when a session changed source files but no tests, and says so once \u2014 a polite Stop-hook nudge, never a block."
+  },
+  {
+   "name": "dep-bump-brief",
+   "source": "./plugins/dep-bump-brief",
+   "description": "Turns a dependency-bump diff into a plain-language review brief \u2014 old to new, semver distance, real usage sites to check, honest 'changelog not checked' when sources are unreachable."
   }
  ]
 }

@@ -2,8 +2,8 @@
 name: dep-bump-brief
 title: Dep-Bump Brief
 category: workflow
-stage: rc
-version: null
+stage: published
+version: 0.1.0
 kind: plugin
 components: [skills]
 always_on_tokens: 105
@@ -97,3 +97,10 @@ TEST VERDICT: pass
   the strongest textual defense available; the residual risk is the model's,
   not the skill's, and the README discloses exactly this boundary.
 REVIEW: approved
+
+## Publish log
+- i203 (maintainer): v0.1.0 on the shelf — ninth plugin, first to walk the
+  full line on the post-v11 machinery (gates.yml CI, doctor in suite, Manage
+  convention from scaffold). Tag dep-bump-brief-v0.1.0 cut via release
+  dispatch post-merge (ADR-020 path). Experiment: none — utility plugin;
+  install proxy rides the shelf-wide metric.
