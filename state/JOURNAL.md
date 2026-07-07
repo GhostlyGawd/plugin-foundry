@@ -1561,3 +1561,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (section order asserted, no duplicated ids)
 - next-suggestion: v11 #7 — jump nav grouping.
 - notes: spectators scroll; installers bounce. Order for the one who bounces.
+
+## i187 — designer (directed, v11 #7) — 2026-07-07T01:23:40Z
+- did: jump nav tamed — five visitor-primary links (Clerk Shelf Kits Install
+  Commission) in full ink, a visible divider, then seven backstage links
+  (Pulse Roadmap Vote Saga Theater Almanac Queue) dimmed and carrying title
+  tooltips that translate the lore ("Saga — the workshop's own story").
+- line: n/a (window nav, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (grouping + tooltip count asserted)
+- next-suggestion: v11 #8 — one discovery input.
+- notes: same twelve destinations, but the first five answer "what can I do
+  here" and the rest answer "what is this place".

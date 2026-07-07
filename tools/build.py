@@ -239,8 +239,10 @@ TEMPLATE = """<!DOCTYPE html>
   .jump{position:sticky; top:0; z-index:5; background:var(--paper); display:flex; gap:18px;
     padding:9px 2px; border-bottom:1px solid var(--line); font-size:11px; letter-spacing:.16em;
     text-transform:uppercase; overflow-x:auto}
-  .jump a{color:var(--dim); text-decoration:none; white-space:nowrap}
+  .jump a{color:var(--ink); text-decoration:none; white-space:nowrap}
   .jump a:hover,.jump a:focus-visible{color:var(--stamp)}
+  .jump .sep{color:var(--line); user-select:none}
+  .jump a.back{color:var(--dim); opacity:.85}
   .theme{border:1.5px dashed var(--stamp); color:var(--stamp); padding:8px 12px;
     margin:12px 0 0; font-size:12px; letter-spacing:.06em}
   .theme b{letter-spacing:.14em; text-transform:uppercase}
@@ -382,7 +384,7 @@ TEMPLATE = """<!DOCTYPE html>
   Browse below, watch the roadmap move, or <a href="#request">commission the
   next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#install">Install</a><a href="#request">Commission</a><span class="sep" aria-hidden="true">‖</span><a class="back" href="#pulse" title="live telemetry">Pulse</a><a class="back" href="#roadmap">Roadmap</a><a class="back" href="#vote">Vote</a><a class="back" href="saga.html" title="the workshop's own story">Saga</a><a class="back" href="theater.html" title="watch a live shift">Theater</a><a class="back" href="almanac/index.html" title="weekly shipnotes">Almanac</a><a class="back" href="queue.html" title="commissions in progress">Queue</a>
   </nav>
   <h3 class="rule" id="clerk">The front desk — say what you're working on</h3>
   <div class="tools">
