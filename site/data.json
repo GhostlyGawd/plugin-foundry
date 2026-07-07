@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-07T02:49:32.367153+00:00",
- "iteration": 210,
+ "generated_at": "2026-07-07T02:51:43.867838+00:00",
+ "iteration": 211,
  "phase": "grow",
  "theme": null,
  "counts": {
@@ -2516,5 +2516,6 @@
    "n": 0
   }
  ],
- "repo": "GhostlyGawd/plugin-foundry"
+ "repo": "GhostlyGawd/plugin-foundry",
+ "pages_url": "https://ghostlygawd.github.io/plugin-foundry"
 }

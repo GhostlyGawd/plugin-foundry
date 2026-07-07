@@ -10,6 +10,7 @@ substantiated by this repo (dark-pattern law). Stdlib only.
 """
 import html
 import json
+import shutil
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -722,10 +723,15 @@ function renderVerified(){
   const box = document.getElementById('verifiedbox');
   if (!V.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
   head.style.display = 'block'; box.style.display = 'block';
-  box.innerHTML = V.map(v =>
-    '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
-    (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('') +
-    '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee</p>';
+  box.innerHTML = V.map(v => {
+    const slug = (v.repo || '').replace(/[^A-Za-z0-9_-]/g, '-');
+    const badge = (DATA.pages_url && v.run_url)
+      ? '<div class="install">[![verified by the foundry](' + esc(DATA.pages_url) + '/verified/' + esc(slug) + '.svg)](' + esc(DATA.pages_url) + '/)</div>'
+      : '';
+    return '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
+      (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>' + badge;
+  }).join('') +
+    '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee · the badge markdown is yours to embed (click to copy)</p>';
 }
 /* sister foundries (v10 #14, foundry-network spec) — names + links only, never
    remote content; renders nothing while the network is empty. */
@@ -1300,6 +1306,41 @@ def build_sitemap(records, cfg):
         f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
 
 
+def build_verified_badges(cfg):
+    """v12 4.2 (verified-by-foundry growth loop): one embeddable SVG per
+    verified external repo — 'verified by the foundry | doctor green · date'.
+    Hand-rolled two-cell shields-style SVG (stdlib-only law). Substantiation:
+    a badge exists only for a registry entry, and every entry required a
+    public run link to get listed. Empty registry -> no files at all."""
+    entries = load_json(ROOT / "foundry" / "verified.json", {}).get("verified", [])
+    outdir = ROOT / "site" / "verified"
+    # regenerate from scratch: a delisted repo's badge must die with its listing
+    if outdir.exists():
+        shutil.rmtree(outdir)
+    if not entries:
+        return
+    outdir.mkdir(parents=True, exist_ok=True)
+    left = "verified by the foundry"
+    for e in entries:
+        repo = e.get("repo", "")
+        if not repo or not e.get("run_url"):
+            continue
+        right = f"doctor green · {e.get('verified', '?')}"
+        lw = 8 + int(len(left) * 6.6) + 8
+        rw = 8 + int(len(right) * 6.6) + 8
+        w = lw + rw
+        slug = re.sub(r"[^A-Za-z0-9_-]", "-", repo)
+        (outdir / f"{slug}.svg").write_text(f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="20" role="img" aria-label="{html.escape(left)}: {html.escape(right)}">
+<title>{html.escape(left)}: {html.escape(right)} — structural checks only, a floor not a guarantee</title>
+<rect width="{lw}" height="20" fill="#2C2820"/>
+<rect x="{lw}" width="{rw}" height="20" fill="#2F5A8F"/>
+<g fill="#E9DFC8" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">
+<text x="{lw // 2}" y="14" text-anchor="middle">{html.escape(left)}</text>
+<text x="{lw + rw // 2}" y="14" text-anchor="middle">{html.escape(right)}</text>
+</g></svg>
+""")
+
+
 def build_badge(records, state):
     shipped = sum(1 for r in records if r.get("stage") == "published")
     (ROOT / "site" / "badge.json").write_text(json.dumps({
@@ -1394,6 +1435,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "network": load_json(ROOT / "foundry" / "network.json", {}).get("network", []),
         "streak": streak,
         "repo": cfg.get("repo") or None,
+        "pages_url": (cfg.get("pages_url") or "").rstrip("/") or None,
     }
     (ROOT / "site" / "data.json").write_text(json.dumps(data, indent=1))
 
@@ -1473,6 +1515,7 @@ def main():
     build_feed(records, cfg)
     build_notfound(cfg, mp_name)
     build_sitemap(records, cfg)
+    build_verified_badges(cfg)
     print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates")
 
 

@@ -118,7 +118,9 @@ Any Claude Code plugin repo can run the foundry's structural checks in its own C
 ```
 
 A public green run earns a dated listing on the window (`foundry/verified.json`
-— open an issue with the run link; no run link, no entry).
+— open an issue with the run link; no run link, no entry) **and an embeddable
+badge** served from the window (`site/verified/<owner>-<repo>.svg`) — the
+paste-ready markdown appears next to your listing. Delisting kills the badge.
 
 Honest limits: the doctor proves **structure against the official spec** —
 manifest shape, hook events, matchers, quoting, exec bits. It cannot vouch for

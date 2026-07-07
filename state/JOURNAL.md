@@ -1878,3 +1878,18 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (asserted contents + URL count)
 - next-suggestion: 4.2 — verified badges.
 - notes: gates.yml's sync check covers the new emitted files automatically.
+
+## i211 — builder (directed, v12 4.2) — 2026-07-07T02:51:43Z
+- did: verified badges — build.py mints one hand-rolled two-cell SVG per
+  verified external ("verified by the foundry | doctor green · date",
+  honest-limits sentence in the tooltip), badge dir regenerated from scratch
+  so delisting kills the badge (first suite run caught the stale-file case —
+  fixed at the builder, not the test); window listings show paste-ready
+  badge markdown (copy-to-clipboard free); README documents the loop.
+- line: verified-by-foundry stays published (feature growth, ADR-021)
+- files: tools/build.py, README.md, foundry/records/verified-by-foundry.md,
+  foundry/tests/verified-by-foundry/checks.test.sh, site/*
+- validation: fixed-then-pass (14/14 after the stale-badge fix)
+- next-suggestion: 4.1 — the genesis ceremony.
+- notes: every embedded badge is an inbound link that only exists because a
+  public CI run passed — growth that can't be faked.
