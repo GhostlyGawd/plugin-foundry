@@ -2,7 +2,7 @@
 
 ## 0.2.6 — 2026-07-07
 - catalog snapshot: todo-ledger 0.1.0 joins the shelf (tenth plugin) — the front
-  desk can now recommend the tech-debt ledger.
+  desk can now recommend the tech-debt ledger; also picks up fork-a-foundry 0.1.4.
 
 ## 0.2.5 — 2026-07-07
 - catalog snapshot regenerated (v13 B7): corrects two entries the shelf had been

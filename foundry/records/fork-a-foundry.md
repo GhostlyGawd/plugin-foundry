@@ -4,7 +4,7 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.1.3
+version: 0.1.4
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-06
@@ -97,3 +97,6 @@ REVIEW: approved
 - v13 B8: v0.1.2 → v0.1.3 — author normalized to "Nightshift Foundry" (matched
   the shelf) and a standard `## Recipes` section added. Docs-only; Tag
   fork-a-foundry-v0.1.3.
+- v14 P3 (ADR-024): v0.1.4 — the from-spec bootstrap path now points at
+  OPERATIONS.md §7–8 (governor & veto, community & fuel), the optional layers a
+  hand-built spine forgets (reviewer nit from i8). Docs-only; Tag fork-a-foundry-v0.1.4.

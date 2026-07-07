@@ -32,7 +32,7 @@ _none_
 - [embed-badges](records/embed-badges.md) `growth` `site+docs` — A shields-style status badge and an embeddable ticker — put the living machine on your own site.
 - [env-doctor v0.2.0](records/env-doctor.md) `quality` `skills+hooks` — Checks the toolchain against the project's declared versions at session start and warns early. — install: `/plugin install env-doctor@foundry`
 - [field-reports](records/field-reports.md) `growth` `template+site` — Real user experiences with shipped plugins, surfaced on their birth certificates.
-- [fork-a-foundry v0.1.3](records/fork-a-foundry.md) `meta` `skills` — One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself. — install: `/plugin install fork-a-foundry@foundry`
+- [fork-a-foundry v0.1.4](records/fork-a-foundry.md) `meta` `skills` — One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself. — install: `/plugin install fork-a-foundry@foundry`
 - [foundry-network](records/foundry-network.md) `growth` `site+docs+template` — Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.
 - [fuel-gauge](records/fuel-gauge.md) `growth` `site+docs` — The month's real API spend, on the window, against the operator's cap — with a Sponsor path to fund the next shift.
 - [idea-credit-loop](records/idea-credit-loop.md) `growth` `site+docs` — Community suggestions carry their prospector's name from issue to card to birth certificate — with a thank-you at every milestone.

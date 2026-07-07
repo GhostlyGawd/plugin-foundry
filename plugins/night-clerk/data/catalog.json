@@ -38,7 +38,7 @@
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.1.3",
+   "version": "0.1.4",
    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
    "tags": [
     "meta",

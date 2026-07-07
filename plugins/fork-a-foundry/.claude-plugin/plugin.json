@@ -1,7 +1,7 @@
 {
   "name": "fork-a-foundry",
   "displayName": "Fork a Foundry",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Bootstrap your own self-running plugin workshop and marketplace \u2014 the loop that built this one, in a box.",
   "author": {
     "name": "Nightshift Foundry"
