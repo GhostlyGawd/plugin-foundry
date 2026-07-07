@@ -2,7 +2,7 @@
 name: dep-bump-brief
 title: Dep-Bump Brief
 category: workflow
-stage: spec
+stage: building
 version: null
 kind: plugin
 components: [skills]
@@ -60,3 +60,9 @@ merges or a stale queue — both worse than a two-minute honest brief.
    the never-invent clause.
 3. All four ecosystems named in the procedure (js, python, rust, go).
 4. Suite green; always-on token estimate stamped; official validate passes.
+
+## Build log
+- i200: manifest, dep-brief skill (verbatim description; four ecosystems;
+  MAJOR flagged loudly; usage-site grep; "changelog not checked" + never-invent
+  verbatim; risk line), README with Manage section (v11 convention),
+  CHANGELOG 0.1.0 Unreleased. Build complete per spec.

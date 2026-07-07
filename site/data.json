@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-07-07T02:36:22.826233+00:00",
- "iteration": 199,
+ "generated_at": "2026-07-07T02:37:13.005573+00:00",
+ "iteration": 200,
  "phase": "grow",
  "theme": null,
  "counts": {
   "idea": 1,
-  "spec": 4,
-  "building": 0,
+  "spec": 3,
+  "building": 1,
   "rc": 0,
   "published": 34,
   "deprecated": 0,
@@ -391,7 +391,7 @@
    "name": "dep-bump-brief",
    "title": "Dep-Bump Brief",
    "category": "workflow",
-   "stage": "spec",
+   "stage": "building",
    "version": null,
    "components": [
     "skills"
@@ -1130,7 +1130,32 @@
  ],
  "roadmap": {
   "commissioned": [],
-  "building": [],
+  "building": [
+   {
+    "name": "dep-bump-brief",
+    "title": "Dep-Bump Brief",
+    "category": "workflow",
+    "stage": "building",
+    "version": null,
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
+    "tags": [
+     "dependencies",
+     "review",
+     "changelogs"
+    ],
+    "updated": "2026-07-07",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": null,
+    "verified": null,
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   }
+  ],
   "next": [
    {
     "name": "commission-tiers",
@@ -1176,30 +1201,6 @@
     "updated": "2026-07-06",
     "commission": null,
     "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "dep-bump-brief",
-    "title": "Dep-Bump Brief",
-    "category": "workflow",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
-    "tags": [
-     "dependencies",
-     "review",
-     "changelogs"
-    ],
-    "updated": "2026-07-07",
-    "commission": null,
-    "kind": "plugin",
     "always_on_tokens": null,
     "verified": null,
     "prospected_by": null,
