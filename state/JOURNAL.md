@@ -1800,3 +1800,16 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (yaml, bash -n, local simulation)
 - next-suggestion: 1.4 — OG image.
 - notes: applies to all future releases incl. this slate's two pending tags.
+
+## i205 — designer (directed, v12 1.4) — 2026-07-07T02:42:42Z
+- did: OG image — a real 1200×630 Chromium screenshot of the window's hero
+  (brand, strap, nav, shelf stats, search) at foundry/assets/og-image.png;
+  build copies it into site/ and og_meta gains og:image + summary_large_image
+  on the window AND every certificate, only when the asset exists and
+  pages_url is set (substantiation law: never point at a missing image).
+- line: n/a (window feature, ADR-021)
+- files: foundry/assets/og-image.png, tools/build.py, site/* (regenerated)
+- validation: pass (PNG header + dims verified; meta asserted on both surfaces)
+- next-suggestion: 2.1 — intake hostile fixtures.
+- notes: re-shoot the PNG when the hero changes; it's a committed asset, not
+  a build product, so the build stays browserless.

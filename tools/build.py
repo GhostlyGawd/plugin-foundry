@@ -928,16 +928,32 @@ def trust_card(name, r):
             'no hand-written safety claims allowed here</p></div>')
 
 
-def og_meta(title, desc, url):
-    """Open Graph / twitter card tags (ADR-016 #5). Values are derived at build
-    time from the same substantiated data as the page — never hand-written."""
+def og_meta(title, desc, url, image_url=""):
+    """Open Graph / twitter card tags (ADR-016 #5; og:image v12 1.4). Values
+    are derived at build time from the same substantiated data as the page.
+    The image is a real screenshot of the window (foundry/assets/og-image.png,
+    copied into site/ each build; re-shot when the hero changes)."""
+    card = "summary_large_image" if image_url else "summary"
     tags = [f'<meta property="og:title" content="{html.escape(title)}">',
             f'<meta property="og:description" content="{html.escape(desc)}">',
             '<meta property="og:type" content="website">',
-            '<meta name="twitter:card" content="summary">']
+            f'<meta name="twitter:card" content="{card}">']
+    if image_url:
+        tags.append(f'<meta property="og:image" content="{html.escape(image_url)}">')
+        tags.append('<meta property="og:image:width" content="1200">')
+        tags.append('<meta property="og:image:height" content="630">')
     if url:
         tags.insert(2, f'<meta property="og:url" content="{html.escape(url)}">')
     return "\n".join(tags)
+
+
+def og_image_url(cfg):
+    """Absolute og:image URL when the asset exists and pages_url is set —
+    substantiation law: never point at an image that isn't there."""
+    pages_url = (cfg.get("pages_url") or "").rstrip("/")
+    if pages_url and (ROOT / "foundry" / "assets" / "og-image.png").exists():
+        return f"{pages_url}/og-image.png"
+    return ""
 
 
 def build_pages(records, mp_name, cfg, reports):
@@ -1022,7 +1038,8 @@ def build_pages(records, mp_name, cfg, reports):
                 .replace("@@OG@@", og_meta(
                     f"{r.get('title', name)} — provenance",
                     r.get("one_liner", ""),
-                    f"{pages_url}/p/{name}.html" if pages_url else ""))
+                    f"{pages_url}/p/{name}.html" if pages_url else "",
+                    og_image_url(cfg)))
                 .replace("@@NAME@@", html.escape(r.get("title", name)))
                 .replace("@@META@@", html.escape(" · ".join(meta_bits)) + cardlink)
                 .replace("@@TRACK@@", track)
@@ -1358,7 +1375,8 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
                 f"{title} — a plugin workshop run entirely by AI",
                 f"{data['counts']['published']} shipped · shift i{data['iteration']} — "
                 "Claude Code plugins built, tested, and published by an autonomous loop.",
-                (cfg.get("pages_url") or "").rstrip("/")))
+                (cfg.get("pages_url") or "").rstrip("/"),
+                og_image_url(cfg)))
             .replace("@@ITER@@", str(data["iteration"]).zfill(3))
             .replace("@@PHASE@@", html.escape(data["phase"]))
             .replace("@@LANE@@", lane_html)
@@ -1379,6 +1397,11 @@ def main():
     state = json.loads((ROOT / "state" / "STATE.json").read_text())
     mp = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text())
     cfg = json.loads((ROOT / "foundry" / "site-config.json").read_text())
+    # v12 1.4: ship the social card with the site (source of truth in assets/)
+    og_src = ROOT / "foundry" / "assets" / "og-image.png"
+    if og_src.exists():
+        (ROOT / "site").mkdir(exist_ok=True)
+        (ROOT / "site" / "og-image.png").write_bytes(og_src.read_bytes())
     mp_name = mp.get("name", "foundry")
     records = collect_records()
     counts = build_index(records, state, mp_name)
