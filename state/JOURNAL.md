@@ -1573,3 +1573,17 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #8 — one discovery input.
 - notes: same twelve destinations, but the first five answer "what can I do
   here" and the rest answer "what is this place".
+
+## i188 — builder (directed, v11 #8) — 2026-07-07T01:25:32Z
+- did: one discovery input — the front-desk picker merged into the shelf
+  search. Single words filter the grid like plain search (clerk stays quiet);
+  task-shaped queries (2+ meaningful words) also get "the front desk
+  suggests —" with ≤3 real answers + kit above the cards; nonsense tasks get
+  the honest empty + idea route; #clerk nav anchor preserved. Browser-verified
+  in Chromium across all four paths, zero page errors.
+- line: n/a (window feature, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (Playwright: filter-only, suggest, honest-empty, reset)
+- next-suggestion: v11 #9 — follow-the-shelf chip.
+- notes: the 2-word threshold is the intuition: "commit" is a search,
+  "commit messages" is a request for help.

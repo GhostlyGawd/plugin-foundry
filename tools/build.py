@@ -386,19 +386,15 @@ TEMPLATE = """<!DOCTYPE html>
   <nav class="jump" aria-label="jump to section">
     <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#install">Install</a><a href="#request">Commission</a><span class="sep" aria-hidden="true">‖</span><a class="back" href="#pulse" title="live telemetry">Pulse</a><a class="back" href="#roadmap">Roadmap</a><a class="back" href="#vote">Vote</a><a class="back" href="saga.html" title="the workshop's own story">Saga</a><a class="back" href="theater.html" title="watch a live shift">Theater</a><a class="back" href="almanac/index.html" title="weekly shipnotes">Almanac</a><a class="back" href="queue.html" title="commissions in progress">Queue</a>
   </nav>
-  <h3 class="rule" id="clerk">The front desk — say what you're working on</h3>
-  <div class="tools">
-    <input id="clerkq" type="search" placeholder="e.g. commit messages · PR descriptions · broken dev env · session handoffs" aria-label="Describe your task and get plugin recommendations">
-  </div>
-  <div id="clerkout" aria-live="polite"></div>
-
-  <h3 class="rule" id="shelf">The shelf — tap a stage to filter</h3>
+  <span id="clerk"></span>
+  <h3 class="rule" id="shelf">The shelf — search it, or say what you're working on</h3>
   <nav class="lane" aria-label="pipeline filter">@@LANE@@</nav>
   <div class="tools">
-    <input id="q" type="search" placeholder="Search plugins by name, job, or tag" aria-label="Search plugins">
+    <input id="q" type="search" placeholder="A name, a tag, or your task — e.g. commit messages · broken dev env" aria-label="Search plugins or describe your task">
     <div class="tagchips" id="tagchips" role="group" aria-label="filter by tag"></div>
     <span class="chip" id="nextshift" title="computed from the shift cron, no server involved"></span>
   </div>
+  <div id="clerkout" aria-live="polite"></div>
   <main id="grid"></main>
   <p class="empty" id="empty">Nothing matches. Clear the filter — or commission it below.</p>
 
@@ -662,14 +658,16 @@ function renderVotes(){
     : '<p class="vnone">No open ideas yet — the pool is waiting for its first suggestion' +
       (suggest ? ' (<a href="' + suggest + '">make one, free</a>)' : '') + '.</p>';
 }
-/* the front desk (v10 #3) — the night-clerk's matching, for visitors who
-   haven't installed anything yet. Same generated data, same honesty rules:
-   published plugins only, nothing invented, honest empty answer. */
+/* the front desk (v10 #3, merged into the shelf search v11 #8) — the
+   night-clerk's matching for visitors who haven't installed anything yet.
+   One input: single words filter the grid like plain search; task-shaped
+   queries (2+ words) also get the clerk's best-3 answer above the cards.
+   Same honesty rules: published only, nothing invented. */
 function renderClerk(){
   const box = document.getElementById('clerkout');
-  const raw = (document.getElementById('clerkq').value || '').toLowerCase().trim();
+  const raw = (q.value || '').toLowerCase().trim();
   const terms = raw.split(/[^a-z0-9]+/).filter(t => t.length > 2);
-  if (!terms.length){ box.innerHTML = ''; return; }
+  if (terms.length < 2){ box.innerHTML = ''; return; }
   const score = hay => terms.reduce((s, t) => s + (hay.includes(t) ? 1 : 0), 0);
   const hits = DATA.records
     .filter(e => e.stage === 'published' && e.kind === 'plugin')
@@ -683,10 +681,10 @@ function renderClerk(){
     .sort((a, b) => b[0] - a[0])[0];
   if (!hits.length && !kitHit){
     const idea = DATA.repo ? ' — <a href="https://github.com/' + DATA.repo + '/issues/new?template=idea.yml">suggest it as an idea, free</a>' : '';
-    box.innerHTML = '<p class="vnone">Nothing on the shelf fits that yet' + idea + '. The clerk never invents a plugin.</p>';
+    box.innerHTML = '<p class="vnone">Nothing on the shelf fits that task yet' + idea + '. The clerk never invents a plugin.</p>';
     return;
   }
-  let out = hits.map(([s, e]) =>
+  let out = '<p class="vnone">the front desk suggests —</p>' + hits.map(([s, e]) =>
     '<div class="kit"><h4>' + esc(e.title) + '</h4><p>' + esc(e.one_liner) + '</p>' +
     '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div></div>').join('');
   if (kitHit){
@@ -785,8 +783,7 @@ function renderAll(){
   for (const b of document.querySelectorAll('.lanebtn'))
     { const s=b.dataset.stage; const n=DATA.counts[s]; if(n!==undefined) b.querySelector('.n').textContent = n; }
 }
-q.addEventListener('input', renderGrid);
-document.getElementById('clerkq').addEventListener('input', renderClerk);
+q.addEventListener('input', () => { renderGrid(); renderClerk(); });
 for (const btn of document.querySelectorAll('.lanebtn')){
   btn.addEventListener('click', () => {
     const s = btn.dataset.stage;
