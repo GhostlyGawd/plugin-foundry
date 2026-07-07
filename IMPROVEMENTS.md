@@ -249,6 +249,10 @@ Built as the v11 slate under ADR-019. Personas: installers · visitors · operat
 
 # IMPROVEMENTS v12 — the live-window audit (2026-07-07, post-v11 + ADR-020 ops)
 
+> **Status: 13/14 BUILT, 1 blocked-with-recipe** — iterations i197–i212 under
+> ADR-021, audited in `reviews/audit-007.md`. 4.1 awaits one operator-created
+> repo (see BACKLOG P1).
+
 Directed: "Build all in order until complete." Built as the v12 slate under
 ADR-021. First audit with the window live.
 
