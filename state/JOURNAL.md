@@ -1600,3 +1600,20 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #10 — preflight --issue.
 - notes: the feed existed since v4; it was just buried in the footer where no
   installer ever looked.
+
+## i190 — builder (directed, v11 #10+#11) — 2026-07-07T01:28:23Z
+- did: preflight grows two operator affordances in one rewrite —
+  (#11) release-tag drift check: local *-v* tags vs git ls-remote, loud
+  TODO(operator) with the exact fix; network trouble reports "skipped, not
+  green", never a false pass. Live run immediately surfaced the real problem:
+  15 local tags the remote never received. (#10) --issue mode: the same facts
+  as GitHub checkboxes (script-verifiable ones pre-ticked) + the click-list,
+  opening/updating a single ops-golive issue when gh exists, printing the
+  markdown when it doesn't (fail-soft, verified here where gh is absent).
+  OPERATIONS §0 documents both.
+- line: n/a (tools, ADR-019)
+- files: tools/preflight.py, OPERATIONS.md
+- validation: pass (both modes exercised live)
+- next-suggestion: v11 #12 — /backlog steering skill.
+- notes: the drift check paying for itself on its first run is the whole
+  argument for it.

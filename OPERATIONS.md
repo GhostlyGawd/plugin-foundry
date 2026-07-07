@@ -5,7 +5,11 @@ the till. One-time human setup, then the machine runs on schedule.
 
 ## 0 · Preflight (run this first)
 `python3 tools/preflight.py` — one read-only pass that checks everything
-checkable from inside the repo and prints the exact click-list for the rest.
+checkable from inside the repo (including release-tag drift: local tags the
+remote never received) and prints the exact click-list for the rest.
+`python3 tools/preflight.py --issue` renders the same facts as a GitHub
+checklist and, when `gh` is available, opens/updates a single
+`ops: go-live checklist` issue (label `ops-golive`) — tick it from your phone.
 
 ## 1 · Put it on GitHub
 ```bash
