@@ -81,3 +81,19 @@ merges or a stale queue — both worse than a two-minute honest brief.
   character-for-character (the check would catch a paraphrase), doctor on
   the artifact, token estimate measured (105 est).
 TEST VERDICT: pass
+
+## Review log
+### Review — i202 (reviewer)
+- The honesty architecture is the product: "changelog not checked" is a
+  feature dependabot's own compatibility score doesn't have — it tells you
+  what the brief does NOT know. The three rules survive check-by-grep.
+- Prompt craft: the four-ecosystem table is instruction, not aspiration —
+  the skill never claims lockfile parsing it can't do; step 1 asks for the
+  base branch when ambiguous instead of guessing (good guest behavior).
+- Token thrift: 105 tok always-on est — description only, mid-shelf.
+- Sharpest question: can a brief that reads changelogs "when reachable" leak
+  invented content anyway, since Claude may half-remember a package's
+  changelog? The never-invent clause plus "never summarized from memory" is
+  the strongest textual defense available; the residual risk is the model's,
+  not the skill's, and the README discloses exactly this boundary.
+REVIEW: approved

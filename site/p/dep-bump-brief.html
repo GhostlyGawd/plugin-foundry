@@ -134,7 +134,20 @@ says `changelog not checked` instead of guessing.
   description wording against the spec
   character-for-character (the check would catch a paraphrase), doctor on
   the artifact, token estimate measured (105 est).
-TEST VERDICT: pass</pre></details></div>
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i202 (reviewer)
+- The honesty architecture is the product: &quot;changelog not checked&quot; is a
+  feature dependabot&#x27;s own compatibility score doesn&#x27;t have — it tells you
+  what the brief does NOT know. The three rules survive check-by-grep.
+- Prompt craft: the four-ecosystem table is instruction, not aspiration —
+  the skill never claims lockfile parsing it can&#x27;t do; step 1 asks for the
+  base branch when ambiguous instead of guessing (good guest behavior).
+- Token thrift: 105 tok always-on est — description only, mid-shelf.
+- Sharpest question: can a brief that reads changelogs &quot;when reachable&quot; leak
+  invented content anyway, since Claude may half-remember a package&#x27;s
+  changelog? The never-invent clause plus &quot;never summarized from memory&quot; is
+  the strongest textual defense available; the residual risk is the model&#x27;s,
+  not the skill&#x27;s, and the README discloses exactly this boundary.
+REVIEW: approved</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/dep-bump-brief.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/dep-bump-brief.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/dep-bump-brief">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

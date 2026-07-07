@@ -1765,3 +1765,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (qa green)
 - next-suggestion: reviewer.
 - notes: n/a
+
+## i202 — reviewer (directed, v12 1.2) — 2026-07-07T02:38:44Z
+- did: dep-bump-brief reviewed — approved. Sharpest question on the record:
+  memory-leak of half-remembered changelogs; the verbatim never-invent +
+  never-from-memory clauses are the defense, and the README discloses the
+  boundary honestly.
+- line: dep-bump-brief stays rc (review gate cleared)
+- files: foundry/records/dep-bump-brief.md
+- validation: pass
+- next-suggestion: maintainer publishes (marketplace, version, clerk refresh,
+  tag via dispatch post-merge).
+- notes: n/a
