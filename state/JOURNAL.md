@@ -1630,3 +1630,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: auditor closes the v11 slate (audit-006), then push + PR.
 - notes: v11 #1–#12 all built.
+
+## i192 — auditor (directed) — 2026-07-07T01:30:09Z
+- did: audit-006 filed — v11 UX slate 12/12 lawful: 8-plugin Manage sweep under
+  full version law (catalog last, drift-check green first run), ADR-019
+  two-iteration rule held, browser-verified window changes, tag-drift check
+  caught 15 stranded tags on its first run. IMPROVEMENTS v11 marked BUILT.
+- line: audit-006 filed
+- files: reviews/audit-006.md, IMPROVEMENTS.md, state/{STATE.json,JOURNAL.md}
+- validation: pass
+- next-suggestion: operator merges the PR, pushes 15 tags, runs
+  preflight --issue.
+- notes: two slates in one day; the lore survived both.

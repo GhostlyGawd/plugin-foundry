@@ -223,6 +223,9 @@ and two differentiators no other repo can copy.
 
 # IMPROVEMENTS v11 — UX audit (2026-07-06, post-v10)
 
+> **Status: BUILT** — 12/12, iterations i180–i191 under ADR-019, audited in
+> `reviews/audit-006.md`.
+
 Directed by the operator: "more user friendly, easy to use, and intuitive."
 Built as the v11 slate under ADR-019. Personas: installers · visitors · operator.
 
