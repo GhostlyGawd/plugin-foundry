@@ -1538,3 +1538,14 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: v11 #5 — kit paste honesty.
 - notes: n/a
+
+## i185 — builder (directed, v11 #5) — 2026-07-07T01:22:11Z
+- did: kit paste honesty — multi-line kit install blocks (kit cards AND the
+  clerk picker's kit answer) now say "slash commands run one at a time — paste
+  each line separately"; single-line kits stay clean.
+- line: n/a (window copy, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #6 — visitor-first hierarchy.
+- notes: a copy button that hands you something unusable is a dark pattern by
+  accident — this is the one-line fix.

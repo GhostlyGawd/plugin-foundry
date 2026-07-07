@@ -688,8 +688,10 @@ function renderClerk(){
     '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div></div>').join('');
   if (kitHit){
     const k = kitHit[1];
-    const block = k.members.filter(m => m.published).map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
-    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div></div>';
+    const ready = k.members.filter(m => m.published);
+    const block = ready.map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
+    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div>' +
+      (ready.length > 1 ? '<p class="pending">slash commands run one at a time — paste each line separately</p>' : '') + '</div>';
   }
   out += '<p class="vnone">Matched against the same generated catalog the night-clerk plugin bundles — click a block to copy.</p>';
   box.innerHTML = out;
@@ -702,7 +704,9 @@ function renderKits(){
     const pending = k.members.filter(m => !m.published);
     const block = ready.map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
     return '<div class="kit"><h4>' + esc(k.name) + '</h4><p>' + esc(k.desc) + '</p>' +
-      (ready.length ? '<div class="install">' + block + '</div>' : '<p class="pending">nothing installable yet</p>') +
+      (ready.length ? '<div class="install">' + block + '</div>' +
+        (ready.length > 1 ? '<p class="pending">slash commands run one at a time — paste each line separately</p>' : '')
+        : '<p class="pending">nothing installable yet</p>') +
       (pending.length ? '<p class="pending">+ ' + pending.map(m => esc(m.title) + ' (' + esc(m.stage) + ')').join(', ') + ' — finishing on the line</p>' : '') +
       '</div>';
   }).join('') : '<p class="vnone">Kits open once the maintainer curates the first bundle.</p>';
