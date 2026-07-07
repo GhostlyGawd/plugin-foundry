@@ -22,6 +22,10 @@ green before you finish.
    with a bootstrap checklist, append-only JOURNAL and DECISIONS), stage-gated
    records in `foundry/`, gates in `tools/` (validate + build + qa harness), a
    `loop.sh` harness with STOP-file, sandbox acknowledgment, and failure cutoff.
+   The optional layers a from-spec build tends to forget — the spend governor and
+   the human-veto (PR) window, and the community/fuel wiring — are laid out step
+   by step in the source foundry's `OPERATIONS.md` §7 (Governor & veto) and §8
+   (Community & fuel); carry them over from there rather than reinventing.
 
 ## Laws to carry over verbatim — they are why it works
 - One task, one commit, one journal entry per iteration; one artifact, one stage move.

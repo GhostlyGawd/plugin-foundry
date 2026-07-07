@@ -48,6 +48,11 @@
    "name": "dep-bump-brief",
    "source": "./plugins/dep-bump-brief",
    "description": "Turns a dependency-bump diff into a plain-language review brief \u2014 old to new, semver distance, real usage sites to check, honest 'changelog not checked' when sources are unreachable."
+  },
+  {
+   "name": "todo-ledger",
+   "source": "./plugins/todo-ledger",
+   "description": "Inventories a repo's TODO/FIXME/HACK/XXX comments into a ranked, dated ledger \u2014 git-blame age and author per hit, oldest first, with a worst-offenders summary and copyable file:line references."
   }
  ]
 }

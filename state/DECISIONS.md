@@ -446,3 +446,35 @@ Template:
 - Consequences: the growth ledger stops lying by omission — features aren't
   marched to the graveyard for failing a test they were never allowed to sit,
   and the honesty tripwire stays meaningful for when traffic actually arrives.
+
+## ADR-024 — v14: finish the buildable line, in order (i216, directed)
+- Status: accepted (tools/ items apply in later commits of this batch under the
+  two-iteration rule with this ADR as the prior-iteration record).
+- Context: operator directed "Build all until fully complete." The v13 slate is
+  merged; what remains buildable by the line alone (not gated on operator/world/
+  community) is: the tenth plugin (todo-ledger, idea → published), the first
+  Theme of the Month, a bug the firstborn found (build.py assumes site/ exists),
+  and two P3 polish items (countdown derives shift hours from the cron; a
+  fork-a-foundry from-spec link). Everything else is gated — commission tiers
+  and GoatCounter need the operator; the pr-gated CRON default and roadmap gates
+  A/B/C need real traffic; those stay open and honestly labeled.
+- Decision: build the buildable set as directed iterations riding a PR (ADR-017
+  lane). This ADR authorizes the tools/ changes: `build.py` mkdirs `site/` at
+  the top of the build (bug fix — a fresh checkout without site/ no longer
+  crashes) and derives the shift hours in the countdown from
+  `run-shift.yml`'s cron instead of a hardcoded constant (drift fix). todo-ledger
+  walks the full pipeline at the normal bar (spec with acceptance checks → build
+  → 3-tier QA with an executable suite → review → publish + marketplace entry +
+  night-clerk catalog regen). Version law binds every published-plugin change.
+- **Theme of the Month (BRAND.md § Themes), recorded here:** July 2026 =
+  **"Repo hygiene"** — *plugins that surface the quiet debt a codebase
+  accumulates (stale TODOs, missing tests, drifted toolchains, unreviewed dep
+  bumps) and make it legible before it bites.* Set directly by the designer
+  rather than by community vote: the three-candidate `theme-vote` path needs an
+  audience the window doesn't have yet (dormant, per ADR-023); it arms with
+  traffic. The theme biases the ideator and banners the window; todo-ledger,
+  built this batch, is the theme's first exhibit.
+- Consequences: the shelf reaches ten plugins across the quality lane the theme
+  names; the build tool survives a bare checkout; the window shows a theme; and
+  the backlog's open items are exactly the ones only a human or real users can
+  close — nothing buildable left un-built.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 — 2026-07-07
+- docs: the from-spec bootstrap path now points at OPERATIONS.md §7–8 (governor &
+  veto, community & fuel) — the optional layers a hand-built spine tends to
+  forget (reviewer nit from i8, v14 P3).
+
 ## 0.1.3 — 2026-07-07
 - docs: author normalized to "Nightshift Foundry" to match the rest of the
   marketplace, and a standard `## Recipes` section added (skeleton consistency,
