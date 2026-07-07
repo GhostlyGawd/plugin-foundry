@@ -5,6 +5,11 @@ declares* (engines, .nvmrc, requires-python, .tool-versions, go.mod, .env.exampl
 and reports ✓/✗ per line with a copyable fix for every ✗. It never installs,
 switches, or mutates anything without your yes to the specific command.
 
+Plus a `SessionStart` hook that catches you early: on a fresh session it does a
+fast, read-only check of the declared runtime versions (`.nvmrc`/`.node-version`,
+`.python-version`) and prints a single heads-up line only when one clearly drifts
+from what's installed — then get the full picture with `envcheck` ("env doctor").
+
 ## Install
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
@@ -16,10 +21,12 @@ switches, or mutates anything without your yes to the specific command.
 - "why won't this run?" → mismatches surface with paired fixes
 - CI-only failure → run it inside the container image to diff environments
 
-No hooks, no network, no unasked changes. See [CHANGELOG.md](./CHANGELOG.md).
+One read-only `SessionStart` hook, no network, no unasked changes. See
+[CHANGELOG.md](./CHANGELOG.md).
 
 ## Manage
 
 - **Update:** `/plugin marketplace update`, then `claude plugin update env-doctor`
 - **Disable / re-enable:** `claude plugin disable env-doctor` / `claude plugin enable env-doctor` (or the `/plugin` menu — no uninstall needed)
+- **Silence just the session-start heads-up** (keep the `envcheck` skill): set `ENV_DOCTOR_SILENT=1` in your environment. `ENV_DOCTOR_DEBUG=1` writes the hook's decision trail to `${TMPDIR}/env-doctor-debug.log`.
 - **Uninstall:** `claude plugin uninstall env-doctor` — removes everything the plugin added

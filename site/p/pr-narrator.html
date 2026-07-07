@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PR Narrator — provenance</title>
 <meta property="og:title" content="PR Narrator — provenance">
-<meta property="og:description" content="A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.">
+<meta property="og:description" content="A skill that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.">
 <meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -49,10 +49,10 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>PR Narrator — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · v0.1.2 · created 2026-07-04 · updated 2026-07-06 · ~88 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · workflow · v0.1.2 · created 2026-07-04 · updated 2026-07-07 · ~88 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
-  <p>A subagent that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</p>
-  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>agents</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~88 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall pr-narrator — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
+  <p>A skill that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</p>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~88 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall pr-narrator — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># PR Narrator
 
@@ -123,7 +123,17 @@ pr&gt; gh found — run `gh pr create --title ... --body-file /tmp/pr.md`? (y/N)
   with the literal command shown; zero push verbs.
 - Pairs cleanly with commit-craft (clean commits → clean narrative) — kit-worthy.
 REVIEW: approved
-- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag pr-narrator-v0.1.2.</pre></details></div>
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag pr-narrator-v0.1.2.</pre></details><details><summary>Maintenance log</summary><pre>- v13 A1 (relabel, no version bump): this record&#x27;s front matter called
+  pr-narrator an &quot;agent&quot;/&quot;subagent&quot; (`components: [agents]`, `tags:
+  [...agents...]`), but it ships one **skill** (`skills/pr/SKILL.md`) — the
+  Spec and Build log above always said &quot;one skill&quot;. Front matter corrected to
+  `components: [skills]`, one-liner and tags to &quot;skill&quot;. No file under
+  `plugins/pr-narrator/` changed and the installer-facing `plugin.json`
+  description was already accurate, so no semver bump is owed; the fix reaches
+  the catalog via the B7 clerkcat regeneration. The historical Pitch prose
+  (an aspirational &quot;agent-component exercise&quot;) is left as written — the line
+  never grew a real agent, and that gap is noted for a future idea, not
+  rewritten here.</pre></details></div>
   <p class="links">install: <code>/plugin install pr-narrator@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/pr-narrator.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/pr-narrator.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/pr-narrator">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

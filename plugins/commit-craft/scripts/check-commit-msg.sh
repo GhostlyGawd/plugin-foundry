@@ -16,8 +16,9 @@ def dbg(msg):
     try:
         import datetime
         path = os.path.join(os.environ.get("TMPDIR", "/tmp"), "commit-craft-debug.log")
+        stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
         with open(path, "a") as f:
-            f.write(f"{datetime.datetime.utcnow().isoformat()}Z {msg}\n")
+            f.write(f"{stamp}Z {msg}\n")
     except Exception:
         pass  # debug must never change behavior
 

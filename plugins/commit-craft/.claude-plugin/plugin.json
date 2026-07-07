@@ -1,7 +1,7 @@
 {
   "name": "commit-craft",
   "displayName": "Commit Craft",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Conventional-commit discipline for Claude Code: a skill that writes great messages and a fail-open guard hook that blocks malformed ones.",
   "author": {
     "name": "Nightshift Foundry"
