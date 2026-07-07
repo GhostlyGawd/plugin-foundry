@@ -1710,3 +1710,13 @@ Entry template (copy exactly; newest at the bottom):
   label to exist (creation failed silently during the misfires).
 - notes: two GitHub walls in one night, both documented with the workaround
   that beat them — future forks inherit the map.
+
+## i197 — maintainer (directed) — 2026-07-07T02:33:48Z
+- did: ADR-021 filed — v12 slate opens (14 items, first live-window audit);
+  IMPROVEMENTS v12 appendix. The genesis blessing (4.1) is quoted in the ADR:
+  one sibling repo, this slate only, never a standing power.
+- line: n/a (ADR only)
+- files: state/DECISIONS.md, IMPROVEMENTS.md, state/STATE.json
+- validation: pass
+- next-suggestion: 1.1+2.4 — ops-guard.
+- notes: n/a
