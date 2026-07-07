@@ -2,10 +2,11 @@
 name: dep-bump-brief
 title: Dep-Bump Brief
 category: workflow
-stage: building
+stage: rc
 version: null
 kind: plugin
 components: [skills]
+always_on_tokens: 105
 one_liner: Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.
 tags: [dependencies, review, changelogs]
 created: 2026-07-06
@@ -66,3 +67,17 @@ merges or a stale queue — both worse than a two-minute honest brief.
   MAJOR flagged loudly; usage-site grep; "changelog not checked" + never-invent
   verbatim; risk line), README with Manage section (v11 convention),
   CHANGELOG 0.1.0 Unreleased. Build complete per spec.
+
+## Test log
+### Test pass — i201 (qa)
+- tier 1: validate + build + smoke green (official validate --strict PASS).
+- tier 3: acceptance suite 10 checks green — verbatim description (drift
+  detected by exact-prefix grep), all three honesty rules, four ecosystems,
+  doctor green, Manage section present. First run was 9/10: check2b's grep
+  spanned a line wrap in the skill body; check loosened to the load-bearing
+  phrase ("NEVER invent"), which check2c's unread-source rule complements.
+- defects: none in the artifact — the defect was in the test; probed:
+  description wording against the spec
+  character-for-character (the check would catch a paraphrase), doctor on
+  the artifact, token estimate measured (105 est).
+TEST VERDICT: pass

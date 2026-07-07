@@ -1755,3 +1755,13 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: qa — executable suite from the acceptance checks.
 - notes: always-on cost measured at build time; stamped at rc per convention.
+
+## i201 — qa (directed, v12 1.2) — 2026-07-07T02:37:55Z
+- did: dep-bump-brief QA — 11-check executable suite (verbatim-description
+  drift trap, honesty rules, ecosystems, doctor, Manage, official validate).
+  TEST VERDICT: pass; always-on stamped 105 tok est.
+- line: dep-bump-brief building → rc
+- files: foundry/tests/dep-bump-brief/checks.test.sh, record
+- validation: pass (qa green)
+- next-suggestion: reviewer.
+- notes: n/a
