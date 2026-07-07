@@ -124,6 +124,16 @@ Honest limits: the doctor proves **structure against the official spec** —
 manifest shape, hook events, matchers, quoting, exec bits. It cannot vouch for
 what a skill's prose tells Claude to do. It's a floor, not a guarantee.
 
+**Two doctors, one law book — which one do you want?**
+- `plugin-smith`'s **doctor skill** — interactive, *inside your Claude Code
+  session*: "doctor my plugin" while you're building, conversational fixes
+  included. Install plugin-smith to get it.
+- The **foundry-doctor action** above — automated, *in your repo's CI*: the same
+  structural laws on every push, and the path to a verified listing. No install;
+  just the `uses:` block.
+Same laws either way (`tools/validate.py` is the single source); the difference
+is where the checkup happens.
+
 ## The laws that make it trustworthy
 
 **Docs before invention.** The plugin spec is Anthropic's; when any field, event, or

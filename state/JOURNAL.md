@@ -1525,3 +1525,16 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass
 - next-suggestion: v11 #4 — doctor disambiguation.
 - notes: the update decision now takes one click instead of a certificate visit.
+
+## i184 — designer (directed, v11 #4) — 2026-07-07T01:21:39Z
+- did: the two doctors disambiguated where both are visible — root README's
+  verify section now has "Two doctors, one law book": plugin-smith's doctor
+  skill (interactive, in-session) vs the foundry-doctor action (automated, in
+  CI), same laws from the same source. Scoped deliberately to the root README:
+  a plugin-README edit would trigger a bump cascade for one paragraph, and the
+  confusion lives at the storefront, not inside plugin-smith.
+- line: n/a (docs)
+- files: README.md
+- validation: pass
+- next-suggestion: v11 #5 — kit paste honesty.
+- notes: n/a
