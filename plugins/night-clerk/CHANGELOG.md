@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3 — 2026-07-06
+- docs: standard `## Manage` section — update, disable/enable, uninstall,
+  and on-disk footprint in one place (v11 #2 README sweep).
+
 ## 0.2.2 — 2026-07-06
 - catalog snapshot refreshed: shelf versions 0.3.0 for commit-craft and
   test-gap-nudge (debug trails)

@@ -17,3 +17,9 @@ loop runs one green iteration. No hooks, nothing runs in the background.
 
 ## Changelog
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update fork-a-foundry`
+- **Disable / re-enable:** `claude plugin disable fork-a-foundry` / `claude plugin enable fork-a-foundry` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall fork-a-foundry` — removes everything the plugin added

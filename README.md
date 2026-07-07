@@ -124,6 +124,16 @@ Honest limits: the doctor proves **structure against the official spec** —
 manifest shape, hook events, matchers, quoting, exec bits. It cannot vouch for
 what a skill's prose tells Claude to do. It's a floor, not a guarantee.
 
+**Two doctors, one law book — which one do you want?**
+- `plugin-smith`'s **doctor skill** — interactive, *inside your Claude Code
+  session*: "doctor my plugin" while you're building, conversational fixes
+  included. Install plugin-smith to get it.
+- The **foundry-doctor action** above — automated, *in your repo's CI*: the same
+  structural laws on every push, and the path to a verified listing. No install;
+  just the `uses:` block.
+Same laws either way (`tools/validate.py` is the single source); the difference
+is where the checkup happens.
+
 ## The laws that make it trustworthy
 
 **Docs before invention.** The plugin spec is Anthropic's; when any field, event, or
@@ -164,9 +174,11 @@ two-iteration rule.
 
 ## Steering it
 
-You're the shop owner; the backlog is your channel. Add P0s to `state/BACKLOG.md`,
-pitch plugins in the Idea inbox, read `state/JOURNAL.md` + `git log` for the audit
-trail, veto by reverting a commit with a note. `site/index.html` is the catalog;
+You're the shop owner; the backlog is your channel. Steer in one sentence with
+`/backlog <priority + task, or a raw pitch>` — it lands as a correctly-formatted
+item or an Idea-inbox pitch. (Hand-editing `state/BACKLOG.md` works too.) Read
+`state/JOURNAL.md` + `git log` for the audit trail, veto by reverting a commit
+with a note. `site/index.html` is the catalog;
 `foundry/INDEX.md` is the text view.
 
 ## Safety
@@ -187,7 +199,7 @@ LOOP_PERMS="--permission-mode acceptEdits" ./loop.sh 5
 LOOP.md                      the iteration protocol — the engine
 loop.sh                      the harness (STOP file, run logs, failure cutoff)
 CLAUDE.md                    standing rules for any session here
-.claude/commands/            /loop and /status
+.claude/commands/            /loop · /status · /backlog (one-sentence steering)
 .claude-plugin/              marketplace.json — the storefront
 charter/                     VISION · ROLES · QUALITY · TESTING · BRAND
 state/                       STATE.json · BACKLOG (+ Idea inbox) · JOURNAL · DECISIONS

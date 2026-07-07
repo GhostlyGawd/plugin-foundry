@@ -239,8 +239,10 @@ TEMPLATE = """<!DOCTYPE html>
   .jump{position:sticky; top:0; z-index:5; background:var(--paper); display:flex; gap:18px;
     padding:9px 2px; border-bottom:1px solid var(--line); font-size:11px; letter-spacing:.16em;
     text-transform:uppercase; overflow-x:auto}
-  .jump a{color:var(--dim); text-decoration:none; white-space:nowrap}
+  .jump a{color:var(--ink); text-decoration:none; white-space:nowrap}
   .jump a:hover,.jump a:focus-visible{color:var(--stamp)}
+  .jump .sep{color:var(--line); user-select:none}
+  .jump a.back{color:var(--dim); opacity:.85}
   .theme{border:1.5px dashed var(--stamp); color:var(--stamp); padding:8px 12px;
     margin:12px 0 0; font-size:12px; letter-spacing:.06em}
   .theme b{letter-spacing:.14em; text-transform:uppercase}
@@ -375,13 +377,33 @@ TEMPLATE = """<!DOCTYPE html>
     <span class="k">phase <b id="phase">@@PHASE@@</b></span>
     <span class="alarms" id="alarms"></span>
   </header>
-  <p class="strap">Every plugin here was <b>pitched, specced, built, tested, reviewed, and
-  published by an autonomous Claude Code loop</b> — no human on the line. This page
-  redeploys each time it works. Scroll the shelf, watch the roadmap move, or
-  <a href="#request">commission the next one</a>.</p>
+  <p class="strap"><b>A plugin marketplace for Claude Code</b> — two commands to
+  <a href="#install">install anything on the shelf</a>. Every plugin was pitched,
+  specced, built, tested, reviewed, and published by an autonomous Claude Code
+  loop — no human on the line — and this page redeploys each time it works.
+  Browse below, watch the roadmap move, or <a href="#request">commission the
+  next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
-    <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
+    <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#install">Install</a><a href="#request">Commission</a><span class="sep" aria-hidden="true">‖</span><a class="back" href="#pulse" title="live telemetry">Pulse</a><a class="back" href="#roadmap">Roadmap</a><a class="back" href="#vote">Vote</a><a class="back" href="saga.html" title="the workshop's own story">Saga</a><a class="back" href="theater.html" title="watch a live shift">Theater</a><a class="back" href="almanac/index.html" title="weekly shipnotes">Almanac</a><a class="back" href="queue.html" title="commissions in progress">Queue</a>
   </nav>
+  <span id="clerk"></span>
+  <h3 class="rule" id="shelf">The shelf — search it, or say what you're working on</h3>
+  <nav class="lane" aria-label="pipeline filter">@@LANE@@</nav>
+  <div class="tools">
+    <input id="q" type="search" placeholder="A name, a tag, or your task — e.g. commit messages · broken dev env" aria-label="Search plugins or describe your task">
+    <div class="tagchips" id="tagchips" role="group" aria-label="filter by tag"></div>
+    <span class="chip" id="nextshift" title="computed from the shift cron, no server involved"></span>
+    <a class="chip" href="feed.xml" title="Atom feed — every publish and version bump, as it happens">follow the shelf ⤳</a>
+    <a class="chip" id="relchip" style="display:none" title="GitHub releases — changelogs + downloadable plugin zips">releases ⤳</a>
+  </div>
+  <div id="clerkout" aria-live="polite"></div>
+  <main id="grid"></main>
+  <p class="empty" id="empty">Nothing matches. Clear the filter — or commission it below.</p>
+
+  <h3 class="rule" id="kits">Starter kits — one block, ready to paste</h3>
+  <div id="kitbox"></div>
+
+  <h3 class="rule" id="pulse">The machine at work — live telemetry</h3>
   <div id="themebox"></div>
   <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
   <div class="streakwrap" aria-label="iterations per day, last 12 weeks — real journal entries only">
@@ -390,25 +412,6 @@ TEMPLATE = """<!DOCTYPE html>
   </div>
   <div class="stats" id="stats" aria-label="substantiated numbers only"></div>
   <div class="fuelrow" id="fuelrow" aria-label="the fuel gauge — real ledger spend"></div>
-
-  <h3 class="rule" id="clerk">The front desk — say what you're working on</h3>
-  <div class="tools">
-    <input id="clerkq" type="search" placeholder="e.g. commit messages · PR descriptions · broken dev env · session handoffs" aria-label="Describe your task and get plugin recommendations">
-  </div>
-  <div id="clerkout" aria-live="polite"></div>
-
-  <h3 class="rule" id="shelf">The shelf — tap a stage to filter</h3>
-  <nav class="lane" aria-label="pipeline filter">@@LANE@@</nav>
-  <div class="tools">
-    <input id="q" type="search" placeholder="Search plugins by name, job, or tag" aria-label="Search plugins">
-    <div class="tagchips" id="tagchips" role="group" aria-label="filter by tag"></div>
-    <span class="chip" id="nextshift" title="computed from the shift cron, no server involved"></span>
-  </div>
-  <main id="grid"></main>
-  <p class="empty" id="empty">Nothing matches. Clear the filter — or commission it below.</p>
-
-  <h3 class="rule" id="kits">Starter kits — one block, ready to paste</h3>
-  <div id="kitbox"></div>
 
   <h3 class="rule" id="roadmap">Roadmap — the line, in lanes</h3>
   <div class="lanes" id="lanes"></div>
@@ -546,7 +549,10 @@ function card(e){
     '<div class="track">' + track + '</div>' +
     '<div class="chips">' + comm + tok + e.components.map(c => '<span class="chip">' + esc(c) + '</span>').join('') + '</div>' +
     install +
-    '<a class="prov" href="p/' + esc(e.name) + '.html">provenance — the full paper trail →</a>';
+    ((e.stage === 'published' && e.kind === 'plugin' && DATA.repo)
+      ? '<a class="prov" href="https://github.com/' + DATA.repo + '/blob/main/plugins/' + esc(e.name) + '/CHANGELOG.md">updated ' + esc(e.updated || '?') + " — what's new →</a>"
+      : '') +
+    '<a class="prov" href="p/' + esc(e.name) + '.html">docs &amp; history — the full paper trail →</a>';
   return el;
 }
 function renderGrid(){
@@ -654,14 +660,16 @@ function renderVotes(){
     : '<p class="vnone">No open ideas yet — the pool is waiting for its first suggestion' +
       (suggest ? ' (<a href="' + suggest + '">make one, free</a>)' : '') + '.</p>';
 }
-/* the front desk (v10 #3) — the night-clerk's matching, for visitors who
-   haven't installed anything yet. Same generated data, same honesty rules:
-   published plugins only, nothing invented, honest empty answer. */
+/* the front desk (v10 #3, merged into the shelf search v11 #8) — the
+   night-clerk's matching for visitors who haven't installed anything yet.
+   One input: single words filter the grid like plain search; task-shaped
+   queries (2+ words) also get the clerk's best-3 answer above the cards.
+   Same honesty rules: published only, nothing invented. */
 function renderClerk(){
   const box = document.getElementById('clerkout');
-  const raw = (document.getElementById('clerkq').value || '').toLowerCase().trim();
+  const raw = (q.value || '').toLowerCase().trim();
   const terms = raw.split(/[^a-z0-9]+/).filter(t => t.length > 2);
-  if (!terms.length){ box.innerHTML = ''; return; }
+  if (terms.length < 2){ box.innerHTML = ''; return; }
   const score = hay => terms.reduce((s, t) => s + (hay.includes(t) ? 1 : 0), 0);
   const hits = DATA.records
     .filter(e => e.stage === 'published' && e.kind === 'plugin')
@@ -675,16 +683,18 @@ function renderClerk(){
     .sort((a, b) => b[0] - a[0])[0];
   if (!hits.length && !kitHit){
     const idea = DATA.repo ? ' — <a href="https://github.com/' + DATA.repo + '/issues/new?template=idea.yml">suggest it as an idea, free</a>' : '';
-    box.innerHTML = '<p class="vnone">Nothing on the shelf fits that yet' + idea + '. The clerk never invents a plugin.</p>';
+    box.innerHTML = '<p class="vnone">Nothing on the shelf fits that task yet' + idea + '. The clerk never invents a plugin.</p>';
     return;
   }
-  let out = hits.map(([s, e]) =>
+  let out = '<p class="vnone">the front desk suggests —</p>' + hits.map(([s, e]) =>
     '<div class="kit"><h4>' + esc(e.title) + '</h4><p>' + esc(e.one_liner) + '</p>' +
     '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div></div>').join('');
   if (kitHit){
     const k = kitHit[1];
-    const block = k.members.filter(m => m.published).map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
-    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div></div>';
+    const ready = k.members.filter(m => m.published);
+    const block = ready.map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
+    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div>' +
+      (ready.length > 1 ? '<p class="pending">slash commands run one at a time — paste each line separately</p>' : '') + '</div>';
   }
   out += '<p class="vnone">Matched against the same generated catalog the night-clerk plugin bundles — click a block to copy.</p>';
   box.innerHTML = out;
@@ -697,7 +707,9 @@ function renderKits(){
     const pending = k.members.filter(m => !m.published);
     const block = ready.map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
     return '<div class="kit"><h4>' + esc(k.name) + '</h4><p>' + esc(k.desc) + '</p>' +
-      (ready.length ? '<div class="install">' + block + '</div>' : '<p class="pending">nothing installable yet</p>') +
+      (ready.length ? '<div class="install">' + block + '</div>' +
+        (ready.length > 1 ? '<p class="pending">slash commands run one at a time — paste each line separately</p>' : '')
+        : '<p class="pending">nothing installable yet</p>') +
       (pending.length ? '<p class="pending">+ ' + pending.map(m => esc(m.title) + ' (' + esc(m.stage) + ')').join(', ') + ' — finishing on the line</p>' : '') +
       '</div>';
   }).join('') : '<p class="vnone">Kits open once the maintainer curates the first bundle.</p>';
@@ -767,14 +779,18 @@ function renderAll(){
       setTimeout(() => { delete el.dataset.copied; }, 1400);
     }).catch(() => { /* selection fallback remains */ });
   });
+  if (DATA.repo){
+    const rel = document.getElementById('relchip');
+    rel.href = 'https://github.com/' + DATA.repo + '/releases';
+    rel.style.display = '';
+  }
   document.getElementById('iter').textContent = String(DATA.iteration).padStart(3,'0');
   document.getElementById('phase').textContent = DATA.phase;
   document.getElementById('lastshift').textContent = ago(DATA.generated_at);
   for (const b of document.querySelectorAll('.lanebtn'))
     { const s=b.dataset.stage; const n=DATA.counts[s]; if(n!==undefined) b.querySelector('.n').textContent = n; }
 }
-q.addEventListener('input', renderGrid);
-document.getElementById('clerkq').addEventListener('input', renderClerk);
+q.addEventListener('input', () => { renderGrid(); renderClerk(); });
 for (const btn of document.querySelectorAll('.lanebtn')){
   btn.addEventListener('click', () => {
     const s = btn.dataset.stage;
@@ -1274,6 +1290,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
             "components": r.get("components", []),
             "one_liner": r.get("one_liner", ""),
             "tags": r.get("tags", []),
+            "updated": r.get("updated"),
             "commission": r.get("commission"),
             "kind": r.get("kind", "plugin"),
             "always_on_tokens": r.get("always_on_tokens"),

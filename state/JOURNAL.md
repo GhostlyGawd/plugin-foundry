@@ -1473,3 +1473,172 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: operator merges PR #13, pushes tags, and spends the
   preflight 15 minutes — Gate A is still the whole game.
 - notes: the tripwire stayed honest: both reviews drew blood.
+
+## i180 — maintainer (directed) — 2026-07-07T01:17:08Z
+- did: ADR-019 filed — v11 UX slate opens (12 items, three personas), slate
+  table appended to IMPROVEMENTS.md. Two-iteration rule: template/tools/skill
+  items apply from i181+.
+- line: n/a (ADR only)
+- files: state/DECISIONS.md, IMPROVEMENTS.md, state/STATE.json
+- validation: pass
+- next-suggestion: v11 #1 — plain-language layer.
+- notes: principle for the slate: add a plain layer, never strip the lore —
+  spectators are customers too.
+
+## i181 — designer (directed, v11 #1) — 2026-07-07T01:18:10Z
+- did: plain-language layer — the strap now leads with what a stranger needs
+  ("A plugin marketplace for Claude Code — two commands to install") before the
+  lore, with an #install anchor in the first sentence; the card link
+  "provenance — the full paper trail" becomes "docs & history — the full paper
+  trail" (plain first, lore kept). Principle from ADR-019: add a plain layer,
+  never strip the lore.
+- line: n/a (window copy, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #2 — the Manage-section sweep (8 patch bumps).
+- notes: n/a
+
+## i182 — maintainer (directed, v11 #2) — 2026-07-07T01:20:18Z
+- did: the Manage sweep — every shipped README ends with a standard ## Manage
+  section (update / disable / uninstall via the official CLI commands, verified
+  against the plugins reference; hook plugins additionally state their on-disk
+  footprint and debug var; night-clerk points at whats-new). plugin-smith's
+  scaffold now teaches the same section, so future plugins inherit it. 8 patch
+  bumps under full version law; catalog regenerated last (drift check green on
+  first run).
+- line: all 8 stay published (version law ×8 + CHANGELOGs + tags)
+- files: plugins/*/README.md, plugins/*/CHANGELOG.md,
+  plugins/*/.claude-plugin/plugin.json, foundry/records/*.md ×8,
+  plugins/plugin-smith/skills/scaffold/SKILL.md, plugins/night-clerk/data/catalog.json
+- validation: pass (qa 201/201, smoke 8/8)
+- next-suggestion: v11 #3 — card updated-date + changelog link.
+- notes: uninstall/disable commands verified against the official reference
+  before writing (claude plugin uninstall|disable|enable) — docs before invention.
+
+## i183 — builder (directed, v11 #3) — 2026-07-07T01:20:55Z
+- did: shelf cards for published plugins now carry "updated <date> — what's
+  new →" linking straight to the shipped CHANGELOG on GitHub (renders only
+  when site-config has a repo, per the substantiated-links pattern); record
+  'updated' field added to the slim data.
+- line: n/a (window feature, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #4 — doctor disambiguation.
+- notes: the update decision now takes one click instead of a certificate visit.
+
+## i184 — designer (directed, v11 #4) — 2026-07-07T01:21:39Z
+- did: the two doctors disambiguated where both are visible — root README's
+  verify section now has "Two doctors, one law book": plugin-smith's doctor
+  skill (interactive, in-session) vs the foundry-doctor action (automated, in
+  CI), same laws from the same source. Scoped deliberately to the root README:
+  a plugin-README edit would trigger a bump cascade for one paragraph, and the
+  confusion lives at the storefront, not inside plugin-smith.
+- line: n/a (docs)
+- files: README.md
+- validation: pass
+- next-suggestion: v11 #5 — kit paste honesty.
+- notes: n/a
+
+## i185 — builder (directed, v11 #5) — 2026-07-07T01:22:11Z
+- did: kit paste honesty — multi-line kit install blocks (kit cards AND the
+  clerk picker's kit answer) now say "slash commands run one at a time — paste
+  each line separately"; single-line kits stay clean.
+- line: n/a (window copy, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #6 — visitor-first hierarchy.
+- notes: a copy button that hands you something unusable is a dark pattern by
+  accident — this is the one-line fix.
+
+## i186 — designer (directed, v11 #6) — 2026-07-07T01:22:48Z
+- did: visitor-first hierarchy — the window now opens with the front desk,
+  shelf, and kits (the visitor's job: find + install), and the spectacle
+  telemetry (theme, ticker, streak, stats, fuel) follows under its own honest
+  heading "The machine at work — live telemetry", before the roadmap. Element
+  ids and renderers untouched; pure template reorder.
+- line: n/a (window layout, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (section order asserted, no duplicated ids)
+- next-suggestion: v11 #7 — jump nav grouping.
+- notes: spectators scroll; installers bounce. Order for the one who bounces.
+
+## i187 — designer (directed, v11 #7) — 2026-07-07T01:23:40Z
+- did: jump nav tamed — five visitor-primary links (Clerk Shelf Kits Install
+  Commission) in full ink, a visible divider, then seven backstage links
+  (Pulse Roadmap Vote Saga Theater Almanac Queue) dimmed and carrying title
+  tooltips that translate the lore ("Saga — the workshop's own story").
+- line: n/a (window nav, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (grouping + tooltip count asserted)
+- next-suggestion: v11 #8 — one discovery input.
+- notes: same twelve destinations, but the first five answer "what can I do
+  here" and the rest answer "what is this place".
+
+## i188 — builder (directed, v11 #8) — 2026-07-07T01:25:32Z
+- did: one discovery input — the front-desk picker merged into the shelf
+  search. Single words filter the grid like plain search (clerk stays quiet);
+  task-shaped queries (2+ meaningful words) also get "the front desk
+  suggests —" with ≤3 real answers + kit above the cards; nonsense tasks get
+  the honest empty + idea route; #clerk nav anchor preserved. Browser-verified
+  in Chromium across all four paths, zero page errors.
+- line: n/a (window feature, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (Playwright: filter-only, suggest, honest-empty, reset)
+- next-suggestion: v11 #9 — follow-the-shelf chip.
+- notes: the 2-word threshold is the intuition: "commit" is a search,
+  "commit messages" is a request for help.
+
+## i189 — builder (directed, v11 #9) — 2026-07-07T01:26:33Z
+- did: follow-the-shelf — the tools row next to search now carries "follow the
+  shelf ⤳" (feed.xml, with a tooltip saying what it delivers) and a
+  "releases ⤳" chip that renders only when site-config has a repo (links the
+  GitHub releases page, which since v10 #12 serves changelogs + plugin zips).
+  Browser-verified: both chips render, releases href substantiated.
+- line: n/a (window feature, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #10 — preflight --issue.
+- notes: the feed existed since v4; it was just buried in the footer where no
+  installer ever looked.
+
+## i190 — builder (directed, v11 #10+#11) — 2026-07-07T01:28:23Z
+- did: preflight grows two operator affordances in one rewrite —
+  (#11) release-tag drift check: local *-v* tags vs git ls-remote, loud
+  TODO(operator) with the exact fix; network trouble reports "skipped, not
+  green", never a false pass. Live run immediately surfaced the real problem:
+  15 local tags the remote never received. (#10) --issue mode: the same facts
+  as GitHub checkboxes (script-verifiable ones pre-ticked) + the click-list,
+  opening/updating a single ops-golive issue when gh exists, printing the
+  markdown when it doesn't (fail-soft, verified here where gh is absent).
+  OPERATIONS §0 documents both.
+- line: n/a (tools, ADR-019)
+- files: tools/preflight.py, OPERATIONS.md
+- validation: pass (both modes exercised live)
+- next-suggestion: v11 #12 — /backlog steering skill.
+- notes: the drift check paying for itself on its first run is the whole
+  argument for it.
+
+## i191 — builder (directed, v11 #12) — 2026-07-07T01:29:22Z
+- did: /backlog steering skill — the operator's channel becomes one sentence:
+  classifies input as work item (P-priority + best-fit role, appended to the
+  open slate or Grow) or raw pitch (Idea inbox with operator credit), binds
+  itself to the backlog laws (check-off-don't-delete, one item, never touch
+  role_queue/STATE, never guess a P0, echo what it added). README steering
+  section + layout map updated.
+- line: n/a (command, ADR-019)
+- files: .claude/commands/backlog.md, README.md
+- validation: pass
+- next-suggestion: auditor closes the v11 slate (audit-006), then push + PR.
+- notes: v11 #1–#12 all built.
+
+## i192 — auditor (directed) — 2026-07-07T01:30:09Z
+- did: audit-006 filed — v11 UX slate 12/12 lawful: 8-plugin Manage sweep under
+  full version law (catalog last, drift-check green first run), ADR-019
+  two-iteration rule held, browser-verified window changes, tag-drift check
+  caught 15 stranded tags on its first run. IMPROVEMENTS v11 marked BUILT.
+- line: audit-006 filed
+- files: reviews/audit-006.md, IMPROVEMENTS.md, state/{STATE.json,JOURNAL.md}
+- validation: pass
+- next-suggestion: operator merges the PR, pushes 15 tags, runs
+  preflight --issue.
+- notes: two slates in one day; the lore survived both.

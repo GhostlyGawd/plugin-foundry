@@ -3,7 +3,7 @@ name: commit-craft
 title: Commit Craft
 category: workflow
 stage: published
-version: 0.3.0
+version: 0.3.1
 always_on_tokens: 88
 verified: 2026-07-06
 components: [skills, hooks]
@@ -111,3 +111,4 @@ REVIEW: approved
   injection dropped, default regression). Tag commit-craft-v0.2.0.
 - i164 (builder, v10 #10): v0.3.0 — COMMIT_CRAFT_DEBUG=1 decision-trail log in
   TMPDIR; debug-off byte-identical (suite-proven). Tag commit-craft-v0.3.0.
+- i182 (maintainer, v11 #2): v0.3.1 — README Manage section (docs sweep). Tag commit-craft-v0.3.1.

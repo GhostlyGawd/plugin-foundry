@@ -1,11 +1,11 @@
 {
- "snapshot": "2026-07-06",
+ "snapshot": "2026-07-07",
  "marketplace": "foundry",
  "idea_template": "issues/new?template=idea.yml",
  "plugins": [
   {
    "name": "commit-craft",
-   "version": "0.3.0",
+   "version": "0.3.1",
    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
    "tags": [
     "git",
@@ -16,7 +16,7 @@
   },
   {
    "name": "env-doctor",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
    "tags": [
     "environment",
@@ -27,7 +27,7 @@
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
    "tags": [
     "meta",
@@ -39,7 +39,7 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.2",
+   "version": "0.2.3",
    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
    "tags": [
     "discovery",
@@ -50,7 +50,7 @@
   },
   {
    "name": "plugin-smith",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
    "tags": [
     "meta",
@@ -62,7 +62,7 @@
   },
   {
    "name": "pr-narrator",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "one_liner": "A subagent that turns a branch's commits and diff into a reviewer-ready PR description.",
    "tags": [
     "pull-requests",
@@ -73,7 +73,7 @@
   },
   {
    "name": "session-recap",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
    "tags": [
     "memory",
@@ -84,7 +84,7 @@
   },
   {
    "name": "test-gap-nudge",
-   "version": "0.3.0",
+   "version": "0.3.1",
    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
    "tags": [
     "testing",

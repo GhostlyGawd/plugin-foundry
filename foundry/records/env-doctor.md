@@ -3,7 +3,7 @@ name: env-doctor
 title: Env Doctor
 category: quality
 stage: published
-version: 0.1.1
+version: 0.1.2
 always_on_tokens: 110
 verified: 2026-07-06
 components: [hooks]
@@ -81,3 +81,4 @@ envcheck> say the word and I run exactly that command — nothing else.
 - Sharpest question: could a suggested "fix" be destructive-by-default? Audited the
   vocabulary — installs and exports only, no rm/overwrite class commands.
 REVIEW: approved
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag env-doctor-v0.1.2.

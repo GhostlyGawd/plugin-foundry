@@ -4,7 +4,7 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.1.1
+version: 0.1.2
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-06
@@ -87,3 +87,4 @@ bootstrap> gates must pass in the new repo before I call this done... green.
 - Nit (non-blocking, journaled): from-spec path could link OPERATIONS.md § 7–8
   once forks stabilize; queue as P3 polish.
 REVIEW: approved
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag fork-a-foundry-v0.1.2.

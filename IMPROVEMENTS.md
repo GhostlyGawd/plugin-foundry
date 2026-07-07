@@ -217,3 +217,29 @@ and two differentiators no other repo can copy.
   sibling shelves. Advance the existing records rather than opening new ones.
 - **Why:** a self-replicating marketplace network has no precedent anywhere; it is
   the VISION's endgame and only this repo can start it. **Impact 5 · Effort 5.**
+
+
+---
+
+# IMPROVEMENTS v11 — UX audit (2026-07-06, post-v10)
+
+> **Status: BUILT** — 12/12, iterations i180–i191 under ADR-019, audited in
+> `reviews/audit-006.md`.
+
+Directed by the operator: "more user friendly, easy to use, and intuitive."
+Built as the v11 slate under ADR-019. Personas: installers · visitors · operator.
+
+| # | Item | Persona |
+|---|------|---------|
+| 1 | Plain-language layer (window strap, "docs & history" card link) | visitor |
+| 2 | Standard Manage section in all 8 READMEs + scaffold template | installer |
+| 3 | Shelf cards: updated date + changelog link | installer |
+| 4 | Disambiguate plugin-smith doctor vs foundry-doctor CI action | installer |
+| 5 | Kit paste-blocks: one-line-at-a-time honesty | installer |
+| 6 | Visitor-first window hierarchy (catalog above telemetry) | visitor |
+| 7 | Jump nav: primary links + backstage group | visitor |
+| 8 | One discovery input: live filter + clerk answer | visitor |
+| 9 | "Follow the shelf" chip (feed + releases) | installer |
+| 10 | preflight --issue: checkable go-live checklist | operator |
+| 11 | preflight tag-drift check (local vs remote release tags) | operator |
+| 12 | /backlog steering skill | operator |

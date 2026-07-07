@@ -1,7 +1,7 @@
 {
   "name": "night-clerk",
   "displayName": "Night Clerk",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "The foundry's front desk inside your terminal: ask what plugin helps with a task and get real recommendations with exact install lines from a bundled catalog snapshot.",
   "author": {
     "name": "Nightshift Foundry"

@@ -30,3 +30,9 @@ No hooks, no MCP servers, nothing runs in the background.
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update plugin-smith`
+- **Disable / re-enable:** `claude plugin disable plugin-smith` / `claude plugin enable plugin-smith` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall plugin-smith` — removes everything the plugin added
