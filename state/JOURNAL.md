@@ -1617,3 +1617,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #12 — /backlog steering skill.
 - notes: the drift check paying for itself on its first run is the whole
   argument for it.
+
+## i191 — builder (directed, v11 #12) — 2026-07-07T01:29:22Z
+- did: /backlog steering skill — the operator's channel becomes one sentence:
+  classifies input as work item (P-priority + best-fit role, appended to the
+  open slate or Grow) or raw pitch (Idea inbox with operator credit), binds
+  itself to the backlog laws (check-off-don't-delete, one item, never touch
+  role_queue/STATE, never guess a P0, echo what it added). README steering
+  section + layout map updated.
+- line: n/a (command, ADR-019)
+- files: .claude/commands/backlog.md, README.md
+- validation: pass
+- next-suggestion: auditor closes the v11 slate (audit-006), then push + PR.
+- notes: v11 #1–#12 all built.
