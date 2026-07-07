@@ -1549,3 +1549,15 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #6 — visitor-first hierarchy.
 - notes: a copy button that hands you something unusable is a dark pattern by
   accident — this is the one-line fix.
+
+## i186 — designer (directed, v11 #6) — 2026-07-07T01:22:48Z
+- did: visitor-first hierarchy — the window now opens with the front desk,
+  shelf, and kits (the visitor's job: find + install), and the spectacle
+  telemetry (theme, ticker, streak, stats, fuel) follows under its own honest
+  heading "The machine at work — live telemetry", before the roadmap. Element
+  ids and renderers untouched; pure template reorder.
+- line: n/a (window layout, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass (section order asserted, no duplicated ids)
+- next-suggestion: v11 #7 — jump nav grouping.
+- notes: spectators scroll; installers bounce. Order for the one who bounces.

@@ -384,15 +384,6 @@ TEMPLATE = """<!DOCTYPE html>
   <nav class="jump" aria-label="jump to section">
     <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
-  <div id="themebox"></div>
-  <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
-  <div class="streakwrap" aria-label="iterations per day, last 12 weeks — real journal entries only">
-    <div class="streak" id="streak"></div>
-    <span class="streaklabel">shifts, last 12 weeks — quiet days stay blank</span>
-  </div>
-  <div class="stats" id="stats" aria-label="substantiated numbers only"></div>
-  <div class="fuelrow" id="fuelrow" aria-label="the fuel gauge — real ledger spend"></div>
-
   <h3 class="rule" id="clerk">The front desk — say what you're working on</h3>
   <div class="tools">
     <input id="clerkq" type="search" placeholder="e.g. commit messages · PR descriptions · broken dev env · session handoffs" aria-label="Describe your task and get plugin recommendations">
@@ -411,6 +402,16 @@ TEMPLATE = """<!DOCTYPE html>
 
   <h3 class="rule" id="kits">Starter kits — one block, ready to paste</h3>
   <div id="kitbox"></div>
+
+  <h3 class="rule" id="pulse">The machine at work — live telemetry</h3>
+  <div id="themebox"></div>
+  <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
+  <div class="streakwrap" aria-label="iterations per day, last 12 weeks — real journal entries only">
+    <div class="streak" id="streak"></div>
+    <span class="streaklabel">shifts, last 12 weeks — quiet days stay blank</span>
+  </div>
+  <div class="stats" id="stats" aria-label="substantiated numbers only"></div>
+  <div class="fuelrow" id="fuelrow" aria-label="the fuel gauge — real ledger spend"></div>
 
   <h3 class="rule" id="roadmap">Roadmap — the line, in lanes</h3>
   <div class="lanes" id="lanes"></div>
