@@ -26,6 +26,10 @@ jobs:
           python3 tools/validate.py
           python3 tools/build.py
       - uses: actions/configure-pages@v5
+        with:
+          # ADR-020: the first deploy CREATES the Pages site (source: Actions)
+          # if it doesn't exist yet — replaces click-list item 1
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

@@ -1,0 +1,48 @@
+# Lay pending release tags (ADR-020): sessions can't push tags (branch-scoped
+# proxy), so this dispatch-only workflow recreates the annotated tags listed in
+# state/TAGS-PENDING.json. Skip-if-exists, never forced — an existing remote tag
+# always wins. Also reports config PRESENCE (never values, charter/SECURITY.md)
+# so a session can decide whether a first shift can run.
+name: Lay pending tags
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  lay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # the tagged SHAs live in history — a shallow clone can't tag them
+      - name: Recreate pending annotated tags
+        run: |
+          git config user.name foundry-ops
+          git config user.email foundry-ops@users.noreply.github.com
+          laid=0; skipped=0
+          while IFS=$'\x1f' read -r tag sha msg; do
+            if git ls-remote --exit-code --tags origin "refs/tags/${tag}" > /dev/null 2>&1; then
+              echo "skip: ${tag} already on the remote"; skipped=$((skipped+1)); continue
+            fi
+            git tag -a "${tag}" "${sha}" -m "${msg}"
+            git push origin "refs/tags/${tag}"
+            echo "laid: ${tag} -> ${sha}"; laid=$((laid+1))
+          done < <(python3 -c "
+          import json
+          for t in json.load(open('state/TAGS-PENDING.json'))['tags']:
+              print(t['tag'], t['sha'], t['message'], sep='\x1f')")
+          echo "lay-tags: ${laid} laid, ${skipped} skipped" >> "$GITHUB_STEP_SUMMARY"
+      - name: Config presence (names only — never values)
+        env:
+          HAS_OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          HAS_APIKEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+          HAS_GOAT: ${{ secrets.GOATCOUNTER_TOKEN != '' }}
+          HAS_BUDGET: ${{ vars.LOOP_MONTHLY_BUDGET_USD != '' }}
+        run: |
+          {
+            echo "## Config presence (values never read)"
+            echo "- CLAUDE_CODE_OAUTH_TOKEN secret: ${HAS_OAUTH}"
+            echo "- ANTHROPIC_API_KEY secret: ${HAS_APIKEY}"
+            echo "- GOATCOUNTER_TOKEN secret: ${HAS_GOAT}"
+            echo "- LOOP_MONTHLY_BUDGET_USD variable: ${HAS_BUDGET}"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
