@@ -17,6 +17,11 @@ says `changelog not checked` instead of guessing.
 - "review this dependabot PR" → per-bump brief + risk line, pasteable into the review
 - "what changed in this bump?" → old → new, semver distance, your usage sites
 - "is this lodash bump safe?" → MAJOR/minor/patch flag + the files that import it
+- pairs with **pr-narrator**: the brief's risk line drops straight into the PR's
+  **Risk & rollback** section — same diff, one honest sentence
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md).
 
 ## Honest disclosures
 - **Never invents version facts.** Changelog content appears only when the

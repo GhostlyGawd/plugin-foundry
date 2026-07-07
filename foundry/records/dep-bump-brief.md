@@ -3,7 +3,7 @@ name: dep-bump-brief
 title: Dep-Bump Brief
 category: workflow
 stage: published
-version: 0.1.0
+version: 0.1.1
 kind: plugin
 components: [skills]
 always_on_tokens: 105
@@ -104,3 +104,6 @@ REVIEW: approved
   convention from scaffold). Tag dep-bump-brief-v0.1.0 cut via release
   dispatch post-merge (ADR-020 path). Experiment: none — utility plugin;
   install proxy rides the shelf-wide metric.
+- v13 B6+B8: v0.1.1 — README gains the standard `## Changelog` link and a
+  pr-narrator pairing recipe (the risk line → PR Risk & rollback). Docs-only;
+  Tag dep-bump-brief-v0.1.1.

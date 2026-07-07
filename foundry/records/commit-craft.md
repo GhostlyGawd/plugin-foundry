@@ -3,14 +3,14 @@ name: commit-craft
 title: Commit Craft
 category: workflow
 stage: published
-version: 0.3.1
+version: 0.3.2
 always_on_tokens: 88
 verified: 2026-07-06
 components: [skills, hooks]
 one_liner: Drafts conventional commits from the staged diff and guards message format at commit time.
 tags: [git, conventional-commits, hooks]
 created: 2026-07-04
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 # Commit Craft
@@ -112,3 +112,8 @@ REVIEW: approved
 - i164 (builder, v10 #10): v0.3.0 — COMMIT_CRAFT_DEBUG=1 decision-trail log in
   TMPDIR; debug-off byte-identical (suite-proven). Tag commit-craft-v0.3.0.
 - i182 (maintainer, v11 #2): v0.3.1 — README Manage section (docs sweep). Tag commit-craft-v0.3.1.
+- v13 A3: v0.3.2 — config parity. The guard honoured `COMMIT_CRAFT_TYPES` (v0.2.0)
+  but the `commit` skill still hardcoded the seven-type default, so a customized
+  type set produced drafts the guard could reject. The skill now reads the same
+  variable before choosing a type. Also dropped the deprecated `datetime.utcnow()`
+  in the debug path (timezone-aware, no behavior change). Tag commit-craft-v0.3.2.

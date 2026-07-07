@@ -25,9 +25,10 @@ jobs:
         run: python3 tools/build.py
       - name: Generated output committed in sync
         run: |
-          # build.py stamps a timestamp into exactly these three on every run
+          # build.py stamps a run-time timestamp into exactly these three
           # (measured: data.json generated_at, index.html stamp, feed.xml
-          # updated); that churn is not drift. Fail on anything else.
+          # updated); that churn is not drift. sitemap.xml is content-dated
+          # (v13 C9), so it no longer churns by date. Fail on anything else.
           git checkout -- site/data.json site/index.html site/feed.xml
           git diff --exit-code -- site/ foundry/INDEX.md \
             || { echo "::error::site/ or INDEX.md is out of sync — run python3 tools/build.py and commit the result"; exit 1; }

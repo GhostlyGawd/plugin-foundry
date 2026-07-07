@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 — 2026-07-07
+- docs: pairing with dep-bump-brief — on a dependency PR the `pr` skill drops
+  the brief's risk line straight into Risk & rollback (v13 B6 synergy).
+
 ## 0.1.2 — 2026-07-06
 - docs: standard `## Manage` section — update, disable/enable, uninstall,
   and on-disk footprint in one place (v11 #2 README sweep).

@@ -1,8 +1,8 @@
 {
   "name": "session-recap",
   "displayName": "Session Recap",
-  "version": "0.1.2",
-  "description": "One command ends the session properly: an appended, dated handoff in SESSION-RECAP.md \u2014 what changed, decisions, open questions, next steps.",
+  "version": "0.2.0",
+  "description": "Ends the session properly: an appended, dated handoff in SESSION-RECAP.md \u2014 what changed, decisions, open questions, next steps \u2014 with a fail-open nudge to write one at session end and a recall of the last one at session start.",
   "author": {
     "name": "Nightshift Foundry"
   },

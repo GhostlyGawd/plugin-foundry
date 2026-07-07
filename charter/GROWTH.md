@@ -36,6 +36,15 @@ real*; faking it destroys the only asset. Violations are red-build severity.
 - **Small-sample honesty:** with thin traffic, most deltas are noise. "Insufficient
   data" is a legitimate finding; torturing noise into a win is not. When in doubt,
   extend once, then kill.
+- **Dormant — blocked on traffic (ADR-023).** Before the window has an audience,
+  an experiment cannot earn *any* verdict honestly: its metric is `null`/`0` in
+  METRICS.jsonl, so the extend-once-then-kill path would march every pre-launch
+  feature toward a kill it was never given traffic to avoid, and no verdict can
+  ever be `keep`. Such an experiment is **dormant**, not open: its review clock
+  starts at first real traffic (Gate A: window live with non-null metrics), not
+  at a calendar date. A dormant experiment is parked, never counted toward the
+  "extend twice = kill" rule; the Auditor lists dormant experiments separately
+  and does not read their absence of a verdict as measurement gone soft.
 
 ## Instruments
 - `tools/metrics.py` (runs every shift): snapshot → `state/METRICS.jsonl`
@@ -50,6 +59,8 @@ If the last 4 experiment verdicts are all `keep`, measurement has gone soft — 
 becomes P0 (same logic as the QA rubber-stamp tripwire). The Auditor's monthly read
 includes: verdict mix, ladder movement, and whether any shipped feature lacks an
 open or closed experiment (orphan features get one retroactively or get killed).
+Dormant experiments (above) are excluded from the verdict mix and the tripwire —
+they haven't been measured yet, so they can't have gone soft.
 
 ## The Almanac (monthly duty)
 First shift of each month, the growth role runs `python3 tools/almanac.py` and

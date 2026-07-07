@@ -3,14 +3,14 @@ name: pr-narrator
 title: PR Narrator
 category: workflow
 stage: published
-version: 0.1.2
+version: 0.1.3
 always_on_tokens: 88
 verified: 2026-07-06
-components: [agents]
-one_liner: A subagent that turns a branch's commits and diff into a reviewer-ready PR description.
-tags: [pull-requests, agents, writing]
+components: [skills]
+one_liner: A skill that turns a branch's commits and diff into a reviewer-ready PR description.
+tags: [pull-requests, skills, writing]
 created: 2026-07-04
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 # PR Narrator
@@ -84,3 +84,19 @@ pr> gh found — run `gh pr create --title ... --body-file /tmp/pr.md`? (y/N)
 - Pairs cleanly with commit-craft (clean commits → clean narrative) — kit-worthy.
 REVIEW: approved
 - i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag pr-narrator-v0.1.2.
+
+## Maintenance log
+- v13 A1 (relabel, no version bump): this record's front matter called
+  pr-narrator an "agent"/"subagent" (`components: [agents]`, `tags:
+  [...agents...]`), but it ships one **skill** (`skills/pr/SKILL.md`) — the
+  Spec and Build log above always said "one skill". Front matter corrected to
+  `components: [skills]`, one-liner and tags to "skill". No file under
+  `plugins/pr-narrator/` changed and the installer-facing `plugin.json`
+  description was already accurate, so no semver bump is owed; the fix reaches
+  the catalog via the B7 clerkcat regeneration. The historical Pitch prose
+  (an aspirational "agent-component exercise") is left as written — the line
+  never grew a real agent, and that gap is noted for a future idea, not
+  rewritten here.
+- v13 B6: v0.1.2 → v0.1.3 — README + `pr` skill now pair with dep-bump-brief:
+  on a dependency PR, the brief's risk line drops straight into Risk & rollback.
+  Docs-only; Tag pr-narrator-v0.1.3.

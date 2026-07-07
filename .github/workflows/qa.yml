@@ -3,9 +3,13 @@
 name: QA harness
 on:
   push:
-    paths: ["plugins/**", "foundry/tests/**", "tools/qa.sh"]
+    # tools/** included (v13 C13): foundry/tests/_tools/*.test.sh exercise the
+    # tools (build, validate, intake, budget, metrics), so a PR editing a tool
+    # must run the harness that covers it — the old filter let tool logic merge
+    # with its own tests unrun.
+    paths: ["plugins/**", "foundry/tests/**", "tools/**"]
   pull_request:
-    paths: ["plugins/**", "foundry/tests/**", "tools/qa.sh"]
+    paths: ["plugins/**", "foundry/tests/**", "tools/**"]
   workflow_dispatch:
   schedule:
     - cron: "17 6 * * 1"  # weekly re-verify (ADR-013): freshness as a standing promise

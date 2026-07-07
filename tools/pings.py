@@ -4,16 +4,12 @@ HEAD. DRY_RUN (default) prints; CI passes --send to use gh. One comment per issu
 per shift, fail-soft always."""
 import json, pathlib, re, subprocess, sys
 
+from lib import parse_front_matter  # one parser, one truth (v13 C12)
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 def front(text):
-    m = re.match(r"---\n(.*?)\n---", text or "", re.S)
-    meta = {}
-    for line in (m.group(1) if m else "").splitlines():
-        if ":" in line:
-            k, v = line.split(":", 1)
-            meta[k.strip()] = v.strip()
-    return meta
+    return parse_front_matter(text or "")[0]
 
 def diff(old, new):
     """old/new: {name: {stage, suggested_in, title}} → [(issue, body)], capped

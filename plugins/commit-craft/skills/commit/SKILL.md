@@ -7,8 +7,12 @@ description: Write a conventional commit message for staged changes and commit t
 
 1. Read what's actually staged: `git diff --cached --stat` then `git diff --cached`
    (unstaged-only? ask before `git add`; never add secrets, .env, or build junk).
-2. Choose the one true type: feat | fix | docs | refactor | test | chore | perf.
-   Scope in parens when the repo has clear areas, e.g. `feat(parser):`.
+2. Choose the one true type: `feat | fix | docs | refactor | test | chore | perf`
+   — **unless `COMMIT_CRAFT_TYPES` is set in the environment, in which case use
+   exactly that list** (pipe/comma/space-separated). The guard hook enforces the
+   same variable, so the type you write and the type it allows must be the same
+   set; check it before choosing. Scope in parens when the repo has clear areas,
+   e.g. `feat(parser):`.
 3. Subject ≤ 72 chars, imperative mood, no trailing period. Body (when the diff
    needs one): the *why*, wrapped at 72; `BREAKING CHANGE:` footer when true.
 4. Show the message, then run `git commit -m "<subject>" [-m "<body>"]`.

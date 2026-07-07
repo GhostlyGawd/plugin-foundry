@@ -1,6 +1,6 @@
 ---
 name: doctor
-description: Audit a Claude Code plugin directory against the official schema and this marketplace's quality bar. Use when reviewing, debugging, or health-checking a plugin.
+description: Audit a Claude Code plugin directory against the official schema and this marketplace's quality bar. Use when the user says doctor my plugin, audit my plugin, check my plugin against the spec, why won't my hook or skill load, or before publishing a plugin.
 ---
 
 # Plugin doctor

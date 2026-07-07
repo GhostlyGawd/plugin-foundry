@@ -9,6 +9,8 @@ description: Write a durable handoff recap of this working session into SESSION-
    - `git status --short` and `git diff --stat` (and `git log --oneline -5` if commits landed)
    - decisions and conclusions actually reached in this conversation
    - anything explicitly deferred or left uncertain
+   - source files changed without matching test changes (the gap test-gap-nudge
+     flags) → record it under **Open questions** so it survives the handoff
 2. APPEND to `SESSION-RECAP.md` (create if missing — never truncate or rewrite
    earlier sections):
 

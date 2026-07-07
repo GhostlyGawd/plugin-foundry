@@ -3,14 +3,14 @@ name: env-doctor
 title: Env Doctor
 category: quality
 stage: published
-version: 0.1.2
-always_on_tokens: 110
+version: 0.2.0
+always_on_tokens: 130
 verified: 2026-07-06
-components: [hooks]
+components: [skills, hooks]
 one_liner: Checks the toolchain against the project's declared versions at session start and warns early.
 tags: [environment, onboarding, hooks]
 created: 2026-07-04
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 # Env Doctor
@@ -82,3 +82,32 @@ envcheck> say the word and I run exactly that command — nothing else.
   vocabulary — installs and exports only, no rm/overwrite class commands.
 REVIEW: approved
 - i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag env-doctor-v0.1.2.
+
+## Maintenance log
+- v13 A2 (feature, v0.1.2 → v0.2.0): shipped the `SessionStart` hook the Pitch
+  and catalog always promised. Ground truth found while building: the front
+  matter said `components: [hooks]` but the plugin only ever shipped the
+  `envcheck` skill (see Spec/Build log) — so this record was doubly wrong (it
+  claimed a hook it lacked). Now it genuinely carries both: `components:
+  [skills, hooks]`, and the "at session start" one-liner is finally true. The
+  hook (`scripts/session-envcheck.sh`) is a fast, read-only, fail-open tripwire
+  on `.nvmrc`/`.node-version` and `.python-version` drift — silent on match /
+  no declaration / `ENV_DOCTOR_SILENT=1`, always exit 0. The `envcheck` skill
+  stays the deep pass. Regression suite: `foundry/tests/env-doctor/session-hook.test.sh`
+  (6 checks: mismatch warns · match silent · nothing-declared silent · opt-out ·
+  garbage stdin exit 0 · structural). CHANGELOG + tag env-doctor-v0.2.0.
+### Test pass — v13 A2 (qa)
+- tier 1: hook suite 6/6 + structure suite 7/7 (14 ok · 0 fail via tools/qa.sh)
+- tier 3: SessionStart event valid, matcher-free, quoted ${CLAUDE_PLUGIN_ROOT},
+  executable shebang script; read-only (version reads only, 4s timeouts);
+  fail-open verified on garbage/empty stdin and python subprocess failure.
+- defects: none found — probed false-positive risk (only clear major or
+  declared-minor-behind mismatches warn) and nag risk (SessionStart fires once).
+TEST VERDICT: pass
+### Review — v13 A2 (reviewer)
+- Hook-safety bar met: no matcher (`.*` impossible), quoted root, exit 0 always,
+  no mutations or network, opt-out + debug env vars documented in README.
+- Honest scope: the fast hook covers node/python only; the README and CHANGELOG
+  say so and point to the full skill — no overclaim. Version law satisfied
+  (minor bump for a new component + CHANGELOG + tag).
+REVIEW: approved

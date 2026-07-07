@@ -278,11 +278,14 @@ ADR-021. First audit with the window live.
 
 # IMPROVEMENTS v13 — the shelf, not the window (2026-07-07, post-v12)
 
-> **Status: DISCOVERY ONLY** — nothing here is built. Every item cites a path
-> (and usually a line). Deduped against v9–v12 above: where a prior slate
-> already touched an area, this slate cites what its implementation left
-> unfinished or newly broke, not the original idea. Report file is the only
-> write.
+> **Status: BUILT** — all 14 shipped as a directed PR under ADR-022/023 (i215),
+> audited in `reviews/audit-008.md`. Building surfaced three self-contradicting
+> records (pr-narrator, env-doctor, session-recap each claimed components they
+> didn't ship); each was resolved toward truth (relabel) or toward value (build
+> the missing hook). Kept verbatim below as the record of what was asked.
+> Every item cites a path (and usually a line). Deduped against v9–v12 above:
+> where a prior slate already touched an area, this slate cites what its
+> implementation left unfinished or newly broke, not the original idea.
 
 ## 1 · Product snapshot
 

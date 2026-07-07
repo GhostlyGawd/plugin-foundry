@@ -12,17 +12,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+from lib import parse_front_matter  # one parser, one truth (v13 C12)
+
 
 def fm(text):
-    parts = text.split("---", 2)
-    meta = {}
-    if len(parts) < 3:
-        return meta
-    for line in parts[1].strip().splitlines():
-        if ":" in line and not line.strip().startswith("#"):
-            k, _, v = line.partition(":")
-            meta[k.strip()] = v.split(" #")[0].strip()
-    return meta
+    return parse_front_matter(text or "")[0]
 
 
 def main(days=7):

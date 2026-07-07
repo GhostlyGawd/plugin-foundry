@@ -3,14 +3,14 @@ name: session-recap
 title: Session Recap
 category: context
 stage: published
-version: 0.1.2
-always_on_tokens: 93
+version: 0.2.0
+always_on_tokens: 115
 verified: 2026-07-06
 components: [skills, hooks]
 one_liner: Writes a structured recap when a session ends and recalls it when the next one starts.
 tags: [memory, sessions, continuity]
 created: 2026-07-04
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 # Session Recap
@@ -82,3 +82,33 @@ recap> - [ ] re-run the adversarial pass on commission #12
   status/diff steps precede writing; absent evidence yields absent claims.
 REVIEW: approved
 - i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag session-recap-v0.1.2.
+
+## Maintenance log
+- v13 B5+B6 (feature, v0.1.2 → v0.2.0): the record carried `components:
+  [skills, hooks]` and a one-liner promising "when a session ends … the next
+  one starts", but the plugin shipped skill-only (the Spec even said "no
+  hooks"). Rather than the originally-pitched stub-writing hook (which would
+  write a file unasked — against hook-safety law), shipped two **read-only,
+  fail-open** hooks: a `Stop` nudge (`scripts/recap-nudge.sh`) that suggests a
+  recap once per session when there's uncommitted work and none written today,
+  and a `SessionStart` recall (`scripts/recap-recall.sh`) that surfaces the
+  last handoff's title. `components` is now true; the one-liner is true. B6
+  synergy: the `recap` skill now files source-changed-without-tests (the
+  test-gap-nudge signal) under Open questions. Suite:
+  `foundry/tests/session-recap/hooks.test.sh` (8 checks). Tag session-recap-v0.2.0.
+### Test pass — v13 B5 (qa)
+- tier 1: hooks suite 8/8 + skill suite 6/6 (15 ok · 0 fail via tools/qa.sh);
+  official validate --strict passes the two-hook manifest.
+- tier 3: SessionStart + Stop events valid, matcher-free, quoted roots,
+  executable shebang scripts; read-only (git status + file reads only);
+  fail-open verified on clean tree / recapped-today / no-file / garbage stdin /
+  opt-out; once-per-session marker honored.
+- defects: none found — probed double-nudge (marker), post-recap silence
+  (today's date match), and recall with multiple sections (newest wins).
+TEST VERDICT: pass
+### Review — v13 B5 (reviewer)
+- Hook-safety bar met: no file writes (the pitch's stub-writer was correctly
+  dropped as unasked-write), exit 0 always, opt-out + debug documented.
+- The two hooks finally make a self-contradicting record honest without
+  overclaiming — nudge suggests, never writes; recall reads, never mutates.
+REVIEW: approved

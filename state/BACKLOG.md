@@ -106,6 +106,16 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
       content (growth-honesty law: no simulated activity) and ADR the intake.py
       idea-label path; builder applies it next iteration.
 
+## v13 slate — SHIPPED ✓ (ADR-022/023, directed PR)
+All 14 built as one directed PR (i215). Shelf-truth: A1 pr-narrator relabel ·
+A2 env-doctor SessionStart hook (v0.2.0) · A3 commit-craft type parity (v0.3.2) ·
+A4 plugin-smith doctor description (v0.1.3). Depth: B5 session-recap hooks
+(v0.2.0) · B6 synergies · B7 night-clerk catalog regen (v0.2.5) · B8 author +
+README parity (fork-a-foundry v0.1.3, dep-bump-brief v0.1.1, pr-narrator v0.1.3).
+Gates: C9 sitemap content-dated · C10 worker idempotency + cap + parse-in-try ·
+C11 intake/metrics truncation · C12 restamp guard + parser dedup · C13 qa.yml
+tools/**. Honest-zero: D14 dormant experiments (ADR-023). qa 248 ok · 0 fail.
+
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
 - [ ] P3 (builder) build.py assumes site/ exists (crashes on a fresh checkout
       without it — found by the firstborn at genesis, i214); mkdir it in main().
@@ -118,15 +128,21 @@ Populated automatically by `tools/intake.py` from GitHub issues labeled `commiss
 Format: `- [ ] C#<issue> (<author>) <title> — <summary>`
 - (none yet)
 
-## Experiments open (growth reviews these when review-after passes — overdue = P1)
-- [ ] token-cost-badges — review 2026-07-19 (clones/uniques ratio vs. prior snapshots)
-- [ ] idea-credit-loop — review 2026-07-26 (suggester spread + repeat rate)
-- [ ] fuel-gauge — review 2026-08-04 (watchers; sponsored-shift credits)
-- [ ] weekly-shipnote — review after 3 notes (watchers trend)
-- [ ] shift-streak — review 2026-07-19 (uniques_14d trend)
-- [ ] starter-kits — review 2026-07-26 (clones per unique)
-- community-voting — review 14 days after first public deploy (metric: open_ideas, idea_votes_total)
-- scannable-window — review 14 days after first public deploy (metric: views_14d, uniques_14d)
+## Experiments — DORMANT until traffic (v13 D14, ADR-023)
+METRICS.jsonl still reads 0 stars / null traffic / 0 votes: none of these can earn
+an honest verdict yet, so they are **dormant**, not overdue. Each review clock
+starts at first real traffic (Gate A: window live with non-null metrics), NOT the
+calendar dates below (kept as the intended *cadence*, re-anchored on that day). No
+dormant experiment counts toward the extend-twice-kill rule or the calibration
+tripwire (charter/GROWTH.md).
+- [ ] token-cost-badges — dormant → review +14d from first traffic (clones/uniques ratio)
+- [ ] idea-credit-loop — dormant → +21d from first traffic (suggester spread + repeat rate)
+- [ ] fuel-gauge — dormant → review once watchers > 0 (sponsored-shift credits)
+- [ ] weekly-shipnote — dormant → review after 3 notes with a live audience (watchers trend)
+- [ ] shift-streak — dormant → +14d from first traffic (uniques_14d trend)
+- [ ] starter-kits — dormant → +21d from first traffic (clones per unique)
+- [ ] community-voting — dormant → +14d from first public traffic (open_ideas, idea_votes_total)
+- [ ] scannable-window — dormant → +14d from first public traffic (views_14d, uniques_14d)
 
 ## Hunting grounds (Ideator's sources — Maintainer prunes)
 - Dogfood friction: this repo's own journal — every "I wished Claude Code would…" is a pitch.

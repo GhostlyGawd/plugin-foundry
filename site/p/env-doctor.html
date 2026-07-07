@@ -49,10 +49,10 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Env Doctor — birth certificate</h1></header>
-  <p class="meta">plugin · quality · v0.1.2 · created 2026-07-04 · updated 2026-07-06 · ~110 tok est · verified 2026-07-06</p>
+  <p class="meta">plugin · quality · v0.2.0 · created 2026-07-04 · updated 2026-07-07 · ~130 tok est · verified 2026-07-06</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</p>
-  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>hooks</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~110 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall env-doctor — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>SessionStart · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~130 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall env-doctor — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Env Doctor
 
@@ -60,6 +60,11 @@ One skill, `envcheck`: compares your machine against what the repo *actually
 declares* (engines, .nvmrc, requires-python, .tool-versions, go.mod, .env.example)
 and reports ✓/✗ per line with a copyable fix for every ✗. It never installs,
 switches, or mutates anything without your yes to the specific command.
+
+Plus a `SessionStart` hook that catches you early: on a fresh session it does a
+fast, read-only check of the declared runtime versions (`.nvmrc`/`.node-version`,
+`.python-version`) and prints a single heads-up line only when one clearly drifts
+from what&#x27;s installed — then get the full picture with `envcheck` (&quot;env doctor&quot;).
 
 ## Install
 ```
@@ -72,12 +77,14 @@ switches, or mutates anything without your yes to the specific command.
 - &quot;why won&#x27;t this run?&quot; → mismatches surface with paired fixes
 - CI-only failure → run it inside the container image to diff environments
 
-No hooks, no network, no unasked changes. See [CHANGELOG.md](./CHANGELOG.md).
+One read-only `SessionStart` hook, no network, no unasked changes. See
+[CHANGELOG.md](./CHANGELOG.md).
 
 ## Manage
 
 - **Update:** `/plugin marketplace update`, then `claude plugin update env-doctor`
 - **Disable / re-enable:** `claude plugin disable env-doctor` / `claude plugin enable env-doctor` (or the `/plugin` menu — no uninstall needed)
+- **Silence just the session-start heads-up** (keep the `envcheck` skill): set `ENV_DOCTOR_SILENT=1` in your environment. `ENV_DOCTOR_DEBUG=1` writes the hook&#x27;s decision trail to `${TMPDIR}/env-doctor-debug.log`.
 - **Uninstall:** `claude plugin uninstall env-doctor` — removes everything the plugin added
 </pre></details><details><summary>Pitch</summary><pre>- **Job:** surface toolchain drift in the first second of a session.
 - **User:** teams with .tool-versions/.nvmrc/pinned runtimes.
@@ -121,7 +128,33 @@ envcheck&gt; say the word and I run exactly that command — nothing else.</pre>
 - Sharpest question: could a suggested &quot;fix&quot; be destructive-by-default? Audited the
   vocabulary — installs and exports only, no rm/overwrite class commands.
 REVIEW: approved
-- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag env-doctor-v0.1.2.</pre></details></div>
+- i182 (maintainer, v11 #2): v0.1.2 — README Manage section (docs sweep). Tag env-doctor-v0.1.2.</pre></details><details><summary>Maintenance log</summary><pre>- v13 A2 (feature, v0.1.2 → v0.2.0): shipped the `SessionStart` hook the Pitch
+  and catalog always promised. Ground truth found while building: the front
+  matter said `components: [hooks]` but the plugin only ever shipped the
+  `envcheck` skill (see Spec/Build log) — so this record was doubly wrong (it
+  claimed a hook it lacked). Now it genuinely carries both: `components:
+  [skills, hooks]`, and the &quot;at session start&quot; one-liner is finally true. The
+  hook (`scripts/session-envcheck.sh`) is a fast, read-only, fail-open tripwire
+  on `.nvmrc`/`.node-version` and `.python-version` drift — silent on match /
+  no declaration / `ENV_DOCTOR_SILENT=1`, always exit 0. The `envcheck` skill
+  stays the deep pass. Regression suite: `foundry/tests/env-doctor/session-hook.test.sh`
+  (6 checks: mismatch warns · match silent · nothing-declared silent · opt-out ·
+  garbage stdin exit 0 · structural). CHANGELOG + tag env-doctor-v0.2.0.
+### Test pass — v13 A2 (qa)
+- tier 1: hook suite 6/6 + structure suite 7/7 (14 ok · 0 fail via tools/qa.sh)
+- tier 3: SessionStart event valid, matcher-free, quoted ${CLAUDE_PLUGIN_ROOT},
+  executable shebang script; read-only (version reads only, 4s timeouts);
+  fail-open verified on garbage/empty stdin and python subprocess failure.
+- defects: none found — probed false-positive risk (only clear major or
+  declared-minor-behind mismatches warn) and nag risk (SessionStart fires once).
+TEST VERDICT: pass
+### Review — v13 A2 (reviewer)
+- Hook-safety bar met: no matcher (`.*` impossible), quoted root, exit 0 always,
+  no mutations or network, opt-out + debug env vars documented in README.
+- Honest scope: the fast hook covers node/python only; the README and CHANGELOG
+  say so and point to the full skill — no overclaim. Version law satisfied
+  (minor bump for a new component + CHANGELOG + tag).
+REVIEW: approved</pre></details></div>
   <p class="links">install: <code>/plugin install env-doctor@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/env-doctor.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/env-doctor.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/env-doctor">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

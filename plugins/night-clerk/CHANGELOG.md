@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.5 — 2026-07-07
+- catalog snapshot regenerated (v13 B7): corrects two entries the shelf had been
+  misdescribing — pr-narrator is a **skill**, not a "subagent" (tags `agents` →
+  `skills`), and env-doctor now genuinely runs **at session start** (v0.2.0 hook)
+  so its "at session start" line and `hooks` tag are finally accurate. Also picks
+  up commit-craft 0.3.2, plugin-smith 0.1.3, session-recap 0.2.0, dep-bump-brief
+  0.1.1, fork-a-foundry 0.1.3.
+- clerk: for "newest/most recent" asks, the skill now says plainly the bundled
+  snapshot is point-in-time and points at `/plugin marketplace update` + the live
+  window for anything shipped since (decay honesty).
+
 ## 0.2.4 — 2026-07-07
 - catalog snapshot: dep-bump-brief 0.1.0 joins the shelf (nine plugins)
 

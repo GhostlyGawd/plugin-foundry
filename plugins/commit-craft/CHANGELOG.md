@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2 — 2026-07-07
+- fix: the `commit` skill now honours `COMMIT_CRAFT_TYPES` too — it drafts using
+  the same allowed-type list the guard hook enforces, so a customized type set no
+  longer produces messages the guard rejects (config parity, v13 A3).
+- chore: guard debug log uses timezone-aware UTC (drops the deprecated
+  `datetime.utcnow()`); no behavior change, debug-only.
+
 ## 0.3.1 — 2026-07-06
 - docs: standard `## Manage` section — update, disable/enable, uninstall,
   and on-disk footprint in one place (v11 #2 README sweep).

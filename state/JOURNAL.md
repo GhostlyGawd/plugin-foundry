@@ -1941,3 +1941,38 @@ Entry template (copy exactly; newest at the bottom):
   a Claude secret each.
 - notes: the child found one latent parent bug at birth (build.py assumes
   site/ exists) — worked around in the seed; P3 for the parent's bug lane.
+
+## i215 — directed (v13 slate — the shelf, not the window) — 2026-07-07T13:43:59Z
+- did: built the whole v13 discovery slate (14 items, 4 lanes) as one directed
+  PR under ADR-022/023. **Lane A (shelf-truth):** relabeled pr-narrator's record
+  to the truth (ships a skill, not an agent); built env-doctor's SessionStart
+  hook (fast, read-only, fail-open) resolving its "claimed [hooks], shipped a
+  skill" contradiction toward value → v0.2.0; commit-craft skill now honours
+  COMMIT_CRAFT_TYPES → v0.3.2; plugin-smith doctor description sharpened to
+  concrete triggers → v0.1.3. **Lane B (depth):** session-recap gained Stop
+  nudge + SessionStart recall hooks (same self-contradicting record, resolved) →
+  v0.2.0; two cross-plugin synergies wired (recap↔test-gap-nudge, pr-narrator↔
+  dep-bump-brief); night-clerk catalog regenerated once, correcting the mislabels
+  → v0.2.5; author names normalized + README parity (fork-a-foundry v0.1.3,
+  dep-bump-brief v0.1.1, pr-narrator v0.1.3). **Lane C (gates):** sitemap now
+  content-dated (gates.yml stops crying wolf); commission-worker hardened
+  (idempotency + body cap + parse-in-try); intake/metrics truncation fixed;
+  restamp None-guard + four more tools routed through lib.parse_front_matter;
+  qa.yml runs on tools/**. **Lane D:** dormant-experiment rubric (ADR-023) so
+  the growth ledger stops marching pre-traffic features to a kill.
+- line: 8 plugins version-bumped (env-doctor 0.2.0, session-recap 0.2.0,
+  commit-craft 0.3.2, plugin-smith 0.1.3, pr-narrator 0.1.3, dep-bump-brief
+  0.1.1, fork-a-foundry 0.1.3, night-clerk 0.2.5); two new hooks with suites;
+  none moved stage (all stay published under version law).
+- files: 9 plugins, 8 records, 4 tools, 2 workflows, worker.js, charter/GROWTH.md,
+  DECISIONS (ADR-022/023), BACKLOG, IMPROVEMENTS, foundry/tests/* (2 new suites,
+  3 fixtures updated), site/* (regenerated).
+- validation: pass — validate + build green; qa 248 ok · 1 skip · 0 fail;
+  smoke official --strict; worker node --check.
+- next-suggestion: auditor close (audit-008); merge; release dispatches for the
+  8 new tags; then both repos still wait on the Claude secret.
+- notes: three self-contradicting records surfaced while building (pr-narrator,
+  env-doctor, session-recap each claimed components they didn't ship) — every one
+  resolved toward truth or toward value, never papered over. Tripwire untouched:
+  QA caught 4 real regressions mid-build (fixture lib-copy, stale trust-card
+  example, ADR header format) — all fixed at the source, not the test.
