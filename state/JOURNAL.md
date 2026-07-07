@@ -2008,3 +2008,19 @@ Entry template (copy exactly; newest at the bottom):
   (one iteration = one bump) rather than stuttering 0.2.6/0.2.7. Theme steers the
   next ideator toward more "repo hygiene" pitches; the auditor's monthly read
   will judge whether it earned its keep.
+
+## ops — operator un-pause: CLAUDE_CODE_OAUTH_TOKEN configured — 2026-07-07T16:04:02Z
+- trigger: operator configured the CLAUDE_CODE_OAUTH_TOKEN Actions secret — the
+  sole release condition named verbatim in the tracked root STOP file, and the
+  last item in STATE's "Gate left: Claude secret".
+- action: removed the root STOP file so run-shift.yml can run again (schedule +
+  workflow_dispatch); loop.sh halts while STOP exists (loop.sh:75). Landed on
+  claude/oauth-token-repo-e1z796 via draft PR — merging to main is the operator's
+  explicit resume approval (veto by close, ADR-008 spirit).
+- validation: validate (36 published) + build green; no plugin/catalog change, so
+  smoke not required. No secret value touches the repo — GitHub Actions holds it.
+- unverifiable-here: the secret's value is masked; the definitive test is the
+  first Actions -> "Run shift". If it were misnamed/expired the shift would fail
+  loudly at the "Run the loop" step, not silently.
+- next: merge to resume the 8-hourly cron; optionally dispatch one manual shift
+  first (mode: pr for a first-run veto window) to confirm the token authenticates.
