@@ -1642,3 +1642,15 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: operator merges the PR, pushes 15 tags, runs
   preflight --issue.
 - notes: two slates in one day; the lore survived both.
+
+## i193 — maintainer (directed) — 2026-07-07T02:00:18Z
+- did: ADR-020 filed — the operator's clicks become dispatches. Manifest
+  state/TAGS-PENDING.json generated from the 15 session-laid annotated tags
+  (creation order = per-plugin version order; every SHA verified reachable
+  from main). Secret VALUES stay untouchable by law — presence probes only.
+- line: n/a (ADR + manifest)
+- files: state/DECISIONS.md, state/TAGS-PENDING.json, state/STATE.json
+- validation: pass
+- next-suggestion: i194 — the three workflow changes.
+- notes: the latent release-zip defect (dispatch would zip the current tree)
+  was found while designing this; the fix rides the same change.

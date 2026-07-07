@@ -322,3 +322,34 @@ Template:
 - Consequences: the funnel reads human at first contact; every installed
   README answers "how do I manage this thing"; the operator's two known
   footguns (unchecked go-live list, stranded local tags) become visible.
+
+## ADR-020 — the operator's clicks become dispatches (i193, directed)
+- Status: accepted (workflow changes apply from i194+ under the two-iteration
+  rule with this ADR as the prior-iteration record)
+- Context: operator directed "figure out a way to do all of those yourself" —
+  the remaining go-live actions. Session limits: git tag pushes 403
+  (branch-scoped proxy) and the session API token has no write scopes. But
+  GitHub Actions workflows run with contents:write and pages:write, and the
+  session CAN dispatch workflows. So the repo grows the hands it needs.
+- Decision, three workflow changes + an ops sequence:
+  1. `.github/workflows/lay-tags.yml` (NEW, workflow_dispatch only):
+     recreates the annotated tags listed in `state/TAGS-PENDING.json`
+     (skip-if-exists, never forced), and reports — names/presence only, never
+     values — whether CLAUDE_CODE_OAUTH_TOKEN / ANTHROPIC_API_KEY /
+     GOATCOUNTER_TOKEN secrets and LOOP_MONTHLY_BUDGET_USD are configured,
+     so the session can decide whether a first shift can run.
+  2. `release-on-tag.yml` gains `workflow_dispatch` with a `tag` input and
+     checks out the TAG'S OWN REF before cutting — this also fixes a latent
+     defect: a dispatch-cut (or re-run) release previously would have zipped
+     the CURRENT tree, attaching wrong-version artifacts.
+  3. `deploy-site.yml`: `actions/configure-pages@v5` gains `enablement: true`
+     — the first deploy CREATES the Pages site with source=Actions, replacing
+     click-list item 1.
+  Ops sequence after merge (session-driven, via actions_run_trigger):
+  lay-tags → verify ls-remote → release-on-tag ×15 oldest-first → deploy-site
+  → verify the window serves → run-shift ONLY if the probe shows a Claude
+  secret present. Hard line unchanged: the session never sets, reads, or
+  copies secret VALUES; a missing API key remains the operator's alone.
+- Consequences: the click-list shrinks to "add a secret" (+ optional budget
+  var / GoatCounter / FUNDING); releases become reproducible from any tag;
+  Gate A's window can finally go live without a human browser session.
