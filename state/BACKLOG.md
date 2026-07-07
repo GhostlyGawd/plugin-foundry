@@ -64,6 +64,12 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 - [x] P2 (growth) Spec weekly-shipnote — OBE: published i113 with fixture suite.
       Closed i140.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
+- [ ] P1 (operator) Genesis ceremony unblock (v12 4.1, ADR-021 — blessing on
+      record): create ONE empty public repo (suggested name: dawnshift-forge);
+      a session then seeds it per fork-a-foundry and registers the first
+      sister. Attempted i212: create_repository → 403, no session or workflow
+      token can create repos. Everything downstream is built and waiting
+      (network strip, family tree, Lane 4 verification, badges).
 
 ## v7 slate — SHIPPED ✓ (audit-002)
 All 12 published i35–i86; experiments armed with dated reviews. World-gated
