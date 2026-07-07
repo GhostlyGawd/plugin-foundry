@@ -56,6 +56,26 @@ jobs:
           LOOP_MONTHLY_BUDGET_USD: ${{ vars.LOOP_MONTHLY_BUDGET_USD }}
           CI: "true"
         run: ./loop.sh "${{ github.event.inputs.iterations || '3' }}"
+      - name: Surface loop errors (diagnostic — token/auth debugging)
+        if: always()
+        continue-on-error: true
+        run: |
+          # loop.sh is fail-soft and, in CI/JSON mode, writes claude's error to
+          # <log>.json (stdout) while printing only <log>.err (stderr) — so an
+          # auth failure (a rejected CLAUDE_CODE_OAUTH_TOKEN) leaves no trace in
+          # this log. Surface both, capped; GitHub masks registered secrets. No
+          # run logs -> silent no-op.
+          shopt -s nullglob
+          found=0
+          for f in state/runs/*.err state/runs/*.json; do
+            [ -s "$f" ] || continue
+            found=1
+            echo "::group::${f}"
+            tail -c 4000 "$f"
+            echo
+            echo "::endgroup::"
+          done
+          [ "$found" = 1 ] || echo "no state/runs/* logs this shift"
       - name: Land the work
         env:
           GH_TOKEN: ${{ github.token }}

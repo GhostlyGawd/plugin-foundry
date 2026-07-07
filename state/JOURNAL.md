@@ -2024,3 +2024,22 @@ Entry template (copy exactly; newest at the bottom):
   loudly at the "Run the loop" step, not silently.
 - next: merge to resume the 8-hourly cron; optionally dispatch one manual shift
   first (mode: pr for a first-run veto window) to confirm the token authenticates.
+
+## ops — token rejected: re-pause + surface the error — 2026-07-07T16:26:00Z
+- finding: the first live shift (dispatch run #7, mode:pr, 1 iteration) reached the
+  loop but `claude` exited nonzero ~3s into pass 1/1 — "loop.sh: claude exited
+  nonzero (streak: 1)". The env shows CLAUDE_CODE_OAUTH_TOKEN present (***), so the
+  secret is named and non-empty; the value is being rejected (auth). The shift's
+  PR #24 holds only a metrics-heartbeat line — no real iteration work.
+- why it looked green: loop.sh is fail-soft (halts only at a 3-failure streak), and
+  in CI/JSON mode claude's error goes to <log>.json (stdout) while loop.sh prints
+  only <log>.err (stderr) — and state/runs/ is gitignored + ephemeral, so the exact
+  cause never surfaced. Both together = a failed shift that reports success silently.
+- action (operator-directed): (1) re-added the root STOP file so scheduled shifts
+  don't keep no-opping until the token is fixed; (2) added a fail-soft `if: always()`
+  diagnostic step to run-shift.yml that tails state/runs/*.{err,json} (capped, secret-
+  masked) so the next failure shows claude's precise error in the Actions log.
+- validation: validate (36 published) + build green; no plugin/catalog change, so
+  smoke not required. Left PR #24 open (operator kept it).
+- next: regenerate the token (`claude setup-token`, active subscription), update the
+  secret, delete STOP, re-run. The diagnostic will confirm the fix (or the real cause).

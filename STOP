@@ -1,0 +1,7 @@
+Paused by operator — CLAUDE_CODE_OAUTH_TOKEN was rejected on the first live shift.
+Run #7 (PR #24): `claude` exited nonzero ~3s into pass 1/1 — an authentication
+failure, not real work (the secret is present but its value is not accepted).
+
+To resume: regenerate the token with `claude setup-token` on a machine logged into
+an active Claude subscription, update the CLAUDE_CODE_OAUTH_TOKEN Actions secret with
+the full value, run one shift to confirm, then delete this file.
