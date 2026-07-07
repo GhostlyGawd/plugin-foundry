@@ -1,0 +1,67 @@
+# Ops guard (ADR-021, v12 1.1+2.4). Two duties:
+# 1. ensure-labels: every label the templates, workflows, and tools assume
+#    exists — a visitor filing an idea on the live window must land in the
+#    intake funnel, and ops-alarm must be attachable (proven missing when the
+#    release misfires couldn't label their alarms).
+# 2. failure catcher: any listed workflow concluding in failure opens (or
+#    comments on) an ops-alarm issue — the factory never fails silently again.
+name: Ops guard
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 5 * * 1"   # weekly label re-ensure; cheap idempotence
+  workflow_run:
+    workflows:
+      - Run shift
+      - Deploy site
+      - Gates
+      - QA harness
+      - Release on tag
+      - Lay pending tags
+      - Weekly shipnote
+      - Record demo transcripts
+    types: [completed]
+permissions:
+  issues: write
+jobs:
+  labels:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Ensure every assumed label exists (idempotent)
+        run: |
+          ensure() { gh label create "$1" --color "$2" --description "$3" --repo "${GITHUB_REPOSITORY}" 2>/dev/null && echo "created: $1" || echo "exists: $1"; }
+          ensure idea           "1D76DB" "Plugin pitch — votes order the pool; the Ideator formalizes"
+          ensure bug            "D93F0B" "Defect in a published plugin — outranks new work (LOOP.md p3)"
+          ensure question       "0E8A16" "Answered in the Monday shipnote's Mailbag"
+          ensure field-report   "5319E7" "Real-world usage report — rendered on the plugin's certificate"
+          ensure sister-foundry "FBCA04" "Network registration (CONTRIBUTING Lane 4; verified before listing)"
+          ensure commission     "B60205" "Paid priority — jumps the roadmap queue at the next shift"
+          ensure ops-alarm      "E11D21" "The machine needs the operator — window turns amber"
+          ensure ops-golive     "C2E0C6" "The go-live checklist issue (tools/preflight.py --issue)"
+          ensure shipnote       "BFD4F2" "The Monday shipnote the loop writes itself"
+          ensure human-review   "EDEDED" "External PR — only the human operator merges outside code"
+  catch:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      WF: ${{ github.event.workflow_run.name }}
+      RUN_URL: ${{ github.event.workflow_run.html_url }}
+    steps:
+      - name: Open or extend the ops-alarm for this workflow
+        run: |
+          TITLE="ops-alarm: workflow '${WF}' failed"
+          NUM=$(gh issue list --repo "${GITHUB_REPOSITORY}" --label ops-alarm --state open \
+                --search "in:title \"${TITLE}\"" --json number --jq '.[0].number' || true)
+          if [ -n "${NUM}" ] && [ "${NUM}" != "null" ]; then
+            gh issue comment "${NUM}" --repo "${GITHUB_REPOSITORY}" \
+              --body "Failed again: ${RUN_URL}"
+          else
+            printf 'The %s workflow concluded in failure: %s\n\nCaught by ops-guard (ADR-021). The window turns amber while ops-alarm issues are open; close this once the cause is fixed or the run is re-kicked green.\n' \
+              "'${WF}'" "${RUN_URL}" > /tmp/alarm-body.md
+            gh issue create --repo "${GITHUB_REPOSITORY}" --title "${TITLE}" --label ops-alarm \
+              --body-file /tmp/alarm-body.md
+          fi

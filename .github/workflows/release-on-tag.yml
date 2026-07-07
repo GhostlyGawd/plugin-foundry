@@ -37,7 +37,21 @@ jobs:
           TAG="${{ inputs.tag || github.ref_name }}"
           NAME="${TAG%-v*}"
           VER="${TAG##*-v}"
-          python3 tools/relnotes.py "plugins/${NAME}/CHANGELOG.md" "${VER}" > /tmp/notes.md
+          python3 tools/relnotes.py "plugins/${NAME}/CHANGELOG.md" "${VER}" > /tmp/changelog.md
+          # v12 1.3+3.4: the release page should sell the install and name its
+          # lineage — this repo hosts one release stream per plugin, so the
+          # repo-level "Latest" badge may point at a different plugin entirely.
+          MP=$(python3 -c "import json; print(json.load(open('.claude-plugin/marketplace.json'))['name'])")
+          {
+            echo "Part of the **${NAME}** lineage ([all ${NAME} releases](https://github.com/${GITHUB_REPOSITORY}/releases?q=${NAME}&expanded=true) — the repo-level Latest badge may belong to a sibling plugin)."
+            echo
+            echo '```'
+            echo "/plugin marketplace add ${GITHUB_REPOSITORY}"
+            echo "/plugin install ${NAME}@${MP}"
+            echo '```'
+            echo
+            cat /tmp/changelog.md
+          } > /tmp/notes.md
           (cd plugins && zip -rq "/tmp/${NAME}-${VER}.zip" "${NAME}")
           python3 - "${NAME}" > "/tmp/${NAME}-marketplace-entry.json" << 'PY'
           import json, sys

@@ -10,6 +10,7 @@ substantiated by this repo (dark-pattern law). Stdlib only.
 """
 import html
 import json
+import shutil
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -722,10 +723,15 @@ function renderVerified(){
   const box = document.getElementById('verifiedbox');
   if (!V.length) { head.style.display = 'none'; box.style.display = 'none'; return; }
   head.style.display = 'block'; box.style.display = 'block';
-  box.innerHTML = V.map(v =>
-    '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
-    (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>').join('') +
-    '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee</p>';
+  box.innerHTML = V.map(v => {
+    const slug = (v.repo || '').replace(/[^A-Za-z0-9_-]/g, '-');
+    const badge = (DATA.pages_url && v.run_url)
+      ? '<div class="install">[![verified by the foundry](' + esc(DATA.pages_url) + '/verified/' + esc(slug) + '.svg)](' + esc(DATA.pages_url) + '/)</div>'
+      : '';
+    return '<div class="hrow"><b>' + esc(v.repo) + '</b><em>doctor green · ' + esc(v.verified) + '</em>' +
+      (v.run_url ? ' <a href="' + esc(v.run_url) + '">the run →</a>' : '') + '</div>' + badge;
+  }).join('') +
+    '<p class="vnone">structural checks against the official spec — a floor, not a safety guarantee · the badge markdown is yours to embed (click to copy)</p>';
 }
 /* sister foundries (v10 #14, foundry-network spec) — names + links only, never
    remote content; renders nothing while the network is empty. */
@@ -928,16 +934,32 @@ def trust_card(name, r):
             'no hand-written safety claims allowed here</p></div>')
 
 
-def og_meta(title, desc, url):
-    """Open Graph / twitter card tags (ADR-016 #5). Values are derived at build
-    time from the same substantiated data as the page — never hand-written."""
+def og_meta(title, desc, url, image_url=""):
+    """Open Graph / twitter card tags (ADR-016 #5; og:image v12 1.4). Values
+    are derived at build time from the same substantiated data as the page.
+    The image is a real screenshot of the window (foundry/assets/og-image.png,
+    copied into site/ each build; re-shot when the hero changes)."""
+    card = "summary_large_image" if image_url else "summary"
     tags = [f'<meta property="og:title" content="{html.escape(title)}">',
             f'<meta property="og:description" content="{html.escape(desc)}">',
             '<meta property="og:type" content="website">',
-            '<meta name="twitter:card" content="summary">']
+            f'<meta name="twitter:card" content="{card}">']
+    if image_url:
+        tags.append(f'<meta property="og:image" content="{html.escape(image_url)}">')
+        tags.append('<meta property="og:image:width" content="1200">')
+        tags.append('<meta property="og:image:height" content="630">')
     if url:
         tags.insert(2, f'<meta property="og:url" content="{html.escape(url)}">')
     return "\n".join(tags)
+
+
+def og_image_url(cfg):
+    """Absolute og:image URL when the asset exists and pages_url is set —
+    substantiation law: never point at an image that isn't there."""
+    pages_url = (cfg.get("pages_url") or "").rstrip("/")
+    if pages_url and (ROOT / "foundry" / "assets" / "og-image.png").exists():
+        return f"{pages_url}/og-image.png"
+    return ""
 
 
 def build_pages(records, mp_name, cfg, reports):
@@ -1022,7 +1044,8 @@ def build_pages(records, mp_name, cfg, reports):
                 .replace("@@OG@@", og_meta(
                     f"{r.get('title', name)} — provenance",
                     r.get("one_liner", ""),
-                    f"{pages_url}/p/{name}.html" if pages_url else ""))
+                    f"{pages_url}/p/{name}.html" if pages_url else "",
+                    og_image_url(cfg)))
                 .replace("@@NAME@@", html.escape(r.get("title", name)))
                 .replace("@@META@@", html.escape(" · ".join(meta_bits)) + cardlink)
                 .replace("@@TRACK@@", track)
@@ -1241,6 +1264,83 @@ h1{{font-size:18px;letter-spacing:.12em;text-transform:uppercase;border-bottom:3
     (ROOT / "site" / "queue.html").write_text(page)
 
 
+def build_notfound(cfg, mp_name):
+    """v12 3.2: a branded 404 in the clerk's voice — GitHub Pages serves
+    404.html automatically for unknown paths."""
+    base = (cfg.get("pages_url") or "").rstrip("/")
+    home = f'{html.escape(base)}/' if base else "index.html"
+    (ROOT / "site" / "404.html").write_text(f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — nothing on this shelf</title>
+<style>
+ :root{{--paper:#E9DFC8; --card:#F3ECDA; --ink:#2C2820; --line:#B5A683; --dim:#7E7460; --stamp:#2F5A8F}}
+ @media (prefers-color-scheme: dark){{:root{{--paper:#1C1913; --card:#26211A; --ink:#E4D8BC; --line:#4A4232; --dim:#9A8E74; --stamp:#8FB0DC}}}}
+ body{{font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--paper); color:var(--ink);
+   display:grid; place-items:center; min-height:90vh; padding:20px}}
+ .card{{max-width:520px; border:1.5px solid var(--ink); background:var(--card); padding:26px}}
+ h1{{font-size:16px; letter-spacing:.14em; text-transform:uppercase; border-bottom:2px solid var(--ink); padding-bottom:8px}}
+ p{{font-size:13px; line-height:1.6; color:var(--dim)}} a{{color:var(--stamp)}}
+</style></head><body><div class="card">
+<h1>404 — nothing on this shelf</h1>
+<p>The clerk checked the back room: no such page. Published names are immutable
+here, so if a link brought you to this, the link was wrong — the shelf never
+moves its stock.</p>
+<p><a href="{home}">← back to the window</a> · everything shipped is searchable there.</p>
+</div></body></html>""")
+
+
+def build_sitemap(records, cfg):
+    """v12 3.3: sitemap.xml + robots.txt — 39 certificates deserve indexing.
+    Emitted only with a configured pages_url (absolute URLs or nothing)."""
+    base = (cfg.get("pages_url") or "").rstrip("/")
+    if not base:
+        return
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    urls = [f"{base}/", f"{base}/saga.html", f"{base}/queue.html", f"{base}/theater.html"]
+    urls += [f"{base}/p/{r['name']}.html" for r in records if r.get("name")]
+    body = "".join(f"<url><loc>{html.escape(u)}</loc><lastmod>{today}</lastmod></url>" for u in urls)
+    (ROOT / "site" / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>\n')
+    (ROOT / "site" / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+
+
+def build_verified_badges(cfg):
+    """v12 4.2 (verified-by-foundry growth loop): one embeddable SVG per
+    verified external repo — 'verified by the foundry | doctor green · date'.
+    Hand-rolled two-cell shields-style SVG (stdlib-only law). Substantiation:
+    a badge exists only for a registry entry, and every entry required a
+    public run link to get listed. Empty registry -> no files at all."""
+    entries = load_json(ROOT / "foundry" / "verified.json", {}).get("verified", [])
+    outdir = ROOT / "site" / "verified"
+    # regenerate from scratch: a delisted repo's badge must die with its listing
+    if outdir.exists():
+        shutil.rmtree(outdir)
+    if not entries:
+        return
+    outdir.mkdir(parents=True, exist_ok=True)
+    left = "verified by the foundry"
+    for e in entries:
+        repo = e.get("repo", "")
+        if not repo or not e.get("run_url"):
+            continue
+        right = f"doctor green · {e.get('verified', '?')}"
+        lw = 8 + int(len(left) * 6.6) + 8
+        rw = 8 + int(len(right) * 6.6) + 8
+        w = lw + rw
+        slug = re.sub(r"[^A-Za-z0-9_-]", "-", repo)
+        (outdir / f"{slug}.svg").write_text(f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="20" role="img" aria-label="{html.escape(left)}: {html.escape(right)}">
+<title>{html.escape(left)}: {html.escape(right)} — structural checks only, a floor not a guarantee</title>
+<rect width="{lw}" height="20" fill="#2C2820"/>
+<rect x="{lw}" width="{rw}" height="20" fill="#2F5A8F"/>
+<g fill="#E9DFC8" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">
+<text x="{lw // 2}" y="14" text-anchor="middle">{html.escape(left)}</text>
+<text x="{lw + rw // 2}" y="14" text-anchor="middle">{html.escape(right)}</text>
+</g></svg>
+""")
+
+
 def build_badge(records, state):
     shipped = sum(1 for r in records if r.get("stage") == "published")
     (ROOT / "site" / "badge.json").write_text(json.dumps({
@@ -1335,6 +1435,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "network": load_json(ROOT / "foundry" / "network.json", {}).get("network", []),
         "streak": streak,
         "repo": cfg.get("repo") or None,
+        "pages_url": (cfg.get("pages_url") or "").rstrip("/") or None,
     }
     (ROOT / "site" / "data.json").write_text(json.dumps(data, indent=1))
 
@@ -1358,7 +1459,8 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
                 f"{title} — a plugin workshop run entirely by AI",
                 f"{data['counts']['published']} shipped · shift i{data['iteration']} — "
                 "Claude Code plugins built, tested, and published by an autonomous loop.",
-                (cfg.get("pages_url") or "").rstrip("/")))
+                (cfg.get("pages_url") or "").rstrip("/"),
+                og_image_url(cfg)))
             .replace("@@ITER@@", str(data["iteration"]).zfill(3))
             .replace("@@PHASE@@", html.escape(data["phase"]))
             .replace("@@LANE@@", lane_html)
@@ -1379,6 +1481,11 @@ def main():
     state = json.loads((ROOT / "state" / "STATE.json").read_text())
     mp = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text())
     cfg = json.loads((ROOT / "foundry" / "site-config.json").read_text())
+    # v12 1.4: ship the social card with the site (source of truth in assets/)
+    og_src = ROOT / "foundry" / "assets" / "og-image.png"
+    if og_src.exists():
+        (ROOT / "site").mkdir(exist_ok=True)
+        (ROOT / "site" / "og-image.png").write_bytes(og_src.read_bytes())
     mp_name = mp.get("name", "foundry")
     records = collect_records()
     counts = build_index(records, state, mp_name)
@@ -1406,6 +1513,9 @@ def main():
     build_queue(records, cfg)
     build_badge(records, state)
     build_feed(records, cfg)
+    build_notfound(cfg, mp_name)
+    build_sitemap(records, cfg)
+    build_verified_badges(cfg)
     print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates")
 
 

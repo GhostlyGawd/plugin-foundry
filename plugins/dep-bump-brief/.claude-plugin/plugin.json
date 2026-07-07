@@ -1,0 +1,16 @@
+{
+  "name": "dep-bump-brief",
+  "displayName": "Dep-Bump Brief",
+  "version": "0.1.0",
+  "description": "Turns a dependency-bump diff into a plain-language review brief: old to new, semver distance, real usage sites to check, and honest 'changelog not checked' when sources are unreachable.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dependencies",
+    "dependabot",
+    "review",
+    "changelogs"
+  ]
+}

@@ -1710,3 +1710,214 @@ Entry template (copy exactly; newest at the bottom):
   label to exist (creation failed silently during the misfires).
 - notes: two GitHub walls in one night, both documented with the workaround
   that beat them — future forks inherit the map.
+
+## i197 — maintainer (directed) — 2026-07-07T02:33:48Z
+- did: ADR-021 filed — v12 slate opens (14 items, first live-window audit);
+  IMPROVEMENTS v12 appendix. The genesis blessing (4.1) is quoted in the ADR:
+  one sibling repo, this slate only, never a standing power.
+- line: n/a (ADR only)
+- files: state/DECISIONS.md, IMPROVEMENTS.md, state/STATE.json
+- validation: pass
+- next-suggestion: 1.1+2.4 — ops-guard.
+- notes: n/a
+
+## i198 — builder (directed, v12 1.1+2.4) — 2026-07-07T02:35:06Z
+- did: ops-guard.yml — (1.1) idempotent ensure-labels for all ten assumed
+  labels (idea/bug/question/field-report/sister-foundry/commission/ops-alarm/
+  ops-golive/shipnote/human-review), weekly + dispatchable; (2.4) failure
+  catcher: any of the eight named workflows concluding in failure opens or
+  extends an ops-alarm issue with the run link — the silent-red class (lay-tags
+  run 1) is extinct. Excludes itself from its own watch list.
+- line: n/a (workflow, ADR-021)
+- files: .github/workflows/ops-guard.yml
+- validation: fixed-then-pass — first cut committed with a YAML-breaking
+  unindented heredoc body in the catcher (caught by the unchained check,
+  post-commit); moved the body to printf + --body-file, amended.
+- next-suggestion: 1.2 — dep-bump-brief enters spec.
+- notes: label colors/descriptions double as documentation of each lane.
+
+## i199 — builder (directed, v12 1.2) — 2026-07-07T02:36:22Z
+- did: dep-bump-brief specced — verbatim skill description, four-ecosystem
+  procedure, honesty rules (changelog-not-checked path, never-invent), risk
+  line output, four acceptance checks.
+- line: dep-bump-brief idea → spec
+- files: foundry/records/dep-bump-brief.md
+- validation: pass
+- next-suggestion: build the skill.
+- notes: n/a
+
+## i200 — builder (directed, v12 1.2) — 2026-07-07T02:37:12Z
+- did: dep-bump-brief built — plugin.json, dep-brief skill exactly per spec
+  (honesty rules verbatim), README (with the v11 Manage convention from
+  scaffold's template), CHANGELOG at 0.1.0 Unreleased.
+- line: dep-bump-brief spec → building (build complete)
+- files: plugins/dep-bump-brief/*
+- validation: pass
+- next-suggestion: qa — executable suite from the acceptance checks.
+- notes: always-on cost measured at build time; stamped at rc per convention.
+
+## i201 — qa (directed, v12 1.2) — 2026-07-07T02:37:55Z
+- did: dep-bump-brief QA — 11-check executable suite (verbatim-description
+  drift trap, honesty rules, ecosystems, doctor, Manage, official validate).
+  TEST VERDICT: pass; always-on stamped 105 tok est.
+- line: dep-bump-brief building → rc
+- files: foundry/tests/dep-bump-brief/checks.test.sh, record
+- validation: pass (qa green)
+- next-suggestion: reviewer.
+- notes: n/a
+
+## i202 — reviewer (directed, v12 1.2) — 2026-07-07T02:38:44Z
+- did: dep-bump-brief reviewed — approved. Sharpest question on the record:
+  memory-leak of half-remembered changelogs; the verbatim never-invent +
+  never-from-memory clauses are the defense, and the README discloses the
+  boundary honestly.
+- line: dep-bump-brief stays rc (review gate cleared)
+- files: foundry/records/dep-bump-brief.md
+- validation: pass
+- next-suggestion: maintainer publishes (marketplace, version, clerk refresh,
+  tag via dispatch post-merge).
+- notes: n/a
+
+## i203 — maintainer (directed, v12 1.2) — 2026-07-07T02:39:17Z
+- did: dep-bump-brief 0.1.0 PUBLISHED — ninth plugin on the shelf; marketplace
+  entry, CHANGELOG dated, night-clerk 0.2.4 catalog refresh (regenerated last).
+  Tags cut via release dispatch after this slate merges (ADR-020 path).
+- line: dep-bump-brief rc → published; night-clerk stays published (0.2.4)
+- files: record, plugins/dep-bump-brief/CHANGELOG.md,
+  .claude-plugin/marketplace.json, plugins/night-clerk/*, night-clerk record
+- validation: pass (qa green ×2, smoke green)
+- next-suggestion: 1.3+3.4 — release bodies.
+- notes: v12 1.2 complete — idea→published in five iterations, i199–i203.
+
+## i204 — builder (directed, v12 1.3+3.4) — 2026-07-07T02:40:19Z
+- did: release bodies now open with lineage + install — "Part of the <name>
+  lineage" with a filtered all-releases link (3.4: the repo-level Latest badge
+  disclaimer), then the two-command install block (marketplace slug read from
+  marketplace.json, never hard-coded), then the changelog section as before.
+  Assembly simulated locally against dep-bump-brief 0.1.0.
+- line: n/a (workflow, ADR-021)
+- files: .github/workflows/release-on-tag.yml
+- validation: pass (yaml, bash -n, local simulation)
+- next-suggestion: 1.4 — OG image.
+- notes: applies to all future releases incl. this slate's two pending tags.
+
+## i205 — designer (directed, v12 1.4) — 2026-07-07T02:42:42Z
+- did: OG image — a real 1200×630 Chromium screenshot of the window's hero
+  (brand, strap, nav, shelf stats, search) at foundry/assets/og-image.png;
+  build copies it into site/ and og_meta gains og:image + summary_large_image
+  on the window AND every certificate, only when the asset exists and
+  pages_url is set (substantiation law: never point at a missing image).
+- line: n/a (window feature, ADR-021)
+- files: foundry/assets/og-image.png, tools/build.py, site/* (regenerated)
+- validation: pass (PNG header + dims verified; meta asserted on both surfaces)
+- next-suggestion: 2.1 — intake hostile fixtures.
+- notes: re-shoot the PNG when the hero changes; it's a committed asset, not
+  a build product, so the build stays browserless.
+
+## i206 — qa (directed, v12 2.1) — 2026-07-07T02:44:25Z
+- did: intake.py hostile-fixture suite — a stub gh on PATH serves crafted
+  issues into a scratch repo, zero changes to intake itself. 11 checks green
+  on first run: fence-escape via commission body neutralized, injected
+  P0/B#/I# checkbox lines never materialize, backticks and angle brackets
+  stripped, dedupe idempotent, ledger titles sanitized, graceful no-op
+  without gh. The patron-text law now has teeth in CI.
+- line: n/a (test infrastructure, ADR-021)
+- files: foundry/tests/_tools/intake.test.sh
+- validation: pass (_tools suite green incl. gates)
+- next-suggestion: 2.2 — backlog hygiene.
+- notes: the stub-gh seam generalizes to metrics.py for 2.3.
+
+## i207 — maintainer (directed, v12 2.2) — 2026-07-07T02:45:38Z
+- did: backlog hygiene — 9 provably-done items checked off WITH evidence lines
+  (session-recap published, plugin-smith re-test satisfied by its suite +
+  weekly reverify, CONTRIBUTING exists, go-live done at i196, suite backfill
+  done in v9 #10, three Idea-inbox entries formalized incl. dep-bump-brief now
+  published). 15 remain open, all genuinely open (operator/world-gated,
+  future review dates, or real P2/P3 work). Check-off-don't-delete held.
+- line: n/a (state hygiene)
+- files: state/BACKLOG.md
+- validation: pass
+- next-suggestion: 2.3 — governor tool tests.
+- notes: the backlog steers every future shift; stale items were active
+  misdirection.
+
+## i208 — qa (directed, v12 2.3) — 2026-07-07T02:47:31Z
+- did: governor suite — budget.py (idle without a cap, parses real claude
+  cost json, unparseable → null never a guess, corrupt ledger line skipped,
+  GOVERNOR HALT exit 1 over cap, report reads the marketplace) and metrics.py
+  (stub gh: real values recorded, 403ing traffic API → honest null, votes.json
+  +1 counts, dead API → every remote field null). 9 checks; first run caught
+  my stub reading the wrong argv slot — fixed, all green.
+- line: n/a (test infrastructure, ADR-021)
+- files: foundry/tests/_tools/governor.test.sh
+- validation: pass (_tools 34 ok)
+- next-suggestion: 3.1 — shift-zero feedback.
+- notes: the safety rails are now regression-tested before they've ever fired
+  in anger — the right order.
+
+## i209 — builder (directed, v12 3.1) — 2026-07-07T02:48:23Z
+- did: shift-zero feedback — run-shift gains a fail-soft step that, when the
+  ops-golive checklist issue still shows the first-shift box unticked, ticks
+  it and comments "First shift complete — Gate A's 14-day clock is running."
+  Fires once by construction (the tick removes its own trigger); silent no-op
+  without the issue. Tick sed simulated against a real preflight --issue body.
+- line: n/a (workflow, ADR-021)
+- files: .github/workflows/run-shift.yml
+- validation: pass (yaml, bash -n, sed simulation)
+- next-suggestion: 3.2+3.3 — 404 + sitemap/robots.
+- notes: the operator learns the factory started without opening Actions.
+
+## i210 — builder (directed, v12 3.2+3.3) — 2026-07-07T02:49:32Z
+- did: (3.2) site/404.html in the clerk's voice — "published names are
+  immutable here; the shelf never moves its stock" — Pages serves it for any
+  unknown path; (3.3) sitemap.xml (43 URLs: window, saga, queue, theater +
+  39 certificates, absolute-URLs-or-nothing per substantiation law) and
+  robots.txt pointing at it. Both emitted by build.py every build.
+- line: n/a (window features, ADR-021)
+- files: tools/build.py, site/{404.html,sitemap.xml,robots.txt}, site/*
+- validation: pass (asserted contents + URL count)
+- next-suggestion: 4.2 — verified badges.
+- notes: gates.yml's sync check covers the new emitted files automatically.
+
+## i211 — builder (directed, v12 4.2) — 2026-07-07T02:51:43Z
+- did: verified badges — build.py mints one hand-rolled two-cell SVG per
+  verified external ("verified by the foundry | doctor green · date",
+  honest-limits sentence in the tooltip), badge dir regenerated from scratch
+  so delisting kills the badge (first suite run caught the stale-file case —
+  fixed at the builder, not the test); window listings show paste-ready
+  badge markdown (copy-to-clipboard free); README documents the loop.
+- line: verified-by-foundry stays published (feature growth, ADR-021)
+- files: tools/build.py, README.md, foundry/records/verified-by-foundry.md,
+  foundry/tests/verified-by-foundry/checks.test.sh, site/*
+- validation: fixed-then-pass (14/14 after the stale-badge fix)
+- next-suggestion: 4.1 — the genesis ceremony.
+- notes: every embedded badge is an inbound link that only exists because a
+  public CI run passed — growth that can't be faked.
+
+## i212 — maintainer (directed, v12 4.1) — 2026-07-07T02:52:48Z
+- did: the genesis ceremony, attempted — create_repository for the blessed
+  sibling (dawnshift-forge) returned 403 Resource not accessible by
+  integration; verified there is NO session- or workflow-token path that can
+  create a repository (App installation lacks the permission; GITHUB_TOKEN is
+  repo-scoped by design). 4.1 is blocked at exactly one action only the
+  operator can take: create one empty public repo. BACKLOG carries the P1
+  with the full unblock recipe; the ADR-021 blessing stays on record for the
+  session that finishes it.
+- line: n/a (blocked ceremony, honestly filed)
+- files: state/BACKLOG.md, state/STATE.json, state/JOURNAL.md
+- validation: pass
+- next-suggestion: auditor closes v12 (audit-007), then push/PR/merge + ops.
+- notes: the child needs a womb the parent cannot build. Fitting, honestly.
+
+## i213 — auditor (directed) — 2026-07-07T02:53:32Z
+- did: audit-007 filed — v12 closed at 13/14 lawful (ninth plugin walked the
+  whole line; the three safety-critical tools fixture-tested; funnel labels +
+  failure catcher armed; window gains 404/sitemap/og-image/badges), 1 blocked
+  at a true permission boundary with the recipe filed. IMPROVEMENTS v12
+  header marked.
+- line: audit-007 filed
+- files: reviews/audit-007.md, IMPROVEMENTS.md, state/*
+- validation: pass
+- next-suggestion: push, PR, merge; dispatch ops-guard (labels), release ×2
+  (dep-bump-brief-v0.1.0, night-clerk-v0.2.4), deploy-site.
+- notes: three slates and an ops pass in ~24h; the tripwire never tripped.

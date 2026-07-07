@@ -59,3 +59,21 @@ PY
 grep -q 'style="display:none"' site/index.html && grep -q 'id="verified"' site/index.html \
   && echo "ok: check4c verified section ships hidden until it has a first name" \
   || echo "fail: check4c section markup"
+
+# 5 — v12 4.2: badges — empty registry emits nothing; fixture entry emits an SVG
+python3 - << 'PY'
+import json, pathlib, subprocess, re
+assert not pathlib.Path("site/verified").exists() or not list(pathlib.Path("site/verified").glob("*.svg")), "badges exist with empty registry"
+print("ok: check5a empty registry -> no badge files")
+reg = pathlib.Path("foundry/verified.json"); orig = reg.read_text()
+try:
+    reg.write_text(json.dumps({"verified": [{"repo": "octo/ex", "plugin_dir": ".", "verified": "2026-07-07", "run_url": "https://example.invalid/1"}]}))
+    subprocess.run(["python3", "tools/build.py"], check=True, capture_output=True)
+    svg = pathlib.Path("site/verified/octo-ex.svg").read_text()
+    assert "verified by the foundry" in svg and "2026-07-07" in svg and "a floor not a guarantee" in svg
+    print("ok: check5b fixture entry -> SVG with date + honest-limits title")
+finally:
+    reg.write_text(orig)
+    import shutil; shutil.rmtree("site/verified", ignore_errors=True)
+    subprocess.run(["python3", "tools/build.py"], check=True, capture_output=True)
+PY

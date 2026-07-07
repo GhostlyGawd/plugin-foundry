@@ -7,7 +7,10 @@
 <meta property="og:description" content="Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.">
 <meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/dep-bump-brief.html">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://ghostlygawd.github.io/plugin-foundry/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <style>
   .term{background:#161310;color:#E8DCC0;padding:12px;border:2px solid #2C2820;font-size:12.5px;line-height:1.55;overflow-x:auto}
   .honestlabel{margin:6px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
@@ -46,12 +49,44 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Dep-Bump Brief — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · unversioned · created 2026-07-06 · updated 2026-07-06</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch " title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>idea</span></div>
+  <p class="meta">plugin · workflow · v0.1.0 · created 2026-07-06 · updated 2026-07-07 · ~105 tok est</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.</p>
+  <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~105 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall dep-bump-brief — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
-  
-  <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** given a branch or diff that bumps dependencies, produce a short brief per
+  <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Dep-Bump Brief
+
+One skill, `dep-brief`: point it at a dependabot/renovate branch and get a
+plain-language review brief — `old → new` with semver distance, the **real
+files in your repo** that use each bumped package (your &quot;what to check&quot; list),
+and changelog notes read honestly: if a changelog isn&#x27;t reachable, the brief
+says `changelog not checked` instead of guessing.
+
+## Install
+
+```
+/plugin marketplace add GhostlyGawd/plugin-foundry
+/plugin install dep-bump-brief@foundry
+```
+
+## Recipes
+- &quot;review this dependabot PR&quot; → per-bump brief + risk line, pasteable into the review
+- &quot;what changed in this bump?&quot; → old → new, semver distance, your usage sites
+- &quot;is this lodash bump safe?&quot; → MAJOR/minor/patch flag + the files that import it
+
+## Honest disclosures
+- **Never invents version facts.** Changelog content appears only when the
+  changelog was actually read; otherwise you get `changelog not checked`.
+- Reads your repo (git diff + grep) and, when available, public changelogs.
+  Writes nothing.
+- Covers js / python / rust / go manifests; anything else, it says so.
+
+## Manage
+
+- **Update:** `/plugin marketplace update`, then `claude plugin update dep-bump-brief`
+- **Disable / re-enable:** `claude plugin disable dep-bump-brief` / `claude plugin enable dep-bump-brief` (or the `/plugin` menu — no uninstall needed)
+- **Uninstall:** `claude plugin uninstall dep-bump-brief` — removes everything the plugin added
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** given a branch or diff that bumps dependencies, produce a short brief per
   bump: old → new version, semver distance, breaking changes pulled from the
   package&#x27;s changelog/release notes when reachable, and a concrete &quot;what to check&quot;
   list for this repo&#x27;s usage of that package.
@@ -63,8 +98,64 @@
   &quot;changelog not checked&quot; rather than guessing.
 - **Why a plugin:** the workflow is identical every time and spans git, grep, and
   synthesis — a versioned skill beats a prompt retyped weekly, and the honesty
-  rules (never invent changelog content) deserve review and a changelog of their own.</pre></details></div>
-  <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/dep-bump-brief.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/dep-bump-brief.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/dep-bump-brief">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
+  rules (never invent changelog content) deserve review and a changelog of their own.</pre></details><details><summary>Spec</summary><pre>- One skill, `dep-brief`, description (verbatim): &quot;Summarize dependency bumps
+  in the current branch or diff into an honest review brief. Use when the user
+  asks to review a dependency PR, summarize dependabot or renovate changes, or
+  asks what changed in this bump.&quot;
+- Procedure: (1) find bumped packages from the manifest/lockfile diff against
+  the base branch — package.json/package-lock, requirements*.txt/poetry/uv,
+  Cargo.toml/Cargo.lock, go.mod/go.sum; (2) per bump: old → new, semver
+  distance (major/minor/patch — flag major loudly); (3) grep the repo for
+  usage sites of each bumped package and turn real call sites into a concrete
+  &quot;what to check&quot; list; (4) changelog/release notes: read them only if
+  reachable with available tools — otherwise the brief says exactly
+  &quot;changelog not checked&quot; for that package.
+- Honesty rules (review these hardest): **NEVER invent changelog content,
+  breaking changes, or version facts**; unreachable sources are named as
+  unchecked, not summarized from memory; usage sites quoted from this repo
+  only.
+- Output: one short brief per bump + a single risk line (highest semver
+  distance × usage-site count), suitable for pasting into the PR review.
+
+### Acceptance checks
+1. SKILL.md frontmatter complete; description carries the invoke contract
+   (&quot;Use when&quot;) verbatim from this spec.
+2. The honesty rules are present verbatim: &quot;changelog not checked&quot; path and
+   the never-invent clause.
+3. All four ecosystems named in the procedure (js, python, rust, go).
+4. Suite green; always-on token estimate stamped; official validate passes.</pre></details><details><summary>Build log</summary><pre>- i200: manifest, dep-brief skill (verbatim description; four ecosystems;
+  MAJOR flagged loudly; usage-site grep; &quot;changelog not checked&quot; + never-invent
+  verbatim; risk line), README with Manage section (v11 convention),
+  CHANGELOG 0.1.0 Unreleased. Build complete per spec.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i201 (qa)
+- tier 1: validate + build + smoke green (official validate --strict PASS).
+- tier 3: acceptance suite 10 checks green — verbatim description (drift
+  detected by exact-prefix grep), all three honesty rules, four ecosystems,
+  doctor green, Manage section present. First run was 9/10: check2b&#x27;s grep
+  spanned a line wrap in the skill body; check loosened to the load-bearing
+  phrase (&quot;NEVER invent&quot;), which check2c&#x27;s unread-source rule complements.
+- defects: none in the artifact — the defect was in the test; probed:
+  description wording against the spec
+  character-for-character (the check would catch a paraphrase), doctor on
+  the artifact, token estimate measured (105 est).
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>### Review — i202 (reviewer)
+- The honesty architecture is the product: &quot;changelog not checked&quot; is a
+  feature dependabot&#x27;s own compatibility score doesn&#x27;t have — it tells you
+  what the brief does NOT know. The three rules survive check-by-grep.
+- Prompt craft: the four-ecosystem table is instruction, not aspiration —
+  the skill never claims lockfile parsing it can&#x27;t do; step 1 asks for the
+  base branch when ambiguous instead of guessing (good guest behavior).
+- Token thrift: 105 tok always-on est — description only, mid-shelf.
+- Sharpest question: can a brief that reads changelogs &quot;when reachable&quot; leak
+  invented content anyway, since Claude may half-remember a package&#x27;s
+  changelog? The never-invent clause plus &quot;never summarized from memory&quot; is
+  the strongest textual defense available; the residual risk is the model&#x27;s,
+  not the skill&#x27;s, and the README discloses exactly this boundary.
+REVIEW: approved</pre></details><details><summary>Publish log</summary><pre>- i203 (maintainer): v0.1.0 on the shelf — ninth plugin, first to walk the
+  full line on the post-v11 machinery (gates.yml CI, doctor in suite, Manage
+  convention from scaffold). Tag dep-bump-brief-v0.1.0 cut via release
+  dispatch post-merge (ADR-020 path). Experiment: none — utility plugin;
+  install proxy rides the shelf-wide metric.</pre></details></div>
+  <p class="links">install: <code>/plugin install dep-bump-brief@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/dep-bump-brief.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/dep-bump-brief.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/dep-bump-brief">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for
   the window.</footer>

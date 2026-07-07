@@ -243,3 +243,32 @@ Built as the v11 slate under ADR-019. Personas: installers · visitors · operat
 | 10 | preflight --issue: checkable go-live checklist | operator |
 | 11 | preflight tag-drift check (local vs remote release tags) | operator |
 | 12 | /backlog steering skill | operator |
+
+
+---
+
+# IMPROVEMENTS v12 — the live-window audit (2026-07-07, post-v11 + ADR-020 ops)
+
+> **Status: 13/14 BUILT, 1 blocked-with-recipe** — iterations i197–i212 under
+> ADR-021, audited in `reviews/audit-007.md`. 4.1 awaits one operator-created
+> repo (see BACKLOG P1).
+
+Directed: "Build all in order until complete." Built as the v12 slate under
+ADR-021. First audit with the window live.
+
+| # | Item | Lane | Impact | Effort |
+|---|------|------|:---:|:---:|
+| 1.1 | Ensure-labels (funnel dead-ends without them) | user value | 5 | 1 |
+| 1.2 | Ninth plugin: dep-bump-brief walks the line | user value | 4 | 4 |
+| 1.3 | Install lines in release bodies | user value | 3 | 1 |
+| 1.4 | OG image for the shareable window | user value | 3 | 2 |
+| 2.1 | intake.py hostile-fixture tests | dev experience | 4 | 2 |
+| 2.2 | Backlog hygiene (23 open, several done) | dev experience | 3 | 1 |
+| 2.3 | Governor tool tests (budget/metrics) | dev experience | 3 | 2 |
+| 2.4 | Workflow-failure catcher → ops-alarm | dev experience | 4 | 1 |
+| 3.1 | Shift-zero feedback (tick ops-golive issue) | productization | 3 | 2 |
+| 3.2 | site/404.html | productization | 2 | 1 |
+| 3.3 | sitemap.xml + robots.txt | productization | 3 | 1 |
+| 3.4 | Latest-release lineage clarity | productization | 2 | 1 |
+| 4.1 | Genesis ceremony — the foundry reproduces (blessed) | differentiation | 5 | 5 |
+| 4.2 | Verified badges as the growth loop | differentiation | 4 | 2 |

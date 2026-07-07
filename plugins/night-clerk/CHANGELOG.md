@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.4 — 2026-07-07
+- catalog snapshot: dep-bump-brief 0.1.0 joins the shelf (nine plugins)
+
 ## 0.2.3 — 2026-07-06
 - docs: standard `## Manage` section — update, disable/enable, uninstall,
   and on-disk footprint in one place (v11 #2 README sweep).

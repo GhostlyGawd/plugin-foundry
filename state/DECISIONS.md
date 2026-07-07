@@ -353,3 +353,30 @@ Template:
 - Consequences: the click-list shrinks to "add a secret" (+ optional budget
   var / GoatCounter / FUNDING); releases become reproducible from any tag;
   Gate A's window can finally go live without a human browser session.
+
+## ADR-021 — v12 slate: the live-window audit, in order (i197, directed)
+- Status: accepted (workflow/tools/template items apply from i198+ under the
+  two-iteration rule with this ADR as the prior-iteration record)
+- Context: third operator-directed discovery pass, first with the window LIVE.
+  14 items: the visitor funnel's missing labels (proven live — release
+  misfires couldn't attach ops-alarm), a ninth plugin, release-page
+  conversion, social preview, tests for the untrusted-input handler and the
+  spend governor, backlog hygiene, shift-zero feedback, 404/sitemap, verified
+  badges, and the genesis ceremony. Operator directive: "Build all in order
+  until complete" — given after 4.1 was explicitly flagged as requiring a
+  blessing to leave this repo, so that blessing is on the record.
+- Decision: work v12 #1.1→#4.1 as directed iterations riding a PR (ADR-017).
+  This ADR authorizes: .github/workflows/ops-guard.yml (labels + failure
+  catcher, 1.1+2.4), release-body changes (1.3+3.4), build.py additions
+  (og:image 1.4, 404 3.2, sitemap/robots 3.3, verified badges 4.2), test
+  seams in tools/intake.py, budget.py, metrics.py (2.1, 2.3), a run-shift
+  first-shift feedback step (3.1), and — as a one-time, operator-blessed
+  charter exception — creating and seeding ONE sibling repository via the
+  session's GitHub tools for the genesis ceremony (4.1), registered in
+  network.json only after the Lane 4 verification duty passes against the
+  sibling itself. The exception is scoped: one repo, this slate, never a
+  standing power.
+- Consequences: the funnel works when the first visitor arrives; the factory
+  stops failing silently; the shelf grows; and if 4.1 lands, the family tree
+  gets its first name from the only entity that could honestly claim it —
+  the foundry's own child.

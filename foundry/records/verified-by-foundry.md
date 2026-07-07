@@ -121,3 +121,10 @@ REVIEW: approved
   this lands on main; README paste-block is the storefront; registry opens
   empty by law. Experiment armed (registry entries + views_14d, review
   2026-09-06). kind:feature — no marketplace entry, no version tag.
+
+## Maintenance log
+- i211 (builder, v12 4.2): verified listings now mint embeddable SVG badges
+  ("verified by the foundry | doctor green · <date>", honest-limits in the
+  tooltip), regenerated from scratch each build so a delisted repo's badge
+  dies with its listing; paste-ready markdown rendered beside each entry on
+  the window. Suite +2 checks (empty→none; fixture→SVG with date + limits).

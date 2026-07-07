@@ -70,6 +70,25 @@ jobs:
             git push
             git push --tags
           fi
+      - name: Shift-zero feedback (v12 3.1, ADR-021 — fail-soft, fires once)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # If the ops-golive checklist still shows the first-shift box unticked,
+          # tick it and announce Gate A's clock — the operator learns the factory
+          # started without opening the Actions tab. No issue -> silent no-op.
+          NUM=$(gh issue list --label ops-golive --state open --json number --jq '.[0].number' || true)
+          [ -z "${NUM}" ] || [ "${NUM}" = "null" ] && exit 0
+          BODY=$(gh issue view "${NUM}" --json body --jq .body)
+          MARK='- [ ] Actions tab'
+          case "${BODY}" in
+            *"${MARK}"*)
+              printf '%s' "${BODY}" | sed 's/- \[ \] Actions tab/- [x] Actions tab/' > /tmp/golive.md
+              gh issue edit "${NUM}" --body-file /tmp/golive.md
+              gh issue comment "${NUM}" --body "First shift complete — METRICS.jsonl and the ledger are arming, and Gate A's 14-day clock is running (ROADMAP.md). The factory works nights now."
+              ;;
+          esac
       - name: Traveler pings (guarded, fail-soft)
         if: env.PINGS_ENABLED == 'true'
         continue-on-error: true

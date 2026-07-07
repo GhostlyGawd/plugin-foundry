@@ -2,14 +2,15 @@
 name: dep-bump-brief
 title: Dep-Bump Brief
 category: workflow
-stage: idea
-version: null
+stage: published
+version: 0.1.0
 kind: plugin
 components: [skills]
+always_on_tokens: 105
 one_liner: Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.
 tags: [dependencies, review, changelogs]
 created: 2026-07-06
-updated: 2026-07-06
+updated: 2026-07-07
 ---
 
 # Dep-Bump Brief
@@ -32,3 +33,74 @@ merges or a stale queue — both worse than a two-minute honest brief.
 - **Why a plugin:** the workflow is identical every time and spans git, grep, and
   synthesis — a versioned skill beats a prompt retyped weekly, and the honesty
   rules (never invent changelog content) deserve review and a changelog of their own.
+
+## Spec
+- One skill, `dep-brief`, description (verbatim): "Summarize dependency bumps
+  in the current branch or diff into an honest review brief. Use when the user
+  asks to review a dependency PR, summarize dependabot or renovate changes, or
+  asks what changed in this bump."
+- Procedure: (1) find bumped packages from the manifest/lockfile diff against
+  the base branch — package.json/package-lock, requirements*.txt/poetry/uv,
+  Cargo.toml/Cargo.lock, go.mod/go.sum; (2) per bump: old → new, semver
+  distance (major/minor/patch — flag major loudly); (3) grep the repo for
+  usage sites of each bumped package and turn real call sites into a concrete
+  "what to check" list; (4) changelog/release notes: read them only if
+  reachable with available tools — otherwise the brief says exactly
+  "changelog not checked" for that package.
+- Honesty rules (review these hardest): **NEVER invent changelog content,
+  breaking changes, or version facts**; unreachable sources are named as
+  unchecked, not summarized from memory; usage sites quoted from this repo
+  only.
+- Output: one short brief per bump + a single risk line (highest semver
+  distance × usage-site count), suitable for pasting into the PR review.
+
+### Acceptance checks
+1. SKILL.md frontmatter complete; description carries the invoke contract
+   ("Use when") verbatim from this spec.
+2. The honesty rules are present verbatim: "changelog not checked" path and
+   the never-invent clause.
+3. All four ecosystems named in the procedure (js, python, rust, go).
+4. Suite green; always-on token estimate stamped; official validate passes.
+
+## Build log
+- i200: manifest, dep-brief skill (verbatim description; four ecosystems;
+  MAJOR flagged loudly; usage-site grep; "changelog not checked" + never-invent
+  verbatim; risk line), README with Manage section (v11 convention),
+  CHANGELOG 0.1.0 Unreleased. Build complete per spec.
+
+## Test log
+### Test pass — i201 (qa)
+- tier 1: validate + build + smoke green (official validate --strict PASS).
+- tier 3: acceptance suite 10 checks green — verbatim description (drift
+  detected by exact-prefix grep), all three honesty rules, four ecosystems,
+  doctor green, Manage section present. First run was 9/10: check2b's grep
+  spanned a line wrap in the skill body; check loosened to the load-bearing
+  phrase ("NEVER invent"), which check2c's unread-source rule complements.
+- defects: none in the artifact — the defect was in the test; probed:
+  description wording against the spec
+  character-for-character (the check would catch a paraphrase), doctor on
+  the artifact, token estimate measured (105 est).
+TEST VERDICT: pass
+
+## Review log
+### Review — i202 (reviewer)
+- The honesty architecture is the product: "changelog not checked" is a
+  feature dependabot's own compatibility score doesn't have — it tells you
+  what the brief does NOT know. The three rules survive check-by-grep.
+- Prompt craft: the four-ecosystem table is instruction, not aspiration —
+  the skill never claims lockfile parsing it can't do; step 1 asks for the
+  base branch when ambiguous instead of guessing (good guest behavior).
+- Token thrift: 105 tok always-on est — description only, mid-shelf.
+- Sharpest question: can a brief that reads changelogs "when reachable" leak
+  invented content anyway, since Claude may half-remember a package's
+  changelog? The never-invent clause plus "never summarized from memory" is
+  the strongest textual defense available; the residual risk is the model's,
+  not the skill's, and the README discloses exactly this boundary.
+REVIEW: approved
+
+## Publish log
+- i203 (maintainer): v0.1.0 on the shelf — ninth plugin, first to walk the
+  full line on the post-v11 machinery (gates.yml CI, doctor in suite, Manage
+  convention from scaffold). Tag dep-bump-brief-v0.1.0 cut via release
+  dispatch post-merge (ADR-020 path). Experiment: none — utility plugin;
+  install proxy rides the shelf-wide metric.

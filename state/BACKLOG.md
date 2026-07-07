@@ -46,20 +46,30 @@ diagnosis. Check items off, don't delete. Max 3 new items per iteration.
       → publish. DONE — all four published in the v8 slate (i107–i128).
 - [ ] P2 (operator+growth) Wire commission tiers per foundry/records/commission-tiers.md,
       then start its 45-day pricing experiment.
-- [ ] P1 Walk session-recap through spec (hooks + skill combo — good hook-safety exercise).
-- [ ] P1 Post-publish re-test of plugin-smith (it shipped at genesis without a QA pass
+- [x] P1 Walk session-recap through spec (hooks + skill combo — good hook-safety exercise).
+      DONE — published, now at v0.1.2 (see foundry/records/session-recap.md; hygiene i207).
+- [x] P1 Post-publish re-test of plugin-smith (it shipped at genesis without a QA pass
       of record — hold it to the same bar; Version law applies to any fixes).
+      DONE — executable suite exists (foundry/tests/plugin-smith/), weekly re-verified, verified: stamp current (hygiene i207).
 - [x] P2 Per-plugin detail pages on the catalog — already exist: 38 birth
       certificates at site/p/<name>.html (build_pages); stale item, closed i140.
-- [ ] P2 CONTRIBUTING.md for humans proposing plugin ideas.
-- [ ] P1 Go-live (human-assisted): fill foundry/site-config.json, push to GitHub,
+- [x] P2 CONTRIBUTING.md for humans proposing plugin ideas.
+      DONE — CONTRIBUTING.md exists with Lanes 0–4 (hygiene i207).
+- [x] P1 Go-live (human-assisted): fill foundry/site-config.json, push to GitHub,
       enable Pages (Actions source), add ANTHROPIC_API_KEY secret — per OPERATIONS.md.
+      DONE i196 (ADR-020): Pages enabled via dispatch, window LIVE at the pages_url; only the Claude secret remains (hygiene i207).
 - [ ] P1 (designer) First Theme of the Month via ADR once in grow phase.
 - [x] P2 (growth) Spec shift-streak — OBE: specced, built, and published in the
       v8 slate (i134); baseline arms at go-live. Closed i140.
 - [x] P2 (growth) Spec weekly-shipnote — OBE: published i113 with fixture suite.
       Closed i140.
 - [ ] P2 (operator, optional) Wire GoatCounter per OPERATIONS.md § 6 for real pageviews.
+- [ ] P1 (operator) Genesis ceremony unblock (v12 4.1, ADR-021 — blessing on
+      record): create ONE empty public repo (suggested name: dawnshift-forge);
+      a session then seeds it per fork-a-foundry and registers the first
+      sister. Attempted i212: create_repository → 403, no session or workflow
+      token can create repos. Everything downstream is built and waiting
+      (network strip, family tree, Lane 4 verification, badges).
 
 ## v7 slate — SHIPPED ✓ (audit-002)
 All 12 published i35–i86; experiments armed with dated reviews. World-gated
@@ -74,8 +84,9 @@ arming: PINGS_ENABLED, first question/commission, next tag, Monday cron.
       of the documented constant (drift risk noted at i46).
 - [x] P3 (designer) saga wall ellipsis — DONE i145 (word-boundary clip()).
 - [x] P3 (designer) field-report cap link — DONE i145 ("all N reports →" when >8).
-- [ ] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
+- [x] P2 (qa) Suite backfill: executable tests for the v5/v7 features that
       published on manual probes (audit-003 finding #3) — one suite per pass.
+      DONE — v9 slate #10 (audit-004: 13/13 built); every published record now requires an executable suite at rc+ (validator law) (hygiene i207).
 - [x] P3 (builder) qa.sh: warn on non-executable *.test.sh files instead of
       silent skip (sharp edge, audit-004; tools/ change — ADR first).
       DONE i161 (v10 #7, ADR-018): went further than warn — per-file FAIL.
@@ -121,6 +132,9 @@ Format: `- [ ] C#<issue> (<author>) <title> — <summary>`
 - Companion mining: popular CLIs and services without a good MCP/LSP bridge.
 
 ## Idea inbox (humans drop raw pitches here; Ideator formalizes)
-- [ ] I#4 (GhostlyGawd) Idea: dep-bump-brief — plain-language briefs for dependency-bump PRs
-- [ ] I#5 (GhostlyGawd) Idea: todo-ledger — TODO/FIXME debt as a dated, ranked report
-- [ ] I#6 (GhostlyGawd) Idea: cross-foundry-exchange — sister workshops trade their best ideas
+- [x] I#4 (GhostlyGawd) Idea: dep-bump-brief — plain-language briefs for dependency-bump PRs
+      FORMALIZED and PUBLISHED v0.1.0 (i199–i203, v12 1.2).
+- [x] I#5 (GhostlyGawd) Idea: todo-ledger — TODO/FIXME debt as a dated, ranked report
+      FORMALIZED — record at stage idea (foundry/records/todo-ledger.md).
+- [x] I#6 (GhostlyGawd) Idea: cross-foundry-exchange — sister workshops trade their best ideas
+      FORMALIZED — record at stage spec (i178).

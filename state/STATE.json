@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 196,
+  "iteration": 213,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -22,6 +22,6 @@
     "reviewer",
     "auditor"
   ],
-  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v11 + ADR-020 ops: window LIVE, 15 releases cut, all clicks automated except the Anthropic secret (+ optional budget/goat/funding)",
+  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v12 (audit-007): 13/14 built, window live, 9 plugins; gates left: Claude secret (Gate A) + one empty repo (genesis)",
   "theme": null
 }
