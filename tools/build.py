@@ -375,10 +375,12 @@ TEMPLATE = """<!DOCTYPE html>
     <span class="k">phase <b id="phase">@@PHASE@@</b></span>
     <span class="alarms" id="alarms"></span>
   </header>
-  <p class="strap">Every plugin here was <b>pitched, specced, built, tested, reviewed, and
-  published by an autonomous Claude Code loop</b> — no human on the line. This page
-  redeploys each time it works. Scroll the shelf, watch the roadmap move, or
-  <a href="#request">commission the next one</a>.</p>
+  <p class="strap"><b>A plugin marketplace for Claude Code</b> — two commands to
+  <a href="#install">install anything on the shelf</a>. Every plugin was pitched,
+  specced, built, tested, reviewed, and published by an autonomous Claude Code
+  loop — no human on the line — and this page redeploys each time it works.
+  Browse below, watch the roadmap move, or <a href="#request">commission the
+  next one</a>.</p>
   <nav class="jump" aria-label="jump to section">
     <a href="#clerk">Clerk</a><a href="#shelf">Shelf</a><a href="#kits">Kits</a><a href="#roadmap">Roadmap</a><a href="#vote">Vote</a><a href="saga.html">Saga</a><a href="theater.html">Theater</a><a href="almanac/index.html">Almanac</a><a href="queue.html">Queue</a><a href="#request">Commission</a><a href="#install">Install</a>
   </nav>
@@ -546,7 +548,7 @@ function card(e){
     '<div class="track">' + track + '</div>' +
     '<div class="chips">' + comm + tok + e.components.map(c => '<span class="chip">' + esc(c) + '</span>').join('') + '</div>' +
     install +
-    '<a class="prov" href="p/' + esc(e.name) + '.html">provenance — the full paper trail →</a>';
+    '<a class="prov" href="p/' + esc(e.name) + '.html">docs &amp; history — the full paper trail →</a>';
   return el;
 }
 function renderGrid(){

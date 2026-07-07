@@ -1484,3 +1484,16 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: v11 #1 — plain-language layer.
 - notes: principle for the slate: add a plain layer, never strip the lore —
   spectators are customers too.
+
+## i181 — designer (directed, v11 #1) — 2026-07-07T01:18:10Z
+- did: plain-language layer — the strap now leads with what a stranger needs
+  ("A plugin marketplace for Claude Code — two commands to install") before the
+  lore, with an #install anchor in the first sentence; the card link
+  "provenance — the full paper trail" becomes "docs & history — the full paper
+  trail" (plain first, lore kept). Principle from ADR-019: add a plain layer,
+  never strip the lore.
+- line: n/a (window copy, ADR-019)
+- files: tools/build.py, site/* (regenerated)
+- validation: pass
+- next-suggestion: v11 #2 — the Manage-section sweep (8 patch bumps).
+- notes: n/a
