@@ -1788,3 +1788,15 @@ Entry template (copy exactly; newest at the bottom):
 - validation: pass (qa green ×2, smoke green)
 - next-suggestion: 1.3+3.4 — release bodies.
 - notes: v12 1.2 complete — idea→published in five iterations, i199–i203.
+
+## i204 — builder (directed, v12 1.3+3.4) — 2026-07-07T02:40:19Z
+- did: release bodies now open with lineage + install — "Part of the <name>
+  lineage" with a filtered all-releases link (3.4: the repo-level Latest badge
+  disclaimer), then the two-command install block (marketplace slug read from
+  marketplace.json, never hard-coded), then the changelog section as before.
+  Assembly simulated locally against dep-bump-brief 0.1.0.
+- line: n/a (workflow, ADR-021)
+- files: .github/workflows/release-on-tag.yml
+- validation: pass (yaml, bash -n, local simulation)
+- next-suggestion: 1.4 — OG image.
+- notes: applies to all future releases incl. this slate's two pending tags.
