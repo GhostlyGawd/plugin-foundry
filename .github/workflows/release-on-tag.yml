@@ -8,6 +8,11 @@ name: Release on tag
 on:
   push:
     tags: ["*-v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing *-v* tag to cut a release for (ADR-020 — tags laid by lay-tags.yml don't fire push events)"
+        required: true
 permissions:
   contents: write
   issues: write
@@ -16,13 +21,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # cut from the TAG'S OWN tree — zipping the current tree would attach
+          # wrong-version artifacts on dispatch or re-run (latent defect, ADR-020)
+          ref: ${{ inputs.tag || github.ref }}
       - name: Cut the release from the changelog
         id: cut
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="${GITHUB_REF_NAME}"
+          TAG="${{ inputs.tag || github.ref_name }}"
           NAME="${TAG%-v*}"
           VER="${TAG##*-v}"
           python3 tools/relnotes.py "plugins/${NAME}/CHANGELOG.md" "${VER}" > /tmp/notes.md
@@ -42,6 +51,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue create --title "ops-alarm: release failed for ${GITHUB_REF_NAME}" \
+          TAG="${{ inputs.tag || github.ref_name }}"
+          gh issue create --title "ops-alarm: release failed for ${TAG}" \
             --label ops-alarm \
-            --body "Release-on-tag could not cut ${GITHUB_REF_NAME}. Likely causes: missing CHANGELOG section for the tagged version, or gh/api failure. relnotes exits 1 when the version is absent — a release with no notes does not happen." || true
+            --body "Release-on-tag could not cut ${TAG}. Likely causes: missing CHANGELOG section for the tagged version, or gh/api failure. relnotes exits 1 when the version is absent — a release with no notes does not happen." || true

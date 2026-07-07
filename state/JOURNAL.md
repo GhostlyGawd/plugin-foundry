@@ -1642,3 +1642,30 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: operator merges the PR, pushes 15 tags, runs
   preflight --issue.
 - notes: two slates in one day; the lore survived both.
+
+## i193 — maintainer (directed) — 2026-07-07T02:00:18Z
+- did: ADR-020 filed — the operator's clicks become dispatches. Manifest
+  state/TAGS-PENDING.json generated from the 15 session-laid annotated tags
+  (creation order = per-plugin version order; every SHA verified reachable
+  from main). Secret VALUES stay untouchable by law — presence probes only.
+- line: n/a (ADR + manifest)
+- files: state/DECISIONS.md, state/TAGS-PENDING.json, state/STATE.json
+- validation: pass
+- next-suggestion: i194 — the three workflow changes.
+- notes: the latent release-zip defect (dispatch would zip the current tree)
+  was found while designing this; the fix rides the same change.
+
+## i194 — builder (directed, ADR-020) — 2026-07-07T02:02:14Z
+- did: the three workflow changes — lay-tags.yml (dispatch-only, fetch-depth 0,
+  skip-if-exists annotated tag recreation from the manifest, config-presence
+  report that never touches values); release-on-tag.yml gains workflow_dispatch
+  with a tag input AND now checks out the tag's own ref before cutting (fixes
+  the latent wrong-version-zip defect on dispatch/re-run); deploy-site.yml
+  configure-pages enablement:true (first deploy creates the Pages site).
+  Verified: YAML parses, every run block bash -n clean, the exact tag loop
+  dry-ran 15/15 against the real manifest.
+- line: n/a (workflows, ADR-020)
+- files: .github/workflows/{lay-tags,release-on-tag,deploy-site}.yml
+- validation: pass
+- next-suggestion: push, PR, merge, then the dispatch sequence.
+- notes: fetch-depth 0 was the near-miss — a shallow clone can't tag history.
