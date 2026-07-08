@@ -478,3 +478,64 @@ Template:
   names; the build tool survives a bare checkout; the window shows a theme; and
   the backlog's open items are exactly the ones only a human or real users can
   close — nothing buildable left un-built.
+
+## ADR-025 — the window, reimagined for the first-time visitor (i217, designer)
+- Status: accepted — operator-directed, landing as a draft PR (the human veto
+  window, ADR-020 lane). This ADR is the prior-iteration record for the
+  tools/build.py change it authorizes (two-iteration rule): the entire index
+  TEMPLATE (markup, CSS, and render script) is rewritten, and build_site now
+  passes `categories` (from foundry/categories.json) into data.json.
+- Context: the operator directed a redesign — *"reimagine the site so it is
+  incredibly easy to use and understand for a first-time visitor that knows
+  nothing about the niche or product… a strong visual language and brand
+  direction that is approachable, comprehensible, educational, and inspiring…
+  a high-converting eCommerce site that sells the features and benefits,
+  addresses the pain points, and bridges the value/understanding gap at every
+  stage of the funnel."* The window (v0.6) was a beautiful **insider spectacle**:
+  it opened on live telemetry, industrial jargon (the shelf, the line,
+  prospectors, ON AIR), and an all-monospace job-traveler aesthetic that assumes
+  the visitor already knows what a Claude Code plugin is and why they'd want one.
+  That optimizes for "watch the machine," not "understand and install." Two forks
+  were put to the operator (AskUserQuestion): brand boldness → **evolve the
+  Nightshift Foundry identity** (keep it, modernize it) over a mainstream rebrand
+  or a copy-only pass; primary conversion → **install a free plugin** over the
+  paid commission or fork-a-foundry.
+- Decision: **evolve, don't replace.** Keep the name, the immutable `foundry`
+  slug, the warm kraft palette, the foundry soul, every honesty/substantiation
+  law, and all provenance + telemetry machinery. Change three things:
+  1. **Typography for approachability** — a friendly system sans for headings and
+     body; monospace kept only for code, install commands, telemetry, and the
+     wordmark. Real whitespace, a clear type hierarchy, and one warm **ember**
+     accent for primary CTAs (blue "stamp" stays for links/provenance).
+  2. **Information architecture as a conversion funnel** — hero that says in one
+     breath *what this is and why you'd care* (defines Claude Code + plugins in
+     plain language) → a "whole idea in 30 seconds" primer with a concrete
+     before/after → a 3-step install path → **the shelf**, now published plugins
+     only, grouped by category with friendly names, benefit-led cards, a
+     prominent copyable install line and a "tested & reviewed" trust chip on each
+     → starter kits → a trust section ("why you can trust what installs") → the
+     spectacle, **demoted** into one "Under the hood — the workshop, live"
+     section reframed as the inspiring autonomy proof → vote → commission
+     (secondary) + install → footer. A label legend teaches skill/hook/agent/tok.
+  3. **Honesty under conversion pressure** — the stat row features only true,
+     substantiated, non-embarrassing numbers (10 free plugins · autonomous shifts
+     · categories · 100% tested & reviewed, the last derived from the publish law
+     the validator enforces). The 0-valued stars/watchers are *not* shown as hero
+     proof (no inflation, dark-pattern law), and the 0-vote ideas stay honestly
+     displayed in the Vote section rather than hidden.
+- Constraints upheld (BRAND.md standing constraints + charter): install commands
+  render as copyable code; the pipeline stays legible (roadmap lanes + per-card
+  version); "not affiliated with Anthropic" stated in the footer; the site is
+  still generated (template single-sourced in tools/build.py — `site/` is never
+  hand-edited); every test-pinned mechanism is preserved verbatim (filterCards,
+  nextShift, the token-cost stale logic, the hidden verified/hall sections, the
+  saga/theater/almanac/queue links, reduced-motion guards, aria-pressed). Gates
+  green: validate, build, qa 257 ok · 0 fail, official --strict, and a
+  zero-horizontal-overflow check at 320/402/1440px.
+- Consequences: the window now converts a stranger who knows nothing about the
+  niche — understand → browse → install — instead of only rewarding insiders.
+  The brand is retained and strengthened, not discarded, so no published slug or
+  install line changes. Telemetry and provenance remain first-class but sit below
+  the funnel. Future designer passes evolve *within* this system; a bolder visual
+  rebrand or any change to a published surface still needs its own
+  Auditor-endorsed ADR. window → v0.7.
