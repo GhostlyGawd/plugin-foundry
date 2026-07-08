@@ -2043,3 +2043,44 @@ Entry template (copy exactly; newest at the bottom):
   smoke not required. Left PR #24 open (operator kept it).
 - next: regenerate the token (`claude setup-token`, active subscription), update the
   secret, delete STOP, re-run. The diagnostic will confirm the fix (or the real cause).
+
+## i217 — designer — 2026-07-08T05:41:06Z
+- did: operator-directed redesign of the living window for the first-time visitor
+  (ADR-025). Reimagined the site so someone who knows nothing about the niche can
+  understand and install in minutes, while EVOLVING (not replacing) the Nightshift
+  Foundry brand — kept the name, the immutable `foundry` slug, the warm kraft
+  palette, every honesty law, and all provenance/telemetry machinery. Modernized
+  typography (friendly system sans for headings/body; monospace only for code,
+  install lines, and telemetry) with one warm ember accent for primary CTAs.
+  Rebuilt the whole index TEMPLATE in tools/build.py as a conversion funnel: a
+  hero that defines Claude Code + plugins in plain language -> a "whole idea in 30
+  seconds" primer with a before/after -> a 3-step install path -> the shelf
+  (published plugins only, grouped by category with benefit-led cards, a copyable
+  install line + "tested & reviewed" chip on each, and a skill/hook/agent/tok
+  legend) -> starter kits -> a "why you can trust what installs" section -> the
+  spectacle demoted into one "Under the hood - the workshop, live" section ->
+  vote -> commission (secondary) + install -> footer. Added `categories` to
+  data.json so the shelf shows friendly names + descriptions. Stat row features
+  only substantiated, non-zero numbers (10 plugins - autonomous shifts -
+  categories - 100% tested & reviewed); the 0-valued stars/watchers are never
+  shown as hero proof (dark-pattern law), and the 0-vote ideas stay honestly
+  displayed in the Vote section.
+- line: n/a (no plugin changed stage; no published plugin artifact touched, so no
+  version bump under the Version law). Window v0.6 -> v0.7.
+- files: tools/build.py (index TEMPLATE rewritten; build_site passes categories),
+  state/{STATE.json, DECISIONS.md (ADR-025), JOURNAL.md, BACKLOG.md}, site/*
+  (regenerated).
+- validation: pass — validate (36 published), build, qa 257 ok - 1 skip - 0 fail,
+  official `claude plugin validate --strict` (all 10). Chromium render check: the
+  JS pipeline renders all 10 cards with zero page errors, install lines correct,
+  and zero horizontal overflow at 320 / 402 / 1440px. Dark-mode palette mirrors
+  the existing proven prefers-color-scheme tokens (not separately re-shot).
+- next-suggestion: reviewer/auditor eyes on the copy and the honesty of the stat
+  row; reshoot foundry/assets/og-image.png for the new hero (it still shows the
+  old window). A bolder visual rebrand, if ever wanted, needs its own
+  Auditor-endorsed ADR (BRAND.md standing constraints).
+- notes: pinned test machinery was ported verbatim (filterCards, nextShift, the
+  token-cost stale logic, the hidden verified/hall sections, the saga/theater/
+  almanac/queue nav links, reduced-motion guards, aria-pressed) so all 257 checks
+  stayed green through a full-page rewrite. site/ stays generated — the template
+  lives in tools/build.py and is never hand-edited.

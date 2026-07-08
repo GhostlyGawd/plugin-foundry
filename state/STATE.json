@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 216,
+  "iteration": 217,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -22,6 +22,6 @@
     "reviewer",
     "auditor"
   ],
-  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. \u00b7 post-v13 (ADR-022/023): 14/14 built as a directed PR \u2014 shelf-truth (catalog no longer misdescribes 2 plugins), 2 new hooks (env-doctor SessionStart, session-recap Stop/recall), gates unbroken (sitemap drift, worker idempotency, truncation, dedup), dormant-experiment rubric. 9 plugins, 8 version bumps. Gate left: Claude secret",
+  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. 10 plugins shipped across 4 categories (workflow/quality/context/meta). i217 (ADR-025, operator-directed PR): the window reimagined for the first-time visitor - Nightshift Foundry brand EVOLVED not replaced (kept name/slug/kraft palette; sans typography + ember CTA; monospace only for code/telemetry). New IA is a conversion funnel: hero defines Claude Code + plugins in plain language, 30-second primer + before/after, 3-step install, shelf grouped by category with benefit-led cards, kits, trust section, telemetry demoted to 'Under the hood'. Honesty preserved (no inflated stats; substantiated only). All test-pinned machinery kept; qa 257 ok. window v0.6 -> v0.7. Gate left: Claude secret (CI token).",
   "theme": {"name": "Repo hygiene", "month": "2026-07", "note": "Plugins that surface the quiet debt a codebase accumulates — stale TODOs, missing tests, drifted toolchains, unreviewed dep bumps — and make it legible before it bites."}
 }

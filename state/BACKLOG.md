@@ -128,6 +128,20 @@ site/; **P3s** countdown derives shift hours from cron + fork-a-foundry from-spe
 the line:** commission tiers + GoatCounter (operator); pr-gated CRON default and
 roadmap gates A/B/C (world/community). The line has nothing left it can build alone.
 
+## v0.7 window redesign — SHIPPED ✓ (ADR-025, operator-directed PR)
+i217 (designer): the living window **reimagined for the first-time visitor**.
+Nightshift Foundry brand **evolved, not replaced** — kept name, `foundry` slug,
+kraft palette, every honesty law, all telemetry/provenance machinery. New:
+friendly sans typography (mono only for code/telemetry) + ember CTA; a
+conversion-funnel IA (plain-language hero defining Claude Code + plugins →
+30-second primer + before/after → 3-step install → shelf grouped by category with
+benefit-led cards → kits → trust section → telemetry demoted to "Under the hood"
+→ vote → commission + install); `categories` added to data.json; stat row shows
+only substantiated numbers. All test-pinned machinery ported verbatim; qa 257 ok ·
+0 fail; official --strict green; zero horizontal overflow 320/402/1440px.
+- [ ] P3 (designer) Reshoot foundry/assets/og-image.png for the new v0.7 hero
+      (the social card still shows the old window).
+
 ## Bugs (published plugins — installed users first; see LOOP.md priority 3)
 - [x] P3 (builder) build.py assumes site/ exists (crashes on a fresh checkout
       without it — found by the firstborn at genesis, i214); mkdir it in main().
