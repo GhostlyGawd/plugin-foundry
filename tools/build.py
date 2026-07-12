@@ -1479,18 +1479,22 @@ h1{{font-size:18px;letter-spacing:.12em;text-transform:uppercase;border-bottom:3
 
 def build_desk(cfg, state):
     """P0.8 (ADR-029): the desk, publicly legible. Open items only, ranked —
-    visitors see that human decisions gate the machine (the governance story)."""
+    visitors see that human decisions gate the machine (the governance story).
+    The page shows RANK, never the live score: scores carry age in fractional
+    days, so rendering them made committed output drift with the clock (the
+    Gates sync-law caught it — i247). Order is clock-stable (score differences
+    are time-invariant); the live score lives in `desk.py queue`."""
     import sys as _sys
     _sys.path.insert(0, str(ROOT / "tools"))
     import desk as _desk
     ranked = _desk.rank(path=str(ROOT / "state" / "DESK.jsonl"))
     rows = "".join(
-        f'<tr><td class="id">{html.escape(it["id"])}</td>'
+        f'<tr><td class="score">#{pos}</td>'
+        f'<td class="id">{html.escape(it["id"])}</td>'
         f'<td><span class="kind k-{html.escape(str(it.get("kind")))}">{html.escape(str(it.get("kind")))}</span></td>'
         f'<td>{html.escape(str(it.get("title", "")))}</td>'
-        f'<td class="agent">{html.escape(str(it.get("agent") or "—"))}</td>'
-        f'<td class="score">{score}</td></tr>'
-        for score, it in ranked) or \
+        f'<td class="agent">{html.escape(str(it.get("agent") or "—"))}</td></tr>'
+        for pos, (_score, it) in enumerate(ranked, 1)) or \
         '<tr><td colspan="5" class="clear">The desk is clear — nothing awaits a human decision.</td></tr>'
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1512,7 +1516,7 @@ def build_desk(cfg, state):
 queue — nothing auto-merges past it (charter/CONSTITUTION.md Art. II), and
 nothing else pings the operator (G4). The machine proposes; the human ratifies.
 Source of truth: <code>state/DESK.jsonl</code>.</p>
-<table><tr><th>id</th><th>kind</th><th>item</th><th>from</th><th>score</th></tr>{rows}</table>
+<table><tr><th>rank</th><th>id</th><th>kind</th><th>item</th><th>from</th></tr>{rows}</table>
 <p><a href="index.html">← the window</a></p>
 </div></body></html>"""
     (ROOT / "site" / "desk.html").write_text(page)

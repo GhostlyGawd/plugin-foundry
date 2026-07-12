@@ -2917,3 +2917,32 @@ Entry template (copy exactly; newest at the bottom):
 - notes: honesty outranks a clean checkbox — audit-010 marks the single-writer
   DoD partial rather than declaring two legacy workflows grandfathered to force
   a green. That's the constitution's own standard applied to the audit itself.
+
+## i247 — builder — 2026-07-12T05:01:02Z
+- did: RED BUILD (LOOP.md priority 1) — Gates failed on the branch push at
+  04:48Z ("Generated output committed in sync"): site/desk.html rendered the
+  desk items' ranking SCORES, and scores carry age in fractional days —
+  committed output drifted with the wall clock (200.05 → 200.06 across ~50
+  minutes) and the sync law caught it, exactly as designed. It never fired
+  before because every prior push hit CI inside the ~14-minute rounding
+  window of the local build; main stayed green because gates.yml skips main.
+  Fix: build_desk() now renders RANK POSITION (#1…#n) instead of the live
+  score — order is clock-stable (score differences are time-invariant; sort
+  breaks ties by id), and the live score stays in `desk.py queue` where it
+  is computed fresh. Regression pinned: desk suite case 7 rebuilds the page
+  under two injected clocks a year apart and requires byte-identical output.
+  NOT the Dependabot bump's fault — PR #33's actions ran this same gate
+  green pre-merge; the leak was mine from i231.
+- line: n/a (ops fix; no plugin moved).
+- files: tools/build.py (build_desk rank rendering + the why in its
+  docstring), site/desk.html (regenerated, score-free),
+  foundry/tests/_tools/desk.test.sh (case 7 clock regression),
+  state/{STATE.json, JOURNAL.md}.
+- validation: desk suite 7/7 incl. the year-of-drift byte-identity case;
+  full gates at commit. ops-alarm #36 closes on the green re-run.
+- next-suggestion: none — program remains complete; this was the first
+  post-program maintenance fix, caught by the program's own rails.
+- notes: the failure chain worked end to end without a human: gate red →
+  ops-guard catch → ops-alarm #36 → window amber. The operator saw "main CI
+  failed"; the truth was branch CI — main was never red (deploy + qa green
+  on 03ad47a). Precision matters when the window is the product.

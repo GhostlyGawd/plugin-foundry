@@ -80,3 +80,28 @@ PY
 )
 [ "$out" = "OK" ] && echo "ok: site/desk.html shows open items only" \
                   || echo "fail: desk page — $out"
+
+# 7 — i247 regression: the PUBLIC page is clock-independent (the Gates
+# sync-law caught committed scores drifting with item age — never again)
+out=$(cd "$REPO" && python3 - <<'PY'
+import sys, json
+from pathlib import Path
+from datetime import datetime, timezone
+sys.path.insert(0, "tools")
+import build, desk
+orig = desk.rank
+def at(nowstr):
+    desk.rank = lambda **kw: orig(path=kw.get("path"), now=datetime.fromisoformat(nowstr))
+    build.build_desk({}, {"name": "clock-test"})
+    return Path("site/desk.html").read_bytes()
+try:
+    a = at("2026-07-12T00:00:00+00:00")
+    b = at("2027-06-30T23:59:59+00:00")   # a year of clock drift
+finally:
+    desk.rank = orig
+    build.build_desk({}, json.load(open("state/STATE.json")))  # restore real page
+print("OK" if a == b else "DRIFT: page bytes differ across clocks")
+PY
+)
+[ "$out" = "OK" ] && echo "ok: desk page byte-identical across a year of clock drift" \
+                  || echo "fail: clock leak — $out"
