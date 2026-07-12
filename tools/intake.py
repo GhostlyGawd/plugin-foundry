@@ -21,12 +21,10 @@ def sh(*args, check=True):
     return subprocess.run(args, capture_output=True, text=True, check=check)
 
 
-def sanitize_title(raw, limit=80):
-    """Title line only, fences and angle brackets stripped, backticks removed,
-    truncated — patron prose never reaches the queue page (charter/SECURITY.md)."""
-    line = (raw or "").splitlines()[0] if raw else ""
-    line = line.replace("`", "").replace("<", "").replace(">", "").strip()
-    return (line[: limit - 1] + "…") if len(line) > limit else (line or "untitled commission")
+# One fence, one seam (P0.2, ADR-026): the sanitizer lives in fence.py; intake
+# is its first ported consumer. Behavior unchanged — the intake suite pins it.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fence import sanitize_title  # noqa: E402
 
 
 def main():

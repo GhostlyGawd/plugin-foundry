@@ -21,7 +21,7 @@ desk-queued, never performed autonomously — constitution floor.
 | P0.7 chief-of-staff orchestrator | BUILD | QUEUED | after P0.1–P0.6 |
 | P0.6 quota governor v2 | BUILD | **DONE** (i222) | tools/quota.py (168h pressure, low→high shed, product never on pressure, ≥1.0 kill switch → desk, dollar path absolute) · run-shift wiring · ADR-028 · 15-case suite |
 | AUTH-1 auth abstraction | BUILD | **DONE** (i223) | tools/auth.py (api > subscription > local-login > loud CI fail) · probe classifies auth failures, loop.sh halts on FIRST · migration triggers in auth.py + OPERATIONS §9 · single-surface lint · 10-case suite |
-| P0.2 trust fencing + read/act split | BUY+WRAP | QUEUED | seam in tools/fence.py; scanner swappable; split enforced by contract hard rule 2 (already live) |
+| P0.2 trust fencing + read/act split | BUY+WRAP | **DONE** (i224) | tools/fence.py wrap/scan (envelope uncloseable from inside; FENCE_BACKEND seam falls back to builtin floor) · intake ported · unfenced-ingestion CI lint in validate_state · read/act split live via hard rule 2 + guard · 11-case suite. LLM Guard/Lakera upgrade = desk item at Stage 2 |
 | P0.3 per-agent commit identity | BUILD | **DONE** (i221) | identities.json · tools/commit.py (author + Agent: trailer) · validate.py trailer law (HEAD, fails on untrailed agent commits) |
 | P0.4 state validator | BUILD | **DONE** (i221) | tools/validate_state.py (STATE/BUDGET/METRICS/DESK/votes/verified/reports/kits/alarms/network/registry/identities/heartbeats) · gates.yml step · orchestrator pre-commit at P0.7 |
 | P0.9 heartbeats / liveness | CHEAP | **DONE** (i221) | tools/heartbeat.py beat/check (×1.5 grace, dormant exempt) · heartbeats.json · ops-guard liveness job (alarms, never fails) |

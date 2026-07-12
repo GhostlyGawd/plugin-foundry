@@ -42,6 +42,12 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       OAuth→API switch requires no agent changes. (MASTER.md §14)
       DONE i223: auth.py check/probe; loop.sh halts LOUD on first auth failure
       (alarm + remedy); OPERATIONS §9; lint proves the surface is single.
+- [x] P0 (builder) MASTER P0.2 — trust fencing + read/act split. DONE i224:
+      fence.py wrap (envelope, marker-collision-proof, sha256 provenance) +
+      scan (9 attack shapes incl. third-party-PR lure + Agent-trailer spoof;
+      FENCE_BACKEND swappable, falls back closed); intake.py ported to the
+      seam; validate_state lint fails unfenced ingests_untrusted prompts;
+      11-case suite green.
 
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
 - [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and

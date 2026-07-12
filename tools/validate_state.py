@@ -188,6 +188,23 @@ def check_agents_state(root, errors):
                 continue
             if not isinstance(v, dict) or "ts" not in v:
                 errors.append(f"foundry/agents/heartbeats.json: '{k}' needs a 'ts'")
+    # P0.2 CI lint: an ingests_untrusted agent's prompt must route through the
+    # fence — a prompt that never mentions the fence/UNTRUSTED envelope is an
+    # unfenced ingestion path (the loader already forces fenced:true; this
+    # catches the prompt file contradicting the manifest).
+    for a in agents:
+        if a["trust_tier"] != "ingests_untrusted" or not a.get("prompt"):
+            continue
+        pp = os.path.join(root, a["prompt"])
+        if not os.path.isfile(pp):
+            errors.append(f"foundry/agents/{a['id']}: prompt file {a['prompt']} missing")
+            continue
+        body = open(pp, encoding="utf-8", errors="replace").read()
+        if "UNTRUSTED" not in body and "fence" not in body.lower():
+            errors.append(
+                f"foundry/agents/{a['id']}: prompt {a['prompt']} ingests untrusted "
+                f"input but never references the fence (tools/fence.py wrap) — "
+                f"unfenced ingestion fails CI (P0.2)")
 
 
 def main(argv=None):
