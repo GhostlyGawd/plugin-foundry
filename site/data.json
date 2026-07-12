@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:27:22.105958+00:00",
- "iteration": 229,
+ "generated_at": "2026-07-12T03:29:17.001095+00:00",
+ "iteration": 230,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i230",
+   "role": "growth",
+   "ts": "2026-07-12T03:28:56Z",
+   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
+  },
   {
    "it": "i229",
    "role": "designer",
@@ -58,21 +64,9 @@
    "role": "builder",
    "ts": "2026-07-12T03:02:11Z",
    "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
-  },
-  {
-   "it": "i222",
-   "role": "builder",
-   "ts": "2026-07-12T02:58:49Z",
-   "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
   }
  ],
  "journal": [
-  {
-   "it": "i218",
-   "role": "auditor",
-   "ts": "2026-07-12T02:31:37Z",
-   "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
-  },
   {
    "it": "i219",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "designer",
    "ts": "2026-07-12T03:27:00Z",
    "text": "MASTER GAP-A4 \u2014 the README first screen, written BY HAND per the"
+  },
+  {
+   "it": "i230",
+   "role": "growth",
+   "ts": "2026-07-12T03:28:56Z",
+   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 230,
+  "iterations": 231,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -2542,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 12
+   "n": 13
   }
  ],
  "categories": [

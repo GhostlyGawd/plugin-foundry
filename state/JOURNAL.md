@@ -2429,3 +2429,27 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: GAP-B (publish kit) closes Stage 1; then the Stage 1 PR.
 - notes: README stays hand-owned — future edits are deliberate acts, not
   build outputs (P4.1 generator: deferred, tracked).
+
+## i230 — growth — 2026-07-12T03:28:56Z
+- did: MASTER GAP-B — the ecosystem publish kit, constitutionally clean.
+  Half of GAP-B has been live since genesis: a valid, versioned
+  .claude-plugin/marketplace.json (the validator law) is what passive
+  community indexers crawl. The active half lands to the repo's edge:
+  tools/publish.py generates foundry/SUBMISSIONS.md — a prefilled
+  awesome-claude-code intake link (their issue surface, everything
+  URL-encoded), the Anthropic community-marketplace pointer (the single
+  biggest credibility unlock), a generic copy block, and one blurb per shelf
+  plugin — and queues desk item d-0001 (the REAL desk's first item) for the
+  operator's click. Art. I §1 holds by construction: the tool contains no
+  network machinery at all (the suite greps for it), and the
+  we-don't-spam-maintainers clause is quoted inside the kit itself.
+- line: n/a (ops program; no plugin moved). STAGE 1 COMPLETE.
+- files: tools/publish.py (new), foundry/SUBMISSIONS.md (generated),
+  state/DESK.jsonl (d-0001), foundry/tests/_tools/publish.test.sh (5 cases),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 5/5 — provably offline, all 10 plugins blurbed, prefilled link
+  present, deterministic regen + desk dedup, constitution clause in the kit.
+  Full gates at commit.
+- next-suggestion: land the Stage 1 slate PR, then Stage 2 (table-stakes
+  integrations; ADR-029 owner's-desk ranking + ADR-030 evals ride there).
+- notes: actual clicking is the operator's — by design, forever (Art. I §1).

@@ -34,7 +34,7 @@ desk-queued, never performed autonomously — constitution floor.
 | GAP-A2 live dashboard | BUILD | **DONE** (i227) | qstrip running counter in "Under the hood" (quality + latest ship, all substantiated) · hero already carries the number (i226) — ADR-025 funnel preserved · Chromium render check: strip live, zero page errors |
 | GAP-A3 proof artifact (shift replay) | BUILD | **DONE** (i228) | tools/replay.py → foundry/assets/replay.svg (7-frame SMIL loop of the real i89–i93 starter-kits arc; the GATE BLOCKS frame quotes the actual bounce) · labeled REPLAY + record citation · deterministic · embedded on the site, README next (A4) · 6-case suite w/ record-drift guard |
 | GAP-A4 README first screen + org chart | BY HAND | **DONE** (i229) | hand-written: hook → replay embed → proof counter + badges (quality.json endpoint) → 2-command install → 1-command fork → org-chart mermaid → refreshed layout/truth sections. Fork command verified against marketplace.json |
-| GAP-B auto-publish to registries | BUILD | QUEUED | marketplace.json already valid; submissions-only wiring (constitution) |
+| GAP-B auto-publish to registries | BUILD | **DONE** (i230) | passive indexing live (valid marketplace.json since genesis) · tools/publish.py → foundry/SUBMISSIONS.md (prefilled intake links + copy for awesome-claude-code, Anthropic community form, generic blurbs) · desk item d-0001 queued for the operator click · tool provably offline · 5-case suite |
 
 ## Stage 2 — table-stakes integrations
 
