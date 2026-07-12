@@ -67,6 +67,15 @@ if ! python3 tools/budget.py check; then
   echo "loop.sh: governor halt — see state/BUDGET.jsonl"; exit 0
 fi
 
+# Auth surface (AUTH-1, ADR-031): one module decides whether a usable credential
+# exists. In CI with none, fail LOUDLY now — a silent no-op shift is worse than
+# a red one (the 2026-07-07 lesson).
+if ! python3 tools/auth.py check; then
+  python3 tools/alarm.py "Auth halt — no usable credential in CI" \
+    "tools/auth.py found neither ANTHROPIC_API_KEY nor CLAUDE_CODE_OAUTH_TOKEN. See its printed remedy; the loop refuses to no-op silently." || true
+  echo "loop.sh: auth halt — see tools/auth.py remedy above"; exit 1
+fi
+
 mkdir -p state/runs
 FAILS=0
 
@@ -97,6 +106,15 @@ for ((i = 1; i <= MAX; i++)); do
   else
     FAILS=$((FAILS + 1))
     echo "loop.sh: claude exited nonzero (streak: $FAILS). Log: $LOG"
+    # AUTH-1 (ADR-031): classify the failure. Auth-shaped → halt on the FIRST
+    # one, loudly, with the remedy — never streak silently on a dead token.
+    python3 tools/auth.py probe "$LOG.json" "$LOG.err" "$LOG"; PROBE_RC=$?
+    if [ "$PROBE_RC" -eq 2 ]; then
+      python3 tools/alarm.py "Auth halt — credential rejected mid-shift" \
+        "tools/auth.py classified the claude failure as an auth failure (see the run log tail in the Actions diagnostic step). Remedy printed by auth.py; the loop halted on the first failure instead of streaking." || true
+      echo "loop.sh: AUTH FAILURE — halting immediately (see remedy above)."
+      break
+    fi
     if [ "$FAILS" -ge 3 ]; then
       echo "loop.sh: 3 consecutive failures — halting for a human. See state/runs/."
       break

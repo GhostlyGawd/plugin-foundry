@@ -2233,3 +2233,28 @@ Entry template (copy exactly; newest at the bottom):
   ADR-031) then P0.2 fencing; P0.7 orchestrator closes Stage 0.
 - notes: QUOTA_WEEKLY_RUNS defaults conservative (40/week ≈ 5.7 sessions/day);
   it is an Actions variable so observed reality tunes it without code.
+
+## i223 — builder — 2026-07-12T03:02:11Z
+- did: MASTER AUTH-1 — the auth abstraction (ADR-031-authorized loop.sh touch).
+  tools/auth.py is now the single credential surface: ANTHROPIC_API_KEY → api
+  (precedence, mirrors claude), CLAUDE_CODE_OAUTH_TOKEN → subscription, no env
+  on a laptop → local-login, no env in CI → LOUD fail with the exact remedy.
+  auth.py probe classifies a failed run log as auth-shaped or not; loop.sh now
+  (a) checks auth before the loop and (b) halts + alarms on the FIRST
+  auth-shaped failure instead of streaking — the precise fix for the
+  2026-07-07 silent no-op shift. Four hard migration triggers documented in
+  auth.py + OPERATIONS §9. A lint test proves no other tool reads the token
+  envs (it caught its own first draft being too blunt: preflight.py only
+  *names* the secrets in a click-list; the lint now flags environ reads only).
+- line: n/a (ops program; no plugin moved).
+- files: tools/auth.py (new), loop.sh (auth gate + first-failure halt),
+  OPERATIONS.md (§9), foundry/tests/_tools/auth.test.sh (10 cases),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 10/10 — precedence, subscription, loud bare-CI fail w/ remedy,
+  local-login, no credential value ever printed, probe classifies the real
+  expired-token shape + 401, refuses to misclassify ENOSPC, tolerates missing
+  logs, single-surface lint. bash -n loop.sh clean. Full gates at commit.
+- next-suggestion: P0.2 fencing (fence.py seam + read/act split lint) then the
+  P0.7 orchestrator to close Stage 0.
+- notes: acceptance met — switching billing modes is a secrets change with
+  zero agent edits; auth.py never echoes a credential.

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T02:59:05.984981+00:00",
- "iteration": 222,
+ "generated_at": "2026-07-12T03:02:28.447072+00:00",
+ "iteration": 223,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i223",
+   "role": "builder",
+   "ts": "2026-07-12T03:02:11Z",
+   "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
+  },
   {
    "it": "i222",
    "role": "builder",
@@ -58,21 +64,9 @@
    "role": "auditor",
    "ts": "2026-07-06T04:58:00Z",
    "text": "audit-004 filed \u2014 v9 slate 13/13 lawful (9 releases under version law, \u00b7 audit-004 filed"
-  },
-  {
-   "it": "i150",
-   "role": "builder",
-   "ts": "2026-07-06T04:50:00Z",
-   "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
   }
  ],
  "journal": [
-  {
-   "it": "i146",
-   "role": "qa",
-   "ts": "2026-07-06T04:15:00Z",
-   "text": "suite backfill 1/2 (#10) \u2014 saga-page gets executable checks for its"
-  },
   {
    "it": "i147",
    "role": "qa",
@@ -138,6 +132,12 @@
    "role": "builder",
    "ts": "2026-07-12T02:58:49Z",
    "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
+  },
+  {
+   "it": "i223",
+   "role": "builder",
+   "ts": "2026-07-12T03:02:11Z",
+   "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
   }
  ],
  "records": [
@@ -2531,7 +2531,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 5
+   "n": 6
   }
  ],
  "categories": [

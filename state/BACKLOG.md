@@ -35,11 +35,13 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       quota.py pressure model + tier shedding (product never sheds on
       pressure; ≥1.0 kill switch desk-pauses), dollar path absolute,
       run-shift wired, decisions ledgered; 15-case suite green.
-- [ ] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
+- [x] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
       (no agent reads the token env var directly), token-expiry/rejection
       detection with a loud failure (the exact silence behind the 2026-07-07
       re-pause), document the four hard migration triggers. Acceptance:
       OAuth→API switch requires no agent changes. (MASTER.md §14)
+      DONE i223: auth.py check/probe; loop.sh halts LOUD on first auth failure
+      (alarm + remedy); OPERATIONS §9; lint proves the surface is single.
 
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
 - [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and
