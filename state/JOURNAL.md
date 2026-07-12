@@ -2645,3 +2645,29 @@ Entry template (copy exactly; newest at the bottom):
   fork-a-foundry inheriting the framework.
 - notes: LAUNCH.md is hand-owned like the README — the numbers auto-verify but
   the words are a deliberate act, refreshed with vishot narrate before posting.
+
+## i238 — growth — 2026-07-12T04:04:52Z
+- did: MASTER P1.4 — the dogfood report card ("best halo feature": the factory
+  grades itself on eating its own dog food, instantly legible + honest).
+  tools/dogfood.py mines evidence ONLY from this repo (growth-honesty) and — the
+  honesty that makes it real — counts genuine USE, not construction: a journal
+  line counts only if it pairs the slug with use/friction language AND isn't a
+  build/publish line. First naive pass graded all 10 "used" purely on mention
+  frequency (26-53 hits each) — misleading, since most mentions are the
+  plugin's own construction; the corrected signal grades 0 used · 9 lightly · 1
+  not-yet, with "N construction mention(s) — dogfood pending" shown transparently
+  and not-yet plugins displayed, never hidden (that IS the feature). Renders as a
+  site card with per-plugin evidence chips (hover = the evidence), auto-regraded
+  in build so it never goes stale.
+- line: n/a (ops program; no plugin moved).
+- files: tools/dogfood.py (new), tools/build.py (regrade + card render + css),
+  foundry/dogfood.json (generated), site/* (regenerated),
+  foundry/tests/_tools/dogfood.test.sh (4 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 4/4 — construction≠dogfood, genuine-use counts, unused→not-yet
+  shown, card grades only the real shelf with a consistent summary, renders
+  with the honesty framing. Full gates at commit.
+- next-suggestion: P5.4 self-authored postmortems (seed with the real
+  2026-07-07 token incident) — the next halo content generator.
+- notes: kept dogfood a deterministic build-pipeline tool (like the quality
+  number), not an LLM agent — no reasoning needed, so no manifest.

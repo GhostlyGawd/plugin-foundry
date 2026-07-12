@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T04:00:03.144845+00:00",
- "iteration": 237,
+ "generated_at": "2026-07-12T04:05:15.232890+00:00",
+ "iteration": 238,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i238",
+   "role": "growth",
+   "ts": "2026-07-12T04:04:52Z",
+   "text": "MASTER P1.4 \u2014 the dogfood report card (\"best halo feature\": the factory"
+  },
   {
    "it": "i237",
    "role": "growth",
@@ -58,21 +64,9 @@
    "role": "builder",
    "ts": "2026-07-12T03:34:14Z",
    "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
-  },
-  {
-   "it": "i230",
-   "role": "growth",
-   "ts": "2026-07-12T03:28:56Z",
-   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
   }
  ],
  "journal": [
-  {
-   "it": "i226",
-   "role": "growth",
-   "ts": "2026-07-12T03:18:50Z",
-   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
-  },
   {
    "it": "i227",
    "role": "growth",
@@ -138,6 +132,12 @@
    "role": "growth",
    "ts": "2026-07-12T03:59:41Z",
    "text": "MASTER Stage 3 \u2014 the launch kit, built to the repo's edge and"
+  },
+  {
+   "it": "i238",
+   "role": "growth",
+   "ts": "2026-07-12T04:04:52Z",
+   "text": "MASTER P1.4 \u2014 the dogfood report card (\"best halo feature\": the factory"
   }
  ],
  "records": [
@@ -1120,9 +1120,126 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 238,
+  "iterations": 239,
   "ci_shifts": 1,
   "api_spend_usd": 0
+ },
+ "dogfood": {
+  "_law": "Evidence mined only from this repo (growth-honesty). not-yet plugins are shown, never hidden \u2014 honesty is the feature.",
+  "summary": {
+   "used": 0,
+   "lightly-used": 9,
+   "not-yet": 1
+  },
+  "cards": [
+   {
+    "plugin": "commit-craft",
+    "grade": "lightly-used",
+    "score": 2,
+    "evidence": [
+     "1 dogfood line(s)",
+     "in a shipped starter kit"
+    ],
+    "mentions": 24,
+    "use_lines": 1
+   },
+   {
+    "plugin": "env-doctor",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "15 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 15,
+    "use_lines": 0
+   },
+   {
+    "plugin": "fork-a-foundry",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "16 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 16,
+    "use_lines": 0
+   },
+   {
+    "plugin": "night-clerk",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "1 dogfood line(s)"
+    ],
+    "mentions": 48,
+    "use_lines": 1
+   },
+   {
+    "plugin": "plugin-smith",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "12 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 12,
+    "use_lines": 0
+   },
+   {
+    "plugin": "pr-narrator",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "16 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 16,
+    "use_lines": 0
+   },
+   {
+    "plugin": "session-recap",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "16 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 16,
+    "use_lines": 0
+   },
+   {
+    "plugin": "test-gap-nudge",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "42 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 42,
+    "use_lines": 0
+   },
+   {
+    "plugin": "todo-ledger",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "1 dogfood line(s)"
+    ],
+    "mentions": 11,
+    "use_lines": 1
+   },
+   {
+    "plugin": "dep-bump-brief",
+    "grade": "not-yet",
+    "score": 0,
+    "evidence": [
+     "26 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 26,
+    "use_lines": 0
+   }
+  ]
  },
  "votes": [
   {
@@ -2542,7 +2659,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 20
+   "n": 21
   }
  ],
  "categories": [

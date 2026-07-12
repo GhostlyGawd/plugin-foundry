@@ -1,0 +1,117 @@
+{
+ "_law": "Evidence mined only from this repo (growth-honesty). not-yet plugins are shown, never hidden — honesty is the feature.",
+ "summary": {
+  "used": 0,
+  "lightly-used": 9,
+  "not-yet": 1
+ },
+ "cards": [
+  {
+   "plugin": "commit-craft",
+   "grade": "lightly-used",
+   "score": 2,
+   "evidence": [
+    "1 dogfood line(s)",
+    "in a shipped starter kit"
+   ],
+   "mentions": 24,
+   "use_lines": 1
+  },
+  {
+   "plugin": "env-doctor",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "in a shipped starter kit",
+    "15 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 15,
+   "use_lines": 0
+  },
+  {
+   "plugin": "fork-a-foundry",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "in a shipped starter kit",
+    "16 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 16,
+   "use_lines": 0
+  },
+  {
+   "plugin": "night-clerk",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "1 dogfood line(s)"
+   ],
+   "mentions": 48,
+   "use_lines": 1
+  },
+  {
+   "plugin": "plugin-smith",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "in a shipped starter kit",
+    "12 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 12,
+   "use_lines": 0
+  },
+  {
+   "plugin": "pr-narrator",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "in a shipped starter kit",
+    "16 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 16,
+   "use_lines": 0
+  },
+  {
+   "plugin": "session-recap",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "in a shipped starter kit",
+    "16 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 16,
+   "use_lines": 0
+  },
+  {
+   "plugin": "test-gap-nudge",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "in a shipped starter kit",
+    "42 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 42,
+   "use_lines": 0
+  },
+  {
+   "plugin": "todo-ledger",
+   "grade": "lightly-used",
+   "score": 1,
+   "evidence": [
+    "1 dogfood line(s)"
+   ],
+   "mentions": 11,
+   "use_lines": 1
+  },
+  {
+   "plugin": "dep-bump-brief",
+   "grade": "not-yet",
+   "score": 0,
+   "evidence": [
+    "26 construction mention(s) — dogfood pending"
+   ],
+   "mentions": 26,
+   "use_lines": 0
+  }
+ ]
+}

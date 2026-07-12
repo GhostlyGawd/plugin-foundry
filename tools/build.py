@@ -390,6 +390,14 @@ TEMPLATE = """<!DOCTYPE html>
   .qstrip{font-family:var(--mono, ui-monospace, monospace); font-size:12.5px; color:var(--dim); border:1px dashed var(--line); border-radius:10px; padding:10px 14px; margin:6px 0 14px; overflow-wrap:anywhere}
   .qstrip b{color:var(--ink)}
   .replay{display:block; max-width:100%; height:auto; margin:0 0 14px; border-radius:12px}
+  .dogfood{margin:0 0 14px; font-size:12.5px}
+  .dfhead{color:var(--dim); margin-bottom:8px} .dfhead b{color:var(--ink)}
+  .dfnote{font-size:11px}
+  .dfchips{display:flex; flex-wrap:wrap; gap:6px}
+  .dfchip{padding:3px 9px; border-radius:20px; font-size:11.5px; border:1px solid var(--line); cursor:help}
+  .df-used{background:#2e6b34; color:#f6efe2; border-color:#2e6b34}
+  .df-lightly-used{background:var(--card); color:var(--ink)}
+  .df-not-yet{background:transparent; color:var(--dim); border-style:dashed}
   .tape{margin-top:22px; overflow:hidden; white-space:nowrap; padding:11px 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair)}
   .tape .reel{display:inline-block; padding-left:100%}
   @media (prefers-reduced-motion:no-preference){
@@ -576,6 +584,7 @@ TEMPLATE = """<!DOCTYPE html>
       <h2 class="sec-title">Under the hood — the workshop, live</h2>
       <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> An autonomous Claude Code loop pitches, builds, tests, reviews, and publishes every plugin above — and this page updates the moment it does.</p>
       <p class="qstrip" id="qstrip" aria-label="the running quality counter — every number substantiated by this repo"></p>
+      <div class="dogfood" id="dogfood" aria-label="the dogfood report card — the factory grades its own use of what it ships"></div>
       <img class="replay" src="replay.svg" loading="lazy" width="720" height="200"
            alt="Replay of real iterations i89–i93: the review gate blocks a bad starter-kits build, the fix lands with a pinned regression, v0.1.0 ships." />
       <div id="themebox"></div>
@@ -859,6 +868,20 @@ function renderStats(){
     '<div class="stat"><span class="n">' + (n === null || n === undefined ? '—' : n) +
     '</span><span class="s">' + label + '</span></div>').join('');
 }
+function renderDogfood(){
+  // P1.4: the factory grades its own dogfooding, honestly — 'not-yet' shown.
+  const D = DATA.dogfood || {}, el = document.getElementById('dogfood');
+  if (!el || !D.cards) return;
+  const s = D.summary || {};
+  const chip = (c) => '<span class="dfchip df-' + c.grade + '" title="'
+    + esc((c.evidence || []).join('; ') || 'no evidence yet') + '">'
+    + esc(c.plugin) + '</span>';
+  el.innerHTML = '<div class="dfhead">Dogfood report card — '
+    + '<b>' + (s.used || 0) + '</b> used · <b>' + (s['lightly-used'] || 0)
+    + '</b> lightly · <b>' + (s['not-yet'] || 0) + '</b> not yet '
+    + '<span class="dfnote">(the factory grades its own use of what it ships — hover a chip for the evidence)</span></div>'
+    + '<div class="dfchips">' + D.cards.map(chip).join('') + '</div>';
+}
 function renderQuality(){
   // GAP-A2: the running counter — the return engine ("what did it ship today?").
   // Every figure comes from DATA.quality (records/journal/ledger — substantiated).
@@ -974,7 +997,7 @@ function renderAll(){
   setHeroCounts();
   renderCatChips(); renderTagChips(); renderGrid(); renderClerk();
   renderTape(); renderStreak(); renderTheme(); renderLanes(); renderStats();
-  renderQuality(); renderFuel(); renderAlarms(); renderVotes(); renderKits();
+  renderQuality(); renderDogfood(); renderFuel(); renderAlarms(); renderVotes(); renderKits();
   renderHall(); renderVerified(); renderNetwork(); renderNextShift();
   if (DATA.repo){
     const rel = document.getElementById('relchip');
@@ -1766,6 +1789,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
                   ("stars", "watchers", "views_14d", "uniques_14d",
                    "idea_votes_total", "field_reports", "open_alarms")},
         "quality": build_quality(records),
+        "dogfood": load_json(ROOT / "foundry" / "dogfood.json", {}),
         "votes": votes,
         "roadmap": {k: [slim(r) for r in v] for k, v in roadmap_lanes(records).items()},
         "kits": kit_data,
@@ -1839,6 +1863,14 @@ def main():
     if rp_src.exists():
         (ROOT / "site" / "replay.svg").write_text(rp_src.read_text())
     mp_name = mp.get("name", "foundry")
+    # P1.4: regrade the dogfood card from live evidence so it never goes stale
+    try:
+        import dogfood as _dogfood
+        with open(ROOT / "foundry" / "dogfood.json", "w", encoding="utf-8") as _f:
+            json.dump(_dogfood.compute(), _f, indent=1, ensure_ascii=False)
+            _f.write("\n")
+    except Exception:  # noqa: BLE001 — a card refresh must never break the build
+        pass
     records = collect_records()
     counts = build_index(records, state, mp_name)
 

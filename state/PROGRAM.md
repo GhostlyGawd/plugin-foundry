@@ -61,7 +61,7 @@ desk-queued, never performed autonomously — constitution floor.
 
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
-| P1.4 dogfood report card | HALO | QUEUED | best halo feature |
+| P1.4 dogfood report card | HALO | **DONE** (i238) | tools/dogfood.py — grades genuine use (construction mentions excluded), shows not-yet honestly, auto-regraded in build · site card with per-plugin evidence chips · 4-case suite |
 | P1.1 per-shift operator briefing | HALO | QUEUED | channel: pinned issue (ADR-031) |
 | P1.2 ask-the-factory | HALO | QUEUED | |
 | P4.2 shipnotes weekly + social variant | HALO | QUEUED | extend existing shipnote.py |
