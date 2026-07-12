@@ -2887,3 +2887,33 @@ Entry template (copy exactly; newest at the bottom):
   bump so it lists 0.2.7). Two published plugins moved this iteration — a
   legitimate forced coupling, not batching. qa 437 · 0 fail; smoke green.
 
+
+## i246 — auditor — 2026-07-12T04:38:53Z
+- did: program close-out (audit-010). Verified every MASTER.md §14 line item is
+  accounted for in state/PROGRAM.md — built+tested, bought+integrated-to-the-edge
+  (5 app-installs desk-gated d-0002..d-0005; Dependabot native), operator-gated
+  (launch + submissions desk-gated d-0001/d-0006), or deferred-tracked (MASTER's
+  own verdicts). 13 agents (all with identities + heartbeats), ~30 tools each
+  with an executable suite, qa 437 · 0 fail. Walked the §14 program-level
+  definition-of-done: 8 of 9 boxes ✅; ONE honestly marked PARTIAL — the
+  single-writer DoD: the orchestrator is the single-writer path for the agent
+  framework, but two legacy product workflows (record-demos.yml, qa.yml
+  re-verify stamps) still commit to main directly (lay-tags pushes tags only, a
+  separate ref). Not claimed as done — filed as a P2 backlog item to migrate or
+  operator-grandfather via ADR, with this iteration as the two-iteration seed.
+  Recorded the genuine tripwire firing (5 clean QA passes = a rubber-stamp
+  streak signal, LOOP.md rule 7) as a real positive for the next audit, not
+  suppressed.
+- line: n/a (audit; no plugin moved).
+- files: reviews/audit-010.md (new), state/{PROGRAM.md (close-out + DoD boxes),
+  BACKLOG.md (DoD-1 gap item), STATE.json, JOURNAL.md}.
+- validation: validate + build + validate_state + evals (25/25) + qa (437 · 0
+  fail). The program is complete and accounted for; the one partial DoD is
+  documented, not hidden.
+- next-suggestion: operator decisions await at the desk (python3 tools/desk.py
+  queue) — 8 items: submissions, 5 app-installs, launch, quarterly recs. And
+  the STOP gate (CI token) still blocks live shifts; AUTH-1 makes that failure
+  loud now.
+- notes: honesty outranks a clean checkbox — audit-010 marks the single-writer
+  DoD partial rather than declaring two legacy workflows grandfathered to force
+  a green. That's the constitution's own standard applied to the audit itself.

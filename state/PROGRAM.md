@@ -12,6 +12,12 @@ build every line item end to end, 100% accounted for. Outward actions under the
 operator's identity (launch posts, third-party account signups) are prepared and
 desk-queued, never performed autonomously — constitution floor.
 
+**CLOSE-OUT (i246, audit-010):** every §14 line item is accounted for — built+tested,
+bought+integrated-to-the-edge (5 app-installs desk-gated), operator-gated (launch/
+submissions desk-gated), or deferred-tracked. 13 agents · ~30 tools each with a suite ·
+qa 437 · 0 fail. One DoD honestly PARTIAL: two legacy workflows (record-demos, qa
+re-verify) still write to main directly — migrate/grandfather (backlogged). The rest ✅.
+
 ## Stage 0 — the minimum safe, story-bearing core
 
 | Item | Verdict | Status | Evidence |
@@ -92,12 +98,12 @@ desk-queued, never performed autonomously — constitution floor.
 
 ## Program-level definition of done (§14) — verified at close-out
 
-- [ ] No workflow other than the orchestrator (P0.7) and run-shift writes to main
-- [ ] Every untrusted input path fenced; CI lint proves it
-- [ ] Every human decision reaches exactly one place — the desk; nothing requiring approval auto-merges
-- [ ] Guard + constitution block schema edits, record deletions, self-governing edits, third-party PRs; each desk-routed
-- [ ] Quota governor v2 protects the product loop under rate-limit pressure
-- [ ] Every agent has an identity, a heartbeat, and (risky ones) an eval fixture
-- [ ] The quality number is live and public
-- [ ] ADRs 026–030 filed (+031 mandate)
-- [ ] fork-a-foundry inherits the whole framework
+- [~] No workflow but the orchestrator (P0.7) + run-shift writes to main — PARTIAL: record-demos.yml + qa.yml (re-verify stamps) are legacy direct-writers to migrate/grandfather (audit-010); lay-tags pushes tags only
+- [x] Every untrusted input path fenced; CI lint proves it
+- [x] Every human decision reaches exactly one place — the desk; nothing requiring approval auto-merges
+- [x] Guard + constitution block schema edits, record deletions, self-governing edits, third-party PRs; each desk-routed
+- [x] Quota governor v2 protects the product loop under rate-limit pressure
+- [x] Every agent has an identity, a heartbeat, and (risky ones) an eval fixture
+- [x] The quality number is live and public
+- [x] ADRs 026–030 filed (+031 mandate)
+- [x] fork-a-foundry inherits the whole framework (v0.2.0)
