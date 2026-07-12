@@ -48,6 +48,13 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       FENCE_BACKEND swappable, falls back closed); intake.py ported to the
       seam; validate_state lint fails unfenced ingests_untrusted prompts;
       11-case suite green.
+- [x] P0 (builder) MASTER P0.7 — chief-of-staff orchestrator, the keystone.
+      DONE i225: single-writer landing pipeline live and ACTIVE (deterministic
+      python — runs while the loop is token-paused); conflicts resolve by
+      precedence with loser re-queue; guard/desk/gate vetoes honored; every
+      landing attributed per-agent (P0.3); orchestrate.yml shares the shift
+      concurrency group (no race with run-shift); 9-case suite green.
+      STAGE 0 COMPLETE.
 
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
 - [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and

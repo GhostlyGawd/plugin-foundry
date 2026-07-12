@@ -18,7 +18,7 @@ desk-queued, never performed autonomously — constitution floor.
 |---|---|---|---|
 | P0.1 agent contract & manifest | BUILD | **DONE** (i219) | charter/AGENTS.md · foundry/agents/schema.json · loader+registry in tools/lib.py · build.py gate · foundry/tests/_tools/agents.test.sh (9 cases) |
 | P0.5 constitution + guard | BUILD | **DONE** (i220) | charter/CONSTITUTION.md · tools/guard.py (allow/desk/block, fails closed) · tools/desk.py + state/DESK.jsonl (minimal desk) · ADR-027 · 13-case suite |
-| P0.7 chief-of-staff orchestrator | BUILD | QUEUED | after P0.1–P0.6 |
+| P0.7 chief-of-staff orchestrator | BUILD | **DONE** (i225) | tools/orchestrator.py (collect→precedence→guard→gates→attributed commits; conflicts defer+re-queue; desk holds/approvals/rejections; red gates revert byte-for-byte) · orchestrate.yml (shift concurrency group, mode:pr parity) · active NOW (deterministic, no token needed) · 9-case suite |
 | P0.6 quota governor v2 | BUILD | **DONE** (i222) | tools/quota.py (168h pressure, low→high shed, product never on pressure, ≥1.0 kill switch → desk, dollar path absolute) · run-shift wiring · ADR-028 · 15-case suite |
 | AUTH-1 auth abstraction | BUILD | **DONE** (i223) | tools/auth.py (api > subscription > local-login > loud CI fail) · probe classifies auth failures, loop.sh halts on FIRST · migration triggers in auth.py + OPERATIONS §9 · single-surface lint · 10-case suite |
 | P0.2 trust fencing + read/act split | BUY+WRAP | **DONE** (i224) | tools/fence.py wrap/scan (envelope uncloseable from inside; FENCE_BACKEND seam falls back to builtin floor) · intake ported · unfenced-ingestion CI lint in validate_state · read/act split live via hard rule 2 + guard · 11-case suite. LLM Guard/Lakera upgrade = desk item at Stage 2 |

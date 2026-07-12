@@ -21,9 +21,10 @@ _REQUIRED = ("id", "role", "trigger", "trust_tier", "quota_tier",
              "capability", "outputs", "heartbeat")
 _OPTIONAL = ("description", "prompt", "workflow", "gates", "lands_via",
              "fenced", "status")
-# The one grandfathered direct writer: the product loop itself, until P0.7
-# subsumes it (charter/AGENTS.md hard rule 1).
-GRANDFATHERED_WRITERS = ("foundry-loop",)
+# The direct writers hard rule 1 permits: the product loop (until P0.7
+# subsumes it) and the orchestrator itself — the single writer everything
+# else lands through (charter/AGENTS.md).
+GRANDFATHERED_WRITERS = ("foundry-loop", "orchestrator")
 
 
 def validate_agent_manifest(m, errors, label):

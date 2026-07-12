@@ -3,5 +3,9 @@
   "foundry-loop": {
     "name": "Nightshift Foundry · product loop",
     "email": "foundry-loop@agents.nightshift-foundry.invalid"
+  },
+  "orchestrator": {
+    "name": "Nightshift Foundry · orchestrator",
+    "email": "orchestrator@agents.nightshift-foundry.invalid"
   }
 }
