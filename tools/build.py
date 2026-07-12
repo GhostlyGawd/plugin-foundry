@@ -387,6 +387,8 @@ TEMPLATE = """<!DOCTYPE html>
   .stat{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center}
   .stat .n{display:block; font-size:30px; font-weight:800; letter-spacing:-.02em}
   .stat .s{display:block; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); margin-top:4px}
+  .qstrip{font-family:var(--mono, ui-monospace, monospace); font-size:12.5px; color:var(--dim); border:1px dashed var(--line); border-radius:10px; padding:10px 14px; margin:6px 0 14px; overflow-wrap:anywhere}
+  .qstrip b{color:var(--ink)}
   .tape{margin-top:22px; overflow:hidden; white-space:nowrap; padding:11px 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair)}
   .tape .reel{display:inline-block; padding-left:100%}
   @media (prefers-reduced-motion:no-preference){
@@ -572,6 +574,7 @@ TEMPLATE = """<!DOCTYPE html>
     <div class="wrap">
       <h2 class="sec-title">Under the hood — the workshop, live</h2>
       <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> An autonomous Claude Code loop pitches, builds, tests, reviews, and publishes every plugin above — and this page updates the moment it does.</p>
+      <p class="qstrip" id="qstrip" aria-label="the running quality counter — every number substantiated by this repo"></p>
       <div id="themebox"></div>
       <div class="stats" id="stats"></div>
       <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -853,6 +856,24 @@ function renderStats(){
     '<div class="stat"><span class="n">' + (n === null || n === undefined ? '—' : n) +
     '</span><span class="s">' + label + '</span></div>').join('');
 }
+function renderQuality(){
+  // GAP-A2: the running counter — the return engine ("what did it ship today?").
+  // Every figure comes from DATA.quality (records/journal/ledger — substantiated).
+  const Q = DATA.quality || {}, el = document.getElementById('qstrip');
+  if (!el) return;
+  const pubs = pubPlugins().slice().sort((a, b) => String(b.updated).localeCompare(String(a.updated)));
+  const latest = pubs[0];
+  const bits = [
+    '<b>' + (Q.plugins_shipped ?? '—') + '</b> plugins shipped',
+    (Q.qa_first_try_pct ?? '—') + '% passed QA first try',
+    '<b>' + (Q.bounces_total ?? '—') + '</b> builds bounced & fixed in public',
+    (Q.iterations ?? '—') + ' iterations',
+    '$' + (Q.api_spend_usd ?? 0).toFixed(2) + ' API spend',
+  ];
+  el.innerHTML = bits.join(' · ') +
+    (latest ? ' — latest ship: <b>' + esc(latest.title) + '</b> v' + esc(latest.version || '?') +
+              ' (' + esc(latest.updated || '') + ')' : '');
+}
 function renderFuel(){
   const F = DATA.fuel || {};
   const row = document.getElementById('fuelrow');
@@ -950,7 +971,7 @@ function renderAll(){
   setHeroCounts();
   renderCatChips(); renderTagChips(); renderGrid(); renderClerk();
   renderTape(); renderStreak(); renderTheme(); renderLanes(); renderStats();
-  renderFuel(); renderAlarms(); renderVotes(); renderKits();
+  renderQuality(); renderFuel(); renderAlarms(); renderVotes(); renderKits();
   renderHall(); renderVerified(); renderNetwork(); renderNextShift();
   if (DATA.repo){
     const rel = document.getElementById('relchip');

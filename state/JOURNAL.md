@@ -2351,3 +2351,28 @@ Entry template (copy exactly; newest at the bottom):
   headline it.
 - notes: definition pinned in the docstring; changing it is a template-law
   change (ADR first). 86% > a fake 100% — the skeptic-converter is the bounce.
+
+## i227 — growth — 2026-07-12T03:21:58Z
+- did: MASTER GAP-A2 — the live dashboard as the return engine. Added the
+  qstrip running counter to "Under the hood — the workshop, live": plugins
+  shipped · % first-try · bounced-and-fixed-in-public · iterations · API
+  spend · latest ship w/ version+date — every figure from DATA.quality
+  (records/journal/ledger) and the records list; nothing fabricated.
+  Reconciliation note: MASTER asks for the feed "above the fold", but
+  ADR-025 (operator-directed, later ruling) deliberately demoted telemetry
+  below the conversion funnel — resolved by putting the NUMBER above the fold
+  (the i226 hero stat cell) and the live strip inside the demoted live
+  section. The funnel IA stands.
+- line: n/a (ops program; no plugin moved).
+- files: tools/build.py (qstrip markup + CSS + renderQuality in the pipeline),
+  site/* (regenerated), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: Chromium render check — qstrip renders the real numbers, stats
+  row shows the 86% cell, zero page errors. Found PRE-EXISTING 320px
+  horizontal overflow (.btn-sm 392px, .card 332px; persists with qstrip
+  removed — not this change) → logged as a P3 designer backlog item; the
+  qstrip itself stays in bounds (overflow-wrap:anywhere). Full gates at
+  commit.
+- next-suggestion: GAP-A3 (the replay proof artifact) — the dashboard now has
+  a number worth animating.
+- notes: one new backlog item this iteration beyond the program item (the
+  overflow P3) — within the ≤3 law.
