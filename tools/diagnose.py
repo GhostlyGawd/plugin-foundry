@@ -54,16 +54,15 @@ def main(argv=None):
     argv = list(argv if argv is not None else sys.argv[1:])
     alarm = "--alarm" in argv
     argv = [a for a in argv if a != "--alarm"]
+    # Classify the RUN LOG only — the journal tail is narrative context for a
+    # human/LLM, never classifier input (past incidents in the journal must not
+    # masquerade as the current failure's cause).
     text = ""
     for p in argv:
         try:
             text += open(p, encoding="utf-8", errors="replace").read() + "\n"
         except OSError:
             continue
-    # also read the journal tail for context
-    jp = os.path.join(ROOT, "state", "JOURNAL.md")
-    if os.path.exists(jp):
-        text += "\n" + open(jp, encoding="utf-8").read()[-2000:]
 
     result = classify(text)
     if not result:

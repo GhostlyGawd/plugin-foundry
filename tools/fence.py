@@ -40,7 +40,7 @@ MAX_LEN = 20000
 
 # The builtin scanner floor. Each entry: (compiled pattern, finding label).
 _PATTERNS = [
-    (re.compile(r"ignore\s+(all\s+|any\s+|the\s+)?(previous|prior|above|earlier|other)?\s*(instructions?|rules?|prompts?)", re.I),
+    (re.compile(r"ignore\s+(\w+\s+){0,2}(instructions?|rules?|prompts?|directions?)", re.I),
      "instruction-override attempt"),
     (re.compile(r"(disregard|forget|override).{0,30}(instructions?|rules?|system prompt|constitution)", re.I),
      "instruction-override attempt"),

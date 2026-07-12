@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T04:16:43.360911+00:00",
- "iteration": 241,
+ "generated_at": "2026-07-12T04:22:23.629576+00:00",
+ "iteration": 242,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i242",
+   "role": "builder",
+   "ts": "2026-07-12T04:19:47Z",
+   "text": "MASTER P2.2 + P2.5 \u2014 the intake agents. tools/steer.py (steer-by-issue,"
+  },
   {
    "it": "i241",
    "role": "builder",
@@ -58,21 +64,9 @@
    "role": "builder",
    "ts": "2026-07-12T03:51:39Z",
    "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
-  },
-  {
-   "it": "i234",
-   "role": "reviewer",
-   "ts": "2026-07-12T03:48:43Z",
-   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
   }
  ],
  "journal": [
-  {
-   "it": "i230",
-   "role": "growth",
-   "ts": "2026-07-12T03:28:56Z",
-   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
-  },
   {
    "it": "i231",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "builder",
    "ts": "2026-07-12T04:16:18Z",
    "text": "MASTER P1.2 + P1.5 + P1.3 \u2014 the perception agents (read-only; the"
+  },
+  {
+   "it": "i242",
+   "role": "builder",
+   "ts": "2026-07-12T04:19:47Z",
+   "text": "MASTER P2.2 + P2.5 \u2014 the intake agents. tools/steer.py (steer-by-issue,"
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 242,
+  "iterations": 243,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -1226,7 +1226,7 @@
     "evidence": [
      "1 dogfood line(s)"
     ],
-    "mentions": 11,
+    "mentions": 12,
     "use_lines": 1
    },
    {
@@ -2659,7 +2659,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 24
+   "n": 25
   }
  ],
  "categories": [

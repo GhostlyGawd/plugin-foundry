@@ -2759,3 +2759,39 @@ Entry template (copy exactly; newest at the bottom):
   ceremony — the naming collision check is real logic).
 - notes: 8 agents in the registry now; all dormant-capable (deterministic
   cores run without a token; the LLM narration arms when the loop is live).
+
+## i242 — builder — 2026-07-12T04:19:47Z
+- did: MASTER P2.2 + P2.5 — the intake agents. tools/steer.py (steer-by-issue,
+  "run my company from my phone"): fences the operator's one-sentence steer as
+  UNTRUSTED, then classifies — a normal steer becomes an Idea-inbox backlog
+  item, a RULE-TOUCHING steer (protocol/charter/validator/schema/constitution/
+  quality bar) routes to the owner's desk for ratification and NEVER becomes a
+  silent law edit, and a high-risk (injection) steer is held for the red-team,
+  not obeyed. tools/naming.py (naming ceremony): the collision check that runs
+  BEFORE a slug is forever (LOOP.md: names are immutable) — catches exact
+  collisions, near-collisions (todoledger ~ todo-ledger, separator-normalized),
+  reserved workshop words, and malformed slugs; the company is already named
+  (ADR-011) so this scopes to plugin names. Two manifests: steer
+  (ingests_untrusted, fenced, proposes — read/act split), naming (proposes).
+  Fixed a real fence gap found here: the instruction-override pattern didn't
+  span a possessive ("ignore YOUR rules" slipped through) — broadened to
+  "ignore <up to 2 words> (rules|instructions|prompts|directions)"; fence 11/11
+  and evals 25/25 still green (no regression).
+- line: n/a (ops program; no plugin moved).
+- files: tools/{steer.py, naming.py} (new), tools/fence.py (broadened pattern),
+  foundry/agents/{steer,naming}/{agent.json,prompt.md},
+  foundry/agents/identities.json, foundry/tests/_tools/intake-agents.test.sh
+  (7 cases), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 7/7 — normal→backlog, 4 rule-touching phrasings→desk,
+  injection→flagged, naming catches exact/near/reserved/malformed + passes a
+  clean slug, both agents contract-valid. fence + evals regression clean. Full
+  gates at commit.
+- next-suggestion: the safety differentiators (P3.1 spec-drift, P3.3 tripwire,
+  P3.4 red-team) — real logic where possible.
+- notes: 10 agents in the registry; the fence gap fix hardens EVERY untrusted
+  path, not just steer.
+- post-commit fix (same iteration): the intake journal entry exposed a latent
+  bug in diagnose.py (i241) — it appended the journal tail to its classifier
+  input, so a new entry mentioning "gate red" made an unrelated unknown failure
+  misclassify. Fixed: classify the RUN LOG only; the journal tail is human
+  context, never classifier input. qa 421 · 0 fail.

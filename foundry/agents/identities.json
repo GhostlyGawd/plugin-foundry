@@ -31,5 +31,13 @@
   "diagnostician": {
     "name": "Nightshift Foundry \u00b7 diagnostician",
     "email": "diagnostician@agents.nightshift-foundry.invalid"
+  },
+  "steer": {
+    "name": "Nightshift Foundry \u00b7 steer",
+    "email": "steer@agents.nightshift-foundry.invalid"
+  },
+  "naming": {
+    "name": "Nightshift Foundry \u00b7 naming",
+    "email": "naming@agents.nightshift-foundry.invalid"
   }
 }

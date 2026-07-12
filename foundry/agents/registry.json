@@ -82,6 +82,23 @@
       "description": "Grandfathered direct writer (charter/AGENTS.md hard rule 1) until P0.7 subsumes it. Dormant while the root STOP file stands (CI token rejected 2026-07-07); run-shift.yml is the runtime."
     },
     {
+      "id": "naming",
+      "role": "Naming ceremony: proposes plugin-name candidates that exclude existing slugs and obvious collisions, before the name spreads.",
+      "trigger": "dispatch",
+      "trust_tier": "trusted",
+      "quota_tier": "low",
+      "capability": "proposes",
+      "outputs": [
+        "the owner's desk (a name choice with one-tap selection)"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/naming/prompt.md",
+      "status": "active",
+      "description": "The company is already named (Nightshift Foundry, ADR-011) — this scopes to plugin names. Collision check (tools/naming.py) is deterministic; names are forever (immutable slugs), so the check runs BEFORE spec locks the name."
+    },
+    {
       "id": "orchestrator",
       "role": "The chief of staff — collects agent changesets from the outbox, resolves conflicts by precedence, runs guard + gates, lands attributed commits. The single writer (P0.7).",
       "trigger": "schedule",
@@ -159,6 +176,25 @@
       "fenced": true,
       "status": "active",
       "description": "Ingests untrusted web text — MUST fence via tools/fence.py before any prompt (hard rule 2), holds NO write capability in the same pass (read/act split). Proposes COMPETITIVE.md updates to the desk."
+    },
+    {
+      "id": "steer",
+      "role": "Steer-by-issue: a one-sentence steering issue becomes a valid backlog item; rule-touching steers become desk items.",
+      "trigger": "event",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "BACKLOG § Idea inbox (via the outbox)",
+        "the owner's desk (rule-touching)"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/steer/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "Ingests untrusted issue text — fenced (hard rule 2). Proposes only; a rule-touching steer never becomes a silent backlog item, it routes to the desk. High-risk steers are held for the red-team, not obeyed."
     }
   ]
 }

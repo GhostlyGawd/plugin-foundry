@@ -67,8 +67,8 @@ desk-queued, never performed autonomously — constitution floor.
 | P4.2 shipnotes weekly + social variant | HALO | **DONE** (i240) | shipnote.py --social (one substantiated post, weekly regardless of volume); weekly regression intact |
 | P5.4 self-authored postmortems | HALO | **DONE** (i239) | postmortem agent (proposes/high/event) + prompt · reviews/postmortems/pm-001 (the REAL token incident, blameless, cites AUTH-1) · RUNBOOK.md with the operator procedure · pm↔m-001 memory loop · 6-case suite |
 | P5.5 quarterly state-of-the-company | HALO | **DONE** (i240) | tools/quarterly.py — real metric deltas from METRICS.jsonl, honest failures (bounces + postmortems), 3-5 recs landed+deduped on the desk · quarterly agent · re-launch moment |
-| P2.2 steer-by-issue | HALO | QUEUED | fenced NL→backlog |
-| P2.5 naming ceremony assistant | HALO | QUEUED | company already named (ADR-011); scope = plugin names |
+| P2.2 steer-by-issue | HALO | **DONE** (i242) | tools/steer.py — fenced classify: normal→backlog, rule-touching→desk (never a silent law edit), injection→held for red-team · steer agent (ingests_untrusted, fenced, proposes) |
+| P2.5 naming ceremony assistant | HALO | **DONE** (i242) | tools/naming.py — collision check (exact, near/separator, reserved, malformed) before a slug is forever · naming agent · company already named (ADR-011) so scope = plugin names |
 | P1.5 ecosystem scout | HALO | **DONE** (i241) | scout agent (ingests_untrusted, fenced:true, read_only — read/act split) + prompt routing fetched text through fence.py |
 | P1.3 failed-shift diagnostician | STAKES | **DONE** (i241) | tools/diagnose.py — classifies auth/quota/budget/gate-red/disk with a next step + ops-alarm, honest 'unknown' when no signature; reuses the auth classifier · diagnostician agent |
 | P3.1 spec-drift auditor | BUILD | QUEUED | |
