@@ -697,3 +697,23 @@ Template:
 - Consequences: every agent that needs a human writes a desk item and stops;
   no agent grows its own notification channel, ever. A rot sweep (>30d open
   items → ops-alarm) can ride ops-guard later if reality demands it.
+
+## ADR-030 — merge-blocking agent evals (i232, qa)
+- Status: accepted (MASTER P5.2; BUY promptfoo, wrap in-house).
+- Context: "reviewing AI code is harder than writing it"; evals are underused
+  (pain theme #10). The highest-risk agents (guard, fence, and the future
+  red-team/spec-drift/reviewer) must not regress silently. But most of the
+  program's safety surface is DETERMINISTIC today (guard.py, fence.py are pure
+  functions) — those deserve golden fixtures that gate merges now, not a
+  someday-LLM-eval.
+- Decision: two layers. (1) tools/evals.py runs foundry/evals/<tool>.jsonl —
+  25 golden cases pinning guard's allow/desk/block law and fence's injection
+  detection — and is wired merge-blocking into gates.yml. It can go RED (a
+  poisoned-fixture test proves it), so it is not theater. (2)
+  foundry/evals/promptfoo.yaml is a config-ready LLM-graded suite for the
+  reasoning agents; it arms only when ANTHROPIC_API_KEY is present (the graders
+  bill the API pool — operator-armed, ADR-031 boundary) and reports
+  config-ready otherwise. New golden cases are added as each risky agent ships.
+- Consequences: a regression in the constitution enforcement or the trust
+  fence now fails CI before merge. The promptfoo layer is the on-ramp for
+  P3.1/P3.4/P3.5 when they land — their fixtures live beside these.

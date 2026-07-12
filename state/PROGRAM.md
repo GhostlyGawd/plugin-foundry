@@ -42,7 +42,7 @@ desk-queued, never performed autonomously — constitution floor.
 |---|---|---|---|
 | P3.2 dependency bumping + GAP-D cooldowns | BUY | QUEUED | dependabot config w/ cooldowns; Renovate config-ready; Socket = DESK |
 | P3.5 community PR review | BUY | QUEUED | CodeRabbit config-ready; app install = DESK |
-| P5.2 agent evals (merge-blocking) | BUY | QUEUED | deterministic fixtures now (ADR-030); LLM-graded promptfoo config-ready |
+| P5.2 agent evals (merge-blocking) | BUY | **DONE** (i232) | tools/evals.py + 25 golden cases (guard law + fence detection) merge-blocking in gates.yml · proven able to go red (poison-fixture test) · promptfoo.yaml config-ready for red-team/spec-drift/reviewer (API-armed) · ADR-030 · 4-case meta-suite |
 | P5.1 factory brain (memory) | BUY | QUEUED | dedup-on-write local store behind a swappable seam; Mem0/Zep = DESK |
 | P4.3 visual regression + narrator | BUY | QUEUED | capture in deploy pipeline; Argos/Percy = DESK |
 | P0.8 owner's desk (ranking in-house) | SPLIT | **DONE** (i231) | ranking law (kind strictly dominates, age within kind) + dedup in desk.py · `queue`/`sync` → ONE pinned ops-desk issue (degrades ledger-only) · site/desk.html public card · orchestrate.yml syncs post-run · approvals land only via the orchestrator (i225) · ADR-029 · 6-case suite. G4 closed |

@@ -2480,3 +2480,28 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: P5.2 evals (ADR-030), then the dependency/config trio.
 - notes: the desk currently holds d-0001 (the GAP-B submission click) — the
   system's first real human decision, correctly ranked and delivered.
+
+## i232 — qa — 2026-07-12T03:42:39Z
+- did: MASTER P5.2 — merge-blocking agent evals (ADR-030). Two layers.
+  Deterministic (gates merges NOW): tools/evals.py runs foundry/evals/*.jsonl —
+  15 golden guard cases pinning the constitution's allow/desk/block law
+  (doc→allow, law-book→desk, history-delete→block, path-escape→block,
+  unknown-agent→block, self-rule→desk) + 10 fence cases pinning injection
+  detection (clean→none, override/destructive/hijack/exfil/third-party-PR/
+  spoof/fence-escape→high). Wired into gates.yml, merge-blocking. LLM-graded
+  (config-ready): foundry/evals/promptfoo.yaml, golden red-team prompts that
+  arm when ANTHROPIC_API_KEY is present (API pool → operator-armed). The
+  meta-suite proves the harness can go RED via a poisoned fixture — an eval
+  suite that can't fail is theater.
+- line: n/a (ops program; no plugin moved).
+- files: tools/evals.py (new), foundry/evals/{guard.jsonl, fence.jsonl,
+  promptfoo.yaml} (new), .github/workflows/gates.yml (evals step),
+  foundry/tests/_tools/evals.test.sh (4 cases), state/{DECISIONS.md (ADR-030),
+  PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 25/25 golden pass live; meta-suite 4/4 (real pass, inventory,
+  goes-red-on-poison, config-ready-without-key). Full gates at commit.
+- next-suggestion: the dependency/config trio — P3.2+GAP-D (Renovate/
+  Dependabot + cooldowns + Socket), P3.5 (CodeRabbit), P2.1 (Dosu) — plus
+  P5.1 memory + P4.3 visual regression to finish Stage 2.
+- notes: golden cases grow as each risky agent ships; promptfoo fixtures live
+  beside these, so P3.1/P3.4/P3.5 arrive with their evals.
