@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:49:05.329360+00:00",
- "iteration": 234,
+ "generated_at": "2026-07-12T03:52:01.651973+00:00",
+ "iteration": 235,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i235",
+   "role": "builder",
+   "ts": "2026-07-12T03:51:39Z",
+   "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
+  },
   {
    "it": "i234",
    "role": "reviewer",
@@ -58,21 +64,9 @@
    "role": "growth",
    "ts": "2026-07-12T03:24:59Z",
    "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
-  },
-  {
-   "it": "i227",
-   "role": "growth",
-   "ts": "2026-07-12T03:21:58Z",
-   "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
   }
  ],
  "journal": [
-  {
-   "it": "i223",
-   "role": "builder",
-   "ts": "2026-07-12T03:02:11Z",
-   "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
-  },
   {
    "it": "i224",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "reviewer",
    "ts": "2026-07-12T03:48:43Z",
    "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
+  },
+  {
+   "it": "i235",
+   "role": "builder",
+   "ts": "2026-07-12T03:51:39Z",
+   "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 235,
+  "iterations": 236,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -2542,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 17
+   "n": 18
   }
  ],
  "categories": [

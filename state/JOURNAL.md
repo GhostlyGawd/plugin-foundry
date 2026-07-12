@@ -2558,3 +2558,32 @@ Entry template (copy exactly; newest at the bottom):
   write) then P4.3 visual regression to finish Stage 2.
 - notes: the desk now holds 4 real operator decisions (d-0001..d-0004), all
   correctly ranked as 'approve' — the anti-firehose queue doing its job.
+
+## i235 — builder — 2026-07-12T03:51:39Z
+- did: MASTER P5.1 — the factory brain (memory). BUY-shaped with a
+  MEMORY_BACKEND seam for Mem0/Zep (desk-gated — they host/bill), but the
+  discipline MASTER says to keep in-house IS the design: DEDUP-ON-WRITE, never
+  append-everything. tools/memory.py gates every write with a Jaccard
+  similarity check — a near-identical lesson is REFUSED (proven: 1.00 overlap →
+  refused, store size unchanged), --force overrides when an operator means it,
+  recall is deterministic token-overlap (score desc, id tiebreak), and an
+  irrelevant query returns nothing rather than a hallucinated hit. The local
+  floor does LEXICAL dedup (catches an agent re-logging the same lesson);
+  semantic paraphrase-dedup is exactly what the embedding backend adds — stated
+  honestly, not oversold. Seeded with 5 REAL lessons this program earned (the
+  token incident, the honest-number fix, strict-dominance ranking, the
+  no-theater eval rule, the fence/read-act split) so recall is useful on day
+  one; agents call `memory.py recall` in their wrapper (the injection seam).
+- line: n/a (ops program; no plugin moved).
+- files: tools/memory.py (new), foundry/memory.jsonl (5 seeded lessons),
+  foundry/tests/_tools/memory.test.sh (8 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 8/8 — distinct-stored, dedup-refuses, force-overrides, recall
+  relevant + deterministic, irrelevant→nothing, backend falls back, repo ships
+  the seed. Also simplified a convoluted double-sort in recall to one
+  deterministic key. Full gates at commit.
+- next-suggestion: P4.3 visual regression + narrator — the last Stage 2 item;
+  then land the Stage 2 PR.
+- notes: MASTER's warning ("full-context often beats memory frameworks on raw
+  accuracy — don't over-engineer") is why recall stays a simple, legible
+  overlap score, not a vector DB.
