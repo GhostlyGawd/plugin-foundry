@@ -23,7 +23,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # cut from the TAG'S OWN tree — zipping the current tree would attach
           # wrong-version artifacts on dispatch or re-run (latent defect, ADR-020)

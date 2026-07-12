@@ -20,7 +20,7 @@ jobs:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Claude Code (enables official validate in tests)
         run: npm install -g "@anthropic-ai/claude-code@$(cat .claude-code-version)"
       - run: bash tools/qa.sh
@@ -32,7 +32,7 @@ jobs:
       contents: write
       issues: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Claude Code (best effort — enables tested_with refresh)
         continue-on-error: true
         run: npm install -g "@anthropic-ai/claude-code@$(cat .claude-code-version)"
