@@ -3,6 +3,29 @@
 Priorities: **P0** = drop everything · P1 = important · P2 = normal · `blocked:` needs
 diagnosis. Check items off, don't delete. Max 3 new items per iteration.
 
+## Master program (MASTER.md — operator-directed, ADR-026, i218)
+The reconciled org-pattern program: Stage 0 safe core → proof artifacts →
+integrate table-stakes → launch → build in public. MASTER.md §14 is the full
+task list and single source of truth; items enter here ≤3 per iteration, in §10
+order, honoring §14 dependencies. Stage 0 tools/ work is pre-authorized by
+ADR-026 (two-iteration rule); ADR-027–030 land with their items.
+- [ ] P0 (builder) MASTER P0.1 — agent contract & manifest: charter/AGENTS.md
+      (contract prose + four hard rules), `agent.json` JSON Schema →
+      foundry/agents/schema.json, loader + registry generator in tools/lib.py →
+      foundry/agents/registry.json. Acceptance: a sample manifest loads and
+      validates; any hard-rule violation is rejected. (MASTER.md §14; ADR-026)
+- [ ] P0 (builder) MASTER P0.5 — constitution + guard: charter/CONSTITUTION.md
+      (never-do list + human-ratification list + the public "we don't spam
+      maintainers" clause) and tools/guard.py (allow / block-with-reason on a
+      proposed changeset). Depends: P0.1. File ADR-027. Acceptance: simulated
+      schema-edit and record-deletion changesets block; a within-limits doc
+      change passes. (MASTER.md §14)
+- [ ] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
+      (no agent reads the token env var directly), token-expiry/rejection
+      detection with a loud failure (the exact silence behind the 2026-07-07
+      re-pause), document the four hard migration triggers. Acceptance:
+      OAuth→API switch requires no agent changes. (MASTER.md §14)
+
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
 - [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and
       `bash tools/smoke.sh`; confirm green; journal baseline: records per stage,

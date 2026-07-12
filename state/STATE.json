@@ -2,7 +2,7 @@
   "schema_version": 1,
   "codename": "foundry",
   "name": "Nightshift Foundry",
-  "iteration": 217,
+  "iteration": 218,
   "phase": "grow",
   "role_queue": [
     "ideator",
@@ -22,6 +22,6 @@
     "reviewer",
     "auditor"
   ],
-  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. 10 plugins shipped across 4 categories (workflow/quality/context/meta). i217 (ADR-025, operator-directed PR): the window reimagined for the first-time visitor - Nightshift Foundry brand EVOLVED not replaced (kept name/slug/kraft palette; sans typography + ember CTA; monospace only for code/telemetry). New IA is a conversion funnel: hero defines Claude Code + plugins in plain language, 30-second primer + before/after, 3-step install, shelf grouped by category with benefit-led cards, kits, trust section, telemetry demoted to 'Under the hood'. Honesty preserved (no inflated stats; substantiated only). All test-pinned machinery kept; qa 257 ok. window v0.6 -> v0.7. Gate left: Claude secret (CI token).",
+  "notes": "Phase grow. Named at ADR-011. Slug 'foundry' immutable. 10 plugins shipped across 4 categories (workflow/quality/context/meta). Window v0.7 (ADR-025). i218 (ADR-026, operator-directed PR): MASTER.md adopted at root - the reconciled org-pattern program (Stage 0 safe core -> proof artifacts -> integrate table-stakes -> launch -> build in public; ~9 build / ~10 buy / ~9 halo / ~6 defer). ADR-026 ratifies the SS14 agent contract (manifests under foundry/agents/, four hard rules, quota tiers shed low->high never product, single-writer orchestration precedence) and pre-authorizes Stage 0 tools/ work under the two-iteration rule; ADR-027..030 land with their items. Backlog seeded: P0.1 agent contract, P0.5 constitution+guard, AUTH-1 auth abstraction. Constitution floor effective now: schema changes human-ratified always; no agent edits its own governing rule; never auto-PR third-party repos. Gate left: Claude secret (CI token rejected; STOP present - regenerate via claude setup-token, update secret, one shift, delete STOP).",
   "theme": {"name": "Repo hygiene", "month": "2026-07", "note": "Plugins that surface the quiet debt a codebase accumulates — stale TODOs, missing tests, drifted toolchains, unreviewed dep bumps — and make it legible before it bites."}
 }
