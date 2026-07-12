@@ -160,6 +160,25 @@
       "description": "Deterministic assembly (tools/quarterly.py) from METRICS.jsonl + records + postmortems; lands recs via the desk API (not a repo changeset). Use as a re-launch (MASTER §11)."
     },
     {
+      "id": "red-team",
+      "role": "Commission red-team: an adversarial pass over each commission — planted malicious ones are flagged and held, clean ones pass.",
+      "trigger": "event",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "BACKLOG § Commissions (clean)",
+        "the owner's desk (flagged)"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/red-team/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "On top of the bought guardrails + fence: an adversarial screen (tools/redteam.py) over fenced commission text. Nothing ships that the fenced request didn't legitimately require (patron-text law). Proposes only."
+    },
+    {
       "id": "scout",
       "role": "Weekly ecosystem scout: dated competitive intel into COMPETITIVE.md, every fetched line fenced as untrusted.",
       "trigger": "schedule",
@@ -176,6 +195,24 @@
       "fenced": true,
       "status": "active",
       "description": "Ingests untrusted web text — MUST fence via tools/fence.py before any prompt (hard rule 2), holds NO write capability in the same pass (read/act split). Proposes COMPETITIVE.md updates to the desk."
+    },
+    {
+      "id": "spec-drift",
+      "role": "Spec-drift auditor: watches Anthropic's plugin spec; a change surfaces as a desk item citing the doc — no schema edit lands without approval.",
+      "trigger": "schedule",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "the owner's desk (proposed schema change)"
+      ],
+      "heartbeat": {
+        "interval_hours": 340
+      },
+      "prompt": "foundry/agents/spec-drift/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "Fetches Anthropic's live plugin docs (fenced, hard rule 2), diffs vs the encoded schema (tools/specdrift.py). Proposes only — schema changes stay human-ratified (constitution Art. I §5)."
     },
     {
       "id": "steer",
@@ -195,6 +232,24 @@
       "fenced": true,
       "status": "active",
       "description": "Ingests untrusted issue text — fenced (hard rule 2). Proposes only; a rule-touching steer never becomes a silent backlog item, it routes to the desk. High-risk steers are held for the red-team, not obeyed."
+    },
+    {
+      "id": "tripwire",
+      "role": "Tripwire auditor: re-audits rubber-stamps — a perfect QA/review streak triggers a fresh adversarial audit.",
+      "trigger": "event",
+      "trust_tier": "trusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "reviews/ (adversarial re-audit)",
+        "an ops-alarm"
+      ],
+      "heartbeat": {
+        "interval_hours": 340
+      },
+      "prompt": "foundry/agents/tripwire/prompt.md",
+      "status": "active",
+      "description": "Counters the Project Vend rubber-stamp failure. tools/tripwire.py detects the LOOP.md rule-7 streaks; the agent writes a concrete adversarial re-audit listing attacks attempted. Proposes only."
     }
   ]
 }

@@ -39,5 +39,17 @@
   "naming": {
     "name": "Nightshift Foundry \u00b7 naming",
     "email": "naming@agents.nightshift-foundry.invalid"
+  },
+  "spec-drift": {
+    "name": "Nightshift Foundry \u00b7 spec-drift",
+    "email": "spec-drift@agents.nightshift-foundry.invalid"
+  },
+  "tripwire": {
+    "name": "Nightshift Foundry \u00b7 tripwire",
+    "email": "tripwire@agents.nightshift-foundry.invalid"
+  },
+  "red-team": {
+    "name": "Nightshift Foundry \u00b7 red-team",
+    "email": "red-team@agents.nightshift-foundry.invalid"
   }
 }

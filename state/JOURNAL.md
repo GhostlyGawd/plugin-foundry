@@ -2795,3 +2795,34 @@ Entry template (copy exactly; newest at the bottom):
   input, so a new entry mentioning "gate red" made an unrelated unknown failure
   misclassify. Fixed: classify the RUN LOG only; the journal tail is human
   context, never classifier input. qa 421 · 0 fail.
+
+## i243 — auditor — 2026-07-12T04:25:34Z
+- did: MASTER P3.1 + P3.3 + P3.4 — the three safety differentiators (the anti-
+  Project-Vend layer). tools/specdrift.py (P3.1): diffs validate.py's ENCODED
+  schema (hook events/types/components) against foundry/spec-snapshot.json (the
+  last human-verified spec fingerprint) — any drift is a DESK item citing the
+  doc, never a silent schema edit (constitution Art. I §5; docs before
+  invention); the agent fetches live docs fenced and refreshes the snapshot
+  only via the desk. tools/tripwire.py (P3.3): detects LOOP.md rule-7
+  rubber-stamp streaks (5 clean zero-defect QA passes, or 5 approvals with no
+  recent bounce) and fires a P0 adversarial re-audit — and it GENUINELY FIRED
+  on the real repo's current streak, which is the tool doing its job (it's a
+  diagnostic, not a gate, so qa is unaffected). tools/redteam.py (P3.4):
+  fence.scan + a constitution-risk lens over fenced commission text — flags
+  exfiltration, third-party-PR, and gate-bypass asks and holds them on the
+  desk, passes clean commissions to the backlog; nothing ships that the fenced
+  request didn't legitimately require. Three agents (spec-drift + red-team
+  ingests_untrusted+fenced+proposes; tripwire trusted/event/proposes).
+- line: n/a (ops program; no plugin moved).
+- files: tools/{specdrift.py, tripwire.py, redteam.py} (new),
+  foundry/spec-snapshot.json (new), foundry/agents/{spec-drift,tripwire,
+  red-team}/{agent.json,prompt.md}, foundry/agents/identities.json,
+  foundry/tests/_tools/safety-agents.test.sh (7 cases), state/{PROGRAM.md,
+  BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 7/7 — specdrift in-sync + catches an injected drift→desk,
+  red-team passes clean + flags 3 forbidden asks, tripwire quiet-when-healthy
+  + fires-on-streak (fixtures), all three contract-valid. Full gates at commit.
+- next-suggestion: GAP-C multi-harness export, then GAP-E durable-execution doc
+  + fork-a-foundry inheriting the framework (Version law) — the last items.
+- notes: 13 agents in the registry. The real-repo tripwire firing is a true
+  positive worth an operator's eye — logged, not suppressed.

@@ -71,9 +71,9 @@ desk-queued, never performed autonomously — constitution floor.
 | P2.5 naming ceremony assistant | HALO | **DONE** (i242) | tools/naming.py — collision check (exact, near/separator, reserved, malformed) before a slug is forever · naming agent · company already named (ADR-011) so scope = plugin names |
 | P1.5 ecosystem scout | HALO | **DONE** (i241) | scout agent (ingests_untrusted, fenced:true, read_only — read/act split) + prompt routing fetched text through fence.py |
 | P1.3 failed-shift diagnostician | STAKES | **DONE** (i241) | tools/diagnose.py — classifies auth/quota/budget/gate-red/disk with a next step + ops-alarm, honest 'unknown' when no signature; reuses the auth classifier · diagnostician agent |
-| P3.1 spec-drift auditor | BUILD | QUEUED | |
-| P3.3 tripwire auditor | BUILD | QUEUED | |
-| P3.4 commission red-team | BUILD | QUEUED | |
+| P3.1 spec-drift auditor | BUILD | **DONE** (i243) | tools/specdrift.py — diffs validate.py's encoded schema vs foundry/spec-snapshot.json; drift → desk (never a silent schema edit, Art. I §5) · spec-drift agent (fenced ingest of live docs) |
+| P3.3 tripwire auditor | BUILD | **DONE** (i243) | tools/tripwire.py — detects LOOP.md rule-7 rubber-stamp streaks (5 clean passes / 5 approvals no-bounce); fires a P0 adversarial re-audit · tripwire agent · genuinely fired on the real repo's streak |
+| P3.4 commission red-team | BUILD | **DONE** (i243) | tools/redteam.py — fence.scan + constitution-risk lens; flags exfiltration/third-party-PR/gate-bypass, passes clean · red-team agent (fenced ingest) |
 | GAP-C multi-harness portability | BUILD | QUEUED | exporter; published plugins untouched (no Version-law churn) |
 | GAP-E durable execution / resume | DOC | QUEUED | journal-as-checkpoint documentation path (MASTER.md's own option) |
 | fork-a-foundry inherits the framework | BUILD | QUEUED | Version law: semver + CHANGELOG same iteration |

@@ -1,0 +1,13 @@
+{
+  "id": "tripwire",
+  "role": "Tripwire auditor: re-audits rubber-stamps — a perfect QA/review streak triggers a fresh adversarial audit.",
+  "trigger": "event",
+  "trust_tier": "trusted",
+  "quota_tier": "high",
+  "capability": "proposes",
+  "outputs": ["reviews/ (adversarial re-audit)", "an ops-alarm"],
+  "heartbeat": { "interval_hours": 340 },
+  "prompt": "foundry/agents/tripwire/prompt.md",
+  "status": "active",
+  "description": "Counters the Project Vend rubber-stamp failure. tools/tripwire.py detects the LOOP.md rule-7 streaks; the agent writes a concrete adversarial re-audit listing attacks attempted. Proposes only."
+}

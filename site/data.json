@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T04:22:23.629576+00:00",
- "iteration": 242,
+ "generated_at": "2026-07-12T04:26:00.775999+00:00",
+ "iteration": 243,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i243",
+   "role": "auditor",
+   "ts": "2026-07-12T04:25:34Z",
+   "text": "MASTER P3.1 + P3.3 + P3.4 \u2014 the three safety differentiators (the anti-"
+  },
   {
    "it": "i242",
    "role": "builder",
@@ -58,21 +64,9 @@
    "role": "designer",
    "ts": "2026-07-12T03:55:14Z",
    "text": "MASTER P4.3 \u2014 visual regression + narrator, the last Stage 2 item. The"
-  },
-  {
-   "it": "i235",
-   "role": "builder",
-   "ts": "2026-07-12T03:51:39Z",
-   "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
   }
  ],
  "journal": [
-  {
-   "it": "i231",
-   "role": "builder",
-   "ts": "2026-07-12T03:34:14Z",
-   "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
-  },
   {
    "it": "i232",
    "role": "qa",
@@ -138,6 +132,12 @@
    "role": "builder",
    "ts": "2026-07-12T04:19:47Z",
    "text": "MASTER P2.2 + P2.5 \u2014 the intake agents. tools/steer.py (steer-by-issue,"
+  },
+  {
+   "it": "i243",
+   "role": "auditor",
+   "ts": "2026-07-12T04:25:34Z",
+   "text": "MASTER P3.1 + P3.3 + P3.4 \u2014 the three safety differentiators (the anti-"
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 243,
+  "iterations": 244,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -1160,9 +1160,9 @@
     "score": 1,
     "evidence": [
      "in a shipped starter kit",
-     "16 construction mention(s) \u2014 dogfood pending"
+     "17 construction mention(s) \u2014 dogfood pending"
     ],
-    "mentions": 16,
+    "mentions": 17,
     "use_lines": 0
    },
    {
@@ -2659,7 +2659,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 25
+   "n": 26
   }
  ],
  "categories": [
