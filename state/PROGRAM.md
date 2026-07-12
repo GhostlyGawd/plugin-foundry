@@ -40,7 +40,7 @@ desk-queued, never performed autonomously — constitution floor.
 
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
-| P3.2 dependency bumping + GAP-D cooldowns | BUY | QUEUED | dependabot config w/ cooldowns; Renovate config-ready; Socket = DESK |
+| P3.2 dependency bumping + GAP-D cooldowns | BUY | **DONE** (i233) | .github/dependabot.yml (native, GitHub Actions, 5-day cooldown, weekly grouping) · renovate.json (5-day minimumReleaseAge, no automerge) · socket.yml (malware/install-scripts/typosquat block) · app installs → desk d-0002 · 4-case config-validity suite |
 | P3.5 community PR review | BUY | QUEUED | CodeRabbit config-ready; app install = DESK |
 | P5.2 agent evals (merge-blocking) | BUY | **DONE** (i232) | tools/evals.py + 25 golden cases (guard law + fence detection) merge-blocking in gates.yml · proven able to go red (poison-fixture test) · promptfoo.yaml config-ready for red-team/spec-drift/reviewer (API-armed) · ADR-030 · 4-case meta-suite |
 | P5.1 factory brain (memory) | BUY | QUEUED | dedup-on-write local store behind a swappable seam; Mem0/Zep = DESK |

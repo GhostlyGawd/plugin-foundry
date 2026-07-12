@@ -44,6 +44,8 @@ jobs:
           ensure shipnote       "BFD4F2" "The Monday shipnote the loop writes itself"
           ensure human-review   "EDEDED" "External PR — only the human operator merges outside code"
           ensure ops-desk       "8A6D3B" "The owner's desk — the one ranked approval queue (ADR-029)"
+          ensure dependencies   "0366D6" "Dependency bump (Dependabot/Renovate) — cooldown-gated, human-landed"
+          ensure security       "B60205" "Security-relevant dependency fix — surfaces promptly, human lands it"
   liveness:
     # P0.9 (ADR-026): a silently dead agent must not read as health (G5).
     # Stale beats raise ops-alarms; the job itself stays green — the alarm is

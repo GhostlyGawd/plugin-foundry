@@ -2505,3 +2505,31 @@ Entry template (copy exactly; newest at the bottom):
   P5.1 memory + P4.3 visual regression to finish Stage 2.
 - notes: golden cases grow as each risky agent ships; promptfoo fixtures live
   beside these, so P3.1/P3.4/P3.5 arrive with their evals.
+
+## i233 — maintainer — 2026-07-12T03:46:31Z
+- did: MASTER P3.2 + GAP-D — dependency automation with supply-chain cooldowns
+  (BUY, no build). Three configs, each valid and carrying the guard that is the
+  point: .github/dependabot.yml (native — no app install — bumps the GitHub
+  Actions this repo actually pins, 5-day cooldown so a freshly-published/
+  possibly-compromised release ages before a PR opens, weekly-grouped into one
+  reviewable PR); renovate.json (the deeper cooldown for any future package
+  ecosystem — 5-day minimumReleaseAge, automerge:false everywhere; the
+  constitution forbids auto-merging anything needing review); socket.yml
+  (Socket.dev risk rules — malware/install-scripts/typosquat = error, the
+  s1ngularity class GAP-D exists to stop). The two that need a GitHub App
+  install (Renovate, Socket) are desk-gated at d-0002, never assumed live;
+  Dependabot needs nothing. ops-guard ensures the dependencies + security
+  labels.
+- line: n/a (ops program; no plugin moved).
+- files: .github/dependabot.yml, renovate.json, socket.yml (new),
+  .github/workflows/ops-guard.yml (labels), state/DESK.jsonl (d-0002),
+  foundry/tests/_tools/deps.test.sh (4 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 4/4 — each config parses and carries its cooldown/no-automerge/
+  block guarantees; the app-install half is proven desk-gated. Full gates at
+  commit.
+- next-suggestion: P3.5 (CodeRabbit) + P2.1 (Dosu) — the remaining bought bots,
+  config-ready with desk items; then P5.1 memory + P4.3 visual regression.
+- notes: GAP-D's core risk (auto-merging a fresh malicious release) is
+  structurally impossible here — the constitution bans autonomous merges of
+  anything needing review, and the cooldowns add defense in depth.
