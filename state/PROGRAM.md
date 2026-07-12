@@ -1,0 +1,103 @@
+# PROGRAM — MASTER.md execution ledger (ADR-026 adoption · ADR-031 mandate)
+
+Single place where every MASTER.md §14 line item is **accounted for**. Updated every
+program iteration. Statuses: **DONE** (built+tested, evidence cited) · **PARTIAL**
+(in progress, what remains named) · **QUEUED** (not started) · **DESK** (built to the
+repo's edge; one operator click remains — desk item filed) · **OPERATOR** (inherently
+the operator's action; kit prepared) · **DEFERRED** (per MASTER.md verdict; tracked,
+not lost) · **DORMANT** (built; runtime waits on the CI token / STOP removal).
+
+Mandate (ADR-031): operator directive 2026-07-12 — full merge authority granted;
+build every line item end to end, 100% accounted for. Outward actions under the
+operator's identity (launch posts, third-party account signups) are prepared and
+desk-queued, never performed autonomously — constitution floor.
+
+## Stage 0 — the minimum safe, story-bearing core
+
+| Item | Verdict | Status | Evidence |
+|---|---|---|---|
+| P0.1 agent contract & manifest | BUILD | **DONE** (i219) | charter/AGENTS.md · foundry/agents/schema.json · loader+registry in tools/lib.py · build.py gate · foundry/tests/_tools/agents.test.sh (9 cases) |
+| P0.5 constitution + guard | BUILD | QUEUED | ADR-027 with it |
+| P0.7 chief-of-staff orchestrator | BUILD | QUEUED | after P0.1–P0.6 |
+| P0.6 quota governor v2 | BUILD | QUEUED | ADR-028 with it; usage signal = ledger estimate until API switch (ADR-031 ruling on §12 Q3) |
+| AUTH-1 auth abstraction | BUILD | QUEUED | loop.sh touch authorized by ADR-031 |
+| P0.2 trust fencing + read/act split | BUY+WRAP | QUEUED | seam in tools/fence.py; scanner swappable; split enforced by contract hard rule 2 (already live) |
+| P0.3 per-agent commit identity | BUILD | QUEUED | |
+| P0.4 state validator | BUILD | QUEUED | |
+| P0.9 heartbeats / liveness | CHEAP | QUEUED | |
+
+## Stage 1 — proof artifacts
+
+| Item | Verdict | Status | Evidence |
+|---|---|---|---|
+| GAP-A quality number | BUILD | QUEUED | definition to be pinned in the item (what counts as shipped / first-try) |
+| GAP-A2 live dashboard | BUILD | QUEUED | elevate existing telemetry |
+| GAP-A3 proof artifact (shift replay) | BUILD | QUEUED | from REAL history, labeled replay — honesty laws |
+| GAP-A4 README first screen + org chart | BY HAND | QUEUED | written deliberately this session, not generated |
+| GAP-B auto-publish to registries | BUILD | QUEUED | marketplace.json already valid; submissions-only wiring (constitution) |
+
+## Stage 2 — table-stakes integrations
+
+| Item | Verdict | Status | Evidence |
+|---|---|---|---|
+| P3.2 dependency bumping + GAP-D cooldowns | BUY | QUEUED | dependabot config w/ cooldowns; Renovate config-ready; Socket = DESK |
+| P3.5 community PR review | BUY | QUEUED | CodeRabbit config-ready; app install = DESK |
+| P5.2 agent evals (merge-blocking) | BUY | QUEUED | deterministic fixtures now (ADR-030); LLM-graded promptfoo config-ready |
+| P5.1 factory brain (memory) | BUY | QUEUED | dedup-on-write local store behind a swappable seam; Mem0/Zep = DESK |
+| P4.3 visual regression + narrator | BUY | QUEUED | capture in deploy pipeline; Argos/Percy = DESK |
+| P0.8 owner's desk (ranking in-house) | SPLIT | QUEUED | ADR-029; transport = pinned issue (ADR-031 ruling on §12 Q1) |
+| P2.1 issue triage (Dosu) | BUY | QUEUED | config-ready; app install = DESK |
+| P4.4 night-clerk responder | DEFER | **DEFERRED** | per MASTER.md — risky pre-launch, most ToS-sensitive; revisit post-launch |
+
+## Stage 3 — launch (concentrated window)
+
+| Item | Verdict | Status | Evidence |
+|---|---|---|---|
+| Show HN / Reddit / X posts | OPERATOR | QUEUED | full kit prepared + desk-queued; posting is the operator's identity |
+| awesome-claude-code + Anthropic marketplace submissions | OPERATOR | QUEUED | prefilled submission links in the kit; submissions only, never third-party PRs |
+| Newsletters / YouTube / evergreens (T+1–2wk) | OPERATOR | QUEUED | list + drafts in the kit |
+
+## Stage 4 — build the rest in public
+
+| Item | Verdict | Status | Evidence |
+|---|---|---|---|
+| P1.4 dogfood report card | HALO | QUEUED | best halo feature |
+| P1.1 per-shift operator briefing | HALO | QUEUED | channel: pinned issue (ADR-031) |
+| P1.2 ask-the-factory | HALO | QUEUED | |
+| P4.2 shipnotes weekly + social variant | HALO | QUEUED | extend existing shipnote.py |
+| P5.4 self-authored postmortems | HALO | QUEUED | seed: the real 2026-07-07 token incident |
+| P5.5 quarterly state-of-the-company | HALO | QUEUED | |
+| P2.2 steer-by-issue | HALO | QUEUED | fenced NL→backlog |
+| P2.5 naming ceremony assistant | HALO | QUEUED | company already named (ADR-011); scope = plugin names |
+| P1.5 ecosystem scout | HALO | QUEUED | |
+| P1.3 failed-shift diagnostician | STAKES | QUEUED | extends the run-shift diagnostic step |
+| P3.1 spec-drift auditor | BUILD | QUEUED | |
+| P3.3 tripwire auditor | BUILD | QUEUED | |
+| P3.4 commission red-team | BUILD | QUEUED | |
+| GAP-C multi-harness portability | BUILD | QUEUED | exporter; published plugins untouched (no Version-law churn) |
+| GAP-E durable execution / resume | DOC | QUEUED | journal-as-checkpoint documentation path (MASTER.md's own option) |
+| fork-a-foundry inherits the framework | BUILD | QUEUED | Version law: semver + CHANGELOG same iteration |
+
+## Deferred — tracked, not lost (MASTER.md verdicts)
+
+| Item | Why |
+|---|---|
+| P2.3 backlog grooming | low visible value |
+| P2.4 auto-drafted ADRs | not load-bearing early |
+| P3.6 deprecation/migration drafter | no users to migrate yet |
+| P4.1 README/starter-kit generator | launch README is hand-written (GAP-A4) |
+| P5.3 champion-challenger prompt A/B | overlaps evals; auto-promotion premature |
+| GAP-F agent identity/auth at scale | roadmap note |
+| P4.4 night-clerk responder | see Stage 2 row |
+
+## Program-level definition of done (§14) — verified at close-out
+
+- [ ] No workflow other than the orchestrator (P0.7) and run-shift writes to main
+- [ ] Every untrusted input path fenced; CI lint proves it
+- [ ] Every human decision reaches exactly one place — the desk; nothing requiring approval auto-merges
+- [ ] Guard + constitution block schema edits, record deletions, self-governing edits, third-party PRs; each desk-routed
+- [ ] Quota governor v2 protects the product loop under rate-limit pressure
+- [ ] Every agent has an identity, a heartbeat, and (risky ones) an eval fixture
+- [ ] The quality number is live and public
+- [ ] ADRs 026–030 filed (+031 mandate)
+- [ ] fork-a-foundry inherits the whole framework

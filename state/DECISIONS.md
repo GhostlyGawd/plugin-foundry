@@ -586,3 +586,41 @@ Template:
   as slots free). AUTH-1's token-expiry detection directly answers the silent
   failure that caused the 2026-07-07 re-pause. Iterations that pick program items
   follow MASTER.md §10 order and dependencies; one item, one iteration, same bar.
+
+## ADR-031 — program execution mandate & rulings (i219, builder)
+- Status: accepted — records the operator's 2026-07-12 directive verbatim in
+  effect: *"full approval to merge anything you want as you see fit… build every
+  line item in that master document from end to end until 100% complete and
+  accounted for."*
+- Decision:
+  1. **Landing mode for the program:** stage slates as directed PRs (v13/v14
+     precedent), per-item iterations/commits/journal entries, self-merged on
+     green gates under the operator mandate. state/PROGRAM.md is the ledger
+     where every item is accounted for.
+  2. **Two-iteration authorization, program-wide:** this ADR is the
+     prior-iteration ADR for the tools/, loop.sh, and workflow changes that
+     MASTER.md §14 Stages 1–4 spec (Stage 0 was authorized by ADR-026):
+     build.py template/metrics work (GAP-A/A2), loop.sh auth sourcing (AUTH-1),
+     shipnote/relnotes extensions (P4.2), intake extensions (P2.2, P3.4),
+     alarm/diagnostic extensions (P1.3, P0.9), exporter (GAP-C), and
+     validator additions **only where MASTER.md names them** (P0.3 trailer
+     check, P0.4 state hooks). Any validator/schema change NOT specified in
+     MASTER.md still routes to the desk — the constitution floor (ADR-026 §4)
+     is unchanged by the mandate.
+  3. **§12 open questions ruled** (operator delegated by the mandate):
+     Q1 briefing/desk channel = **pinned issue** (zero setup; Telegram can be
+     added later without protocol change). Q2 orchestrator landing =
+     **direct-to-main with the desk as the gate** for desk-ratified items,
+     `mode: pr` kept as a flag for veto-window use. Q3 quota signal = **no
+     readable subscription meter exists; estimate from run counts + BUDGET.jsonl
+     until the API switch**, with conservative defaults. Q4 = the company is
+     already named (Nightshift Foundry, ADR-011); the naming-ceremony assistant
+     scopes to plugin names.
+  4. **Boundary:** outward actions under the operator's identity — launch
+     posts, third-party account signups/app installs, submissions to external
+     directories — are prepared to the repo's edge and desk-queued, never
+     performed autonomously. Constitution: submissions only, never third-party
+     PRs; never simulate the operator.
+- Consequences: every later stage builds without per-iteration authorization
+  friction; the desk (P0.8) becomes the single approval surface; PROGRAM.md +
+  JOURNAL carry the audit trail item by item.

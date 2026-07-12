@@ -9,11 +9,14 @@ integrate table-stakes → launch → build in public. MASTER.md §14 is the ful
 task list and single source of truth; items enter here ≤3 per iteration, in §10
 order, honoring §14 dependencies. Stage 0 tools/ work is pre-authorized by
 ADR-026 (two-iteration rule); ADR-027–030 land with their items.
-- [ ] P0 (builder) MASTER P0.1 — agent contract & manifest: charter/AGENTS.md
+- [x] P0 (builder) MASTER P0.1 — agent contract & manifest: charter/AGENTS.md
       (contract prose + four hard rules), `agent.json` JSON Schema →
       foundry/agents/schema.json, loader + registry generator in tools/lib.py →
       foundry/agents/registry.json. Acceptance: a sample manifest loads and
       validates; any hard-rule violation is rejected. (MASTER.md §14; ADR-026)
+      DONE i219: loader + 4 hard rules live in lib.py, build.py gates on them,
+      first manifest = foundry-loop (grandfathered, dormant), 9-case suite green.
+      Program ledger opened at state/PROGRAM.md; mandate + rulings at ADR-031.
 - [ ] P0 (builder) MASTER P0.5 — constitution + guard: charter/CONSTITUTION.md
       (never-do list + human-ratification list + the public "we don't spam
       maintainers" clause) and tools/guard.py (allow / block-with-reason on a

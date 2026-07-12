@@ -2115,3 +2115,34 @@ Entry template (copy exactly; newest at the bottom):
   the operator's ratification. MASTER.md complements the in-repo brief family
   (those audited the marketplace product; MASTER governs the org-pattern
   program); ROADMAP.md gates stay Auditor-owned and untouched.
+
+## i219 — builder — 2026-07-12T02:44:38Z
+- did: MASTER P0.1 — the agent contract & manifest, the spine of Stage 0.
+  charter/AGENTS.md (contract prose + the four hard rules); closed JSON Schema at
+  foundry/agents/schema.json; loader + hard-rule enforcement + deterministic
+  registry generator in tools/lib.py (ADR-026-authorized tools/ change); build.py
+  now regenerates foundry/agents/registry.json and FAILS on any unlawful manifest
+  — the contract is a gate, not advice. First manifest: foundry-loop (the
+  grandfathered product-loop writer, status dormant while STOP stands; runs
+  LOOP.md gates in place of hard rules 1/3 until P0.7 subsumes it — the loader
+  encodes exactly that exemption and nothing wider). Program scaffolding in the
+  same governance unit: state/PROGRAM.md (every §14 item accounted for, statuses
+  live) and ADR-031 (operator mandate of 2026-07-12: full merge authority, build
+  everything; Stage 1–4 tooling authorized; §12 open questions ruled: pinned
+  issue · direct-to-main w/ desk gate + mode:pr flag · ledger-estimate quota
+  signal · naming assistant scopes to plugin names).
+- line: n/a (ops program; no plugin moved, no published artifact touched).
+- files: charter/AGENTS.md, foundry/agents/{schema.json, foundry-loop/agent.json,
+  registry.json (generated)}, tools/{lib.py, build.py}, state/{PROGRAM.md (new),
+  DECISIONS.md (ADR-031), BACKLOG.md, STATE.json, JOURNAL.md},
+  foundry/tests/_tools/agents.test.sh (9 cases).
+- validation: validate + build green (build now prints "+ 1 agent manifests");
+  full qa suite 266 ok · 1 skip · 0 fail (was 257; +9 new cases) — negative
+  cases prove each hard rule fires: writes-without-orchestrator, read/act split,
+  unfenced ingestion, writes-without-gates, closed schema, bad enum, id/dir
+  mismatch, registry drift.
+- next-suggestion: P0.5 constitution + guard (ADR-027) — the never-do list needs
+  the contract's vocabulary, which now exists.
+- notes: acceptance per MASTER §14 met: sample manifest loads/validates; every
+  hard-rule violation rejected with a pointed message. Registry is generated,
+  never hand-edited (build.py owns it).

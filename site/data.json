@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T02:31:43.827254+00:00",
- "iteration": 218,
+ "generated_at": "2026-07-12T02:44:53.658011+00:00",
+ "iteration": 219,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i219",
+   "role": "builder",
+   "ts": "2026-07-12T02:44:38Z",
+   "text": "MASTER P0.1 \u2014 the agent contract & manifest, the spine of Stage 0."
+  },
   {
    "it": "i218",
    "role": "auditor",
@@ -58,21 +64,9 @@
    "role": "qa",
    "ts": "2026-07-06T04:20:00Z",
    "text": "suite backfill 2/2 for this slate (#10) \u2014 field-reports' no-inline law"
-  },
-  {
-   "it": "i146",
-   "role": "qa",
-   "ts": "2026-07-06T04:15:00Z",
-   "text": "suite backfill 1/2 (#10) \u2014 saga-page gets executable checks for its"
   }
  ],
  "journal": [
-  {
-   "it": "i142",
-   "role": "builder",
-   "ts": "2026-07-06T03:52:00Z",
-   "text": "OG/twitter meta (#5) on the window and all 38 certificates \u2014 titles,"
-  },
   {
    "it": "i143",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "auditor",
    "ts": "2026-07-12T02:31:37Z",
    "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
+  },
+  {
+   "it": "i219",
+   "role": "builder",
+   "ts": "2026-07-12T02:44:38Z",
+   "text": "MASTER P0.1 \u2014 the agent contract & manifest, the spine of Stage 0."
   }
  ],
  "records": [
@@ -2531,7 +2531,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 1
+   "n": 2
   }
  ],
  "categories": [
