@@ -2404,3 +2404,28 @@ Entry template (copy exactly; newest at the bottom):
 - notes: chose SMIL-SVG over GIF deliberately: no recording toolchain in CI,
   crisp at every width, and the GIF can still be exported from it later if a
   video surface needs one.
+
+## i229 — designer — 2026-07-12T03:27:00Z
+- did: MASTER GAP-A4 — the README first screen, written BY HAND per the
+  program (the generator stays deferred; this text is too important to
+  automate). New order exactly as specced: hook (the §3 one-liner) → the
+  i228 replay embedded (with the honesty caption: replay of real history,
+  the bounce is the point) → the proof-counter paragraph + badge row
+  (quality.json + badge.json endpoints + window link) → 2-command install →
+  the 1-command fork ("the org pattern is the artifact") → the ORG CHART
+  (operator → constitution/guard → desk → orchestrator → agent tiers →
+  main; the diagram GAP-A4 wanted: the invisible architecture in one image;
+  the old pipeline mermaid further down stays — different diagram, still
+  true) → run-it-yourself. Genesis-era endings replaced with current truth
+  (10 plugins, 5 public bounces, ~226 iterations, tool list incl. the Stage 0
+  gates). Fork + install commands verified against marketplace.json.
+- line: n/a (ops program; no plugin moved).
+- files: README.md (hand-written), state/{PROGRAM.md, BACKLOG.md, STATE.json,
+  JOURNAL.md}.
+- validation: marketplace lists fork-a-foundry + plugin-smith (the two
+  commands work from cold against this repo); badges point at the deployed
+  endpoints; mermaid syntax eyeball-checked against GitHub's flowchart
+  grammar. Full gates at commit.
+- next-suggestion: GAP-B (publish kit) closes Stage 1; then the Stage 1 PR.
+- notes: README stays hand-owned — future edits are deliberate acts, not
+  build outputs (P4.1 generator: deferred, tracked).
