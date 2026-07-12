@@ -839,9 +839,13 @@ function renderStats(){
   // cleared TEST VERDICT: pass + REVIEW: approved (validator law), so "100% tested
   // & reviewed" is substantiated, not marketing. No fabricated or inflated counts.
   const cats = new Set(pubPlugins().map(e => e.category)).size;
+  // GAP-A: the quality number rides the hero — first-try QA is computed from
+  // the records' own Test logs (site/quality.json is the badge endpoint).
+  const Q = DATA.quality || {};
   const cells = [
     [pubPlugins().length, 'free plugins'],
     [DATA.iteration, 'autonomous shifts'],
+    [Q.qa_first_try_pct === null || Q.qa_first_try_pct === undefined ? '—' : Q.qa_first_try_pct + '%', 'passed QA first try'],
     [cats, 'categories'],
     ['100%', 'tested &amp; reviewed'],
   ];
@@ -1588,6 +1592,65 @@ def shift_schedule():
         return default
 
 
+def build_quality(records):
+    """GAP-A (ADR-031): the public quality number, computed only from what the
+    repo can substantiate (growth-honesty law). Definitions, pinned:
+    shipped = published kind:plugin records (the installable shelf);
+    first-try QA = published records whose FIRST 'TEST VERDICT:' was pass
+    (records without a Test log are excluded, counted separately);
+    bounces = every bounce verdict on file (we show our rejects — that's the
+    anti-slop proof); iterations = journaled loop iterations; ci shifts +
+    spend = the BUDGET ledger (runs · summed cost_usd, honest zero)."""
+    shipped = feats = first_try = bounced_first = no_log = 0
+    bounces_total = 0
+    for path in sorted(RECORDS.glob("*.md")):
+        text = path.read_text()
+        meta, _ = parse_front_matter(text)
+        verdicts = re.findall(r"TEST VERDICT:\s*(\w+)", text)
+        review_bounces = len(re.findall(r"REVIEW:\s*bounced", text))
+        bounces_total += sum(1 for v in verdicts if v.lower() != "pass")
+        bounces_total += review_bounces
+        if meta.get("stage") != "published":
+            continue
+        if meta.get("kind", "plugin") == "plugin":
+            shipped += 1
+        else:
+            feats += 1
+        if not verdicts:
+            no_log += 1
+        elif verdicts[0].lower() == "pass" and review_bounces == 0:
+            first_try += 1  # clean pass through QA AND review, no bounce
+        else:
+            bounced_first += 1
+    graded = first_try + bounced_first
+    pct = round(100 * first_try / graded) if graded else None
+    journal = (ROOT / "state" / "JOURNAL.md")
+    iters = len(re.findall(r"^## i\d+", journal.read_text(), re.M)) if journal.exists() else 0
+    runs = spend = 0
+    ledger = ROOT / "state" / "BUDGET.jsonl"
+    if ledger.exists():
+        for line in ledger.read_text().splitlines():
+            try:
+                e = json.loads(line)
+            except ValueError:
+                continue
+            if e.get("kind") == "quota_run" or (not e.get("kind") and ("cost_usd" in e or "usage" in e)):
+                runs += 1
+            spend += e.get("cost_usd") or 0
+    q = {"plugins_shipped": shipped, "features_shipped": feats,
+         "qa_first_try_pct": pct, "qa_graded": graded, "qa_no_log": no_log,
+         "bounces_total": bounces_total, "iterations": iters,
+         "ci_shifts": runs, "api_spend_usd": round(spend, 2)}
+    msg = f"{shipped} shipped"
+    if pct is not None:
+        msg += f" · {pct}% first-try QA"
+    msg += f" · {iters} iterations"
+    (ROOT / "site" / "quality.json").write_text(json.dumps(
+        {"schemaVersion": 1, "label": "foundry", "message": msg,
+         "color": "b08968"}, indent=1) + "\n")
+    return q
+
+
 def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, alarms, hall, streak):
     title = state.get("name") or "UNNAMED"
 
@@ -1637,6 +1700,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "stats": {k: metrics.get(k) for k in
                   ("stars", "watchers", "views_14d", "uniques_14d",
                    "idea_votes_total", "field_reports", "open_alarms")},
+        "quality": build_quality(records),
         "votes": votes,
         "roadmap": {k: [slim(r) for r in v] for k, v in roadmap_lanes(records).items()},
         "kits": kit_data,

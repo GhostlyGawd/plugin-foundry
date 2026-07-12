@@ -55,6 +55,12 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       landing attributed per-agent (P0.3); orchestrate.yml shares the shift
       concurrency group (no race with run-shift); 9-case suite green.
       STAGE 0 COMPLETE.
+- [x] P0 (growth) MASTER GAP-A — the quality number (highest-priority gap).
+      DONE i226: definition pinned (shipped = published kind:plugin; first-try
+      = clean pass through QA AND review — REVIEW: bounced disqualifies;
+      bounces displayed, never hidden), computed from records/journal/ledger
+      only, on the hero stat row + site/quality.json badge endpoint. The
+      honest number: 10 shipped · 86% first-try · 5 bounces · 226 iterations.
 
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
 - [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and

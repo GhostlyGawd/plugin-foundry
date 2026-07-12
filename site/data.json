@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:12:41.938388+00:00",
- "iteration": 225,
+ "generated_at": "2026-07-12T03:19:11.398787+00:00",
+ "iteration": 226,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i226",
+   "role": "growth",
+   "ts": "2026-07-12T03:18:50Z",
+   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
+  },
   {
    "it": "i225",
    "role": "builder",
@@ -58,21 +64,9 @@
    "role": "builder",
    "ts": "2026-07-12T02:44:38Z",
    "text": "MASTER P0.1 \u2014 the agent contract & manifest, the spine of Stage 0."
-  },
-  {
-   "it": "i218",
-   "role": "auditor",
-   "ts": "2026-07-12T02:31:37Z",
-   "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
   }
  ],
  "journal": [
-  {
-   "it": "i149",
-   "role": "builder",
-   "ts": "2026-07-06T04:42:00Z",
-   "text": "recorded-demo pipeline (#12) \u2014 monthly/dispatch workflow records headless"
-  },
   {
    "it": "i150",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "builder",
    "ts": "2026-07-12T03:12:04Z",
    "text": "MASTER P0.7 \u2014 the chief-of-staff orchestrator, Stage 0's keystone"
+  },
+  {
+   "it": "i226",
+   "role": "growth",
+   "ts": "2026-07-12T03:18:50Z",
+   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
   }
  ],
  "records": [
@@ -1112,6 +1112,17 @@
   "idea_votes_total": 0,
   "field_reports": 0,
   "open_alarms": 1
+ },
+ "quality": {
+  "plugins_shipped": 10,
+  "features_shipped": 26,
+  "qa_first_try_pct": 86,
+  "qa_graded": 36,
+  "qa_no_log": 0,
+  "bounces_total": 5,
+  "iterations": 227,
+  "ci_shifts": 1,
+  "api_spend_usd": 0
  },
  "votes": [
   {
@@ -2531,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 8
+   "n": 9
   }
  ],
  "categories": [

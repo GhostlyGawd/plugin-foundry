@@ -2326,3 +2326,28 @@ Entry template (copy exactly; newest at the bottom):
 - notes: "single attributed commit" (§14) interpreted as one WRITER
   serializing per-changeset attributed commits — per-agent attribution (P0.3)
   and batch-level serialization both hold; noted for the record.
+
+## i226 — growth — 2026-07-12T03:18:50Z
+- did: MASTER GAP-A — the public quality number, the program's highest-priority
+  gap ("without a number, autonomous reads as unverified"). build_quality() in
+  tools/build.py (ADR-031-authorized template/metrics work) computes ONLY from
+  substantiated sources: shipped = published kind:plugin records (10, ==
+  marketplace); first-try = clean pass through QA AND review — the first draft
+  counted TEST VERDICTs only and read 100%/0 bounces, which contradicted known
+  history; REVIEW: bounced lines now disqualify, giving the honest 86% with 5
+  bounces displayed (the bounce count IS the anti-slop proof — gates that
+  visibly block); iterations from the journal (226); CI shifts + spend from
+  the ledger (1 run · $0 API, subscription mode). Lands on the hero stat row
+  ("passed QA first try") and as a shields endpoint at site/quality.json.
+- line: n/a (ops program; no plugin moved).
+- files: tools/build.py (build_quality + stat cell + data.json quality),
+  site/* (regenerated incl. quality.json), foundry/tests/_tools/quality.test.sh
+  (3 cases), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: suite green — real-repo substantiation (shipped==marketplace,
+  bounces_total ≥ 5 pinned: append-only history means bounces never vanish),
+  shields schema valid, fixture semantics (a review bounce → 50%). Full gates
+  at commit.
+- next-suggestion: GAP-A2 (elevate the live feed) — the number now exists to
+  headline it.
+- notes: definition pinned in the docstring; changing it is a template-law
+  change (ADR first). 86% > a fake 100% — the skeptic-converter is the bounce.

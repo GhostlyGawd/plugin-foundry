@@ -30,7 +30,7 @@ desk-queued, never performed autonomously — constitution floor.
 
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
-| GAP-A quality number | BUILD | QUEUED | definition to be pinned in the item (what counts as shipped / first-try) |
+| GAP-A quality number | BUILD | **DONE** (i226) | build_quality() in build.py — 10 shipped · 86% first-try (QA+review, bounces disqualify) · 5 bounces shown · 226 iterations · ledger shifts/spend · hero stat cell · site/quality.json shields endpoint · 3-case suite |
 | GAP-A2 live dashboard | BUILD | QUEUED | elevate existing telemetry |
 | GAP-A3 proof artifact (shift replay) | BUILD | QUEUED | from REAL history, labeled replay — honesty laws |
 | GAP-A4 README first screen + org chart | BY HAND | QUEUED | written deliberately this session, not generated |
