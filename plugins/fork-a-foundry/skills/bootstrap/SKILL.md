@@ -26,6 +26,30 @@ green before you finish.
    the human-veto (PR) window, and the community/fuel wiring — are laid out step
    by step in the source foundry's `OPERATIONS.md` §7 (Governor & veto) and §8
    (Community & fuel); carry them over from there rather than reinventing.
+3. **Inherit the org-pattern framework** (`MASTER.md` — the fork boots *the company
+   pattern*, not just the plugin loop). Carry these over so the fork is safe to run
+   unattended and governed from birth:
+   - **The law:** `charter/CONSTITUTION.md` (the never-do list + human-ratification
+     list + the public "we don't spam maintainers" clause) and `charter/AGENTS.md`
+     (the agent contract + four hard rules). These are the moat and the story.
+   - **The agent contract:** `foundry/agents/` — a manifest per ops agent
+     (`schema.json`, generated `registry.json`, `identities.json`, `heartbeats.json`);
+     `tools/lib.py` loads + enforces it.
+   - **The gates:** `tools/guard.py` (constitution, allow/desk/block, fails closed),
+     `tools/orchestrator.py` (single-writer landings), `tools/quota.py` (subscription
+     rate governor — product eats first), `tools/fence.py` (trust fence + read/act
+     split), `tools/auth.py` (one swappable auth surface), `tools/desk.py` (the one
+     ranked approval queue), `tools/commit.py` (per-agent identity),
+     `tools/validate_state.py` (shared-state validator), `tools/heartbeat.py`
+     (liveness), `tools/evals.py` + `foundry/evals/` (merge-blocking golden fixtures).
+   - **The proof + growth surfaces** (optional but recommended): the quality number
+     (`build_quality` in `build.py` + `quality.json`), the replay artifact
+     (`tools/replay.py`), the dogfood card (`tools/dogfood.py`), the content agents
+     (`briefing`/`quarterly`/shipnote `--social`), the launch kit (`LAUNCH.md`),
+     durable-execution (`DURABILITY.md`).
+   The full spec + build/buy verdicts are in the source foundry's `MASTER.md §14`.
+   A fork that skips the law (CONSTITUTION + guard + orchestrator) is a plugin loop,
+   not a company — and it is exactly the ungoverned-slop pattern the ecosystem fears.
 
 ## Laws to carry over verbatim — they are why it works
 - One task, one commit, one journal entry per iteration; one artifact, one stage move.

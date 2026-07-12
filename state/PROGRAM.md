@@ -75,8 +75,8 @@ desk-queued, never performed autonomously — constitution floor.
 | P3.3 tripwire auditor | BUILD | **DONE** (i243) | tools/tripwire.py — detects LOOP.md rule-7 rubber-stamp streaks (5 clean passes / 5 approvals no-bounce); fires a P0 adversarial re-audit · tripwire agent · genuinely fired on the real repo's streak |
 | P3.4 commission red-team | BUILD | **DONE** (i243) | tools/redteam.py — fence.scan + constitution-risk lens; flags exfiltration/third-party-PR/gate-bypass, passes clean · red-team agent (fenced ingest) |
 | GAP-C multi-harness portability | BUILD | **DONE** (i244) | tools/export.py — extracts the harness-neutral skill core → dist/<plugin>/portable.json with adapter targets for Codex/Cursor/Gemini CLI; published plugin untouched (no Version-law churn); dist/ gitignored · 6-case suite |
-| GAP-E durable execution / resume | DOC | QUEUED | journal-as-checkpoint documentation path (MASTER.md's own option) |
-| fork-a-foundry inherits the framework | BUILD | QUEUED | Version law: semver + CHANGELOG same iteration |
+| GAP-E durable execution / resume | DOC | **DONE** (i245) | DURABILITY.md — documents journal-as-checkpoint (repo=state, git=checkpoint, ≤1 uncommitted iteration lost), names where Inngest/Temporal slot in, states the honest limit |
+| fork-a-foundry inherits the framework | BUILD | **DONE** (i245) | bootstrap skill now carries the constitution+guard, agent contract, orchestrator, quota, fence, auth, desk, identity, state validator, heartbeats, evals · v0.1.4→0.2.0 (plugin.json+CHANGELOG+record+marketplace+tag) · framework regression test · forced night-clerk catalog re-sync (v0.2.7) · smoke+qa green. STAGE 4 COMPLETE |
 
 ## Deferred — tracked, not lost (MASTER.md verdicts)
 

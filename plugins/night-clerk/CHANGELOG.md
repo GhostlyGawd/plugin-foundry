@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.7 — 2026-07-12
+- data: catalog snapshot refreshed to track the shelf — fork-a-foundry 0.1.4 → 0.2.0
+  (it now inherits the org-pattern framework). Bundled catalog must never trail the
+  marketplace (i138 regression).
+
 ## 0.2.6 — 2026-07-07
 - catalog snapshot: todo-ledger 0.1.0 joins the shelf (tenth plugin) — the front
   desk can now recommend the tech-debt ledger; also picks up fork-a-foundry 0.1.4.

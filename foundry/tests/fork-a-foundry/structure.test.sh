@@ -10,6 +10,11 @@ for law in "one commit" "UNTRUSTED" "two-iteration" "Naming Ceremony"; do
   grep -qi "$law" "$P/skills/bootstrap/SKILL.md" \
     && echo "ok: carries law — $law" || echo "fail: missing law — $law"
 done
+# v0.2.0: the fork must inherit the org-pattern framework, not just the loop
+for frame in "CONSTITUTION" "orchestrator" "agent contract"; do
+  grep -qi "$frame" "$P/skills/bootstrap/SKILL.md" \
+    && echo "ok: inherits framework — $frame" || echo "fail: framework dropped — $frame"
+done
 grep -q 'container' "$P/skills/bootstrap/SKILL.md" \
   && echo "ok: sandbox reminder present" || echo "fail: no sandbox reminder"
 if command -v claude >/dev/null 2>&1; then

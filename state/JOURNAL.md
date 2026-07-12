@@ -2849,3 +2849,41 @@ Entry template (copy exactly; newest at the bottom):
   framework (Version law bump) — the final two program items.
 - notes: a full per-harness packager is future work; the portable/1 schema is
   the abstraction seam the adapters build on (documented, tested).
+
+## i245 — maintainer — 2026-07-12T04:31:46Z
+- did: MASTER GAP-E + fork-a-foundry framework inheritance — the last two §14
+  items. GAP-E: DURABILITY.md documents the journal-as-checkpoint property the
+  foundry already has (the repo IS the state, git IS the checkpoint boundary,
+  one iteration = one commit, so an interruption costs at most one uncommitted
+  iteration; validate/validate_state halt a red repo on resume) and names where
+  a heavier engine (Inngest/Temporal) would slot in if the model outgrows
+  single-threaded short iterations — plus the honest limit (survives
+  interruption, not corruption of committed state). fork-a-foundry: the fork
+  now inherits the ORG-PATTERN framework, not just the plugin loop — the
+  bootstrap skill carries over the constitution + guard, the agent contract
+  (foundry/agents/), the single-writer orchestrator, the quota governor, the
+  trust fence + read/act split, the auth surface, the owner's desk, per-agent
+  identity, the state validator, heartbeats, and the merge-blocking evals, with
+  MASTER.md §14 as the full spec. Version law honored in one iteration:
+  plugin.json + CHANGELOG + record + marketplace description all → 0.2.0
+  (minor: new capability), annotated tag fork-a-foundry-v0.2.0, and a framework
+  regression test so a future edit can't silently drop the inheritance.
+- line: fork-a-foundry 0.1.4 → 0.2.0 (published; feature add). STAGE 4 COMPLETE.
+- files: DURABILITY.md (new), plugins/fork-a-foundry/{skills/bootstrap/SKILL.md,
+  .claude-plugin/plugin.json, CHANGELOG.md}, foundry/records/fork-a-foundry.md,
+  .claude-plugin/marketplace.json, foundry/tests/fork-a-foundry/structure.test.sh,
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: validate (36 published, sync holds) + build + smoke (official
+  --strict all green) + qa fork-a-foundry 11 ok · 0 fail (incl. the 3 new
+  framework-inheritance checks). Full qa at commit; tag laid on the commit.
+- next-suggestion: the program close-out — verify every §14 definition-of-done
+  checkbox, confirm PROGRAM.md is 100% accounted, file the audit, report.
+- notes: every MASTER.md §14 line item is now DONE, DESK-gated, OPERATOR-gated,
+  or DEFERRED-tracked. Stage 4 closes the buildout.
+- coupled maintenance (same iteration): the fork-a-foundry 0.2.0 bump forced
+  night-clerk's bundled catalog to refresh (it must never trail the shelf — i138
+  regression). Regenerated via clerkcat.py and bumped night-clerk 0.2.6 → 0.2.7
+  (Version law: plugin.json + CHANGELOG + record; catalog re-synced after the
+  bump so it lists 0.2.7). Two published plugins moved this iteration — a
+  legitimate forced coupling, not batching. qa 437 · 0 fail; smoke green.
+

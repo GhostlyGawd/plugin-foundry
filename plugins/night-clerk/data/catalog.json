@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-07-07",
+ "snapshot": "2026-07-12",
  "marketplace": "foundry",
  "idea_template": "issues/new?template=idea.yml",
  "plugins": [
@@ -38,7 +38,7 @@
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.1.4",
+   "version": "0.2.0",
    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
    "tags": [
     "meta",
@@ -50,7 +50,7 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.6",
+   "version": "0.2.7",
    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
    "tags": [
     "discovery",
