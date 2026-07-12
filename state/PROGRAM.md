@@ -53,9 +53,9 @@ desk-queued, never performed autonomously — constitution floor.
 
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
-| Show HN / Reddit / X posts | OPERATOR | QUEUED | full kit prepared + desk-queued; posting is the operator's identity |
-| awesome-claude-code + Anthropic marketplace submissions | OPERATOR | QUEUED | prefilled submission links in the kit; submissions only, never third-party PRs |
-| Newsletters / YouTube / evergreens (T+1–2wk) | OPERATOR | QUEUED | list + drafts in the kit |
+| Show HN / Reddit / X posts | OPERATOR | **DONE** (i237) | foundry/LAUNCH.md — Show HN copy, tailored Reddit posts, X thread, all substantiated · desk d-0006 (operator go) · honesty suite pins the numbers to the badge |
+| awesome-claude-code + Anthropic marketplace submissions | OPERATOR | **DONE** (i237) | prefilled intake links in SUBMISSIONS.md (d-0001) + LAUNCH.md; submissions only, never third-party PRs |
+| Newsletters / YouTube / evergreens (T+1–2wk) | OPERATOR | **DONE** (i237) | newsletter list + 3 evergreen post drafts + T+ calendar in LAUNCH.md. STAGE 3 COMPLETE |
 
 ## Stage 4 — build the rest in public
 
