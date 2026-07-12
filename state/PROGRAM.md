@@ -65,7 +65,7 @@ desk-queued, never performed autonomously — constitution floor.
 | P1.1 per-shift operator briefing | HALO | QUEUED | channel: pinned issue (ADR-031) |
 | P1.2 ask-the-factory | HALO | QUEUED | |
 | P4.2 shipnotes weekly + social variant | HALO | QUEUED | extend existing shipnote.py |
-| P5.4 self-authored postmortems | HALO | QUEUED | seed: the real 2026-07-07 token incident |
+| P5.4 self-authored postmortems | HALO | **DONE** (i239) | postmortem agent (proposes/high/event) + prompt · reviews/postmortems/pm-001 (the REAL token incident, blameless, cites AUTH-1) · RUNBOOK.md with the operator procedure · pm↔m-001 memory loop · 6-case suite |
 | P5.5 quarterly state-of-the-company | HALO | QUEUED | |
 | P2.2 steer-by-issue | HALO | QUEUED | fenced NL→backlog |
 | P2.5 naming ceremony assistant | HALO | QUEUED | company already named (ADR-011); scope = plugin names |

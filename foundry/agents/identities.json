@@ -1,11 +1,15 @@
 {
-  "_law": "P0.3 (ADR-026): the author map. Every registry agent commits under its own identity with an 'Agent: <id>' trailer (tools/commit.py adds both). 'foundry-loop' authorship is reserved for the product loop. validate_state.py enforces registry ⊆ identities.",
+  "_law": "P0.3 (ADR-026): the author map. Every registry agent commits under its own identity with an 'Agent: <id>' trailer (tools/commit.py adds both). 'foundry-loop' authorship is reserved for the product loop. validate_state.py enforces registry \u2286 identities.",
   "foundry-loop": {
-    "name": "Nightshift Foundry · product loop",
+    "name": "Nightshift Foundry \u00b7 product loop",
     "email": "foundry-loop@agents.nightshift-foundry.invalid"
   },
   "orchestrator": {
-    "name": "Nightshift Foundry · orchestrator",
+    "name": "Nightshift Foundry \u00b7 orchestrator",
     "email": "orchestrator@agents.nightshift-foundry.invalid"
+  },
+  "postmortem": {
+    "name": "Nightshift Foundry \u00b7 postmortem",
+    "email": "postmortem@agents.nightshift-foundry.invalid"
   }
 }

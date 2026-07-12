@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T04:05:15.232890+00:00",
- "iteration": 238,
+ "generated_at": "2026-07-12T04:08:10.686366+00:00",
+ "iteration": 239,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i239",
+   "role": "reviewer",
+   "ts": "2026-07-12T04:07:46Z",
+   "text": "MASTER P5.4 \u2014 self-authored blameless postmortems (\"the AI wrote its own"
+  },
   {
    "it": "i238",
    "role": "growth",
@@ -58,21 +64,9 @@
    "role": "qa",
    "ts": "2026-07-12T03:42:39Z",
    "text": "MASTER P5.2 \u2014 merge-blocking agent evals (ADR-030). Two layers."
-  },
-  {
-   "it": "i231",
-   "role": "builder",
-   "ts": "2026-07-12T03:34:14Z",
-   "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
   }
  ],
  "journal": [
-  {
-   "it": "i227",
-   "role": "growth",
-   "ts": "2026-07-12T03:21:58Z",
-   "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
-  },
   {
    "it": "i228",
    "role": "growth",
@@ -138,6 +132,12 @@
    "role": "growth",
    "ts": "2026-07-12T04:04:52Z",
    "text": "MASTER P1.4 \u2014 the dogfood report card (\"best halo feature\": the factory"
+  },
+  {
+   "it": "i239",
+   "role": "reviewer",
+   "ts": "2026-07-12T04:07:46Z",
+   "text": "MASTER P5.4 \u2014 self-authored blameless postmortems (\"the AI wrote its own"
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 239,
+  "iterations": 240,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -2659,7 +2659,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 21
+   "n": 22
   }
  ],
  "categories": [

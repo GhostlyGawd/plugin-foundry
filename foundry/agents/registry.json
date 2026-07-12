@@ -53,6 +53,24 @@
       ],
       "status": "active",
       "description": "Deterministic python — needs no Claude session, so it runs even while the loop is token-paused. Permitted direct writer with foundry-loop (charter/AGENTS.md hard rule 1)."
+    },
+    {
+      "id": "postmortem",
+      "role": "Writes a blameless postmortem after an incident: what happened, why it looked fine, the fix, and a runbook delta an operator could follow.",
+      "trigger": "event",
+      "trust_tier": "trusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "reviews/postmortems/",
+        "RUNBOOK.md"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/postmortem/prompt.md",
+      "status": "active",
+      "description": "Proposes only — postmortems land via the orchestrator after review. 'The AI wrote its own postmortem' is a trust artifact (MASTER P5.4). Blameless: names failure modes, never people or agents-as-culprits. Feeds lessons to tools/memory.py."
     }
   ]
 }

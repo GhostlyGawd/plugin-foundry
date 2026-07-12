@@ -2671,3 +2671,31 @@ Entry template (copy exactly; newest at the bottom):
   2026-07-07 token incident) — the next halo content generator.
 - notes: kept dogfood a deterministic build-pipeline tool (like the quality
   number), not an LLM agent — no reasoning needed, so no manifest.
+
+## i239 — reviewer — 2026-07-12T04:07:46Z
+- did: MASTER P5.4 — self-authored blameless postmortems ("the AI wrote its own
+  postmortem" is a trust artifact). Built the postmortem agent
+  (foundry/agents/postmortem/: manifest proposes/high/event + prompt that reads
+  the incident evidence as UNTRUSTED and writes the seven-section template,
+  proposing to the outbox — it lands via the orchestrator after review, never
+  direct) with its own commit identity. Seeded the REAL first one:
+  reviews/postmortems/pm-001-token-rejection.md, the 2026-07-07 silent token
+  rejection, written from the journal record — blameless (the failure is the
+  fail-soft-loop-plus-gitignored-error-stream system property, not a person),
+  with the load-bearing "Why it looked fine" section, and citing the structural
+  fix (AUTH-1, ADR-031). Opened RUNBOOK.md with the operator procedures the
+  incident earned (token rejection, governor halt, desk items, stale agent).
+  The pm↔m-001 loop closes: the postmortem's lesson is the one seeded in the
+  factory brain.
+- line: n/a (ops program; no plugin moved).
+- files: foundry/agents/postmortem/{agent.json, prompt.md},
+  foundry/agents/identities.json (postmortem), reviews/postmortems/pm-001-*.md
+  (new), RUNBOOK.md (new), foundry/tests/_tools/postmortem.test.sh (6 cases),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 6/6 — manifest contract-valid + in registry, all seven sections
+  present, cites the real incident + fix, blameless (no blame language),
+  runbook actionable, pm↔m-001 memory loop closed. Full gates at commit.
+- next-suggestion: P5.5 quarterly report + P1.1 briefing + P4.2 shipnotes —
+  the content-generation agents (extend the existing shipnote.py plumbing).
+- notes: reviews/ is append-only (constitution) — pm-001 is a new file, lawful;
+  future postmortems add, never edit.
