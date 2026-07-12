@@ -2084,3 +2084,34 @@ Entry template (copy exactly; newest at the bottom):
   almanac/queue nav links, reduced-motion guards, aria-pressed) so all 257 checks
   stayed green through a full-page rewrite. site/ stays generated — the template
   lives in tools/build.py and is never hand-edited.
+
+## i218 — auditor — 2026-07-12T02:31:37Z
+- did: operator-directed adoption of MASTER.md (ADR-026) — the consolidation of
+  the external strategy thread landed at root as the org-pattern program's single
+  source of truth. It reconciles its sources' three contradictions (build-vs-buy:
+  ~9 build / ~10 buy / ~9 halo / ~6 defer; "Phase 0 IS the marketing"; keep the
+  subscription token but abstract auth now with four hard migration triggers) and
+  reframes the product: plugins are the deliverable, the org pattern is the
+  artifact. ADR-026 ratifies the §14 agent contract (manifests under
+  foundry/agents/, four hard rules, quota tiers that never shed product,
+  single-writer orchestration precedence), pre-authorizes Stage 0 tools/ work
+  under the two-iteration rule (027–030 land with their items), and makes the
+  constitution floor law immediately: schema changes human-ratified always, no
+  agent edits its own governing rule, never auto-PR third-party repos. BACKLOG
+  gains a Master-program section seeded with exactly 3 items (the law's max):
+  P0.1 agent contract, P0.5 constitution+guard, AUTH-1 auth abstraction.
+- line: n/a (no plugin moved; governance/program adoption — no published artifact
+  touched, so no Version-law bump).
+- files: MASTER.md (new, root — body verbatim as delivered + integration note),
+  state/{STATE.json, DECISIONS.md (ADR-026), BACKLOG.md, JOURNAL.md}.
+- validation: validate + build run before commit (no plugins/ or foundry/tests/
+  change, so smoke/qa not required by the gate).
+- next-suggestion: P0.1 agent contract & manifest (backlog P0; ADR-026 already
+  authorizes the tools/lib.py change) — it is the spine everything else in
+  Stage 0 depends on. Independently: the STOP condition (CI token) is
+  operator-gated; AUTH-1 will make that class of failure loud.
+- notes: STOP present (token rejected 2026-07-07) — this session runs no shift
+  and follows the i217 operator-directed lane: work lands as a draft PR, merge is
+  the operator's ratification. MASTER.md complements the in-repo brief family
+  (those audited the marketplace product; MASTER governs the org-pattern
+  program); ROADMAP.md gates stay Auditor-owned and untouched.

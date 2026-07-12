@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-08T05:44:29.985963+00:00",
- "iteration": 217,
+ "generated_at": "2026-07-12T02:31:43.827254+00:00",
+ "iteration": 218,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i218",
+   "role": "auditor",
+   "ts": "2026-07-12T02:31:37Z",
+   "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
+  },
   {
    "it": "i217",
    "role": "designer",
@@ -58,21 +64,9 @@
    "role": "qa",
    "ts": "2026-07-06T04:15:00Z",
    "text": "suite backfill 1/2 (#10) \u2014 saga-page gets executable checks for its"
-  },
-  {
-   "it": "i145",
-   "role": "designer",
-   "ts": "2026-07-06T04:10:00Z",
-   "text": "polish pass (#9) \u2014 saga/ADR truncations now clip at a word boundary with a"
   }
  ],
  "journal": [
-  {
-   "it": "i141",
-   "role": "maintainer",
-   "ts": "2026-07-06T03:45:00Z",
-   "text": "solo-dev kit curated (#4) \u2014 env-doctor + test-gap-nudge + session-recap; \u00b7 night-clerk 0.1.1 \u2192 0.1.2 (no stage move)"
-  },
   {
    "it": "i142",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "designer",
    "ts": "2026-07-08T05:41:06Z",
    "text": "operator-directed redesign of the living window for the first-time visitor"
+  },
+  {
+   "it": "i218",
+   "role": "auditor",
+   "ts": "2026-07-12T02:31:37Z",
+   "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
   }
  ],
  "records": [
@@ -1111,7 +1111,7 @@
   "uniques_14d": null,
   "idea_votes_total": 0,
   "field_reports": 0,
-  "open_alarms": 0
+  "open_alarms": 1
  },
  "votes": [
   {
@@ -2175,7 +2175,12 @@
   "cap": null,
   "entries": 0
  },
- "alarms": [],
+ "alarms": [
+  {
+   "title": "ops-alarm: workflow 'Run shift' failed",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/28"
+  }
+ ],
  "hall": {
   "prospectors": [],
   "patrons": [],
@@ -2192,22 +2197,6 @@
   }
  ],
  "streak": [
-  {
-   "d": "2026-04-16",
-   "n": 0
-  },
-  {
-   "d": "2026-04-17",
-   "n": 0
-  },
-  {
-   "d": "2026-04-18",
-   "n": 0
-  },
-  {
-   "d": "2026-04-19",
-   "n": 0
-  },
   {
    "d": "2026-04-20",
    "n": 0
@@ -2526,6 +2515,22 @@
   },
   {
    "d": "2026-07-08",
+   "n": 1
+  },
+  {
+   "d": "2026-07-09",
+   "n": 0
+  },
+  {
+   "d": "2026-07-10",
+   "n": 0
+  },
+  {
+   "d": "2026-07-11",
+   "n": 0
+  },
+  {
+   "d": "2026-07-12",
    "n": 1
   }
  ],

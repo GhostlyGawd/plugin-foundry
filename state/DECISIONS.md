@@ -539,3 +539,50 @@ Template:
   the funnel. Future designer passes evolve *within* this system; a bolder visual
   rebrand or any change to a published surface still needs its own
   Auditor-endorsed ADR. window → v0.7.
+
+## ADR-026 — MASTER.md adopted: agent contract & orchestration (i218, auditor)
+- Status: accepted — operator-directed, landing as a draft PR (the human veto
+  window; merge is the operator's ratification, veto by close — ADR-020/025 lane).
+- Context: the operator delivered MASTER.md, the consolidation of the external
+  strategy thread (repo review → feature ideation → structural gap analysis →
+  34-item build plan → two research sweeps → reconciled 2×2, positioning, growth
+  playbook). It resolves the three contradictions between its sources: build-vs-buy
+  (~9 build / ~10 buy / ~9 halo / ~6 defer — table-stakes are satisfied cheaply,
+  never skipped), engineering-vs-launch ("Phase 0 *is* the marketing" — the
+  governance story is load-bearing against the AI-slop backlash), and the
+  subscription token (fine today; abstract the auth surface now; four hard
+  migration triggers). The reframe it lands: the plugins are the deliverable, but
+  **the org pattern is the artifact** — an autonomous software company in a repo,
+  fork-able via fork-a-foundry. STOP is present (CI token rejected 2026-07-07);
+  this is operator-directed work in the i217 lane and runs no shift.
+- Decision:
+  1. **MASTER.md lands at root as the program's single source of truth** for the
+     Stage 0–4 buildout (safe core → proof artifacts → integrate table-stakes →
+     launch → build in public). The in-repo brief family and Auditor-owned
+     ROADMAP.md gates stand untouched; they audited the marketplace product,
+     MASTER.md governs the org-pattern program.
+  2. **The §14 agent contract is ratified** (the master doc reserves ADR-026 for
+     exactly this): every ops agent gets a manifest under `foundry/agents/`
+     (id, role, trigger, trust_tier, quota_tier, capability, outputs, heartbeat);
+     the four hard rules (no direct pushes to main — mutations flow through the
+     orchestrator once P0.7 lands, run-shift excepted until then; untrusted input
+     is fenced before any prompt; writes pass guard + state validator; every agent
+     heartbeats and commits under its own identity with an `Agent:` trailer);
+     quota tiers shed `low` then `high`, **never `product`**; orchestrator
+     precedence: guard veto → product loop → safety/trust → governance → comms.
+  3. **Two-iteration rule satisfied for Stage 0 tooling:** this ADR is the
+     prior-iteration authorization for the tools/ work §14 Stage 0 specs —
+     tools/lib.py manifest loader/registry (P0.1) first; guard.py, orchestrator.py,
+     quota.py, fence.py, commit.py, validate_state.py as their items come up.
+     Remaining program ADRs keep their planned numbers: 027 constitution & guard ·
+     028 quota governor v2 · 029 owner's desk · 030 agent evals.
+  4. **Constitution floor pre-ratified as law now** (G8, effective immediately,
+     enforced by review until guard.py exists): validator/schema changes stay
+     human-ratified always; no agent edits its own governing rule; never auto-open
+     PRs against third-party repos.
+- Consequences: BACKLOG gains a "Master program" section seeded with 3 items
+  (P0.1 agent contract · P0.5 constitution + guard · AUTH-1 auth abstraction —
+  the ≤3-new-items law holds; the rest of the program enters from MASTER.md §14
+  as slots free). AUTH-1's token-expiry detection directly answers the silent
+  failure that caused the 2026-07-07 re-pause. Iterations that pick program items
+  follow MASTER.md §10 order and dependencies; one item, one iteration, same bar.
