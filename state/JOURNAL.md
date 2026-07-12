@@ -2376,3 +2376,31 @@ Entry template (copy exactly; newest at the bottom):
   a number worth animating.
 - notes: one new backlog item this iteration beyond the program item (the
   overflow P3) — within the ≤3 law.
+
+## i228 — growth — 2026-07-12T03:24:59Z
+- did: MASTER GAP-A3 — the proof artifact. tools/replay.py generates
+  foundry/assets/replay.svg: a 7-frame, 18s SMIL loop replaying the REAL
+  starter-kits production arc — idea → build → QA pass → **REVIEW i89: the
+  gate BLOCKS the bad build** (quoting the actual bounce line) → i90 scoped
+  fix + executable regression → i91 re-test + i92 approval → i93 published
+  v0.1.0. Labeled "REPLAY · real iterations i89–i93 · every line from
+  foundry/records/starter-kits.md · sped up" inside the artifact itself —
+  honesty laws: sped-up truth, never simulation. SMIL, not JS/GIF: animates
+  in GitHub READMEs and every browser, 6KB, deterministic (no clocks — no
+  build churn). build.py ships it to site/replay.svg and embeds it in the
+  live section (lazy, alt-texted); README embed lands with GAP-A4.
+- line: n/a (ops program; no plugin moved).
+- files: tools/{replay.py (new), build.py (copy + embed + css)},
+  foundry/assets/replay.svg (new), site/* (regenerated),
+  foundry/tests/_tools/replay.test.sh (6 cases incl. a record-drift guard:
+  if the quoted bounce ever leaves the record, the suite goes red),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 6/6 — deterministic hash, replay label + citation present,
+  gate-block frame quotes the record verbatim, facts verified against the
+  record, 7 SMIL frames, site copy identical. Chromium: image loads
+  (naturalWidth > 0 after scroll; lazy below the fold), zero page errors.
+- next-suggestion: GAP-A4 — the hand-written README first screen (hook → this
+  replay → quality badge → fork line → org chart).
+- notes: chose SMIL-SVG over GIF deliberately: no recording toolchain in CI,
+  crisp at every width, and the GIF can still be exported from it later if a
+  video surface needs one.

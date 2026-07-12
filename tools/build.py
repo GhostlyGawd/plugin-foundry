@@ -389,6 +389,7 @@ TEMPLATE = """<!DOCTYPE html>
   .stat .s{display:block; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); margin-top:4px}
   .qstrip{font-family:var(--mono, ui-monospace, monospace); font-size:12.5px; color:var(--dim); border:1px dashed var(--line); border-radius:10px; padding:10px 14px; margin:6px 0 14px; overflow-wrap:anywhere}
   .qstrip b{color:var(--ink)}
+  .replay{display:block; max-width:100%; height:auto; margin:0 0 14px; border-radius:12px}
   .tape{margin-top:22px; overflow:hidden; white-space:nowrap; padding:11px 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair)}
   .tape .reel{display:inline-block; padding-left:100%}
   @media (prefers-reduced-motion:no-preference){
@@ -575,6 +576,8 @@ TEMPLATE = """<!DOCTYPE html>
       <h2 class="sec-title">Under the hood — the workshop, live</h2>
       <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> An autonomous Claude Code loop pitches, builds, tests, reviews, and publishes every plugin above — and this page updates the moment it does.</p>
       <p class="qstrip" id="qstrip" aria-label="the running quality counter — every number substantiated by this repo"></p>
+      <img class="replay" src="replay.svg" loading="lazy" width="720" height="200"
+           alt="Replay of real iterations i89–i93: the review gate blocks a bad starter-kits build, the fix lands with a pinned regression, v0.1.0 ships." />
       <div id="themebox"></div>
       <div class="stats" id="stats"></div>
       <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -1790,6 +1793,10 @@ def main():
     if og_src.exists():
         (ROOT / "site").mkdir(exist_ok=True)
         (ROOT / "site" / "og-image.png").write_bytes(og_src.read_bytes())
+    # GAP-A3: the replay proof artifact rides along (source: tools/replay.py)
+    rp_src = ROOT / "foundry" / "assets" / "replay.svg"
+    if rp_src.exists():
+        (ROOT / "site" / "replay.svg").write_text(rp_src.read_text())
     mp_name = mp.get("name", "foundry")
     records = collect_records()
     counts = build_index(records, state, mp_name)

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:22:19.571766+00:00",
- "iteration": 227,
+ "generated_at": "2026-07-12T03:25:19.507381+00:00",
+ "iteration": 228,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i228",
+   "role": "growth",
+   "ts": "2026-07-12T03:24:59Z",
+   "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
+  },
   {
    "it": "i227",
    "role": "growth",
@@ -58,21 +64,9 @@
    "role": "builder",
    "ts": "2026-07-12T02:55:07Z",
    "text": "MASTER P0.3 + P0.4 + P0.9 \u2014 the cheap trio, one \u00a714 Stage 0 bullet."
-  },
-  {
-   "it": "i220",
-   "role": "builder",
-   "ts": "2026-07-12T02:49:25Z",
-   "text": "MASTER P0.5 \u2014 the constitution + the guard, the program's moat-and-story"
   }
  ],
  "journal": [
-  {
-   "it": "i151",
-   "role": "auditor",
-   "ts": "2026-07-06T04:58:00Z",
-   "text": "audit-004 filed \u2014 v9 slate 13/13 lawful (9 releases under version law, \u00b7 audit-004 filed"
-  },
   {
    "it": "i217",
    "role": "designer",
@@ -138,6 +132,12 @@
    "role": "growth",
    "ts": "2026-07-12T03:21:58Z",
    "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
+  },
+  {
+   "it": "i228",
+   "role": "growth",
+   "ts": "2026-07-12T03:24:59Z",
+   "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 228,
+  "iterations": 229,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -2542,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 10
+   "n": 11
   }
  ],
  "categories": [
