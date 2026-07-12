@@ -2146,3 +2146,31 @@ Entry template (copy exactly; newest at the bottom):
 - notes: acceptance per MASTER §14 met: sample manifest loads/validates; every
   hard-rule violation rejected with a pointed message. Registry is generated,
   never hand-edited (build.py owns it).
+
+## i220 — builder — 2026-07-12T02:49:25Z
+- did: MASTER P0.5 — the constitution + the guard, the program's moat-and-story
+  item. charter/CONSTITUTION.md ratified (ADR-027): Article I never-do list
+  (nine clauses incl. "never open PRs/issues against third-party repos",
+  append-only history, no law-book edits, no self-rule edits, no operator
+  impersonation, no unsubstantiated numbers), Article II human-ratification
+  list, Article III the public we-don't-spam-maintainers clause, Article IV
+  enforcement. tools/guard.py enforces it per changeset (path+action):
+  allow / desk / block, fails closed — unknown agent gets no pen, unlawful
+  registry blocks everything. Desk verdicts queue to the new minimal owner's
+  desk (tools/desk.py + state/DESK.jsonl, append-only fold, (kind,title) dedup
+  = the anti-firehose floor; ranking/pinned-issue/site land at ADR-029).
+  Capability semantics pinned: read_only no pen · proposes desk-approved
+  landings · writes:<glob> fnmatch scope. Law book includes tools/lib.py.
+- line: n/a (ops program; no plugin moved).
+- files: charter/CONSTITUTION.md (new), tools/{guard.py, desk.py} (new),
+  foundry/tests/_tools/guard.test.sh (13 cases), state/{PROGRAM.md,
+  DECISIONS.md (ADR-027), BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: acceptance met — validator edit desk-queued (with dedup proven),
+  record+journal deletions blocked, within-limits change allowed, in/out-of-
+  scope writes ruled, proposes/read_only semantics enforced, path escape
+  blocked. Full gates at commit: validate + build + qa.
+- next-suggestion: the cheap trio P0.3/P0.4/P0.9 (identity, state validator,
+  heartbeats) — MASTER lists them as one Stage 0 bullet; then P0.6 quota.
+- notes: guard rules on paths/actions by design; content-level injection is
+  fence.py (P0.2) + red-team (P3.4) territory. No agent runs yet (STOP), so
+  the desk starts empty except test fixtures' local ledgers.

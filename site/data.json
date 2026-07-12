@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T02:44:53.658011+00:00",
- "iteration": 219,
+ "generated_at": "2026-07-12T02:49:40.632376+00:00",
+ "iteration": 220,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i220",
+   "role": "builder",
+   "ts": "2026-07-12T02:49:25Z",
+   "text": "MASTER P0.5 \u2014 the constitution + the guard, the program's moat-and-story"
+  },
   {
    "it": "i219",
    "role": "builder",
@@ -58,21 +64,9 @@
    "role": "designer",
    "ts": "2026-07-06T04:30:00Z",
    "text": "dark mode (#11, ADR-016) \u2014 \"night shift\" variant of the warm-paper brand"
-  },
-  {
-   "it": "i147",
-   "role": "qa",
-   "ts": "2026-07-06T04:20:00Z",
-   "text": "suite backfill 2/2 for this slate (#10) \u2014 field-reports' no-inline law"
   }
  ],
  "journal": [
-  {
-   "it": "i143",
-   "role": "builder",
-   "ts": "2026-07-06T03:57:00Z",
-   "text": "copy-to-clipboard (#6) \u2014 click any .install block (shelf cards and kits)"
-  },
   {
    "it": "i144",
    "role": "growth",
@@ -138,6 +132,12 @@
    "role": "builder",
    "ts": "2026-07-12T02:44:38Z",
    "text": "MASTER P0.1 \u2014 the agent contract & manifest, the spine of Stage 0."
+  },
+  {
+   "it": "i220",
+   "role": "builder",
+   "ts": "2026-07-12T02:49:25Z",
+   "text": "MASTER P0.5 \u2014 the constitution + the guard, the program's moat-and-story"
   }
  ],
  "records": [
@@ -2531,7 +2531,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 2
+   "n": 3
   }
  ],
  "categories": [

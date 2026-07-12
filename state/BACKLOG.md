@@ -17,12 +17,14 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       DONE i219: loader + 4 hard rules live in lib.py, build.py gates on them,
       first manifest = foundry-loop (grandfathered, dormant), 9-case suite green.
       Program ledger opened at state/PROGRAM.md; mandate + rulings at ADR-031.
-- [ ] P0 (builder) MASTER P0.5 — constitution + guard: charter/CONSTITUTION.md
+- [x] P0 (builder) MASTER P0.5 — constitution + guard: charter/CONSTITUTION.md
       (never-do list + human-ratification list + the public "we don't spam
       maintainers" clause) and tools/guard.py (allow / block-with-reason on a
       proposed changeset). Depends: P0.1. File ADR-027. Acceptance: simulated
       schema-edit and record-deletion changesets block; a within-limits doc
       change passes. (MASTER.md §14)
+      DONE i220: 4 articles ratified; guard allow/desk/block fails closed;
+      desk primitive (desk.py + DESK.jsonl, dedup) live; 13-case suite green.
 - [ ] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
       (no agent reads the token env var directly), token-expiry/rejection
       detection with a loud failure (the exact silence behind the 2026-07-07

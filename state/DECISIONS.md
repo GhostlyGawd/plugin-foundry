@@ -624,3 +624,28 @@ Template:
 - Consequences: every later stage builds without per-iteration authorization
   friction; the desk (P0.8) becomes the single approval surface; PROGRAM.md +
   JOURNAL carry the audit trail item by item.
+
+## ADR-027 — the constitution & the guard (i220, builder)
+- Status: accepted (MASTER P0.5; program mandate ADR-031).
+- Context: the market's stated fear about autonomous repos is ungoverned slop —
+  and the documented failure modes (Replit's deleted production DB, the Amazon Q
+  wiper, Project Vend's rubber-stamping CEO) are all "the machine could, so it
+  did." The moat and the story are the same artifact: written law, enforced in
+  code, visible to visitors.
+- Decision: charter/CONSTITUTION.md is ratified — Article I never-do list
+  (third-party PRs/issues · deleting history · publishing without verdicts ·
+  spending past cap · law-book edits · self-rule edits · operator impersonation
+  · unsubstantiated numbers · auto-merging desk items), Article II
+  human-ratification list, Article III the public "we don't spam maintainers"
+  clause, Article IV enforcement. tools/guard.py enforces it: allow/desk/block
+  per changeset path+action, fails closed (unknown agent = no pen; unlawful
+  registry = block), desk verdicts queue via tools/desk.py (--queue) into
+  state/DESK.jsonl with (kind,title) dedup — the minimal Stage 0 desk primitive;
+  ranking + pinned-issue sync + site card land with ADR-029. Capability
+  semantics pinned: read_only = no changesets · proposes = desk-approved
+  landings only · writes:<glob> = fnmatch scope, in-glob lands when gates pass.
+  The law book includes tools/lib.py (every gate trusts its loader).
+- Consequences: the orchestrator (P0.7) calls guard before every landing and
+  honors its exit codes (0 allow · 3 desk · 4 block). Guard content rules stay
+  path/action-shaped; content-level threats belong to fence.py (P0.2) and the
+  red-team (P3.4). 13-case suite in foundry/tests/_tools/guard.test.sh.

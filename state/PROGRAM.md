@@ -17,7 +17,7 @@ desk-queued, never performed autonomously — constitution floor.
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
 | P0.1 agent contract & manifest | BUILD | **DONE** (i219) | charter/AGENTS.md · foundry/agents/schema.json · loader+registry in tools/lib.py · build.py gate · foundry/tests/_tools/agents.test.sh (9 cases) |
-| P0.5 constitution + guard | BUILD | QUEUED | ADR-027 with it |
+| P0.5 constitution + guard | BUILD | **DONE** (i220) | charter/CONSTITUTION.md · tools/guard.py (allow/desk/block, fails closed) · tools/desk.py + state/DESK.jsonl (minimal desk) · ADR-027 · 13-case suite |
 | P0.7 chief-of-staff orchestrator | BUILD | QUEUED | after P0.1–P0.6 |
 | P0.6 quota governor v2 | BUILD | QUEUED | ADR-028 with it; usage signal = ledger estimate until API switch (ADR-031 ruling on §12 Q3) |
 | AUTH-1 auth abstraction | BUILD | QUEUED | loop.sh touch authorized by ADR-031 |
