@@ -22,9 +22,9 @@ desk-queued, never performed autonomously — constitution floor.
 | P0.6 quota governor v2 | BUILD | QUEUED | ADR-028 with it; usage signal = ledger estimate until API switch (ADR-031 ruling on §12 Q3) |
 | AUTH-1 auth abstraction | BUILD | QUEUED | loop.sh touch authorized by ADR-031 |
 | P0.2 trust fencing + read/act split | BUY+WRAP | QUEUED | seam in tools/fence.py; scanner swappable; split enforced by contract hard rule 2 (already live) |
-| P0.3 per-agent commit identity | BUILD | QUEUED | |
-| P0.4 state validator | BUILD | QUEUED | |
-| P0.9 heartbeats / liveness | CHEAP | QUEUED | |
+| P0.3 per-agent commit identity | BUILD | **DONE** (i221) | identities.json · tools/commit.py (author + Agent: trailer) · validate.py trailer law (HEAD, fails on untrailed agent commits) |
+| P0.4 state validator | BUILD | **DONE** (i221) | tools/validate_state.py (STATE/BUDGET/METRICS/DESK/votes/verified/reports/kits/alarms/network/registry/identities/heartbeats) · gates.yml step · orchestrator pre-commit at P0.7 |
+| P0.9 heartbeats / liveness | CHEAP | **DONE** (i221) | tools/heartbeat.py beat/check (×1.5 grace, dormant exempt) · heartbeats.json · ops-guard liveness job (alarms, never fails) |
 
 ## Stage 1 — proof artifacts
 

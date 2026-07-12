@@ -21,6 +21,8 @@ jobs:
           python-version: "3.12"
       - name: Validate (sync laws + structural checks)
         run: python3 tools/validate.py
+      - name: Validate shared state (P0.4 — state/ + foundry/*.json shapes)
+        run: python3 tools/validate_state.py
       - name: Build (regenerates site/ + INDEX.md)
         run: python3 tools/build.py
       - name: Generated output committed in sync

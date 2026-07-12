@@ -25,6 +25,12 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       change passes. (MASTER.md §14)
       DONE i220: 4 articles ratified; guard allow/desk/block fails closed;
       desk primitive (desk.py + DESK.jsonl, dedup) live; 13-case suite green.
+- [x] P1 (builder) MASTER P0.3+P0.4+P0.9 — the cheap trio (one §14 Stage 0
+      bullet): per-agent commit identity, shared-state validator, heartbeats.
+      DONE i221: identities.json + commit.py + validate.py trailer law;
+      validate_state.py in gates.yml; heartbeat.py + ops-guard liveness job;
+      15-case suite (untrailed agent commit fails, malformed state caught
+      pointedly, stale/never-beaten agents named, dormant exempt).
 - [ ] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
       (no agent reads the token env var directly), token-expiry/rejection
       detection with a loud failure (the exact silence behind the 2026-07-07

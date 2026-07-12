@@ -2174,3 +2174,38 @@ Entry template (copy exactly; newest at the bottom):
 - notes: guard rules on paths/actions by design; content-level injection is
   fence.py (P0.2) + red-team (P3.4) territory. No agent runs yet (STOP), so
   the desk starts empty except test fixtures' local ledgers.
+
+## i221 — builder — 2026-07-12T02:55:07Z
+- did: MASTER P0.3 + P0.4 + P0.9 — the cheap trio, one §14 Stage 0 bullet.
+  Identity (P0.3): foundry/agents/identities.json author map; tools/commit.py
+  commits AS an agent (author + "Agent: <id>" trailer, unknown agent = no pen);
+  validate.py gains the trailer law — a HEAD commit authored under a registered
+  agent identity without its matching trailer fails the gate (G7 closed; human
+  commits exempt; fixtures without git exempt). State (P0.4):
+  tools/validate_state.py checks every shared file against its real shape —
+  STATE.json, BUDGET/METRICS/DESK JSONL (line-numbered errors, honest-null law),
+  votes/verified/reports/kits/alarms/network, registry sync, registry⊆identities,
+  heartbeats — wired as a gates.yml step (one gate surface; §14 named a separate
+  workflow, folded into Gates instead — fewer silent paths) and as the
+  orchestrator's pre-commit gate at P0.7. Liveness (P0.9): tools/heartbeat.py
+  beat/check with ×1.5 grace, FOUNDRY_NOW clock injection for tests, dormant
+  agents exempt (a paused factory is quiet, not sick); ops-guard.yml gains a
+  liveness job that alarms via alarm.py and never itself fails.
+- line: n/a (ops program; no plugin moved).
+- files: foundry/agents/{identities.json, heartbeats.json}, tools/{commit.py,
+  validate_state.py, heartbeat.py, validate.py}, .github/workflows/{gates.yml,
+  ops-guard.yml}, foundry/tests/_tools/agent-ops.test.sh (15 cases),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 15/15 — real-repo state green; malformed METRICS/DESK/verified
+  caught at their lines; identity-less agent caught; untrailed agent commit
+  FAILS validate and commit.py's trailed one passes; unknown agents refused
+  everywhere; stale + never-beaten agents named; dormant exempt. Full gates at
+  commit.
+- next-suggestion: P0.6 quota governor v2 (ADR-028) — last rail before the
+  orchestrator; AUTH-1 rides after it.
+- notes: acceptance lines from §14 hit verbatim: "git log --author cleanly
+  separates agents"; "malformed METRICS line… bad DESK entry… broken
+  verified.json each fail with a pointed message"; "disabling a scheduled agent
+  for its interval opens an ops-alarm naming that agent" (proven with an
+  injected clock; the alarm path degrades to a log line without gh — alarm.py's
+  own law).
