@@ -2533,3 +2533,28 @@ Entry template (copy exactly; newest at the bottom):
 - notes: GAP-D's core risk (auto-merging a fresh malicious release) is
   structurally impossible here — the constitution bans autonomous merges of
   anything needing review, and the cooldowns add defense in depth.
+
+## i234 — reviewer — 2026-07-12T03:48:43Z
+- did: MASTER P3.5 + P2.1 — the bought review/triage bots (BUY, config-ready).
+  Paired because they are the same shape: an external GitHub App config bound
+  to THIS repo's laws + a desk item for the one-time install. .coderabbit.yaml
+  (community PR review): path-scoped instructions bind CodeRabbit to the
+  foundry's own law book — the Version law on published plugins, hook safety
+  line-by-line, the two-iteration ADR rule on tools/, and the growth-honesty
+  law on any visitor-facing number — so an external reviewer checks what
+  validate.py already values, not a generic ruleset; drafts skipped.
+  .dosu.yaml (issue triage): label-and-route ONLY — auto_respond OFF, because
+  the night-clerk auto-answerer (P4.4) is MASTER-deferred past launch as the
+  most ToS-sensitive agent; issue text is untrusted-data; routing mirrors
+  intake.py's funnel and only targets labels ops-guard actually creates.
+  Installs desk-gated at d-0003 (CodeRabbit) and d-0004 (Dosu).
+- line: n/a (ops program; no plugin moved).
+- files: .coderabbit.yaml, .dosu.yaml (new), state/DESK.jsonl (d-0003/d-0004),
+  foundry/tests/_tools/bots.test.sh (4 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 4/4 — both configs valid, laws-bound, night-clerk proven OFF,
+  routing matches real labels, both installs desk-gated. Full gates at commit.
+- next-suggestion: P5.1 factory brain (memory — a real BUILD with dedup-on-
+  write) then P4.3 visual regression to finish Stage 2.
+- notes: the desk now holds 4 real operator decisions (d-0001..d-0004), all
+  correctly ranked as 'approve' — the anti-firehose queue doing its job.

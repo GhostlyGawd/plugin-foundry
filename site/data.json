@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:46:55.138788+00:00",
- "iteration": 233,
+ "generated_at": "2026-07-12T03:49:05.329360+00:00",
+ "iteration": 234,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i234",
+   "role": "reviewer",
+   "ts": "2026-07-12T03:48:43Z",
+   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
+  },
   {
    "it": "i233",
    "role": "maintainer",
@@ -58,21 +64,9 @@
    "role": "growth",
    "ts": "2026-07-12T03:21:58Z",
    "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
-  },
-  {
-   "it": "i226",
-   "role": "growth",
-   "ts": "2026-07-12T03:18:50Z",
-   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
   }
  ],
  "journal": [
-  {
-   "it": "i222",
-   "role": "builder",
-   "ts": "2026-07-12T02:58:49Z",
-   "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
-  },
   {
    "it": "i223",
    "role": "builder",
@@ -138,6 +132,12 @@
    "role": "maintainer",
    "ts": "2026-07-12T03:46:31Z",
    "text": "MASTER P3.2 + GAP-D \u2014 dependency automation with supply-chain cooldowns"
+  },
+  {
+   "it": "i234",
+   "role": "reviewer",
+   "ts": "2026-07-12T03:48:43Z",
+   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 234,
+  "iterations": 235,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -2542,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 16
+   "n": 17
   }
  ],
  "categories": [
