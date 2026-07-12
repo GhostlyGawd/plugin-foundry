@@ -1,0 +1,19 @@
+# Socket.dev (MASTER GAP-D, ADR-031) — supply-chain risk scanning on every
+# dependency PR. Config-ready: the operator installs the Socket GitHub App to
+# activate it (desk-gated). Socket flags the behaviors that matter for an
+# autonomous bumper — install scripts, network/filesystem/shell access newly
+# introduced by a version bump, typosquats — exactly the s1ngularity / malicious-
+# package class the program's Gap D exists to stop.
+version: 2
+projectIgnorePaths:
+  - "site/**"          # generated output, not source
+  - "foundry/demos/**" # recorded artifacts
+issueRules:
+  # block a bump PR from merging when a new version introduces risky behavior
+  installScripts: { action: error }
+  telemetry: { action: warn }
+  networkAccess: { action: warn }
+  shellAccess: { action: error }
+  filesystemAccess: { action: warn }
+  malware: { action: error }
+  typosquat: { action: error }

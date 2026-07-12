@@ -1,0 +1,6 @@
+{
+  "_comment": "Argos visual regression (MASTER P4.3, ADR-031). Config-ready: the operator installs the Argos GitHub App + adds ARGOS_TOKEN to activate hosted pixel-diffing of the screenshots tools/vishot.py captures. Until then, the vision-narration wrapper (foundry/assets/shots/narration.md) gives a diffable, browser-free record of what the window shows.",
+  "uploadName": "nightshift-foundry-window",
+  "files": ["foundry/assets/shots/*.png"],
+  "threshold": 0.02
+}

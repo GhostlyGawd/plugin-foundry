@@ -40,13 +40,13 @@ desk-queued, never performed autonomously — constitution floor.
 
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
-| P3.2 dependency bumping + GAP-D cooldowns | BUY | QUEUED | dependabot config w/ cooldowns; Renovate config-ready; Socket = DESK |
-| P3.5 community PR review | BUY | QUEUED | CodeRabbit config-ready; app install = DESK |
-| P5.2 agent evals (merge-blocking) | BUY | QUEUED | deterministic fixtures now (ADR-030); LLM-graded promptfoo config-ready |
-| P5.1 factory brain (memory) | BUY | QUEUED | dedup-on-write local store behind a swappable seam; Mem0/Zep = DESK |
-| P4.3 visual regression + narrator | BUY | QUEUED | capture in deploy pipeline; Argos/Percy = DESK |
-| P0.8 owner's desk (ranking in-house) | SPLIT | QUEUED | ADR-029; transport = pinned issue (ADR-031 ruling on §12 Q1) |
-| P2.1 issue triage (Dosu) | BUY | QUEUED | config-ready; app install = DESK |
+| P3.2 dependency bumping + GAP-D cooldowns | BUY | **DONE** (i233) | .github/dependabot.yml (native, GitHub Actions, 5-day cooldown, weekly grouping) · renovate.json (5-day minimumReleaseAge, no automerge) · socket.yml (malware/install-scripts/typosquat block) · app installs → desk d-0002 · 4-case config-validity suite |
+| P3.5 community PR review | BUY | **DONE** (i234) | .coderabbit.yaml bound to the foundry's laws (Version law, hook safety, two-iteration ADR rule, growth-honesty) · app install → desk d-0003 · validity suite |
+| P5.2 agent evals (merge-blocking) | BUY | **DONE** (i232) | tools/evals.py + 25 golden cases (guard law + fence detection) merge-blocking in gates.yml · proven able to go red (poison-fixture test) · promptfoo.yaml config-ready for red-team/spec-drift/reviewer (API-armed) · ADR-030 · 4-case meta-suite |
+| P5.1 factory brain (memory) | BUY | **DONE** (i235) | tools/memory.py — dedup-on-write local store (near-duplicate refused, --force override), deterministic recall, MEMORY_BACKEND seam (Mem0/Zep, falls back to local floor) · 5 real lessons seeded from this program · 8-case suite |
+| P4.3 visual regression + narrator | BUY | **DONE** (i236) | tools/vishot.py — narrate (deterministic vision-narration from data.json, committed) + shoot (best-effort Playwright capture, degrades cleanly) · deploy-site capture step · argos.config.json + desk d-0005 for hosted diffing · 6-case suite. STAGE 2 COMPLETE |
+| P0.8 owner's desk (ranking in-house) | SPLIT | **DONE** (i231) | ranking law (kind strictly dominates, age within kind) + dedup in desk.py · `queue`/`sync` → ONE pinned ops-desk issue (degrades ledger-only) · site/desk.html public card · orchestrate.yml syncs post-run · approvals land only via the orchestrator (i225) · ADR-029 · 6-case suite. G4 closed |
+| P2.1 issue triage (Dosu) | BUY | **DONE** (i234) | .dosu.yaml triage-only (auto-answer OFF — night-clerk stays deferred), untrusted-data, routing mirrors intake + labels · app install → desk d-0004 · validity suite |
 | P4.4 night-clerk responder | DEFER | **DEFERRED** | per MASTER.md — risky pre-launch, most ToS-sensitive; revisit post-launch |
 
 ## Stage 3 — launch (concentrated window)

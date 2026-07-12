@@ -25,6 +25,11 @@ jobs:
         run: |
           python3 tools/validate.py
           python3 tools/build.py
+      - name: Visual-regression narration (P4.3 — always; screenshots best-effort)
+        continue-on-error: true
+        run: |
+          python3 tools/vishot.py narrate
+          python3 tools/vishot.py shoot || echo "vishot: capture skipped (no browser) — narration stands"
       - uses: actions/configure-pages@v5
         with:
           # ADR-020: the first deploy CREATES the Pages site (source: Actions)

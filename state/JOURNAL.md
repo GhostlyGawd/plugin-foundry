@@ -2453,3 +2453,165 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: land the Stage 1 slate PR, then Stage 2 (table-stakes
   integrations; ADR-029 owner's-desk ranking + ADR-030 evals ride there).
 - notes: actual clicking is the operator's — by design, forever (Art. I §1).
+
+## i231 — builder — 2026-07-12T03:34:14Z
+- did: MASTER P0.8 — the owner's desk, full build (ADR-029; closes G4). The
+  BUY half is the ADR-031 Q1 transport ruling (one pinned ops-desk issue,
+  zero setup, synced after every orchestrate run, degrades to ledger-only
+  without gh). The BUILD half is the differentiated ranking law: kind
+  STRICTLY dominates (alarm 400 > ratify 300 > approve 200 > decide 100),
+  age (capped 30d) orders within a kind only — the first draft let age cross
+  kind boundaries and the suite caught a 41-day-old low-stakes decide
+  outranking a fresh law-book ratify; tightened, law documented in the ADR.
+  Public legibility: site/desk.html (open items, ranked, kind-chipped) — the
+  governance story a visitor can see; linked from the live section.
+  ops-guard ensures the ops-desk label.
+- line: n/a (ops program; no plugin moved).
+- files: tools/desk.py (rank/render_queue/sync + queue/sync CLI), tools/
+  build.py (build_desk + link), .github/workflows/{orchestrate.yml (sync
+  step), ops-guard.yml (label)}, site/desk.html (generated),
+  foundry/tests/_tools/desk.test.sh (6 cases), state/{DECISIONS.md (ADR-029),
+  PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 6/6 — strict-dominance order proven, resolved items leave,
+  dedup returns the open id, render carries the resolve instruction, gh-less
+  degradation, public page shows open-only. §14 acceptance rides i225's
+  orchestrator suite (desk-held → approve lands / reject retires; nothing
+  auto-merges). Full gates at commit.
+- next-suggestion: P5.2 evals (ADR-030), then the dependency/config trio.
+- notes: the desk currently holds d-0001 (the GAP-B submission click) — the
+  system's first real human decision, correctly ranked and delivered.
+
+## i232 — qa — 2026-07-12T03:42:39Z
+- did: MASTER P5.2 — merge-blocking agent evals (ADR-030). Two layers.
+  Deterministic (gates merges NOW): tools/evals.py runs foundry/evals/*.jsonl —
+  15 golden guard cases pinning the constitution's allow/desk/block law
+  (doc→allow, law-book→desk, history-delete→block, path-escape→block,
+  unknown-agent→block, self-rule→desk) + 10 fence cases pinning injection
+  detection (clean→none, override/destructive/hijack/exfil/third-party-PR/
+  spoof/fence-escape→high). Wired into gates.yml, merge-blocking. LLM-graded
+  (config-ready): foundry/evals/promptfoo.yaml, golden red-team prompts that
+  arm when ANTHROPIC_API_KEY is present (API pool → operator-armed). The
+  meta-suite proves the harness can go RED via a poisoned fixture — an eval
+  suite that can't fail is theater.
+- line: n/a (ops program; no plugin moved).
+- files: tools/evals.py (new), foundry/evals/{guard.jsonl, fence.jsonl,
+  promptfoo.yaml} (new), .github/workflows/gates.yml (evals step),
+  foundry/tests/_tools/evals.test.sh (4 cases), state/{DECISIONS.md (ADR-030),
+  PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 25/25 golden pass live; meta-suite 4/4 (real pass, inventory,
+  goes-red-on-poison, config-ready-without-key). Full gates at commit.
+- next-suggestion: the dependency/config trio — P3.2+GAP-D (Renovate/
+  Dependabot + cooldowns + Socket), P3.5 (CodeRabbit), P2.1 (Dosu) — plus
+  P5.1 memory + P4.3 visual regression to finish Stage 2.
+- notes: golden cases grow as each risky agent ships; promptfoo fixtures live
+  beside these, so P3.1/P3.4/P3.5 arrive with their evals.
+
+## i233 — maintainer — 2026-07-12T03:46:31Z
+- did: MASTER P3.2 + GAP-D — dependency automation with supply-chain cooldowns
+  (BUY, no build). Three configs, each valid and carrying the guard that is the
+  point: .github/dependabot.yml (native — no app install — bumps the GitHub
+  Actions this repo actually pins, 5-day cooldown so a freshly-published/
+  possibly-compromised release ages before a PR opens, weekly-grouped into one
+  reviewable PR); renovate.json (the deeper cooldown for any future package
+  ecosystem — 5-day minimumReleaseAge, automerge:false everywhere; the
+  constitution forbids auto-merging anything needing review); socket.yml
+  (Socket.dev risk rules — malware/install-scripts/typosquat = error, the
+  s1ngularity class GAP-D exists to stop). The two that need a GitHub App
+  install (Renovate, Socket) are desk-gated at d-0002, never assumed live;
+  Dependabot needs nothing. ops-guard ensures the dependencies + security
+  labels.
+- line: n/a (ops program; no plugin moved).
+- files: .github/dependabot.yml, renovate.json, socket.yml (new),
+  .github/workflows/ops-guard.yml (labels), state/DESK.jsonl (d-0002),
+  foundry/tests/_tools/deps.test.sh (4 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 4/4 — each config parses and carries its cooldown/no-automerge/
+  block guarantees; the app-install half is proven desk-gated. Full gates at
+  commit.
+- next-suggestion: P3.5 (CodeRabbit) + P2.1 (Dosu) — the remaining bought bots,
+  config-ready with desk items; then P5.1 memory + P4.3 visual regression.
+- notes: GAP-D's core risk (auto-merging a fresh malicious release) is
+  structurally impossible here — the constitution bans autonomous merges of
+  anything needing review, and the cooldowns add defense in depth.
+
+## i234 — reviewer — 2026-07-12T03:48:43Z
+- did: MASTER P3.5 + P2.1 — the bought review/triage bots (BUY, config-ready).
+  Paired because they are the same shape: an external GitHub App config bound
+  to THIS repo's laws + a desk item for the one-time install. .coderabbit.yaml
+  (community PR review): path-scoped instructions bind CodeRabbit to the
+  foundry's own law book — the Version law on published plugins, hook safety
+  line-by-line, the two-iteration ADR rule on tools/, and the growth-honesty
+  law on any visitor-facing number — so an external reviewer checks what
+  validate.py already values, not a generic ruleset; drafts skipped.
+  .dosu.yaml (issue triage): label-and-route ONLY — auto_respond OFF, because
+  the night-clerk auto-answerer (P4.4) is MASTER-deferred past launch as the
+  most ToS-sensitive agent; issue text is untrusted-data; routing mirrors
+  intake.py's funnel and only targets labels ops-guard actually creates.
+  Installs desk-gated at d-0003 (CodeRabbit) and d-0004 (Dosu).
+- line: n/a (ops program; no plugin moved).
+- files: .coderabbit.yaml, .dosu.yaml (new), state/DESK.jsonl (d-0003/d-0004),
+  foundry/tests/_tools/bots.test.sh (4 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 4/4 — both configs valid, laws-bound, night-clerk proven OFF,
+  routing matches real labels, both installs desk-gated. Full gates at commit.
+- next-suggestion: P5.1 factory brain (memory — a real BUILD with dedup-on-
+  write) then P4.3 visual regression to finish Stage 2.
+- notes: the desk now holds 4 real operator decisions (d-0001..d-0004), all
+  correctly ranked as 'approve' — the anti-firehose queue doing its job.
+
+## i235 — builder — 2026-07-12T03:51:39Z
+- did: MASTER P5.1 — the factory brain (memory). BUY-shaped with a
+  MEMORY_BACKEND seam for Mem0/Zep (desk-gated — they host/bill), but the
+  discipline MASTER says to keep in-house IS the design: DEDUP-ON-WRITE, never
+  append-everything. tools/memory.py gates every write with a Jaccard
+  similarity check — a near-identical lesson is REFUSED (proven: 1.00 overlap →
+  refused, store size unchanged), --force overrides when an operator means it,
+  recall is deterministic token-overlap (score desc, id tiebreak), and an
+  irrelevant query returns nothing rather than a hallucinated hit. The local
+  floor does LEXICAL dedup (catches an agent re-logging the same lesson);
+  semantic paraphrase-dedup is exactly what the embedding backend adds — stated
+  honestly, not oversold. Seeded with 5 REAL lessons this program earned (the
+  token incident, the honest-number fix, strict-dominance ranking, the
+  no-theater eval rule, the fence/read-act split) so recall is useful on day
+  one; agents call `memory.py recall` in their wrapper (the injection seam).
+- line: n/a (ops program; no plugin moved).
+- files: tools/memory.py (new), foundry/memory.jsonl (5 seeded lessons),
+  foundry/tests/_tools/memory.test.sh (8 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 8/8 — distinct-stored, dedup-refuses, force-overrides, recall
+  relevant + deterministic, irrelevant→nothing, backend falls back, repo ships
+  the seed. Also simplified a convoluted double-sort in recall to one
+  deterministic key. Full gates at commit.
+- next-suggestion: P4.3 visual regression + narrator — the last Stage 2 item;
+  then land the Stage 2 PR.
+- notes: MASTER's warning ("full-context often beats memory frameworks on raw
+  accuracy — don't over-engineer") is why recall stays a simple, legible
+  overlap score, not a vector DB.
+
+## i236 — designer — 2026-07-12T03:55:14Z
+- did: MASTER P4.3 — visual regression + narrator, the last Stage 2 item. The
+  hosted pixel-diffing is bought (Argos — argos.config.json, install desk-gated
+  at d-0005); what's built is the two ends Argos doesn't give you.
+  tools/vishot.py narrate = the "vision narration" wrapper (the thin novelty
+  layer): a deterministic, browser-free description of what the window CURRENTLY
+  SHOWS — hero counter, shelf, badge message, theme, alarms, latest ship —
+  derived from the same site/data.json the page renders from, written to
+  foundry/assets/shots/narration.md so a reviewer reads what changed in WORDS,
+  not just a pixel delta. vishot.py shoot = best-effort Playwright capture for
+  the differ, degrading cleanly when node OR the browser is absent (fixed
+  mid-iteration: the first draft crashed on missing node; now it skips). PNGs
+  are gitignored (Argos owns baselines); the narration is the committed,
+  diffable record. Capture wired into deploy-site.yml (continue-on-error).
+- line: n/a (ops program; no plugin moved). STAGE 2 COMPLETE.
+- files: tools/vishot.py (new), argos.config.json (new), .gitignore (PNGs),
+  .github/workflows/deploy-site.yml (capture step), foundry/assets/shots/
+  narration.md (committed), state/DESK.jsonl (d-0005),
+  foundry/tests/_tools/vishot.test.sh (6 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 6/6 — narration matches the live quality number, deterministic,
+  counts the real shelf, capture degrades without a browser AND without node,
+  PNGs gitignored, Argos desk-gated. Full gates at commit.
+- next-suggestion: land the Stage 2 PR, then Stage 3 (the launch kit —
+  operator-gated, desk-queued) and Stage 4 (the halo features as content).
+- notes: narration-from-data.json is the right seam — it IS what the page
+  shows, so it needs no browser and can't drift from the rendered truth.

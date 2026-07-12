@@ -1,0 +1,25 @@
+# Dependabot (MASTER P3.2, ADR-031) — the buy-not-build half of dependency
+# hygiene. Native, no app install needed. Covers what this repo actually pins:
+# GitHub Actions versions. Grouped weekly so bumps arrive as ONE reviewable PR,
+# not a firehose, and security alerts still come through immediately.
+#
+# GAP-D cooldown: Dependabot's own cooldown (a fresh release must age before a
+# bump PR opens) — a supply-chain guard against pulling a just-published (and
+# possibly compromised) version the day it lands. Renovate carries the deeper
+# cooldown for any future package ecosystems (renovate.json).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns: ["*"]
+    cooldown:
+      default-days: 5
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    commit-message:
+      prefix: "deps"

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:29:17.001095+00:00",
- "iteration": 230,
+ "generated_at": "2026-07-12T03:55:36.656654+00:00",
+ "iteration": 236,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -18,6 +18,42 @@
  },
  "ticker": [
   {
+   "it": "i236",
+   "role": "designer",
+   "ts": "2026-07-12T03:55:14Z",
+   "text": "MASTER P4.3 \u2014 visual regression + narrator, the last Stage 2 item. The"
+  },
+  {
+   "it": "i235",
+   "role": "builder",
+   "ts": "2026-07-12T03:51:39Z",
+   "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
+  },
+  {
+   "it": "i234",
+   "role": "reviewer",
+   "ts": "2026-07-12T03:48:43Z",
+   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
+  },
+  {
+   "it": "i233",
+   "role": "maintainer",
+   "ts": "2026-07-12T03:46:31Z",
+   "text": "MASTER P3.2 + GAP-D \u2014 dependency automation with supply-chain cooldowns"
+  },
+  {
+   "it": "i232",
+   "role": "qa",
+   "ts": "2026-07-12T03:42:39Z",
+   "text": "MASTER P5.2 \u2014 merge-blocking agent evals (ADR-030). Two layers."
+  },
+  {
+   "it": "i231",
+   "role": "builder",
+   "ts": "2026-07-12T03:34:14Z",
+   "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
+  },
+  {
    "it": "i230",
    "role": "growth",
    "ts": "2026-07-12T03:28:56Z",
@@ -28,82 +64,10 @@
    "role": "designer",
    "ts": "2026-07-12T03:27:00Z",
    "text": "MASTER GAP-A4 \u2014 the README first screen, written BY HAND per the"
-  },
-  {
-   "it": "i228",
-   "role": "growth",
-   "ts": "2026-07-12T03:24:59Z",
-   "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
-  },
-  {
-   "it": "i227",
-   "role": "growth",
-   "ts": "2026-07-12T03:21:58Z",
-   "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
-  },
-  {
-   "it": "i226",
-   "role": "growth",
-   "ts": "2026-07-12T03:18:50Z",
-   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
-  },
-  {
-   "it": "i225",
-   "role": "builder",
-   "ts": "2026-07-12T03:12:04Z",
-   "text": "MASTER P0.7 \u2014 the chief-of-staff orchestrator, Stage 0's keystone"
-  },
-  {
-   "it": "i224",
-   "role": "builder",
-   "ts": "2026-07-12T03:05:51Z",
-   "text": "MASTER P0.2 \u2014 trust fencing behind one swappable seam (BUY+WRAP: the"
-  },
-  {
-   "it": "i223",
-   "role": "builder",
-   "ts": "2026-07-12T03:02:11Z",
-   "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
   }
  ],
  "journal": [
   {
-   "it": "i219",
-   "role": "builder",
-   "ts": "2026-07-12T02:44:38Z",
-   "text": "MASTER P0.1 \u2014 the agent contract & manifest, the spine of Stage 0."
-  },
-  {
-   "it": "i220",
-   "role": "builder",
-   "ts": "2026-07-12T02:49:25Z",
-   "text": "MASTER P0.5 \u2014 the constitution + the guard, the program's moat-and-story"
-  },
-  {
-   "it": "i221",
-   "role": "builder",
-   "ts": "2026-07-12T02:55:07Z",
-   "text": "MASTER P0.3 + P0.4 + P0.9 \u2014 the cheap trio, one \u00a714 Stage 0 bullet."
-  },
-  {
-   "it": "i222",
-   "role": "builder",
-   "ts": "2026-07-12T02:58:49Z",
-   "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
-  },
-  {
-   "it": "i223",
-   "role": "builder",
-   "ts": "2026-07-12T03:02:11Z",
-   "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
-  },
-  {
-   "it": "i224",
-   "role": "builder",
-   "ts": "2026-07-12T03:05:51Z",
-   "text": "MASTER P0.2 \u2014 trust fencing behind one swappable seam (BUY+WRAP: the"
-  },
-  {
    "it": "i225",
    "role": "builder",
    "ts": "2026-07-12T03:12:04Z",
@@ -138,6 +102,42 @@
    "role": "growth",
    "ts": "2026-07-12T03:28:56Z",
    "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
+  },
+  {
+   "it": "i231",
+   "role": "builder",
+   "ts": "2026-07-12T03:34:14Z",
+   "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
+  },
+  {
+   "it": "i232",
+   "role": "qa",
+   "ts": "2026-07-12T03:42:39Z",
+   "text": "MASTER P5.2 \u2014 merge-blocking agent evals (ADR-030). Two layers."
+  },
+  {
+   "it": "i233",
+   "role": "maintainer",
+   "ts": "2026-07-12T03:46:31Z",
+   "text": "MASTER P3.2 + GAP-D \u2014 dependency automation with supply-chain cooldowns"
+  },
+  {
+   "it": "i234",
+   "role": "reviewer",
+   "ts": "2026-07-12T03:48:43Z",
+   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
+  },
+  {
+   "it": "i235",
+   "role": "builder",
+   "ts": "2026-07-12T03:51:39Z",
+   "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
+  },
+  {
+   "it": "i236",
+   "role": "designer",
+   "ts": "2026-07-12T03:55:14Z",
+   "text": "MASTER P4.3 \u2014 visual regression + narrator, the last Stage 2 item. The"
   }
  ],
  "records": [
@@ -1120,7 +1120,7 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 231,
+  "iterations": 237,
   "ci_shifts": 1,
   "api_spend_usd": 0
  },
@@ -2542,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 13
+   "n": 19
   }
  ],
  "categories": [

@@ -1,0 +1,49 @@
+# CodeRabbit (MASTER P3.5, ADR-031) — community-PR review, bought not built
+# (free for OSS). Config-ready: the operator installs the CodeRabbit GitHub App
+# to activate it (desk-gated). Its review axes are BOUND to this repo's own law
+# book so an external reviewer checks what the foundry already values, not a
+# generic ruleset — the same laws tools/validate.py enforces on the shelf.
+# Docs: https://docs.coderabbit.ai/
+reviews:
+  profile: assertive
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "plugins/**"
+      instructions: >
+        This is a shippable Claude Code plugin. Enforce the foundry's laws
+        (charter/QUALITY.md, charter/TESTING.md): the plugin's clean artifact
+        holds only what an installer receives (no process files); components sit
+        at the plugin root, only plugin.json under .claude-plugin/. Any change to
+        a PUBLISHED plugin MUST bump semver in plugin.json AND add a CHANGELOG
+        entry in the same PR (the Version law) — flag its absence. Published
+        `name` slugs are immutable; flag any rename.
+    - path: "plugins/**/hooks/**"
+      instructions: >
+        Hooks run on users' machines. Require: narrow matchers (never `.*`),
+        fail-open behavior, quoted "${CLAUDE_PLUGIN_ROOT}", executable scripts
+        with shebangs, no undocumented network or destructive writes. Flag any
+        hook that could damage a user's repo. Review hook scripts line by line.
+    - path: "tools/**"
+      instructions: >
+        These are the gates. Flag any change to the law book (validate.py,
+        guard.py, lib.py, the schemas) that a PR lands WITHOUT a corresponding
+        ADR in state/DECISIONS.md — the two-iteration rule. Stdlib-only; flag new
+        third-party imports.
+    - path: "**/*.md"
+      instructions: >
+        Growth-honesty law: flag any number, counter, or claim shown to visitors
+        that isn't substantiated by this repo's own files. No fabricated stats,
+        no simulated activity, no fake urgency.
+  auto_title_instructions: >
+    Prefer the repo's own commit grammar: loop(iN/role): what changed.
+chat:
+  auto_reply: true
+knowledge_base:
+  learnings:
+    scope: local

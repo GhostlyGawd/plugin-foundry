@@ -671,3 +671,49 @@ Template:
   they come alive (the wrapper pattern); thresholds are Actions variables, no
   code change to tune. When the API switch happens, the dollar path simply
   takes over — no refactor (AUTH-1 next).
+
+## ADR-029 — the owner's desk: one ranked queue, one delivery (i231, builder)
+- Status: accepted (MASTER P0.8; closes G4 — the approval firehose).
+- Context: twenty agents generating "please approve" pings on independent
+  clocks would replace doing the work with triaging a stream. Confirmation
+  fatigue is documented and unsolved in the market (pain theme #8) — protection
+  is meaningless if the human stops reading the prompts. The BUY half
+  (transport) is ruled by ADR-031 Q1: a pinned GitHub issue (zero setup);
+  HumanLayer/Telegram can slot in later without protocol change. The BUILD
+  half — ranking + dedup — is the differentiated idea and stays in-house.
+- Decision: state/DESK.jsonl is the single approval surface (append-only fold,
+  latest-line-wins; (kind,title) dedup while open). Ranking law: **kind
+  strictly dominates** — alarm(400) > ratify(300) > approve(200) > decide(100)
+  — and age (capped 30d) orders only WITHIN a kind; an old FYI can never
+  shadow a fresh alarm, and escalation-across-kinds is deliberately not age's
+  job (first draft let the cap cross kind boundaries; the suite caught the
+  41-day-old decide outranking a 2-day ratify and the law was tightened).
+  Delivery: `desk.py sync` mirrors the ranked queue to ONE pinned `ops-desk`
+  issue after every orchestrate run (degrades to ledger-only without gh);
+  `desk.py queue` renders the same locally; site/desk.html shows open items
+  publicly (the governance story, visible). Approvals land only via the
+  orchestrator (proven at i225); nothing requiring approval ever auto-merges
+  (constitution Art. I §9/Art. II).
+- Consequences: every agent that needs a human writes a desk item and stops;
+  no agent grows its own notification channel, ever. A rot sweep (>30d open
+  items → ops-alarm) can ride ops-guard later if reality demands it.
+
+## ADR-030 — merge-blocking agent evals (i232, qa)
+- Status: accepted (MASTER P5.2; BUY promptfoo, wrap in-house).
+- Context: "reviewing AI code is harder than writing it"; evals are underused
+  (pain theme #10). The highest-risk agents (guard, fence, and the future
+  red-team/spec-drift/reviewer) must not regress silently. But most of the
+  program's safety surface is DETERMINISTIC today (guard.py, fence.py are pure
+  functions) — those deserve golden fixtures that gate merges now, not a
+  someday-LLM-eval.
+- Decision: two layers. (1) tools/evals.py runs foundry/evals/<tool>.jsonl —
+  25 golden cases pinning guard's allow/desk/block law and fence's injection
+  detection — and is wired merge-blocking into gates.yml. It can go RED (a
+  poisoned-fixture test proves it), so it is not theater. (2)
+  foundry/evals/promptfoo.yaml is a config-ready LLM-graded suite for the
+  reasoning agents; it arms only when ANTHROPIC_API_KEY is present (the graders
+  bill the API pool — operator-armed, ADR-031 boundary) and reports
+  config-ready otherwise. New golden cases are added as each risky agent ships.
+- Consequences: a regression in the constitution enforcement or the trust
+  fence now fails CI before merge. The promptfoo layer is the on-ramp for
+  P3.1/P3.4/P3.5 when they land — their fixtures live beside these.
