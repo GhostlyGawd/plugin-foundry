@@ -2826,3 +2826,26 @@ Entry template (copy exactly; newest at the bottom):
   + fork-a-foundry inheriting the framework (Version law) — the last items.
 - notes: 13 agents in the registry. The real-repo tripwire firing is a true
   positive worth an operator's eye — logged, not suppressed.
+
+## i244 — builder — 2026-07-12T04:27:38Z
+- did: MASTER GAP-C — multi-harness portability. tools/export.py reads a shipped
+  plugin and emits a HARNESS-NEUTRAL descriptor (dist/<plugin>/portable.json):
+  each skill's portable core (name + when-to-use + body — the part that's the
+  same everywhere; only packaging differs per harness) plus named adapter
+  targets for Codex (AGENTS.md), Cursor (.cursor/rules/*.mdc), and Gemini CLI
+  (GEMINI.md). Crucially it does NOT touch the published Claude Code plugin —
+  names and versions are forever, so multi-harness support adds no Version-law
+  churn (MASTER's own note); the export is a derived artifact under dist/
+  (gitignored). Hooks are flagged harness-specific (lifecycle events differ) so
+  nothing destructive auto-ports.
+- line: n/a (ops program; no plugin moved — export is derived, not a plugin change).
+- files: tools/export.py (new), .gitignore (dist/),
+  foundry/tests/_tools/export.test.sh (6 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 6/6 — exports the skill core + version, names the three non-Claude
+  adapters, never mutates the published plugin, deterministic, hooks caveated,
+  dist/ ignored. Full gates at commit.
+- next-suggestion: GAP-E durable-execution doc + fork-a-foundry inheriting the
+  framework (Version law bump) — the final two program items.
+- notes: a full per-harness packager is future work; the portable/1 schema is
+  the abstraction seam the adapters build on (documented, tested).

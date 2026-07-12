@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 foundry/assets/shots/*.png
 foundry/assets/shots/_capture.cjs
+dist/
