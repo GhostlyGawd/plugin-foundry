@@ -31,6 +31,10 @@ ADR-026 (two-iteration rule); ADR-027–030 land with their items.
       validate_state.py in gates.yml; heartbeat.py + ops-guard liveness job;
       15-case suite (untrailed agent commit fails, malformed state caught
       pointedly, stale/never-beaten agents named, dormant exempt).
+- [x] P0 (builder) MASTER P0.6 — quota governor v2 (ADR-028). DONE i222:
+      quota.py pressure model + tier shedding (product never sheds on
+      pressure; ≥1.0 kill switch desk-pauses), dollar path absolute,
+      run-shift wired, decisions ledgered; 15-case suite green.
 - [ ] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
       (no agent reads the token env var directly), token-expiry/rejection
       detection with a loud failure (the exact silence behind the 2026-07-07

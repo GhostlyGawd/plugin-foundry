@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T02:55:23.559962+00:00",
- "iteration": 221,
+ "generated_at": "2026-07-12T02:59:05.984981+00:00",
+ "iteration": 222,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -17,6 +17,12 @@
   "shelved": 0
  },
  "ticker": [
+  {
+   "it": "i222",
+   "role": "builder",
+   "ts": "2026-07-12T02:58:49Z",
+   "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
+  },
   {
    "it": "i221",
    "role": "builder",
@@ -58,21 +64,9 @@
    "role": "builder",
    "ts": "2026-07-06T04:50:00Z",
    "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
-  },
-  {
-   "it": "i149",
-   "role": "builder",
-   "ts": "2026-07-06T04:42:00Z",
-   "text": "recorded-demo pipeline (#12) \u2014 monthly/dispatch workflow records headless"
   }
  ],
  "journal": [
-  {
-   "it": "i145",
-   "role": "designer",
-   "ts": "2026-07-06T04:10:00Z",
-   "text": "polish pass (#9) \u2014 saga/ADR truncations now clip at a word boundary with a"
-  },
   {
    "it": "i146",
    "role": "qa",
@@ -138,6 +132,12 @@
    "role": "builder",
    "ts": "2026-07-12T02:55:07Z",
    "text": "MASTER P0.3 + P0.4 + P0.9 \u2014 the cheap trio, one \u00a714 Stage 0 bullet."
+  },
+  {
+   "it": "i222",
+   "role": "builder",
+   "ts": "2026-07-12T02:58:49Z",
+   "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
   }
  ],
  "records": [
@@ -2531,7 +2531,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 4
+   "n": 5
   }
  ],
  "categories": [

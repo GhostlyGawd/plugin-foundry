@@ -48,9 +48,24 @@ jobs:
       - name: Branch for PR mode
         if: ${{ github.event.inputs.mode == 'pr' }}
         run: git checkout -b "shift/${{ github.run_id }}"
+      - name: Quota governor v2 (P0.6, ADR-028 — subscription window pressure)
+        env:
+          QUOTA_WEEKLY_RUNS: ${{ vars.QUOTA_WEEKLY_RUNS }}
+          LOOP_MONTHLY_BUDGET_USD: ${{ vars.LOOP_MONTHLY_BUDGET_USD }}
+        run: |
+          # product tier: sheds only at the kill switch (pressure >= 1.0), which
+          # queues a desk item. A shed shift still lands intake+metrics below.
+          if python3 tools/quota.py check --agent foundry-loop; then
+            python3 tools/quota.py record --agent foundry-loop
+          else
+            echo "QUOTA_SKIP=1" >> "$GITHUB_ENV"
+            echo "quota: shift sheds — intake/metrics still land, loop skipped"
+          fi
       - name: Install Claude Code
+        if: env.QUOTA_SKIP != '1'
         run: npm install -g "@anthropic-ai/claude-code@$(cat .claude-code-version)"
       - name: Run the loop (governor-gated, cost-ledgered)
+        if: env.QUOTA_SKIP != '1'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           LOOP_MONTHLY_BUDGET_USD: ${{ vars.LOOP_MONTHLY_BUDGET_USD }}

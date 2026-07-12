@@ -649,3 +649,25 @@ Template:
   honors its exit codes (0 allow · 3 desk · 4 block). Guard content rules stay
   path/action-shaped; content-level threats belong to fence.py (P0.2) and the
   red-team (P3.4). 13-case suite in foundry/tests/_tools/guard.test.sh.
+
+## ADR-028 — quota governor v2: subscription pressure, tiered shedding (i222, builder)
+- Status: accepted (MASTER P0.6; ADR-031 ruling on §12 Q3).
+- Context: the dollar governor (ADR-008) assumes API billing. A subscription
+  exposes no readable meter — only rate-limit windows — and an always-on loop
+  is the exact pattern weekly limits throttle (pain theme #1, the program's #1
+  operational risk). Ten workflows drawing one pool means a low-value scout can
+  starve the product loop (G6).
+- Decision: tools/quota.py estimates weekly-window pressure from run counts on
+  state/BUDGET.jsonl (quota_run marks + legacy loop lines; 168h window;
+  QUOTA_WEEKLY_RUNS cap, default 40 — conservative until observed reality tunes
+  it). Shedding: low ≥0.60 · high ≥0.85 · product NEVER on pressure. At ≥1.0
+  the kill switch pauses even product TO THE DESK (deduped d-item; operator
+  approves by raising the cap or waiting for the window). The dollar path stays
+  absolute when LOOP_MONTHLY_BUDGET_USD is set (ADR-008 unchanged). Every
+  shed/halt is ledgered ({"kind":"quota_shed"|"quota_halt"}) and shown by
+  `quota report`. run-shift.yml checks+records for foundry-loop; a shed shift
+  still lands intake/metrics (perception is cheap; sessions are not).
+- Consequences: agents adopt `quota check --agent <id>` in their workflows as
+  they come alive (the wrapper pattern); thresholds are Actions variables, no
+  code change to tune. When the API switch happens, the dollar path simply
+  takes over — no refactor (AUTH-1 next).

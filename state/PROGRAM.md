@@ -19,7 +19,7 @@ desk-queued, never performed autonomously — constitution floor.
 | P0.1 agent contract & manifest | BUILD | **DONE** (i219) | charter/AGENTS.md · foundry/agents/schema.json · loader+registry in tools/lib.py · build.py gate · foundry/tests/_tools/agents.test.sh (9 cases) |
 | P0.5 constitution + guard | BUILD | **DONE** (i220) | charter/CONSTITUTION.md · tools/guard.py (allow/desk/block, fails closed) · tools/desk.py + state/DESK.jsonl (minimal desk) · ADR-027 · 13-case suite |
 | P0.7 chief-of-staff orchestrator | BUILD | QUEUED | after P0.1–P0.6 |
-| P0.6 quota governor v2 | BUILD | QUEUED | ADR-028 with it; usage signal = ledger estimate until API switch (ADR-031 ruling on §12 Q3) |
+| P0.6 quota governor v2 | BUILD | **DONE** (i222) | tools/quota.py (168h pressure, low→high shed, product never on pressure, ≥1.0 kill switch → desk, dollar path absolute) · run-shift wiring · ADR-028 · 15-case suite |
 | AUTH-1 auth abstraction | BUILD | QUEUED | loop.sh touch authorized by ADR-031 |
 | P0.2 trust fencing + read/act split | BUY+WRAP | QUEUED | seam in tools/fence.py; scanner swappable; split enforced by contract hard rule 2 (already live) |
 | P0.3 per-agent commit identity | BUILD | **DONE** (i221) | identities.json · tools/commit.py (author + Agent: trailer) · validate.py trailer law (HEAD, fails on untrailed agent commits) |

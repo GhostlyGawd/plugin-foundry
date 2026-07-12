@@ -2209,3 +2209,27 @@ Entry template (copy exactly; newest at the bottom):
   for its interval opens an ops-alarm naming that agent" (proven with an
   injected clock; the alarm path degrades to a log line without gh — alarm.py's
   own law).
+
+## i222 — builder — 2026-07-12T02:58:49Z
+- did: MASTER P0.6 — quota governor v2 (ADR-028), closing G6 and answering the
+  program's #1 operational risk (we are the pattern weekly limits throttle).
+  tools/quota.py: weekly-window pressure from run counts on BUDGET.jsonl (no
+  readable subscription meter exists — ADR-031 Q3 ruling; quota_run marks +
+  legacy loop lines both count, stale entries age out of the 168h window).
+  Tiered shedding low ≥0.60 → high ≥0.85 → product NEVER on pressure; at ≥1.0
+  the kill switch pauses even product to the desk with a deduped d-item. The
+  ADR-008 dollar cap stays absolute for API mode. Every shed/halt ledgered and
+  visible in quota report. run-shift.yml: check + record for foundry-loop; a
+  shed shift still lands intake/metrics.
+- line: n/a (ops program; no plugin moved).
+- files: tools/quota.py (new), .github/workflows/run-shift.yml (quota step),
+  foundry/tests/_tools/quota.test.sh (15 cases), state/{PROGRAM.md,
+  DECISIONS.md (ADR-028), BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: §14 acceptance verbatim — simulated near-limit day: low sheds at
+  0.7, high at 0.9, product executes at both; product pauses to the desk only
+  at 1.1 with the item deduped; decisions ledgered + shown by report; dollar
+  cap halts every tier; unknown agents fail closed. Full gates at commit.
+- next-suggestion: AUTH-1 (auth abstraction; loop.sh touch authorized by
+  ADR-031) then P0.2 fencing; P0.7 orchestrator closes Stage 0.
+- notes: QUOTA_WEEKLY_RUNS defaults conservative (40/week ≈ 5.7 sessions/day);
+  it is an Actions variable so observed reality tunes it without code.
