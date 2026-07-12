@@ -2615,3 +2615,33 @@ Entry template (copy exactly; newest at the bottom):
   operator-gated, desk-queued) and Stage 4 (the halo features as content).
 - notes: narration-from-data.json is the right seam — it IS what the page
   shows, so it needs no browser and can't drift from the rendered truth.
+
+## i237 — growth — 2026-07-12T03:59:41Z
+- did: MASTER Stage 3 — the launch kit, built to the repo's edge and
+  operator-gated (the mandate's boundary: outward posts go under the operator's
+  identity, never autonomously — constitution Art. I §7). foundry/LAUNCH.md is
+  the concentrated-window playbook: the factual Show HN post (title + body),
+  tailored Reddit posts (r/ClaudeAI, r/ClaudeCode, r/SideProject,
+  r/coolgithubprojects), the X thread, the awesome-claude-code + Anthropic
+  community submission links, the newsletter list (Console/TLDR/Changelog/
+  ClaudeLog), the T-4-weeks-to-T+2 calendar, three pre-written evergreen posts,
+  the four plan-changing thresholds (§11), and the anti-patterns (never buy
+  stars, never third-party PRs, lead with governance). Every headline number in
+  the copy is the substantiated one (10/86%/5), and the honesty suite pins them
+  to site/quality.json so launch copy can never drift into a fabricated stat —
+  the growth-honesty law at its highest-stakes surface. One desk go-item
+  (d-0006, kind decide) for the operator to pull the trigger.
+- line: n/a (ops program; no plugin moved). STAGE 3 COMPLETE.
+- files: foundry/LAUNCH.md (new, hand-written), state/DESK.jsonl (d-0006),
+  foundry/tests/_tools/launch.test.sh (5 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 5/5 — headline numbers match the badge, kit is operator-gated
+  and non-autonomous, anti-patterns present, single desk item, factual Show HN
+  title. Full gates at commit.
+- next-suggestion: Stage 4 — the halo features as content (dogfood card,
+  briefing, ask-the-factory, shipnotes, postmortems, quarterly report,
+  steer-by-issue, naming, scout, diagnostician) + the remaining differentiators
+  (spec-drift, tripwire, red-team, multi-harness, durable execution) +
+  fork-a-foundry inheriting the framework.
+- notes: LAUNCH.md is hand-owned like the README — the numbers auto-verify but
+  the words are a deliberate act, refreshed with vishot narrate before posting.
