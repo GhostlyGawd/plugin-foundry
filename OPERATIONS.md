@@ -84,3 +84,19 @@ shift starts queueing paid commissions.
   free tier.
 - The commission promise, everywhere it appears: priority + a serious attempt at the
   full bar — never guaranteed delivery. Refund policy is yours to set in Stripe.
+
+## 9 · Auth — one surface, swappable (AUTH-1, ADR-031)
+
+`tools/auth.py` is the only place credentials are interpreted. Modes:
+`ANTHROPIC_API_KEY` → **api** (takes precedence, dollar governor rules) ·
+`CLAUDE_CODE_OAUTH_TOKEN` → **subscription** (quota governor v2 rules) ·
+neither on your laptop → **local-login** (claude's own keychain) · neither in
+CI → the shift **fails loudly with the remedy** (never a silent no-op — the
+2026-07-07 lesson). `auth.py probe <log>` classifies a failed run as
+auth-shaped or not; loop.sh halts on the FIRST auth failure.
+
+**Migration to API billing is a secrets change, zero code:** add
+`ANTHROPIC_API_KEY`, remove the OAuth secret. Do it the moment ANY of the four
+hard triggers fires (MASTER.md §2): token rejected in CI · weekly-limit lockout
+>1 day · third-party input reaches the write-capable agent · the always-on
+loop goes public.

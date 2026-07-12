@@ -1,0 +1,54 @@
+# The chief of staff (MASTER P0.7, ADR-026): the ONLY writer to main besides
+# run-shift. Collects agent changesets from foundry/agents/outbox/, resolves by
+# precedence, runs guard + gates, lands attributed commits. Shares the `shift`
+# concurrency group so orchestrate and run-shift can never race (G1).
+# Deterministic python — runs even while the loop is token-paused.
+name: Orchestrate
+on:
+  schedule:
+    - cron: "23 6 * * *"   # daily desk/outbox sweep; cheap when empty
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Land directly or via pull request (veto window)"
+        type: choice
+        options: [direct, pr]
+        default: direct
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+concurrency:
+  group: shift
+  cancel-in-progress: false
+jobs:
+  orchestrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Branch for PR mode
+        if: ${{ github.event.inputs.mode == 'pr' }}
+        run: git checkout -b "orchestrate/${{ github.run_id }}"
+      - name: Run the orchestrator (collect → order → guard → gates → land)
+        run: python3 tools/orchestrator.py run --mode "${{ github.event.inputs.mode || 'direct' }}"
+      - name: Push the landings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # nothing to push is a healthy quiet day
+          if [ -z "$(git log origin/${{ github.ref_name }}..HEAD --oneline 2>/dev/null || git log --oneline -0)" ] \
+             && git diff --quiet HEAD origin/${{ github.ref_name }} 2>/dev/null; then
+            echo "orchestrate: nothing landed — no push"
+            exit 0
+          fi
+          if [ "${{ github.event.inputs.mode }}" = "pr" ]; then
+            git push -u origin "orchestrate/${{ github.run_id }}"
+            gh pr create --fill --title "orchestrate ${{ github.run_id }}: $(git log -1 --pretty=%s)" \
+              --body "Orchestrated agent landings as a PR (mode: pr parity, P0.7). Merging = approval; closing = veto."
+          else
+            git push
+          fi

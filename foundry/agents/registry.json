@@ -1,0 +1,58 @@
+{
+  "schema": "foundry/agents/schema.json",
+  "contract": "charter/AGENTS.md",
+  "agents": [
+    {
+      "id": "foundry-loop",
+      "role": "The product loop — designs, builds, tests, reviews, and publishes plugins one iteration at a time (LOOP.md).",
+      "trigger": "schedule",
+      "trust_tier": "trusted",
+      "quota_tier": "product",
+      "capability": "writes:**",
+      "outputs": [
+        "plugins/",
+        "foundry/records/",
+        "state/",
+        "site/",
+        ".claude-plugin/marketplace.json"
+      ],
+      "heartbeat": {
+        "interval_hours": 24
+      },
+      "workflow": ".github/workflows/run-shift.yml",
+      "gates": [
+        "validate",
+        "build",
+        "smoke",
+        "qa"
+      ],
+      "status": "dormant",
+      "description": "Grandfathered direct writer (charter/AGENTS.md hard rule 1) until P0.7 subsumes it. Dormant while the root STOP file stands (CI token rejected 2026-07-07); run-shift.yml is the runtime."
+    },
+    {
+      "id": "orchestrator",
+      "role": "The chief of staff — collects agent changesets from the outbox, resolves conflicts by precedence, runs guard + gates, lands attributed commits. The single writer (P0.7).",
+      "trigger": "schedule",
+      "trust_tier": "trusted",
+      "quota_tier": "product",
+      "capability": "writes:**",
+      "outputs": [
+        "foundry/agents/outbox/",
+        "state/DESK.jsonl",
+        "foundry/agents/heartbeats.json"
+      ],
+      "heartbeat": {
+        "interval_hours": 30
+      },
+      "workflow": ".github/workflows/orchestrate.yml",
+      "gates": [
+        "guard",
+        "validate_state",
+        "validate",
+        "build"
+      ],
+      "status": "active",
+      "description": "Deterministic python — needs no Claude session, so it runs even while the loop is token-paused. Permitted direct writer with foundry-loop (charter/AGENTS.md hard rule 1)."
+    }
+  ]
+}

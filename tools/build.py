@@ -1735,7 +1735,15 @@ def main():
     build_notfound(cfg, mp_name)
     build_sitemap(records, cfg)
     build_verified_badges(cfg)
-    print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates")
+    # P0.1 (ADR-026): the agent registry is generated, never hand-edited; a
+    # manifest that breaks the contract fails the build, same as a bad record.
+    from lib import build_agent_registry
+    n_agents, agent_errors = build_agent_registry(str(ROOT))
+    if agent_errors:
+        for e in agent_errors:
+            print(f"BUILD: agent contract — {e}")
+        raise SystemExit(1)
+    print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates + {n_agents} agent manifests")
 
 
 if __name__ == "__main__":

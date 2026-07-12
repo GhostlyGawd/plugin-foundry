@@ -43,6 +43,21 @@ jobs:
           ensure ops-golive     "C2E0C6" "The go-live checklist issue (tools/preflight.py --issue)"
           ensure shipnote       "BFD4F2" "The Monday shipnote the loop writes itself"
           ensure human-review   "EDEDED" "External PR — only the human operator merges outside code"
+  liveness:
+    # P0.9 (ADR-026): a silently dead agent must not read as health (G5).
+    # Stale beats raise ops-alarms; the job itself stays green — the alarm is
+    # the signal, ops-guard failing would just be a second silent thing.
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Heartbeat staleness check (alarms, never fails)
+        run: python3 tools/heartbeat.py check --alarm || true
   catch:
     if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
     runs-on: ubuntu-latest

@@ -294,6 +294,37 @@ def check_marketplace(seen, errors):
             errors.append(f"{name}: stage {meta['stage']} must not be in marketplace.json")
 
 
+def check_agent_trailer(errors):
+    """P0.3 (ADR-026): a commit authored under a registered agent identity must
+    carry a matching `Agent: <id>` trailer — attribution never collapses (G7).
+    Checks HEAD only; human/operator commits and repos without git are exempt."""
+    import subprocess
+    id_path = ROOT / "foundry" / "agents" / "identities.json"
+    if not id_path.exists():
+        return
+    try:
+        identities = json.loads(id_path.read_text())
+        by_email = {v["email"]: k for k, v in identities.items()
+                    if isinstance(v, dict) and v.get("email")}
+        r = subprocess.run(["git", "-C", str(ROOT), "log", "-1",
+                            "--format=%ae%n%B"],
+                           capture_output=True, text=True, timeout=10)
+        if r.returncode != 0 or not r.stdout.strip():
+            return
+        email, _, body = r.stdout.partition("\n")
+        agent = by_email.get(email.strip())
+        if agent is None:
+            return
+        trailers = [ln.strip() for ln in body.splitlines()
+                    if ln.strip().startswith("Agent:")]
+        if f"Agent: {agent}" not in trailers:
+            errors.append(f"HEAD commit authored as agent '{agent}' "
+                          f"({email.strip()}) lacks its 'Agent: {agent}' trailer "
+                          f"— commit via tools/commit.py")
+    except Exception:  # noqa: BLE001 — no git, shallow clone, etc.: not our gate
+        return
+
+
 def main():
     errors = []
     state = load_json(ROOT / "state" / "STATE.json", errors, "STATE.json")
@@ -318,6 +349,7 @@ def main():
     check_marketplace(seen, errors)
     check_kits(seen, errors)
     check_clerk_snapshot(seen, errors)
+    check_agent_trailer(errors)
 
     if errors:
         print(f"VALIDATE: FAIL — {len(errors)} problem(s)")

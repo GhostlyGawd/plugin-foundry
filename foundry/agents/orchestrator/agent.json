@@ -1,0 +1,14 @@
+{
+  "id": "orchestrator",
+  "role": "The chief of staff — collects agent changesets from the outbox, resolves conflicts by precedence, runs guard + gates, lands attributed commits. The single writer (P0.7).",
+  "trigger": "schedule",
+  "trust_tier": "trusted",
+  "quota_tier": "product",
+  "capability": "writes:**",
+  "outputs": ["foundry/agents/outbox/", "state/DESK.jsonl", "foundry/agents/heartbeats.json"],
+  "heartbeat": { "interval_hours": 30 },
+  "workflow": ".github/workflows/orchestrate.yml",
+  "gates": ["guard", "validate_state", "validate", "build"],
+  "status": "active",
+  "description": "Deterministic python — needs no Claude session, so it runs even while the loop is token-paused. Permitted direct writer with foundry-loop (charter/AGENTS.md hard rule 1)."
+}

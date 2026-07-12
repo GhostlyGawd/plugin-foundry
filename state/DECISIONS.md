@@ -586,3 +586,88 @@ Template:
   as slots free). AUTH-1's token-expiry detection directly answers the silent
   failure that caused the 2026-07-07 re-pause. Iterations that pick program items
   follow MASTER.md §10 order and dependencies; one item, one iteration, same bar.
+
+## ADR-031 — program execution mandate & rulings (i219, builder)
+- Status: accepted — records the operator's 2026-07-12 directive verbatim in
+  effect: *"full approval to merge anything you want as you see fit… build every
+  line item in that master document from end to end until 100% complete and
+  accounted for."*
+- Decision:
+  1. **Landing mode for the program:** stage slates as directed PRs (v13/v14
+     precedent), per-item iterations/commits/journal entries, self-merged on
+     green gates under the operator mandate. state/PROGRAM.md is the ledger
+     where every item is accounted for.
+  2. **Two-iteration authorization, program-wide:** this ADR is the
+     prior-iteration ADR for the tools/, loop.sh, and workflow changes that
+     MASTER.md §14 Stages 1–4 spec (Stage 0 was authorized by ADR-026):
+     build.py template/metrics work (GAP-A/A2), loop.sh auth sourcing (AUTH-1),
+     shipnote/relnotes extensions (P4.2), intake extensions (P2.2, P3.4),
+     alarm/diagnostic extensions (P1.3, P0.9), exporter (GAP-C), and
+     validator additions **only where MASTER.md names them** (P0.3 trailer
+     check, P0.4 state hooks). Any validator/schema change NOT specified in
+     MASTER.md still routes to the desk — the constitution floor (ADR-026 §4)
+     is unchanged by the mandate.
+  3. **§12 open questions ruled** (operator delegated by the mandate):
+     Q1 briefing/desk channel = **pinned issue** (zero setup; Telegram can be
+     added later without protocol change). Q2 orchestrator landing =
+     **direct-to-main with the desk as the gate** for desk-ratified items,
+     `mode: pr` kept as a flag for veto-window use. Q3 quota signal = **no
+     readable subscription meter exists; estimate from run counts + BUDGET.jsonl
+     until the API switch**, with conservative defaults. Q4 = the company is
+     already named (Nightshift Foundry, ADR-011); the naming-ceremony assistant
+     scopes to plugin names.
+  4. **Boundary:** outward actions under the operator's identity — launch
+     posts, third-party account signups/app installs, submissions to external
+     directories — are prepared to the repo's edge and desk-queued, never
+     performed autonomously. Constitution: submissions only, never third-party
+     PRs; never simulate the operator.
+- Consequences: every later stage builds without per-iteration authorization
+  friction; the desk (P0.8) becomes the single approval surface; PROGRAM.md +
+  JOURNAL carry the audit trail item by item.
+
+## ADR-027 — the constitution & the guard (i220, builder)
+- Status: accepted (MASTER P0.5; program mandate ADR-031).
+- Context: the market's stated fear about autonomous repos is ungoverned slop —
+  and the documented failure modes (Replit's deleted production DB, the Amazon Q
+  wiper, Project Vend's rubber-stamping CEO) are all "the machine could, so it
+  did." The moat and the story are the same artifact: written law, enforced in
+  code, visible to visitors.
+- Decision: charter/CONSTITUTION.md is ratified — Article I never-do list
+  (third-party PRs/issues · deleting history · publishing without verdicts ·
+  spending past cap · law-book edits · self-rule edits · operator impersonation
+  · unsubstantiated numbers · auto-merging desk items), Article II
+  human-ratification list, Article III the public "we don't spam maintainers"
+  clause, Article IV enforcement. tools/guard.py enforces it: allow/desk/block
+  per changeset path+action, fails closed (unknown agent = no pen; unlawful
+  registry = block), desk verdicts queue via tools/desk.py (--queue) into
+  state/DESK.jsonl with (kind,title) dedup — the minimal Stage 0 desk primitive;
+  ranking + pinned-issue sync + site card land with ADR-029. Capability
+  semantics pinned: read_only = no changesets · proposes = desk-approved
+  landings only · writes:<glob> = fnmatch scope, in-glob lands when gates pass.
+  The law book includes tools/lib.py (every gate trusts its loader).
+- Consequences: the orchestrator (P0.7) calls guard before every landing and
+  honors its exit codes (0 allow · 3 desk · 4 block). Guard content rules stay
+  path/action-shaped; content-level threats belong to fence.py (P0.2) and the
+  red-team (P3.4). 13-case suite in foundry/tests/_tools/guard.test.sh.
+
+## ADR-028 — quota governor v2: subscription pressure, tiered shedding (i222, builder)
+- Status: accepted (MASTER P0.6; ADR-031 ruling on §12 Q3).
+- Context: the dollar governor (ADR-008) assumes API billing. A subscription
+  exposes no readable meter — only rate-limit windows — and an always-on loop
+  is the exact pattern weekly limits throttle (pain theme #1, the program's #1
+  operational risk). Ten workflows drawing one pool means a low-value scout can
+  starve the product loop (G6).
+- Decision: tools/quota.py estimates weekly-window pressure from run counts on
+  state/BUDGET.jsonl (quota_run marks + legacy loop lines; 168h window;
+  QUOTA_WEEKLY_RUNS cap, default 40 — conservative until observed reality tunes
+  it). Shedding: low ≥0.60 · high ≥0.85 · product NEVER on pressure. At ≥1.0
+  the kill switch pauses even product TO THE DESK (deduped d-item; operator
+  approves by raising the cap or waiting for the window). The dollar path stays
+  absolute when LOOP_MONTHLY_BUDGET_USD is set (ADR-008 unchanged). Every
+  shed/halt is ledgered ({"kind":"quota_shed"|"quota_halt"}) and shown by
+  `quota report`. run-shift.yml checks+records for foundry-loop; a shed shift
+  still lands intake/metrics (perception is cheap; sessions are not).
+- Consequences: agents adopt `quota check --agent <id>` in their workflows as
+  they come alive (the wrapper pattern); thresholds are Actions variables, no
+  code change to tune. When the API switch happens, the dollar path simply
+  takes over — no refactor (AUTH-1 next).

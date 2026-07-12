@@ -9,22 +9,52 @@ integrate table-stakes → launch → build in public. MASTER.md §14 is the ful
 task list and single source of truth; items enter here ≤3 per iteration, in §10
 order, honoring §14 dependencies. Stage 0 tools/ work is pre-authorized by
 ADR-026 (two-iteration rule); ADR-027–030 land with their items.
-- [ ] P0 (builder) MASTER P0.1 — agent contract & manifest: charter/AGENTS.md
+- [x] P0 (builder) MASTER P0.1 — agent contract & manifest: charter/AGENTS.md
       (contract prose + four hard rules), `agent.json` JSON Schema →
       foundry/agents/schema.json, loader + registry generator in tools/lib.py →
       foundry/agents/registry.json. Acceptance: a sample manifest loads and
       validates; any hard-rule violation is rejected. (MASTER.md §14; ADR-026)
-- [ ] P0 (builder) MASTER P0.5 — constitution + guard: charter/CONSTITUTION.md
+      DONE i219: loader + 4 hard rules live in lib.py, build.py gates on them,
+      first manifest = foundry-loop (grandfathered, dormant), 9-case suite green.
+      Program ledger opened at state/PROGRAM.md; mandate + rulings at ADR-031.
+- [x] P0 (builder) MASTER P0.5 — constitution + guard: charter/CONSTITUTION.md
       (never-do list + human-ratification list + the public "we don't spam
       maintainers" clause) and tools/guard.py (allow / block-with-reason on a
       proposed changeset). Depends: P0.1. File ADR-027. Acceptance: simulated
       schema-edit and record-deletion changesets block; a within-limits doc
       change passes. (MASTER.md §14)
-- [ ] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
+      DONE i220: 4 articles ratified; guard allow/desk/block fails closed;
+      desk primitive (desk.py + DESK.jsonl, dedup) live; 13-case suite green.
+- [x] P1 (builder) MASTER P0.3+P0.4+P0.9 — the cheap trio (one §14 Stage 0
+      bullet): per-agent commit identity, shared-state validator, heartbeats.
+      DONE i221: identities.json + commit.py + validate.py trailer law;
+      validate_state.py in gates.yml; heartbeat.py + ops-guard liveness job;
+      15-case suite (untrailed agent commit fails, malformed state caught
+      pointedly, stale/never-beaten agents named, dormant exempt).
+- [x] P0 (builder) MASTER P0.6 — quota governor v2 (ADR-028). DONE i222:
+      quota.py pressure model + tier shedding (product never sheds on
+      pressure; ≥1.0 kill switch desk-pauses), dollar path absolute,
+      run-shift wired, decisions ledgered; 15-case suite green.
+- [x] P1 (builder) MASTER AUTH-1 — auth abstraction: one swappable auth surface
       (no agent reads the token env var directly), token-expiry/rejection
       detection with a loud failure (the exact silence behind the 2026-07-07
       re-pause), document the four hard migration triggers. Acceptance:
       OAuth→API switch requires no agent changes. (MASTER.md §14)
+      DONE i223: auth.py check/probe; loop.sh halts LOUD on first auth failure
+      (alarm + remedy); OPERATIONS §9; lint proves the surface is single.
+- [x] P0 (builder) MASTER P0.2 — trust fencing + read/act split. DONE i224:
+      fence.py wrap (envelope, marker-collision-proof, sha256 provenance) +
+      scan (9 attack shapes incl. third-party-PR lure + Agent-trailer spoof;
+      FENCE_BACKEND swappable, falls back closed); intake.py ported to the
+      seam; validate_state lint fails unfenced ingests_untrusted prompts;
+      11-case suite green.
+- [x] P0 (builder) MASTER P0.7 — chief-of-staff orchestrator, the keystone.
+      DONE i225: single-writer landing pipeline live and ACTIVE (deterministic
+      python — runs while the loop is token-paused); conflicts resolve by
+      precedence with loser re-queue; guard/desk/gate vetoes honored; every
+      landing attributed per-agent (P0.3); orchestrate.yml shares the shift
+      concurrency group (no race with run-shift); 9-case suite green.
+      STAGE 0 COMPLETE.
 
 ## Bootstrap (in order; role in parentheses — walks commit-craft spec → published)
 - [x] B1 (auditor) Run `python3 tools/validate.py && python3 tools/build.py` and
