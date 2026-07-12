@@ -63,14 +63,14 @@ desk-queued, never performed autonomously — constitution floor.
 |---|---|---|---|
 | P1.4 dogfood report card | HALO | **DONE** (i238) | tools/dogfood.py — grades genuine use (construction mentions excluded), shows not-yet honestly, auto-regraded in build · site card with per-plugin evidence chips · 4-case suite |
 | P1.1 per-shift operator briefing | HALO | **DONE** (i240) | tools/briefing.py (<30s read: last move, quality number, top-3 ranked desk items, alarms) · briefing agent (read_only/low) · deterministic |
-| P1.2 ask-the-factory | HALO | QUEUED | |
+| P1.2 ask-the-factory | HALO | **DONE** (i241) | tools/ask.py — sourced retrieval over JOURNAL/DECISIONS/records (every answer cites its source; admits when history has none) · ask agent (ingests_untrusted, fenced, read_only) |
 | P4.2 shipnotes weekly + social variant | HALO | **DONE** (i240) | shipnote.py --social (one substantiated post, weekly regardless of volume); weekly regression intact |
 | P5.4 self-authored postmortems | HALO | **DONE** (i239) | postmortem agent (proposes/high/event) + prompt · reviews/postmortems/pm-001 (the REAL token incident, blameless, cites AUTH-1) · RUNBOOK.md with the operator procedure · pm↔m-001 memory loop · 6-case suite |
 | P5.5 quarterly state-of-the-company | HALO | **DONE** (i240) | tools/quarterly.py — real metric deltas from METRICS.jsonl, honest failures (bounces + postmortems), 3-5 recs landed+deduped on the desk · quarterly agent · re-launch moment |
 | P2.2 steer-by-issue | HALO | QUEUED | fenced NL→backlog |
 | P2.5 naming ceremony assistant | HALO | QUEUED | company already named (ADR-011); scope = plugin names |
-| P1.5 ecosystem scout | HALO | QUEUED | |
-| P1.3 failed-shift diagnostician | STAKES | QUEUED | extends the run-shift diagnostic step |
+| P1.5 ecosystem scout | HALO | **DONE** (i241) | scout agent (ingests_untrusted, fenced:true, read_only — read/act split) + prompt routing fetched text through fence.py |
+| P1.3 failed-shift diagnostician | STAKES | **DONE** (i241) | tools/diagnose.py — classifies auth/quota/budget/gate-red/disk with a next step + ops-alarm, honest 'unknown' when no signature; reuses the auth classifier · diagnostician agent |
 | P3.1 spec-drift auditor | BUILD | QUEUED | |
 | P3.3 tripwire auditor | BUILD | QUEUED | |
 | P3.4 commission red-team | BUILD | QUEUED | |

@@ -19,5 +19,17 @@
   "quarterly": {
     "name": "Nightshift Foundry \u00b7 quarterly",
     "email": "quarterly@agents.nightshift-foundry.invalid"
+  },
+  "scout": {
+    "name": "Nightshift Foundry \u00b7 scout",
+    "email": "scout@agents.nightshift-foundry.invalid"
+  },
+  "ask": {
+    "name": "Nightshift Foundry \u00b7 ask",
+    "email": "ask@agents.nightshift-foundry.invalid"
+  },
+  "diagnostician": {
+    "name": "Nightshift Foundry \u00b7 diagnostician",
+    "email": "diagnostician@agents.nightshift-foundry.invalid"
   }
 }

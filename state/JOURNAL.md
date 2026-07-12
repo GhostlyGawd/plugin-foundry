@@ -2730,3 +2730,32 @@ Entry template (copy exactly; newest at the bottom):
   scaffolding.
 - notes: quarterly legitimately queued 2 real recs to the desk (d-0007/0008);
   the desk now holds 8 honest, deduped operator decisions.
+
+## i241 — builder — 2026-07-12T04:16:18Z
+- did: MASTER P1.2 + P1.5 + P1.3 — the perception agents (read-only; the
+  read-only perception MASTER says to parallelize so the factory doesn't look
+  slow). tools/ask.py (P1.2, "talk to the company"): NL query → SOURCED
+  passages from JOURNAL/DECISIONS/records ranked by term overlap; every hit
+  carries its provenance and it admits "no sourced answer" rather than
+  fabricating — retrieval is the deterministic half, a live agent narrates.
+  tools/diagnose.py (P1.3): classifies a failed shift's logs into
+  auth/quota/budget/gate-red/disk with a concrete next step and an ops-alarm,
+  reusing the auth.py classifier so auth failures are named identically
+  everywhere, and returns an honest "no known signature — inspect the raw log"
+  rather than a confident wrong guess. Three agent manifests: scout (P1.5,
+  ingests_untrusted + fenced:true + read_only — the read/act split, prompt
+  routes fetched web text through fence.py), ask (ingests_untrusted, fenced),
+  diagnostician (trusted, event, read_only). The unfenced-ingestion lint
+  passes because both untrusted-ingest prompts reference the fence.
+- line: n/a (ops program; no plugin moved).
+- files: tools/{ask.py, diagnose.py} (new), foundry/agents/{scout,ask,
+  diagnostician}/{agent.json,prompt.md}, foundry/agents/identities.json,
+  foundry/tests/_tools/perception.test.sh (7 cases), state/{PROGRAM.md,
+  BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 7/7 — ask sourced + honest-when-empty, diagnostician classifies
+  auth + quota + honest-unknown, scout/ask fenced+read_only (read/act split),
+  prompts route through the fence. Full gates at commit.
+- next-suggestion: the intake agents (P2.2 steer-by-issue, P2.5 naming
+  ceremony — the naming collision check is real logic).
+- notes: 8 agents in the registry now; all dormant-capable (deterministic
+  cores run without a token; the LLM narration arms when the loop is live).

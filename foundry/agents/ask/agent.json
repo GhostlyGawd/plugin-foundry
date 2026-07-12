@@ -1,0 +1,14 @@
+{
+  "id": "ask",
+  "role": "Ask-the-factory: a natural-language question over the workshop's history returns a sourced answer.",
+  "trigger": "dispatch",
+  "trust_tier": "ingests_untrusted",
+  "quota_tier": "low",
+  "capability": "read_only",
+  "outputs": ["a sourced answer in the issue/thread"],
+  "heartbeat": { "interval_hours": 720 },
+  "prompt": "foundry/agents/ask/prompt.md",
+  "fenced": true,
+  "status": "active",
+  "description": "The question is untrusted (fenced); retrieval (tools/ask.py) is over repo history only; every answer carries its sources. read_only."
+}

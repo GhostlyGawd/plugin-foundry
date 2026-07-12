@@ -1,0 +1,13 @@
+{
+  "id": "diagnostician",
+  "role": "Failed-shift diagnostician: a failure yields a plausible root cause and a next step, opened as an ops-alarm.",
+  "trigger": "event",
+  "trust_tier": "trusted",
+  "quota_tier": "high",
+  "capability": "read_only",
+  "outputs": ["an ops-alarm with the diagnosis"],
+  "heartbeat": { "interval_hours": 720 },
+  "prompt": "foundry/agents/diagnostician/prompt.md",
+  "status": "active",
+  "description": "Deterministic triage (tools/diagnose.py) over run logs + journal tail; reuses the auth classifier. read_only — raises an alarm, writes no repo files."
+}

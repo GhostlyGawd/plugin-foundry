@@ -3,6 +3,24 @@
   "contract": "charter/AGENTS.md",
   "agents": [
     {
+      "id": "ask",
+      "role": "Ask-the-factory: a natural-language question over the workshop's history returns a sourced answer.",
+      "trigger": "dispatch",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "low",
+      "capability": "read_only",
+      "outputs": [
+        "a sourced answer in the issue/thread"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/ask/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "The question is untrusted (fenced); retrieval (tools/ask.py) is over repo history only; every answer carries its sources. read_only."
+    },
+    {
       "id": "briefing",
       "role": "Per-shift operator briefing: last move, the quality number, the top ranked desk items — a <30-second read.",
       "trigger": "schedule",
@@ -18,6 +36,23 @@
       "prompt": "foundry/agents/briefing/prompt.md",
       "status": "active",
       "description": "Deterministic assembly (tools/briefing.py) from repo data; a live agent may narrate. read_only — posts an issue, writes no repo files."
+    },
+    {
+      "id": "diagnostician",
+      "role": "Failed-shift diagnostician: a failure yields a plausible root cause and a next step, opened as an ops-alarm.",
+      "trigger": "event",
+      "trust_tier": "trusted",
+      "quota_tier": "high",
+      "capability": "read_only",
+      "outputs": [
+        "an ops-alarm with the diagnosis"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/diagnostician/prompt.md",
+      "status": "active",
+      "description": "Deterministic triage (tools/diagnose.py) over run logs + journal tail; reuses the auth classifier. read_only — raises an alarm, writes no repo files."
     },
     {
       "id": "foundry-loop",
@@ -106,6 +141,24 @@
       "prompt": "foundry/agents/quarterly/prompt.md",
       "status": "active",
       "description": "Deterministic assembly (tools/quarterly.py) from METRICS.jsonl + records + postmortems; lands recs via the desk API (not a repo changeset). Use as a re-launch (MASTER §11)."
+    },
+    {
+      "id": "scout",
+      "role": "Weekly ecosystem scout: dated competitive intel into COMPETITIVE.md, every fetched line fenced as untrusted.",
+      "trigger": "schedule",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "low",
+      "capability": "read_only",
+      "outputs": [
+        "COMPETITIVE.md (proposed via the outbox)"
+      ],
+      "heartbeat": {
+        "interval_hours": 200
+      },
+      "prompt": "foundry/agents/scout/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "Ingests untrusted web text — MUST fence via tools/fence.py before any prompt (hard rule 2), holds NO write capability in the same pass (read/act split). Proposes COMPETITIVE.md updates to the desk."
     }
   ]
 }
