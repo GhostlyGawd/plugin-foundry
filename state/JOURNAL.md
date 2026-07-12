@@ -2587,3 +2587,31 @@ Entry template (copy exactly; newest at the bottom):
 - notes: MASTER's warning ("full-context often beats memory frameworks on raw
   accuracy — don't over-engineer") is why recall stays a simple, legible
   overlap score, not a vector DB.
+
+## i236 — designer — 2026-07-12T03:55:14Z
+- did: MASTER P4.3 — visual regression + narrator, the last Stage 2 item. The
+  hosted pixel-diffing is bought (Argos — argos.config.json, install desk-gated
+  at d-0005); what's built is the two ends Argos doesn't give you.
+  tools/vishot.py narrate = the "vision narration" wrapper (the thin novelty
+  layer): a deterministic, browser-free description of what the window CURRENTLY
+  SHOWS — hero counter, shelf, badge message, theme, alarms, latest ship —
+  derived from the same site/data.json the page renders from, written to
+  foundry/assets/shots/narration.md so a reviewer reads what changed in WORDS,
+  not just a pixel delta. vishot.py shoot = best-effort Playwright capture for
+  the differ, degrading cleanly when node OR the browser is absent (fixed
+  mid-iteration: the first draft crashed on missing node; now it skips). PNGs
+  are gitignored (Argos owns baselines); the narration is the committed,
+  diffable record. Capture wired into deploy-site.yml (continue-on-error).
+- line: n/a (ops program; no plugin moved). STAGE 2 COMPLETE.
+- files: tools/vishot.py (new), argos.config.json (new), .gitignore (PNGs),
+  .github/workflows/deploy-site.yml (capture step), foundry/assets/shots/
+  narration.md (committed), state/DESK.jsonl (d-0005),
+  foundry/tests/_tools/vishot.test.sh (6 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 6/6 — narration matches the live quality number, deterministic,
+  counts the real shelf, capture degrades without a browser AND without node,
+  PNGs gitignored, Argos desk-gated. Full gates at commit.
+- next-suggestion: land the Stage 2 PR, then Stage 3 (the launch kit —
+  operator-gated, desk-queued) and Stage 4 (the halo features as content).
+- notes: narration-from-data.json is the right seam — it IS what the page
+  shows, so it needs no browser and can't drift from the rendered truth.
