@@ -2453,3 +2453,30 @@ Entry template (copy exactly; newest at the bottom):
 - next-suggestion: land the Stage 1 slate PR, then Stage 2 (table-stakes
   integrations; ADR-029 owner's-desk ranking + ADR-030 evals ride there).
 - notes: actual clicking is the operator's — by design, forever (Art. I §1).
+
+## i231 — builder — 2026-07-12T03:34:14Z
+- did: MASTER P0.8 — the owner's desk, full build (ADR-029; closes G4). The
+  BUY half is the ADR-031 Q1 transport ruling (one pinned ops-desk issue,
+  zero setup, synced after every orchestrate run, degrades to ledger-only
+  without gh). The BUILD half is the differentiated ranking law: kind
+  STRICTLY dominates (alarm 400 > ratify 300 > approve 200 > decide 100),
+  age (capped 30d) orders within a kind only — the first draft let age cross
+  kind boundaries and the suite caught a 41-day-old low-stakes decide
+  outranking a fresh law-book ratify; tightened, law documented in the ADR.
+  Public legibility: site/desk.html (open items, ranked, kind-chipped) — the
+  governance story a visitor can see; linked from the live section.
+  ops-guard ensures the ops-desk label.
+- line: n/a (ops program; no plugin moved).
+- files: tools/desk.py (rank/render_queue/sync + queue/sync CLI), tools/
+  build.py (build_desk + link), .github/workflows/{orchestrate.yml (sync
+  step), ops-guard.yml (label)}, site/desk.html (generated),
+  foundry/tests/_tools/desk.test.sh (6 cases), state/{DECISIONS.md (ADR-029),
+  PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 6/6 — strict-dominance order proven, resolved items leave,
+  dedup returns the open id, render carries the resolve instruction, gh-less
+  degradation, public page shows open-only. §14 acceptance rides i225's
+  orchestrator suite (desk-held → approve lands / reject retires; nothing
+  auto-merges). Full gates at commit.
+- next-suggestion: P5.2 evals (ADR-030), then the dependency/config trio.
+- notes: the desk currently holds d-0001 (the GAP-B submission click) — the
+  system's first real human decision, correctly ranked and delivered.

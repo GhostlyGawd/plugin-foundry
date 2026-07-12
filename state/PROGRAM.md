@@ -45,7 +45,7 @@ desk-queued, never performed autonomously — constitution floor.
 | P5.2 agent evals (merge-blocking) | BUY | QUEUED | deterministic fixtures now (ADR-030); LLM-graded promptfoo config-ready |
 | P5.1 factory brain (memory) | BUY | QUEUED | dedup-on-write local store behind a swappable seam; Mem0/Zep = DESK |
 | P4.3 visual regression + narrator | BUY | QUEUED | capture in deploy pipeline; Argos/Percy = DESK |
-| P0.8 owner's desk (ranking in-house) | SPLIT | QUEUED | ADR-029; transport = pinned issue (ADR-031 ruling on §12 Q1) |
+| P0.8 owner's desk (ranking in-house) | SPLIT | **DONE** (i231) | ranking law (kind strictly dominates, age within kind) + dedup in desk.py · `queue`/`sync` → ONE pinned ops-desk issue (degrades ledger-only) · site/desk.html public card · orchestrate.yml syncs post-run · approvals land only via the orchestrator (i225) · ADR-029 · 6-case suite. G4 closed |
 | P2.1 issue triage (Dosu) | BUY | QUEUED | config-ready; app install = DESK |
 | P4.4 night-clerk responder | DEFER | **DEFERRED** | per MASTER.md — risky pre-launch, most ToS-sensitive; revisit post-launch |
 

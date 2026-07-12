@@ -35,6 +35,11 @@ jobs:
         run: git checkout -b "orchestrate/${{ github.run_id }}"
       - name: Run the orchestrator (collect → order → guard → gates → land)
         run: python3 tools/orchestrator.py run --mode "${{ github.event.inputs.mode || 'direct' }}"
+      - name: Sync the owner's desk (one pinned issue — ADR-029)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/desk.py sync
       - name: Push the landings
         env:
           GH_TOKEN: ${{ github.token }}

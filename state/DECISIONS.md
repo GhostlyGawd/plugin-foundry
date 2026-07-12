@@ -671,3 +671,29 @@ Template:
   they come alive (the wrapper pattern); thresholds are Actions variables, no
   code change to tune. When the API switch happens, the dollar path simply
   takes over — no refactor (AUTH-1 next).
+
+## ADR-029 — the owner's desk: one ranked queue, one delivery (i231, builder)
+- Status: accepted (MASTER P0.8; closes G4 — the approval firehose).
+- Context: twenty agents generating "please approve" pings on independent
+  clocks would replace doing the work with triaging a stream. Confirmation
+  fatigue is documented and unsolved in the market (pain theme #8) — protection
+  is meaningless if the human stops reading the prompts. The BUY half
+  (transport) is ruled by ADR-031 Q1: a pinned GitHub issue (zero setup);
+  HumanLayer/Telegram can slot in later without protocol change. The BUILD
+  half — ranking + dedup — is the differentiated idea and stays in-house.
+- Decision: state/DESK.jsonl is the single approval surface (append-only fold,
+  latest-line-wins; (kind,title) dedup while open). Ranking law: **kind
+  strictly dominates** — alarm(400) > ratify(300) > approve(200) > decide(100)
+  — and age (capped 30d) orders only WITHIN a kind; an old FYI can never
+  shadow a fresh alarm, and escalation-across-kinds is deliberately not age's
+  job (first draft let the cap cross kind boundaries; the suite caught the
+  41-day-old decide outranking a 2-day ratify and the law was tightened).
+  Delivery: `desk.py sync` mirrors the ranked queue to ONE pinned `ops-desk`
+  issue after every orchestrate run (degrades to ledger-only without gh);
+  `desk.py queue` renders the same locally; site/desk.html shows open items
+  publicly (the governance story, visible). Approvals land only via the
+  orchestrator (proven at i225); nothing requiring approval ever auto-merges
+  (constitution Art. I §9/Art. II).
+- Consequences: every agent that needs a human writes a desk item and stops;
+  no agent grows its own notification channel, ever. A rot sweep (>30d open
+  items → ops-alarm) can ride ops-guard later if reality demands it.

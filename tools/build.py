@@ -591,7 +591,7 @@ TEMPLATE = """<!DOCTYPE html>
       <div id="hallwrap"><h3 class="sub-title" id="hall" style="display:none">Hall of prospectors &amp; patrons</h3><div class="hall" id="hallbox"></div></div>
       <div id="verifiedwrap"><h3 class="sub-title" id="verified" style="display:none">Verified externals — the doctor, run in their CI</h3><div class="hall" id="verifiedbox"></div></div>
       <div id="networkwrap"><h3 class="sub-title" id="network" style="display:none">Sister foundries — the network</h3><div class="hall" id="networkbox"></div></div>
-      <p class="more-links"><a href="saga.html">The full saga →</a><a href="theater.html">Watch a live shift →</a><a href="almanac/index.html">Weekly shipnotes →</a><a href="queue.html">Commission queue →</a><a id="relchip" href="#" style="display:none">Releases →</a><a href="feed.xml">Follow the shelf (Atom) →</a></p>
+      <p class="more-links"><a href="saga.html">The full saga →</a><a href="theater.html">Watch a live shift →</a><a href="desk.html">The owner's desk →</a><a href="almanac/index.html">Weekly shipnotes →</a><a href="queue.html">Commission queue →</a><a id="relchip" href="#" style="display:none">Releases →</a><a href="feed.xml">Follow the shelf (Atom) →</a></p>
       <span class="alarms" id="alarms"></span>
       <span class="nextshift" id="nextshift"></span>
     </div>
@@ -1454,6 +1454,47 @@ h1{{font-size:18px;letter-spacing:.12em;text-transform:uppercase;border-bottom:3
     (ROOT / "site" / "queue.html").write_text(page)
 
 
+def build_desk(cfg, state):
+    """P0.8 (ADR-029): the desk, publicly legible. Open items only, ranked —
+    visitors see that human decisions gate the machine (the governance story)."""
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT / "tools"))
+    import desk as _desk
+    ranked = _desk.rank(path=str(ROOT / "state" / "DESK.jsonl"))
+    rows = "".join(
+        f'<tr><td class="id">{html.escape(it["id"])}</td>'
+        f'<td><span class="kind k-{html.escape(str(it.get("kind")))}">{html.escape(str(it.get("kind")))}</span></td>'
+        f'<td>{html.escape(str(it.get("title", "")))}</td>'
+        f'<td class="agent">{html.escape(str(it.get("agent") or "—"))}</td>'
+        f'<td class="score">{score}</td></tr>'
+        for score, it in ranked) or \
+        '<tr><td colspan="5" class="clear">The desk is clear — nothing awaits a human decision.</td></tr>'
+    page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Owner's Desk — {html.escape(state.get('name') or 'foundry')}</title>
+<style>
+ body{{font-family:ui-monospace,Menlo,monospace; background:#f6efe2; color:#221c14; margin:0; padding:32px 16px}}
+ .wrap{{max-width:820px; margin:0 auto}}
+ h1{{font-size:20px}} p{{color:#6b5d49; font-size:13.5px; line-height:1.55}}
+ table{{width:100%; border-collapse:collapse; font-size:13px; margin-top:18px}}
+ td,th{{border-top:1px solid #d9c9a8; padding:9px 8px; text-align:left; vertical-align:top}}
+ .id{{color:#6b5d49}} .score{{text-align:right}}
+ .kind{{padding:2px 8px; border-radius:8px; color:#f6efe2; font-size:11px}}
+ .k-alarm{{background:#a33327}} .k-ratify{{background:#8a6d3b}}
+ .k-approve{{background:#1d5c8a}} .k-decide{{background:#6b5d49}}
+ .clear{{color:#2e6b34}} a{{color:#1d5c8a}}
+</style></head><body><div class="wrap">
+<h1>🗂 The Owner's Desk</h1>
+<p>Every decision this factory needs from a human lands in exactly one ranked
+queue — nothing auto-merges past it (charter/CONSTITUTION.md Art. II), and
+nothing else pings the operator (G4). The machine proposes; the human ratifies.
+Source of truth: <code>state/DESK.jsonl</code>.</p>
+<table><tr><th>id</th><th>kind</th><th>item</th><th>from</th><th>score</th></tr>{rows}</table>
+<p><a href="index.html">← the window</a></p>
+</div></body></html>"""
+    (ROOT / "site" / "desk.html").write_text(page)
+
+
 def build_notfound(cfg, mp_name):
     """v12 3.2: a branded 404 in the clerk's voice — GitHub Pages serves
     404.html automatically for unknown paths."""
@@ -1823,6 +1864,7 @@ def main():
     build_theater(state, cfg)
     build_queue(records, cfg)
     build_badge(records, state)
+    build_desk(cfg, state)
     build_feed(records, cfg)
     build_notfound(cfg, mp_name)
     build_sitemap(records, cfg)
