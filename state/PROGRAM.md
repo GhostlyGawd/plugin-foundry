@@ -62,11 +62,11 @@ desk-queued, never performed autonomously — constitution floor.
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
 | P1.4 dogfood report card | HALO | **DONE** (i238) | tools/dogfood.py — grades genuine use (construction mentions excluded), shows not-yet honestly, auto-regraded in build · site card with per-plugin evidence chips · 4-case suite |
-| P1.1 per-shift operator briefing | HALO | QUEUED | channel: pinned issue (ADR-031) |
+| P1.1 per-shift operator briefing | HALO | **DONE** (i240) | tools/briefing.py (<30s read: last move, quality number, top-3 ranked desk items, alarms) · briefing agent (read_only/low) · deterministic |
 | P1.2 ask-the-factory | HALO | QUEUED | |
-| P4.2 shipnotes weekly + social variant | HALO | QUEUED | extend existing shipnote.py |
+| P4.2 shipnotes weekly + social variant | HALO | **DONE** (i240) | shipnote.py --social (one substantiated post, weekly regardless of volume); weekly regression intact |
 | P5.4 self-authored postmortems | HALO | **DONE** (i239) | postmortem agent (proposes/high/event) + prompt · reviews/postmortems/pm-001 (the REAL token incident, blameless, cites AUTH-1) · RUNBOOK.md with the operator procedure · pm↔m-001 memory loop · 6-case suite |
-| P5.5 quarterly state-of-the-company | HALO | QUEUED | |
+| P5.5 quarterly state-of-the-company | HALO | **DONE** (i240) | tools/quarterly.py — real metric deltas from METRICS.jsonl, honest failures (bounces + postmortems), 3-5 recs landed+deduped on the desk · quarterly agent · re-launch moment |
 | P2.2 steer-by-issue | HALO | QUEUED | fenced NL→backlog |
 | P2.5 naming ceremony assistant | HALO | QUEUED | company already named (ADR-011); scope = plugin names |
 | P1.5 ecosystem scout | HALO | QUEUED | |

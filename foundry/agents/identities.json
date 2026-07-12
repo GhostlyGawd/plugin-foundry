@@ -11,5 +11,13 @@
   "postmortem": {
     "name": "Nightshift Foundry \u00b7 postmortem",
     "email": "postmortem@agents.nightshift-foundry.invalid"
+  },
+  "briefing": {
+    "name": "Nightshift Foundry \u00b7 briefing",
+    "email": "briefing@agents.nightshift-foundry.invalid"
+  },
+  "quarterly": {
+    "name": "Nightshift Foundry \u00b7 quarterly",
+    "email": "quarterly@agents.nightshift-foundry.invalid"
   }
 }

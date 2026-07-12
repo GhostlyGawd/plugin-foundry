@@ -1,0 +1,13 @@
+{
+  "id": "quarterly",
+  "role": "The state-of-the-company report: real metric movement, honest failures, 3-5 recommendations landed on the desk.",
+  "trigger": "schedule",
+  "trust_tier": "trusted",
+  "quota_tier": "low",
+  "capability": "read_only",
+  "outputs": ["site/quarterly.html", "the owner's desk (recommendations)"],
+  "heartbeat": { "interval_hours": 2200 },
+  "prompt": "foundry/agents/quarterly/prompt.md",
+  "status": "active",
+  "description": "Deterministic assembly (tools/quarterly.py) from METRICS.jsonl + records + postmortems; lands recs via the desk API (not a repo changeset). Use as a re-launch (MASTER §11)."
+}

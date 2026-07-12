@@ -19,7 +19,40 @@ def fm(text):
     return parse_front_matter(text or "")[0]
 
 
+def social(days=7):
+    """P4.2 (ADR-031): the short social-post variant. One post, substantiated,
+    from the same journal+records the weekly note reads. Posts weekly regardless
+    of build volume (the build-in-public content engine)."""
+    since = datetime.now(timezone.utc) - timedelta(days=days)
+    mp = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text())
+    shipped = []
+    for rec in sorted((ROOT / "foundry" / "records").glob("*.md")):
+        meta = fm(rec.read_text())
+        if meta.get("updated", "") < since.strftime("%Y-%m-%d"):
+            continue
+        if meta.get("stage") == "published" and meta.get("kind", "plugin") == "plugin":
+            shipped.append(f"{meta.get('title')} v{meta.get('version')}")
+    q = {}
+    dj = ROOT / "site" / "data.json"
+    if dj.exists():
+        q = json.loads(dj.read_text()).get("quality", {})
+    week = datetime.now(timezone.utc).strftime("%G-W%V")
+    if shipped:
+        head = f"This week the foundry shipped: {', '.join(shipped[:3])}" + (
+            f" (+{len(shipped) - 3} more)" if len(shipped) > 3 else "") + "."
+    else:
+        head = "Quiet build week at the foundry — the line kept its bar."
+    tail = (f"{q.get('plugins_shipped', '?')} plugins · "
+            f"{q.get('qa_first_try_pct', '?')}% first-try QA · "
+            f"{q.get('bounces_total', '?')} bounced-and-fixed in public. "
+            f"An AI-run software company in a repo. #ClaudeCode")
+    print(f"[{week}] {head} {tail}")
+    return 0
+
+
 def main(days=7):
+    if "--social" in sys.argv:
+        return social(days)
     since = datetime.now(timezone.utc) - timedelta(days=days)
     journal = (ROOT / "state" / "JOURNAL.md").read_text()
     moves = []
@@ -88,4 +121,5 @@ def main(days=7):
 
 
 if __name__ == "__main__":
-    sys.exit(main(int(sys.argv[1]) if len(sys.argv) > 1 else 7))
+    _days = next((int(a) for a in sys.argv[1:] if a.isdigit()), 7)
+    sys.exit(main(_days))

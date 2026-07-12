@@ -2699,3 +2699,34 @@ Entry template (copy exactly; newest at the bottom):
   the content-generation agents (extend the existing shipnote.py plumbing).
 - notes: reviews/ is append-only (constitution) — pm-001 is a new file, lawful;
   future postmortems add, never edit.
+
+## i240 — growth — 2026-07-12T04:12:50Z
+- did: MASTER P1.1 + P4.2 + P5.5 — the content-generation trio (Stage 4 halo =
+  content; grouped because they share the "assemble substantiated content from
+  repo data" shape). tools/briefing.py: the per-shift operator briefing, a
+  <30-second read — last line move, the quality number, the top-3 RANKED desk
+  items (via desk.rank), open alarms. tools/shipnote.py gains --social: one
+  short substantiated post ("This week the foundry shipped… N plugins · 86%
+  first-try · 5 bounced-and-fixed") that posts weekly regardless of build
+  volume; the weekly digest is untouched (regression pinned). tools/quarterly.py:
+  the state-of-the-company report — real metric deltas from METRICS.jsonl
+  (first vs last real sample), honest failures (bounce count + postmortems on
+  file), and 3-5 recommendations LANDED on the owner's desk (deduped, so
+  re-running is idempotent). briefing + quarterly are contract-valid agents
+  (read_only/low/schedule) in the registry. Every figure is from the repo — no
+  projection presented as fact.
+- line: n/a (ops program; no plugin moved).
+- files: tools/{briefing.py (new), quarterly.py (new), shipnote.py (--social)},
+  foundry/agents/{briefing,quarterly}/{agent.json,prompt.md},
+  foundry/agents/identities.json, foundry/tests/_tools/content.test.sh (7
+  cases), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md, DESK.jsonl}.
+- validation: 7/7 — briefing shows live number+desk, social is one
+  substantiated post, weekly regression intact (the head/grep SIGPIPE under
+  pipefail was a test artifact, fixed by capture-then-check), quarterly names
+  failures + lands recs, recs dedup, both agents contract-valid, briefing
+  deterministic. Full gates at commit.
+- next-suggestion: the perception agents (P1.2 ask-the-factory, P1.5 scout,
+  P1.3 diagnostician) — read_only, LLM-driven; manifests + prompts + retrieval
+  scaffolding.
+- notes: quarterly legitimately queued 2 real recs to the desk (d-0007/0008);
+  the desk now holds 8 honest, deduped operator decisions.
