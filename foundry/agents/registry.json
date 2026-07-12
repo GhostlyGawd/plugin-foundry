@@ -3,6 +3,58 @@
   "contract": "charter/AGENTS.md",
   "agents": [
     {
+      "id": "ask",
+      "role": "Ask-the-factory: a natural-language question over the workshop's history returns a sourced answer.",
+      "trigger": "dispatch",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "low",
+      "capability": "read_only",
+      "outputs": [
+        "a sourced answer in the issue/thread"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/ask/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "The question is untrusted (fenced); retrieval (tools/ask.py) is over repo history only; every answer carries its sources. read_only."
+    },
+    {
+      "id": "briefing",
+      "role": "Per-shift operator briefing: last move, the quality number, the top ranked desk items — a <30-second read.",
+      "trigger": "schedule",
+      "trust_tier": "trusted",
+      "quota_tier": "low",
+      "capability": "read_only",
+      "outputs": [
+        "the pinned briefing issue"
+      ],
+      "heartbeat": {
+        "interval_hours": 24
+      },
+      "prompt": "foundry/agents/briefing/prompt.md",
+      "status": "active",
+      "description": "Deterministic assembly (tools/briefing.py) from repo data; a live agent may narrate. read_only — posts an issue, writes no repo files."
+    },
+    {
+      "id": "diagnostician",
+      "role": "Failed-shift diagnostician: a failure yields a plausible root cause and a next step, opened as an ops-alarm.",
+      "trigger": "event",
+      "trust_tier": "trusted",
+      "quota_tier": "high",
+      "capability": "read_only",
+      "outputs": [
+        "an ops-alarm with the diagnosis"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/diagnostician/prompt.md",
+      "status": "active",
+      "description": "Deterministic triage (tools/diagnose.py) over run logs + journal tail; reuses the auth classifier. read_only — raises an alarm, writes no repo files."
+    },
+    {
       "id": "foundry-loop",
       "role": "The product loop — designs, builds, tests, reviews, and publishes plugins one iteration at a time (LOOP.md).",
       "trigger": "schedule",
@@ -30,6 +82,23 @@
       "description": "Grandfathered direct writer (charter/AGENTS.md hard rule 1) until P0.7 subsumes it. Dormant while the root STOP file stands (CI token rejected 2026-07-07); run-shift.yml is the runtime."
     },
     {
+      "id": "naming",
+      "role": "Naming ceremony: proposes plugin-name candidates that exclude existing slugs and obvious collisions, before the name spreads.",
+      "trigger": "dispatch",
+      "trust_tier": "trusted",
+      "quota_tier": "low",
+      "capability": "proposes",
+      "outputs": [
+        "the owner's desk (a name choice with one-tap selection)"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/naming/prompt.md",
+      "status": "active",
+      "description": "The company is already named (Nightshift Foundry, ADR-011) — this scopes to plugin names. Collision check (tools/naming.py) is deterministic; names are forever (immutable slugs), so the check runs BEFORE spec locks the name."
+    },
+    {
       "id": "orchestrator",
       "role": "The chief of staff — collects agent changesets from the outbox, resolves conflicts by precedence, runs guard + gates, lands attributed commits. The single writer (P0.7).",
       "trigger": "schedule",
@@ -53,6 +122,134 @@
       ],
       "status": "active",
       "description": "Deterministic python — needs no Claude session, so it runs even while the loop is token-paused. Permitted direct writer with foundry-loop (charter/AGENTS.md hard rule 1)."
+    },
+    {
+      "id": "postmortem",
+      "role": "Writes a blameless postmortem after an incident: what happened, why it looked fine, the fix, and a runbook delta an operator could follow.",
+      "trigger": "event",
+      "trust_tier": "trusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "reviews/postmortems/",
+        "RUNBOOK.md"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/postmortem/prompt.md",
+      "status": "active",
+      "description": "Proposes only — postmortems land via the orchestrator after review. 'The AI wrote its own postmortem' is a trust artifact (MASTER P5.4). Blameless: names failure modes, never people or agents-as-culprits. Feeds lessons to tools/memory.py."
+    },
+    {
+      "id": "quarterly",
+      "role": "The state-of-the-company report: real metric movement, honest failures, 3-5 recommendations landed on the desk.",
+      "trigger": "schedule",
+      "trust_tier": "trusted",
+      "quota_tier": "low",
+      "capability": "read_only",
+      "outputs": [
+        "site/quarterly.html",
+        "the owner's desk (recommendations)"
+      ],
+      "heartbeat": {
+        "interval_hours": 2200
+      },
+      "prompt": "foundry/agents/quarterly/prompt.md",
+      "status": "active",
+      "description": "Deterministic assembly (tools/quarterly.py) from METRICS.jsonl + records + postmortems; lands recs via the desk API (not a repo changeset). Use as a re-launch (MASTER §11)."
+    },
+    {
+      "id": "red-team",
+      "role": "Commission red-team: an adversarial pass over each commission — planted malicious ones are flagged and held, clean ones pass.",
+      "trigger": "event",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "BACKLOG § Commissions (clean)",
+        "the owner's desk (flagged)"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/red-team/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "On top of the bought guardrails + fence: an adversarial screen (tools/redteam.py) over fenced commission text. Nothing ships that the fenced request didn't legitimately require (patron-text law). Proposes only."
+    },
+    {
+      "id": "scout",
+      "role": "Weekly ecosystem scout: dated competitive intel into COMPETITIVE.md, every fetched line fenced as untrusted.",
+      "trigger": "schedule",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "low",
+      "capability": "read_only",
+      "outputs": [
+        "COMPETITIVE.md (proposed via the outbox)"
+      ],
+      "heartbeat": {
+        "interval_hours": 200
+      },
+      "prompt": "foundry/agents/scout/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "Ingests untrusted web text — MUST fence via tools/fence.py before any prompt (hard rule 2), holds NO write capability in the same pass (read/act split). Proposes COMPETITIVE.md updates to the desk."
+    },
+    {
+      "id": "spec-drift",
+      "role": "Spec-drift auditor: watches Anthropic's plugin spec; a change surfaces as a desk item citing the doc — no schema edit lands without approval.",
+      "trigger": "schedule",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "the owner's desk (proposed schema change)"
+      ],
+      "heartbeat": {
+        "interval_hours": 340
+      },
+      "prompt": "foundry/agents/spec-drift/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "Fetches Anthropic's live plugin docs (fenced, hard rule 2), diffs vs the encoded schema (tools/specdrift.py). Proposes only — schema changes stay human-ratified (constitution Art. I §5)."
+    },
+    {
+      "id": "steer",
+      "role": "Steer-by-issue: a one-sentence steering issue becomes a valid backlog item; rule-touching steers become desk items.",
+      "trigger": "event",
+      "trust_tier": "ingests_untrusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "BACKLOG § Idea inbox (via the outbox)",
+        "the owner's desk (rule-touching)"
+      ],
+      "heartbeat": {
+        "interval_hours": 720
+      },
+      "prompt": "foundry/agents/steer/prompt.md",
+      "fenced": true,
+      "status": "active",
+      "description": "Ingests untrusted issue text — fenced (hard rule 2). Proposes only; a rule-touching steer never becomes a silent backlog item, it routes to the desk. High-risk steers are held for the red-team, not obeyed."
+    },
+    {
+      "id": "tripwire",
+      "role": "Tripwire auditor: re-audits rubber-stamps — a perfect QA/review streak triggers a fresh adversarial audit.",
+      "trigger": "event",
+      "trust_tier": "trusted",
+      "quota_tier": "high",
+      "capability": "proposes",
+      "outputs": [
+        "reviews/ (adversarial re-audit)",
+        "an ops-alarm"
+      ],
+      "heartbeat": {
+        "interval_hours": 340
+      },
+      "prompt": "foundry/agents/tripwire/prompt.md",
+      "status": "active",
+      "description": "Counters the Project Vend rubber-stamp failure. tools/tripwire.py detects the LOOP.md rule-7 streaks; the agent writes a concrete adversarial re-audit listing attacks attempted. Proposes only."
     }
   ]
 }

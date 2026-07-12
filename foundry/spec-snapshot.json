@@ -1,0 +1,16 @@
+{
+  "_law": "P3.1 (ADR-031): the last human-verified fingerprint of Anthropic's plugin spec. tools/specdrift.py compares validate.py's ENCODED schema against this; a mismatch means either the validator drifted or the spec moved — either way it's a desk item, never a silent schema edit (constitution Art. I §5). The scout/spec-drift agent refreshes this from the live docs (fenced) only via the desk.",
+  "source": "https://code.claude.com/docs/en/plugins-reference",
+  "verified": "2026-07-12",
+  "plugin_components": ["skills", "agents", "hooks", "mcp", "lsp", "output-styles"],
+  "hook_types": ["command", "http", "mcp_tool", "prompt", "agent"],
+  "hook_events": [
+    "SessionStart", "Setup", "UserPromptSubmit", "UserPromptExpansion", "PreToolUse",
+    "PermissionRequest", "PermissionDenied", "PostToolUse", "PostToolUseFailure",
+    "PostToolBatch", "Notification", "MessageDisplay", "SubagentStart", "SubagentStop",
+    "TaskCreated", "TaskCompleted", "Stop", "StopFailure", "TeammateIdle",
+    "InstructionsLoaded", "ConfigChange", "CwdChanged", "FileChanged",
+    "WorktreeCreate", "WorktreeRemove", "PreCompact", "PostCompact",
+    "Elicitation", "ElicitationResult", "SessionEnd"
+  ]
+}

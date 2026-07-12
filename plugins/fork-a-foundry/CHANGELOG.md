@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 — 2026-07-12
+- feat: the fork now inherits the **org-pattern framework** (MASTER.md), not just
+  the plugin loop — the bootstrap skill carries over the constitution + guard, the
+  agent contract (foundry/agents/), the single-writer orchestrator, the quota
+  governor, the trust fence + read/act split, the auth surface, the owner's desk,
+  per-agent identity, the state validator, heartbeats, and the merge-blocking evals.
+  A fork boots a *governed company*, not an ungoverned loop.
+
 ## 0.1.4 — 2026-07-07
 - docs: the from-spec bootstrap path now points at OPERATIONS.md §7–8 (governor &
   veto, community & fuel) — the optional layers a hand-built spine tends to

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T04:00:03.144845+00:00",
- "iteration": 237,
+ "generated_at": "2026-07-12T04:39:19.686694+00:00",
+ "iteration": 246,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -18,110 +18,56 @@
  },
  "ticker": [
   {
-   "it": "i237",
-   "role": "growth",
-   "ts": "2026-07-12T03:59:41Z",
-   "text": "MASTER Stage 3 \u2014 the launch kit, built to the repo's edge and"
+   "it": "i246",
+   "role": "auditor",
+   "ts": "2026-07-12T04:38:53Z",
+   "text": "program close-out (audit-010). Verified every MASTER.md \u00a714 line item is"
   },
   {
-   "it": "i236",
-   "role": "designer",
-   "ts": "2026-07-12T03:55:14Z",
-   "text": "MASTER P4.3 \u2014 visual regression + narrator, the last Stage 2 item. The"
-  },
-  {
-   "it": "i235",
-   "role": "builder",
-   "ts": "2026-07-12T03:51:39Z",
-   "text": "MASTER P5.1 \u2014 the factory brain (memory). BUY-shaped with a"
-  },
-  {
-   "it": "i234",
-   "role": "reviewer",
-   "ts": "2026-07-12T03:48:43Z",
-   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
-  },
-  {
-   "it": "i233",
+   "it": "i245",
    "role": "maintainer",
-   "ts": "2026-07-12T03:46:31Z",
-   "text": "MASTER P3.2 + GAP-D \u2014 dependency automation with supply-chain cooldowns"
+   "ts": "2026-07-12T04:31:46Z",
+   "text": "MASTER GAP-E + fork-a-foundry framework inheritance \u2014 the last two \u00a714 \u00b7 fork-a-foundry 0.1.4 \u2192 0.2.0 (published; feature add). STAGE 4 COMPLETE."
   },
   {
-   "it": "i232",
-   "role": "qa",
-   "ts": "2026-07-12T03:42:39Z",
-   "text": "MASTER P5.2 \u2014 merge-blocking agent evals (ADR-030). Two layers."
-  },
-  {
-   "it": "i231",
+   "it": "i244",
    "role": "builder",
-   "ts": "2026-07-12T03:34:14Z",
-   "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
+   "ts": "2026-07-12T04:27:38Z",
+   "text": "MASTER GAP-C \u2014 multi-harness portability. tools/export.py reads a shipped"
   },
   {
-   "it": "i230",
+   "it": "i243",
+   "role": "auditor",
+   "ts": "2026-07-12T04:25:34Z",
+   "text": "MASTER P3.1 + P3.3 + P3.4 \u2014 the three safety differentiators (the anti-"
+  },
+  {
+   "it": "i242",
+   "role": "builder",
+   "ts": "2026-07-12T04:19:47Z",
+   "text": "MASTER P2.2 + P2.5 \u2014 the intake agents. tools/steer.py (steer-by-issue,"
+  },
+  {
+   "it": "i241",
+   "role": "builder",
+   "ts": "2026-07-12T04:16:18Z",
+   "text": "MASTER P1.2 + P1.5 + P1.3 \u2014 the perception agents (read-only; the"
+  },
+  {
+   "it": "i240",
    "role": "growth",
-   "ts": "2026-07-12T03:28:56Z",
-   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
+   "ts": "2026-07-12T04:12:50Z",
+   "text": "MASTER P1.1 + P4.2 + P5.5 \u2014 the content-generation trio (Stage 4 halo ="
+  },
+  {
+   "it": "i239",
+   "role": "reviewer",
+   "ts": "2026-07-12T04:07:46Z",
+   "text": "MASTER P5.4 \u2014 self-authored blameless postmortems (\"the AI wrote its own"
   }
  ],
  "journal": [
   {
-   "it": "i226",
-   "role": "growth",
-   "ts": "2026-07-12T03:18:50Z",
-   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
-  },
-  {
-   "it": "i227",
-   "role": "growth",
-   "ts": "2026-07-12T03:21:58Z",
-   "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
-  },
-  {
-   "it": "i228",
-   "role": "growth",
-   "ts": "2026-07-12T03:24:59Z",
-   "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
-  },
-  {
-   "it": "i229",
-   "role": "designer",
-   "ts": "2026-07-12T03:27:00Z",
-   "text": "MASTER GAP-A4 \u2014 the README first screen, written BY HAND per the"
-  },
-  {
-   "it": "i230",
-   "role": "growth",
-   "ts": "2026-07-12T03:28:56Z",
-   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
-  },
-  {
-   "it": "i231",
-   "role": "builder",
-   "ts": "2026-07-12T03:34:14Z",
-   "text": "MASTER P0.8 \u2014 the owner's desk, full build (ADR-029; closes G4). The"
-  },
-  {
-   "it": "i232",
-   "role": "qa",
-   "ts": "2026-07-12T03:42:39Z",
-   "text": "MASTER P5.2 \u2014 merge-blocking agent evals (ADR-030). Two layers."
-  },
-  {
-   "it": "i233",
-   "role": "maintainer",
-   "ts": "2026-07-12T03:46:31Z",
-   "text": "MASTER P3.2 + GAP-D \u2014 dependency automation with supply-chain cooldowns"
-  },
-  {
-   "it": "i234",
-   "role": "reviewer",
-   "ts": "2026-07-12T03:48:43Z",
-   "text": "MASTER P3.5 + P2.1 \u2014 the bought review/triage bots (BUY, config-ready)."
-  },
-  {
    "it": "i235",
    "role": "builder",
    "ts": "2026-07-12T03:51:39Z",
@@ -138,6 +84,60 @@
    "role": "growth",
    "ts": "2026-07-12T03:59:41Z",
    "text": "MASTER Stage 3 \u2014 the launch kit, built to the repo's edge and"
+  },
+  {
+   "it": "i238",
+   "role": "growth",
+   "ts": "2026-07-12T04:04:52Z",
+   "text": "MASTER P1.4 \u2014 the dogfood report card (\"best halo feature\": the factory"
+  },
+  {
+   "it": "i239",
+   "role": "reviewer",
+   "ts": "2026-07-12T04:07:46Z",
+   "text": "MASTER P5.4 \u2014 self-authored blameless postmortems (\"the AI wrote its own"
+  },
+  {
+   "it": "i240",
+   "role": "growth",
+   "ts": "2026-07-12T04:12:50Z",
+   "text": "MASTER P1.1 + P4.2 + P5.5 \u2014 the content-generation trio (Stage 4 halo ="
+  },
+  {
+   "it": "i241",
+   "role": "builder",
+   "ts": "2026-07-12T04:16:18Z",
+   "text": "MASTER P1.2 + P1.5 + P1.3 \u2014 the perception agents (read-only; the"
+  },
+  {
+   "it": "i242",
+   "role": "builder",
+   "ts": "2026-07-12T04:19:47Z",
+   "text": "MASTER P2.2 + P2.5 \u2014 the intake agents. tools/steer.py (steer-by-issue,"
+  },
+  {
+   "it": "i243",
+   "role": "auditor",
+   "ts": "2026-07-12T04:25:34Z",
+   "text": "MASTER P3.1 + P3.3 + P3.4 \u2014 the three safety differentiators (the anti-"
+  },
+  {
+   "it": "i244",
+   "role": "builder",
+   "ts": "2026-07-12T04:27:38Z",
+   "text": "MASTER GAP-C \u2014 multi-harness portability. tools/export.py reads a shipped"
+  },
+  {
+   "it": "i245",
+   "role": "maintainer",
+   "ts": "2026-07-12T04:31:46Z",
+   "text": "MASTER GAP-E + fork-a-foundry framework inheritance \u2014 the last two \u00a714 \u00b7 fork-a-foundry 0.1.4 \u2192 0.2.0 (published; feature add). STAGE 4 COMPLETE."
+  },
+  {
+   "it": "i246",
+   "role": "auditor",
+   "ts": "2026-07-12T04:38:53Z",
+   "text": "program close-out (audit-010). Verified every MASTER.md \u00a714 line item is"
   }
  ],
  "records": [
@@ -494,7 +494,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.4",
+   "version": "0.2.0",
    "components": [
     "skills"
    ],
@@ -505,7 +505,7 @@
     "viral",
     "dogfood"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-12",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "90",
@@ -619,7 +619,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.6",
+   "version": "0.2.7",
    "components": [
     "skills"
    ],
@@ -629,7 +629,7 @@
     "meta",
     "catalog"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-12",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "129",
@@ -1120,9 +1120,126 @@
   "qa_graded": 36,
   "qa_no_log": 0,
   "bounces_total": 5,
-  "iterations": 238,
+  "iterations": 247,
   "ci_shifts": 1,
   "api_spend_usd": 0
+ },
+ "dogfood": {
+  "_law": "Evidence mined only from this repo (growth-honesty). not-yet plugins are shown, never hidden \u2014 honesty is the feature.",
+  "summary": {
+   "used": 0,
+   "lightly-used": 9,
+   "not-yet": 1
+  },
+  "cards": [
+   {
+    "plugin": "commit-craft",
+    "grade": "lightly-used",
+    "score": 2,
+    "evidence": [
+     "1 dogfood line(s)",
+     "in a shipped starter kit"
+    ],
+    "mentions": 24,
+    "use_lines": 1
+   },
+   {
+    "plugin": "env-doctor",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "15 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 15,
+    "use_lines": 0
+   },
+   {
+    "plugin": "fork-a-foundry",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "27 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 27,
+    "use_lines": 0
+   },
+   {
+    "plugin": "night-clerk",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "1 dogfood line(s)"
+    ],
+    "mentions": 50,
+    "use_lines": 1
+   },
+   {
+    "plugin": "plugin-smith",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "12 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 12,
+    "use_lines": 0
+   },
+   {
+    "plugin": "pr-narrator",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "16 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 16,
+    "use_lines": 0
+   },
+   {
+    "plugin": "session-recap",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "16 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 16,
+    "use_lines": 0
+   },
+   {
+    "plugin": "test-gap-nudge",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "in a shipped starter kit",
+     "42 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 42,
+    "use_lines": 0
+   },
+   {
+    "plugin": "todo-ledger",
+    "grade": "lightly-used",
+    "score": 1,
+    "evidence": [
+     "1 dogfood line(s)"
+    ],
+    "mentions": 12,
+    "use_lines": 1
+   },
+   {
+    "plugin": "dep-bump-brief",
+    "grade": "not-yet",
+    "score": 0,
+    "evidence": [
+     "26 construction mention(s) \u2014 dogfood pending"
+    ],
+    "mentions": 26,
+    "use_lines": 0
+   }
+  ]
  },
  "votes": [
   {
@@ -1226,6 +1343,55 @@
   "ideas": [],
   "shipped": [
    {
+    "name": "fork-a-foundry",
+    "title": "Fork a Foundry",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.2.0",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "tags": [
+     "meta",
+     "bootstrap",
+     "viral",
+     "dogfood"
+    ],
+    "updated": "2026-07-12",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "90",
+    "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "night-clerk",
+    "title": "Night Clerk",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.2.7",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+    "tags": [
+     "discovery",
+     "meta",
+     "catalog"
+    ],
+    "updated": "2026-07-12",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "129",
+    "verified": "2026-07-06",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
     "name": "commit-craft",
     "title": "Commit Craft",
     "category": "workflow",
@@ -1294,55 +1460,6 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "130",
-    "verified": "2026-07-06",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "fork-a-foundry",
-    "title": "Fork a Foundry",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.1.4",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
-    "tags": [
-     "meta",
-     "bootstrap",
-     "viral",
-     "dogfood"
-    ],
-    "updated": "2026-07-07",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "90",
-    "verified": "2026-07-06",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "night-clerk",
-    "title": "Night Clerk",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.2.6",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
-    "tags": [
-     "discovery",
-     "meta",
-     "catalog"
-    ],
-    "updated": "2026-07-07",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "129",
     "verified": "2026-07-06",
     "prospected_by": null,
     "suggested_in": null,
@@ -2542,7 +2659,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 20
+   "n": 29
   }
  ],
  "categories": [

@@ -2645,3 +2645,275 @@ Entry template (copy exactly; newest at the bottom):
   fork-a-foundry inheriting the framework.
 - notes: LAUNCH.md is hand-owned like the README — the numbers auto-verify but
   the words are a deliberate act, refreshed with vishot narrate before posting.
+
+## i238 — growth — 2026-07-12T04:04:52Z
+- did: MASTER P1.4 — the dogfood report card ("best halo feature": the factory
+  grades itself on eating its own dog food, instantly legible + honest).
+  tools/dogfood.py mines evidence ONLY from this repo (growth-honesty) and — the
+  honesty that makes it real — counts genuine USE, not construction: a journal
+  line counts only if it pairs the slug with use/friction language AND isn't a
+  build/publish line. First naive pass graded all 10 "used" purely on mention
+  frequency (26-53 hits each) — misleading, since most mentions are the
+  plugin's own construction; the corrected signal grades 0 used · 9 lightly · 1
+  not-yet, with "N construction mention(s) — dogfood pending" shown transparently
+  and not-yet plugins displayed, never hidden (that IS the feature). Renders as a
+  site card with per-plugin evidence chips (hover = the evidence), auto-regraded
+  in build so it never goes stale.
+- line: n/a (ops program; no plugin moved).
+- files: tools/dogfood.py (new), tools/build.py (regrade + card render + css),
+  foundry/dogfood.json (generated), site/* (regenerated),
+  foundry/tests/_tools/dogfood.test.sh (4 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 4/4 — construction≠dogfood, genuine-use counts, unused→not-yet
+  shown, card grades only the real shelf with a consistent summary, renders
+  with the honesty framing. Full gates at commit.
+- next-suggestion: P5.4 self-authored postmortems (seed with the real
+  2026-07-07 token incident) — the next halo content generator.
+- notes: kept dogfood a deterministic build-pipeline tool (like the quality
+  number), not an LLM agent — no reasoning needed, so no manifest.
+
+## i239 — reviewer — 2026-07-12T04:07:46Z
+- did: MASTER P5.4 — self-authored blameless postmortems ("the AI wrote its own
+  postmortem" is a trust artifact). Built the postmortem agent
+  (foundry/agents/postmortem/: manifest proposes/high/event + prompt that reads
+  the incident evidence as UNTRUSTED and writes the seven-section template,
+  proposing to the outbox — it lands via the orchestrator after review, never
+  direct) with its own commit identity. Seeded the REAL first one:
+  reviews/postmortems/pm-001-token-rejection.md, the 2026-07-07 silent token
+  rejection, written from the journal record — blameless (the failure is the
+  fail-soft-loop-plus-gitignored-error-stream system property, not a person),
+  with the load-bearing "Why it looked fine" section, and citing the structural
+  fix (AUTH-1, ADR-031). Opened RUNBOOK.md with the operator procedures the
+  incident earned (token rejection, governor halt, desk items, stale agent).
+  The pm↔m-001 loop closes: the postmortem's lesson is the one seeded in the
+  factory brain.
+- line: n/a (ops program; no plugin moved).
+- files: foundry/agents/postmortem/{agent.json, prompt.md},
+  foundry/agents/identities.json (postmortem), reviews/postmortems/pm-001-*.md
+  (new), RUNBOOK.md (new), foundry/tests/_tools/postmortem.test.sh (6 cases),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 6/6 — manifest contract-valid + in registry, all seven sections
+  present, cites the real incident + fix, blameless (no blame language),
+  runbook actionable, pm↔m-001 memory loop closed. Full gates at commit.
+- next-suggestion: P5.5 quarterly report + P1.1 briefing + P4.2 shipnotes —
+  the content-generation agents (extend the existing shipnote.py plumbing).
+- notes: reviews/ is append-only (constitution) — pm-001 is a new file, lawful;
+  future postmortems add, never edit.
+
+## i240 — growth — 2026-07-12T04:12:50Z
+- did: MASTER P1.1 + P4.2 + P5.5 — the content-generation trio (Stage 4 halo =
+  content; grouped because they share the "assemble substantiated content from
+  repo data" shape). tools/briefing.py: the per-shift operator briefing, a
+  <30-second read — last line move, the quality number, the top-3 RANKED desk
+  items (via desk.rank), open alarms. tools/shipnote.py gains --social: one
+  short substantiated post ("This week the foundry shipped… N plugins · 86%
+  first-try · 5 bounced-and-fixed") that posts weekly regardless of build
+  volume; the weekly digest is untouched (regression pinned). tools/quarterly.py:
+  the state-of-the-company report — real metric deltas from METRICS.jsonl
+  (first vs last real sample), honest failures (bounce count + postmortems on
+  file), and 3-5 recommendations LANDED on the owner's desk (deduped, so
+  re-running is idempotent). briefing + quarterly are contract-valid agents
+  (read_only/low/schedule) in the registry. Every figure is from the repo — no
+  projection presented as fact.
+- line: n/a (ops program; no plugin moved).
+- files: tools/{briefing.py (new), quarterly.py (new), shipnote.py (--social)},
+  foundry/agents/{briefing,quarterly}/{agent.json,prompt.md},
+  foundry/agents/identities.json, foundry/tests/_tools/content.test.sh (7
+  cases), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md, DESK.jsonl}.
+- validation: 7/7 — briefing shows live number+desk, social is one
+  substantiated post, weekly regression intact (the head/grep SIGPIPE under
+  pipefail was a test artifact, fixed by capture-then-check), quarterly names
+  failures + lands recs, recs dedup, both agents contract-valid, briefing
+  deterministic. Full gates at commit.
+- next-suggestion: the perception agents (P1.2 ask-the-factory, P1.5 scout,
+  P1.3 diagnostician) — read_only, LLM-driven; manifests + prompts + retrieval
+  scaffolding.
+- notes: quarterly legitimately queued 2 real recs to the desk (d-0007/0008);
+  the desk now holds 8 honest, deduped operator decisions.
+
+## i241 — builder — 2026-07-12T04:16:18Z
+- did: MASTER P1.2 + P1.5 + P1.3 — the perception agents (read-only; the
+  read-only perception MASTER says to parallelize so the factory doesn't look
+  slow). tools/ask.py (P1.2, "talk to the company"): NL query → SOURCED
+  passages from JOURNAL/DECISIONS/records ranked by term overlap; every hit
+  carries its provenance and it admits "no sourced answer" rather than
+  fabricating — retrieval is the deterministic half, a live agent narrates.
+  tools/diagnose.py (P1.3): classifies a failed shift's logs into
+  auth/quota/budget/gate-red/disk with a concrete next step and an ops-alarm,
+  reusing the auth.py classifier so auth failures are named identically
+  everywhere, and returns an honest "no known signature — inspect the raw log"
+  rather than a confident wrong guess. Three agent manifests: scout (P1.5,
+  ingests_untrusted + fenced:true + read_only — the read/act split, prompt
+  routes fetched web text through fence.py), ask (ingests_untrusted, fenced),
+  diagnostician (trusted, event, read_only). The unfenced-ingestion lint
+  passes because both untrusted-ingest prompts reference the fence.
+- line: n/a (ops program; no plugin moved).
+- files: tools/{ask.py, diagnose.py} (new), foundry/agents/{scout,ask,
+  diagnostician}/{agent.json,prompt.md}, foundry/agents/identities.json,
+  foundry/tests/_tools/perception.test.sh (7 cases), state/{PROGRAM.md,
+  BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 7/7 — ask sourced + honest-when-empty, diagnostician classifies
+  auth + quota + honest-unknown, scout/ask fenced+read_only (read/act split),
+  prompts route through the fence. Full gates at commit.
+- next-suggestion: the intake agents (P2.2 steer-by-issue, P2.5 naming
+  ceremony — the naming collision check is real logic).
+- notes: 8 agents in the registry now; all dormant-capable (deterministic
+  cores run without a token; the LLM narration arms when the loop is live).
+
+## i242 — builder — 2026-07-12T04:19:47Z
+- did: MASTER P2.2 + P2.5 — the intake agents. tools/steer.py (steer-by-issue,
+  "run my company from my phone"): fences the operator's one-sentence steer as
+  UNTRUSTED, then classifies — a normal steer becomes an Idea-inbox backlog
+  item, a RULE-TOUCHING steer (protocol/charter/validator/schema/constitution/
+  quality bar) routes to the owner's desk for ratification and NEVER becomes a
+  silent law edit, and a high-risk (injection) steer is held for the red-team,
+  not obeyed. tools/naming.py (naming ceremony): the collision check that runs
+  BEFORE a slug is forever (LOOP.md: names are immutable) — catches exact
+  collisions, near-collisions (todoledger ~ todo-ledger, separator-normalized),
+  reserved workshop words, and malformed slugs; the company is already named
+  (ADR-011) so this scopes to plugin names. Two manifests: steer
+  (ingests_untrusted, fenced, proposes — read/act split), naming (proposes).
+  Fixed a real fence gap found here: the instruction-override pattern didn't
+  span a possessive ("ignore YOUR rules" slipped through) — broadened to
+  "ignore <up to 2 words> (rules|instructions|prompts|directions)"; fence 11/11
+  and evals 25/25 still green (no regression).
+- line: n/a (ops program; no plugin moved).
+- files: tools/{steer.py, naming.py} (new), tools/fence.py (broadened pattern),
+  foundry/agents/{steer,naming}/{agent.json,prompt.md},
+  foundry/agents/identities.json, foundry/tests/_tools/intake-agents.test.sh
+  (7 cases), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 7/7 — normal→backlog, 4 rule-touching phrasings→desk,
+  injection→flagged, naming catches exact/near/reserved/malformed + passes a
+  clean slug, both agents contract-valid. fence + evals regression clean. Full
+  gates at commit.
+- next-suggestion: the safety differentiators (P3.1 spec-drift, P3.3 tripwire,
+  P3.4 red-team) — real logic where possible.
+- notes: 10 agents in the registry; the fence gap fix hardens EVERY untrusted
+  path, not just steer.
+- post-commit fix (same iteration): the intake journal entry exposed a latent
+  bug in diagnose.py (i241) — it appended the journal tail to its classifier
+  input, so a new entry mentioning "gate red" made an unrelated unknown failure
+  misclassify. Fixed: classify the RUN LOG only; the journal tail is human
+  context, never classifier input. qa 421 · 0 fail.
+
+## i243 — auditor — 2026-07-12T04:25:34Z
+- did: MASTER P3.1 + P3.3 + P3.4 — the three safety differentiators (the anti-
+  Project-Vend layer). tools/specdrift.py (P3.1): diffs validate.py's ENCODED
+  schema (hook events/types/components) against foundry/spec-snapshot.json (the
+  last human-verified spec fingerprint) — any drift is a DESK item citing the
+  doc, never a silent schema edit (constitution Art. I §5; docs before
+  invention); the agent fetches live docs fenced and refreshes the snapshot
+  only via the desk. tools/tripwire.py (P3.3): detects LOOP.md rule-7
+  rubber-stamp streaks (5 clean zero-defect QA passes, or 5 approvals with no
+  recent bounce) and fires a P0 adversarial re-audit — and it GENUINELY FIRED
+  on the real repo's current streak, which is the tool doing its job (it's a
+  diagnostic, not a gate, so qa is unaffected). tools/redteam.py (P3.4):
+  fence.scan + a constitution-risk lens over fenced commission text — flags
+  exfiltration, third-party-PR, and gate-bypass asks and holds them on the
+  desk, passes clean commissions to the backlog; nothing ships that the fenced
+  request didn't legitimately require. Three agents (spec-drift + red-team
+  ingests_untrusted+fenced+proposes; tripwire trusted/event/proposes).
+- line: n/a (ops program; no plugin moved).
+- files: tools/{specdrift.py, tripwire.py, redteam.py} (new),
+  foundry/spec-snapshot.json (new), foundry/agents/{spec-drift,tripwire,
+  red-team}/{agent.json,prompt.md}, foundry/agents/identities.json,
+  foundry/tests/_tools/safety-agents.test.sh (7 cases), state/{PROGRAM.md,
+  BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 7/7 — specdrift in-sync + catches an injected drift→desk,
+  red-team passes clean + flags 3 forbidden asks, tripwire quiet-when-healthy
+  + fires-on-streak (fixtures), all three contract-valid. Full gates at commit.
+- next-suggestion: GAP-C multi-harness export, then GAP-E durable-execution doc
+  + fork-a-foundry inheriting the framework (Version law) — the last items.
+- notes: 13 agents in the registry. The real-repo tripwire firing is a true
+  positive worth an operator's eye — logged, not suppressed.
+
+## i244 — builder — 2026-07-12T04:27:38Z
+- did: MASTER GAP-C — multi-harness portability. tools/export.py reads a shipped
+  plugin and emits a HARNESS-NEUTRAL descriptor (dist/<plugin>/portable.json):
+  each skill's portable core (name + when-to-use + body — the part that's the
+  same everywhere; only packaging differs per harness) plus named adapter
+  targets for Codex (AGENTS.md), Cursor (.cursor/rules/*.mdc), and Gemini CLI
+  (GEMINI.md). Crucially it does NOT touch the published Claude Code plugin —
+  names and versions are forever, so multi-harness support adds no Version-law
+  churn (MASTER's own note); the export is a derived artifact under dist/
+  (gitignored). Hooks are flagged harness-specific (lifecycle events differ) so
+  nothing destructive auto-ports.
+- line: n/a (ops program; no plugin moved — export is derived, not a plugin change).
+- files: tools/export.py (new), .gitignore (dist/),
+  foundry/tests/_tools/export.test.sh (6 cases), state/{PROGRAM.md, BACKLOG.md,
+  STATE.json, JOURNAL.md}.
+- validation: 6/6 — exports the skill core + version, names the three non-Claude
+  adapters, never mutates the published plugin, deterministic, hooks caveated,
+  dist/ ignored. Full gates at commit.
+- next-suggestion: GAP-E durable-execution doc + fork-a-foundry inheriting the
+  framework (Version law bump) — the final two program items.
+- notes: a full per-harness packager is future work; the portable/1 schema is
+  the abstraction seam the adapters build on (documented, tested).
+
+## i245 — maintainer — 2026-07-12T04:31:46Z
+- did: MASTER GAP-E + fork-a-foundry framework inheritance — the last two §14
+  items. GAP-E: DURABILITY.md documents the journal-as-checkpoint property the
+  foundry already has (the repo IS the state, git IS the checkpoint boundary,
+  one iteration = one commit, so an interruption costs at most one uncommitted
+  iteration; validate/validate_state halt a red repo on resume) and names where
+  a heavier engine (Inngest/Temporal) would slot in if the model outgrows
+  single-threaded short iterations — plus the honest limit (survives
+  interruption, not corruption of committed state). fork-a-foundry: the fork
+  now inherits the ORG-PATTERN framework, not just the plugin loop — the
+  bootstrap skill carries over the constitution + guard, the agent contract
+  (foundry/agents/), the single-writer orchestrator, the quota governor, the
+  trust fence + read/act split, the auth surface, the owner's desk, per-agent
+  identity, the state validator, heartbeats, and the merge-blocking evals, with
+  MASTER.md §14 as the full spec. Version law honored in one iteration:
+  plugin.json + CHANGELOG + record + marketplace description all → 0.2.0
+  (minor: new capability), annotated tag fork-a-foundry-v0.2.0, and a framework
+  regression test so a future edit can't silently drop the inheritance.
+- line: fork-a-foundry 0.1.4 → 0.2.0 (published; feature add). STAGE 4 COMPLETE.
+- files: DURABILITY.md (new), plugins/fork-a-foundry/{skills/bootstrap/SKILL.md,
+  .claude-plugin/plugin.json, CHANGELOG.md}, foundry/records/fork-a-foundry.md,
+  .claude-plugin/marketplace.json, foundry/tests/fork-a-foundry/structure.test.sh,
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: validate (36 published, sync holds) + build + smoke (official
+  --strict all green) + qa fork-a-foundry 11 ok · 0 fail (incl. the 3 new
+  framework-inheritance checks). Full qa at commit; tag laid on the commit.
+- next-suggestion: the program close-out — verify every §14 definition-of-done
+  checkbox, confirm PROGRAM.md is 100% accounted, file the audit, report.
+- notes: every MASTER.md §14 line item is now DONE, DESK-gated, OPERATOR-gated,
+  or DEFERRED-tracked. Stage 4 closes the buildout.
+- coupled maintenance (same iteration): the fork-a-foundry 0.2.0 bump forced
+  night-clerk's bundled catalog to refresh (it must never trail the shelf — i138
+  regression). Regenerated via clerkcat.py and bumped night-clerk 0.2.6 → 0.2.7
+  (Version law: plugin.json + CHANGELOG + record; catalog re-synced after the
+  bump so it lists 0.2.7). Two published plugins moved this iteration — a
+  legitimate forced coupling, not batching. qa 437 · 0 fail; smoke green.
+
+
+## i246 — auditor — 2026-07-12T04:38:53Z
+- did: program close-out (audit-010). Verified every MASTER.md §14 line item is
+  accounted for in state/PROGRAM.md — built+tested, bought+integrated-to-the-edge
+  (5 app-installs desk-gated d-0002..d-0005; Dependabot native), operator-gated
+  (launch + submissions desk-gated d-0001/d-0006), or deferred-tracked (MASTER's
+  own verdicts). 13 agents (all with identities + heartbeats), ~30 tools each
+  with an executable suite, qa 437 · 0 fail. Walked the §14 program-level
+  definition-of-done: 8 of 9 boxes ✅; ONE honestly marked PARTIAL — the
+  single-writer DoD: the orchestrator is the single-writer path for the agent
+  framework, but two legacy product workflows (record-demos.yml, qa.yml
+  re-verify stamps) still commit to main directly (lay-tags pushes tags only, a
+  separate ref). Not claimed as done — filed as a P2 backlog item to migrate or
+  operator-grandfather via ADR, with this iteration as the two-iteration seed.
+  Recorded the genuine tripwire firing (5 clean QA passes = a rubber-stamp
+  streak signal, LOOP.md rule 7) as a real positive for the next audit, not
+  suppressed.
+- line: n/a (audit; no plugin moved).
+- files: reviews/audit-010.md (new), state/{PROGRAM.md (close-out + DoD boxes),
+  BACKLOG.md (DoD-1 gap item), STATE.json, JOURNAL.md}.
+- validation: validate + build + validate_state + evals (25/25) + qa (437 · 0
+  fail). The program is complete and accounted for; the one partial DoD is
+  documented, not hidden.
+- next-suggestion: operator decisions await at the desk (python3 tools/desk.py
+  queue) — 8 items: submissions, 5 app-installs, launch, quarterly recs. And
+  the STOP gate (CI token) still blocks live shifts; AUTH-1 makes that failure
+  loud now.
+- notes: honesty outranks a clean checkbox — audit-010 marks the single-writer
+  DoD partial rather than declaring two legacy workflows grandfathered to force
+  a green. That's the constitution's own standard applied to the audit itself.

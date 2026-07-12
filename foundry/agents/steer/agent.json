@@ -1,0 +1,14 @@
+{
+  "id": "steer",
+  "role": "Steer-by-issue: a one-sentence steering issue becomes a valid backlog item; rule-touching steers become desk items.",
+  "trigger": "event",
+  "trust_tier": "ingests_untrusted",
+  "quota_tier": "high",
+  "capability": "proposes",
+  "outputs": ["BACKLOG § Idea inbox (via the outbox)", "the owner's desk (rule-touching)"],
+  "heartbeat": { "interval_hours": 720 },
+  "prompt": "foundry/agents/steer/prompt.md",
+  "fenced": true,
+  "status": "active",
+  "description": "Ingests untrusted issue text — fenced (hard rule 2). Proposes only; a rule-touching steer never becomes a silent backlog item, it routes to the desk. High-risk steers are held for the red-team, not obeyed."
+}

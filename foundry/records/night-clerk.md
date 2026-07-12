@@ -4,14 +4,14 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.6
+version: 0.2.7
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-06
 one_liner: Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.
 tags: [discovery, meta, catalog]
 created: 2026-07-05
-updated: 2026-07-07
+updated: 2026-07-12
 ---
 
 ## Pitch

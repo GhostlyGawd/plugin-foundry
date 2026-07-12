@@ -1,8 +1,8 @@
 {
   "name": "fork-a-foundry",
   "displayName": "Fork a Foundry",
-  "version": "0.1.4",
-  "description": "Bootstrap your own self-running plugin workshop and marketplace \u2014 the loop that built this one, in a box.",
+  "version": "0.2.0",
+  "description": "Bootstrap your own self-running plugin workshop AND the org-pattern framework that governs it — constitution, guard, single-writer orchestrator, the whole company in a box.",
   "author": {
     "name": "Nightshift Foundry"
   },

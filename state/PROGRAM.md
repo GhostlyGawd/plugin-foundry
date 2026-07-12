@@ -12,6 +12,12 @@ build every line item end to end, 100% accounted for. Outward actions under the
 operator's identity (launch posts, third-party account signups) are prepared and
 desk-queued, never performed autonomously — constitution floor.
 
+**CLOSE-OUT (i246, audit-010):** every §14 line item is accounted for — built+tested,
+bought+integrated-to-the-edge (5 app-installs desk-gated), operator-gated (launch/
+submissions desk-gated), or deferred-tracked. 13 agents · ~30 tools each with a suite ·
+qa 437 · 0 fail. One DoD honestly PARTIAL: two legacy workflows (record-demos, qa
+re-verify) still write to main directly — migrate/grandfather (backlogged). The rest ✅.
+
 ## Stage 0 — the minimum safe, story-bearing core
 
 | Item | Verdict | Status | Evidence |
@@ -61,22 +67,22 @@ desk-queued, never performed autonomously — constitution floor.
 
 | Item | Verdict | Status | Evidence |
 |---|---|---|---|
-| P1.4 dogfood report card | HALO | QUEUED | best halo feature |
-| P1.1 per-shift operator briefing | HALO | QUEUED | channel: pinned issue (ADR-031) |
-| P1.2 ask-the-factory | HALO | QUEUED | |
-| P4.2 shipnotes weekly + social variant | HALO | QUEUED | extend existing shipnote.py |
-| P5.4 self-authored postmortems | HALO | QUEUED | seed: the real 2026-07-07 token incident |
-| P5.5 quarterly state-of-the-company | HALO | QUEUED | |
-| P2.2 steer-by-issue | HALO | QUEUED | fenced NL→backlog |
-| P2.5 naming ceremony assistant | HALO | QUEUED | company already named (ADR-011); scope = plugin names |
-| P1.5 ecosystem scout | HALO | QUEUED | |
-| P1.3 failed-shift diagnostician | STAKES | QUEUED | extends the run-shift diagnostic step |
-| P3.1 spec-drift auditor | BUILD | QUEUED | |
-| P3.3 tripwire auditor | BUILD | QUEUED | |
-| P3.4 commission red-team | BUILD | QUEUED | |
-| GAP-C multi-harness portability | BUILD | QUEUED | exporter; published plugins untouched (no Version-law churn) |
-| GAP-E durable execution / resume | DOC | QUEUED | journal-as-checkpoint documentation path (MASTER.md's own option) |
-| fork-a-foundry inherits the framework | BUILD | QUEUED | Version law: semver + CHANGELOG same iteration |
+| P1.4 dogfood report card | HALO | **DONE** (i238) | tools/dogfood.py — grades genuine use (construction mentions excluded), shows not-yet honestly, auto-regraded in build · site card with per-plugin evidence chips · 4-case suite |
+| P1.1 per-shift operator briefing | HALO | **DONE** (i240) | tools/briefing.py (<30s read: last move, quality number, top-3 ranked desk items, alarms) · briefing agent (read_only/low) · deterministic |
+| P1.2 ask-the-factory | HALO | **DONE** (i241) | tools/ask.py — sourced retrieval over JOURNAL/DECISIONS/records (every answer cites its source; admits when history has none) · ask agent (ingests_untrusted, fenced, read_only) |
+| P4.2 shipnotes weekly + social variant | HALO | **DONE** (i240) | shipnote.py --social (one substantiated post, weekly regardless of volume); weekly regression intact |
+| P5.4 self-authored postmortems | HALO | **DONE** (i239) | postmortem agent (proposes/high/event) + prompt · reviews/postmortems/pm-001 (the REAL token incident, blameless, cites AUTH-1) · RUNBOOK.md with the operator procedure · pm↔m-001 memory loop · 6-case suite |
+| P5.5 quarterly state-of-the-company | HALO | **DONE** (i240) | tools/quarterly.py — real metric deltas from METRICS.jsonl, honest failures (bounces + postmortems), 3-5 recs landed+deduped on the desk · quarterly agent · re-launch moment |
+| P2.2 steer-by-issue | HALO | **DONE** (i242) | tools/steer.py — fenced classify: normal→backlog, rule-touching→desk (never a silent law edit), injection→held for red-team · steer agent (ingests_untrusted, fenced, proposes) |
+| P2.5 naming ceremony assistant | HALO | **DONE** (i242) | tools/naming.py — collision check (exact, near/separator, reserved, malformed) before a slug is forever · naming agent · company already named (ADR-011) so scope = plugin names |
+| P1.5 ecosystem scout | HALO | **DONE** (i241) | scout agent (ingests_untrusted, fenced:true, read_only — read/act split) + prompt routing fetched text through fence.py |
+| P1.3 failed-shift diagnostician | STAKES | **DONE** (i241) | tools/diagnose.py — classifies auth/quota/budget/gate-red/disk with a next step + ops-alarm, honest 'unknown' when no signature; reuses the auth classifier · diagnostician agent |
+| P3.1 spec-drift auditor | BUILD | **DONE** (i243) | tools/specdrift.py — diffs validate.py's encoded schema vs foundry/spec-snapshot.json; drift → desk (never a silent schema edit, Art. I §5) · spec-drift agent (fenced ingest of live docs) |
+| P3.3 tripwire auditor | BUILD | **DONE** (i243) | tools/tripwire.py — detects LOOP.md rule-7 rubber-stamp streaks (5 clean passes / 5 approvals no-bounce); fires a P0 adversarial re-audit · tripwire agent · genuinely fired on the real repo's streak |
+| P3.4 commission red-team | BUILD | **DONE** (i243) | tools/redteam.py — fence.scan + constitution-risk lens; flags exfiltration/third-party-PR/gate-bypass, passes clean · red-team agent (fenced ingest) |
+| GAP-C multi-harness portability | BUILD | **DONE** (i244) | tools/export.py — extracts the harness-neutral skill core → dist/<plugin>/portable.json with adapter targets for Codex/Cursor/Gemini CLI; published plugin untouched (no Version-law churn); dist/ gitignored · 6-case suite |
+| GAP-E durable execution / resume | DOC | **DONE** (i245) | DURABILITY.md — documents journal-as-checkpoint (repo=state, git=checkpoint, ≤1 uncommitted iteration lost), names where Inngest/Temporal slot in, states the honest limit |
+| fork-a-foundry inherits the framework | BUILD | **DONE** (i245) | bootstrap skill now carries the constitution+guard, agent contract, orchestrator, quota, fence, auth, desk, identity, state validator, heartbeats, evals · v0.1.4→0.2.0 (plugin.json+CHANGELOG+record+marketplace+tag) · framework regression test · forced night-clerk catalog re-sync (v0.2.7) · smoke+qa green. STAGE 4 COMPLETE |
 
 ## Deferred — tracked, not lost (MASTER.md verdicts)
 
@@ -92,12 +98,12 @@ desk-queued, never performed autonomously — constitution floor.
 
 ## Program-level definition of done (§14) — verified at close-out
 
-- [ ] No workflow other than the orchestrator (P0.7) and run-shift writes to main
-- [ ] Every untrusted input path fenced; CI lint proves it
-- [ ] Every human decision reaches exactly one place — the desk; nothing requiring approval auto-merges
-- [ ] Guard + constitution block schema edits, record deletions, self-governing edits, third-party PRs; each desk-routed
-- [ ] Quota governor v2 protects the product loop under rate-limit pressure
-- [ ] Every agent has an identity, a heartbeat, and (risky ones) an eval fixture
-- [ ] The quality number is live and public
-- [ ] ADRs 026–030 filed (+031 mandate)
-- [ ] fork-a-foundry inherits the whole framework
+- [~] No workflow but the orchestrator (P0.7) + run-shift writes to main — PARTIAL: record-demos.yml + qa.yml (re-verify stamps) are legacy direct-writers to migrate/grandfather (audit-010); lay-tags pushes tags only
+- [x] Every untrusted input path fenced; CI lint proves it
+- [x] Every human decision reaches exactly one place — the desk; nothing requiring approval auto-merges
+- [x] Guard + constitution block schema edits, record deletions, self-governing edits, third-party PRs; each desk-routed
+- [x] Quota governor v2 protects the product loop under rate-limit pressure
+- [x] Every agent has an identity, a heartbeat, and (risky ones) an eval fixture
+- [x] The quality number is live and public
+- [x] ADRs 026–030 filed (+031 mandate)
+- [x] fork-a-foundry inherits the whole framework (v0.2.0)

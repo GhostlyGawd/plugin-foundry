@@ -1,0 +1,14 @@
+{
+  "id": "spec-drift",
+  "role": "Spec-drift auditor: watches Anthropic's plugin spec; a change surfaces as a desk item citing the doc — no schema edit lands without approval.",
+  "trigger": "schedule",
+  "trust_tier": "ingests_untrusted",
+  "quota_tier": "high",
+  "capability": "proposes",
+  "outputs": ["the owner's desk (proposed schema change)"],
+  "heartbeat": { "interval_hours": 340 },
+  "prompt": "foundry/agents/spec-drift/prompt.md",
+  "fenced": true,
+  "status": "active",
+  "description": "Fetches Anthropic's live plugin docs (fenced, hard rule 2), diffs vs the encoded schema (tools/specdrift.py). Proposes only — schema changes stay human-ratified (constitution Art. I §5)."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "briefing",
+  "role": "Per-shift operator briefing: last move, the quality number, the top ranked desk items — a <30-second read.",
+  "trigger": "schedule",
+  "trust_tier": "trusted",
+  "quota_tier": "low",
+  "capability": "read_only",
+  "outputs": ["the pinned briefing issue"],
+  "heartbeat": { "interval_hours": 24 },
+  "prompt": "foundry/agents/briefing/prompt.md",
+  "status": "active",
+  "description": "Deterministic assembly (tools/briefing.py) from repo data; a live agent may narrate. read_only — posts an issue, writes no repo files."
+}

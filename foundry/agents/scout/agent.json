@@ -1,0 +1,14 @@
+{
+  "id": "scout",
+  "role": "Weekly ecosystem scout: dated competitive intel into COMPETITIVE.md, every fetched line fenced as untrusted.",
+  "trigger": "schedule",
+  "trust_tier": "ingests_untrusted",
+  "quota_tier": "low",
+  "capability": "read_only",
+  "outputs": ["COMPETITIVE.md (proposed via the outbox)"],
+  "heartbeat": { "interval_hours": 200 },
+  "prompt": "foundry/agents/scout/prompt.md",
+  "fenced": true,
+  "status": "active",
+  "description": "Ingests untrusted web text — MUST fence via tools/fence.py before any prompt (hard rule 2), holds NO write capability in the same pass (read/act split). Proposes COMPETITIVE.md updates to the desk."
+}

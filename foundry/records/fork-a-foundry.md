@@ -4,14 +4,14 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.1.4
+version: 0.2.0
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-06
 one_liner: One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.
 tags: [meta, bootstrap, viral, dogfood]
 created: 2026-07-05
-updated: 2026-07-07
+updated: 2026-07-12
 ---
 
 # Fork a Foundry
@@ -47,6 +47,11 @@ loop runs a green iteration.
 
 ## Build log
 - i0(v4): manifest, bootstrap skill, README, CHANGELOG, executable test suite.
+- i245 (v0.2.0): the fork now inherits the org-pattern framework (MASTER.md) —
+  the bootstrap skill carries the constitution + guard, the agent contract, the
+  single-writer orchestrator, quota governor, trust fence, auth surface, owner's
+  desk, per-agent identity, state validator, heartbeats, and merge-blocking evals.
+  A fork boots a governed company, not an ungoverned loop. Version law: 0.1.4 -> 0.2.0.
 
 ## Test log
 ### Test pass — i0(v4)
