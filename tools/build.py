@@ -387,6 +387,9 @@ TEMPLATE = """<!DOCTYPE html>
   .stat{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center}
   .stat .n{display:block; font-size:30px; font-weight:800; letter-spacing:-.02em}
   .stat .s{display:block; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); margin-top:4px}
+  .qstrip{font-family:var(--mono, ui-monospace, monospace); font-size:12.5px; color:var(--dim); border:1px dashed var(--line); border-radius:10px; padding:10px 14px; margin:6px 0 14px; overflow-wrap:anywhere}
+  .qstrip b{color:var(--ink)}
+  .replay{display:block; max-width:100%; height:auto; margin:0 0 14px; border-radius:12px}
   .tape{margin-top:22px; overflow:hidden; white-space:nowrap; padding:11px 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair)}
   .tape .reel{display:inline-block; padding-left:100%}
   @media (prefers-reduced-motion:no-preference){
@@ -572,6 +575,9 @@ TEMPLATE = """<!DOCTYPE html>
     <div class="wrap">
       <h2 class="sec-title">Under the hood — the workshop, live</h2>
       <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> An autonomous Claude Code loop pitches, builds, tests, reviews, and publishes every plugin above — and this page updates the moment it does.</p>
+      <p class="qstrip" id="qstrip" aria-label="the running quality counter — every number substantiated by this repo"></p>
+      <img class="replay" src="replay.svg" loading="lazy" width="720" height="200"
+           alt="Replay of real iterations i89–i93: the review gate blocks a bad starter-kits build, the fix lands with a pinned regression, v0.1.0 ships." />
       <div id="themebox"></div>
       <div class="stats" id="stats"></div>
       <div class="tape" aria-label="latest shop-floor journal entries"><div class="reel" id="reel"></div></div>
@@ -839,15 +845,37 @@ function renderStats(){
   // cleared TEST VERDICT: pass + REVIEW: approved (validator law), so "100% tested
   // & reviewed" is substantiated, not marketing. No fabricated or inflated counts.
   const cats = new Set(pubPlugins().map(e => e.category)).size;
+  // GAP-A: the quality number rides the hero — first-try QA is computed from
+  // the records' own Test logs (site/quality.json is the badge endpoint).
+  const Q = DATA.quality || {};
   const cells = [
     [pubPlugins().length, 'free plugins'],
     [DATA.iteration, 'autonomous shifts'],
+    [Q.qa_first_try_pct === null || Q.qa_first_try_pct === undefined ? '—' : Q.qa_first_try_pct + '%', 'passed QA first try'],
     [cats, 'categories'],
     ['100%', 'tested &amp; reviewed'],
   ];
   document.getElementById('stats').innerHTML = cells.map(([n, label]) =>
     '<div class="stat"><span class="n">' + (n === null || n === undefined ? '—' : n) +
     '</span><span class="s">' + label + '</span></div>').join('');
+}
+function renderQuality(){
+  // GAP-A2: the running counter — the return engine ("what did it ship today?").
+  // Every figure comes from DATA.quality (records/journal/ledger — substantiated).
+  const Q = DATA.quality || {}, el = document.getElementById('qstrip');
+  if (!el) return;
+  const pubs = pubPlugins().slice().sort((a, b) => String(b.updated).localeCompare(String(a.updated)));
+  const latest = pubs[0];
+  const bits = [
+    '<b>' + (Q.plugins_shipped ?? '—') + '</b> plugins shipped',
+    (Q.qa_first_try_pct ?? '—') + '% passed QA first try',
+    '<b>' + (Q.bounces_total ?? '—') + '</b> builds bounced & fixed in public',
+    (Q.iterations ?? '—') + ' iterations',
+    '$' + (Q.api_spend_usd ?? 0).toFixed(2) + ' API spend',
+  ];
+  el.innerHTML = bits.join(' · ') +
+    (latest ? ' — latest ship: <b>' + esc(latest.title) + '</b> v' + esc(latest.version || '?') +
+              ' (' + esc(latest.updated || '') + ')' : '');
 }
 function renderFuel(){
   const F = DATA.fuel || {};
@@ -946,7 +974,7 @@ function renderAll(){
   setHeroCounts();
   renderCatChips(); renderTagChips(); renderGrid(); renderClerk();
   renderTape(); renderStreak(); renderTheme(); renderLanes(); renderStats();
-  renderFuel(); renderAlarms(); renderVotes(); renderKits();
+  renderQuality(); renderFuel(); renderAlarms(); renderVotes(); renderKits();
   renderHall(); renderVerified(); renderNetwork(); renderNextShift();
   if (DATA.repo){
     const rel = document.getElementById('relchip');
@@ -1588,6 +1616,65 @@ def shift_schedule():
         return default
 
 
+def build_quality(records):
+    """GAP-A (ADR-031): the public quality number, computed only from what the
+    repo can substantiate (growth-honesty law). Definitions, pinned:
+    shipped = published kind:plugin records (the installable shelf);
+    first-try QA = published records whose FIRST 'TEST VERDICT:' was pass
+    (records without a Test log are excluded, counted separately);
+    bounces = every bounce verdict on file (we show our rejects — that's the
+    anti-slop proof); iterations = journaled loop iterations; ci shifts +
+    spend = the BUDGET ledger (runs · summed cost_usd, honest zero)."""
+    shipped = feats = first_try = bounced_first = no_log = 0
+    bounces_total = 0
+    for path in sorted(RECORDS.glob("*.md")):
+        text = path.read_text()
+        meta, _ = parse_front_matter(text)
+        verdicts = re.findall(r"TEST VERDICT:\s*(\w+)", text)
+        review_bounces = len(re.findall(r"REVIEW:\s*bounced", text))
+        bounces_total += sum(1 for v in verdicts if v.lower() != "pass")
+        bounces_total += review_bounces
+        if meta.get("stage") != "published":
+            continue
+        if meta.get("kind", "plugin") == "plugin":
+            shipped += 1
+        else:
+            feats += 1
+        if not verdicts:
+            no_log += 1
+        elif verdicts[0].lower() == "pass" and review_bounces == 0:
+            first_try += 1  # clean pass through QA AND review, no bounce
+        else:
+            bounced_first += 1
+    graded = first_try + bounced_first
+    pct = round(100 * first_try / graded) if graded else None
+    journal = (ROOT / "state" / "JOURNAL.md")
+    iters = len(re.findall(r"^## i\d+", journal.read_text(), re.M)) if journal.exists() else 0
+    runs = spend = 0
+    ledger = ROOT / "state" / "BUDGET.jsonl"
+    if ledger.exists():
+        for line in ledger.read_text().splitlines():
+            try:
+                e = json.loads(line)
+            except ValueError:
+                continue
+            if e.get("kind") == "quota_run" or (not e.get("kind") and ("cost_usd" in e or "usage" in e)):
+                runs += 1
+            spend += e.get("cost_usd") or 0
+    q = {"plugins_shipped": shipped, "features_shipped": feats,
+         "qa_first_try_pct": pct, "qa_graded": graded, "qa_no_log": no_log,
+         "bounces_total": bounces_total, "iterations": iters,
+         "ci_shifts": runs, "api_spend_usd": round(spend, 2)}
+    msg = f"{shipped} shipped"
+    if pct is not None:
+        msg += f" · {pct}% first-try QA"
+    msg += f" · {iters} iterations"
+    (ROOT / "site" / "quality.json").write_text(json.dumps(
+        {"schemaVersion": 1, "label": "foundry", "message": msg,
+         "color": "b08968"}, indent=1) + "\n")
+    return q
+
+
 def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, alarms, hall, streak):
     title = state.get("name") or "UNNAMED"
 
@@ -1637,6 +1724,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "stats": {k: metrics.get(k) for k in
                   ("stars", "watchers", "views_14d", "uniques_14d",
                    "idea_votes_total", "field_reports", "open_alarms")},
+        "quality": build_quality(records),
         "votes": votes,
         "roadmap": {k: [slim(r) for r in v] for k, v in roadmap_lanes(records).items()},
         "kits": kit_data,
@@ -1705,6 +1793,10 @@ def main():
     if og_src.exists():
         (ROOT / "site").mkdir(exist_ok=True)
         (ROOT / "site" / "og-image.png").write_bytes(og_src.read_bytes())
+    # GAP-A3: the replay proof artifact rides along (source: tools/replay.py)
+    rp_src = ROOT / "foundry" / "assets" / "replay.svg"
+    if rp_src.exists():
+        (ROOT / "site" / "replay.svg").write_text(rp_src.read_text())
     mp_name = mp.get("name", "foundry")
     records = collect_records()
     counts = build_index(records, state, mp_name)

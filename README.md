@@ -1,37 +1,84 @@
-# The Foundry <sub>(codename — the system names itself; see charter/BRAND.md)</sub>
+# Nightshift Foundry
 
-A self-running **Claude Code plugin workshop**: loop iterations pitch, spec, build,
-test, review, publish, and maintain plugins — and the repo doubles as the
-**marketplace** they ship to. Users add this repo with one command and install
-whatever the line has published; the loop then dogfoods its own plugins to build the
-next ones.
+> **An AI-run software company in a repo. It ships real Claude Code plugins while
+> you sleep — and you can fork the whole company.**
 
-Same engine as the loop-library and venture-studio siblings; this time the funnel is
-an **assembly line**, the schema is **Anthropic's actual plugin spec**, and the
-artifacts are runnable software with real installed users to protect.
+![foundry quality](https://img.shields.io/endpoint?url=https%3A%2F%2Fghostlygawd.github.io%2Fplugin-foundry%2Fquality.json)
+![foundry status](https://img.shields.io/endpoint?url=https%3A%2F%2Fghostlygawd.github.io%2Fplugin-foundry%2Fbadge.json)
+[![the living window](https://img.shields.io/badge/live-the%20window-b08968)](https://ghostlygawd.github.io/plugin-foundry/)
 
-## Quickstart — run the workshop
+![Replay of real iterations i89–i93: the review gate blocks a bad build, the fix lands with a pinned regression, the plugin ships](foundry/assets/replay.svg)
 
-```bash
-npm install -g @anthropic-ai/claude-code   # if needed
-cd pluginfoundry
-./loop.sh 10        # bootstrap walks commit-craft from spec to published
-touch STOP          # halt gracefully, any time
-```
+*That's a **replay of real history** (iterations i89–i93, every line from
+[the record](foundry/records/starter-kits.md)): the machine builds a feature, its own
+review gate **blocks the bad build**, the fix lands with a pinned regression, and
+v0.1.0 ships. No human on the line. The bounce is the point — this factory shows its
+rejects.*
 
-Manual mode: open Claude Code here and use `/loop` (one iteration) or `/status`
-(line health). Pitch plugin ideas in `state/BACKLOG.md § Idea inbox`.
+**The proof counter, computed only from what this repo can substantiate:**
+plugins shipped · % passed QA first try · builds bounced-and-fixed in public ·
+iterations run · spend — live on [the window](https://ghostlygawd.github.io/plugin-foundry/)
+and in the badge above. No number here is typed by hand.
 
-## Quickstart — install what it builds
+## Install what it builds — two commands
 
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install plugin-smith@foundry
 ```
 
-`plugin-smith` ships at genesis: `scaffold` (generate a correct plugin skeleton) and
-`doctor` (audit any plugin against the official spec) — the workshop's own tools,
-which the loop uses to build everything after it.
+Ten single-job, tested-and-reviewed plugins on the shelf (commits, PRs, TODO debt,
+test gaps, dep-bump briefs…). Every one has a public birth certificate.
+
+## Fork the whole company — one command
+
+```
+/plugin install fork-a-foundry@foundry
+```
+
+`fork-a-foundry` seeds a **new autonomous foundry** — protocol, charter, constitution,
+gates, workflows, the entire org pattern — into an empty repo of yours. The plugins
+are the deliverable; **the org pattern is the artifact.**
+
+## The org chart
+
+```mermaid
+flowchart TB
+  OP(["🧑 the operator — steers by exception"]) -->|ratifies| DESK
+  subgraph GOV["the law (human-ratified, machine-enforced)"]
+    CONST["charter/CONSTITUTION.md<br/>the never-do list"] --> GUARD["tools/guard.py<br/>allow · desk · block"]
+  end
+  DESK["the owner's desk<br/>one ranked queue (state/DESK.jsonl)"] --- GUARD
+  GUARD --> ORCH
+  subgraph EXEC["single-threaded writes"]
+    ORCH["chief-of-staff orchestrator<br/>collect → precedence → gates → land"]
+  end
+  subgraph AGENTS["multi-agent intelligence (manifests, tiers, heartbeats)"]
+    LOOP["foundry-loop<br/>the product line (LOOP.md)"]
+    SAFE["safety/trust: tripwire · red-team · spec-drift"]
+    COMMS["perception/comms: scout · briefing · shipnotes"]
+  end
+  LOOP & SAFE & COMMS -->|changesets, never pushes| ORCH
+  ORCH -->|attributed commits| MAIN[("main · the marketplace · the window")]
+  QUOTA["quota governor v2<br/>sheds low → high, never product"] -.-> AGENTS
+```
+
+Every agent has a manifest (trust tier, quota tier, capability scope), its own commit
+identity, and a heartbeat. Untrusted text never reaches a write-capable agent
+(`tools/fence.py` + the read/act split). The constitution is enforced in code, and
+schema changes stay **human-ratified, always**.
+
+## Run the workshop yourself
+
+```bash
+npm install -g @anthropic-ai/claude-code   # if needed
+cd plugin-foundry
+./loop.sh 10        # ten supervised iterations of the protocol
+touch STOP          # halt gracefully, any time
+```
+
+Manual mode: open Claude Code here and use `/loop` (one iteration) or `/status`
+(line health). Pitch plugin ideas in `state/BACKLOG.md § Idea inbox`.
 
 ## The line
 
@@ -199,20 +246,21 @@ LOOP_PERMS="--permission-mode acceptEdits" ./loop.sh 5
 
 ```
 LOOP.md                      the iteration protocol — the engine
+MASTER.md                    the org-pattern program — strategy + execution spec
 loop.sh                      the harness (STOP file, run logs, failure cutoff)
 CLAUDE.md                    standing rules for any session here
 .claude/commands/            /loop · /status · /backlog (one-sentence steering)
 .claude-plugin/              marketplace.json — the storefront
-charter/                     VISION · ROLES · QUALITY · TESTING · BRAND
-state/                       STATE.json · BACKLOG (+ Idea inbox) · JOURNAL · DECISIONS
-foundry/                     SCHEMA · categories.json · records/ (job travelers) · INDEX (generated)
+charter/                     VISION · ROLES · QUALITY · TESTING · BRAND · AGENTS · CONSTITUTION
+state/                       STATE.json · BACKLOG · JOURNAL · DECISIONS · PROGRAM · DESK.jsonl
+foundry/                     SCHEMA · categories.json · records/ (job travelers) · agents/ (manifests, registry, outbox) · INDEX (generated)
 plugins/<name>/              shippable plugin artifacts (official layout only)
-tools/                       validate.py + build.py (gates) · smoke.sh (official validate wrapper)
-site/                        generated catalog (pre-brand job-traveler v0)
+tools/                       the gates: validate · validate_state · build · guard · orchestrator · quota · fence · auth · desk · heartbeat · commit
+site/                        the living window (generated; never hand-edited)
 reviews/                     audits + reviews (append-only)
 ```
 
-Seeded with: **plugin-smith** published at 0.1.0 (with an honest P1 backlog item to
-re-test it at the full bar), **commit-craft** fully specced and ready for the line —
-bootstrap builds, tests, reviews, and publishes it end to end — and three idea
-records exercising hooks, agents, and skill+hook bundles.
+Current truth on the shelf: **10 published plugins** across 4 categories, every one
+with `TEST VERDICT: pass` + `REVIEW: approved` on its public record, 5 bounces
+survived and fixed in public, ~226 journaled iterations. The window shows the same
+numbers, computed from the same files, or it doesn't show them at all.

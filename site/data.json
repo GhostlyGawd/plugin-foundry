@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-07-12T03:12:41.938388+00:00",
- "iteration": 225,
+ "generated_at": "2026-07-12T03:29:17.001095+00:00",
+ "iteration": 230,
  "phase": "grow",
  "theme": {
   "name": "Repo hygiene",
@@ -18,6 +18,36 @@
  },
  "ticker": [
   {
+   "it": "i230",
+   "role": "growth",
+   "ts": "2026-07-12T03:28:56Z",
+   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
+  },
+  {
+   "it": "i229",
+   "role": "designer",
+   "ts": "2026-07-12T03:27:00Z",
+   "text": "MASTER GAP-A4 \u2014 the README first screen, written BY HAND per the"
+  },
+  {
+   "it": "i228",
+   "role": "growth",
+   "ts": "2026-07-12T03:24:59Z",
+   "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
+  },
+  {
+   "it": "i227",
+   "role": "growth",
+   "ts": "2026-07-12T03:21:58Z",
+   "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
+  },
+  {
+   "it": "i226",
+   "role": "growth",
+   "ts": "2026-07-12T03:18:50Z",
+   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
+  },
+  {
    "it": "i225",
    "role": "builder",
    "ts": "2026-07-12T03:12:04Z",
@@ -34,70 +64,10 @@
    "role": "builder",
    "ts": "2026-07-12T03:02:11Z",
    "text": "MASTER AUTH-1 \u2014 the auth abstraction (ADR-031-authorized loop.sh touch)."
-  },
-  {
-   "it": "i222",
-   "role": "builder",
-   "ts": "2026-07-12T02:58:49Z",
-   "text": "MASTER P0.6 \u2014 quota governor v2 (ADR-028), closing G6 and answering the"
-  },
-  {
-   "it": "i221",
-   "role": "builder",
-   "ts": "2026-07-12T02:55:07Z",
-   "text": "MASTER P0.3 + P0.4 + P0.9 \u2014 the cheap trio, one \u00a714 Stage 0 bullet."
-  },
-  {
-   "it": "i220",
-   "role": "builder",
-   "ts": "2026-07-12T02:49:25Z",
-   "text": "MASTER P0.5 \u2014 the constitution + the guard, the program's moat-and-story"
-  },
-  {
-   "it": "i219",
-   "role": "builder",
-   "ts": "2026-07-12T02:44:38Z",
-   "text": "MASTER P0.1 \u2014 the agent contract & manifest, the spine of Stage 0."
-  },
-  {
-   "it": "i218",
-   "role": "auditor",
-   "ts": "2026-07-12T02:31:37Z",
-   "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
   }
  ],
  "journal": [
   {
-   "it": "i149",
-   "role": "builder",
-   "ts": "2026-07-06T04:42:00Z",
-   "text": "recorded-demo pipeline (#12) \u2014 monthly/dispatch workflow records headless"
-  },
-  {
-   "it": "i150",
-   "role": "builder",
-   "ts": "2026-07-06T04:50:00Z",
-   "text": "go-live assist pack (#13) \u2014 tools/preflight.py: read-only readiness pass"
-  },
-  {
-   "it": "i151",
-   "role": "auditor",
-   "ts": "2026-07-06T04:58:00Z",
-   "text": "audit-004 filed \u2014 v9 slate 13/13 lawful (9 releases under version law, \u00b7 audit-004 filed"
-  },
-  {
-   "it": "i217",
-   "role": "designer",
-   "ts": "2026-07-08T05:41:06Z",
-   "text": "operator-directed redesign of the living window for the first-time visitor"
-  },
-  {
-   "it": "i218",
-   "role": "auditor",
-   "ts": "2026-07-12T02:31:37Z",
-   "text": "operator-directed adoption of MASTER.md (ADR-026) \u2014 the consolidation of"
-  },
-  {
    "it": "i219",
    "role": "builder",
    "ts": "2026-07-12T02:44:38Z",
@@ -138,6 +108,36 @@
    "role": "builder",
    "ts": "2026-07-12T03:12:04Z",
    "text": "MASTER P0.7 \u2014 the chief-of-staff orchestrator, Stage 0's keystone"
+  },
+  {
+   "it": "i226",
+   "role": "growth",
+   "ts": "2026-07-12T03:18:50Z",
+   "text": "MASTER GAP-A \u2014 the public quality number, the program's highest-priority"
+  },
+  {
+   "it": "i227",
+   "role": "growth",
+   "ts": "2026-07-12T03:21:58Z",
+   "text": "MASTER GAP-A2 \u2014 the live dashboard as the return engine. Added the"
+  },
+  {
+   "it": "i228",
+   "role": "growth",
+   "ts": "2026-07-12T03:24:59Z",
+   "text": "MASTER GAP-A3 \u2014 the proof artifact. tools/replay.py generates"
+  },
+  {
+   "it": "i229",
+   "role": "designer",
+   "ts": "2026-07-12T03:27:00Z",
+   "text": "MASTER GAP-A4 \u2014 the README first screen, written BY HAND per the"
+  },
+  {
+   "it": "i230",
+   "role": "growth",
+   "ts": "2026-07-12T03:28:56Z",
+   "text": "MASTER GAP-B \u2014 the ecosystem publish kit, constitutionally clean."
   }
  ],
  "records": [
@@ -1112,6 +1112,17 @@
   "idea_votes_total": 0,
   "field_reports": 0,
   "open_alarms": 1
+ },
+ "quality": {
+  "plugins_shipped": 10,
+  "features_shipped": 26,
+  "qa_first_try_pct": 86,
+  "qa_graded": 36,
+  "qa_no_log": 0,
+  "bounces_total": 5,
+  "iterations": 231,
+  "ci_shifts": 1,
+  "api_spend_usd": 0
  },
  "votes": [
   {
@@ -2531,7 +2542,7 @@
   },
   {
    "d": "2026-07-12",
-   "n": 8
+   "n": 13
   }
  ],
  "categories": [

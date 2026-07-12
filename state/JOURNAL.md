@@ -2326,3 +2326,130 @@ Entry template (copy exactly; newest at the bottom):
 - notes: "single attributed commit" (§14) interpreted as one WRITER
   serializing per-changeset attributed commits — per-agent attribution (P0.3)
   and batch-level serialization both hold; noted for the record.
+
+## i226 — growth — 2026-07-12T03:18:50Z
+- did: MASTER GAP-A — the public quality number, the program's highest-priority
+  gap ("without a number, autonomous reads as unverified"). build_quality() in
+  tools/build.py (ADR-031-authorized template/metrics work) computes ONLY from
+  substantiated sources: shipped = published kind:plugin records (10, ==
+  marketplace); first-try = clean pass through QA AND review — the first draft
+  counted TEST VERDICTs only and read 100%/0 bounces, which contradicted known
+  history; REVIEW: bounced lines now disqualify, giving the honest 86% with 5
+  bounces displayed (the bounce count IS the anti-slop proof — gates that
+  visibly block); iterations from the journal (226); CI shifts + spend from
+  the ledger (1 run · $0 API, subscription mode). Lands on the hero stat row
+  ("passed QA first try") and as a shields endpoint at site/quality.json.
+- line: n/a (ops program; no plugin moved).
+- files: tools/build.py (build_quality + stat cell + data.json quality),
+  site/* (regenerated incl. quality.json), foundry/tests/_tools/quality.test.sh
+  (3 cases), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: suite green — real-repo substantiation (shipped==marketplace,
+  bounces_total ≥ 5 pinned: append-only history means bounces never vanish),
+  shields schema valid, fixture semantics (a review bounce → 50%). Full gates
+  at commit.
+- next-suggestion: GAP-A2 (elevate the live feed) — the number now exists to
+  headline it.
+- notes: definition pinned in the docstring; changing it is a template-law
+  change (ADR first). 86% > a fake 100% — the skeptic-converter is the bounce.
+
+## i227 — growth — 2026-07-12T03:21:58Z
+- did: MASTER GAP-A2 — the live dashboard as the return engine. Added the
+  qstrip running counter to "Under the hood — the workshop, live": plugins
+  shipped · % first-try · bounced-and-fixed-in-public · iterations · API
+  spend · latest ship w/ version+date — every figure from DATA.quality
+  (records/journal/ledger) and the records list; nothing fabricated.
+  Reconciliation note: MASTER asks for the feed "above the fold", but
+  ADR-025 (operator-directed, later ruling) deliberately demoted telemetry
+  below the conversion funnel — resolved by putting the NUMBER above the fold
+  (the i226 hero stat cell) and the live strip inside the demoted live
+  section. The funnel IA stands.
+- line: n/a (ops program; no plugin moved).
+- files: tools/build.py (qstrip markup + CSS + renderQuality in the pipeline),
+  site/* (regenerated), state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: Chromium render check — qstrip renders the real numbers, stats
+  row shows the 86% cell, zero page errors. Found PRE-EXISTING 320px
+  horizontal overflow (.btn-sm 392px, .card 332px; persists with qstrip
+  removed — not this change) → logged as a P3 designer backlog item; the
+  qstrip itself stays in bounds (overflow-wrap:anywhere). Full gates at
+  commit.
+- next-suggestion: GAP-A3 (the replay proof artifact) — the dashboard now has
+  a number worth animating.
+- notes: one new backlog item this iteration beyond the program item (the
+  overflow P3) — within the ≤3 law.
+
+## i228 — growth — 2026-07-12T03:24:59Z
+- did: MASTER GAP-A3 — the proof artifact. tools/replay.py generates
+  foundry/assets/replay.svg: a 7-frame, 18s SMIL loop replaying the REAL
+  starter-kits production arc — idea → build → QA pass → **REVIEW i89: the
+  gate BLOCKS the bad build** (quoting the actual bounce line) → i90 scoped
+  fix + executable regression → i91 re-test + i92 approval → i93 published
+  v0.1.0. Labeled "REPLAY · real iterations i89–i93 · every line from
+  foundry/records/starter-kits.md · sped up" inside the artifact itself —
+  honesty laws: sped-up truth, never simulation. SMIL, not JS/GIF: animates
+  in GitHub READMEs and every browser, 6KB, deterministic (no clocks — no
+  build churn). build.py ships it to site/replay.svg and embeds it in the
+  live section (lazy, alt-texted); README embed lands with GAP-A4.
+- line: n/a (ops program; no plugin moved).
+- files: tools/{replay.py (new), build.py (copy + embed + css)},
+  foundry/assets/replay.svg (new), site/* (regenerated),
+  foundry/tests/_tools/replay.test.sh (6 cases incl. a record-drift guard:
+  if the quoted bounce ever leaves the record, the suite goes red),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 6/6 — deterministic hash, replay label + citation present,
+  gate-block frame quotes the record verbatim, facts verified against the
+  record, 7 SMIL frames, site copy identical. Chromium: image loads
+  (naturalWidth > 0 after scroll; lazy below the fold), zero page errors.
+- next-suggestion: GAP-A4 — the hand-written README first screen (hook → this
+  replay → quality badge → fork line → org chart).
+- notes: chose SMIL-SVG over GIF deliberately: no recording toolchain in CI,
+  crisp at every width, and the GIF can still be exported from it later if a
+  video surface needs one.
+
+## i229 — designer — 2026-07-12T03:27:00Z
+- did: MASTER GAP-A4 — the README first screen, written BY HAND per the
+  program (the generator stays deferred; this text is too important to
+  automate). New order exactly as specced: hook (the §3 one-liner) → the
+  i228 replay embedded (with the honesty caption: replay of real history,
+  the bounce is the point) → the proof-counter paragraph + badge row
+  (quality.json + badge.json endpoints + window link) → 2-command install →
+  the 1-command fork ("the org pattern is the artifact") → the ORG CHART
+  (operator → constitution/guard → desk → orchestrator → agent tiers →
+  main; the diagram GAP-A4 wanted: the invisible architecture in one image;
+  the old pipeline mermaid further down stays — different diagram, still
+  true) → run-it-yourself. Genesis-era endings replaced with current truth
+  (10 plugins, 5 public bounces, ~226 iterations, tool list incl. the Stage 0
+  gates). Fork + install commands verified against marketplace.json.
+- line: n/a (ops program; no plugin moved).
+- files: README.md (hand-written), state/{PROGRAM.md, BACKLOG.md, STATE.json,
+  JOURNAL.md}.
+- validation: marketplace lists fork-a-foundry + plugin-smith (the two
+  commands work from cold against this repo); badges point at the deployed
+  endpoints; mermaid syntax eyeball-checked against GitHub's flowchart
+  grammar. Full gates at commit.
+- next-suggestion: GAP-B (publish kit) closes Stage 1; then the Stage 1 PR.
+- notes: README stays hand-owned — future edits are deliberate acts, not
+  build outputs (P4.1 generator: deferred, tracked).
+
+## i230 — growth — 2026-07-12T03:28:56Z
+- did: MASTER GAP-B — the ecosystem publish kit, constitutionally clean.
+  Half of GAP-B has been live since genesis: a valid, versioned
+  .claude-plugin/marketplace.json (the validator law) is what passive
+  community indexers crawl. The active half lands to the repo's edge:
+  tools/publish.py generates foundry/SUBMISSIONS.md — a prefilled
+  awesome-claude-code intake link (their issue surface, everything
+  URL-encoded), the Anthropic community-marketplace pointer (the single
+  biggest credibility unlock), a generic copy block, and one blurb per shelf
+  plugin — and queues desk item d-0001 (the REAL desk's first item) for the
+  operator's click. Art. I §1 holds by construction: the tool contains no
+  network machinery at all (the suite greps for it), and the
+  we-don't-spam-maintainers clause is quoted inside the kit itself.
+- line: n/a (ops program; no plugin moved). STAGE 1 COMPLETE.
+- files: tools/publish.py (new), foundry/SUBMISSIONS.md (generated),
+  state/DESK.jsonl (d-0001), foundry/tests/_tools/publish.test.sh (5 cases),
+  state/{PROGRAM.md, BACKLOG.md, STATE.json, JOURNAL.md}.
+- validation: 5/5 — provably offline, all 10 plugins blurbed, prefilled link
+  present, deterministic regen + desk dedup, constitution clause in the kit.
+  Full gates at commit.
+- next-suggestion: land the Stage 1 slate PR, then Stage 2 (table-stakes
+  integrations; ADR-029 owner's-desk ranking + ADR-030 evals ride there).
+- notes: actual clicking is the operator's — by design, forever (Art. I §1).
