@@ -1,5 +1,49 @@
 [
  {
+  "title": "ops-alarm: agent 'tripwire' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/48"
+ },
+ {
+  "title": "ops-alarm: agent 'steer' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/47"
+ },
+ {
+  "title": "ops-alarm: agent 'spec-drift' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/46"
+ },
+ {
+  "title": "ops-alarm: agent 'scout' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/45"
+ },
+ {
+  "title": "ops-alarm: agent 'red-team' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/44"
+ },
+ {
+  "title": "ops-alarm: agent 'quarterly' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/43"
+ },
+ {
+  "title": "ops-alarm: agent 'postmortem' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/42"
+ },
+ {
+  "title": "ops-alarm: agent 'naming' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/41"
+ },
+ {
+  "title": "ops-alarm: agent 'diagnostician' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/40"
+ },
+ {
+  "title": "ops-alarm: agent 'briefing' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/39"
+ },
+ {
+  "title": "ops-alarm: agent 'ask' heartbeat stale",
+  "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/38"
+ },
+ {
   "title": "ops-alarm: workflow 'Run shift' failed",
   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/28"
  }
