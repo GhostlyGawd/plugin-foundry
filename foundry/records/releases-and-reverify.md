@@ -5,7 +5,7 @@ category: workflow
 stage: published
 kind: feature
 version: null
-verified: 2026-07-06
+verified: 2026-07-13
 components: [workflow]
 one_liner: Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.
 tags: [releases, cron, freshness]

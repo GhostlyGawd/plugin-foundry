@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-06
+verified: 2026-07-13
 components: [site, docs]
 one_liner: A shields-style status badge and an embeddable ticker — put the living machine on your own site.
 tags: [distribution, virality]

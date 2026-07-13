@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-13
 components: [site, docs, template]
 one_liner: Forks register as sister foundries; the saga grows a family tree and ideas cross workshop walls.
 tags: [network, forks, federation]

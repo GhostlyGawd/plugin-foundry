@@ -5,7 +5,7 @@ category: workflow
 stage: published
 version: 0.1.3
 always_on_tokens: 88
-verified: 2026-07-06
+verified: 2026-07-13
 components: [skills]
 one_liner: A skill that turns a branch's commits and diff into a reviewer-ready PR description.
 tags: [pull-requests, skills, writing]

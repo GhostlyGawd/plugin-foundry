@@ -6,6 +6,7 @@ stage: published
 version: 0.1.0
 always_on_tokens: 108
 kind: plugin
+verified: 2026-07-13
 components: [skills]
 one_liner: Inventories TODO/FIXME/HACK comments with git-blame age and owners — tech debt as a dated, ranked ledger.
 tags: [tech-debt, todos, reporting]

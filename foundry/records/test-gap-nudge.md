@@ -9,7 +9,7 @@ components: [hooks]
 one_liner: A polite Stop-hook that notices source changes with no matching test changes and says so once.
 tags: [testing, hooks, discipline]
 always_on_tokens: 33
-verified: 2026-07-06
+verified: 2026-07-13
 created: 2026-07-06
 updated: 2026-07-06
 ---
