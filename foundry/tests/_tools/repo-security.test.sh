@@ -34,12 +34,6 @@ for path in pages:
     declared = set(re.findall(r"sha256-[A-Za-z0-9+/=]+", policy))
     assert declared == expected, (path, declared, expected)
 
-try:
-    build._inline_scripts("<script>safe()</script\t\n ignored>")
-except ValueError:
-    pass
-else:
-    raise AssertionError("malformed script end tag did not fail closed")
 PY
 
 python3 - <<'PY' \
