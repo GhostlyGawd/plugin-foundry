@@ -4,7 +4,7 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.2.1
+version: 0.2.2
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-13
@@ -51,6 +51,10 @@ loop runs a green iteration.
   single-writer orchestrator, quota governor, trust fence, auth surface, owner's
   desk, per-agent identity, state validator, heartbeats, and merge-blocking evals.
   A fork boots a governed company, not an ungoverned loop. Version law: 0.1.4 -> 0.2.0.
+- v0.2.2: generated workshops now use the current hosted trust boundary:
+  project-scoped `OPENAI_API_KEY`, a green PR-only Codex dry run, and reviewed
+  removal of `STOP`. Retired hosted Claude OAuth/Anthropic credentials are rejected
+  by the acceptance suite.
 
 ## Test log
 ### Test pass — i0(v4)
@@ -58,6 +62,8 @@ loop runs a green iteration.
 - tier 2: unavailable locally — official --strict validate runs in the QA workflow
 - tier 3: checks 1–2 executed via foundry/tests/fork-a-foundry/structure.test.sh
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
+- v0.2.2 regression: Codex/OpenAI go-live steps present; retired hosted credential
+  names absent; five-host adapter drift and deterministic packages green.
 TEST VERDICT: pass
 
 ## Recipes
@@ -104,3 +110,5 @@ REVIEW: approved
 - v14 P3 (ADR-024): v0.1.4 — the from-spec bootstrap path now points at
   OPERATIONS.md §7–8 (governor & veto, community & fuel), the optional layers a
   hand-built spine forgets (reviewer nit from i8). Docs-only; Tag fork-a-foundry-v0.1.4.
+- 2026-07-17: v0.2.2 aligns fork go-live instructions with the commit-pinned,
+  PR-only Codex automation boundary.

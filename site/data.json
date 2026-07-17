@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T09:05:38.290728+00:00",
+ "generated_at": "2026-07-17T09:12:51.217455+00:00",
  "iteration": 247,
  "phase": "grow",
  "theme": {
@@ -494,7 +494,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.2.1",
+   "version": "0.2.2",
    "components": [
     "skills"
    ],
@@ -1399,7 +1399,7 @@
     "title": "Fork a Foundry",
     "category": "meta",
     "stage": "published",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "components": [
      "skills"
     ],
@@ -2844,34 +2844,34 @@
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.2.1",
+   "version": "0.2.2",
    "skills": true,
    "hooks": false,
    "packages": {
     "claude-code": {
-     "file": "fork-a-foundry-0.2.1-claude-code.zip",
-     "sha256": "69537ca155d1c998d81915d43ed6fd1a49b1de2cf228f6ceada8696b6b430e6b",
-     "bytes": 7010
+     "file": "fork-a-foundry-0.2.2-claude-code.zip",
+     "sha256": "8334e8275152b2775ba861e6b319907d3b6c9b3f98b6df21067c19b86734ca0b",
+     "bytes": 7221
     },
     "codex": {
-     "file": "fork-a-foundry-0.2.1-codex.zip",
-     "sha256": "7fe114cf696de8557af02911d0d3093cf46c9a3067eaea560fe99535d2e78be9",
-     "bytes": 6996
+     "file": "fork-a-foundry-0.2.2-codex.zip",
+     "sha256": "712769c782aa8c3e9c8a56a1c4681ff5ca68de4de52ce92a8272b052a1ece0ef",
+     "bytes": 7206
     },
     "gemini-cli": {
-     "file": "fork-a-foundry-0.2.1-gemini-cli.zip",
-     "sha256": "b5aeabfe7afc29fb818ee224c062ea3b448c3e7bea938bd3a8832873a5dc4931",
-     "bytes": 6829
+     "file": "fork-a-foundry-0.2.2-gemini-cli.zip",
+     "sha256": "6a2b84d177bb16dc3b65949e40df9ac647964b9a9a66f55f4a7c1e3057cf2d2c",
+     "bytes": 7039
     },
     "cursor": {
-     "file": "fork-a-foundry-0.2.1-cursor.zip",
-     "sha256": "c50a7c649e06f4d98e9658a7b466c2bfe1a22e60780dc82fac3e99938f895840",
-     "bytes": 7011
+     "file": "fork-a-foundry-0.2.2-cursor.zip",
+     "sha256": "f843b71fa2b295334177941fc896266556f4974060593b56d915738196cc1498",
+     "bytes": 7221
     },
     "github-copilot": {
-     "file": "fork-a-foundry-0.2.1-github-copilot.zip",
-     "sha256": "6bb9c318c415382adc9d42cc6d2a578da65fe7d10f1db5fe7da682c7a91709f8",
-     "bytes": 6998
+     "file": "fork-a-foundry-0.2.2-github-copilot.zip",
+     "sha256": "30f1d599fc11e41267453b495eff07c171c6a5b0255b41c38494a2b432f099ed",
+     "bytes": 7208
     }
    }
   },

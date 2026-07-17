@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2 — 2026-07-17
+- fix: new foundries now provision a project-scoped `OPENAI_API_KEY`, validate one
+  PR-only Codex shift, and remove `STOP` through review; the retired hosted Claude
+  OAuth/Anthropic credential path is no longer taught.
+
 ## 0.2.1 — 2026-07-17
 - feat: one shared source now produces native packages for Claude Code,
   Codex, Gemini CLI, Cursor, and GitHub Copilot.

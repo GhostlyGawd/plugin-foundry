@@ -17,6 +17,13 @@ for frame in "CONSTITUTION" "orchestrator" "agent contract"; do
 done
 grep -q 'container' "$P/skills/bootstrap/SKILL.md" \
   && echo "ok: sandbox reminder present" || echo "fail: no sandbox reminder"
+if grep -q 'OPENAI_API_KEY' "$P/skills/bootstrap/SKILL.md" \
+  && grep -q 'STOP' "$P/skills/bootstrap/SKILL.md" \
+  && ! grep -qE 'ANTHROPIC_API_KEY|CLAUDE_CODE_OAUTH_TOKEN' "$P/skills/bootstrap/SKILL.md"; then
+  echo "ok: bootstrap teaches the Codex/OpenAI PR-only go-live path"
+else
+  echo "fail: bootstrap auth/go-live path drifted"
+fi
 if command -v claude >/dev/null 2>&1; then
   claude plugin validate "./$P" --strict >/dev/null 2>&1 \
     && echo "ok: official validate --strict" || echo "fail: official validate --strict"
