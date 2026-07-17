@@ -4,17 +4,22 @@ Terse, do-this-now procedures. Each entry is earned by an incident; postmortems 
 `reviews/postmortems/` carry the full story. The postmortem agent (MASTER P5.4)
 appends deltas here.
 
-## CI token rejected / expired  *(PM-001)*
-Symptom: shifts no-op or fail ~3s in; `auth.py probe` classifies an auth failure;
-or `loop.sh` halts with "AUTH FAILURE." The window may show an `ops-alarm`.
+## Hosted Codex API key rejected / missing  *(supersedes PM-001 for Actions)*
+Symptom: the read-only Codex job fails authentication, or the trusted intake job
+reports that `OPENAI_API_KEY` is unavailable.
+
 Do:
-1. On a machine logged into an active Claude subscription: `claude setup-token`.
-2. Update the `CLAUDE_CODE_OAUTH_TOKEN` Actions secret with the **full** value.
-3. Dispatch one shift (mode:pr for a veto window) to confirm it authenticates.
-4. Delete the root `STOP` file to resume the schedule.
-Or migrate to API billing (any of the four triggers in `OPERATIONS.md §9`): set
-`ANTHROPIC_API_KEY`, remove the OAuth secret — no code change (`tools/auth.py` is
-the only auth surface).
+
+1. Create or rotate a project-scoped OpenAI API key with the smallest practical budget.
+2. Update the `OPENAI_API_KEY` Actions secret; never paste the value into an issue,
+   pull request, workflow input, artifact, or log.
+3. Dispatch one shift with `mode:pr` and confirm that the Codex job completes and the
+   keyless landing job opens a validation pull request.
+4. Remove the root `STOP` file in a reviewed pull request only after that dry run is green.
+
+PM-001 remains the historical record of the retired hosted Claude OAuth setup.
+`loop.sh` and `tools/auth.py` are an optional legacy local Claude harness; they are
+not used by hosted Actions and their credentials must never be stored in this repo.
 
 ## Governor / quota halt
 Symptom: `budget.py`/`quota.py` halts a shift; an `ops-alarm` opens.

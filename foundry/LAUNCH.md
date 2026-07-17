@@ -13,7 +13,7 @@ drip does not trend.
 into the copy below — they must match the live badge (`site/quality.json`). Never post a
 number this repo can't substantiate (growth-honesty law). As of this writing the
 substantiated headline is: **10 plugins shipped · 86% passed QA first try · 5 builds
-bounced-and-fixed in public · 236 iterations · $0 API spend** (subscription mode).
+bounced-and-fixed in public · 236 recorded iterations**.
 
 ---
 
@@ -31,14 +31,14 @@ bounced-and-fixed in public · 236 iterations · $0 API spend** (subscription mo
 
 ### Show HN
 **Title (factual, no marketing-speak):**
-> Show HN: An AI-run software company in a repo that ships Claude Code plugins autonomously
+> Show HN: An AI-run software company in a repo that ships cross-host AI plugins
 
 **Body:**
-> plugin-foundry is a GitHub repo that runs itself as a small software company. A headless
-> Claude Code loop invents, builds, tests, reviews, and publishes Claude Code plugins —
-> and the repo *is* the marketplace they ship to. It's governed by a written constitution,
-> a guard that blocks forbidden actions, and a single-writer orchestrator, so it can run
-> unattended without going off the rails.
+> plugin-foundry is a GitHub repo that runs itself as a small software company. A
+> PR-gated Codex workflow invents, builds, tests, reviews, and publishes plugins from one
+> shared source to host-native packages for Codex, Claude Code, Gemini CLI, Cursor, and
+> GitHub Copilot — and the repo *is* the marketplace they ship to. It's governed by a
+> written constitution, a guard that blocks forbidden actions, and a keyless landing job.
 >
 > It shows its work: every plugin has a public "birth certificate" (the full idea → build
 > → QA → review → publish trail), and the headline number is computed only from the repo's
@@ -48,9 +48,10 @@ bounced-and-fixed in public · 236 iterations · $0 API spend** (subscription mo
 >
 > You can fork the whole company in one command (`fork-a-foundry`).
 >
-> Honest limits: it runs on a personal Claude subscription token today, not the API; the
-> plugins are single-job and small; and I'm the human board member, steering by exception.
-> Happy to answer anything.
+> Honest limits: hosted shifts need a project-scoped OpenAI API key and remain deliberately
+> STOP-gated until an operator provisions it and approves a green dry run; the plugins are
+> single-job and small; and I'm the human board member, steering by exception. Happy to
+> answer anything.
 
 **Rules:** reply to *every* comment for the first 2 hours — velocity in the first 60–90 min
 decides the front page. **Never ask for upvotes.** If AI-slop hostility shows up, lead with

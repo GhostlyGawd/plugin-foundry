@@ -8,11 +8,14 @@ reports on certificates, streak heatmap, hall of prospectors & patrons, saga pag
 embeds + badge endpoint, fuel gauge, ops-alarm amber state. Everything rendered is
 substantiated by this repo (dark-pattern law). Stdlib only.
 """
+import base64
+import hashlib
 import html
 import json
 import shutil
 import re
 from datetime import datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -685,7 +688,7 @@ TEMPLATE = """<!DOCTYPE html>
 <footer class="site-foot">
   <div class="wrap">
     <p><b>@@TITLE@@</b> — the workshop that works while you sleep.</p>
-    <p class="foot-links"><a href="#shelf">Plugins</a> · <a href="#how">Install</a> · <a href="#trust">Trust</a> · <a href="saga.html">Saga</a> · <a href="feed.xml">Atom feed</a> · <a href="embed.html">Embed the ticker</a> · <a href="badge.json">Badge endpoint</a></p>
+    <p class="foot-links"><a href="#shelf">Plugins</a> · <a href="#how">Install</a> · <a href="#trust">Trust</a> · <a href="privacy.html">Privacy</a> · <a href="@@SECURITY_URL@@">Security</a> · <a href="saga.html">Saga</a> · <a href="feed.xml">Atom feed</a> · <a href="embed.html">Embed the ticker</a> · <a href="badge.json">Badge endpoint</a></p>
     <p class="foot-fine">Independent community project; product names belong to their respective owners. No analytics or tracking. · Generated <span id="stamp">@@STAMP@@</span> — this page rebuilds every time a green change ships.</p>
   </div>
 </footer>
@@ -1160,19 +1163,6 @@ document.addEventListener('click', ev => {
     setTimeout(() => { delete el.dataset.copied; }, 1400);
   }).catch(() => { /* selection fallback remains */ });
 });
-async function checkOnAir(){
-  if (!DATA.repo || !location.protocol.startsWith('http')) return;
-  try {
-    const r = await fetch('https://api.github.com/repos/' + DATA.repo +
-      '/actions/runs?status=in_progress&per_page=5', {headers:{Accept:'application/vnd.github+json'}});
-    if (!r.ok) return;
-    const runs = (await r.json()).workflow_runs || [];
-    const shift = runs.find(w => /shift/i.test(w.name || ''));
-    if (shift) document.getElementById('lastshift').innerHTML =
-      'ON AIR — <a href="' + shift.html_url + '">watch the shift</a>';
-  } catch (e) { /* the age stamp already tells the truth */ }
-}
-checkOnAir();
 setInterval(() => {
   const ls = document.getElementById('lastshift');
   if (ls) ls.textContent = ago(DATA.generated_at);
@@ -1688,6 +1678,37 @@ moves its stock.</p>
 </div></body></html>""")
 
 
+def build_privacy_page(state):
+    """Static, same-origin privacy disclosure for the public storefront."""
+    title = html.escape(state.get("name") or "Nightshift Foundry")
+    (ROOT / "site" / "privacy.html").write_text(f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title} — privacy</title>
+<style>
+ :root{{--paper:#EFE7D3;--card:#F7F1E1;--ink:#2B2620;--soft:#4A4235;--line:#C9B896;--stamp:#2F5A8F}}
+ @media (prefers-color-scheme:dark){{:root{{--paper:#161310;--card:#211D16;--ink:#ECE1C6;--soft:#C9BB99;--line:#463D2D;--stamp:#8FB0DC}}}}
+ *{{box-sizing:border-box}} body{{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}}
+ main{{max-width:760px;margin:0 auto;padding:54px 22px 80px}} h1{{font-size:clamp(30px,6vw,48px);line-height:1.05}}
+ h2{{font-size:20px;margin-top:34px}} p,li{{color:var(--soft)}} a{{color:var(--stamp)}}
+ .card{{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:24px 0}}
+ code{{font-family:ui-monospace,monospace}} .back{{font-weight:700}}
+</style></head><body><main>
+<p class="back"><a href="index.html">← Back to the Foundry</a></p>
+<h1>Privacy without fine print.</h1>
+<p>The storefront is static and intentionally low-data. It helps you choose and download a plugin without learning who you are.</p>
+<div class="card"><strong>No analytics · no cookies · no accounts · no browser storage · no third-party scripts or remote fonts.</strong></div>
+<h2>What the page does</h2>
+<p>Your host choice lives only in the open page and disappears when it closes. Public catalog refreshes use same-origin <code>data.json</code>. No cross-origin request happens until you follow an external link.</p>
+<h2>Downloads and plugins</h2>
+<p>ZIPs are static, same-origin downloads. The Foundry does not learn which host or plugin you choose. Shipped hooks make no network calls and receive no Foundry credential.</p>
+<h2>What GitHub receives</h2>
+<p>GitHub Pages necessarily receives normal web request data under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's Privacy Statement</a>. This project does not receive or retain Pages access logs.</p>
+<h2>Public contributions</h2>
+<p>Issues and pull requests are public. Never include secrets, private code, customer data, or unnecessary personal information. Report sensitive security matters through <a href="https://github.com/GhostlyGawd/plugin-foundry/security/advisories/new">private vulnerability reporting</a>.</p>
+<p><small>Last updated 2026-07-17 · Full policy: <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/PRIVACY.md">PRIVACY.md</a></small></p>
+</main></body></html>""")
+
+
 def build_sitemap(records, cfg):
     """v12 3.3: sitemap.xml + robots.txt — 39 certificates deserve indexing.
     Emitted only with a configured pages_url (absolute URLs or nothing)."""
@@ -1703,7 +1724,8 @@ def build_sitemap(records, cfg):
     dates = [r.get("updated") for r in records if r.get("updated")]
     newest = max(dates) if dates else datetime.now(timezone.utc).strftime("%Y-%m-%d")
     entries = [(u, newest) for u in
-               (f"{base}/", f"{base}/saga.html", f"{base}/queue.html", f"{base}/theater.html")]
+               (f"{base}/", f"{base}/saga.html", f"{base}/queue.html", f"{base}/theater.html",
+                f"{base}/privacy.html")]
     entries += [(f"{base}/p/{r['name']}.html", r.get("updated") or newest)
                 for r in records if r.get("name")]
     body = "".join(
@@ -1749,6 +1771,97 @@ def build_verified_badges(cfg):
 <text x="{lw + rw // 2}" y="14" text-anchor="middle">{html.escape(right)}</text>
 </g></svg>
 """)
+
+
+class _InlineScriptCollector(HTMLParser):
+    """Collect exact inline script bodies without treating HTML as a regexp."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.scripts = []
+        self._chunks = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "script":
+            if self._chunks is not None:
+                raise ValueError("nested script element in generated HTML")
+            self._chunks = []
+
+    def handle_data(self, data):
+        if self._chunks is not None:
+            self._chunks.append(data)
+
+    def handle_entityref(self, name):
+        if self._chunks is not None:
+            self._chunks.append(f"&{name};")
+
+    def handle_charref(self, name):
+        if self._chunks is not None:
+            self._chunks.append(f"&#{name};")
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "script" and self._chunks is not None:
+            self.scripts.append("".join(self._chunks))
+            self._chunks = None
+
+
+def _inline_scripts(page):
+    collector = _InlineScriptCollector()
+    collector.feed(page)
+    collector.close()
+    if collector._chunks is not None:
+        raise ValueError("unclosed script element in generated HTML")
+    return collector.scripts
+
+
+def harden_site_html():
+    """Apply a privacy baseline and hash-pinned script policy to every page.
+
+    GitHub Pages cannot set repository-owned response headers. A CSP meta tag is
+    still useful for script execution, connections, embeds, and object loads;
+    each inline script is authorized by its exact SHA-256 instead of
+    ``unsafe-inline``. Inline CSS remains allowed because the generated site uses
+    style blocks and a small number of style attributes.
+    """
+    count = 0
+    for path in sorted((ROOT / "site").rglob("*.html")):
+        page = path.read_text(encoding="utf-8")
+        if not re.search(r"<head[^>]*>", page, re.I):
+            continue
+        page = re.sub(
+            r'<meta\s+name="referrer"\s+content="[^"]*"\s*/?>\s*',
+            "", page, flags=re.I,
+        )
+        page = re.sub(
+            r'<meta\s+http-equiv="Content-Security-Policy"\s+content="[^"]*"\s*/?>\s*',
+            "", page, flags=re.I,
+        )
+        scripts = _inline_scripts(page)
+        hashes = [
+            "'sha256-" + base64.b64encode(
+                hashlib.sha256(script.encode("utf-8")).digest()
+            ).decode("ascii") + "'"
+            for script in scripts
+        ]
+        script_policy = " ".join(hashes) if hashes else "'none'"
+        policy = (
+            "default-src 'self'; base-uri 'none'; form-action 'none'; "
+            "object-src 'none'; frame-src 'none'; worker-src 'none'; "
+            "connect-src 'self'; img-src 'self' data:; media-src 'self'; "
+            "font-src 'self'; style-src 'self' 'unsafe-inline'; "
+            f"script-src {script_policy}; upgrade-insecure-requests"
+        )
+        meta = (
+            '<meta name="referrer" content="no-referrer">\n'
+            f'<meta http-equiv="Content-Security-Policy" content="{policy}">'
+        )
+        page = re.sub(
+            r"(<head[^>]*>)", lambda match: match.group(1) + "\n" + meta,
+            page, count=1, flags=re.I,
+        )
+        path.write_text(page, encoding="utf-8", newline="\n")
+        count += 1
+    return count
 
 
 def build_badge(records, state):
@@ -1965,6 +2078,8 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
     repo_link = (f'<a href="https://github.com/{html.escape(repo)}">the repo</a>' if repo else "the repo")
     compat_url = (f'https://github.com/{html.escape(repo)}/blob/main/COMPATIBILITY.md'
                   if repo else "#shelf")
+    security_url = (f'https://github.com/{html.escape(repo)}/security/policy'
+                    if repo else "#trust")
     suggest = (f'<a href="https://github.com/{html.escape(repo)}/issues/new?template=idea.yml">'
                f'suggest an idea, free</a>' if repo else "suggesting ideas opens with the repo (free)")
 
@@ -1987,6 +2102,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
             .replace("@@REPO_OR_HINT@@", repo_hint)
             .replace("@@REPO_LINK@@", repo_link)
             .replace("@@COMPAT_URL@@", compat_url)
+            .replace("@@SECURITY_URL@@", security_url)
             .replace("@@SUGGEST@@", suggest)
             .replace("@@MPNAME@@", html.escape(mp_name))
             .replace("@@MP@@", json.dumps(mp_name))
@@ -2062,8 +2178,10 @@ def main():
     build_desk(cfg, state)
     build_feed(records, cfg)
     build_notfound(cfg, mp_name)
+    build_privacy_page(state)
     build_sitemap(records, cfg)
     build_verified_badges(cfg)
+    hardened_pages = harden_site_html()
     # P0.1 (ADR-026): the agent registry is generated, never hand-edited; a
     # manifest that breaks the contract fails the build, same as a bad record.
     from lib import build_agent_registry
@@ -2075,7 +2193,7 @@ def main():
     print(
         "BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + "
         f"{len(records)} certificates + {package_count} host-native packages + "
-        f"{n_agents} agent manifests"
+        f"{n_agents} agent manifests + {hardened_pages} CSP-hardened pages"
     )
 
 

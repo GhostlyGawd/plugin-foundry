@@ -17,7 +17,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib import parse_front_matter          # noqa: E402
 from validate import (                      # noqa: E402 — one law book
-    HOOK_EVENTS, HOOK_TYPES, NAME_RE, SEMVER_RE,
+    HOOK_EVENTS, HOOK_TYPES, NAME_RE, NETWORK_SCRIPT_RE, SEMVER_RE,
+    SENSITIVE_ARTIFACT_RE,
 )
 
 
@@ -26,6 +27,13 @@ def check(pdir):
     errors = []
     if not pdir.is_dir():
         return [f"{pdir}: not a directory"]
+
+    for artifact in sorted(pdir.rglob("*")):
+        rel = artifact.relative_to(pdir).as_posix()
+        if artifact.is_symlink():
+            errors.append(f"{rel}: symlinks are forbidden in shipped plugins")
+        if artifact.is_file() and SENSITIVE_ARTIFACT_RE.search(rel):
+            errors.append(f"{rel}: credential-shaped file must not ship")
 
     manifest_path = pdir / ".claude-plugin" / "plugin.json"
     manifest = None
@@ -108,6 +116,8 @@ def check(pdir):
             first = script.read_text(errors="replace").splitlines()[:1]
             if not first or not first[0].startswith("#!"):
                 errors.append(f"{rel}: missing shebang")
+            if NETWORK_SCRIPT_RE.search(script.read_text(errors="replace")):
+                errors.append(f"{rel}: network-capable code is forbidden in shipped scripts")
 
     return errors
 

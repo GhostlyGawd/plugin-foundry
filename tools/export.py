@@ -39,6 +39,11 @@ MANIFEST_DIRS = {".claude-plugin", ".codex-plugin", ".cursor-plugin", ".gemini-a
 ADAPTER_HOOKS = {source for source, _ in HOST_HOOKS.values()}
 SKIP_NAMES = {".DS_Store", "Thumbs.db"}
 SKIP_PARTS = {"__pycache__"}
+SENSITIVE_SUFFIXES = {".pem", ".key", ".p12", ".pfx", ".jks"}
+SENSITIVE_NAMES = {
+    ".env", "credentials.json", "service-account.json",
+    "id_rsa", "id_dsa", "id_ecdsa", "id_ed25519",
+}
 TEXT_SUFFIXES = {
     ".css", ".html", ".js", ".json", ".md", ".py", ".sh", ".toml",
     ".txt", ".xml", ".yaml", ".yml",
@@ -62,10 +67,20 @@ def shared_files(plugin: Path) -> list[tuple[Path, str]]:
     """Return host-neutral files, excluding generated manifests/hook maps."""
     files: list[tuple[Path, str]] = []
     for path in plugin.rglob("*"):
+        if path.is_symlink():
+            raise SystemExit(
+                f"export: {plugin.name}/{path.relative_to(plugin).as_posix()} is a symlink; "
+                "plugin packages may contain regular files only"
+            )
         if not path.is_file():
             continue
         rel = path.relative_to(plugin)
         rel_posix = rel.as_posix()
+        if path.name in SENSITIVE_NAMES or path.name.startswith(".env.") \
+                or path.suffix.lower() in SENSITIVE_SUFFIXES:
+            raise SystemExit(
+                f"export: refusing credential-shaped file {plugin.name}/{rel_posix}"
+            )
         if path.name in SKIP_NAMES or any(part in SKIP_PARTS for part in rel.parts):
             continue
         if rel.parts[0] in MANIFEST_DIRS or rel_posix in ADAPTER_HOOKS:

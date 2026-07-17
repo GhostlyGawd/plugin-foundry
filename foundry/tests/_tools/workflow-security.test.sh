@@ -69,3 +69,28 @@ for path in sys.argv[1:]:
     assert re.search(r"(?m)^      contents: write$", propose), path
     assert "secrets.OPENAI_API_KEY" not in propose, path
 PY
+
+# 7 — every external action is pinned to an immutable full commit SHA.
+python3 - "$WF" <<'PY' \
+  && echo "ok: every GitHub Action is full-SHA pinned" \
+  || echo "fail: mutable GitHub Action reference remains"
+import pathlib, re, sys
+bad = []
+for path in pathlib.Path(sys.argv[1]).glob("*.yml"):
+    for action, ref in re.findall(r"uses:\s*([^@\s]+)@([^\s#]+)", path.read_text()):
+        if action.startswith("./"):
+            continue
+        if not re.fullmatch(r"[0-9a-f]{40}", ref):
+            bad.append(f"{path.name}: {action}@{ref}")
+assert not bad, bad
+PY
+
+# 8 — code scanning is a least-privilege, pinned, Python-only workflow.
+CODEQL="$WF/codeql.yml"
+if grep -q 'security-events: write' "$CODEQL" \
+  && grep -q 'languages: python' "$CODEQL" \
+  && [ "$(grep -c 'github/codeql-action/.*@7188fc363630916deb702c7fdcf4e481b751f97a' "$CODEQL")" -eq 2 ]; then
+  echo "ok: CodeQL is pinned and least-privilege"
+else
+  echo "fail: CodeQL workflow or permissions drifted"
+fi

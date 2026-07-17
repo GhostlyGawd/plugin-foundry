@@ -6,6 +6,11 @@ preserved. This is **synthesis, not re-auditing**: every item below traces to a 
 report; nothing new is smuggled in. Where reports disagree on priority, it's called out
 and ruled with reasoning.*
 
+> **Historical planning snapshot.** Authentication and packaging assumptions in this
+> document were superseded on 2026-07-17: hosted automation now uses a commit-pinned
+> Codex Action with `OPENAI_API_KEY` and a read/model/keyless trust split, while packages
+> are generated for Codex, Claude Code, Gemini CLI, Cursor, and GitHub Copilot.
+
 ---
 
 ## 1 — Sources

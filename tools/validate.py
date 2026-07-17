@@ -40,6 +40,14 @@ HOOK_EVENTS = {
     "Elicitation", "ElicitationResult", "SessionEnd",
 }
 HOOK_TYPES = {"command", "http", "mcp_tool", "prompt", "agent"}
+SENSITIVE_ARTIFACT_RE = re.compile(
+    r"(^|/)(\.env($|\.)|id_(rsa|dsa|ecdsa|ed25519)$|credentials\.json$|"
+    r"service-account\.json$|[^/]+\.(pem|key|p12|pfx|jks)$)", re.I
+)
+NETWORK_SCRIPT_RE = re.compile(
+    r"https?://|\b(curl|wget|nc|ncat|ssh|scp|sftp)\b|"
+    r"\b(urllib|requests)\b|\bfetch\s*\(", re.I
+)
 
 
 from lib import parse_front_matter  # noqa: E402 — one parser, one truth (v10 #8)
@@ -69,6 +77,15 @@ def check_plugin_artifact(name, record, errors):
     if not pdir.is_dir():
         errors.append(f"{label}: directory missing (record stage requires a build)")
         return None
+    # Package inputs must be ordinary, inspectable files. Symlinks can point the
+    # exporter outside the plugin tree; credential-shaped filenames are never a
+    # legitimate shipping surface.
+    for artifact in sorted(pdir.rglob("*")):
+        rel = artifact.relative_to(pdir).as_posix()
+        if artifact.is_symlink():
+            errors.append(f"{label}/{rel}: symlinks are forbidden in shipped plugins")
+        if artifact.is_file() and SENSITIVE_ARTIFACT_RE.search(rel):
+            errors.append(f"{label}/{rel}: credential-shaped file must not ship")
     manifest_path = pdir / ".claude-plugin" / "plugin.json"
     manifest = load_json(manifest_path, errors, f"{label}/.claude-plugin/plugin.json")
     if manifest is None:
@@ -135,6 +152,8 @@ def check_plugin_artifact(name, record, errors):
             first = script.read_text(errors="replace").splitlines()[:1]
             if not first or not first[0].startswith("#!"):
                 errors.append(f"{rel}: missing shebang")
+            if NETWORK_SCRIPT_RE.search(script.read_text(errors="replace")):
+                errors.append(f"{rel}: network-capable code is forbidden in shipped scripts")
     # Never ship process files.
     for junk in ("FOUNDRY.md", "record.md", "TESTLOG.md"):
         if (pdir / junk).exists():

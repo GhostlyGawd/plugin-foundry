@@ -3,6 +3,12 @@
 
 **Status:** consolidated from the full working thread — repo review → feature ideation → gap analysis → 34-item build plan → competitive sweep → customer pain-point dive → corrected 2×2 → inverse feature map → positioning & organic growth.
 
+> **Historical design snapshot.** As of 2026-07-17, hosted automation uses a
+> commit-pinned Codex Action and `OPENAI_API_KEY` behind a read/model/keyless trust
+> split. The Claude OAuth secret was removed, and all ten plugins are packaged from
+> one source for Codex, Claude Code, Gemini CLI, Cursor, and GitHub Copilot. The body
+> below is preserved as the strategy record that informed the current system.
+
 *Repo integration note (i218, ADR-026): delivered by the operator on 2026-07-12 as the
 consolidation of the external strategy thread, and adopted as the program's single source
 of truth. It complements — does not replace — the in-repo brief family (FUNNEL /
