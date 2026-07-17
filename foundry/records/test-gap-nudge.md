@@ -3,7 +3,7 @@ name: test-gap-nudge
 title: Test-Gap Nudge
 category: quality
 stage: published
-version: 0.3.1
+version: 0.3.2
 kind: plugin
 components: [hooks]
 one_liner: A polite Stop-hook that notices source changes with no matching test changes and says so once.
@@ -11,7 +11,7 @@ tags: [testing, hooks, discipline]
 always_on_tokens: 33
 verified: 2026-07-13
 created: 2026-07-06
-updated: 2026-07-06
+updated: 2026-07-17
 ---
 
 # Test-Gap Nudge
@@ -24,9 +24,10 @@ don't fire at that moment; a hook can.
 ## Pitch
 - **Job:** at session stop, if the working tree has modified source files but no
   modified test files, say so — once, briefly, with the file list.
-- **User:** any developer using Claude Code in a repo with a test suite; teams that
+- **User:** any developer using a supported coding agent in a repo with a test suite; teams that
   keep "add tests" rules in CLAUDE.md and watch them get ignored.
-- **Components:** one `Stop` hook (`hooks/hooks.json` + script). Reads
+- **Components:** equivalent stop/after-agent hook maps for every supported host
+  (`hooks/hooks.json` plus generated Codex, Copilot, Gemini, and Cursor maps) and one script. Reads
   `git status --porcelain`, classifies paths by common test conventions
   (`test/`, `tests/`, `spec/`, `*_test.*`, `*.test.*`, `*.spec.*`), prints one
   advisory line when source moved and tests didn't. Exit 0 always — advisory,
@@ -40,7 +41,7 @@ don't fire at that moment; a hook can.
 - **Final name:** `test-gap-nudge` (immutable once published).
 - **Component inventory:**
   - `plugins/test-gap-nudge/.claude-plugin/plugin.json` — manifest, semver 0.1.0.
-  - `plugins/test-gap-nudge/hooks/hooks.json` — one `Stop` entry, no matcher
+  - target hook maps — one stop/after-agent entry, no matcher
     (Stop hooks don't match tools), command `"${CLAUDE_PLUGIN_ROOT}"/scripts/nudge.sh`.
   - `plugins/test-gap-nudge/scripts/nudge.sh` — executable, `#!/usr/bin/env bash`,
     stdlib+git only (no jq, no network).

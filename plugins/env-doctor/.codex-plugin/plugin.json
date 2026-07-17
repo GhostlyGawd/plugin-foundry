@@ -1,0 +1,19 @@
+{
+  "name": "env-doctor",
+  "version": "0.2.1",
+  "description": "Diagnoses your dev environment against what the repo actually requires — versions, PATH shadowing, missing installs — with copyable fixes and zero unasked mutations, plus a fail-open session-start heads-up when a declared runtime version drifts.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "license": "MIT",
+  "keywords": [
+    "environment",
+    "doctor",
+    "diagnostics",
+    "versions"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/codex.json"
+}

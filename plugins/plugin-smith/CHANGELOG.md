@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- feat: scaffold and doctor now create and audit the five-host packaging model,
+  including lifecycle-event adapters and incompatible hook-schema isolation.
+
 ## 0.1.3 — 2026-07-07
 - fix: sharpened the `doctor` skill's description with concrete trigger phrases
   ("doctor my plugin", "audit my plugin against the spec", "why won't my hook

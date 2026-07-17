@@ -1,0 +1,5 @@
+{
+  "name": "test-gap-nudge",
+  "version": "0.3.2",
+  "description": "Notices when a session changed source files but no tests, and says so once — a polite Stop-hook nudge, never a block."
+}

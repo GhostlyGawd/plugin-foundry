@@ -1,7 +1,7 @@
 {
   "name": "dep-bump-brief",
   "displayName": "Dep-Bump Brief",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turns a dependency-bump diff into a plain-language review brief: old to new, semver distance, real usage sites to check, and honest 'changelog not checked' when sources are unreachable.",
   "author": {
     "name": "Nightshift Foundry"
@@ -12,5 +12,8 @@
     "dependabot",
     "review",
     "changelogs"
-  ]
+  ],
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/dep-bump-brief.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "skills": "./skills/"
 }

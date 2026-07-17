@@ -1,0 +1,5 @@
+{
+  "name": "dep-bump-brief",
+  "version": "0.1.2",
+  "description": "Turns a dependency-bump diff into a plain-language review brief: old to new, semver distance, real usage sites to check, and honest 'changelog not checked' when sources are unreachable."
+}

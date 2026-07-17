@@ -1,0 +1,343 @@
+{
+  "schema": "foundry.packages/2",
+  "format": "host-native-plugin-zips",
+  "hosts": [
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "cursor",
+    "github-copilot"
+  ],
+  "plugins": [
+    {
+      "name": "commit-craft",
+      "version": "0.3.3",
+      "skills": true,
+      "hooks": true,
+      "packages": {
+        "claude-code": {
+          "file": "commit-craft-0.3.3-claude-code.zip",
+          "sha256": "cd7b2cf38c873c328b8fd048cdf15996037f26c1e195291ec43b6e62d176a67d",
+          "bytes": 7489
+        },
+        "codex": {
+          "file": "commit-craft-0.3.3-codex.zip",
+          "sha256": "24cf34f6f967146fa33513f36da956e9cacb1eb53179ee473e69715e16805bab",
+          "bytes": 7469
+        },
+        "gemini-cli": {
+          "file": "commit-craft-0.3.3-gemini-cli.zip",
+          "sha256": "a86c1f1d969fc4b18cf1227dee31954b9030f0455f27d92a965efd03424ed72d",
+          "bytes": 7293
+        },
+        "cursor": {
+          "file": "commit-craft-0.3.3-cursor.zip",
+          "sha256": "e4814e7818b79b8b466f2423bb6e16fbc091d7692e5b365d04f543f555a9508f",
+          "bytes": 7465
+        },
+        "github-copilot": {
+          "file": "commit-craft-0.3.3-github-copilot.zip",
+          "sha256": "a3e3b332f0e02bc33a5e4ababfd77624195f45173568e407aed8006b87ba263e",
+          "bytes": 7475
+        }
+      }
+    },
+    {
+      "name": "dep-bump-brief",
+      "version": "0.1.2",
+      "skills": true,
+      "hooks": false,
+      "packages": {
+        "claude-code": {
+          "file": "dep-bump-brief-0.1.2-claude-code.zip",
+          "sha256": "7fb84eb53cf452007783db5774b3c36d6024f53d326bb84ae39f86ac063dfbfb",
+          "bytes": 5044
+        },
+        "codex": {
+          "file": "dep-bump-brief-0.1.2-codex.zip",
+          "sha256": "d565c63c0aa8e0c8ef94ee7c1532918f2038cef272108c22801572b57e04c3c6",
+          "bytes": 5024
+        },
+        "gemini-cli": {
+          "file": "dep-bump-brief-0.1.2-gemini-cli.zip",
+          "sha256": "f5286a138156a94f477631023212e01d16c5264c015e76023cdca1d6294295e2",
+          "bytes": 4856
+        },
+        "cursor": {
+          "file": "dep-bump-brief-0.1.2-cursor.zip",
+          "sha256": "0cd4ac5c2002abe039338ab813e3d0c2771438d183ed6b76c4833650967cb555",
+          "bytes": 5044
+        },
+        "github-copilot": {
+          "file": "dep-bump-brief-0.1.2-github-copilot.zip",
+          "sha256": "a6293e76201d5c61b25caf42073e3419e5a43b1e3d91b078f63a051bbb8fba84",
+          "bytes": 5026
+        }
+      }
+    },
+    {
+      "name": "env-doctor",
+      "version": "0.2.1",
+      "skills": true,
+      "hooks": true,
+      "packages": {
+        "claude-code": {
+          "file": "env-doctor-0.2.1-claude-code.zip",
+          "sha256": "e6d178873f00b091e68cf396a3e4902680518ad0c270ea16e5607593cc0dc1cf",
+          "bytes": 7276
+        },
+        "codex": {
+          "file": "env-doctor-0.2.1-codex.zip",
+          "sha256": "ed81a2c15f1a1bbfa90703ac85c82e814f7e86bbf0c211fcd80749f8766ccfd2",
+          "bytes": 7256
+        },
+        "gemini-cli": {
+          "file": "env-doctor-0.2.1-gemini-cli.zip",
+          "sha256": "5ff5be26b634bb2c1c1c7cb03b5055727181135752790dc4e42e316a8cf65d9c",
+          "bytes": 7072
+        },
+        "cursor": {
+          "file": "env-doctor-0.2.1-cursor.zip",
+          "sha256": "9f10aabc312c5b32324ee0dd66293e041f9a7b4fb7afc4d27fe6f3a27f2a5a00",
+          "bytes": 7265
+        },
+        "github-copilot": {
+          "file": "env-doctor-0.2.1-github-copilot.zip",
+          "sha256": "a934f41f26ad5fdfd56d4da56b092d6d8a08bcf255d6b7d141bfea1cfbf97106",
+          "bytes": 7262
+        }
+      }
+    },
+    {
+      "name": "fork-a-foundry",
+      "version": "0.2.1",
+      "skills": true,
+      "hooks": false,
+      "packages": {
+        "claude-code": {
+          "file": "fork-a-foundry-0.2.1-claude-code.zip",
+          "sha256": "3f5c3dc80991913be98dd78fa45bf926e443440e3c74bb26cf24d6eb1222b9f6",
+          "bytes": 7052
+        },
+        "codex": {
+          "file": "fork-a-foundry-0.2.1-codex.zip",
+          "sha256": "73f323c8c26b17410b7de52aa626bc3678b6387f75d844c25a9a321e46727388",
+          "bytes": 7038
+        },
+        "gemini-cli": {
+          "file": "fork-a-foundry-0.2.1-gemini-cli.zip",
+          "sha256": "5c2f9eca9cbab895a4679b4aac91731c30a1ddfbe89ba3c1453a42ad6841ec94",
+          "bytes": 6871
+        },
+        "cursor": {
+          "file": "fork-a-foundry-0.2.1-cursor.zip",
+          "sha256": "25551dc8ac3e7589272cb370af8e8ea2b5da018f50b4b508d3970e1ca4403dd7",
+          "bytes": 7053
+        },
+        "github-copilot": {
+          "file": "fork-a-foundry-0.2.1-github-copilot.zip",
+          "sha256": "1f335e00162b53d0317bf2fff384cfb02ac30079bb9a480717d120b5190e1647",
+          "bytes": 7040
+        }
+      }
+    },
+    {
+      "name": "night-clerk",
+      "version": "0.2.8",
+      "skills": true,
+      "hooks": false,
+      "packages": {
+        "claude-code": {
+          "file": "night-clerk-0.2.8-claude-code.zip",
+          "sha256": "cf5f91e363fe13ce47e30ebe08de01bd3d0b4aba95db4a8035d609410d44388f",
+          "bytes": 8730
+        },
+        "codex": {
+          "file": "night-clerk-0.2.8-codex.zip",
+          "sha256": "6a00bd9c82af548f2cbeadf9ead88921ec083f0baef3bf730299e7d4388c9a51",
+          "bytes": 8715
+        },
+        "gemini-cli": {
+          "file": "night-clerk-0.2.8-gemini-cli.zip",
+          "sha256": "21222496081827932fb04bc648b45285da6ba2c75561cd0e1b2956bc1d5cc872",
+          "bytes": 8552
+        },
+        "cursor": {
+          "file": "night-clerk-0.2.8-cursor.zip",
+          "sha256": "2d9d259291768b368509653cf261985c21f3433f5ec19e245b879be988d788b7",
+          "bytes": 8730
+        },
+        "github-copilot": {
+          "file": "night-clerk-0.2.8-github-copilot.zip",
+          "sha256": "d46af4afb70364763169063da46d614bcdd9b26baaa22715e27cf3191a7a12ff",
+          "bytes": 8717
+        }
+      }
+    },
+    {
+      "name": "plugin-smith",
+      "version": "0.1.4",
+      "skills": true,
+      "hooks": false,
+      "packages": {
+        "claude-code": {
+          "file": "plugin-smith-0.1.4-claude-code.zip",
+          "sha256": "ca07ca8a428fd9006199198233eb524dd7c30f0dcf9c22c31023629d8d423171",
+          "bytes": 7541
+        },
+        "codex": {
+          "file": "plugin-smith-0.1.4-codex.zip",
+          "sha256": "d58d547841c27c3d8177b11412537706ddb2d8c0ede7f1fd9fa8834a1e8e3072",
+          "bytes": 7525
+        },
+        "gemini-cli": {
+          "file": "plugin-smith-0.1.4-gemini-cli.zip",
+          "sha256": "6ff783ee9c81d47bb1544b6b758506918d473358af767fad46e89c8b42dfb332",
+          "bytes": 7352
+        },
+        "cursor": {
+          "file": "plugin-smith-0.1.4-cursor.zip",
+          "sha256": "1fa43d19a2f44052acd557a93fd6aa68ac184b3c10f845ec9a9d68f98bfe6eb8",
+          "bytes": 7541
+        },
+        "github-copilot": {
+          "file": "plugin-smith-0.1.4-github-copilot.zip",
+          "sha256": "7a1f33e68faa80bd637f5eb82a5dcaf3a56b9dd6a7899a3e30e2cf84765e3f46",
+          "bytes": 7527
+        }
+      }
+    },
+    {
+      "name": "pr-narrator",
+      "version": "0.1.4",
+      "skills": true,
+      "hooks": false,
+      "packages": {
+        "claude-code": {
+          "file": "pr-narrator-0.1.4-claude-code.zip",
+          "sha256": "00849688a7913a0b63f771dbfcd124b7d1ae91181b73bc5b2c9ad06ae814c3f8",
+          "bytes": 4624
+        },
+        "codex": {
+          "file": "pr-narrator-0.1.4-codex.zip",
+          "sha256": "83c09e3136b471a6bccaefd3e1b722aa831bf64756f26f633db7280985086570",
+          "bytes": 4609
+        },
+        "gemini-cli": {
+          "file": "pr-narrator-0.1.4-gemini-cli.zip",
+          "sha256": "f8cb927cfae5fb7f7a150353d0c5444da7ecdec198087b93796e21c5dc013950",
+          "bytes": 4444
+        },
+        "cursor": {
+          "file": "pr-narrator-0.1.4-cursor.zip",
+          "sha256": "4d7143a358969096bb7c1e995117a157e21b95f48d489a0ea563abe68d2dea8e",
+          "bytes": 4625
+        },
+        "github-copilot": {
+          "file": "pr-narrator-0.1.4-github-copilot.zip",
+          "sha256": "cc0e6bddb388a7d7ab40e33c8bd2d8f6fc0e971ea08711ac17b24265a672f892",
+          "bytes": 4611
+        }
+      }
+    },
+    {
+      "name": "session-recap",
+      "version": "0.2.1",
+      "skills": true,
+      "hooks": true,
+      "packages": {
+        "claude-code": {
+          "file": "session-recap-0.2.1-claude-code.zip",
+          "sha256": "b90e4b571051abba703d7e5ea009d3d077462ef9a379cbd55e2b5f46202f89ba",
+          "bytes": 7486
+        },
+        "codex": {
+          "file": "session-recap-0.2.1-codex.zip",
+          "sha256": "d51a02cc93ad479b29d06739d51633c8bbb1442dd932f5266e2f40815fce58bc",
+          "bytes": 7466
+        },
+        "gemini-cli": {
+          "file": "session-recap-0.2.1-gemini-cli.zip",
+          "sha256": "4c8fbd02a648fca50e7ba1fdb3aa2ab38d3359b9ca8906ec428805907e6acf41",
+          "bytes": 7294
+        },
+        "cursor": {
+          "file": "session-recap-0.2.1-cursor.zip",
+          "sha256": "9cb1722f9aabec828864b24e7c9e469d88d18f62599cb94ce6458b08f3de679e",
+          "bytes": 7475
+        },
+        "github-copilot": {
+          "file": "session-recap-0.2.1-github-copilot.zip",
+          "sha256": "425cebb526f9c096dc62b07bb97a19f07c34dd991f9cd98e50fc421cab84f668",
+          "bytes": 7472
+        }
+      }
+    },
+    {
+      "name": "test-gap-nudge",
+      "version": "0.3.2",
+      "skills": false,
+      "hooks": true,
+      "packages": {
+        "claude-code": {
+          "file": "test-gap-nudge-0.3.2-claude-code.zip",
+          "sha256": "b8336c1258b64bbccacc7d91ca2a92c1927f867a2344ac38444a2c0c892d550d",
+          "bytes": 7206
+        },
+        "codex": {
+          "file": "test-gap-nudge-0.3.2-codex.zip",
+          "sha256": "3ea33da9c8f88642ee93ad5661b48bfa74f2ae5878829f2b7be444fd98d37825",
+          "bytes": 7182
+        },
+        "gemini-cli": {
+          "file": "test-gap-nudge-0.3.2-gemini-cli.zip",
+          "sha256": "180f91cfd355be705084febafb859753cda44be194371b1b4664af1931d1b708",
+          "bytes": 7016
+        },
+        "cursor": {
+          "file": "test-gap-nudge-0.3.2-cursor.zip",
+          "sha256": "8417688187ca48f082f3c89916c24181af1953d8577a118700096d720cb6f418",
+          "bytes": 7195
+        },
+        "github-copilot": {
+          "file": "test-gap-nudge-0.3.2-github-copilot.zip",
+          "sha256": "fb25839ffb3870339c734f8ba6483a7f412c7ea6edc49c9da519c01e6830c53d",
+          "bytes": 7189
+        }
+      }
+    },
+    {
+      "name": "todo-ledger",
+      "version": "0.1.1",
+      "skills": true,
+      "hooks": false,
+      "packages": {
+        "claude-code": {
+          "file": "todo-ledger-0.1.1-claude-code.zip",
+          "sha256": "a20e467ce2a5e0fa901fd6eddc0fb3c8c706fd3e620eaf344a942e1902c90e19",
+          "bytes": 5131
+        },
+        "codex": {
+          "file": "todo-ledger-0.1.1-codex.zip",
+          "sha256": "10e84740d4605f5a3ac86f47157e0a4b67bde5656a19a4a1d2232221699b1cd9",
+          "bytes": 5112
+        },
+        "gemini-cli": {
+          "file": "todo-ledger-0.1.1-gemini-cli.zip",
+          "sha256": "6187a7ad6676e08b021f017cfc87e3fd54deb3f8263a9fd3bdf493dc44dfe7a1",
+          "bytes": 4951
+        },
+        "cursor": {
+          "file": "todo-ledger-0.1.1-cursor.zip",
+          "sha256": "01f1e539fdb62802c7145389ce402273b0dcf2be20fba2f5887cba42e632a539",
+          "bytes": 5131
+        },
+        "github-copilot": {
+          "file": "todo-ledger-0.1.1-github-copilot.zip",
+          "sha256": "93c635e7dcfdfaadc653f6d275ba1433f121456c7ec9808304bc25a8212c25f3",
+          "bytes": 5114
+        }
+      }
+    }
+  ]
+}

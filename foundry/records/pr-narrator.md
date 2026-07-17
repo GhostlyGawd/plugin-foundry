@@ -3,14 +3,14 @@ name: pr-narrator
 title: PR Narrator
 category: workflow
 stage: published
-version: 0.1.3
+version: 0.1.4
 always_on_tokens: 88
 verified: 2026-07-13
 components: [skills]
 one_liner: A skill that turns a branch's commits and diff into a reviewer-ready PR description.
 tags: [pull-requests, skills, writing]
 created: 2026-07-04
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # PR Narrator
@@ -19,7 +19,7 @@ PR descriptions are either empty or novels; reviewers need the middle.
 
 ## Pitch
 - **Job:** one invocation from branch to honest, skimmable PR description.
-- **User:** anyone opening PRs from Claude Code.
+- **User:** anyone opening PRs from a supported coding agent.
 - **Components:** one agent (`pr-narrator`) with a tight description so Claude
   invokes it when PRs come up; read-only git tools; template: what/why/how-to-review/
   risk notes.

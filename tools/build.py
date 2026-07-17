@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """build.py — regenerates foundry/INDEX.md and the whole living window:
 site/index.html, data.json, p/<name>.html (birth certificates), saga.html,
-embed.html, badge.json, feed.xml.
+embed.html, badge.json, feed.xml, and deterministic host-native plugin ZIPs.
 
 v5 additions (ADR-009/010): token-cost badges, starter kits, idea credits, field
 reports on certificates, streak heatmap, hall of prospectors & patrons, saga page,
@@ -200,8 +200,8 @@ TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@@TITLE@@ — free, tested plugins for Claude Code</title>
-<meta name="description" content="Free Claude Code plugins that give Anthropic's AI coding assistant new habits — clean commits, test nudges, environment checks and more. Built, tested, reviewed, and shipped by an autonomous AI workshop. Install any in two commands.">
+<title>@@TITLE@@ — free, tested plugins for coding agents</title>
+<meta name="description" content="Free plugins for Claude Code, Codex, Gemini CLI, Cursor, and GitHub Copilot — clean commits, test nudges, environment checks, and more. Built, tested, reviewed, and shipped by an autonomous AI workshop.">
 @@OG@@
 <link rel="alternate" type="application/atom+xml" title="ships" href="feed.xml">
 <style>
@@ -1833,7 +1833,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
             .replace("@@OG@@", og_meta(
                 f"{title} — a plugin workshop run entirely by AI",
                 f"{data['counts']['published']} shipped · shift i{data['iteration']} — "
-                "Claude Code plugins built, tested, and published by an autonomous loop.",
+                "Cross-host coding-agent plugins built, tested, and published by an autonomous loop.",
                 (cfg.get("pages_url") or "").rstrip("/"),
                 og_image_url(cfg)))
             .replace("@@ITER@@", str(data["iteration"]).zfill(3))
@@ -1907,6 +1907,15 @@ def main():
     build_notfound(cfg, mp_name)
     build_sitemap(records, cfg)
     build_verified_badges(cfg)
+    package_count = 0
+    # Full foundry builds publish one native package per plugin and host. Minimal gate
+    # fixtures intentionally omit the exporter and skip this product surface.
+    if (ROOT / "tools" / "export.py").is_file() and (ROOT / "plugins").is_dir():
+        from export import build_archives, plugin_names
+        names = plugin_names()
+        if names:
+            packages = build_archives(names, ROOT / "site" / "downloads", clean=True)
+            package_count = sum(len(plugin["packages"]) for plugin in packages)
     # P0.1 (ADR-026): the agent registry is generated, never hand-edited; a
     # manifest that breaks the contract fails the build, same as a bad record.
     from lib import build_agent_registry
@@ -1915,7 +1924,11 @@ def main():
         for e in agent_errors:
             print(f"BUILD: agent contract — {e}")
         raise SystemExit(1)
-    print(f"BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + {len(records)} certificates + {n_agents} agent manifests")
+    print(
+        "BUILD: OK — INDEX.md + index/data/saga/embed/badge/feed + "
+        f"{len(records)} certificates + {package_count} host-native packages + "
+        f"{n_agents} agent manifests"
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,5 @@
+{
+  "name": "commit-craft",
+  "version": "0.3.3",
+  "description": "Conventional-commit discipline for coding agents: a skill that writes great messages and a fail-open guard hook that blocks malformed ones."
+}

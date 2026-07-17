@@ -5,7 +5,9 @@
 set -uo pipefail
 P="${PLUGIN_DIR:-plugins/env-doctor}"
 SCRIPT="$PWD/$P/scripts/session-envcheck.sh"
-HOOKS="$PWD/$P/hooks/hooks.json"
+CLAUDE_HOOKS="$PWD/$P/hooks/hooks.json"
+GEMINI_HOOKS="$PWD/$P/hooks/gemini.json"
+CURSOR_HOOKS="$PWD/$P/hooks/cursor.json"
 WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
 
 mkrepo() { local d="$WORK/$1"; mkdir -p "$d"; git -C "$d" init -q .; echo "$d"; }
@@ -39,13 +41,17 @@ out=$(printf 'not json at all' | bash "$SCRIPT"); rc=$?
 out=$(bash "$SCRIPT" < /dev/null); rc=$?
 [ "$rc" -eq 0 ] && echo "ok: check5b empty stdin exit 0" || echo "fail: check5b — rc=$rc"
 
-# 6 — structural: SessionStart event, quoted plugin root, executable shebang script
+# 6 — structural: equivalent native SessionStart maps, executable script
 if python3 -c "
 import json
-h=json.load(open('$HOOKS'))['hooks']
-assert list(h)==['SessionStart'], 'event'
-cmd=h['SessionStart'][0]['hooks'][0]['command']
-assert '\"\${CLAUDE_PLUGIN_ROOT}' in cmd, 'quoting'
+c=json.load(open('$CLAUDE_HOOKS'))['hooks']
+g=json.load(open('$GEMINI_HOOKS'))['hooks']
+u=json.load(open('$CURSOR_HOOKS'))['hooks']
+assert list(c)==['SessionStart'] and list(g)==['SessionStart'], 'start events'
+assert list(u)==['sessionStart'], 'cursor start event'
+assert '\"\${CLAUDE_PLUGIN_ROOT}' in c['SessionStart'][0]['hooks'][0]['command']
+assert '\"\${extensionPath}' in g['SessionStart'][0]['hooks'][0]['command']
+assert '\"\${CURSOR_PLUGIN_ROOT}' in u['sessionStart'][0]['command']
 " 2>/dev/null && [ -x "$SCRIPT" ] && head -1 "$SCRIPT" | grep -q '^#!'; then
-  echo "ok: check6 hooks.json SessionStart + quoted root + executable shebang"
+  echo "ok: check6 native SessionStart maps + quoted roots + executable shebang"
 else echo "fail: check6 structural"; fi

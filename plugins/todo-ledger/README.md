@@ -8,6 +8,9 @@ like Friday's.
 
 ## Install
 
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
+
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install todo-ledger@foundry

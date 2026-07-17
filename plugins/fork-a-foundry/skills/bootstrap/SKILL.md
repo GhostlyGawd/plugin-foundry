@@ -1,6 +1,6 @@
 ---
 name: bootstrap
-description: Bootstrap a new self-running foundry — a loop-driven Claude Code plugin workshop and marketplace — in a fresh directory. Use when someone wants their own autonomous plugin factory, a fork of this workshop, or a loop-run marketplace.
+description: Bootstrap a new self-running, cross-host coding-agent plugin workshop and marketplace. Use when someone wants an autonomous plugin factory, a fork of this workshop, or a loop-run marketplace for Claude Code, Codex, Gemini CLI, Cursor, or GitHub Copilot.
 ---
 
 # Bootstrap a foundry
@@ -14,14 +14,20 @@ green before you finish.
    then reset its memory: empty `foundry/records/` and `plugins/` (keep
    plugin-smith if they want the tooling), reset `state/STATE.json` to iteration 0 /
    phase bootstrap / name null, fresh JOURNAL genesis entry, empty METRICS/BUDGET
-   ledgers and votes.json, their own `.claude-plugin/marketplace.json` name+owner.
+   ledgers and votes.json, and their own marketplace catalogs for each selected host.
 2. **Scaffold from spec**: recreate the spine by hand. Non-negotiable parts:
    `LOOP.md` (orient → claim role → ONE task → validate gate → record → one commit →
    exit), `charter/` (VISION, ROLES with a default cycle, QUALITY, TESTING,
    SECURITY, GROWTH, BRAND with a Naming Ceremony), `state/` (STATE.json, BACKLOG
    with a bootstrap checklist, append-only JOURNAL and DECISIONS), stage-gated
-   records in `foundry/`, gates in `tools/` (validate + build + qa harness), a
+   records in `foundry/`, gates in `tools/` (adapter generation + validate + build
+   + QA harness), deterministic host-native exporters, a
    `loop.sh` harness with STOP-file, sandbox acknowledgment, and failure cutoff.
+
+Whichever path is chosen, preserve the one-source/five-package model: shared skills
+and scripts, generated Claude Code/Codex/Gemini CLI/Cursor/GitHub Copilot manifests,
+host-native hook event maps, and separate packages where schemas collide. Never
+claim one hook-enabled ZIP is universal across Claude/Open Plugin and Gemini.
    The optional layers a from-spec build tends to forget — the spend governor and
    the human-veto (PR) window, and the community/fuel wiring — are laid out step
    by step in the source foundry's `OPERATIONS.md` §7 (Governor & veto) and §8

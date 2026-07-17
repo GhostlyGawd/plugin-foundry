@@ -1,0 +1,5 @@
+{
+  "name": "env-doctor",
+  "version": "0.2.1",
+  "description": "Diagnoses your dev environment against what the repo actually requires — versions, PATH shadowing, missing installs — with copyable fixes and zero unasked mutations, plus a fail-open session-start heads-up when a declared runtime version drifts."
+}

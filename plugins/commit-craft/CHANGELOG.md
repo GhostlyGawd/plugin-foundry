@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- hooks: equivalent pre-tool hook maps share the existing fail-open guard.
+
 ## 0.3.2 — 2026-07-07
 - fix: the `commit` skill now honours `COMMIT_CRAFT_TYPES` too — it drafts using
   the same allowed-type list the guard hook enforces, so a customized type set no

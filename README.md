@@ -1,7 +1,7 @@
 # Nightshift Foundry
 
-> **An AI-run software company in a repo. It ships real Claude Code plugins while
-> you sleep — and you can fork the whole company.**
+> **An AI-run software company in a repo. It ships portable coding-agent plugins
+> while you sleep — and you can fork the whole company.**
 
 ![foundry quality](https://img.shields.io/endpoint?url=https%3A%2F%2Fghostlygawd.github.io%2Fplugin-foundry%2Fquality.json)
 ![foundry status](https://img.shields.io/endpoint?url=https%3A%2F%2Fghostlygawd.github.io%2Fplugin-foundry%2Fbadge.json)
@@ -20,7 +20,11 @@ plugins shipped · % passed QA first try · builds bounced-and-fixed in public �
 iterations run · spend — live on [the window](https://ghostlygawd.github.io/plugin-foundry/)
 and in the badge above. No number here is typed by hand.
 
-## Install what it builds — two commands
+## Install what it builds — one source, five native packages
+
+Every plugin is maintained once, then packaged with native manifests and
+lifecycle maps for **Claude Code, Codex, Gemini CLI, Cursor, and GitHub Copilot
+CLI**. For Claude Code:
 
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
@@ -28,7 +32,8 @@ and in the badge above. No number here is typed by hand.
 ```
 
 Ten single-job, tested-and-reviewed plugins on the shelf (commits, PRs, TODO debt,
-test gaps, dep-bump briefs…). Every one has a public birth certificate.
+test gaps, dep-bump briefs…). Every one has a public birth certificate and a
+deterministic host-native ZIPs. See [all host install paths](COMPATIBILITY.md).
 
 ## Fork the whole company — one command
 
@@ -69,6 +74,10 @@ identity, and a heartbeat. Untrusted text never reaches a write-capable agent
 schema changes stay **human-ratified, always**.
 
 ## Run the workshop yourself
+
+Hosted shifts use the least-privilege Codex Action path documented in
+`OPERATIONS.md`. The original local loop remains available for supervised Claude
+Code sessions:
 
 ```bash
 npm install -g @anthropic-ai/claude-code   # if needed

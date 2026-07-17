@@ -72,7 +72,7 @@ def render(mp_name, plugins, cfg):
     ]
     body = (f"**Marketplace:** `{add_cmd}`\n"
             f"**Live catalog:** {pages}\n"
-            f"**What it is:** an autonomous Claude Code plugin foundry — the repo "
+            f"**What it is:** an autonomous cross-host coding-agent plugin foundry — the repo "
             f"invents, builds, QAs, and ships single-job plugins on a loop, governed "
             f"by a written constitution and a single-writer orchestrator; every "
             f"plugin has a public birth certificate (tested + reviewed before "
@@ -91,7 +91,7 @@ def render(mp_name, plugins, cfg):
         "```",
         f"Nightshift Foundry — the autonomous software company you can fork.",
         f"An AI-run plugin workshop in a repo: it invents, builds, tests, reviews,",
-        f"and ships Claude Code plugins on a loop — governed by a constitution,",
+        f"and ships portable coding-agent plugins on a loop — governed by a constitution,",
         f"a guard, and a single-writer orchestrator. Every number it shows is",
         f"computed from its own records.",
         f"  {add_cmd}",

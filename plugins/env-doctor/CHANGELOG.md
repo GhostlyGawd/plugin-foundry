@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- hooks: equivalent session-start maps share the existing read-only check.
+
 ## 0.2.0 — 2026-07-07
 - feat: `SessionStart` hook (`scripts/session-envcheck.sh`) — a fast, read-only,
   fail-open check that prints a one-line heads-up when a declared runtime version

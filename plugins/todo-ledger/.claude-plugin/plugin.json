@@ -1,7 +1,7 @@
 {
   "name": "todo-ledger",
   "displayName": "TODO Ledger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Inventories a repo's TODO/FIXME/HACK/XXX comments into a ranked, dated ledger — git-blame age and author per hit, oldest first, with a worst-offenders summary and copyable file:line references.",
   "author": {
     "name": "Nightshift Foundry"
@@ -12,5 +12,8 @@
     "todos",
     "fixme",
     "reporting"
-  ]
+  ],
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/todo-ledger.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "skills": "./skills/"
 }

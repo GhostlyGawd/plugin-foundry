@@ -55,16 +55,19 @@ d=$(mkrepo six); echo x > "$d/README.md"; echo y > "$d/config.json"
 out=$(run "$d" s6); rc=$?
 [ "$rc" -eq 0 ] && [ -z "$out" ] && echo "ok: check6 docs/config-only silent" || echo "fail: check6 — rc=$rc out=$out"
 
-# 7 — structural: Stop event, quoted plugin root, executable script with shebang
-H="$PWD/${PLUGIN_DIR:-plugins/test-gap-nudge}/hooks/hooks.json"
+# 7 — structural: equivalent native stop/after-agent maps, executable script
+HROOT="$PWD/${PLUGIN_DIR:-plugins/test-gap-nudge}/hooks"
 if python3 -c "
 import json,sys
-h=json.load(open('$H'))['hooks']
-assert list(h)==['Stop'], 'event'
-cmd=h['Stop'][0]['hooks'][0]['command']
-assert '\"\${CLAUDE_PLUGIN_ROOT}' in cmd, 'quoting'
+c=json.load(open('$HROOT/hooks.json'))['hooks']
+g=json.load(open('$HROOT/gemini.json'))['hooks']
+u=json.load(open('$HROOT/cursor.json'))['hooks']
+assert list(c)==['Stop'] and list(g)==['AfterAgent'] and list(u)==['stop']
+assert '\"\${CLAUDE_PLUGIN_ROOT}' in c['Stop'][0]['hooks'][0]['command']
+assert '\"\${extensionPath}' in g['AfterAgent'][0]['hooks'][0]['command']
+assert '\"\${CURSOR_PLUGIN_ROOT}' in u['stop'][0]['command']
 " 2>/dev/null && [ -x "$SCRIPT" ] && head -1 "$SCRIPT" | grep -q '^#!'; then
-  echo "ok: check7 hooks.json Stop + quoted root + executable shebang script"
+  echo "ok: check7 native stop maps + quoted roots + executable script"
 else echo "fail: check7 structural"; fi
 
 # 8 — i102 bounce regression: source file inside a brand-new directory still nudges

@@ -1,52 +1,85 @@
 #!/usr/bin/env bash
-# Multi-harness export tests (MASTER GAP-C, ADR-031): the exporter must extract
-# the portable core of a real plugin, name adapter targets for the other
-# harnesses, and NEVER touch the published plugin (names/versions are forever).
+# Native packaging tests: each host gets only the manifest/hook schema it owns;
+# every archive is deterministic and derived without mutating shared source.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
 WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
 
-# 1 — exporting a real plugin yields its portable skills + version
-out=$(cd "$REPO" && python3 tools/export.py commit-craft --out "$WORK/dist")
-p="$WORK/dist/commit-craft/portable.json"
-if [ -f "$p" ] && python3 - "$p" <<'PY'
+# 1 — exporting a plugin yields five versioned archives and a per-host index.
+out=$(cd "$REPO" && python3 tools/export.py commit-craft --out "$WORK/one")
+count=$(find "$WORK/one" -maxdepth 1 -name 'commit-craft-*.zip' | wc -l | tr -d ' ')
+if [ "$count" = 5 ] && python3 - "$WORK/one/index.json" <<'PY'
 import json, sys
 d = json.load(open(sys.argv[1]))
-assert d["plugin"] == "commit-craft" and d["version"], d
-assert d["skills"] and d["skills"][0]["name"] == "commit", d["skills"]
-assert d["skills"][0]["when_to_use"] and d["skills"][0]["body"], "skill core empty"
-print("OK")
+assert d["schema"] == "foundry.packages/2", d
+assert d["format"] == "host-native-plugin-zips", d
+assert len(d["hosts"]) == 5 and len(d["plugins"]) == 1, d
+p = d["plugins"][0]
+assert p["name"] == "commit-craft", p
+assert set(p["packages"]) == set(d["hosts"]), p
 PY
-then echo "ok: exports the portable skill core + version"
-else echo "fail: export core — $out"; fi
+then echo "ok: exports five indexed host-native packages"
+else echo "fail: native export — $out"; fi
 
-# 2 — adapters for the non-Claude harnesses are named
-python3 - "$p" <<'PY' && echo "ok: adapter targets named (codex, cursor, gemini-cli)" || echo "fail: adapters"
-import json, sys
-a = json.load(open(sys.argv[1]))["notes"]["adapters"]
-assert {"codex", "cursor", "gemini-cli"} <= set(a), a
-print("", end="")
+# 2 — each archive carries only its native manifest/hook map plus shared code.
+python3 - "$WORK/one" <<'PY' \
+  && echo "ok: archives isolate native manifests and share behavior" \
+  || echo "fail: native archive inventory"
+import glob, json, os, sys, zipfile
+
+out = sys.argv[1]
+root = "commit-craft/"
+expectations = {
+    "claude-code": (".claude-plugin/plugin.json", "hooks/hooks.json", "PreToolUse", "CLAUDE_PLUGIN_ROOT"),
+    "codex": (".codex-plugin/plugin.json", "hooks/codex.json", "PreToolUse", "PLUGIN_ROOT"),
+    "gemini-cli": ("gemini-extension.json", "hooks/hooks.json", "BeforeTool", "extensionPath"),
+    "cursor": (".cursor-plugin/plugin.json", "hooks/cursor.json", "preToolUse", "CURSOR_PLUGIN_ROOT"),
+    "github-copilot": (".github/plugin/plugin.json", "hooks/copilot.json", "PreToolUse", "PLUGIN_ROOT"),
+}
+all_manifests = {
+    ".claude-plugin/plugin.json", ".codex-plugin/plugin.json",
+    ".cursor-plugin/plugin.json", ".github/plugin/plugin.json",
+    "gemini-extension.json",
+}
+for host, (manifest, hooks, event, root_var) in expectations.items():
+    matches = glob.glob(os.path.join(out, f"commit-craft-*-{host}.zip"))
+    assert len(matches) == 1, (host, matches)
+    with zipfile.ZipFile(matches[0]) as archive:
+        names = set(archive.namelist())
+        assert root + manifest in names, (host, manifest)
+        assert root + "skills/commit/SKILL.md" in names, host
+        assert root + "scripts/check-commit-msg.sh" in names, host
+        assert {root + item for item in all_manifests - {manifest}}.isdisjoint(names), host
+        hook_data = json.loads(archive.read(root + hooks))
+        assert event in hook_data["hooks"], (host, hook_data)
+        assert root_var in archive.read(root + hooks).decode(), host
 PY
 
-# 3 — the published plugin is UNTOUCHED (no Version-law churn)
-before=$(cd "$REPO" && git status --porcelain plugins/commit-craft | wc -l)
-(cd "$REPO" && python3 tools/export.py commit-craft --out "$WORK/dist2" >/dev/null)
-after=$(cd "$REPO" && git status --porcelain plugins/commit-craft | wc -l)
-[ "$before" = "$after" ] && echo "ok: export never touches the published plugin" \
+# 3 — checked-in manifests, hook adapters, and marketplaces cannot drift.
+(cd "$REPO" && python3 tools/adapters.py --check >/dev/null) \
+  && echo "ok: cross-host adapters are in sync" \
+  || echo "fail: adapter drift"
+
+# 4 — export is read-only with respect to the published plugin source.
+before=$(cd "$REPO" && git status --porcelain plugins/commit-craft | sort)
+(cd "$REPO" && python3 tools/export.py commit-craft --out "$WORK/two" >/dev/null)
+after=$(cd "$REPO" && git status --porcelain plugins/commit-craft | sort)
+[ "$before" = "$after" ] && echo "ok: export never mutates the plugin source" \
                          || echo "fail: export mutated the plugin"
 
-# 4 — deterministic output
-a=$(python3 -c "import json;print(json.load(open('$WORK/dist/commit-craft/portable.json')))")
-b=$(python3 -c "import json;print(json.load(open('$WORK/dist2/commit-craft/portable.json')))")
-[ "$a" = "$b" ] && echo "ok: export deterministic" || echo "fail: export churns"
-
-# 5 — a plugin with hooks carries the harness-specific caveat (don't auto-port)
-python3 - "$p" <<'PY' && echo "ok: hooks flagged harness-specific (no blind auto-port)" || echo "fail: hook caveat"
-import json, sys
-n = json.load(open(sys.argv[1]))["notes"]["hooks"]
-assert "harness-specific" in n, n
-print("", end="")
+# 5 — identical source produces byte-identical archives for every host.
+python3 - "$WORK/one" "$WORK/two" <<'PY' \
+  && echo "ok: host-native archives are deterministic" \
+  || echo "fail: archive churns"
+import glob, hashlib, os, sys
+def hashes(directory):
+    return {
+        os.path.basename(path): hashlib.sha256(open(path, "rb").read()).hexdigest()
+        for path in glob.glob(os.path.join(directory, "*.zip"))
+    }
+assert hashes(sys.argv[1]) == hashes(sys.argv[2])
 PY
 
-# 6 — dist/ is gitignored (derived artifact, not committed)
-grep -q "^dist/" "$REPO/.gitignore" && echo "ok: dist/ gitignored" || echo "fail: dist/ not ignored"
+# 6 — scratch exports remain ignored; public build artifacts live under site/.
+grep -q "^dist/" "$REPO/.gitignore" && echo "ok: dist/ remains gitignored" \
+                                      || echo "fail: dist/ not ignored"

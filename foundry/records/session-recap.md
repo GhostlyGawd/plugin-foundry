@@ -3,14 +3,14 @@ name: session-recap
 title: Session Recap
 category: context
 stage: published
-version: 0.2.0
+version: 0.2.1
 always_on_tokens: 115
 verified: 2026-07-13
 components: [skills, hooks]
 one_liner: Writes a structured recap when a session ends and recalls it when the next one starts.
 tags: [memory, sessions, continuity]
 created: 2026-07-04
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # Session Recap

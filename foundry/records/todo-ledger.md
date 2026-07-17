@@ -3,7 +3,7 @@ name: todo-ledger
 title: TODO Ledger
 category: quality
 stage: published
-version: 0.1.0
+version: 0.1.1
 always_on_tokens: 108
 kind: plugin
 verified: 2026-07-13
@@ -11,7 +11,7 @@ components: [skills]
 one_liner: Inventories TODO/FIXME/HACK comments with git-blame age and owners — tech debt as a dated, ranked ledger.
 tags: [tech-debt, todos, reporting]
 created: 2026-07-06
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # TODO Ledger

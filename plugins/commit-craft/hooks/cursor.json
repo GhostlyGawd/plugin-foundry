@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}\"/scripts/check-commit-msg.sh"
+      }
+    ]
+  }
+}

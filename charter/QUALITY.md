@@ -9,22 +9,22 @@ code on their machine, and speaks for this marketplace. Judge accordingly.
    plugin that "also" does things is two plugins or half of one.
 2. **Prompt craft.** Skill/agent bodies are excellent prompts: concrete procedure,
    inputs/outputs named, edge behavior specified. Descriptions are the auto-invoke
-   trigger — write them so Claude fires the component exactly when it should and
-   never otherwise.
+   trigger — write them so the installed host fires the component exactly when it
+   should and never otherwise.
 3. **Token thrift.** Budget: ≤ ~300 always-on tokens per plugin (descriptions +
    listing text) unless an ADR grants more. Heavy reference material goes in skill
    supporting files (loaded on invoke), never in descriptions. Check with
    `claude plugin details <name>` when the CLI is available.
 4. **Hook safety.** Read-only or reversible effects; narrow matchers (`Write|Edit`,
    not `.*`); graceful failure (a broken hook must never brick a session); quoted
-   `"${CLAUDE_PLUGIN_ROOT}"`; executable scripts with shebangs; no network calls or
-   writes outside the project without loud documentation.
+   target-native plugin-root variables; executable scripts with shebangs; no network
+   calls or writes outside the project without loud documentation.
 5. **Docs truth.** README's install and usage lines work as pasted; examples are
    real; CHANGELOG tells the version story; the record's spec matches what shipped.
-6. **Structural correctness.** Official layout exactly: components at plugin root,
-   only `plugin.json` in `.claude-plugin/`, kebab-case name, relative `./` paths,
-   semver when versioned. Passes `tools/validate.py` and
-   `claude plugin validate --strict`.
+6. **Structural correctness.** Official layouts exactly: components at plugin root;
+   native Claude, Codex, Cursor, Copilot, and Gemini manifests; target-native hook
+   maps; kebab-case name; relative `./` paths; semver in sync. Passes
+   `tools/adapters.py --check`, `tools/validate.py`, and Claude's strict validator.
 
 ## Gate bars
 - **→ rc:** QA Test log with `TEST VERDICT: pass`; axes 4 and 6 at 5 (safety and

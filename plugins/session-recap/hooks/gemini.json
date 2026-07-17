@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${extensionPath}\"/scripts/recap-recall.sh"
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${extensionPath}\"/scripts/recap-nudge.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

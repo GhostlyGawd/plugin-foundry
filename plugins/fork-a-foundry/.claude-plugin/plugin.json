@@ -1,7 +1,7 @@
 {
   "name": "fork-a-foundry",
   "displayName": "Fork a Foundry",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Bootstrap your own self-running plugin workshop AND the org-pattern framework that governs it — constitution, guard, single-writer orchestrator, the whole company in a box.",
   "author": {
     "name": "Nightshift Foundry"
@@ -12,5 +12,8 @@
     "bootstrap",
     "autonomous",
     "marketplace"
-  ]
+  ],
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "skills": "./skills/"
 }

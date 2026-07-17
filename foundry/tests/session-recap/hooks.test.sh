@@ -7,7 +7,9 @@ set -uo pipefail
 P="${PLUGIN_DIR:-plugins/session-recap}"
 NUDGE="$PWD/$P/scripts/recap-nudge.sh"
 RECALL="$PWD/$P/scripts/recap-recall.sh"
-HOOKS="$PWD/$P/hooks/hooks.json"
+CLAUDE_HOOKS="$PWD/$P/hooks/hooks.json"
+GEMINI_HOOKS="$PWD/$P/hooks/gemini.json"
+CURSOR_HOOKS="$PWD/$P/hooks/cursor.json"
 WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
 export TMPDIR="$WORK/tmp"; mkdir -p "$TMPDIR"
 
@@ -53,15 +55,19 @@ out=$( printf 'not json' | bash "$RECALL" ); rc1=$?
 out2=$( printf 'not json' | bash "$NUDGE" < /dev/null ); rc2=$?
 { [ "$rc1" -eq 0 ] && [ "$rc2" -eq 0 ]; } && echo "ok: check7b garbage stdin exit 0 (both hooks)" || echo "fail: check7b — recall=$rc1 nudge=$rc2"
 
-# 8 — structural: SessionStart + Stop events, quoted root, executable shebang scripts
+# 8 — structural: equivalent native lifecycle maps and executable scripts
 if python3 -c "
 import json
-h=json.load(open('$HOOKS'))['hooks']
-assert set(h)=={'SessionStart','Stop'}, 'events'
-for ev in ('SessionStart','Stop'):
-    cmd=h[ev][0]['hooks'][0]['command']
-    assert '\"\${CLAUDE_PLUGIN_ROOT}' in cmd, 'quoting '+ev
+c=json.load(open('$CLAUDE_HOOKS'))['hooks']
+g=json.load(open('$GEMINI_HOOKS'))['hooks']
+u=json.load(open('$CURSOR_HOOKS'))['hooks']
+assert set(c)=={'SessionStart','Stop'}, 'open plugin events'
+assert set(g)=={'SessionStart','AfterAgent'}, 'gemini events'
+assert set(u)=={'sessionStart','stop'}, 'cursor events'
+assert all('\"\${CLAUDE_PLUGIN_ROOT}' in x[0]['hooks'][0]['command'] for x in c.values())
+assert all('\"\${extensionPath}' in x[0]['hooks'][0]['command'] for x in g.values())
+assert all('\"\${CURSOR_PLUGIN_ROOT}' in x[0]['command'] for x in u.values())
 " 2>/dev/null && [ -x "$NUDGE" ] && [ -x "$RECALL" ] \
    && head -1 "$NUDGE" | grep -q '^#!' && head -1 "$RECALL" | grep -q '^#!'; then
-  echo "ok: check8 hooks.json events + quoted roots + executable shebang scripts"
+  echo "ok: check8 native lifecycle maps + quoted roots + executable scripts"
 else echo "fail: check8 structural"; fi

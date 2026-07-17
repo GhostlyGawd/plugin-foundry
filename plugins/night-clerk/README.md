@@ -5,11 +5,14 @@ The marketplace's front desk, installed in your terminal. Two skills:
 - `clerk` — ask "what plugin helps with X?" and get up to three real
   recommendations with exact install lines — from a bundled catalog snapshot,
   never from imagination.
-- `whats-new` — ask "are my plugins up to date?" and the clerk compares what
-  `claude plugin list` reports against the shelf versions in the snapshot,
-  handing you `claude plugin update <name>` lines for anything behind.
+- `whats-new` — ask "are my plugins up to date?" and the clerk compares the
+  active host's installed inventory against the shelf snapshot, handing you the
+  native update path for anything behind.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install night-clerk@foundry

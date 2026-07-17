@@ -2,69 +2,76 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ghostlygawd.github.io/plugin-foundry</id>
   <title>foundry — ships</title>
-  <updated>2026-07-17T07:05:38Z</updated>
+  <updated>2026-07-17T07:44:45Z</updated>
   <link href="https://ghostlygawd.github.io/plugin-foundry"/>
   <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html</id>
-    <title>Fork a Foundry v0.2.0 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html"/>
-    <updated>2026-07-12T00:00:00Z</updated>
-    <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
-  </entry>
-  <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html</id>
-    <title>Night Clerk v0.2.7 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html"/>
-    <updated>2026-07-12T00:00:00Z</updated>
-    <summary>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</summary>
-  </entry>
-  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html</id>
-    <title>Commit Craft v0.3.2 — shipped</title>
+    <title>Commit Craft v0.3.3 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
+    <updated>2026-07-17T00:00:00Z</updated>
     <summary>Drafts conventional commits from the staged diff and guards message format at commit time.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/dep-bump-brief.html</id>
-    <title>Dep-Bump Brief v0.1.1 — shipped</title>
+    <title>Dep-Bump Brief v0.1.2 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/dep-bump-brief.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
+    <updated>2026-07-17T00:00:00Z</updated>
     <summary>Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html</id>
-    <title>Env Doctor v0.2.0 — shipped</title>
+    <title>Env Doctor v0.2.1 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/env-doctor.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
+    <updated>2026-07-17T00:00:00Z</updated>
     <summary>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</summary>
   </entry>
   <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html</id>
+    <title>Fork a Foundry v0.2.1 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html"/>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
+  </entry>
+  <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html</id>
+    <title>Night Clerk v0.2.8 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html"/>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <summary>Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.</summary>
+  </entry>
+  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html</id>
-    <title>Plugin Smith v0.1.3 — shipped</title>
+    <title>Plugin Smith v0.1.4 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
-    <summary>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</summary>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <summary>Scaffolds portable coding-agent plugins and audits their host-native packages.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html</id>
-    <title>PR Narrator v0.1.3 — shipped</title>
+    <title>PR Narrator v0.1.4 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
+    <updated>2026-07-17T00:00:00Z</updated>
     <summary>A skill that turns a branch&#x27;s commits and diff into a reviewer-ready PR description.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html</id>
-    <title>Session Recap v0.2.0 — shipped</title>
+    <title>Session Recap v0.2.1 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
+    <updated>2026-07-17T00:00:00Z</updated>
     <summary>Writes a structured recap when a session ends and recalls it when the next one starts.</summary>
   </entry>
   <entry>
+    <id>https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html</id>
+    <title>Test-Gap Nudge v0.3.2 — shipped</title>
+    <link href="https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html"/>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <summary>A polite Stop-hook that notices source changes with no matching test changes and says so once.</summary>
+  </entry>
+  <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/todo-ledger.html</id>
-    <title>TODO Ledger v0.1.0 — shipped</title>
+    <title>TODO Ledger v0.1.1 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/todo-ledger.html"/>
-    <updated>2026-07-07T00:00:00Z</updated>
+    <updated>2026-07-17T00:00:00Z</updated>
     <summary>Inventories TODO/FIXME/HACK comments with git-blame age and owners — tech debt as a dated, ranked ledger.</summary>
   </entry>
   <entry>
@@ -136,13 +143,6 @@
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/starter-kits.html"/>
     <updated>2026-07-06T00:00:00Z</updated>
     <summary>Curated bundles with one copy-block — cut choice paralysis for first-time installers.</summary>
-  </entry>
-  <entry>
-    <id>https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html</id>
-    <title>Test-Gap Nudge v0.3.1 — shipped</title>
-    <link href="https://ghostlygawd.github.io/plugin-foundry/p/test-gap-nudge.html"/>
-    <updated>2026-07-06T00:00:00Z</updated>
-    <summary>A polite Stop-hook that notices source changes with no matching test changes and says so once.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/token-cost-badges.html</id>

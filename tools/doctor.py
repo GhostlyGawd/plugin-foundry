@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""doctor.py — standalone structural health-check for ONE Claude Code plugin
+"""doctor.py — standalone structural health-check for one coding-agent plugin
 directory (verified-by-foundry, v10 #13). No foundry-repo assumptions: no
 records, no marketplace, no state — point it at any plugin checkout.
 
@@ -75,7 +75,11 @@ def check(pdir):
             if not meta.get(key):
                 errors.append(f"{agent_md.relative_to(pdir)}: frontmatter missing {key!r}")
 
-    hooks_path = pdir / "hooks" / "hooks.json"
+    # Respect the plugin manifest's hook override. Exported native packages can
+    # place a host-specific map at that path without changing shared behavior.
+    hook_ref = manifest.get("hooks") if manifest else None
+    hooks_path = (pdir / hook_ref[2:]) if isinstance(hook_ref, str) \
+        and hook_ref.startswith("./") else pdir / "hooks" / "hooks.json"
     if hooks_path.exists():
         try:
             hooks_cfg = json.loads(hooks_path.read_text())

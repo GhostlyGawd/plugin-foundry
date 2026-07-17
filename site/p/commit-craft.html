@@ -49,7 +49,7 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Commit Craft — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · v0.3.2 · created 2026-07-04 · updated 2026-07-07 · ~88 tok est · verified 2026-07-13</p>
+  <p class="meta">plugin · workflow · v0.3.3 · created 2026-07-04 · updated 2026-07-17 · ~88 tok est · verified 2026-07-13</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Drafts conventional commits from the staged diff and guards message format at commit time.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>PreToolUse · matcher: Bash</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~88 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall commit-craft — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
@@ -61,6 +61,9 @@ staged diff and writes the message properly, and a PreToolUse guard hook that
 blocks malformed `git commit -m` messages with a printed reason.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
@@ -108,7 +111,7 @@ Off by default; behavior is identical with it unset.
 - **Uninstall:** `claude plugin uninstall commit-craft` — removes everything the plugin added
 - **On disk:** nothing, unless `COMMIT_CRAFT_DEBUG=1` is set — then a decision log at `$TMPDIR/commit-craft-debug.log` (see Debugging the guard). Uninstalling removes the guard hook with everything else.
 </pre></details><details><summary>Pitch</summary><pre>- **Job:** every commit conventional, accurate, and effortless.
-- **User:** anyone using Claude Code in a repo with commit standards.
+- **User:** anyone using a supported coding agent in a repo with commit standards.
 - **Components:** one skill (draft the message), one PreToolUse hook (guard the format).
 - **Why a plugin:** it pairs a prompt with an enforcement hook — exactly what plugins
   bundle and CLAUDE.md notes can&#x27;t.</pre></details><details><summary>Spec</summary><pre>- Name: `commit-craft` (forever).
@@ -119,7 +122,8 @@ Off by default; behavior is identical with it unset.
   (feat|fix|docs|refactor|test|chore|perf) and scope from paths; produce
   `type(scope): imperative summary ≤72 chars` + wrapped body explaining why; never
   invent ticket numbers; if nothing is staged, say so and stop.
-- hooks/hooks.json — PreToolUse, matcher `Bash`, type `command`, command
+- hooks/hooks.json — canonical Claude PreToolUse map; generated Codex, Copilot,
+  Gemini, and Cursor maps provide equivalent host-native events and root variables; command
   `&quot;${CLAUDE_PLUGIN_ROOT}&quot;/scripts/check-commit-msg.sh`.
 - scripts/check-commit-msg.sh — reads the hook JSON from stdin; acts ONLY if the
   Bash command is a `git commit` with an inline `-m` message; checks the message

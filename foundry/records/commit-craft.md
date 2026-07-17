@@ -3,14 +3,14 @@ name: commit-craft
 title: Commit Craft
 category: workflow
 stage: published
-version: 0.3.2
+version: 0.3.3
 always_on_tokens: 88
 verified: 2026-07-13
 components: [skills, hooks]
 one_liner: Drafts conventional commits from the staged diff and guards message format at commit time.
 tags: [git, conventional-commits, hooks]
 created: 2026-07-04
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # Commit Craft
@@ -22,7 +22,7 @@ documentation.
 
 ## Pitch
 - **Job:** every commit conventional, accurate, and effortless.
-- **User:** anyone using Claude Code in a repo with commit standards.
+- **User:** anyone using a supported coding agent in a repo with commit standards.
 - **Components:** one skill (draft the message), one PreToolUse hook (guard the format).
 - **Why a plugin:** it pairs a prompt with an enforcement hook — exactly what plugins
   bundle and CLAUDE.md notes can't.
@@ -36,7 +36,8 @@ documentation.
   (feat|fix|docs|refactor|test|chore|perf) and scope from paths; produce
   `type(scope): imperative summary ≤72 chars` + wrapped body explaining why; never
   invent ticket numbers; if nothing is staged, say so and stop.
-- hooks/hooks.json — PreToolUse, matcher `Bash`, type `command`, command
+- hooks/hooks.json — canonical Claude PreToolUse map; generated Codex, Copilot,
+  Gemini, and Cursor maps provide equivalent host-native events and root variables; command
   `"${CLAUDE_PLUGIN_ROOT}"/scripts/check-commit-msg.sh`.
 - scripts/check-commit-msg.sh — reads the hook JSON from stdin; acts ONLY if the
   Bash command is a `git commit` with an inline `-m` message; checks the message

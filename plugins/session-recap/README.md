@@ -5,6 +5,9 @@ One skill, `recap`: ends a working session with a dated, append-only handoff in
 open questions, and checkboxed next steps someone else could pick up cold.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install session-recap@foundry

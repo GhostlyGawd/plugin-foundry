@@ -8,6 +8,17 @@ from lib import parse_front_matter  # one parser, one truth (v10 #8)
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
+
+def installs(name):
+    """Host-native install path; no host inference or command invention at runtime."""
+    return {
+        "claude-code": f"/plugin install {name}@foundry",
+        "codex": f"Install {name} from Nightshift Foundry in the Plugins Directory",
+        "gemini-cli": f"gemini extensions install ./{name}",
+        "cursor": f"Copy {name}/ to ~/.cursor/plugins/local/{name}/ and reload Cursor",
+        "github-copilot": f"copilot plugin install {name}@foundry",
+    }
+
 def main():
     plugins = []
     for p in sorted((ROOT / "foundry" / "records").glob("*.md")):
@@ -20,6 +31,7 @@ def main():
                 "one_liner": m.get("one_liner", ""),
                 "tags": tags,
                 "install": f"/plugin install {m['name']}@foundry",
+                "installs": installs(m["name"]),
             })
     # kits (ADR-016 #8): the clerk may offer a curated bundle when the task maps
     # to one. Published members only — the clerk never recommends vaporware.
@@ -32,7 +44,8 @@ def main():
             if ready:
                 kits.append({"id": k["id"], "name": k.get("name", k["id"]),
                              "desc": k.get("desc", ""),
-                             "install": [f"/plugin install {m}@foundry" for m in ready]})
+                             "install": [f"/plugin install {m}@foundry" for m in ready],
+                             "installs": {m: installs(m) for m in ready}})
     out = {
         "snapshot": datetime.date.today().isoformat(),
         "marketplace": "foundry",
