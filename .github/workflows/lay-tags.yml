@@ -1,8 +1,7 @@
 # Lay pending release tags (ADR-020): sessions can't push tags (branch-scoped
 # proxy), so this dispatch-only workflow recreates the annotated tags listed in
 # state/TAGS-PENDING.json. Skip-if-exists, never forced — an existing remote tag
-# always wins. Also reports config PRESENCE (never values, charter/SECURITY.md)
-# so a session can decide whether a first shift can run.
+# always wins.
 name: Lay pending tags
 on:
   workflow_dispatch:
@@ -32,15 +31,3 @@ jobs:
           for t in json.load(open('state/TAGS-PENDING.json'))['tags']:
               print(t['tag'], t['sha'], t['message'], sep='\x1f')")
           echo "lay-tags: ${laid} laid, ${skipped} skipped" >> "$GITHUB_STEP_SUMMARY"
-      - name: Config presence (names only — never values)
-        env:
-          HAS_OPENAI: ${{ secrets.OPENAI_API_KEY != '' }}
-          HAS_GOAT: ${{ secrets.GOATCOUNTER_TOKEN != '' }}
-          HAS_BUDGET: ${{ vars.LOOP_MONTHLY_BUDGET_USD != '' }}
-        run: |
-          {
-            echo "## Config presence (values never read)"
-            echo "- OPENAI_API_KEY secret: ${HAS_OPENAI}"
-            echo "- GOATCOUNTER_TOKEN secret: ${HAS_GOAT}"
-            echo "- LOOP_MONTHLY_BUDGET_USD variable: ${HAS_BUDGET}"
-          } | tee -a "$GITHUB_STEP_SUMMARY"

@@ -742,3 +742,20 @@ Template:
 - Two-iteration authorization: this ADR is the prior change required by LOOP.md
   rule 4 for the follow-up `loop.sh` retirement. No other protocol or tool change is
   authorized by this decision.
+
+## ADR-033 — remove stale headless-auth and scheduled-shift tooling (operator-directed)
+- Status: accepted 2026-07-17.
+- Context: after ADR-032 makes runtime model entry points inert, deterministic
+  helper tools still describe adding API/OAuth credentials, dispatching a hosted
+  shift, deleting `STOP`, and counting down to a schedule that no longer exists.
+  Those instructions could undo the operator's pause or make the public UI claim a
+  false next shift.
+- Decision: in the next change, `tools/auth.py`, `tools/preflight.py`, and
+  `tools/diagnose.py` may be reduced to interactive-only guidance with no model
+  credential provisioning path. `tools/build.py` may represent the model shift as
+  paused instead of deriving a nonexistent cron countdown. Their directly coupled
+  tests and generated site output may change with them. Historical incident and
+  strategy records remain intact and clearly labeled as history.
+- Two-iteration authorization: this ADR is the prior change required by LOOP.md
+  rule 4 for exactly those tool changes. It authorizes no unrelated protocol,
+  schema, product, or automation change.

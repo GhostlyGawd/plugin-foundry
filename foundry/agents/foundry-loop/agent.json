@@ -10,5 +10,5 @@
   "workflow": ".github/workflows/run-shift.yml",
   "gates": ["validate", "build", "smoke", "qa"],
   "status": "dormant",
-  "description": "Runs through a least-privilege Codex Action job that emits a patch; a separate keyless job runs every gate and opens the veto-window PR. Dormant while the root STOP file stands; run-shift.yml is the runtime."
+  "description": "Dormant under ADR-032. Model work may run only in a live, attended interactive session; GitHub Actions and headless runners cannot invoke it. Session changes still land through reviewed pull requests and required gates."
 }

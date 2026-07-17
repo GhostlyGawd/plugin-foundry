@@ -1,109 +1,13 @@
-# Monthly transcript refresh through Codex. The model job can edit only its
-# checkout and cannot push; a separate keyless job validates and proposes the
-# generated recordings as a PR.
+# Model execution is intentionally unavailable in GitHub Actions (ADR-032).
+# Demo refreshes may be performed and reviewed from an attended interactive session.
 name: Record demo transcripts
 on:
-  schedule:
-    - cron: "41 6 5 * *"
   workflow_dispatch:
 permissions: {}
-concurrency:
-  group: record-demos
-  cancel-in-progress: false
 
 jobs:
-  generate:
+  paused:
+    if: ${{ false }}
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    permissions:
-      contents: read
-    outputs:
-      base-sha: ${{ steps.base.outputs.sha }}
-      has-patch: ${{ steps.diff.outputs.has-patch }}
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Record immutable base
-        id: base
-        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - name: Record demos with Codex
-        uses: openai/codex-action@52fe01ec70a42f454c9d2ebd47598f9fd6893d56 # v1
-        with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          safety-strategy: drop-sudo
-          sandbox: workspace-write
-          codex-args: '["--ephemeral"]'
-          prompt-file: .github/codex/prompts/record-demos.md
-      - name: Serialize transcript changes
-        if: always()
-        id: diff
-        env:
-          BASE_SHA: ${{ steps.base.outputs.sha }}
-        run: |
-          git add -N foundry/demos
-          git diff --binary "$BASE_SHA" -- foundry/demos > codex-demos.patch
-          if [ -s codex-demos.patch ]; then
-            echo "has-patch=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has-patch=false" >> "$GITHUB_OUTPUT"
-            echo "record-demos: Codex produced no transcript changes"
-          fi
-      - name: Upload transcript patch
-        if: steps.diff.outputs.has-patch == 'true'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: codex-demos-${{ github.run_id }}
-          path: codex-demos.patch
-          if-no-files-found: error
-          retention-days: 7
-
-  propose:
-    needs: generate
-    if: needs.generate.outputs.has-patch == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-        with:
-          ref: ${{ needs.generate.outputs.base-sha }}
-          fetch-depth: 0
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: "3.12"
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
-        with:
-          name: codex-demos-${{ github.run_id }}
-      - name: Apply and validate transcript patch
-        run: |
-          git apply --index codex-demos.patch
-          rm codex-demos.patch
-          python3 tools/validate.py
-          python3 tools/build.py
-      - name: Open transcript pull request
-        env:
-          GH_TOKEN: ${{ github.token }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          day=$(date -u +%Y-%m-%d)
-          branch="codex/demos-${GITHUB_RUN_ID}"
-          git config user.name "foundry-demos"
-          git config user.email "foundry-demos@users.noreply.github.com"
-          git switch -c "$branch"
-          git add foundry/demos site foundry/INDEX.md
-          git commit -m "demos: Codex-recorded transcripts, ${day}"
-          git push -u origin "$branch"
-          {
-            echo "Codex refreshed the prompted demo transcripts."
-            echo
-            echo "The write-capable landing job never received the OpenAI key. Validation and a clean site rebuild completed before this PR was opened."
-            echo
-            echo "Run: ${RUN_URL}"
-          } > pr-body.md
-          gh pr create --base main --head "$branch" \
-            --title "demos: Codex-recorded transcripts, ${day}" \
-            --body-file pr-body.md
+      - run: echo "Model demo recording is paused; use a live interactive session."
