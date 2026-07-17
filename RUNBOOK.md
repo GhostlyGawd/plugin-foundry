@@ -4,29 +4,28 @@ Terse, do-this-now procedures. Each entry is earned by an incident; postmortems 
 `reviews/postmortems/` carry the full story. The postmortem agent (MASTER P5.4)
 appends deltas here.
 
-## Hosted Codex API key rejected / missing  *(supersedes PM-001 for Actions)*
-Symptom: the read-only Codex job fails authentication, or the trusted intake job
-reports that `OPENAI_API_KEY` is unavailable.
+## A model workflow or headless runner was enabled
+Symptom: a GitHub workflow, scheduler, background service, `codex exec`, or
+`claude -p` attempts to invoke a model.
 
 Do:
 
-1. Create or rotate a project-scoped OpenAI API key with the smallest practical budget.
-2. Update the `OPENAI_API_KEY` Actions secret; never paste the value into an issue,
-   pull request, workflow input, artifact, or log.
-3. Dispatch one shift and confirm that the Codex job completes and the
-   keyless landing job opens a validation pull request.
-4. Remove the root `STOP` file in a reviewed pull request only after that dry run is green.
+1. Cancel the run and disable the model workflow or scheduler.
+2. Confirm `run-shift.yml` and `record-demos.yml` are inert and schedule-free.
+3. Remove any model credential from GitHub without printing or copying its value.
+4. Reopen the repository in an attended interactive coding-agent session and
+   submit any intended change through a pull request.
 
-PM-001 remains the historical record of the retired hosted Claude OAuth setup.
-`loop.sh` and `tools/auth.py` are an optional legacy local Claude harness; they are
-not used by hosted Actions and their credentials must never be stored in this repo.
+PM-001 remains the historical record of the 2026-07-07 token rejection. ADR-032
+supersedes its provisioning remedy: no reusable model credential belongs in GitHub.
+`tools/auth.py probe` still classifies old logs but directs recovery to an attended
+local session.
 
 ## Governor / quota halt
 Symptom: `budget.py`/`quota.py` halts a shift; an `ops-alarm` opens.
-Do: check `state/BUDGET.jsonl`. If the monthly dollar cap is spent, raise
-`LOOP_MONTHLY_BUDGET_USD` or wait for the month to roll. If quota pressure hit the
-kill switch, the desk holds an `approve` item — raise `QUOTA_WEEKLY_RUNS` or wait
-for the weekly window to roll. Product-tier work never sheds on pressure by design.
+Do: treat the entry as historical while ADR-032 is active; no unattended model run
+should be consuming a budget. If an active runner produced it, follow the procedure
+above and disable that runner.
 
 ## The owner's desk has items
 Symptom: `site/desk.html` / the pinned `ops-desk` issue lists open decisions.

@@ -48,13 +48,12 @@ Inspect the ZIP, manifest, scripts, certificate, and digest before enabling it.
   vulnerability reporting, and CodeQL are enabled for this public repository.
 - GitHub Actions default to read-only permissions and cannot approve pull
   requests. Workflows declare any write permission at the smallest job scope.
-- Hosted model work receives `OPENAI_API_KEY` only as an input to the
-  commit-pinned official Codex Action. The model job is read-only; a separate
-  keyless job validates and proposes its patch.
-- Every third-party action is commit-SHA pinned. Repository policy permits only
-  GitHub-owned actions plus the explicitly allowed OpenAI Codex Action.
+- GitHub Actions cannot invoke a model and contain no model credential path.
+  Model-backed changes originate only in a live, attended local session.
+- Every third-party action is commit-SHA pinned. The retained model workflow names
+  are disabled and their tracked definitions are inert, schedule-free notices.
 - The `main` ruleset requires a pull request plus green Gates and CodeQL checks;
-  automated shifts, orchestration, demos, and freshness updates only propose branches.
+  interactive sessions, orchestration, and freshness updates only propose branches.
 - Repository secrets are never copied into generated pages, downloadable
   packages, logs, artifacts, or model patches.
 

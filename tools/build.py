@@ -204,7 +204,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@@TITLE@@ — free, tested plugins for coding agents</title>
-<meta name="description" content="Free plugins for Claude Code, Codex, Gemini CLI, Cursor, and GitHub Copilot — clean commits, test nudges, environment checks, and more. Built, tested, reviewed, and shipped by an autonomous AI workshop.">
+<meta name="description" content="Free plugins for Claude Code, Codex, Gemini CLI, Cursor, and GitHub Copilot — clean commits, test nudges, environment checks, and more. Built and reviewed in attended coding-agent sessions.">
 @@OG@@
 <link rel="alternate" type="application/atom+xml" title="ships" href="feed.xml">
 <style>
@@ -539,8 +539,8 @@ TEMPLATE = """<!DOCTYPE html>
 <span id="top"></span>
 <main>
   <section class="wrap hero" aria-labelledby="h1">
-    <p class="eyebrow"><span class="pulse"><span class="dot"></span><span id="lastshift">live</span></span> · an autonomous plugin workshop</p>
-    <h1 id="h1">Small, sharp upgrades for your AI coding assistant — <span class="hot">built and tested while you sleep.</span></h1>
+    <p class="eyebrow"><span class="pulse"><span class="dot"></span><span id="lastshift">live</span></span> · an attended plugin workshop</p>
+    <h1 id="h1">Small, sharp upgrades for your AI coding assistant — <span class="hot">portable, inspectable, and tested.</span></h1>
     <p class="lede"><b>Plugins</b> give your coding agent dependable new habits — write clean commits, catch missing tests, fix a broken dev environment. The Nightshift Foundry designs, tests, reviews, and packages them natively for the tools you already use. <b><span id="hero-count">10</span> plugins, all free, across five hosts.</b></p>
     <div class="cta-row">
       <a class="btn btn-lg" href="#shelf">Browse the plugins →</a>
@@ -634,7 +634,7 @@ TEMPLATE = """<!DOCTYPE html>
   <section id="machine" class="band alt">
     <div class="wrap">
       <h2 class="sec-title">Under the hood — the workshop, live</h2>
-      <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> A PR-gated Codex workflow pitches, builds, tests, reviews, and publishes every plugin above — and this page updates when a green change lands.</p>
+      <p class="sec-lede"><b>A human attends every model-backed change.</b> Interactive coding-agent sessions propose pull requests; deterministic gates, CodeQL, and deployment remain automated.</p>
       <p class="qstrip" id="qstrip" aria-label="the running quality counter — every number substantiated by this repo"></p>
       <div class="dogfood" id="dogfood" aria-label="the dogfood report card — the factory grades its own use of what it ships"></div>
       <img class="replay" src="replay.svg" loading="lazy" width="720" height="200"
@@ -671,7 +671,7 @@ TEMPLATE = """<!DOCTYPE html>
       <section class="panel">
         <h3>Can't find the tool you need?</h3>
         <p class="panel-price">Commission the workshop — @@PRICE@@</p>
-        <p>Tell it what to build. A commission opens a public GitHub issue, jumps the roadmap queue at the next shift, and gets a comment at every stage it moves — spec, build, QA, review, publish.</p>
+        <p>Tell it what to build. A commission opens a public GitHub issue, joins the priority queue for the next attended session, and gets a comment at every stage it moves — spec, build, QA, review, publish.</p>
         @@CTA@@
         <p class="fine">Honest terms: you're buying <b>priority and a serious attempt at the full quality bar</b> — not a guaranteed delivery. If it gets shelved, the issue says exactly why and what would revive it.</p>
         <p class="fine">Not ready to pay? @@SUGGEST@@ — votes decide its place in the pool.</p>
@@ -687,7 +687,7 @@ TEMPLATE = """<!DOCTYPE html>
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <p><b>@@TITLE@@</b> — the workshop that works while you sleep.</p>
+    <p><b>@@TITLE@@</b> — a portable, attended plugin workshop.</p>
     <p class="foot-links"><a href="#shelf">Plugins</a> · <a href="#how">Install</a> · <a href="#trust">Trust</a> · <a href="privacy.html">Privacy</a> · <a href="@@SECURITY_URL@@">Security</a> · <a href="saga.html">Saga</a> · <a href="feed.xml">Atom feed</a> · <a href="embed.html">Embed the ticker</a> · <a href="badge.json">Badge endpoint</a></p>
     <p class="foot-fine">Independent community project; product names belong to their respective owners. No analytics or tracking. · Generated <span id="stamp">@@STAMP@@</span> — this page rebuilds every time a green change ships.</p>
   </div>
@@ -709,7 +709,8 @@ const HOSTS = [
   {id:'github-copilot', name:'GitHub Copilot', detail:'Add the Foundry marketplace and install directly with Copilot CLI.'}
 ];
 /*SHIFT-START*/
-// shift schedule derived from .github/workflows/run-shift.yml cron at build time
+// A schedule is rendered only when the tracked workflow actually declares one.
+const SHIFT_ENABLED = @@SHIFT_ENABLED@@;
 const SHIFT_MIN = @@SHIFT_MIN@@;
 const SHIFT_HOURS = @@SHIFT_HOURS@@;
 function nextShift(now){
@@ -727,6 +728,10 @@ function nextShift(now){
 function renderNextShift(){
   const el = document.getElementById('nextshift');
   if (!el) return;
+  if (!SHIFT_ENABLED) {
+    el.textContent = 'model shifts paused · interactive sessions only';
+    return;
+  }
   const n = nextShift(new Date());
   const ms = n - new Date();
   const h = Math.floor(ms / 3600000), m = Math.floor((ms % 3600000) / 60000);
@@ -1002,7 +1007,7 @@ function renderStats(){
   const Q = DATA.quality || {};
   const cells = [
     [pubPlugins().length, 'free plugins'],
-    [DATA.iteration, 'autonomous shifts'],
+    [DATA.iteration, 'recorded iterations'],
     [Q.qa_first_try_pct === null || Q.qa_first_try_pct === undefined ? '—' : Q.qa_first_try_pct + '%', 'passed QA first try'],
     [cats, 'categories'],
     ['100%', 'tested &amp; reviewed'],
@@ -1413,10 +1418,14 @@ def build_saga(records, state, cfg):
     """Timeline from ADRs + record fates. Only what the sources say."""
     decisions = (ROOT / "state" / "DECISIONS.md").read_text()
     adrs = []
-    for m in re.finditer(r"^## (ADR-\d+) — (.+?) \((i[\w-]+), ([\w-]+)\)\n(.*?)(?=^## ADR|\Z)",
+    for m in re.finditer(r"^## (ADR-\d+) — ([^\n]+)\n(.*?)(?=^## ADR|\Z)",
                          decisions, re.M | re.S):
-        ctx = re.search(r"- Context:\s*(.+)", m.group(5))
-        adrs.append({"id": m.group(1), "title": m.group(2), "when": m.group(3),
+        heading = m.group(2)
+        meta = re.search(r"\s+\((i[\w-]+),\s*[\w-]+\)$", heading)
+        title = heading[:meta.start()].strip() if meta else heading
+        when = meta.group(1) if meta else "operator"
+        ctx = re.search(r"- Context:\s*(.+)", m.group(3))
+        adrs.append({"id": m.group(1), "title": title, "when": when,
                      "line": clip(" ".join((ctx.group(1) if ctx else "").split()), 180)})
     sharpest = []
     for r in records:
@@ -1921,21 +1930,23 @@ def _cron_hours(spec):
 
 
 def shift_schedule():
-    """Derive (minute, [hours]) from run-shift.yml's cron so the window countdown
-    can't drift from the real schedule (P3, v14/ADR-024). Falls back to the
-    documented default if the cron can't be read or parsed."""
+    """Return (enabled, minute, hours) from the tracked model workflow.
+
+    No cron means paused, not a fabricated default countdown (ADR-032/033).
+    The legacy values remain available to `nextShift` for deterministic parsing.
+    """
     default = (17, [0, 8, 16])
     try:
         text = (ROOT / ".github" / "workflows" / "run-shift.yml").read_text()
         m = re.search(r'cron:\s*["\']?([0-9*,/ \-]+)', text)
         if not m:
-            return default
+            return (False, *default)
         fields = m.group(1).split()
         if len(fields) < 2:
-            return default
-        return (int(fields[0]), _cron_hours(fields[1]) or default[1])
-    except Exception:  # noqa: BLE001 — a countdown must never break the build
-        return default
+            return (False, *default)
+        return (True, int(fields[0]), _cron_hours(fields[1]) or default[1])
+    except Exception:  # noqa: BLE001 — status rendering must never break the build
+        return (False, *default)
 
 
 def build_quality(records):
@@ -2083,15 +2094,16 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
     suggest = (f'<a href="https://github.com/{html.escape(repo)}/issues/new?template=idea.yml">'
                f'suggest an idea, free</a>' if repo else "suggesting ideas opens with the repo (free)")
 
-    shift_min, shift_hours = shift_schedule()
+    shift_enabled, shift_min, shift_hours = shift_schedule()
     page = (TEMPLATE
+            .replace("@@SHIFT_ENABLED@@", json.dumps(shift_enabled))
             .replace("@@SHIFT_MIN@@", str(shift_min))
             .replace("@@SHIFT_HOURS@@", json.dumps(shift_hours))
             .replace("@@TITLE@@", html.escape(title))
             .replace("@@OG@@", og_meta(
-                f"{title} — a plugin workshop run entirely by AI",
+                f"{title} — portable plugins from an attended AI workshop",
                 f"{data['counts']['published']} shipped · shift i{data['iteration']} — "
-                "Cross-host coding-agent plugins built, tested, and published by an autonomous loop.",
+                "Cross-host coding-agent plugins built, tested, and reviewed in interactive sessions.",
                 (cfg.get("pages_url") or "").rstrip("/"),
                 og_image_url(cfg)))
             .replace("@@ITER@@", str(data["iteration"]).zfill(3))

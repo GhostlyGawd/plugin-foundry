@@ -2,7 +2,8 @@
 
 This repository is a self-running plugin workshop AND the marketplace it publishes to
 (`.claude-plugin/marketplace.json`). Its protocol is `LOOP.md`; its laws are in
-`charter/`. However you arrived — `loop.sh`, `/loop`, or interactively — these bind you:
+`charter/`. Model work is interactive-only under ADR-032; whether you opened the
+session directly or through `loop.sh`, these bind you:
 
 ## Map
 - `LOOP.md` — the iteration protocol (the engine)
@@ -27,7 +28,8 @@ This repository is a self-running plugin workshop AND the marketplace it publish
    fail gracefully, quoted "${CLAUDE_PLUGIN_ROOT}", executable scripts.
 6. Nothing publishes without TEST VERDICT: pass + REVIEW: approved in its record.
 7. Two-iteration ADR rule for LOOP.md, loop.sh, tools/. JOURNAL/DECISIONS/logs append-only.
-8. `STOP` file at root: journal one line, exit. Stay inside this repo.
+8. Stay inside this repo. Never invoke another model through CI, a scheduler, or a
+   headless runner; propose changes through a pull request.
 
 When in doubt: build one component well, log it on the traveler, and let the next
 iteration continue.

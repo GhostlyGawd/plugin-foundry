@@ -75,19 +75,20 @@ schema changes stay **human-ratified, always**.
 
 ## Run the workshop yourself
 
-Hosted shifts use the least-privilege Codex Action path documented in
-`OPERATIONS.md`. The original local loop remains available for supervised Claude
-Code sessions:
+Model automation is paused under ADR-032. No GitHub Action, cron job, scheduler, or
+headless runner may invoke a model, and the repository needs no model API secret.
+Open a live Codex session from this checkout using your local ChatGPT sign-in:
 
 ```bash
-npm install -g @anthropic-ai/claude-code   # if needed
 cd plugin-foundry
-./loop.sh 10        # ten supervised iterations of the protocol
-touch STOP          # halt gracefully, any time
+codex               # interactive TUI; keep the session attended
+# or: ./loop.sh      # checks for a real terminal, then opens the same TUI
 ```
 
-Manual mode: open Claude Code here and use `/loop` (one iteration) or `/status`
-(line health). Pitch plugin ideas in `state/BACKLOG.md § Idea inbox`.
+Ask the session to read `LOOP.md` and complete exactly one reviewed iteration. Do
+not use `codex exec`, `claude -p`, CI, or a scheduler. Submit the result through a
+branch and pull request; protected `main` still requires Gates and CodeQL. Other
+supported coding agents may be used through their attended interactive UI.
 
 ## The line
 
@@ -115,15 +116,15 @@ journaled friction becomes the next round of ideas.
 
 ## The living window (hosted site)
 
-`OPERATIONS.md` takes this from local repo to public spectacle in ~30 minutes:
-**GitHub is the server.** Actions runs scheduled *shifts* (`run-shift.yml`: intake →
-Codex iterations → validated pull request); every merge redeploys `site/` to **GitHub Pages**
-(`deploy-site.yml`) — so the public page updates precisely because the AI worked.
+`OPERATIONS.md` documents the current split: model work happens only in an attended
+interactive session, while every merge redeploys `site/` to **GitHub Pages** through
+the keyless `deploy-site.yml` workflow. The model workflows are disabled and their
+tracked definitions are inert, so a settings toggle cannot silently restart them.
 The window shows a live pulse and last-shift age, a ticker replaying the journal,
 theme-of-the-month banner, roadmap lanes, the shelf with install commands, and a
 **request box**: a Stripe Payment Link (default $5.99) feeds a tiny Cloudflare
 Worker (`services/commission-worker/`) that opens `commission`-labeled issues;
-`tools/intake.py` queues them at the next shift, and LOOP.md priority 3 builds them
+`tools/intake.py` queues them for the next attended session, and LOOP.md priority 3 builds them
 on the normal line at the normal bar — priority and a serious attempt, never a
 rubber stamp.
 
@@ -241,22 +242,18 @@ with a note. `site/index.html` is the catalog;
 
 ## Safety
 
-Hosted shifts use Codex's workspace-write sandbox and a two-job trust split: the
-model job cannot push, and the keyless landing job must pass every gate before it
-can open a PR. The legacy local `loop.sh` still defaults to
-`--dangerously-skip-permissions`; run it only in a container or dedicated VM with
-this repo mounted. Semi-supervised local mode:
-
-```bash
-LOOP_PERMS="--permission-mode acceptEdits" ./loop.sh 5
-```
+GitHub Actions cannot invoke a model or read a model credential. `loop.sh` fails
+closed in CI and non-terminal contexts; in a real terminal it only opens the
+interactive Codex UI. Review the session's actions, keep credentials in the host's
+local store, and land changes through a pull request. Deterministic CI, CodeQL,
+dependency maintenance, deployment, and releases remain active.
 
 ## Layout
 
 ```
 LOOP.md                      the iteration protocol — the engine
 MASTER.md                    the org-pattern program — strategy + execution spec
-loop.sh                      the harness (STOP file, run logs, failure cutoff)
+loop.sh                      attended-session guard + interactive Codex launcher
 CLAUDE.md                    standing rules for any session here
 .claude/commands/            /loop · /status · /backlog (one-sentence steering)
 .claude-plugin/              marketplace.json — the storefront

@@ -42,8 +42,9 @@ def classify(text):
     for sig in auth.AUTH_SIGNATURES:
         if re.search(sig, text.lower()):
             return ("authentication failure (token rejected/expired)",
-                    "run auth.py probe; on a subscription machine `claude setup-token`, "
-                    "update the secret, dispatch one shift, delete STOP (PM-001 / RUNBOOK).")
+                    "run auth.py probe for classification, then reopen the repo in an "
+                    "attended interactive session; never provision a CI model secret "
+                    "(ADR-032 / RUNBOOK).")
     for pat, cause, step in CLASSIFIERS:
         if pat.search(text):
             return cause, step

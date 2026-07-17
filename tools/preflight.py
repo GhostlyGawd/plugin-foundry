@@ -17,10 +17,8 @@ OK, TODO = "  OK  ", "  TODO(operator)"
 
 CLICKS = [
     "Settings → Pages → Source: GitHub Actions (OPERATIONS §2)",
-    "Settings → Secrets → Actions: project-scoped OPENAI_API_KEY (§3; Codex workflows only)",
-    "Settings → Variables: LOOP_MONTHLY_BUDGET_USD = your cap (§3, §7)",
+    "Actions → confirm Run shift and Record demo transcripts remain disabled (§3)",
     "Optional: GOATCOUNTER_TOKEN secret + goatcounter_site config (§6)",
-    "Actions tab → run \"Run shift\" once; remove STOP in a reviewed PR only after the proposed shift PR is green (§3, §5)",
     "Push local release tags if any (tag pushes are branch-scoped from sessions): git push origin --tags",
 ]
 
@@ -58,6 +56,16 @@ def collect():
     wf = ROOT / ".github" / "workflows"
     for name in ("run-shift.yml", "shipnote.yml", "record-demos.yml"):
         checks.append(((wf / name).exists(), f"workflow present: {name}"))
+    model_workflows = "\n".join(
+        (wf / name).read_text() for name in ("run-shift.yml", "record-demos.yml")
+        if (wf / name).exists()
+    )
+    model_markers = ("schedule:", "openai/codex-action", "codex exec", "claude -p")
+    checks.append((
+        bool(model_workflows) and not any(marker in model_workflows for marker in model_markers)
+        and model_workflows.count("if: ${{ false }}") == 2,
+        "model workflows: inert, schedule-free pause notices (ADR-032)",
+    ))
 
     for tool in ("validate", "build"):
         r = run([sys.executable, str(ROOT / "tools" / f"{tool}.py")])
@@ -90,7 +98,7 @@ def render_terminal(checks):
     print("\nSecrets / repo settings this script CANNOT verify — the 15-minute click-list:")
     for i, click in enumerate(CLICKS, 1):
         print(f"  {i}. {click}")
-    print("After step 5, Gate A's 14-day clock is running (ROADMAP.md).")
+    print("Model work stays local and attended; this checklist never provisions a model credential.")
 
 
 def render_markdown(checks):
@@ -101,7 +109,7 @@ def render_markdown(checks):
     lines += [f"- [{'x' if ok else ' '}] {text}" for ok, text in checks]
     lines += ["", "## The 15-minute click-list (only you can tick these)"]
     lines += [f"- [ ] {c}" for c in CLICKS]
-    lines += ["", "_After the first manual shift, Gate A's 14-day clock is running (ROADMAP.md)._"]
+    lines += ["", "_Model work stays local and attended; this checklist never provisions a model credential._"]
     return "\n".join(lines)
 
 
