@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- hooks: equivalent start and stop/after-agent maps share the existing scripts.
+
 ## 0.2.0 — 2026-07-07
 - feat: two read-only, fail-open hooks make the plugin match its own promise
   ("writes a recap when a session ends and recalls it when the next starts"),

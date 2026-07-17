@@ -49,7 +49,7 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Fork a Foundry — birth certificate</h1></header>
-  <p class="meta">plugin · meta · v0.2.0 · created 2026-07-05 · updated 2026-07-12 · ~90 tok est · verified 2026-07-13</p>
+  <p class="meta">plugin · meta · v0.2.1 · created 2026-07-05 · updated 2026-07-17 · ~90 tok est · verified 2026-07-13</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~90 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall fork-a-foundry — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
@@ -61,6 +61,9 @@ same architecture that built and maintains this marketplace: loop protocol, role
 rotation, stage-gated pipeline, executable QA, security laws, living window.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
@@ -84,16 +87,15 @@ See [CHANGELOG.md](./CHANGELOG.md).
 - **Update:** `/plugin marketplace update`, then `claude plugin update fork-a-foundry`
 - **Disable / re-enable:** `claude plugin disable fork-a-foundry` / `claude plugin enable fork-a-foundry` (or the `/plugin` menu — no uninstall needed)
 - **Uninstall:** `claude plugin uninstall fork-a-foundry` — removes everything the plugin added
-</pre></details><details><summary>Pitch</summary><pre>- **Job:** anyone with Claude Code gets their own autonomous plugin factory in
-  minutes.
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** anyone using a supported coding agent gets their own autonomous,
+  cross-host plugin factory in minutes.
 - **User:** developers who watched the window and thought &quot;I want one.&quot;
 - **Components:** a single `bootstrap` skill (fork path + from-spec scaffold).
 - **Why a plugin:** it&#x27;s the strongest possible dogfood — and the most honest growth
   feature, since every fork is a person who trusted the machine enough to run it.</pre></details><details><summary>Spec</summary><pre>- Name: `fork-a-foundry` (forever).
-- skills/bootstrap/SKILL.md — description (verbatim): &quot;Bootstrap a new self-running
-  foundry — a loop-driven Claude Code plugin workshop and marketplace — in a fresh
-  directory. Use when someone wants their own autonomous plugin factory, a fork of
-  this workshop, or a loop-run marketplace.&quot;
+- skills/bootstrap/SKILL.md — bootstraps a loop-driven plugin workshop with shared
+  behavior and native packages/catalogs for Claude Code, Codex, Gemini CLI, Cursor,
+  and GitHub Copilot.
 - Must offer fork vs. scaffold; must carry the load-bearing laws verbatim; must not
   finish before the new repo passes its own gates; must remind about containers and
   the Naming Ceremony. No hooks, no network beyond the user-pointed clone.

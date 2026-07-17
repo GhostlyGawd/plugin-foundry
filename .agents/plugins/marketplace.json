@@ -1,0 +1,128 @@
+{
+  "name": "foundry",
+  "interface": {
+    "displayName": "Nightshift Foundry"
+  },
+  "plugins": [
+    {
+      "name": "commit-craft",
+      "source": {
+        "source": "local",
+        "path": "./plugins/commit-craft"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "dep-bump-brief",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dep-bump-brief"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "env-doctor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/env-doctor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "fork-a-foundry",
+      "source": {
+        "source": "local",
+        "path": "./plugins/fork-a-foundry"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "night-clerk",
+      "source": {
+        "source": "local",
+        "path": "./plugins/night-clerk"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "plugin-smith",
+      "source": {
+        "source": "local",
+        "path": "./plugins/plugin-smith"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "pr-narrator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pr-narrator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "session-recap",
+      "source": {
+        "source": "local",
+        "path": "./plugins/session-recap"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "test-gap-nudge",
+      "source": {
+        "source": "local",
+        "path": "./plugins/test-gap-nudge"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "todo-ledger",
+      "source": {
+        "source": "local",
+        "path": "./plugins/todo-ledger"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

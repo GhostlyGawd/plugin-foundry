@@ -1,0 +1,19 @@
+{
+  "name": "pr-narrator",
+  "displayName": "PR Narrator",
+  "version": "0.1.4",
+  "description": "Drafts pull-request titles and descriptions from your branch's actual commits and diff — summary, grouped changes, honest test notes, risk and rollback.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/pr-narrator.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "license": "MIT",
+  "keywords": [
+    "pull-request",
+    "git",
+    "review",
+    "description"
+  ],
+  "skills": "./skills/"
+}

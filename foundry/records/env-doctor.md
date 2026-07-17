@@ -3,14 +3,14 @@ name: env-doctor
 title: Env Doctor
 category: quality
 stage: published
-version: 0.2.0
+version: 0.2.1
 always_on_tokens: 130
 verified: 2026-07-13
 components: [skills, hooks]
 one_liner: Checks the toolchain against the project's declared versions at session start and warns early.
 tags: [environment, onboarding, hooks]
 created: 2026-07-04
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # Env Doctor

@@ -1,0 +1,5 @@
+{
+  "name": "night-clerk",
+  "version": "0.2.8",
+  "description": "The foundry's front desk inside your terminal: ask what plugin helps with a task and get real recommendations with exact install lines from a bundled catalog snapshot."
+}

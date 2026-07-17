@@ -1,0 +1,19 @@
+{
+  "name": "session-recap",
+  "version": "0.2.1",
+  "description": "Ends the session properly: an appended, dated handoff in SESSION-RECAP.md — what changed, decisions, open questions, next steps — with a fail-open nudge to write one at session end and a recall of the last one at session start.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/session-recap.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "license": "MIT",
+  "keywords": [
+    "handoff",
+    "recap",
+    "session",
+    "notes"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/codex.json"
+}

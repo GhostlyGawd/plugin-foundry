@@ -1,0 +1,5 @@
+{
+  "name": "pr-narrator",
+  "version": "0.1.4",
+  "description": "Drafts pull-request titles and descriptions from your branch's actual commits and diff — summary, grouped changes, honest test notes, risk and rollback."
+}

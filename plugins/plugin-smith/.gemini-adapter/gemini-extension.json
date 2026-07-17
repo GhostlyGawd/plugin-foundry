@@ -1,0 +1,5 @@
+{
+  "name": "plugin-smith",
+  "version": "0.1.4",
+  "description": "Scaffold portable coding-agent plugins and audit their host-native packages against official formats."
+}

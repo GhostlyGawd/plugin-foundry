@@ -1,44 +1,65 @@
 {
- "snapshot": "2026-07-12",
+ "snapshot": "2026-07-17",
  "marketplace": "foundry",
  "idea_template": "issues/new?template=idea.yml",
  "plugins": [
   {
    "name": "commit-craft",
-   "version": "0.3.2",
+   "version": "0.3.3",
    "one_liner": "Drafts conventional commits from the staged diff and guards message format at commit time.",
    "tags": [
     "git",
     "conventional-commits",
     "hooks"
    ],
-   "install": "/plugin install commit-craft@foundry"
+   "install": "/plugin install commit-craft@foundry",
+   "installs": {
+    "claude-code": "/plugin install commit-craft@foundry",
+    "codex": "Install commit-craft from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./commit-craft",
+    "cursor": "Copy commit-craft/ to ~/.cursor/plugins/local/commit-craft/ and reload Cursor",
+    "github-copilot": "copilot plugin install commit-craft@foundry"
+   }
   },
   {
    "name": "dep-bump-brief",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "one_liner": "Turns a dependency-bump diff into a plain-language brief \u2014 what changed, what might break, what to check.",
    "tags": [
     "dependencies",
     "review",
     "changelogs"
    ],
-   "install": "/plugin install dep-bump-brief@foundry"
+   "install": "/plugin install dep-bump-brief@foundry",
+   "installs": {
+    "claude-code": "/plugin install dep-bump-brief@foundry",
+    "codex": "Install dep-bump-brief from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./dep-bump-brief",
+    "cursor": "Copy dep-bump-brief/ to ~/.cursor/plugins/local/dep-bump-brief/ and reload Cursor",
+    "github-copilot": "copilot plugin install dep-bump-brief@foundry"
+   }
   },
   {
    "name": "env-doctor",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "one_liner": "Checks the toolchain against the project's declared versions at session start and warns early.",
    "tags": [
     "environment",
     "onboarding",
     "hooks"
    ],
-   "install": "/plugin install env-doctor@foundry"
+   "install": "/plugin install env-doctor@foundry",
+   "installs": {
+    "claude-code": "/plugin install env-doctor@foundry",
+    "codex": "Install env-doctor from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./env-doctor",
+    "cursor": "Copy env-doctor/ to ~/.cursor/plugins/local/env-doctor/ and reload Cursor",
+    "github-copilot": "copilot plugin install env-doctor@foundry"
+   }
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
    "tags": [
     "meta",
@@ -46,85 +67,150 @@
     "viral",
     "dogfood"
    ],
-   "install": "/plugin install fork-a-foundry@foundry"
+   "install": "/plugin install fork-a-foundry@foundry",
+   "installs": {
+    "claude-code": "/plugin install fork-a-foundry@foundry",
+    "codex": "Install fork-a-foundry from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./fork-a-foundry",
+    "cursor": "Copy fork-a-foundry/ to ~/.cursor/plugins/local/fork-a-foundry/ and reload Cursor",
+    "github-copilot": "copilot plugin install fork-a-foundry@foundry"
+   }
   },
   {
    "name": "night-clerk",
-   "version": "0.2.7",
-   "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+   "version": "0.2.8",
+   "one_liner": "Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.",
    "tags": [
     "discovery",
     "meta",
     "catalog"
    ],
-   "install": "/plugin install night-clerk@foundry"
+   "install": "/plugin install night-clerk@foundry",
+   "installs": {
+    "claude-code": "/plugin install night-clerk@foundry",
+    "codex": "Install night-clerk from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./night-clerk",
+    "cursor": "Copy night-clerk/ to ~/.cursor/plugins/local/night-clerk/ and reload Cursor",
+    "github-copilot": "copilot plugin install night-clerk@foundry"
+   }
   },
   {
    "name": "plugin-smith",
-   "version": "0.1.3",
-   "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
+   "version": "0.1.4",
+   "one_liner": "Scaffolds portable coding-agent plugins and audits their host-native packages.",
    "tags": [
     "meta",
     "scaffolding",
     "validation",
     "dogfood"
    ],
-   "install": "/plugin install plugin-smith@foundry"
+   "install": "/plugin install plugin-smith@foundry",
+   "installs": {
+    "claude-code": "/plugin install plugin-smith@foundry",
+    "codex": "Install plugin-smith from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./plugin-smith",
+    "cursor": "Copy plugin-smith/ to ~/.cursor/plugins/local/plugin-smith/ and reload Cursor",
+    "github-copilot": "copilot plugin install plugin-smith@foundry"
+   }
   },
   {
    "name": "pr-narrator",
-   "version": "0.1.3",
+   "version": "0.1.4",
    "one_liner": "A skill that turns a branch's commits and diff into a reviewer-ready PR description.",
    "tags": [
     "pull-requests",
     "skills",
     "writing"
    ],
-   "install": "/plugin install pr-narrator@foundry"
+   "install": "/plugin install pr-narrator@foundry",
+   "installs": {
+    "claude-code": "/plugin install pr-narrator@foundry",
+    "codex": "Install pr-narrator from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./pr-narrator",
+    "cursor": "Copy pr-narrator/ to ~/.cursor/plugins/local/pr-narrator/ and reload Cursor",
+    "github-copilot": "copilot plugin install pr-narrator@foundry"
+   }
   },
   {
    "name": "session-recap",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "one_liner": "Writes a structured recap when a session ends and recalls it when the next one starts.",
    "tags": [
     "memory",
     "sessions",
     "continuity"
    ],
-   "install": "/plugin install session-recap@foundry"
+   "install": "/plugin install session-recap@foundry",
+   "installs": {
+    "claude-code": "/plugin install session-recap@foundry",
+    "codex": "Install session-recap from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./session-recap",
+    "cursor": "Copy session-recap/ to ~/.cursor/plugins/local/session-recap/ and reload Cursor",
+    "github-copilot": "copilot plugin install session-recap@foundry"
+   }
   },
   {
    "name": "test-gap-nudge",
-   "version": "0.3.1",
+   "version": "0.3.2",
    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
    "tags": [
     "testing",
     "hooks",
     "discipline"
    ],
-   "install": "/plugin install test-gap-nudge@foundry"
+   "install": "/plugin install test-gap-nudge@foundry",
+   "installs": {
+    "claude-code": "/plugin install test-gap-nudge@foundry",
+    "codex": "Install test-gap-nudge from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./test-gap-nudge",
+    "cursor": "Copy test-gap-nudge/ to ~/.cursor/plugins/local/test-gap-nudge/ and reload Cursor",
+    "github-copilot": "copilot plugin install test-gap-nudge@foundry"
+   }
   },
   {
    "name": "todo-ledger",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "one_liner": "Inventories TODO/FIXME/HACK comments with git-blame age and owners \u2014 tech debt as a dated, ranked ledger.",
    "tags": [
     "tech-debt",
     "todos",
     "reporting"
    ],
-   "install": "/plugin install todo-ledger@foundry"
+   "install": "/plugin install todo-ledger@foundry",
+   "installs": {
+    "claude-code": "/plugin install todo-ledger@foundry",
+    "codex": "Install todo-ledger from Nightshift Foundry in the Plugins Directory",
+    "gemini-cli": "gemini extensions install ./todo-ledger",
+    "cursor": "Copy todo-ledger/ to ~/.cursor/plugins/local/todo-ledger/ and reload Cursor",
+    "github-copilot": "copilot plugin install todo-ledger@foundry"
+   }
   }
  ],
  "kits": [
   {
    "id": "plugin-maker",
    "name": "Plugin-maker kit",
-   "desc": "Everything for building Claude Code plugins the disciplined way \u2014 scaffold, audit, and eventually your own factory.",
+   "desc": "Everything for building portable coding-agent plugins the disciplined way \u2014 scaffold, audit, and eventually your own factory.",
    "install": [
     "/plugin install plugin-smith@foundry",
     "/plugin install fork-a-foundry@foundry"
-   ]
+   ],
+   "installs": {
+    "plugin-smith": {
+     "claude-code": "/plugin install plugin-smith@foundry",
+     "codex": "Install plugin-smith from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./plugin-smith",
+     "cursor": "Copy plugin-smith/ to ~/.cursor/plugins/local/plugin-smith/ and reload Cursor",
+     "github-copilot": "copilot plugin install plugin-smith@foundry"
+    },
+    "fork-a-foundry": {
+     "claude-code": "/plugin install fork-a-foundry@foundry",
+     "codex": "Install fork-a-foundry from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./fork-a-foundry",
+     "cursor": "Copy fork-a-foundry/ to ~/.cursor/plugins/local/fork-a-foundry/ and reload Cursor",
+     "github-copilot": "copilot plugin install fork-a-foundry@foundry"
+    }
+   }
   },
   {
    "id": "git-flow",
@@ -133,7 +219,23 @@
    "install": [
     "/plugin install commit-craft@foundry",
     "/plugin install pr-narrator@foundry"
-   ]
+   ],
+   "installs": {
+    "commit-craft": {
+     "claude-code": "/plugin install commit-craft@foundry",
+     "codex": "Install commit-craft from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./commit-craft",
+     "cursor": "Copy commit-craft/ to ~/.cursor/plugins/local/commit-craft/ and reload Cursor",
+     "github-copilot": "copilot plugin install commit-craft@foundry"
+    },
+    "pr-narrator": {
+     "claude-code": "/plugin install pr-narrator@foundry",
+     "codex": "Install pr-narrator from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./pr-narrator",
+     "cursor": "Copy pr-narrator/ to ~/.cursor/plugins/local/pr-narrator/ and reload Cursor",
+     "github-copilot": "copilot plugin install pr-narrator@foundry"
+    }
+   }
   },
   {
    "id": "solo-dev",
@@ -143,7 +245,30 @@
     "/plugin install env-doctor@foundry",
     "/plugin install test-gap-nudge@foundry",
     "/plugin install session-recap@foundry"
-   ]
+   ],
+   "installs": {
+    "env-doctor": {
+     "claude-code": "/plugin install env-doctor@foundry",
+     "codex": "Install env-doctor from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./env-doctor",
+     "cursor": "Copy env-doctor/ to ~/.cursor/plugins/local/env-doctor/ and reload Cursor",
+     "github-copilot": "copilot plugin install env-doctor@foundry"
+    },
+    "test-gap-nudge": {
+     "claude-code": "/plugin install test-gap-nudge@foundry",
+     "codex": "Install test-gap-nudge from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./test-gap-nudge",
+     "cursor": "Copy test-gap-nudge/ to ~/.cursor/plugins/local/test-gap-nudge/ and reload Cursor",
+     "github-copilot": "copilot plugin install test-gap-nudge@foundry"
+    },
+    "session-recap": {
+     "claude-code": "/plugin install session-recap@foundry",
+     "codex": "Install session-recap from Nightshift Foundry in the Plugins Directory",
+     "gemini-cli": "gemini extensions install ./session-recap",
+     "cursor": "Copy session-recap/ to ~/.cursor/plugins/local/session-recap/ and reload Cursor",
+     "github-copilot": "copilot plugin install session-recap@foundry"
+    }
+   }
   }
  ]
 }

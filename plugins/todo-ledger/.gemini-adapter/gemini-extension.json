@@ -1,0 +1,5 @@
+{
+  "name": "todo-ledger",
+  "version": "0.1.1",
+  "description": "Inventories a repo's TODO/FIXME/HACK/XXX comments into a ranked, dated ledger — git-blame age and author per hit, oldest first, with a worst-offenders summary and copyable file:line references."
+}

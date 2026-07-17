@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """validate.py — the gate. Enforces the sync laws between foundry/records/,
 plugins/<name>/, and .claude-plugin/marketplace.json, plus structural checks on the
-shipping artifacts (schema per https://code.claude.com/docs/en/plugins-reference).
-Stdlib only, legible at cat speed."""
+shipping artifacts and the generated cross-host manifests. Stdlib only,
+legible at cat speed."""
 import json
 import os
 import re
@@ -106,8 +106,11 @@ def check_plugin_artifact(name, record, errors):
         for key in ("name", "description"):
             if not meta.get(key):
                 errors.append(f"{agent_md.relative_to(ROOT)}: frontmatter missing {key!r}")
-    # Hooks.
-    hooks_path = pdir / "hooks" / "hooks.json"
+    # Claude/Open Plugin hooks. A manifest path overrides hooks/hooks.json; the
+    # latter may intentionally hold Gemini's native lifecycle map.
+    hook_ref = manifest.get("hooks")
+    hooks_path = (pdir / hook_ref[2:]) if isinstance(hook_ref, str) \
+        and hook_ref.startswith("./") else pdir / "hooks" / "hooks.json"
     if hooks_path.exists():
         hooks_cfg = load_json(hooks_path, errors, str(hooks_path.relative_to(ROOT)))
         if hooks_cfg is not None:
@@ -325,6 +328,24 @@ def check_agent_trailer(errors):
         return
 
 
+def check_cross_host_adapters(errors):
+    """Keep full-repo adapters strict without burdening minimal gate fixtures."""
+    if not (ROOT / "tools" / "adapters.py").is_file() \
+            or not (ROOT / "COMPATIBILITY.md").is_file():
+        return
+    try:
+        import adapters
+        for path, expected in adapters.expected_files().items():
+            if not path.is_file() or path.read_text(encoding="utf-8") != expected:
+                rel = path.relative_to(ROOT).as_posix()
+                errors.append(
+                    f"{rel}: cross-host adapter drift "
+                    "(run python3 tools/adapters.py --write)"
+                )
+    except Exception as exc:  # noqa: BLE001 — malformed adapter data is a gate failure
+        errors.append(f"cross-host adapter validation failed: {exc}")
+
+
 def main():
     errors = []
     state = load_json(ROOT / "state" / "STATE.json", errors, "STATE.json")
@@ -349,6 +370,7 @@ def main():
     check_marketplace(seen, errors)
     check_kits(seen, errors)
     check_clerk_snapshot(seen, errors)
+    check_cross_host_adapters(errors)
     check_agent_trailer(errors)
 
     if errors:

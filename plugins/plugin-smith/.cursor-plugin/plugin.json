@@ -1,0 +1,19 @@
+{
+  "name": "plugin-smith",
+  "displayName": "Plugin Smith",
+  "version": "0.1.4",
+  "description": "Scaffold portable coding-agent plugins and audit their host-native packages against official formats.",
+  "author": {
+    "name": "Nightshift Foundry"
+  },
+  "homepage": "https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html",
+  "repository": "https://github.com/GhostlyGawd/plugin-foundry",
+  "license": "MIT",
+  "keywords": [
+    "plugin-development",
+    "scaffolding",
+    "validation",
+    "meta"
+  ],
+  "skills": "./skills/"
+}

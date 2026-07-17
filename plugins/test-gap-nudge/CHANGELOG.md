@@ -1,5 +1,10 @@
 # Changelog — test-gap-nudge
 
+## 0.3.2 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- hooks: equivalent stop/after-agent maps share the existing advisory script.
+
 ## 0.3.1 — 2026-07-06
 - docs: standard `## Manage` section — update, disable/enable, uninstall,
   and on-disk footprint in one place (v11 #2 README sweep).

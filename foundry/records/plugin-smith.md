@@ -3,14 +3,14 @@ name: plugin-smith
 title: Plugin Smith
 category: meta
 stage: published
-version: 0.1.3
+version: 0.1.4
 components: [skills]
 always_on_tokens: 137
 verified: 2026-07-13
-one_liner: Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.
+one_liner: Scaffolds portable coding-agent plugins and audits their host-native packages.
 tags: [meta, scaffolding, validation, dogfood]
 created: 2026-07-04
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # Plugin Smith
@@ -29,16 +29,14 @@ corrected.
 
 ## Spec
 - Name: `plugin-smith` (forever).
-- skills/scaffold/SKILL.md — description (verbatim): "Scaffold a new Claude Code
-  plugin directory with the official layout. Use when creating a new plugin, starting
-  a plugin skeleton, or converting loose commands into a plugin."
-- skills/doctor/SKILL.md — description (verbatim): "Audit a Claude Code plugin
-  directory against the official schema and this marketplace's quality bar. Use when
-  reviewing, debugging, or health-checking a plugin."
+- skills/scaffold/SKILL.md — creates shared behavior and separate native packages
+  for Claude Code, Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- skills/doctor/SKILL.md — detects target hosts, audits their schemas and root
+  variables, and blocks cross-host hook collisions or undocumented risky behavior.
 - No hooks, no MCP. Token budget: ≤150 always-on.
 ### Acceptance checks
-1. Invoking scaffold with a name + component list yields a tree matching the official
-   layout (manifest in .claude-plugin/, components at root, ./-relative paths).
+1. Invoking scaffold with a name + component list yields one shared component tree
+   and a native manifest/package plan for each requested host.
 2. Doctor on a plugin with a seeded flaw (e.g. command file missing description, or
    agents/ inside .claude-plugin/) reports each flaw with the fix.
 3. Doctor on plugin-smith itself reports clean.

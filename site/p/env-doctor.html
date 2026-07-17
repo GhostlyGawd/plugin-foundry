@@ -49,7 +49,7 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Env Doctor — birth certificate</h1></header>
-  <p class="meta">plugin · quality · v0.2.0 · created 2026-07-04 · updated 2026-07-07 · ~130 tok est · verified 2026-07-13</p>
+  <p class="meta">plugin · quality · v0.2.1 · created 2026-07-04 · updated 2026-07-17 · ~130 tok est · verified 2026-07-13</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
   <p>Checks the toolchain against the project&#x27;s declared versions at session start and warns early.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills, hooks</span></div><div class="trow"><b>hooks</b><span>SessionStart · matcher: *</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~130 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall env-doctor — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
@@ -67,6 +67,9 @@ fast, read-only check of the declared runtime versions (`.nvmrc`/`.node-version`
 from what&#x27;s installed — then get the full picture with `envcheck` (&quot;env doctor&quot;).
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install env-doctor@foundry

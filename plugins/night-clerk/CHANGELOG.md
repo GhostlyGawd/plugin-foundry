@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.8 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- docs: recommendations can now hand users the install path for their host.
+
 ## 0.2.7 — 2026-07-12
 - data: catalog snapshot refreshed to track the shelf — fork-a-foundry 0.1.4 → 0.2.0
   (it now inherits the org-pattern framework). Bundled catalog must never trail the

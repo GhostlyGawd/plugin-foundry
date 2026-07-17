@@ -4,14 +4,14 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.2.0
+version: 0.2.1
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-13
 one_liner: One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.
 tags: [meta, bootstrap, viral, dogfood]
 created: 2026-07-05
-updated: 2026-07-12
+updated: 2026-07-17
 ---
 
 # Fork a Foundry
@@ -21,8 +21,8 @@ whole architecture — protocol, roles, gates, laws — and won't finish until t
 loop runs a green iteration.
 
 ## Pitch
-- **Job:** anyone with Claude Code gets their own autonomous plugin factory in
-  minutes.
+- **Job:** anyone using a supported coding agent gets their own autonomous,
+  cross-host plugin factory in minutes.
 - **User:** developers who watched the window and thought "I want one."
 - **Components:** a single `bootstrap` skill (fork path + from-spec scaffold).
 - **Why a plugin:** it's the strongest possible dogfood — and the most honest growth
@@ -30,10 +30,9 @@ loop runs a green iteration.
 
 ## Spec
 - Name: `fork-a-foundry` (forever).
-- skills/bootstrap/SKILL.md — description (verbatim): "Bootstrap a new self-running
-  foundry — a loop-driven Claude Code plugin workshop and marketplace — in a fresh
-  directory. Use when someone wants their own autonomous plugin factory, a fork of
-  this workshop, or a loop-run marketplace."
+- skills/bootstrap/SKILL.md — bootstraps a loop-driven plugin workshop with shared
+  behavior and native packages/catalogs for Claude Code, Codex, Gemini CLI, Cursor,
+  and GitHub Copilot.
 - Must offer fork vs. scaffold; must carry the load-bearing laws verbatim; must not
   finish before the new repo passes its own gates; must remind about containers and
   the Naming Ceremony. No hooks, no network beyond the user-pointed clone.

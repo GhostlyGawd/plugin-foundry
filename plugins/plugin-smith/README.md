@@ -1,10 +1,13 @@
 # Plugin Smith
 
-Two skills for building Claude Code plugins correctly: `scaffold` generates a new
-plugin skeleton with the official layout, and `doctor` audits an existing plugin
-directory against the official schema and a strict quality bar.
+Two skills for building portable coding-agent plugins correctly: `scaffold`
+generates one shared source plus host-native packages, and `doctor` audits an
+existing source/package set against the target formats and a strict quality bar.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry        # once, for this marketplace
@@ -19,11 +22,11 @@ claude --plugin-dir ./plugins/plugin-smith
 
 ## Skills
 
-- **plugin-smith:scaffold** — "Scaffold a new Claude Code plugin…" Give it a name
-  and component list; it produces a correct tree, manifest, README, CHANGELOG, and
-  prints the validate/test commands.
-- **plugin-smith:doctor** — "Audit a Claude Code plugin directory…" Point it at a
-  plugin path; it reports BLOCKER/WARN/NIT findings with exact fixes and a verdict.
+- **plugin-smith:scaffold** — give it a name, component list, and optional host set;
+  it produces shared behavior, native manifests/packages, documentation, and
+  validation commands without maintaining five forks.
+- **plugin-smith:doctor** — point it at a source directory or native package set; it
+  reports host-specific BLOCKER/WARN/NIT findings with exact fixes and a verdict.
 
 No hooks, no MCP servers, nothing runs in the background.
 

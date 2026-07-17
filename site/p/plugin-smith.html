@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plugin Smith — provenance</title>
 <meta property="og:title" content="Plugin Smith — provenance">
-<meta property="og:description" content="Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.">
+<meta property="og:description" content="Scaffolds portable coding-agent plugins and audits their host-native packages.">
 <meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/plugin-smith.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -49,18 +49,21 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Plugin Smith — birth certificate</h1></header>
-  <p class="meta">plugin · meta · v0.1.3 · created 2026-07-04 · updated 2026-07-07 · ~137 tok est · verified 2026-07-13</p>
+  <p class="meta">plugin · meta · v0.1.4 · created 2026-07-04 · updated 2026-07-17 · ~137 tok est · verified 2026-07-13</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
-  <p>Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.</p>
+  <p>Scaffolds portable coding-agent plugins and audits their host-native packages.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~137 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall plugin-smith — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Plugin Smith
 
-Two skills for building Claude Code plugins correctly: `scaffold` generates a new
-plugin skeleton with the official layout, and `doctor` audits an existing plugin
-directory against the official schema and a strict quality bar.
+Two skills for building portable coding-agent plugins correctly: `scaffold`
+generates one shared source plus host-native packages, and `doctor` audits an
+existing source/package set against the target formats and a strict quality bar.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry        # once, for this marketplace
@@ -75,11 +78,11 @@ claude --plugin-dir ./plugins/plugin-smith
 
 ## Skills
 
-- **plugin-smith:scaffold** — &quot;Scaffold a new Claude Code plugin…&quot; Give it a name
-  and component list; it produces a correct tree, manifest, README, CHANGELOG, and
-  prints the validate/test commands.
-- **plugin-smith:doctor** — &quot;Audit a Claude Code plugin directory…&quot; Point it at a
-  plugin path; it reports BLOCKER/WARN/NIT findings with exact fixes and a verdict.
+- **plugin-smith:scaffold** — give it a name, component list, and optional host set;
+  it produces shared behavior, native manifests/packages, documentation, and
+  validation commands without maintaining five forks.
+- **plugin-smith:doctor** — point it at a source directory or native package set; it
+  reports host-specific BLOCKER/WARN/NIT findings with exact fixes and a verdict.
 
 No hooks, no MCP servers, nothing runs in the background.
 
@@ -98,16 +101,14 @@ See [CHANGELOG.md](./CHANGELOG.md).
   (audit an existing plugin directory).
 - **Why a plugin:** it&#x27;s the dogfood cornerstone — the factory should run on its own
   products, and this knowledge must be versioned, not tribal.</pre></details><details><summary>Spec</summary><pre>- Name: `plugin-smith` (forever).
-- skills/scaffold/SKILL.md — description (verbatim): &quot;Scaffold a new Claude Code
-  plugin directory with the official layout. Use when creating a new plugin, starting
-  a plugin skeleton, or converting loose commands into a plugin.&quot;
-- skills/doctor/SKILL.md — description (verbatim): &quot;Audit a Claude Code plugin
-  directory against the official schema and this marketplace&#x27;s quality bar. Use when
-  reviewing, debugging, or health-checking a plugin.&quot;
+- skills/scaffold/SKILL.md — creates shared behavior and separate native packages
+  for Claude Code, Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- skills/doctor/SKILL.md — detects target hosts, audits their schemas and root
+  variables, and blocks cross-host hook collisions or undocumented risky behavior.
 - No hooks, no MCP. Token budget: ≤150 always-on.
 ### Acceptance checks
-1. Invoking scaffold with a name + component list yields a tree matching the official
-   layout (manifest in .claude-plugin/, components at root, ./-relative paths).
+1. Invoking scaffold with a name + component list yields one shared component tree
+   and a native manifest/package plan for each requested host.
 2. Doctor on a plugin with a seeded flaw (e.g. command file missing description, or
    agents/ inside .claude-plugin/) reports each flaw with the fix.
 3. Doctor on plugin-smith itself reports clean.</pre></details><details><summary>Build log</summary><pre>- i0: both skills, manifest, README, CHANGELOG written at genesis.</pre></details><details open><summary>Test log</summary><pre>- i0: genesis exception — shipped without a full TESTING.md pass; structural tier

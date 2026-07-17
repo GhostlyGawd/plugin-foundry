@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+
 ## 0.1.3 — 2026-07-07
 - docs: pairing with dep-bump-brief — on a dependency PR the `pr` skill drops
   the brief's risk line straight into Risk & rollback (v13 B6 synergy).

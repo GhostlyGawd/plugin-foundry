@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+- feat: bootstrapped foundries now inherit adapter generation, native package
+  isolation, and marketplace catalogs for all five hosts.
+
 ## 0.2.0 — 2026-07-12
 - feat: the fork now inherits the **org-pattern framework** (MASTER.md), not just
   the plugin loop — the bootstrap skill carries over the constitution + guard, the

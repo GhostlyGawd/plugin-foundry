@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Night Clerk — provenance</title>
 <meta property="og:title" content="Night Clerk — provenance">
-<meta property="og:description" content="Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.">
+<meta property="og:description" content="Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.">
 <meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -49,9 +49,9 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Night Clerk — birth certificate</h1></header>
-  <p class="meta">plugin · workflow · v0.2.7 · created 2026-07-05 · updated 2026-07-12 · ~129 tok est · verified 2026-07-13</p>
+  <p class="meta">plugin · workflow · v0.2.8 · created 2026-07-05 · updated 2026-07-17 · ~129 tok est · verified 2026-07-13</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
-  <p>Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.</p>
+  <p>Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~129 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall night-clerk — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Night Clerk
@@ -61,11 +61,14 @@ The marketplace&#x27;s front desk, installed in your terminal. Two skills:
 - `clerk` — ask &quot;what plugin helps with X?&quot; and get up to three real
   recommendations with exact install lines — from a bundled catalog snapshot,
   never from imagination.
-- `whats-new` — ask &quot;are my plugins up to date?&quot; and the clerk compares what
-  `claude plugin list` reports against the shelf versions in the snapshot,
-  handing you `claude plugin update &lt;name&gt;` lines for anything behind.
+- `whats-new` — ask &quot;are my plugins up to date?&quot; and the clerk compares the
+  active host&#x27;s installed inventory against the shelf snapshot, handing you the
+  native update path for anything behind.
 
 ## Install
+
+One shared source ships native packages for Claude Code, Codex, Gemini CLI, Cursor, and
+GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd/plugin-foundry/blob/main/COMPATIBILITY.md).
 ```
 /plugin marketplace add GhostlyGawd/plugin-foundry
 /plugin install night-clerk@foundry

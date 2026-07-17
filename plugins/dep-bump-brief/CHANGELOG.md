@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 — 2026-07-17
+- feat: one shared source now produces native packages for Claude Code,
+  Codex, Gemini CLI, Cursor, and GitHub Copilot.
+
 ## 0.1.1 — 2026-07-07
 - docs: README gains the standard `## Changelog` link (skeleton consistency,
   v13 B8) and a pr-narrator pairing recipe — the brief's risk line drops into a

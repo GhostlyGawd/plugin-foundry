@@ -13,8 +13,14 @@ for s in scaffold doctor; do
     && echo "ok: $s description carries an invoke contract" \
     || echo "fail: $s description missing 'Use when' contract"
 done
-grep -q 'code.claude.com/docs' "$P/skills/scaffold/SKILL.md" \
-  && echo "ok: scaffold defers to official docs" || echo "fail: scaffold lacks docs-before-invention pointer"
+grep -q 'separate native package per host' "$P/skills/scaffold/SKILL.md" \
+  && grep -q 'Claude Code' "$P/skills/doctor/SKILL.md" \
+  && grep -q 'Codex' "$P/skills/doctor/SKILL.md" \
+  && grep -q 'Gemini CLI' "$P/skills/doctor/SKILL.md" \
+  && grep -q 'Cursor' "$P/skills/doctor/SKILL.md" \
+  && grep -q 'GitHub Copilot' "$P/skills/doctor/SKILL.md" \
+  && echo "ok: smith models five isolated host packages" \
+  || echo "fail: smith lacks cross-host package rules"
 
 if command -v claude >/dev/null 2>&1; then
   claude plugin validate "./$P" --strict >/dev/null 2>&1 \

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T07:05:38.098198+00:00",
+ "generated_at": "2026-07-17T08:10:23.015499+00:00",
  "iteration": 247,
  "phase": "grow",
  "theme": {
@@ -223,7 +223,7 @@
    "title": "Commit Craft",
    "category": "workflow",
    "stage": "published",
-   "version": "0.3.2",
+   "version": "0.3.3",
    "components": [
     "skills",
     "hooks"
@@ -234,7 +234,7 @@
     "conventional-commits",
     "hooks"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "88",
@@ -396,7 +396,7 @@
    "title": "Dep-Bump Brief",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "components": [
     "skills"
    ],
@@ -406,7 +406,7 @@
     "review",
     "changelogs"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "105",
@@ -444,7 +444,7 @@
    "title": "Env Doctor",
    "category": "quality",
    "stage": "published",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "components": [
     "skills",
     "hooks"
@@ -455,7 +455,7 @@
     "onboarding",
     "hooks"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "130",
@@ -494,7 +494,7 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "components": [
     "skills"
    ],
@@ -505,7 +505,7 @@
     "viral",
     "dogfood"
    ],
-   "updated": "2026-07-12",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "90",
@@ -619,17 +619,17 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.7",
+   "version": "0.2.8",
    "components": [
     "skills"
    ],
-   "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
+   "one_liner": "Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.",
    "tags": [
     "discovery",
     "meta",
     "catalog"
    ],
-   "updated": "2026-07-12",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "129",
@@ -643,18 +643,18 @@
    "title": "Plugin Smith",
    "category": "meta",
    "stage": "published",
-   "version": "0.1.3",
+   "version": "0.1.4",
    "components": [
     "skills"
    ],
-   "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
+   "one_liner": "Scaffolds portable coding-agent plugins and audits their host-native packages.",
    "tags": [
     "meta",
     "scaffolding",
     "validation",
     "dogfood"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "137",
@@ -692,7 +692,7 @@
    "title": "PR Narrator",
    "category": "workflow",
    "stage": "published",
-   "version": "0.1.3",
+   "version": "0.1.4",
    "components": [
     "skills"
    ],
@@ -702,7 +702,7 @@
     "skills",
     "writing"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "88",
@@ -788,7 +788,7 @@
    "title": "Session Recap",
    "category": "context",
    "stage": "published",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "components": [
     "skills",
     "hooks"
@@ -799,7 +799,7 @@
     "sessions",
     "continuity"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "115",
@@ -862,7 +862,7 @@
    "title": "Test-Gap Nudge",
    "category": "quality",
    "stage": "published",
-   "version": "0.3.1",
+   "version": "0.3.2",
    "components": [
     "hooks"
    ],
@@ -872,7 +872,7 @@
     "hooks",
     "discipline"
    ],
-   "updated": "2026-07-06",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "33",
@@ -936,7 +936,7 @@
    "title": "TODO Ledger",
    "category": "quality",
    "stage": "published",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "components": [
     "skills"
    ],
@@ -946,7 +946,7 @@
     "todos",
     "reporting"
    ],
-   "updated": "2026-07-07",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "108",
@@ -1343,60 +1343,11 @@
   "ideas": [],
   "shipped": [
    {
-    "name": "fork-a-foundry",
-    "title": "Fork a Foundry",
-    "category": "meta",
-    "stage": "published",
-    "version": "0.2.0",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
-    "tags": [
-     "meta",
-     "bootstrap",
-     "viral",
-     "dogfood"
-    ],
-    "updated": "2026-07-12",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "90",
-    "verified": "2026-07-13",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "night-clerk",
-    "title": "Night Clerk",
-    "category": "workflow",
-    "stage": "published",
-    "version": "0.2.7",
-    "components": [
-     "skills"
-    ],
-    "one_liner": "Ask Claude Code what plugin helps with X - the clerk searches the foundry catalog and hands you the install line.",
-    "tags": [
-     "discovery",
-     "meta",
-     "catalog"
-    ],
-    "updated": "2026-07-12",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "129",
-    "verified": "2026-07-13",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
     "name": "commit-craft",
     "title": "Commit Craft",
     "category": "workflow",
     "stage": "published",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "components": [
      "skills",
      "hooks"
@@ -1407,7 +1358,7 @@
      "conventional-commits",
      "hooks"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "88",
@@ -1421,7 +1372,7 @@
     "title": "Dep-Bump Brief",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "components": [
      "skills"
     ],
@@ -1431,7 +1382,7 @@
      "review",
      "changelogs"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "105",
@@ -1445,7 +1396,7 @@
     "title": "Env Doctor",
     "category": "quality",
     "stage": "published",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "components": [
      "skills",
      "hooks"
@@ -1456,10 +1407,59 @@
      "onboarding",
      "hooks"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "130",
+    "verified": "2026-07-13",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "fork-a-foundry",
+    "title": "Fork a Foundry",
+    "category": "meta",
+    "stage": "published",
+    "version": "0.2.1",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "tags": [
+     "meta",
+     "bootstrap",
+     "viral",
+     "dogfood"
+    ],
+    "updated": "2026-07-17",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "90",
+    "verified": "2026-07-13",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "night-clerk",
+    "title": "Night Clerk",
+    "category": "workflow",
+    "stage": "published",
+    "version": "0.2.8",
+    "components": [
+     "skills"
+    ],
+    "one_liner": "Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.",
+    "tags": [
+     "discovery",
+     "meta",
+     "catalog"
+    ],
+    "updated": "2026-07-17",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "129",
     "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
@@ -1470,18 +1470,18 @@
     "title": "Plugin Smith",
     "category": "meta",
     "stage": "published",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "components": [
      "skills"
     ],
-    "one_liner": "Scaffolds new Claude Code plugins and health-checks existing ones against the official spec.",
+    "one_liner": "Scaffolds portable coding-agent plugins and audits their host-native packages.",
     "tags": [
      "meta",
      "scaffolding",
      "validation",
      "dogfood"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "137",
@@ -1495,7 +1495,7 @@
     "title": "PR Narrator",
     "category": "workflow",
     "stage": "published",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "components": [
      "skills"
     ],
@@ -1505,7 +1505,7 @@
      "skills",
      "writing"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "88",
@@ -1519,7 +1519,7 @@
     "title": "Session Recap",
     "category": "context",
     "stage": "published",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "components": [
      "skills",
      "hooks"
@@ -1530,10 +1530,34 @@
      "sessions",
      "continuity"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "115",
+    "verified": "2026-07-13",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "test-gap-nudge",
+    "title": "Test-Gap Nudge",
+    "category": "quality",
+    "stage": "published",
+    "version": "0.3.2",
+    "components": [
+     "hooks"
+    ],
+    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
+    "tags": [
+     "testing",
+     "hooks",
+     "discipline"
+    ],
+    "updated": "2026-07-17",
+    "commission": null,
+    "kind": "plugin",
+    "always_on_tokens": "33",
     "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
@@ -1544,7 +1568,7 @@
     "title": "TODO Ledger",
     "category": "quality",
     "stage": "published",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "components": [
      "skills"
     ],
@@ -1554,7 +1578,7 @@
      "todos",
      "reporting"
     ],
-    "updated": "2026-07-07",
+    "updated": "2026-07-17",
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "108",
@@ -1807,30 +1831,6 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-13",
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
-   },
-   {
-    "name": "test-gap-nudge",
-    "title": "Test-Gap Nudge",
-    "category": "quality",
-    "stage": "published",
-    "version": "0.3.1",
-    "components": [
-     "hooks"
-    ],
-    "one_liner": "A polite Stop-hook that notices source changes with no matching test changes and says so once.",
-    "tags": [
-     "testing",
-     "hooks",
-     "discipline"
-    ],
-    "updated": "2026-07-06",
-    "commission": null,
-    "kind": "plugin",
-    "always_on_tokens": "33",
     "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
@@ -2237,7 +2237,7 @@
   {
    "id": "plugin-maker",
    "name": "Plugin-maker kit",
-   "desc": "Everything for building Claude Code plugins the disciplined way \u2014 scaffold, audit, and eventually your own factory.",
+   "desc": "Everything for building portable coding-agent plugins the disciplined way \u2014 scaffold, audit, and eventually your own factory.",
    "members": [
     {
      "name": "plugin-smith",

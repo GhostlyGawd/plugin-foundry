@@ -3,7 +3,7 @@ name: dep-bump-brief
 title: Dep-Bump Brief
 category: workflow
 stage: published
-version: 0.1.1
+version: 0.1.2
 kind: plugin
 verified: 2026-07-13
 components: [skills]
@@ -11,7 +11,7 @@ always_on_tokens: 105
 one_liner: Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.
 tags: [dependencies, review, changelogs]
 created: 2026-07-06
-updated: 2026-07-07
+updated: 2026-07-17
 ---
 
 # Dep-Bump Brief
