@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.8
+version: 0.2.9
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-13
@@ -92,3 +92,5 @@ REVIEW: approved
   catalog regeneration for the slate (ADR-022 sequencing).
 - v14 (maintainer, ADR-024): v0.2.6 — snapshot refresh: todo-ledger joins the
   shelf (ten plugins). Tag night-clerk-v0.2.6.
+- 2026-07-17: v0.2.9 refreshes the five-host offline catalog for
+  fork-a-foundry 0.2.2 and its Codex/OpenAI PR-only bootstrap path.

@@ -36,7 +36,7 @@ _none_
 - [fuel-gauge](records/fuel-gauge.md) `growth` `site+docs` — The month's real API spend, on the window, against the operator's cap — with a Sponsor path to fund the next shift.
 - [idea-credit-loop](records/idea-credit-loop.md) `growth` `site+docs` — Community suggestions carry their prospector's name from issue to card to birth certificate — with a thank-you at every milestone.
 - [live-shift-theater](records/live-shift-theater.md) `growth` `site` — A window page that replays the latest shift's journal as a slow-scrolling theater — watch the machine work.
-- [night-clerk v0.2.8](records/night-clerk.md) `workflow` `skills` — Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path. — install: `/plugin install night-clerk@foundry`
+- [night-clerk v0.2.9](records/night-clerk.md) `workflow` `skills` — Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path. — install: `/plugin install night-clerk@foundry`
 - [plugin-smith v0.1.4](records/plugin-smith.md) `meta` `skills` — Scaffolds portable coding-agent plugins and audits their host-native packages. — install: `/plugin install plugin-smith@foundry`
 - [pr-gated-publishes](records/pr-gated-publishes.md) `growth` `workflow` — Every automated content change lands as a pull request behind required gates and a human veto window.
 - [pr-narrator v0.1.4](records/pr-narrator.md) `workflow` `skills` — A skill that turns a branch's commits and diff into a reviewer-ready PR description. — install: `/plugin install pr-narrator@foundry`

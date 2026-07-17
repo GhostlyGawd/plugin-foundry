@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.9 — 2026-07-17
+- data: refresh the offline catalog for `fork-a-foundry` 0.2.2, whose bootstrap
+  now provisions the Codex/OpenAI PR-only automation boundary.
+
 ## 0.2.8 — 2026-07-17
 - feat: one shared source now produces native packages for Claude Code,
   Codex, Gemini CLI, Cursor, and GitHub Copilot.

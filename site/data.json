@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T09:12:51.217455+00:00",
+ "generated_at": "2026-07-17T09:15:56.494845+00:00",
  "iteration": 247,
  "phase": "grow",
  "theme": {
@@ -619,7 +619,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.8",
+   "version": "0.2.9",
    "components": [
     "skills"
    ],
@@ -1424,7 +1424,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "components": [
      "skills"
     ],
@@ -2877,34 +2877,34 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.8",
+   "version": "0.2.9",
    "skills": true,
    "hooks": false,
    "packages": {
     "claude-code": {
-     "file": "night-clerk-0.2.8-claude-code.zip",
-     "sha256": "4994fdb4781ce620ea4099a5687a5da3a66255a72222845ec1fa51c906e8663b",
-     "bytes": 8673
+     "file": "night-clerk-0.2.9-claude-code.zip",
+     "sha256": "26d84d1e31ad94f9a06640f3d98140bee29119c42f8298ab61695e99a7e4b3a7",
+     "bytes": 8744
     },
     "codex": {
-     "file": "night-clerk-0.2.8-codex.zip",
-     "sha256": "e320912d092a34460edf129306f7113f8ee2247b887cbbd265c3e5a5a08a979c",
-     "bytes": 8658
+     "file": "night-clerk-0.2.9-codex.zip",
+     "sha256": "22b2c6cc6b6dd6c7b16aeabc0288b78947c9e91b06c0c7c47becad75ba22adce",
+     "bytes": 8728
     },
     "gemini-cli": {
-     "file": "night-clerk-0.2.8-gemini-cli.zip",
-     "sha256": "1b8c46ca8ab1490318d0fa75f8f702fa6973322bf2b5810db6b7cafdfad21bee",
-     "bytes": 8495
+     "file": "night-clerk-0.2.9-gemini-cli.zip",
+     "sha256": "4df133c701eff07a97d6ba2a5dbb2f83e5135477091c97c4228b20dca55b0a74",
+     "bytes": 8565
     },
     "cursor": {
-     "file": "night-clerk-0.2.8-cursor.zip",
-     "sha256": "2f4d2d90a668581992ae73c63a5b1d47978a4c51e05148e4fd7e263d2a34f356",
-     "bytes": 8673
+     "file": "night-clerk-0.2.9-cursor.zip",
+     "sha256": "722d961453b271df39165c7c683a1bbad17a99e5acb956d53c888fb6118dd516",
+     "bytes": 8743
     },
     "github-copilot": {
-     "file": "night-clerk-0.2.8-github-copilot.zip",
-     "sha256": "02e95823c7593f0ca0412144a6a37112ccf4c61aa100313e80f0743714bb134c",
-     "bytes": 8660
+     "file": "night-clerk-0.2.9-github-copilot.zip",
+     "sha256": "f669251434b20d8d4468d236d82ae830830556ebc282020b9e48475f763bc2ee",
+     "bytes": 8730
     }
    }
   },

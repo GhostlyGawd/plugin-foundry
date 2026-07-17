@@ -35,7 +35,7 @@
     {
       "name": "night-clerk",
       "description": "The foundry's front desk inside your terminal: ask what plugin helps with a task and get real recommendations with exact install lines from a bundled catalog snapshot.",
-      "version": "0.2.8",
+      "version": "0.2.9",
       "source": "./plugins/night-clerk"
     },
     {
