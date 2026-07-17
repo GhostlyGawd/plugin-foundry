@@ -79,7 +79,7 @@
         "qa"
       ],
       "status": "dormant",
-      "description": "Grandfathered direct writer (charter/AGENTS.md hard rule 1) until P0.7 subsumes it. Dormant while the root STOP file stands (CI token rejected 2026-07-07); run-shift.yml is the runtime."
+      "description": "Runs through a least-privilege Codex Action job that emits a patch; a separate keyless job runs every gate and opens the veto-window PR. Dormant while the root STOP file stands; run-shift.yml is the runtime."
     },
     {
       "id": "naming",

@@ -108,7 +108,7 @@ journaled friction becomes the next round of ideas.
 
 `OPERATIONS.md` takes this from local repo to public spectacle in ~30 minutes:
 **GitHub is the server.** Actions runs scheduled *shifts* (`run-shift.yml`: intake →
-N loop iterations → push); every push redeploys `site/` to **GitHub Pages**
+Codex iterations → validated pull request); every merge redeploys `site/` to **GitHub Pages**
 (`deploy-site.yml`) — so the public page updates precisely because the AI worked.
 The window shows a live pulse and last-shift age, a ticker replaying the journal,
 theme-of-the-month banner, roadmap lanes, the shelf with install commands, and a
@@ -232,11 +232,11 @@ with a note. `site/index.html` is the catalog;
 
 ## Safety
 
-`loop.sh` defaults to `--dangerously-skip-permissions` (unattended loops can't stop to
-ask) and requires a one-time `SANDBOXED` acknowledgment. **Run unattended sessions in
-a container or dedicated VM with only this repo mounted.** Git is the undo button;
-per-pass logs land in `state/runs/`; the harness halts after 3 consecutive failures or
-any post-pass validation failure. Semi-supervised:
+Hosted shifts use Codex's workspace-write sandbox and a two-job trust split: the
+model job cannot push, and the keyless landing job must pass every gate before it
+can open a PR. The legacy local `loop.sh` still defaults to
+`--dangerously-skip-permissions`; run it only in a container or dedicated VM with
+this repo mounted. Semi-supervised local mode:
 
 ```bash
 LOOP_PERMS="--permission-mode acceptEdits" ./loop.sh 5

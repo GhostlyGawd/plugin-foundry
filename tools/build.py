@@ -30,7 +30,9 @@ def collect_records():
     for path in sorted(RECORDS.glob("*.md")):
         text = path.read_text()
         meta, body = parse_front_matter(text)
-        meta["record_path"] = str(path.relative_to(ROOT))
+        # Public links and generated Markdown must be platform-independent.
+        # ``str(Path)`` emits backslashes on Windows, which corrupts GitHub URLs.
+        meta["record_path"] = path.relative_to(ROOT).as_posix()
         meta["_body"] = body
         out.append(meta)
     return out
