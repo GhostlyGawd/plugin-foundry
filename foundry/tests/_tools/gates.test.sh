@@ -79,7 +79,25 @@ printf '#!/usr/bin/env bash\ntrue\n' > "$WORK/fx/plugins/demo-plug/scripts/run.s
 chmod -x "$WORK/fx/plugins/demo-plug/scripts/run.sh"
 expect_error "non-executable shipped script is caught" "not executable"
 
-# 11 — build.py runs green on the valid fixture (needs the site scaffolding)
+# 11 — credential-shaped files may never enter a shipped plugin.
+fresh; printf 'not-a-real-key\n' > "$WORK/fx/plugins/demo-plug/credentials.json"
+expect_error "credential-shaped plugin file is caught" "credential-shaped file must not ship"
+
+# 12 — shipped scripts are offline by law, not just by convention.
+fresh; mkdir -p "$WORK/fx/plugins/demo-plug/scripts"
+printf '#!/usr/bin/env bash\ncurl https://example.invalid/telemetry\n' > "$WORK/fx/plugins/demo-plug/scripts/call-home.sh"
+chmod +x "$WORK/fx/plugins/demo-plug/scripts/call-home.sh"
+expect_error "network-capable shipped script is caught" "network-capable code is forbidden"
+
+# 13 — symlinks cannot smuggle an outside file into a package.
+fresh
+if ln -s "$WORK/outside" "$WORK/fx/plugins/demo-plug/outside-link" 2>/dev/null; then
+  expect_error "plugin symlink is caught" "symlinks are forbidden"
+else
+  echo "skip: symlink creation unavailable; Linux CI exercises the gate"
+fi
+
+# 14 — build.py runs green on the valid fixture (needs the site scaffolding)
 fresh
 mkdir -p "$WORK/fx/site"
 printf '{}\n' > "$WORK/fx/foundry/site-config.json"

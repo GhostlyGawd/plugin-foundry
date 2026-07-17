@@ -6,3 +6,16 @@ __pycache__/
 foundry/assets/shots/*.png
 foundry/assets/shots/_capture.cjs
 dist/
+
+# Local credentials and signing material never belong in a plugin package or
+# repository commit. Keep the example convention available for future tooling.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+credentials.json
+service-account.json

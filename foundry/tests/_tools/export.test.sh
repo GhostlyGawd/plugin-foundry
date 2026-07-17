@@ -97,3 +97,37 @@ PY
 # 7 — scratch exports remain ignored; public build artifacts live under site/.
 grep -q "^dist/" "$REPO/.gitignore" && echo "ok: dist/ remains gitignored" \
                                       || echo "fail: dist/ not ignored"
+
+# 8 — exporter independently blocks credential-shaped files and symlinks, even
+# when called without validate.py first.
+python3 - "$REPO" "$WORK" <<'PY' \
+  && echo "ok: exporter refuses credential files and symlink escapes" \
+  || echo "fail: exporter accepted a sensitive or linked artifact"
+import pathlib, shutil, sys
+sys.path.insert(0, str(pathlib.Path(sys.argv[1]) / "tools"))
+from export import shared_files
+
+work = pathlib.Path(sys.argv[2]) / "hostile"
+work.mkdir()
+(work / "credentials.json").write_text("fixture", encoding="utf-8")
+try:
+    shared_files(work)
+except SystemExit as exc:
+    assert "credential-shaped" in str(exc)
+else:
+    raise AssertionError("credential-shaped file was accepted")
+
+(work / "credentials.json").unlink()
+outside = pathlib.Path(sys.argv[2]) / "outside.txt"
+outside.write_text("fixture", encoding="utf-8")
+try:
+    (work / "linked.txt").symlink_to(outside)
+except OSError:
+    raise SystemExit(0)  # Windows without symlink privilege; Linux CI covers it.
+try:
+    shared_files(work)
+except SystemExit as exc:
+    assert "symlink" in str(exc)
+else:
+    raise AssertionError("symlink was accepted")
+PY

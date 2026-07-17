@@ -17,10 +17,10 @@ OK, TODO = "  OK  ", "  TODO(operator)"
 
 CLICKS = [
     "Settings → Pages → Source: GitHub Actions (OPERATIONS §2)",
-    "Settings → Secrets → Actions: ANTHROPIC_API_KEY or CLAUDE_CODE_OAUTH_TOKEN (§3; record-demos.yml uses either)",
+    "Settings → Secrets → Actions: project-scoped OPENAI_API_KEY (§3; Codex workflows only)",
     "Settings → Variables: LOOP_MONTHLY_BUDGET_USD = your cap (§3, §7)",
     "Optional: GOATCOUNTER_TOKEN secret + goatcounter_site config (§6)",
-    "Actions tab → run \"Run shift\" once by hand — arms METRICS.jsonl, the ledger, every experiment baseline (§3, §5)",
+    "Actions tab → run \"Run shift\" once in mode:pr; remove STOP in a reviewed PR only after it is green (§3, §5)",
     "Push local release tags if any (tag pushes are branch-scoped from sessions): git push origin --tags",
 ]
 

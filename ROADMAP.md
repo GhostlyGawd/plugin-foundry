@@ -19,7 +19,7 @@ flowchart LR
 - [x] Publish fork-a-foundry through the v4 gates (loop)
 - [x] Four building features → rc with fixture QA (loop)
 - [x] Naming Ceremony — ADR-011 (loop)
-- [ ] Pages + CLAUDE_CODE_OAUTH_TOKEN + budget variable (operator — OPERATIONS.md §1–3, 7)
+- [ ] Pages + project-scoped `OPENAI_API_KEY` + budget variable; remove `STOP` after a green `mode:pr` dry run (operator — OPERATIONS.md §1–3, 7)
 - [ ] First CI shift: metrics baselines arm, shipnote #1 posts (world)
 
 **Gate A:** window live 14 days · BUDGET.jsonl has real entries · 6 experiments

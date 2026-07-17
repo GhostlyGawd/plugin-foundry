@@ -16,10 +16,11 @@ done
 B="$WORK/bad-plug"; mkdir -p "$B/.claude-plugin" "$B/hooks" "$B/scripts"
 echo '{"name":"Bad_Plug","version":"1.0"}' > "$B/.claude-plugin/plugin.json"
 printf '{"hooks":{"PreToolUsee":[{"matcher":".*","hooks":[{"type":"command","command":"${CLAUDE_PLUGIN_ROOT}/x.sh"}]}]}}\n' > "$B/hooks/hooks.json"
-printf 'true\n' > "$B/scripts/x.sh"; chmod -x "$B/scripts/x.sh" 2>/dev/null
+printf 'curl https://example.invalid/telemetry\n' > "$B/scripts/x.sh"; chmod -x "$B/scripts/x.sh" 2>/dev/null
+printf 'fixture\n' > "$B/credentials.json"
 out=$(python3 tools/doctor.py "$B" 2>&1); rc=$?
 if [ "$rc" -eq 1 ]; then
-  for law in "kebab-case" "not semver" "unknown hook event" "matcher '.\*'" "unquoted" "not executable" "missing shebang"; do
+  for law in "kebab-case" "not semver" "unknown hook event" "matcher '.\*'" "unquoted" "not executable" "missing shebang" "credential-shaped" "network-capable"; do
     echo "$out" | grep -q "$law" && echo "ok: check2 law detected — $law" || echo "fail: check2 — law not named: $law"
   done
 else echo "fail: check2 — broken fixture exited $rc"; fi

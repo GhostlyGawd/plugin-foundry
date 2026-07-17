@@ -41,9 +41,11 @@ if grep -iqE "\b(fault of|blame|culprit|screwed up|incompetent|stupid)\b" "$PM";
   echo "fail: postmortem contains blame language"
 else echo "ok: postmortem is blameless"; fi
 
-# 5 — the runbook carries the delta an operator follows
-if grep -q "CI token rejected" "$REPO/RUNBOOK.md" && grep -q "claude setup-token" "$REPO/RUNBOOK.md"; then
-  echo "ok: RUNBOOK has the actionable token-rejection procedure"
+# 5 — the runbook carries the current hosted remediation without erasing history
+if grep -q "Hosted Codex API key rejected" "$REPO/RUNBOOK.md" \
+   && grep -q "OPENAI_API_KEY" "$REPO/RUNBOOK.md" \
+   && grep -q "legacy local Claude harness" "$REPO/RUNBOOK.md"; then
+  echo "ok: RUNBOOK has current hosted remediation + historical local context"
 else echo "fail: runbook delta missing"; fi
 
 # 6 — the lesson is a closed loop: pm-001 cites m-001, and m-001 exists in the
