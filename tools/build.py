@@ -15,6 +15,7 @@ import json
 import shutil
 import re
 from datetime import datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -1772,6 +1773,47 @@ def build_verified_badges(cfg):
 """)
 
 
+class _InlineScriptCollector(HTMLParser):
+    """Collect exact inline script bodies without treating HTML as a regexp."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.scripts = []
+        self._chunks = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "script":
+            if self._chunks is not None:
+                raise ValueError("nested script element in generated HTML")
+            self._chunks = []
+
+    def handle_data(self, data):
+        if self._chunks is not None:
+            self._chunks.append(data)
+
+    def handle_entityref(self, name):
+        if self._chunks is not None:
+            self._chunks.append(f"&{name};")
+
+    def handle_charref(self, name):
+        if self._chunks is not None:
+            self._chunks.append(f"&#{name};")
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "script" and self._chunks is not None:
+            self.scripts.append("".join(self._chunks))
+            self._chunks = None
+
+
+def _inline_scripts(page):
+    collector = _InlineScriptCollector()
+    collector.feed(page)
+    collector.close()
+    if collector._chunks is not None:
+        raise ValueError("unclosed script element in generated HTML")
+    return collector.scripts
+
+
 def harden_site_html():
     """Apply a privacy baseline and hash-pinned script policy to every page.
 
@@ -1794,7 +1836,7 @@ def harden_site_html():
             r'<meta\s+http-equiv="Content-Security-Policy"\s+content="[^"]*"\s*/?>\s*',
             "", page, flags=re.I,
         )
-        scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script\s*>", page, re.I)
+        scripts = _inline_scripts(page)
         hashes = [
             "'sha256-" + base64.b64encode(
                 hashlib.sha256(script.encode("utf-8")).digest()

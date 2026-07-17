@@ -8,7 +8,12 @@ cd "$REPO"
 python3 - <<'PY' \
   && echo "ok: every generated HTML page has a matching script-hash CSP" \
   || echo "fail: generated HTML privacy/CSP baseline"
-import base64, hashlib, pathlib, re
+import base64, hashlib, importlib.util, pathlib, re, sys
+
+sys.path.insert(0, str(pathlib.Path("tools").resolve()))
+spec = importlib.util.spec_from_file_location("foundry_build", "tools/build.py")
+build = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(build)
 
 pages = sorted(pathlib.Path("site").rglob("*.html"))
 assert pages
@@ -21,13 +26,20 @@ for path in pages:
     assert "connect-src 'self'" in policy, path
     assert "object-src 'none'" in policy, path
     assert "script-src 'unsafe-inline'" not in policy, path
-    scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script\s*>", text, re.I)
+    scripts = build._inline_scripts(text)
     expected = {
         "sha256-" + base64.b64encode(hashlib.sha256(s.encode("utf-8")).digest()).decode("ascii")
         for s in scripts
     }
     declared = set(re.findall(r"sha256-[A-Za-z0-9+/=]+", policy))
     assert declared == expected, (path, declared, expected)
+
+try:
+    build._inline_scripts("<script>safe()</script\t\n ignored>")
+except ValueError:
+    pass
+else:
+    raise AssertionError("malformed script end tag did not fail closed")
 PY
 
 python3 - <<'PY' \
