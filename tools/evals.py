@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """evals.py — merge-blocking agent evals (MASTER P5.2, ADR-030).
 
-The highest-risk agents must never regress silently. Two layers:
+The highest-risk agents must never regress silently. The active layer is fully
+deterministic:
 
 1. DETERMINISTIC golden evals (this file runs them, merge-blocking now):
    foundry/evals/<tool>.jsonl — one case per line: an input + the expected
@@ -9,11 +10,8 @@ The highest-risk agents must never regress silently. Two layers:
    guard.py (constitution) and fence.py (injection scan). A drift in either
    is caught here before it reaches main.
 
-2. LLM-GRADED evals (config-ready; runs when an API key is present):
-   foundry/evals/promptfoo.yaml — golden prompts for the agents that reason
-   with Claude (red-team, spec-drift, reviewer). Left as a ready config with
-   a desk item; the graders bill the API pool, so the operator arms it
-   (ADR-031 boundary).
+The former LLM-graded promptfoo lane is paused under ADR-032/034. Its reference
+file contains no provider, prompt, or test and cannot call a model.
 
   evals.py run [--root DIR]     exit 0 all pass · 1 any regression
   evals.py list                 show the fixture inventory
@@ -88,13 +86,10 @@ def run(root):
     print(f"evals: {passed}/{total} golden cases pass")
     for f in failures:
         print(f"evals:   ✗ {f}")
-    # LLM-graded layer: report readiness, never fail the gate on it. Auth is
-    # asked of the single surface (auth.py), never read from the env directly.
+    # The former LLM-graded layer is retained only as an explicit paused marker.
     pf = os.path.join(root, EVAL_DIR, "promptfoo.yaml")
     if os.path.exists(pf):
-        import auth
-        armed = auth.mode() == "api"
-        print(f"evals: llm-graded suite {'ARMED (run: npx promptfoo eval)' if armed else 'config-ready (needs ANTHROPIC_API_KEY — desk-gated)'}")
+        print("evals: llm-graded suite paused — deterministic fixtures only (ADR-034)")
     return 0 if not failures else 1
 
 

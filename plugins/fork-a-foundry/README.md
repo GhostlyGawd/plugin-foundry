@@ -1,8 +1,8 @@
 # Fork a Foundry
 
-One skill, `bootstrap`, that stands up your own self-running plugin workshop — the
-same architecture that built and maintains this marketplace: loop protocol, role
-rotation, stage-gated pipeline, executable QA, security laws, living window.
+One skill, `bootstrap`, that stands up your own attended plugin workshop — the same
+governed architecture behind this marketplace: one-task protocol, stage-gated
+pipeline, executable QA, security laws, cross-host packages, and a living window.
 
 ## Install
 
@@ -16,12 +16,12 @@ GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd
 
 Then: "bootstrap a foundry in ~/my-foundry". The skill offers a fast fork path or a
 from-spec scaffold, carries the laws over verbatim, and doesn't finish until the new
-loop runs one green iteration. No hooks, nothing runs in the background.
+workshop's deterministic gates pass. No hooks and no background model execution.
 
 ## Recipes
 - "bootstrap a foundry in ~/my-foundry" → fast fork path, laws carried verbatim
 - "scaffold a foundry from spec" → the from-spec build when you want to read every law
-- "turn this repo into a self-running workshop" → adapts the loop onto an existing repo
+- "turn this repo into an attended workshop" → adapts the governed line onto an existing repo
 
 ## Changelog
 See [CHANGELOG.md](./CHANGELOG.md).

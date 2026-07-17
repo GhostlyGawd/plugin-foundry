@@ -4,11 +4,11 @@ title: Fork a Foundry
 category: meta
 stage: published
 kind: plugin
-version: 0.2.2
+version: 0.2.3
 components: [skills]
 always_on_tokens: 90
 verified: 2026-07-13
-one_liner: One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.
+one_liner: Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.
 tags: [meta, bootstrap, viral, dogfood]
 created: 2026-07-05
 updated: 2026-07-17
@@ -21,7 +21,7 @@ whole architecture — protocol, roles, gates, laws — and won't finish until t
 loop runs a green iteration.
 
 ## Pitch
-- **Job:** anyone using a supported coding agent gets their own autonomous,
+- **Job:** anyone using a supported coding agent gets their own attended,
   cross-host plugin factory in minutes.
 - **User:** developers who watched the window and thought "I want one."
 - **Components:** a single `bootstrap` skill (fork path + from-spec scaffold).
@@ -37,8 +37,8 @@ loop runs a green iteration.
   finish before the new repo passes its own gates; must remind about containers and
   the Naming Ceremony. No hooks, no network beyond the user-pointed clone.
 ### Acceptance checks
-1. Skill body names both paths and refuses to finish without a green `./loop.sh`-able
-   state (validate + build + qa).
+1. Skill body names both paths and refuses to finish without green deterministic
+   validation, build, and QA gates.
 2. The load-bearing laws (one-commit discipline, untrusted patron text,
    two-iteration rule, naming ceremony, tripwires) appear verbatim-or-equivalent.
 3. `foundry/tests/fork-a-foundry` harness green; official `--strict` validate green
@@ -55,6 +55,9 @@ loop runs a green iteration.
   project-scoped `OPENAI_API_KEY`, a green PR-only Codex dry run, and reviewed
   removal of `STOP`. Retired hosted Claude OAuth/Anthropic credentials are rejected
   by the acceptance suite.
+- v0.2.3: ADR-032 supersedes that hosted path. Generated workshops keep model
+  workflows disabled and inert, use no reusable CI model credential, and perform
+  model work only in an attended interactive session through reviewed pull requests.
 
 ## Test log
 ### Test pass — i0(v4)
@@ -64,19 +67,21 @@ loop runs a green iteration.
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
 - v0.2.2 regression: Codex/OpenAI go-live steps present; retired hosted credential
   names absent; five-host adapter drift and deterministic packages green.
+- v0.2.3 regression: no credential or hosted-model setup remains; the skill requires
+  disabled model workflows, attended sessions, deterministic gates, and PR landing.
 TEST VERDICT: pass
 
 ## Recipes
 - "fork this foundry into ~/my-workshop" → the whole loop, laws carried
 - "bootstrap a fresh foundry from spec in ./new" → from-spec path, ceremony pending
-- first run after forking: `bash loop.sh 3` and watch the journal fill
+- first run after forking: open the coding agent interactively and review one task
 
 ## Example session
 you> fork this foundry into ~/my-workshop
 bootstrap> copying LOOP.md, charter/, tools/, loop.sh — laws travel with the code
 bootstrap> your workshop has NO name yet: the Naming Ceremony is yours to hold
-bootstrap> first run: cd ~/my-workshop && bash loop.sh 3
-bootstrap> gates must pass in the new repo before I call this done... green.
+bootstrap> first run: cd ~/my-workshop && codex
+bootstrap> model workflows are disabled; deterministic gates are green.
 
 ## Publish log
 - i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
@@ -112,3 +117,5 @@ REVIEW: approved
   hand-built spine forgets (reviewer nit from i8). Docs-only; Tag fork-a-foundry-v0.1.4.
 - 2026-07-17: v0.2.2 aligns fork go-live instructions with the commit-pinned,
   PR-only Codex automation boundary.
+- 2026-07-17: v0.2.3 replaces that hosted path with the attended-session boundary
+  from ADR-032; no model credential or background model runner is provisioned.

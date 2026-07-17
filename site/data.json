@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T09:15:56.494845+00:00",
+ "generated_at": "2026-07-17T19:01:18.410249+00:00",
  "iteration": 247,
  "phase": "grow",
  "theme": {
@@ -494,11 +494,11 @@
    "title": "Fork a Foundry",
    "category": "meta",
    "stage": "published",
-   "version": "0.2.2",
+   "version": "0.2.3",
    "components": [
     "skills"
    ],
-   "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+   "one_liner": "Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.",
    "tags": [
     "meta",
     "bootstrap",
@@ -619,7 +619,7 @@
    "title": "Night Clerk",
    "category": "workflow",
    "stage": "published",
-   "version": "0.2.9",
+   "version": "0.2.10",
    "components": [
     "skills"
    ],
@@ -1399,11 +1399,11 @@
     "title": "Fork a Foundry",
     "category": "meta",
     "stage": "published",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "components": [
      "skills"
     ],
-    "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+    "one_liner": "Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.",
     "tags": [
      "meta",
      "bootstrap",
@@ -1424,7 +1424,7 @@
     "title": "Night Clerk",
     "category": "workflow",
     "stage": "published",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "components": [
      "skills"
     ],
@@ -2844,67 +2844,67 @@
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.2.2",
+   "version": "0.2.3",
    "skills": true,
    "hooks": false,
    "packages": {
     "claude-code": {
-     "file": "fork-a-foundry-0.2.2-claude-code.zip",
-     "sha256": "8334e8275152b2775ba861e6b319907d3b6c9b3f98b6df21067c19b86734ca0b",
-     "bytes": 7221
+     "file": "fork-a-foundry-0.2.3-claude-code.zip",
+     "sha256": "31320b13ebe67fd43cc5f89e9c2ed368ccfddaf2fd63ebe501ddbe4f0635e918",
+     "bytes": 7354
     },
     "codex": {
-     "file": "fork-a-foundry-0.2.2-codex.zip",
-     "sha256": "712769c782aa8c3e9c8a56a1c4681ff5ca68de4de52ce92a8272b052a1ece0ef",
-     "bytes": 7206
+     "file": "fork-a-foundry-0.2.3-codex.zip",
+     "sha256": "ee7295ef77ce411accf8ae3757541ceef1409d0d983923bb4ee2fb4185f3aec7",
+     "bytes": 7338
     },
     "gemini-cli": {
-     "file": "fork-a-foundry-0.2.2-gemini-cli.zip",
-     "sha256": "6a2b84d177bb16dc3b65949e40df9ac647964b9a9a66f55f4a7c1e3057cf2d2c",
-     "bytes": 7039
+     "file": "fork-a-foundry-0.2.3-gemini-cli.zip",
+     "sha256": "6dd390682344e211438c4b97acae962f181a125766e643a12311516d0b175cf1",
+     "bytes": 7170
     },
     "cursor": {
-     "file": "fork-a-foundry-0.2.2-cursor.zip",
-     "sha256": "f843b71fa2b295334177941fc896266556f4974060593b56d915738196cc1498",
-     "bytes": 7221
+     "file": "fork-a-foundry-0.2.3-cursor.zip",
+     "sha256": "70fe8659748b11628f4c7f17f17a03caa977053f17b03bc25987bc0b898f452e",
+     "bytes": 7354
     },
     "github-copilot": {
-     "file": "fork-a-foundry-0.2.2-github-copilot.zip",
-     "sha256": "30f1d599fc11e41267453b495eff07c171c6a5b0255b41c38494a2b432f099ed",
-     "bytes": 7208
+     "file": "fork-a-foundry-0.2.3-github-copilot.zip",
+     "sha256": "81278dc76a278513353c8b398bb3996cdf7740e556c7fe61c020bb947aa478a9",
+     "bytes": 7340
     }
    }
   },
   {
    "name": "night-clerk",
-   "version": "0.2.9",
+   "version": "0.2.10",
    "skills": true,
    "hooks": false,
    "packages": {
     "claude-code": {
-     "file": "night-clerk-0.2.9-claude-code.zip",
-     "sha256": "26d84d1e31ad94f9a06640f3d98140bee29119c42f8298ab61695e99a7e4b3a7",
-     "bytes": 8744
+     "file": "night-clerk-0.2.10-claude-code.zip",
+     "sha256": "9f0e058941ae598d0910d8ffa3b53dfc7f713cd81ce23acc15c55de2b7490e17",
+     "bytes": 8786
     },
     "codex": {
-     "file": "night-clerk-0.2.9-codex.zip",
-     "sha256": "22b2c6cc6b6dd6c7b16aeabc0288b78947c9e91b06c0c7c47becad75ba22adce",
-     "bytes": 8728
+     "file": "night-clerk-0.2.10-codex.zip",
+     "sha256": "30de0e2a392ce305eae3ce14dcd897afdf31101738ff03e2b68c68102821ea87",
+     "bytes": 8771
     },
     "gemini-cli": {
-     "file": "night-clerk-0.2.9-gemini-cli.zip",
-     "sha256": "4df133c701eff07a97d6ba2a5dbb2f83e5135477091c97c4228b20dca55b0a74",
-     "bytes": 8565
+     "file": "night-clerk-0.2.10-gemini-cli.zip",
+     "sha256": "5362f2f948c5c5fbe867e97c76a1eab97b591f5f485801fa0ac19961d015957d",
+     "bytes": 8608
     },
     "cursor": {
-     "file": "night-clerk-0.2.9-cursor.zip",
-     "sha256": "722d961453b271df39165c7c683a1bbad17a99e5acb956d53c888fb6118dd516",
-     "bytes": 8743
+     "file": "night-clerk-0.2.10-cursor.zip",
+     "sha256": "acb77948aafdd7856a80fd3cd0849da404775da285231110c4b6a9a63725753d",
+     "bytes": 8786
     },
     "github-copilot": {
-     "file": "night-clerk-0.2.9-github-copilot.zip",
-     "sha256": "f669251434b20d8d4468d236d82ae830830556ebc282020b9e48475f763bc2ee",
-     "bytes": 8730
+     "file": "night-clerk-0.2.10-github-copilot.zip",
+     "sha256": "ba15d1518b04d2de88e58ead496913c49eb15f7348a561a526cf094c47a27242",
+     "bytes": 8773
     }
    }
   },

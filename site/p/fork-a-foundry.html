@@ -6,7 +6,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fork a Foundry — provenance</title>
 <meta property="og:title" content="Fork a Foundry — provenance">
-<meta property="og:description" content="One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.">
+<meta property="og:description" content="Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.">
 <meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -51,16 +51,16 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>Fork a Foundry — birth certificate</h1></header>
-  <p class="meta">plugin · meta · v0.2.2 · created 2026-07-05 · updated 2026-07-17 · ~90 tok est · verified 2026-07-13</p>
+  <p class="meta">plugin · meta · v0.2.3 · created 2026-07-05 · updated 2026-07-17 · ~90 tok est · verified 2026-07-13</p>
   <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
-  <p>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</p>
+  <p>Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.</p>
   <div class="trust" aria-label="trust card — derived from the artifact"><h3>Trust card</h3><div class="trow"><b>components</b><span>skills</span></div><div class="trow"><b>hooks</b><span>none</span></div><div class="trow"><b>network</b><span>none detected in executable surfaces (heuristic)</span></div><div class="trow"><b>always-on cost</b><span>~90 tok est</span></div><div class="trow"><b>uninstall</b><span>/plugin uninstall fork-a-foundry — removes everything the plugin installed</span></div><p class="tnote">every line above is derived from the shipped artifact at build time — no hand-written safety claims allowed here</p></div>
   
   <div class="cert"><details open><summary>README — exactly what installers receive</summary><pre># Fork a Foundry
 
-One skill, `bootstrap`, that stands up your own self-running plugin workshop — the
-same architecture that built and maintains this marketplace: loop protocol, role
-rotation, stage-gated pipeline, executable QA, security laws, living window.
+One skill, `bootstrap`, that stands up your own attended plugin workshop — the same
+governed architecture behind this marketplace: one-task protocol, stage-gated
+pipeline, executable QA, security laws, cross-host packages, and a living window.
 
 ## Install
 
@@ -74,12 +74,12 @@ GitHub Copilot. See [host-specific install paths](https://github.com/GhostlyGawd
 
 Then: &quot;bootstrap a foundry in ~/my-foundry&quot;. The skill offers a fast fork path or a
 from-spec scaffold, carries the laws over verbatim, and doesn&#x27;t finish until the new
-loop runs one green iteration. No hooks, nothing runs in the background.
+workshop&#x27;s deterministic gates pass. No hooks and no background model execution.
 
 ## Recipes
 - &quot;bootstrap a foundry in ~/my-foundry&quot; → fast fork path, laws carried verbatim
 - &quot;scaffold a foundry from spec&quot; → the from-spec build when you want to read every law
-- &quot;turn this repo into a self-running workshop&quot; → adapts the loop onto an existing repo
+- &quot;turn this repo into an attended workshop&quot; → adapts the governed line onto an existing repo
 
 ## Changelog
 See [CHANGELOG.md](./CHANGELOG.md).
@@ -89,7 +89,7 @@ See [CHANGELOG.md](./CHANGELOG.md).
 - **Update:** `/plugin marketplace update`, then `claude plugin update fork-a-foundry`
 - **Disable / re-enable:** `claude plugin disable fork-a-foundry` / `claude plugin enable fork-a-foundry` (or the `/plugin` menu — no uninstall needed)
 - **Uninstall:** `claude plugin uninstall fork-a-foundry` — removes everything the plugin added
-</pre></details><details><summary>Pitch</summary><pre>- **Job:** anyone using a supported coding agent gets their own autonomous,
+</pre></details><details><summary>Pitch</summary><pre>- **Job:** anyone using a supported coding agent gets their own attended,
   cross-host plugin factory in minutes.
 - **User:** developers who watched the window and thought &quot;I want one.&quot;
 - **Components:** a single `bootstrap` skill (fork path + from-spec scaffold).
@@ -102,8 +102,8 @@ See [CHANGELOG.md](./CHANGELOG.md).
   finish before the new repo passes its own gates; must remind about containers and
   the Naming Ceremony. No hooks, no network beyond the user-pointed clone.
 ### Acceptance checks
-1. Skill body names both paths and refuses to finish without a green `./loop.sh`-able
-   state (validate + build + qa).
+1. Skill body names both paths and refuses to finish without green deterministic
+   validation, build, and QA gates.
 2. The load-bearing laws (one-commit discipline, untrusted patron text,
    two-iteration rule, naming ceremony, tripwires) appear verbatim-or-equivalent.
 3. `foundry/tests/fork-a-foundry` harness green; official `--strict` validate green
@@ -116,20 +116,25 @@ See [CHANGELOG.md](./CHANGELOG.md).
 - v0.2.2: generated workshops now use the current hosted trust boundary:
   project-scoped `OPENAI_API_KEY`, a green PR-only Codex dry run, and reviewed
   removal of `STOP`. Retired hosted Claude OAuth/Anthropic credentials are rejected
-  by the acceptance suite.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i0(v4)
+  by the acceptance suite.
+- v0.2.3: ADR-032 supersedes that hosted path. Generated workshops keep model
+  workflows disabled and inert, use no reusable CI model credential, and perform
+  model work only in an attended interactive session through reviewed pull requests.</pre></details><details open><summary>Test log</summary><pre>### Test pass — i0(v4)
 - tier 1: pass — validate.py + qa.sh green (see harness)
 - tier 2: unavailable locally — official --strict validate runs in the QA workflow
 - tier 3: checks 1–2 executed via foundry/tests/fork-a-foundry/structure.test.sh
 - defects: none found — probed: law-coverage greps, missing-sandbox-reminder case
 - v0.2.2 regression: Codex/OpenAI go-live steps present; retired hosted credential
   names absent; five-host adapter drift and deterministic packages green.
+- v0.2.3 regression: no credential or hosted-model setup remains; the skill requires
+  disabled model workflows, attended sessions, deterministic gates, and PR landing.
 TEST VERDICT: pass</pre></details><details open><summary>Recipes</summary><pre>- &quot;fork this foundry into ~/my-workshop&quot; → the whole loop, laws carried
 - &quot;bootstrap a fresh foundry from spec in ./new&quot; → from-spec path, ceremony pending
-- first run after forking: `bash loop.sh 3` and watch the journal fill</pre></details><details open><summary>Example session</summary><p class="honestlabel">authored example — a CI-recorded transcript replaces this per charter/TESTING.md</p><pre class="term">you&gt; fork this foundry into ~/my-workshop
+- first run after forking: open the coding agent interactively and review one task</pre></details><details open><summary>Example session</summary><p class="honestlabel">authored example — a CI-recorded transcript replaces this per charter/TESTING.md</p><pre class="term">you&gt; fork this foundry into ~/my-workshop
 bootstrap&gt; copying LOOP.md, charter/, tools/, loop.sh — laws travel with the code
 bootstrap&gt; your workshop has NO name yet: the Naming Ceremony is yours to hold
-bootstrap&gt; first run: cd ~/my-workshop &amp;&amp; bash loop.sh 3
-bootstrap&gt; gates must pass in the new repo before I call this done... green.</pre></details><details><summary>Publish log</summary><pre>- i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
+bootstrap&gt; first run: cd ~/my-workshop &amp;&amp; codex
+bootstrap&gt; model workflows are disabled; deterministic gates are green.</pre></details><details><summary>Publish log</summary><pre>- i9 (maintainer): marketplace entry (source ./plugins/fork-a-foundry), version
   0.1.0 synced, CHANGELOG dated, release tag fork-a-foundry-v0.1.0 laid. First
   artifact through the complete v4/v5 gate chain with zero genesis exceptions.</pre></details><details open><summary>Review log</summary><pre>### Review — i8 (reviewer)
 - QUALITY bar walked line-by-line: invoke contract present; both paths (fork /
@@ -155,7 +160,9 @@ REVIEW: approved
   OPERATIONS.md §7–8 (governor &amp; veto, community &amp; fuel), the optional layers a
   hand-built spine forgets (reviewer nit from i8). Docs-only; Tag fork-a-foundry-v0.1.4.
 - 2026-07-17: v0.2.2 aligns fork go-live instructions with the commit-pinned,
-  PR-only Codex automation boundary.</pre></details></div>
+  PR-only Codex automation boundary.
+- 2026-07-17: v0.2.3 replaces that hosted path with the attended-session boundary
+  from ADR-032; no model credential or background model runner is provisioned.</pre></details></div>
   <p class="links">install: <code>/plugin install fork-a-foundry@foundry</code> · <a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/fork-a-foundry.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/fork-a-foundry.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/plugins/fork-a-foundry">artifact history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ghostlygawd.github.io/plugin-foundry</id>
   <title>foundry — ships</title>
-  <updated>2026-07-17T09:15:56Z</updated>
+  <updated>2026-07-17T19:01:18Z</updated>
   <link href="https://ghostlygawd.github.io/plugin-foundry"/>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/commit-craft.html</id>
@@ -27,14 +27,14 @@
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html</id>
-    <title>Fork a Foundry v0.2.2 — shipped</title>
+    <title>Fork a Foundry v0.2.3 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/fork-a-foundry.html"/>
     <updated>2026-07-17T00:00:00Z</updated>
-    <summary>One skill that bootstraps your own self-running plugin workshop — the factory, shipping itself.</summary>
+    <summary>Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.</summary>
   </entry>
   <entry>
     <id>https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html</id>
-    <title>Night Clerk v0.2.9 — shipped</title>
+    <title>Night Clerk v0.2.10 — shipped</title>
     <link href="https://ghostlygawd.github.io/plugin-foundry/p/night-clerk.html"/>
     <updated>2026-07-17T00:00:00Z</updated>
     <summary>Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.</summary>

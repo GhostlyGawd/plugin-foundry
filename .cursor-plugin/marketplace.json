@@ -25,7 +25,7 @@
     {
       "name": "fork-a-foundry",
       "source": "plugins/fork-a-foundry",
-      "description": "Bootstrap your own self-running plugin workshop AND the org-pattern framework that governs it — constitution, guard, single-writer orchestrator, the whole company in a box."
+      "description": "Bootstrap your own attended, cross-host plugin workshop with a constitution, guard, pull-request gates, and no background model credentials."
     },
     {
       "name": "night-clerk",
