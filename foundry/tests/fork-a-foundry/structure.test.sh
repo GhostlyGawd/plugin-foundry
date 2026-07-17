@@ -15,12 +15,13 @@ for frame in "CONSTITUTION" "orchestrator" "agent contract"; do
   grep -qi "$frame" "$P/skills/bootstrap/SKILL.md" \
     && echo "ok: inherits framework — $frame" || echo "fail: framework dropped — $frame"
 done
-grep -q 'container' "$P/skills/bootstrap/SKILL.md" \
-  && echo "ok: sandbox reminder present" || echo "fail: no sandbox reminder"
-if grep -q 'OPENAI_API_KEY' "$P/skills/bootstrap/SKILL.md" \
-  && grep -q 'STOP' "$P/skills/bootstrap/SKILL.md" \
-  && ! grep -qE 'ANTHROPIC_API_KEY|CLAUDE_CODE_OAUTH_TOKEN' "$P/skills/bootstrap/SKILL.md"; then
-  echo "ok: bootstrap teaches the Codex/OpenAI PR-only go-live path"
+grep -Eqi 'permission|sandbox' "$P/skills/bootstrap/SKILL.md" \
+  && echo "ok: interactive permission reminder present" || echo "fail: no permission reminder"
+if grep -qi 'attended' "$P/skills/bootstrap/SKILL.md" \
+  && grep -qi 'disabled and inert' "$P/skills/bootstrap/SKILL.md" \
+  && grep -qi 'pull requests' "$P/skills/bootstrap/SKILL.md" \
+  && ! grep -qE 'OPENAI_API_KEY|ANTHROPIC_API_KEY|CLAUDE_CODE_OAUTH_TOKEN|codex exec|claude -p' "$P/skills/bootstrap/SKILL.md"; then
+  echo "ok: bootstrap teaches the interactive-only model boundary"
 else
   echo "fail: bootstrap auth/go-live path drifted"
 fi

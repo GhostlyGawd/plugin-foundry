@@ -59,8 +59,8 @@
   },
   {
    "name": "fork-a-foundry",
-   "version": "0.2.2",
-   "one_liner": "One skill that bootstraps your own self-running plugin workshop \u2014 the factory, shipping itself.",
+   "version": "0.2.3",
+   "one_liner": "Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.",
    "tags": [
     "meta",
     "bootstrap",
@@ -78,7 +78,7 @@
   },
   {
    "name": "night-clerk",
-   "version": "0.2.9",
+   "version": "0.2.10",
    "one_liner": "Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.",
    "tags": [
     "discovery",

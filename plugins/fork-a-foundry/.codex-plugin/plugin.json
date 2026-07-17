@@ -1,7 +1,7 @@
 {
   "name": "fork-a-foundry",
-  "version": "0.2.2",
-  "description": "Bootstrap your own self-running plugin workshop AND the org-pattern framework that governs it — constitution, guard, single-writer orchestrator, the whole company in a box.",
+  "version": "0.2.3",
+  "description": "Bootstrap your own attended plugin workshop and its governance framework — constitution, guard, pull-request gates, and cross-host packages.",
   "author": {
     "name": "Nightshift Foundry"
   },

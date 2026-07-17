@@ -28,14 +28,14 @@
     },
     {
       "name": "fork-a-foundry",
-      "description": "Bootstrap your own self-running plugin workshop AND the org-pattern framework that governs it — constitution, guard, single-writer orchestrator, the whole company in a box.",
-      "version": "0.2.2",
+      "description": "Bootstrap your own attended, cross-host plugin workshop with a constitution, guard, pull-request gates, and no background model credentials.",
+      "version": "0.2.3",
       "source": "./plugins/fork-a-foundry"
     },
     {
       "name": "night-clerk",
       "description": "The foundry's front desk inside your terminal: ask what plugin helps with a task and get real recommendations with exact install lines from a bundled catalog snapshot.",
-      "version": "0.2.9",
+      "version": "0.2.10",
       "source": "./plugins/night-clerk"
     },
     {

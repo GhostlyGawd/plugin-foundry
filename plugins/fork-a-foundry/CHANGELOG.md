@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.3 — 2026-07-17
+- security: generated workshops keep model workflows disabled and inert, store no
+  reusable model credential, and run model-backed work only in attended interactive
+  sessions through reviewed pull requests.
+
 ## 0.2.2 — 2026-07-17
 - fix: new foundries now provision a project-scoped `OPENAI_API_KEY`, validate one
   PR-only Codex shift, and remove `STOP` through review; the retired hosted Claude

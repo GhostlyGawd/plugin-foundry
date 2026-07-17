@@ -46,8 +46,14 @@ if [ "$rc" -eq 1 ] && echo "$out" | grep -q "✗ guard#1"; then
   echo "ok: eval harness goes red on a regression (not theater)"
 else echo "fail: harness didn't catch the poison — rc=$rc $out"; fi
 
-# 4 — the promptfoo config is present and reports readiness (no key = config-ready)
-out=$(cd "$REPO" && env -u ANTHROPIC_API_KEY python3 tools/evals.py run 2>&1)
-echo "$out" | grep -q "llm-graded suite config-ready" \
-  && echo "ok: llm-graded layer reports config-ready without a key" \
-  || echo "fail: promptfoo readiness — $out"
+# 4 — the promptfoo lane is explicitly paused and contains no callable provider.
+out=$(cd "$REPO" && python3 tools/evals.py run 2>&1)
+if echo "$out" | grep -q "llm-graded suite paused" \
+  && grep -q '^providers: \[\]$' "$REPO/foundry/evals/promptfoo.yaml" \
+  && grep -q '^prompts: \[\]$' "$REPO/foundry/evals/promptfoo.yaml" \
+  && grep -q '^tests: \[\]$' "$REPO/foundry/evals/promptfoo.yaml" \
+  && ! grep -Eqi 'anthropic:|openai:|google:|api.?key' "$REPO/foundry/evals/promptfoo.yaml"; then
+  echo "ok: llm-graded lane is inert; deterministic fixtures remain"
+else
+  echo "fail: LLM eval lane can still arm — $out"
+fi

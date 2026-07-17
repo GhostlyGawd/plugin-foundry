@@ -4,7 +4,7 @@ title: Night Clerk
 category: workflow
 stage: published
 kind: plugin
-version: 0.2.9
+version: 0.2.10
 components: [skills]
 always_on_tokens: 129
 verified: 2026-07-13
@@ -94,3 +94,5 @@ REVIEW: approved
   shelf (ten plugins). Tag night-clerk-v0.2.6.
 - 2026-07-17: v0.2.9 refreshes the five-host offline catalog for
   fork-a-foundry 0.2.2 and its Codex/OpenAI PR-only bootstrap path.
+- 2026-07-17: v0.2.10 refreshes the catalog for fork-a-foundry 0.2.3 and its
+  attended-session, no-model-secret bootstrap boundary.
