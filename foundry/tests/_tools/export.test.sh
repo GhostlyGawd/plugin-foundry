@@ -80,6 +80,18 @@ def hashes(directory):
 assert hashes(sys.argv[1]) == hashes(sys.argv[2])
 PY
 
-# 6 — scratch exports remain ignored; public build artifacts live under site/.
+# 6 — ZIP text is newline-canonical across Windows and POSIX checkouts.
+python3 - "$REPO" "$WORK" <<'PY' \
+  && echo "ok: archive text newlines are cross-platform deterministic" \
+  || echo "fail: archive newline canonicalization"
+import pathlib, sys
+sys.path.insert(0, str(pathlib.Path(sys.argv[1]) / "tools"))
+from export import archive_payload
+sample = pathlib.Path(sys.argv[2]) / "sample.md"
+sample.write_bytes(b"one\r\ntwo\rthree\n")
+assert archive_payload(sample) == b"one\ntwo\nthree\n"
+PY
+
+# 7 — scratch exports remain ignored; public build artifacts live under site/.
 grep -q "^dist/" "$REPO/.gitignore" && echo "ok: dist/ remains gitignored" \
                                       || echo "fail: dist/ not ignored"

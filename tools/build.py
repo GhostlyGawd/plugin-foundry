@@ -1910,7 +1910,9 @@ def main():
     package_count = 0
     # Full foundry builds publish one native package per plugin and host. Minimal gate
     # fixtures intentionally omit the exporter and skip this product surface.
-    if (ROOT / "tools" / "export.py").is_file() and (ROOT / "plugins").is_dir():
+    if (ROOT / "tools" / "export.py").is_file() \
+            and (ROOT / "COMPATIBILITY.md").is_file() \
+            and (ROOT / "plugins").is_dir():
         from export import build_archives, plugin_names
         names = plugin_names()
         if names:

@@ -39,6 +39,10 @@ MANIFEST_DIRS = {".claude-plugin", ".codex-plugin", ".cursor-plugin", ".gemini-a
 ADAPTER_HOOKS = {source for source, _ in HOST_HOOKS.values()}
 SKIP_NAMES = {".DS_Store", "Thumbs.db"}
 SKIP_PARTS = {"__pycache__"}
+TEXT_SUFFIXES = {
+    ".css", ".html", ".js", ".json", ".md", ".py", ".sh", ".toml",
+    ".txt", ".xml", ".yaml", ".yml",
+}
 
 
 def read_manifest(plugin: Path) -> dict:
@@ -104,6 +108,14 @@ def zip_info(archive_name: str, executable: bool) -> zipfile.ZipInfo:
     return info
 
 
+def archive_payload(path: Path) -> bytes:
+    """Canonicalize text newlines so Windows and POSIX builds are identical."""
+    payload = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        payload = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return payload
+
+
 def build_archive(name: str, host: str, out: Path) -> dict:
     plugin = PLUGINS / name
     if not plugin.is_dir():
@@ -121,14 +133,14 @@ def build_archive(name: str, host: str, out: Path) -> dict:
             executable = bool(path.stat().st_mode & stat.S_IXUSR)
             archive.writestr(
                 zip_info(f"{name}/{rel}", executable),
-                path.read_bytes(),
+                archive_payload(path),
                 compresslevel=9,
             )
         compatibility = ROOT / "COMPATIBILITY.md"
         if compatibility.is_file():
             archive.writestr(
                 zip_info(f"{name}/COMPATIBILITY.md", False),
-                compatibility.read_bytes(),
+                archive_payload(compatibility),
                 compresslevel=9,
             )
     payload = destination.read_bytes()

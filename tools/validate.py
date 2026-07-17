@@ -330,7 +330,8 @@ def check_agent_trailer(errors):
 
 def check_cross_host_adapters(errors):
     """Keep full-repo adapters strict without burdening minimal gate fixtures."""
-    if not (ROOT / "tools" / "adapters.py").is_file():
+    if not (ROOT / "tools" / "adapters.py").is_file() \
+            or not (ROOT / "COMPATIBILITY.md").is_file():
         return
     try:
         import adapters
