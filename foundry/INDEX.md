@@ -42,7 +42,7 @@ _none_
 - [pr-narrator v0.1.4](records/pr-narrator.md) `workflow` `skills` — A skill that turns a branch's commits and diff into a reviewer-ready PR description. — install: `/plugin install pr-narrator@foundry`
 - [releases-and-reverify](records/releases-and-reverify.md) `workflow` `workflow` — Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.
 - [saga-page](records/saga-page.md) `growth` `site` — An auto-generated timeline of the workshop's own story — ADRs, ships, kills, ceremonies.
-- [scannable-window](records/scannable-window.md) `growth` `site` — Jump-nav, glanceable stats strip, and vote counts — the window readable in one sweep.
+- [scannable-window](records/scannable-window.md) `growth` `site` — A cross-host storefront with native downloads, responsive install guidance, and a shelf readable in one sweep.
 - [session-recap v0.2.1](records/session-recap.md) `context` `skills+hooks` — Writes a structured recap when a session ends and recalls it when the next one starts. — install: `/plugin install session-recap@foundry`
 - [shift-streak](records/shift-streak.md) `growth` `site` — A 12-week heatmap of the loop's real iterations — proof of life at a glance.
 - [starter-kits](records/starter-kits.md) `growth` `site+docs` — Curated bundles with one copy-block — cut choice paralysis for first-time installers.

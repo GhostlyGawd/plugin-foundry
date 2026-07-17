@@ -6,10 +6,10 @@ stage: published
 kind: feature
 version: null
 components: [site]
-one_liner: Jump-nav, glanceable stats strip, and vote counts — the window readable in one sweep.
-tags: [ui, scannability, ia]
+one_liner: A cross-host storefront with native downloads, responsive install guidance, and a shelf readable in one sweep.
+tags: [ui, scannability, ia, compatibility, downloads]
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-17
 ---
 
 # Scannable Window
@@ -30,6 +30,11 @@ sweep: where am I, what's alive, what shipped, where do I act.
 - Nav: anchor links under the strap; sticky on scroll; keyboard-focusable.
 - Stats strip: four numbers max, each traceable to data.json (never decorative).
 - Reduced-motion and small-screen behavior preserved; no new animation.
+- Host picker: one keyboard-readable choice updates guides, cards, kits, and
+  deterministic native ZIP links for Codex, Claude Code, Gemini CLI, Cursor,
+  and GitHub Copilot.
+- Privacy: host choice is in-memory only; no analytics, cookies, storage,
+  remote fonts, or third-party scripts.
 ### Acceptance checks
 1. Every nav target scrolls to a labeled section; focus outlines visible.
 2. Each stat renders from data.json and shows "—" when its instrument is null.
@@ -46,6 +51,8 @@ sweep: where am I, what's alive, what shipped, where do I act.
 
 ## Build log
 - i0: nav, stats strip, anchors, vote badges — shipped at genesis with community-voting.
+- 2026-07-17: rewrote the Claude-only journey as a five-host storefront;
+  added digest-indexed downloads and responsive host-native install guidance.
 
 ## Test log
 ### Test pass — i0
@@ -59,3 +66,11 @@ TEST VERDICT: pass
 REVIEW: approved — genesis self-review; bundled ship with community-voting noted
 (GROWTH.md one-variable rule): each experiment names its own metric to stay separable.
 Published i0. Verdict pending experiment review.
+
+### Test pass — 2026-07-17
+- tier 1: pass — generator and storefront JavaScript parse green
+- tier 2: pass — desktop and 390px browser checks; no horizontal overflow
+- tier 3: pass — five host controls, 50 package links, storage-free selection,
+  search/filter behavior, and mobile anchors verified
+- defects: one Windows-path escape and one sticky-header anchor offset found and fixed
+TEST VERDICT: pass
