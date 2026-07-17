@@ -1,33 +1,13 @@
 #!/usr/bin/env python3
-"""auth.py — the single auth surface (MASTER AUTH-1, ADR-031).
+"""Interactive-session boundary and historical auth-failure classifier.
 
-No agent, tool, or workflow interprets credentials directly; they ask this
-module. Switching subscription → API billing is a secrets change, zero code:
+Model work is allowed only in a live, attended local session (ADR-032). This
+module never reads an API key, OAuth token, browser session, or Codex credential.
+The host application owns its local sign-in state.
 
-  ANTHROPIC_API_KEY set            → mode "api"     (takes precedence — mirrors
-                                                     Claude Code's own behavior)
-  CLAUDE_CODE_OAUTH_TOKEN set      → mode "subscription"
-  neither, interactive machine     → mode "local-login" (claude's keychain)
-  neither, CI                      → FAIL LOUDLY with the remedy
-
-## The four hard migration triggers (MASTER §2, Contradiction 3)
-Any ONE of these → switch to API billing (set ANTHROPIC_API_KEY, remove the
-OAuth secret) immediately:
-  1. The OAuth token is rejected for CI/programmatic use.
-  2. A weekly-limit lockout halts the loop for more than 1 day.
-  3. Any third-party/untrusted input reaches the write-capable agent.
-  4. The always-on loop goes public.
-
-## Why `probe` exists
-On 2026-07-07 a rejected token produced a 3-second claude exit whose error
-went to a gitignored stdout log — the shift reported success while doing
-nothing. `probe` reads a run log and classifies auth-shaped failures so
-loop.sh can halt loudly on the FIRST one instead of silently streaking.
-
-  auth.py check            exit 0 usable · 1 none-in-CI (prints the remedy)
-  auth.py probe <log...>   exit 2 auth failure identified · 0 not auth-shaped
-
-CI is detected via the CI env var (GitHub Actions sets it).
+  auth.py check            exit 0 for a local session, 1 in CI
+  auth.py probe <log...>   exit 2 for an auth-shaped historical failure,
+                           0 when no auth signature is present
 """
 import os
 import re
@@ -45,65 +25,45 @@ AUTH_SIGNATURES = (
     r"oauth.*(denied|unauthorized)",
 )
 
-REMEDY_SUBSCRIPTION = """auth: REMEDY — the subscription token was rejected or expired.
-  1. On a machine logged into an active Claude subscription: `claude setup-token`
-  2. Update the CLAUDE_CODE_OAUTH_TOKEN Actions secret with the FULL value.
-  3. Dispatch one shift to confirm, then delete the root STOP file.
-  Or switch to API billing (migration trigger #1): set ANTHROPIC_API_KEY and
-  remove the OAuth secret — no code changes needed (tools/auth.py is the only
-  auth surface)."""
-
-REMEDY_NONE = """auth: REMEDY — no credential is available in CI.
-  Set ONE of these repository secrets:
-    CLAUDE_CODE_OAUTH_TOKEN  (subscription; from `claude setup-token`)
-    ANTHROPIC_API_KEY        (API billing; takes precedence if both are set)"""
+INTERACTIVE_REMEDY = """auth: REMEDY — keep model work local and attended.
+  1. Open this repository in the interactive Codex or other coding-agent UI.
+  2. Sign in through that application's normal local flow if prompted.
+  3. Complete one reviewed task and submit it through a pull request.
+  Never copy a local session credential into GitHub, CI, logs, or this repo."""
 
 
 def mode():
-    """Resolve the active auth mode without ever printing a credential."""
-    if os.environ.get("ANTHROPIC_API_KEY", "").strip():
-        return "api"
-    if os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "").strip():
-        return "subscription"
-    if not os.environ.get("CI", "").strip():
-        return "local-login"
-    return "none"
+    """Report only the execution context; never inspect credential state."""
+    return "blocked-ci" if os.environ.get("CI", "").strip() else "interactive-local"
 
 
 def cmd_check():
-    m = mode()
-    if m == "none":
-        print("auth: FAIL — no credential in CI (loud by design; a silent "
-              "no-op shift is worse than a red one)")
-        print(REMEDY_NONE)
+    current = mode()
+    if current == "blocked-ci":
+        print("auth: FAIL — CI/headless model execution is disabled (ADR-032)")
+        print(INTERACTIVE_REMEDY)
         return 1
-    notes = {
-        "api": "API billing (ANTHROPIC_API_KEY) — dollar governor is the law (ADR-008)",
-        "subscription": "subscription token — quota governor v2 is the law (ADR-028)",
-        "local-login": "no env credential; deferring to claude's own login state",
-    }
-    print(f"auth: OK — mode {m}: {notes[m]}")
+    print("auth: OK — mode interactive-local; the host application owns sign-in")
     return 0
 
 
 def cmd_probe(paths):
     text = ""
-    for p in paths:
+    for path in paths:
         try:
-            with open(p, encoding="utf-8", errors="replace") as f:
-                text += f.read().lower() + "\n"
+            with open(path, encoding="utf-8", errors="replace") as handle:
+                text += handle.read().lower() + "\n"
         except OSError:
             continue
     if not text.strip():
         print("auth: probe — no log content to classify")
         return 0
-    for sig in AUTH_SIGNATURES:
-        m = re.search(sig, text)
-        if m:
-            print(f"auth: AUTH FAILURE identified in run log — matched /{sig}/ "
-                  f"(…{m.group(0)[:80]}…)")
-            print(REMEDY_SUBSCRIPTION if mode() != "api" else
-                  "auth: REMEDY — rotate ANTHROPIC_API_KEY; the key was rejected.")
+    for signature in AUTH_SIGNATURES:
+        match = re.search(signature, text)
+        if match:
+            print(f"auth: AUTH FAILURE identified in historical run log — matched "
+                  f"/{signature}/ (…{match.group(0)[:80]}…)")
+            print(INTERACTIVE_REMEDY)
             return 2
     print("auth: probe — failure is not auth-shaped (see the run log itself)")
     return 0

@@ -759,3 +759,14 @@ Template:
 - Two-iteration authorization: this ADR is the prior change required by LOOP.md
   rule 4 for exactly those tool changes. It authorizes no unrelated protocol,
   schema, product, or automation change.
+
+## ADR-034 — disarm the optional LLM eval lane (operator-directed)
+- Status: accepted 2026-07-17.
+- Context: the deterministic golden evals are safe and useful, but the optional
+  promptfoo lane still describes arming an LLM grader through a CI API credential.
+  That contradicts ADR-032 even though no such secret is configured today.
+- Decision: in the next change, `tools/evals.py` may remove the credential-gated
+  LLM execution path while preserving deterministic golden fixtures. The coupled
+  promptfoo configuration and tests may become an explicitly paused reference.
+- Two-iteration authorization: this ADR is the prior change required by LOOP.md
+  rule 4 for that exact eval-tool change and no other tool or protocol change.
