@@ -3,9 +3,9 @@
 Every ops agent in this workshop — the briefing writer, the scout, the tripwire
 auditor, eventually the whole back office — conforms to one contract. The contract
 is what makes the constitution (charter/CONSTITUTION.md) enforceable and the
-single-writer discipline (tools/orchestrator.py) real. The product loop itself
-(`foundry-loop`, the shift that builds plugins) is the one grandfathered writer;
-everything else lands through the orchestrator.
+single-writer discipline (tools/orchestrator.py) real. The product loop has its own
+keyless landing job; every other agent lands through the orchestrator. Both paths
+only propose pull requests, and neither writes to `main` directly.
 
 ## The manifest
 
@@ -34,11 +34,13 @@ Optional fields: `description`, `prompt` (path to its prompt file), `workflow`
 
 ## The four hard rules
 
-1. **No agent pushes to `main` directly.** All mutations flow through the
-   orchestrator (single writer). In the manifest: `capability: writes:<glob>`
-   is only lawful with `lands_via: "orchestrator"`. The sole exception is the
-   grandfathered product loop `foundry-loop` (run-shift), which runs the LOOP.md
-   gates (validate/build/smoke/qa) in place of rules 1 and 3 until P0.7 subsumes it.
+1. **No agent pushes to `main` directly.** Ops-agent mutations flow through the
+   orchestrator (single writer), and the orchestrator proposes its batch as a PR.
+   In the manifest, `capability: writes:<glob>` is only lawful with
+   `lands_via: "orchestrator"`. The product loop `foundry-loop` is the manifest
+   routing exception: its read-only Codex job hands a patch to a keyless landing
+   job, which validates it and opens a PR. The protected branch requires Gates and
+   CodeQL for both paths.
 2. **Untrusted input is fenced before it reaches a prompt.** `ingests_untrusted`
    agents must declare `fenced: true` and are barred from `writes:` capability
    entirely — the read/act split. An agent that reads the world does not, in the

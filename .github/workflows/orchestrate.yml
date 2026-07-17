@@ -1,23 +1,14 @@
-# The chief of staff (MASTER P0.7, ADR-026): the ONLY writer to main besides
-# run-shift. Collects agent changesets from foundry/agents/outbox/, resolves by
-# precedence, runs guard + gates, lands attributed commits. Shares the `shift`
-# concurrency group so orchestrate and run-shift can never race (G1).
+# The chief of staff (MASTER P0.7, ADR-026): collects agent changesets from
+# foundry/agents/outbox/, resolves by precedence, runs guard + gates, and opens
+# attributed commits as a PR. Nothing in this workflow writes to main directly.
+# Shares the `shift` concurrency group so orchestrate and run-shift cannot race.
 # Deterministic python — runs even while the loop is token-paused.
 name: Orchestrate
 on:
   schedule:
     - cron: "23 6 * * *"   # daily desk/outbox sweep; cheap when empty
   workflow_dispatch:
-    inputs:
-      mode:
-        description: "Land directly or via pull request (veto window)"
-        type: choice
-        options: [direct, pr]
-        default: direct
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+permissions: {}
 concurrency:
   group: shift
   cancel-in-progress: false
@@ -25,16 +16,19 @@ jobs:
   orchestrate:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
-      - name: Branch for PR mode
-        if: ${{ github.event.inputs.mode == 'pr' }}
+      - name: Branch for the proposed landing
         run: git checkout -b "orchestrate/${{ github.run_id }}"
       - name: Run the orchestrator (collect → order → guard → gates → land)
-        run: python3 tools/orchestrator.py run --mode "${{ github.event.inputs.mode || 'direct' }}"
+        run: python3 tools/orchestrator.py run --mode pr
       - name: Sync the owner's desk (one pinned issue — ADR-029)
         continue-on-error: true
         env:
@@ -50,10 +44,8 @@ jobs:
             echo "orchestrate: nothing landed — no push"
             exit 0
           fi
-          if [ "${{ github.event.inputs.mode }}" = "pr" ]; then
-            git push -u origin "orchestrate/${{ github.run_id }}"
-            gh pr create --fill --title "orchestrate ${{ github.run_id }}: $(git log -1 --pretty=%s)" \
-              --body "Orchestrated agent landings as a PR (mode: pr parity, P0.7). Merging = approval; closing = veto."
-          else
-            git push
-          fi
+          branch="orchestrate/${{ github.run_id }}"
+          git push -u origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "orchestrate ${{ github.run_id }}: $(git log -1 --pretty=%s)" \
+            --body "Orchestrated agent landings. Gates run again on this PR; merging is approval and closing is veto."

@@ -3,15 +3,14 @@
 
 39 records · iteration 247 · phase grow
 
-**Line:** idea:0 → spec:3 → building:0 → rc:0 → published:36 · deprecated:0 · shelved:0
+**Line:** idea:0 → spec:2 → building:0 → rc:0 → published:37 · deprecated:0 · shelved:0
 
 ## idea (0)
 _none_
 
-## spec (3)
+## spec (2)
 - [commission-tiers](records/commission-tiers.md) `growth` `worker+docs` — A pricing experiment — standard, rush, and named-sponsor commissions.
 - [cross-foundry-exchange](records/cross-foundry-exchange.md) `growth` `docs+workflow` — Sister foundries pass ideas (and someday commissions) to whichever workshop fits best — a federation of night shifts.
-- [pr-gated-publishes](records/pr-gated-publishes.md) `growth` `workflow` — Shifts can land as pull requests — a human veto window that costs the human nothing unless they use it.
 
 ## building (0)
 _none_
@@ -19,7 +18,7 @@ _none_
 ## rc (0)
 _none_
 
-## published (36)
+## published (37)
 - [adversarial-qa-bounties](records/adversarial-qa-bounties.md) `growth` `docs+template+site` — Break a published plugin, earn a permanent Hall entry — community red-teaming as a growth loop.
 - [commission-queue](records/commission-queue.md) `growth` `site+worker` — A sanitized public status board for commissions - patrons watch progress without asking.
 - [commit-craft v0.3.3](records/commit-craft.md) `workflow` `skills+hooks` — Drafts conventional commits from the staged diff and guards message format at commit time. — install: `/plugin install commit-craft@foundry`
@@ -39,6 +38,7 @@ _none_
 - [live-shift-theater](records/live-shift-theater.md) `growth` `site` — A window page that replays the latest shift's journal as a slow-scrolling theater — watch the machine work.
 - [night-clerk v0.2.8](records/night-clerk.md) `workflow` `skills` — Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path. — install: `/plugin install night-clerk@foundry`
 - [plugin-smith v0.1.4](records/plugin-smith.md) `meta` `skills` — Scaffolds portable coding-agent plugins and audits their host-native packages. — install: `/plugin install plugin-smith@foundry`
+- [pr-gated-publishes](records/pr-gated-publishes.md) `growth` `workflow` — Every automated content change lands as a pull request behind required gates and a human veto window.
 - [pr-narrator v0.1.4](records/pr-narrator.md) `workflow` `skills` — A skill that turns a branch's commits and diff into a reviewer-ready PR description. — install: `/plugin install pr-narrator@foundry`
 - [releases-and-reverify](records/releases-and-reverify.md) `workflow` `workflow` — Tags become GitHub Releases with real notes; a weekly cron re-runs every published suite and re-stamps freshness.
 - [saga-page](records/saga-page.md) `growth` `site` — An auto-generated timeline of the workshop's own story — ADRs, ships, kills, ceremonies.

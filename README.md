@@ -136,8 +136,8 @@ reports get a lane that outranks new builds. **Spectacle:** every record has a
 provenance page — its birth certificate, log by log; the pulse goes ON AIR with a
 link to the live shift when the loop is running; publishes lay release tags and the
 window serves an Atom feed. **Governance:** a budget governor ledgers per-iteration
-cost and halts overspending shifts; `mode: pr` lands a shift as a pull request (the
-human veto window, run as a growth experiment); and the workshop ships itself —
+cost and halts overspending shifts; every automated landing now arrives as a pull
+request with a human veto window and required security gates; and the workshop ships itself —
 `fork-a-foundry`, at rc, waiting on its own reviewer like everything else.
 
 ## v5 — legible, community-shaped, followable, fundable

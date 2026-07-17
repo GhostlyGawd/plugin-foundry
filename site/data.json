@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T08:56:01.549397+00:00",
+ "generated_at": "2026-07-17T09:05:38.290728+00:00",
  "iteration": 247,
  "phase": "grow",
  "theme": {
@@ -9,10 +9,10 @@
  },
  "counts": {
   "idea": 0,
-  "spec": 3,
+  "spec": 2,
   "building": 0,
   "rc": 0,
-  "published": 36,
+  "published": 37,
   "deprecated": 0,
   "shelved": 0
  },
@@ -667,18 +667,18 @@
    "name": "pr-gated-publishes",
    "title": "PR-Gated Publishes",
    "category": "growth",
-   "stage": "spec",
+   "stage": "published",
    "version": null,
    "components": [
     "workflow"
    ],
-   "one_liner": "Shifts can land as pull requests \u2014 a human veto window that costs the human nothing unless they use it.",
+   "one_liner": "Every automated content change lands as a pull request behind required gates and a human veto window.",
    "tags": [
     "governance",
     "trust",
     "veto"
    ],
-   "updated": "2026-07-05",
+   "updated": "2026-07-17",
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
@@ -1117,9 +1117,9 @@
  },
  "quality": {
   "plugins_shipped": 10,
-  "features_shipped": 26,
+  "features_shipped": 27,
   "qa_first_try_pct": 86,
-  "qa_graded": 36,
+  "qa_graded": 37,
   "qa_no_log": 0,
   "bounces_total": 5,
   "iterations": 248,
@@ -1316,30 +1316,6 @@
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
-   },
-   {
-    "name": "pr-gated-publishes",
-    "title": "PR-Gated Publishes",
-    "category": "growth",
-    "stage": "spec",
-    "version": null,
-    "components": [
-     "workflow"
-    ],
-    "one_liner": "Shifts can land as pull requests \u2014 a human veto window that costs the human nothing unless they use it.",
-    "tags": [
-     "governance",
-     "trust",
-     "veto"
-    ],
-    "updated": "2026-07-05",
-    "commission": null,
-    "kind": "feature",
-    "always_on_tokens": null,
-    "verified": null,
-    "prospected_by": null,
-    "suggested_in": null,
-    "patron": null
    }
   ],
   "ideas": [],
@@ -1488,6 +1464,30 @@
     "kind": "plugin",
     "always_on_tokens": "137",
     "verified": "2026-07-13",
+    "prospected_by": null,
+    "suggested_in": null,
+    "patron": null
+   },
+   {
+    "name": "pr-gated-publishes",
+    "title": "PR-Gated Publishes",
+    "category": "growth",
+    "stage": "published",
+    "version": null,
+    "components": [
+     "workflow"
+    ],
+    "one_liner": "Every automated content change lands as a pull request behind required gates and a human veto window.",
+    "tags": [
+     "governance",
+     "trust",
+     "veto"
+    ],
+    "updated": "2026-07-17",
+    "commission": null,
+    "kind": "feature",
+    "always_on_tokens": null,
+    "verified": null,
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
