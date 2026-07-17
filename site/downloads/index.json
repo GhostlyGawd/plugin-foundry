@@ -110,67 +110,67 @@
     },
     {
       "name": "fork-a-foundry",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "skills": true,
       "hooks": false,
       "packages": {
         "claude-code": {
-          "file": "fork-a-foundry-0.2.1-claude-code.zip",
-          "sha256": "69537ca155d1c998d81915d43ed6fd1a49b1de2cf228f6ceada8696b6b430e6b",
-          "bytes": 7010
+          "file": "fork-a-foundry-0.2.2-claude-code.zip",
+          "sha256": "8334e8275152b2775ba861e6b319907d3b6c9b3f98b6df21067c19b86734ca0b",
+          "bytes": 7221
         },
         "codex": {
-          "file": "fork-a-foundry-0.2.1-codex.zip",
-          "sha256": "7fe114cf696de8557af02911d0d3093cf46c9a3067eaea560fe99535d2e78be9",
-          "bytes": 6996
+          "file": "fork-a-foundry-0.2.2-codex.zip",
+          "sha256": "712769c782aa8c3e9c8a56a1c4681ff5ca68de4de52ce92a8272b052a1ece0ef",
+          "bytes": 7206
         },
         "gemini-cli": {
-          "file": "fork-a-foundry-0.2.1-gemini-cli.zip",
-          "sha256": "b5aeabfe7afc29fb818ee224c062ea3b448c3e7bea938bd3a8832873a5dc4931",
-          "bytes": 6829
+          "file": "fork-a-foundry-0.2.2-gemini-cli.zip",
+          "sha256": "6a2b84d177bb16dc3b65949e40df9ac647964b9a9a66f55f4a7c1e3057cf2d2c",
+          "bytes": 7039
         },
         "cursor": {
-          "file": "fork-a-foundry-0.2.1-cursor.zip",
-          "sha256": "c50a7c649e06f4d98e9658a7b466c2bfe1a22e60780dc82fac3e99938f895840",
-          "bytes": 7011
+          "file": "fork-a-foundry-0.2.2-cursor.zip",
+          "sha256": "f843b71fa2b295334177941fc896266556f4974060593b56d915738196cc1498",
+          "bytes": 7221
         },
         "github-copilot": {
-          "file": "fork-a-foundry-0.2.1-github-copilot.zip",
-          "sha256": "6bb9c318c415382adc9d42cc6d2a578da65fe7d10f1db5fe7da682c7a91709f8",
-          "bytes": 6998
+          "file": "fork-a-foundry-0.2.2-github-copilot.zip",
+          "sha256": "30f1d599fc11e41267453b495eff07c171c6a5b0255b41c38494a2b432f099ed",
+          "bytes": 7208
         }
       }
     },
     {
       "name": "night-clerk",
-      "version": "0.2.8",
+      "version": "0.2.9",
       "skills": true,
       "hooks": false,
       "packages": {
         "claude-code": {
-          "file": "night-clerk-0.2.8-claude-code.zip",
-          "sha256": "4994fdb4781ce620ea4099a5687a5da3a66255a72222845ec1fa51c906e8663b",
-          "bytes": 8673
+          "file": "night-clerk-0.2.9-claude-code.zip",
+          "sha256": "26d84d1e31ad94f9a06640f3d98140bee29119c42f8298ab61695e99a7e4b3a7",
+          "bytes": 8744
         },
         "codex": {
-          "file": "night-clerk-0.2.8-codex.zip",
-          "sha256": "e320912d092a34460edf129306f7113f8ee2247b887cbbd265c3e5a5a08a979c",
-          "bytes": 8658
+          "file": "night-clerk-0.2.9-codex.zip",
+          "sha256": "22b2c6cc6b6dd6c7b16aeabc0288b78947c9e91b06c0c7c47becad75ba22adce",
+          "bytes": 8728
         },
         "gemini-cli": {
-          "file": "night-clerk-0.2.8-gemini-cli.zip",
-          "sha256": "1b8c46ca8ab1490318d0fa75f8f702fa6973322bf2b5810db6b7cafdfad21bee",
-          "bytes": 8495
+          "file": "night-clerk-0.2.9-gemini-cli.zip",
+          "sha256": "4df133c701eff07a97d6ba2a5dbb2f83e5135477091c97c4228b20dca55b0a74",
+          "bytes": 8565
         },
         "cursor": {
-          "file": "night-clerk-0.2.8-cursor.zip",
-          "sha256": "2f4d2d90a668581992ae73c63a5b1d47978a4c51e05148e4fd7e263d2a34f356",
-          "bytes": 8673
+          "file": "night-clerk-0.2.9-cursor.zip",
+          "sha256": "722d961453b271df39165c7c683a1bbad17a99e5acb956d53c888fb6118dd516",
+          "bytes": 8743
         },
         "github-copilot": {
-          "file": "night-clerk-0.2.8-github-copilot.zip",
-          "sha256": "02e95823c7593f0ca0412144a6a37112ccf4c61aa100313e80f0743714bb134c",
-          "bytes": 8660
+          "file": "night-clerk-0.2.9-github-copilot.zip",
+          "sha256": "f669251434b20d8d4468d236d82ae830830556ebc282020b9e48475f763bc2ee",
+          "bytes": 8730
         }
       }
     },

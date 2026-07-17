@@ -68,7 +68,9 @@ claim one hook-enabled ZIP is universal across Claude/Open Plugin and Gemini.
 
 ## Finish
 1. `python3 tools/validate.py && python3 tools/build.py && bash tools/qa.sh` — green.
-2. `git init` + genesis commit; print the go-live steps (Pages, ANTHROPIC_API_KEY
-   secret, optional Stripe request box) from OPERATIONS.md if present.
+2. `git init` + genesis commit; print the go-live steps (Pages, a project-scoped
+   `OPENAI_API_KEY` Actions secret, one green shift PR, then reviewed removal of
+   `STOP`; optional Stripe request box) from OPERATIONS.md if present. Never ask
+   for a Claude OAuth token or store a model credential in the generated repo.
 3. Remind the user: run unattended loops in a container; the Naming Ceremony is the
    new system's first designer task — it should not keep this one's name.
