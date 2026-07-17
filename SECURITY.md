@@ -53,6 +53,8 @@ Inspect the ZIP, manifest, scripts, certificate, and digest before enabling it.
   keyless job validates and proposes its patch.
 - Every third-party action is commit-SHA pinned. Repository policy permits only
   GitHub-owned actions plus the explicitly allowed OpenAI Codex Action.
+- The `main` ruleset requires a pull request plus green Gates and CodeQL checks;
+  automated shifts, orchestration, demos, and freshness updates only propose branches.
 - Repository secrets are never copied into generated pages, downloadable
   packages, logs, artifacts, or model patches.
 

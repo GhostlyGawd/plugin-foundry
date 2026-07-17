@@ -1,6 +1,6 @@
 # The gates on every PR (ADR-018, v10 #5): validate.py + build.py used to run in
 # CI only on push to main (deploy-site.yml), so a PR touching foundry/records/,
-# state/, or tools/ merged with zero checks — including mode:pr shift PRs, the
+# state/, or tools/ merged with zero checks — including automated shift PRs, the
 # human-veto lane. This closes that hole, and proves generated output (site/,
 # INDEX.md) was committed in sync with its inputs.
 name: Gates

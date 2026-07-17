@@ -13,7 +13,7 @@ Do:
 1. Create or rotate a project-scoped OpenAI API key with the smallest practical budget.
 2. Update the `OPENAI_API_KEY` Actions secret; never paste the value into an issue,
    pull request, workflow input, artifact, or log.
-3. Dispatch one shift with `mode:pr` and confirm that the Codex job completes and the
+3. Dispatch one shift and confirm that the Codex job completes and the
    keyless landing job opens a validation pull request.
 4. Remove the root `STOP` file in a reviewed pull request only after that dry run is green.
 

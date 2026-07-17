@@ -6,7 +6,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PR-Gated Publishes — provenance</title>
 <meta property="og:title" content="PR-Gated Publishes — provenance">
-<meta property="og:description" content="Shifts can land as pull requests — a human veto window that costs the human nothing unless they use it.">
+<meta property="og:description" content="Every automated content change lands as a pull request behind required gates and a human veto window.">
 <meta property="og:url" content="https://ghostlygawd.github.io/plugin-foundry/p/pr-gated-publishes.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -51,25 +51,25 @@
 <body><div class="sheet">
   <p class="links"><a href="../index.html">← back to the window</a></p>
   <header><h1>PR-Gated Publishes — birth certificate</h1></header>
-  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-05</p>
-  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch " title="building"></span><span class="punch " title="rc"></span><span class="punch " title="published"></span><span>spec</span></div>
-  <p>Shifts can land as pull requests — a human veto window that costs the human nothing unless they use it.</p>
+  <p class="meta">feature · growth · unversioned · created 2026-07-05 · updated 2026-07-17</p>
+  <div class="track"><span class="punch done" title="idea"></span><span class="punch done" title="spec"></span><span class="punch done" title="building"></span><span class="punch done" title="rc"></span><span class="punch done" title="published"></span><span>published</span></div>
+  <p>Every automated content change lands as a pull request behind required gates and a human veto window.</p>
   
   
   <div class="cert"><details><summary>Pitch</summary><pre>- **Job:** let the operator (and the public) review a shift before it lands, without
   slowing the line when nobody objects.
 - **User:** the operator; indirectly, everyone who trusts the marketplace more for it.
-- **Components:** the shipped `mode: pr` path in run-shift.yml; this experiment
-  governs making it the scheduled default.</pre></details><details><summary>Spec</summary><pre>- Dispatch shifts with `mode: pr` for the trial window; scheduled shifts stay
-  `direct` until the verdict.
-- Merging a shift-PR = approval; closing = veto (operator leaves a note the next
+- **Components:** shift, demo, orchestrator, and weekly re-verification workflows;
+  the `main` ruleset; Gates and CodeQL.</pre></details><details><summary>Spec</summary><pre>- Every automated content mutation pushes a purpose-named branch and opens a PR;
+  no workflow pushes commits to `main`.
+- Merging an automation PR = approval; closing = veto (operator leaves a note the next
   auditor must read).
-- QA workflow runs on the PR, so vetoes come informed.
+- Gates and CodeQL run on every PR, and the `main` ruleset requires them.
 ### Acceptance checks
-1. A `mode: pr` shift produces a branch `shift/&lt;run_id&gt;` and an open PR with the
+1. A shift produces a branch `shift/&lt;run_id&gt;` and an open PR with the
    shift summary; nothing lands on main until merge.
-2. Direct mode remains untouched; tags still push on merge-to-main shifts.
-3. Journal + ADR record the trial&#x27;s start and the verdict.</pre></details><details><summary>Experiment</summary><pre>- **Hypothesis:** a veto window raises trust signals (stars/watchers trend) without
+2. Orchestrator and weekly re-verification jobs also open PRs; no bare main push remains.
+3. The active main ruleset requires pull requests plus green Gates and CodeQL checks.</pre></details><details><summary>Experiment</summary><pre>- **Hypothesis:** a veto window raises trust signals (stars/watchers trend) without
   stalling the line — median PR-to-merge under 24h and zero shifts lost.
 - **Metric:** `stars`, `watchers` in METRICS.jsonl across the trial; PR merge
   latency and veto count from the trial&#x27;s PRs.
@@ -79,10 +79,26 @@
   ~3 minutes after ready-for-review; zero vetoes; every gate green pre-merge.
 - v9 slate (this PR): same mechanism, second run.
 INTERIM VERDICT: directed multi-iteration slates ride PRs from now on (ADR-017) —
-the veto window demonstrably costs nothing when the work is clean. The *scheduled*
-default stays `direct` until real `mode: pr` cron shifts produce the 10-PR/21-day
-data this spec demands; that clock starts with the factory (Gate A). Record stays
-at spec until then — the experiment is armed, not finished.</pre></details></div>
+the veto window demonstrably costs nothing when the work is clean.</pre></details><details><summary>Publish log — 2026-07-17</summary><pre>The safety boundary is now universal rather than experimental: hosted Codex shifts,
+demo recording, orchestrated agent batches, and weekly verification stamps only
+propose PRs. Repository rules require a PR and green Gates + CodeQL before `main`
+can move. Release-tag publishing remains a separate, immutable-tag operation.</pre></details><details><summary>Build log</summary><pre>- The orchestrator&#x27;s `direct` dispatch choice was removed; every batch starts a
+  run-scoped branch and opens a pull request.
+- Weekly re-verification now proposes changed stamps from a run-scoped branch.
+- The hosted Codex shift and demo workflows were already split into read-only model
+  jobs and keyless PR landing jobs.</pre></details><details open><summary>Test log</summary><pre>- Workflow-security checks assert that orchestrator and re-verification paths contain
+  PR creation and no bare `git push` to the checked-out branch.
+- Build, validation, state validation, golden evals, adapter drift, and workflow YAML
+  checks pass locally; required Gates and CodeQL enforce the same boundary on the PR.
+
+TEST VERDICT: pass</pre></details><details open><summary>Review log</summary><pre>- PR-only automation makes the repository ruleset enforceable without silently
+  breaking a scheduled writer.
+- Tag and release operations remain deliberately separate: tags are immutable release
+  pointers and do not bypass review for branch content.
+- Write-capable jobs still use scoped GitHub tokens, but they can only propose branches;
+  they cannot satisfy the required checks by writing around the review boundary.
+
+REVIEW: approved</pre></details></div>
   <p class="links"><a href="https://github.com/GhostlyGawd/plugin-foundry/blob/main/foundry/records/pr-gated-publishes.md">record on GitHub</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/commits/main/foundry/records/pr-gated-publishes.md">its commit history</a> · <a href="https://github.com/GhostlyGawd/plugin-foundry/issues/new?template=field-report.yml">file a field report</a></p>
   <footer>Every claim above was written by the loop iteration that did the work, in
   the commit that did it — the record is append-only. Nothing here is retouched for

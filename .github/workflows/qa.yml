@@ -31,6 +31,7 @@ jobs:
     permissions:
       contents: write
       issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - name: Install Claude Code (best effort — enables tested_with refresh)
@@ -40,13 +41,25 @@ jobs:
         id: restamp
         continue-on-error: true
         run: python3 tools/restamp.py
-      - name: Commit stamps
+      - name: Propose fresh verification stamps
         if: steps.restamp.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name foundry-reverify
           git config user.email foundry-reverify@users.noreply.github.com
           git add foundry/records
-          git diff --cached --quiet || { git commit -m "chore(qa): weekly re-verify stamps (metadata-only, ADR-013)"; git push; }
+          if git diff --cached --quiet; then
+            echo "reverify: no stamp changes"
+            exit 0
+          fi
+          branch="reverify/${GITHUB_RUN_ID}"
+          git switch -c "$branch"
+          git commit -m "chore(qa): weekly re-verify stamps (metadata-only, ADR-013)"
+          git push -u origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "chore(qa): weekly re-verify stamps" \
+            --body "Weekly verification stamps refreshed by the full QA harness. Merging remains a reviewed, green-only action."
       - name: Ops alarm on stale shelf
         if: steps.restamp.outcome == 'failure'
         env:

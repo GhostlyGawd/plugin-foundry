@@ -6,6 +6,8 @@ REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
 WF="$REPO/.github/workflows"
 SHIFT="$WF/run-shift.yml"
 DEMOS="$WF/record-demos.yml"
+ORCHESTRATE="$WF/orchestrate.yml"
+QA="$WF/qa.yml"
 
 # 1 — no GitHub workflow consumes the retired Claude/Anthropic credentials.
 old=$(grep -rlE 'CLAUDE_CODE_OAUTH_TOKEN|ANTHROPIC_API_KEY' "$WF" || true)
@@ -93,4 +95,14 @@ if grep -q 'security-events: write' "$CODEQL" \
   echo "ok: CodeQL is pinned and least-privilege"
 else
   echo "fail: CodeQL workflow or permissions drifted"
+fi
+
+# 9 — every automated branch mutation proposes a PR; no workflow lands on main.
+if grep -q 'python3 tools/orchestrator.py run --mode pr' "$ORCHESTRATE" \
+  && grep -q 'gh pr create --base main' "$ORCHESTRATE" \
+  && grep -q 'gh pr create --base main' "$QA" \
+  && ! grep -Eq '^[[:space:]]+git push[[:space:]]*$' "$ORCHESTRATE" "$QA"; then
+  echo "ok: orchestrator and weekly reverify are PR-only"
+else
+  echo "fail: an automated main-branch landing path remains"
 fi

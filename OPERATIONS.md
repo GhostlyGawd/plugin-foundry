@@ -62,13 +62,13 @@ shift starts queueing paid commissions.
 - **Voting needs nothing:** it's GitHub issues + 👍 reactions; metrics.py already
   reads them with the workflow's own token.
 
-## 7 · Governor & veto (optional, recommended)
+## 7 · Governor & approval boundary
 - **Spend ceiling:** repo → Settings → Secrets and variables → Actions → *Variables*
   → `LOOP_MONTHLY_BUDGET_USD` (e.g. `25`). Shifts self-skip once the month's ledger
   (`state/BUDGET.jsonl`) hits it; `python3 tools/budget.py report` anytime.
-- **Veto window:** dispatch a shift with `mode: pr` and the work lands as a pull
-  request — merge to approve, close to veto (leave a note). The pr-gated-publishes
-  experiment decides whether scheduled shifts switch over.
+- **PR-only landing:** every scheduled or dispatched shift lands as a pull request.
+  Merge to approve or close to veto (leave a note); the protected `main` branch
+  requires green Gates and CodeQL checks.
 - **Subscribe:** the window serves `feed.xml` (Atom) — ships, as they happen.
 
 ## 8 · Community & fuel (optional wiring)
