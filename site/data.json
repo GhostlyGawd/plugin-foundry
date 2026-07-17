@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-12T05:01:32.578827+00:00",
+ "generated_at": "2026-07-17T07:05:38.098198+00:00",
  "iteration": 247,
  "phase": "grow",
  "theme": {
@@ -163,7 +163,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -188,7 +188,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -238,7 +238,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "88",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -312,7 +312,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -336,7 +336,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -386,7 +386,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -410,7 +410,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "105",
-   "verified": null,
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -434,7 +434,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -459,7 +459,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "130",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -484,7 +484,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -509,7 +509,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "90",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -535,7 +535,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": null,
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -609,7 +609,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -633,7 +633,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "129",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -658,7 +658,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "137",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -706,7 +706,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "88",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -730,7 +730,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -754,7 +754,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -803,7 +803,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "115",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -852,7 +852,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -876,7 +876,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "33",
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -900,7 +900,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -926,7 +926,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -950,7 +950,7 @@
    "commission": null,
    "kind": "plugin",
    "always_on_tokens": "108",
-   "verified": null,
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -975,7 +975,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -999,7 +999,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -1023,7 +1023,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -1049,7 +1049,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": null,
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -1074,7 +1074,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -1098,7 +1098,7 @@
    "commission": null,
    "kind": "feature",
    "always_on_tokens": null,
-   "verified": "2026-07-06",
+   "verified": "2026-07-13",
    "prospected_by": null,
    "suggested_in": null,
    "patron": null
@@ -1111,7 +1111,7 @@
   "uniques_14d": null,
   "idea_votes_total": 0,
   "field_reports": 0,
-  "open_alarms": 1
+  "open_alarms": 12
  },
  "quality": {
   "plugins_shipped": 10,
@@ -1362,7 +1362,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "90",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1386,7 +1386,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "129",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1411,7 +1411,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "88",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1435,7 +1435,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "105",
-    "verified": null,
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1460,7 +1460,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "130",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1485,7 +1485,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "137",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1509,7 +1509,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "88",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1534,7 +1534,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "115",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1558,7 +1558,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "108",
-    "verified": null,
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1585,7 +1585,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1633,7 +1633,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1658,7 +1658,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1684,7 +1684,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": null,
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1758,7 +1758,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1807,7 +1807,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1831,7 +1831,7 @@
     "commission": null,
     "kind": "plugin",
     "always_on_tokens": "33",
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1856,7 +1856,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1882,7 +1882,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": null,
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1907,7 +1907,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1932,7 +1932,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1956,7 +1956,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -1980,7 +1980,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2005,7 +2005,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2029,7 +2029,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2053,7 +2053,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2077,7 +2077,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2103,7 +2103,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2127,7 +2127,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2151,7 +2151,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2175,7 +2175,7 @@
     "commission": null,
     "kind": "feature",
     "always_on_tokens": null,
-    "verified": "2026-07-06",
+    "verified": "2026-07-13",
     "prospected_by": null,
     "suggested_in": null,
     "patron": null
@@ -2305,6 +2305,50 @@
  },
  "alarms": [
   {
+   "title": "ops-alarm: agent 'tripwire' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/48"
+  },
+  {
+   "title": "ops-alarm: agent 'steer' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/47"
+  },
+  {
+   "title": "ops-alarm: agent 'spec-drift' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/46"
+  },
+  {
+   "title": "ops-alarm: agent 'scout' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/45"
+  },
+  {
+   "title": "ops-alarm: agent 'red-team' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/44"
+  },
+  {
+   "title": "ops-alarm: agent 'quarterly' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/43"
+  },
+  {
+   "title": "ops-alarm: agent 'postmortem' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/42"
+  },
+  {
+   "title": "ops-alarm: agent 'naming' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/41"
+  },
+  {
+   "title": "ops-alarm: agent 'diagnostician' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/40"
+  },
+  {
+   "title": "ops-alarm: agent 'briefing' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/39"
+  },
+  {
+   "title": "ops-alarm: agent 'ask' heartbeat stale",
+   "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/38"
+  },
+  {
    "title": "ops-alarm: workflow 'Run shift' failed",
    "url": "https://github.com/GhostlyGawd/plugin-foundry/issues/28"
   }
@@ -2325,26 +2369,6 @@
   }
  ],
  "streak": [
-  {
-   "d": "2026-04-20",
-   "n": 0
-  },
-  {
-   "d": "2026-04-21",
-   "n": 0
-  },
-  {
-   "d": "2026-04-22",
-   "n": 0
-  },
-  {
-   "d": "2026-04-23",
-   "n": 0
-  },
-  {
-   "d": "2026-04-24",
-   "n": 0
-  },
   {
    "d": "2026-04-25",
    "n": 0
@@ -2660,6 +2684,26 @@
   {
    "d": "2026-07-12",
    "n": 30
+  },
+  {
+   "d": "2026-07-13",
+   "n": 0
+  },
+  {
+   "d": "2026-07-14",
+   "n": 0
+  },
+  {
+   "d": "2026-07-15",
+   "n": 0
+  },
+  {
+   "d": "2026-07-16",
+   "n": 0
+  },
+  {
+   "d": "2026-07-17",
+   "n": 0
   }
  ],
  "categories": [

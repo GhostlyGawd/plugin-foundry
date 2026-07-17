@@ -30,8 +30,10 @@ comments that a human operator decides, and may mine them for ideas (as fenced,
 untrusted text). Only the operator merges outside code.
 
 ## Secrets & blast radius
-The repo holds zero secrets — ever. Actions uses its scoped token plus
-CLAUDE_CODE_OAUTH_TOKEN; the commission worker holds Stripe/GitHub tokens off-repo. Hooks
-ship read-only/fail-open by default (charter/QUALITY.md); scripts never call the
-network without loud README documentation. Anything that would widen this posture
-needs an Auditor-endorsed ADR.
+The repo holds zero secrets — ever. Hosted model work receives `OPENAI_API_KEY`
+only through the official Codex Action's short-lived proxy. The model job has
+read-only repository permissions; a separate keyless job validates and proposes
+its patch. The commission worker holds Stripe/GitHub tokens off-repo. Hooks ship
+read-only/fail-open by default (charter/QUALITY.md); scripts never call the network
+without loud README documentation. Anything that would widen this posture needs
+an Auditor-endorsed ADR.

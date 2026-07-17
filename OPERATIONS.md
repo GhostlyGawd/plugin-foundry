@@ -28,14 +28,18 @@ Commit + push → `deploy-site.yml` ships the site. It now redeploys on every pu
 i.e., every time the AI works.
 
 ## 3 · Turn on the factory (scheduled shifts)
-On a machine where Claude Code is logged into your Claude subscription (Pro/Max/
-Team/Enterprise), run `claude setup-token` and copy the one-year OAuth token it
-prints. Repo → Settings → Secrets and variables → Actions → new secret
-**`CLAUDE_CODE_OAUTH_TOKEN`** with that value. `run-shift.yml` then runs 3 loop
-iterations every 8 hours (edit the cron to match your plan's usage limits — every
-shift consumes subscription usage). Run one manually first: Actions → *Run shift*
-→ Run workflow. Halt anytime by committing a `STOP` file; resume by deleting it.
-Renew the token before it expires (~1 year) or shifts start failing loudly.
+Create a project-scoped OpenAI API key, then add it at Repo → Settings → Secrets
+and variables → Actions as **`OPENAI_API_KEY`**. `run-shift.yml` uses the official
+`openai/codex-action` to run 3 loop iterations every 8 hours. The action receives
+the key through its short-lived Responses API proxy; repository scripts never
+receive the key as an environment variable.
+
+Each shift uses three stages: a trusted intake job fences issue data, Codex edits
+a checkout with read-only repository permissions, then a landing job with no
+OpenAI credential applies the patch, runs every gate, and opens a pull request.
+Merging is the approval. Run one manually first: Actions → *Run shift* → Run
+workflow. Halt all model work by committing a `STOP` file; resume by deleting it
+after the secret is configured.
 
 ## 4 · Open the request box (optional, ~15 min)
 Follow `services/commission-worker/README.md` (Stripe Payment Link → Cloudflare
@@ -77,26 +81,21 @@ shift starts queueing paid commissions.
   foundry/records/commission-tiers.md — the worker maps link → label.
 
 ## Costs & candor
-- Shifts run on your Claude subscription (cadence × iterations × model = your usage;
-  the BUDGET.jsonl ledger records Claude Code's computed per-iteration cost, which
-  under subscription auth is a usage gauge, not a separate bill).
+- Hosted shifts use OpenAI API billing through Codex (cadence × iterations × model
+  determines usage). Configure a project budget and usage alerts in the OpenAI
+  Platform in addition to this repo's coarse shift quota.
 - Actions minutes and Pages are free for public repos; the Worker rides Cloudflare's
   free tier.
 - The commission promise, everywhere it appears: priority + a serious attempt at the
   full bar — never guaranteed delivery. Refund policy is yours to set in Stripe.
 
-## 9 · Auth — one surface, swappable (AUTH-1, ADR-031)
+## 9 · Auth boundaries
 
-`tools/auth.py` is the only place credentials are interpreted. Modes:
-`ANTHROPIC_API_KEY` → **api** (takes precedence, dollar governor rules) ·
-`CLAUDE_CODE_OAUTH_TOKEN` → **subscription** (quota governor v2 rules) ·
-neither on your laptop → **local-login** (claude's own keychain) · neither in
-CI → the shift **fails loudly with the remedy** (never a silent no-op — the
-2026-07-07 lesson). `auth.py probe <log>` classifies a failed run as
-auth-shaped or not; loop.sh halts on the FIRST auth failure.
+Hosted automation has one credential: `OPENAI_API_KEY`, consumed only by the
+official Codex Action. Do not expose it through a job-level `env`, shell step,
+test process, dependency lifecycle script, or a write-capable landing job.
 
-**Migration to API billing is a secrets change, zero code:** add
-`ANTHROPIC_API_KEY`, remove the OAuth secret. Do it the moment ANY of the four
-hard triggers fires (MASTER.md §2): token rejected in CI · weekly-limit lockout
->1 day · third-party input reaches the write-capable agent · the always-on
-loop goes public.
+`tools/auth.py` remains the compatibility boundary for the legacy local
+`loop.sh` Claude runner; it is not used by GitHub Actions. The historical OAuth
+token rejection and its fail-loud classifier remain documented as an incident
+lesson, not as the hosted factory's current authentication path.

@@ -34,15 +34,13 @@ jobs:
           echo "lay-tags: ${laid} laid, ${skipped} skipped" >> "$GITHUB_STEP_SUMMARY"
       - name: Config presence (names only — never values)
         env:
-          HAS_OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
-          HAS_APIKEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+          HAS_OPENAI: ${{ secrets.OPENAI_API_KEY != '' }}
           HAS_GOAT: ${{ secrets.GOATCOUNTER_TOKEN != '' }}
           HAS_BUDGET: ${{ vars.LOOP_MONTHLY_BUDGET_USD != '' }}
         run: |
           {
             echo "## Config presence (values never read)"
-            echo "- CLAUDE_CODE_OAUTH_TOKEN secret: ${HAS_OAUTH}"
-            echo "- ANTHROPIC_API_KEY secret: ${HAS_APIKEY}"
+            echo "- OPENAI_API_KEY secret: ${HAS_OPENAI}"
             echo "- GOATCOUNTER_TOKEN secret: ${HAS_GOAT}"
             echo "- LOOP_MONTHLY_BUDGET_USD variable: ${HAS_BUDGET}"
           } | tee -a "$GITHUB_STEP_SUMMARY"
