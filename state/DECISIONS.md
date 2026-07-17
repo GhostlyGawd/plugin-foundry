@@ -717,3 +717,28 @@ Template:
 - Consequences: a regression in the constitution enforcement or the trust
   fence now fails CI before merge. The promptfoo layer is the on-ramp for
   P3.1/P3.4/P3.5 when they land — their fixtures live beside these.
+
+## ADR-032 — model work requires an attended interactive session (operator-directed)
+- Status: accepted 2026-07-17.
+- Context: ChatGPT Pro provides an interactive Codex subscription session, not a
+  supported reusable credential for public GitHub Actions. The operator does not
+  want API billing or subscription credentials copied into repository secrets and
+  has paused unattended model automation. A local ignored `STOP` file cannot pause
+  workflows on GitHub, so the pause must be fail-closed in the tracked automation
+  surfaces as well as in live workflow settings.
+- Decision: invoke an LLM for Foundry work only from a live, human-attended coding
+  agent session. Keep authentication in that host's local credential store. Do not
+  call a model from GitHub Actions, cron, schedulers, `codex exec`, `claude -p`, or
+  another headless runner. The `Run shift` and `Record demo transcripts` workflows
+  remain manually disabled and become inert, dispatch-only pause notices; they do
+  not accept credentials or call a model. Deterministic CI, CodeQL, dependency
+  maintenance, site deployment, releases, and other keyless repository operations
+  stay active. The legacy `loop.sh` headless harness will retire fail-closed in the
+  next change and direct the operator to open an interactive session for one
+  reviewed iteration at a time.
+- Resume boundary: hosted or unattended model execution requires a new reviewed
+  ADR, explicit operator approval, and a supported credential and billing design.
+  Re-enabling a disabled workflow alone is insufficient.
+- Two-iteration authorization: this ADR is the prior change required by LOOP.md
+  rule 4 for the follow-up `loop.sh` retirement. No other protocol or tool change is
+  authorized by this decision.
