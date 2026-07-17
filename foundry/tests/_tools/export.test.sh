@@ -49,6 +49,8 @@ for host, (manifest, hooks, event, root_var) in expectations.items():
         assert root + manifest in names, (host, manifest)
         assert root + "skills/commit/SKILL.md" in names, host
         assert root + "scripts/check-commit-msg.sh" in names, host
+        script_mode = archive.getinfo(root + "scripts/check-commit-msg.sh").external_attr >> 16
+        assert script_mode & 0o111, (host, oct(script_mode))
         assert {root + item for item in all_manifests - {manifest}}.isdisjoint(names), host
         hook_data = json.loads(archive.read(root + hooks))
         assert event in hook_data["hooks"], (host, hook_data)

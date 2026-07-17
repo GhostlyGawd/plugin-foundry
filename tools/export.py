@@ -130,10 +130,13 @@ def build_archive(name: str, host: str, out: Path) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(destination, "w") as archive:
         for path, rel in package_files(plugin, host):
-            executable = bool(path.stat().st_mode & stat.S_IXUSR)
+            payload = archive_payload(path)
+            # Windows checkouts do not preserve POSIX mode bits. Plugin entry
+            # points are text scripts, so their shebang is the portable truth.
+            executable = payload.startswith(b"#!")
             archive.writestr(
                 zip_info(f"{name}/{rel}", executable),
-                archive_payload(path),
+                payload,
                 compresslevel=9,
             )
         compatibility = ROOT / "COMPATIBILITY.md"

@@ -17,27 +17,27 @@
       "packages": {
         "claude-code": {
           "file": "commit-craft-0.3.3-claude-code.zip",
-          "sha256": "00a2496671e6f186386a131d51bbd745647b05d14aefc37cdae0d3c78a55484d",
+          "sha256": "f5d8fc4cd0762efbffd0ba90aadb3a57303436e0a87e137d65785eeb63677b5c",
           "bytes": 7426
         },
         "codex": {
           "file": "commit-craft-0.3.3-codex.zip",
-          "sha256": "8fae5815876bd19a0d14559c4e8960dec87bbc5a6c1ebbe7bdb00d94917056fe",
+          "sha256": "30550c2e8a351a7421f2839c8cdeeb2c1e1f1b681369b997c3d74e961449a8aa",
           "bytes": 7406
         },
         "gemini-cli": {
           "file": "commit-craft-0.3.3-gemini-cli.zip",
-          "sha256": "c48a82cecd568aaf8bed00ce4b346f536ead107d7fe3f99d16b452d1972d82a7",
+          "sha256": "d8e60e3ef8ff3fe8d00f46680dd1d8f070e0445b2a0d8e8c91f1a58a66543ae6",
           "bytes": 7230
         },
         "cursor": {
           "file": "commit-craft-0.3.3-cursor.zip",
-          "sha256": "0474666be43108384de8b387d86fb0dfe5b2b5c367c9114d50cd73b889d2ad47",
+          "sha256": "f627b02a857fbbdbe6ad8f97593d65fa3bc981f4ea77792cfb85f9c470d112e4",
           "bytes": 7402
         },
         "github-copilot": {
           "file": "commit-craft-0.3.3-github-copilot.zip",
-          "sha256": "7eaa013ce9bf875a592ea685f0b9eb21592ef5c643f1d48e22865b46f9a77ef4",
+          "sha256": "16fd8988e0a92010eb4a1542061ea0fc15db06b49f8ec5d2602ae473aac23706",
           "bytes": 7412
         }
       }
@@ -83,27 +83,27 @@
       "packages": {
         "claude-code": {
           "file": "env-doctor-0.2.1-claude-code.zip",
-          "sha256": "f3264aae2571cb655196305dabade2966201dc15c21b2ff42d0ff13e399f1b10",
+          "sha256": "3ed6afaec9c8b381187243aa397f3b6fcb347db293a1a32c360ce8cda450fa0a",
           "bytes": 7226
         },
         "codex": {
           "file": "env-doctor-0.2.1-codex.zip",
-          "sha256": "04c7daa9bfbfa0b8ad4abbc7cbbbbff9b250c93eb0fed54f55bb84dfbc8092a4",
+          "sha256": "0aeafb914b3ccda4d7f245f060742ab43e73c685e72351eb5324b2b97c698bb5",
           "bytes": 7206
         },
         "gemini-cli": {
           "file": "env-doctor-0.2.1-gemini-cli.zip",
-          "sha256": "960a5257a02f1ca956c65a0aa1840323b12af595567695b4adca062df36ab7da",
+          "sha256": "548915c588003cd258c55ec851fac1266159a5565028bfaca73369ab9c24eb0b",
           "bytes": 7022
         },
         "cursor": {
           "file": "env-doctor-0.2.1-cursor.zip",
-          "sha256": "57de82e6c3ca42adb78c87197e3bcf39bd505ee37a93fda4b218c5419b79fbe2",
+          "sha256": "902ef72e7ca69573e99e01a35dbefde8edf93c72dfe7cd6ea824fea2c3f29403",
           "bytes": 7215
         },
         "github-copilot": {
           "file": "env-doctor-0.2.1-github-copilot.zip",
-          "sha256": "055ecf3b46437d3734580329af1e9d9ff727f5d29f79e3a774511e880759180c",
+          "sha256": "157eb9b58caaf080aba0053187bc4943131e9e9cf3b8f83850e17dc564d08b5b",
           "bytes": 7212
         }
       }
@@ -248,27 +248,27 @@
       "packages": {
         "claude-code": {
           "file": "session-recap-0.2.1-claude-code.zip",
-          "sha256": "45ad72ceccc467c8649c808d249f12d95649a4863740beb231064e44f9a93533",
+          "sha256": "483c52fd02f8597f4f6d405035533bd88e7e6a2b1d7029193b22de734663e4cc",
           "bytes": 7421
         },
         "codex": {
           "file": "session-recap-0.2.1-codex.zip",
-          "sha256": "7c35c48f76baac97cea2aeaa724eefe3b9183299c830d0a943822da12ca32f4e",
+          "sha256": "7b90b21e019a5b188e740df24c5c6dc46469f23bb6895b2a5b942d5040d1390d",
           "bytes": 7401
         },
         "gemini-cli": {
           "file": "session-recap-0.2.1-gemini-cli.zip",
-          "sha256": "6e4624580d78716168a351b1c3cf70fb0f5d644df144c135e44964a5745a3d47",
+          "sha256": "0e643845eef6dc9d65f149a519b91e4b2ab5550269df8821e38f6b4b5267b05c",
           "bytes": 7229
         },
         "cursor": {
           "file": "session-recap-0.2.1-cursor.zip",
-          "sha256": "d329686ab7918fad964c937eb483ceeb0388def5d7cd1061df74233479e21931",
+          "sha256": "39b1dd3f324bae9e0913ec1d18b29304e3e4d401621438e18791b25bc1cd1616",
           "bytes": 7410
         },
         "github-copilot": {
           "file": "session-recap-0.2.1-github-copilot.zip",
-          "sha256": "71898116d94eeb68e4910a73c152d6458f70abb882561e14162289644e22a8e2",
+          "sha256": "ac920e9203f3d0d0e02c5c619f71cc7e64d9406f24f92f5f87c460a5d11605e4",
           "bytes": 7407
         }
       }
@@ -281,27 +281,27 @@
       "packages": {
         "claude-code": {
           "file": "test-gap-nudge-0.3.2-claude-code.zip",
-          "sha256": "4c1f85bbd6e7e43559d0a66a7e697f8720b6e83a3297551cc8ca4b9189aeea06",
+          "sha256": "934b68ba437bb397ea126c543c7fc5b4a6b71eacdebc26728acadbcd0cbf8391",
           "bytes": 7155
         },
         "codex": {
           "file": "test-gap-nudge-0.3.2-codex.zip",
-          "sha256": "25d76ec90c897a45968f2cf5c200eb4afc439ba2ce95b5a5f55353a76b6e573d",
+          "sha256": "b6e12727563b5fda97fd4292b4d97c18a86a3f84ec8c43bfb787adbff2df773f",
           "bytes": 7131
         },
         "gemini-cli": {
           "file": "test-gap-nudge-0.3.2-gemini-cli.zip",
-          "sha256": "59d9cdf959aad34bd84077f4298874685ee064134c504cf7b59d01aac768e5d6",
+          "sha256": "bec38d3c7a879a803c6db9c20779ee855d1ecd383cb8b50bb5d1c42b7e3f3843",
           "bytes": 6965
         },
         "cursor": {
           "file": "test-gap-nudge-0.3.2-cursor.zip",
-          "sha256": "046d79b05b7093db85aa4037204ca606ae9e77b23ccf18e6d4fa3ac318ceb538",
+          "sha256": "96ec524f22dcd3072266004effc988cff4a1fc049eb95a9326f22d82df80f65a",
           "bytes": 7144
         },
         "github-copilot": {
           "file": "test-gap-nudge-0.3.2-github-copilot.zip",
-          "sha256": "e3734efd97b1ec836235b258a77888674a0168b68b14f74dcd7887ba3801a0ff",
+          "sha256": "7f239d56bc85f136d358fb6efba915c76a0b835f0ab0bee7c7125d0866023b5e",
           "bytes": 7138
         }
       }
