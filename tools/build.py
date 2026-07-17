@@ -1794,7 +1794,7 @@ def harden_site_html():
             r'<meta\s+http-equiv="Content-Security-Policy"\s+content="[^"]*"\s*/?>\s*',
             "", page, flags=re.I,
         )
-        scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script>", page, re.I)
+        scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script\s*>", page, re.I)
         hashes = [
             "'sha256-" + base64.b64encode(
                 hashlib.sha256(script.encode("utf-8")).digest()

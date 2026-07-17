@@ -21,7 +21,7 @@ for path in pages:
     assert "connect-src 'self'" in policy, path
     assert "object-src 'none'" in policy, path
     assert "script-src 'unsafe-inline'" not in policy, path
-    scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script>", text, re.I)
+    scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script\s*>", text, re.I)
     expected = {
         "sha256-" + base64.b64encode(hashlib.sha256(s.encode("utf-8")).digest()).decode("ascii")
         for s in scripts
