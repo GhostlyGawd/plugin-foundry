@@ -221,6 +221,7 @@ TEMPLATE = """<!DOCTYPE html>
   }}
   *{box-sizing:border-box; margin:0}
   html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:72px}
   body{font-family:var(--sans); background:var(--paper); color:var(--ink);
     font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased}
   a{color:var(--stamp); text-decoration:none}
@@ -275,6 +276,10 @@ TEMPLATE = """<!DOCTYPE html>
     border-top:1px solid var(--hair); padding-top:22px}
   .proof li{font-size:14px; color:var(--dim)}
   .proof b{display:block; font-size:26px; color:var(--ink); font-weight:800; letter-spacing:-.02em; line-height:1.1}
+  .hostline{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px}
+  .hostpill{display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border:1px solid var(--line);
+    border-radius:999px; background:var(--card); color:var(--soft); font-size:12.5px; font-weight:650}
+  .hostpill::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--live)}
 
   /* bands */
   .band{padding:56px 0; border-top:1px solid var(--hair)}
@@ -306,6 +311,21 @@ TEMPLATE = """<!DOCTYPE html>
   @media (max-width:560px){ .ba-arrow{transform:rotate(90deg)} }
 
   /* steps */
+  .host-picker{margin:28px 0 20px; padding:18px; border:1px solid var(--line); border-radius:14px;
+    background:var(--card); box-shadow:var(--shadow)}
+  .host-label{font-family:var(--mono); font-size:11px; letter-spacing:.11em; text-transform:uppercase;
+    color:var(--dim); margin-bottom:10px}
+  .hostbuttons{display:flex; flex-wrap:wrap; gap:8px}
+  .hostbtn{font:inherit; font-size:13.5px; font-weight:650; color:var(--soft); background:var(--paper);
+    border:1px solid var(--line); border-radius:9px; padding:9px 13px; cursor:pointer}
+  .hostbtn:hover{border-color:var(--ink); color:var(--ink)}
+  .hostbtn[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--paper)}
+  .hoststatus{font-size:13px; color:var(--dim); margin-top:10px}
+  .guide-head{display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    margin-top:24px}
+  .guide-head h3{font-size:20px; margin-top:3px}
+  .guide-head p{color:var(--soft); max-width:64ch; margin-top:6px}
+  .guide-kicker{font-family:var(--mono); color:var(--ember); font-size:11px; letter-spacing:.1em; text-transform:uppercase}
   .steps{list-style:none; padding:0; margin:32px 0 0; display:grid; gap:16px}
   .steps li{display:flex; gap:18px; align-items:flex-start; background:var(--card); border:1px solid var(--line);
     border-radius:14px; padding:22px; box-shadow:var(--shadow); min-width:0}
@@ -324,6 +344,13 @@ TEMPLATE = """<!DOCTYPE html>
   .install:hover{filter:brightness(1.08)}
   .install[data-copied]::after{content:"copied ✓"; position:absolute; right:10px; top:50%; transform:translateY(-50%);
     font-size:11px; letter-spacing:.06em; background:var(--live); color:#fff; padding:2px 8px; border-radius:5px}
+  .install.note{cursor:text; user-select:text; white-space:normal}
+  .install.note:hover{filter:none}
+  .download{display:inline-flex; align-items:center; justify-content:center; min-height:36px; padding:7px 11px;
+    border:1px solid var(--stamp); border-radius:8px; color:var(--stamp); font-size:12.5px; font-weight:700}
+  .download:hover{background:color-mix(in srgb,var(--stamp) 9%,transparent); text-decoration:none}
+  .package-row{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+  .active-host{font-family:var(--mono); font-size:11px; color:var(--dim); letter-spacing:.04em}
 
   /* shelf tools + chips */
   .tools{margin-top:26px}
@@ -479,6 +506,17 @@ TEMPLATE = """<!DOCTYPE html>
   @media (prefers-reduced-motion:reduce){
     .tape{white-space:normal} .tape .reel{padding-left:0}
     .card:hover{transform:none} html{scroll-behavior:auto}}
+  @media (max-width:560px){
+    .wrap{padding-left:16px; padding-right:16px}
+    .bar{padding-left:16px; padding-right:16px}
+    .brand{font-size:12px}
+    .bar .btn{padding:8px 10px}
+    .hero{padding-top:44px}
+    .band{padding:44px 0}
+    .cardgrid{grid-template-columns:1fr}
+    .steps li{padding:18px; gap:12px}
+    .hostbtn{flex:1 1 140px}
+  }
 </style>
 </head>
 <body>
@@ -500,7 +538,7 @@ TEMPLATE = """<!DOCTYPE html>
   <section class="wrap hero" aria-labelledby="h1">
     <p class="eyebrow"><span class="pulse"><span class="dot"></span><span id="lastshift">live</span></span> · an autonomous plugin workshop</p>
     <h1 id="h1">Small, sharp upgrades for your AI coding assistant — <span class="hot">built and tested while you sleep.</span></h1>
-    <p class="lede">Claude Code is Anthropic's AI coding assistant. <b>Plugins</b> give it new habits — write clean commits, catch missing tests, fix a broken dev environment. The Nightshift Foundry is a workshop that designs, tests, reviews, and ships them for you. <b><span id="hero-count">10</span> plugins, all free, installed in two commands.</b></p>
+    <p class="lede"><b>Plugins</b> give your coding agent dependable new habits — write clean commits, catch missing tests, fix a broken dev environment. The Nightshift Foundry designs, tests, reviews, and packages them natively for the tools you already use. <b><span id="hero-count">10</span> plugins, all free, across five hosts.</b></p>
     <div class="cta-row">
       <a class="btn btn-lg" href="#shelf">Browse the plugins →</a>
       <a class="btn btn-ghost btn-lg" href="#learn">New here? Start with the basics</a>
@@ -508,17 +546,20 @@ TEMPLATE = """<!DOCTYPE html>
     <ul class="proof">
       <li><b id="proof-count">10</b> free plugins on the shelf</li>
       <li><b>3-tier</b> QA before anything ships</li>
-      <li><b>2</b> commands to install any one</li>
+      <li><b>5</b> native host packages per plugin</li>
       <li><b>$0</b> — open-source, remove anytime</li>
     </ul>
+    <div class="hostline" aria-label="Supported coding-agent hosts">
+      <span class="hostpill">Codex</span><span class="hostpill">Claude Code</span><span class="hostpill">Gemini CLI</span><span class="hostpill">Cursor</span><span class="hostpill">GitHub Copilot</span>
+    </div>
   </section>
 
   <section id="learn" class="band">
     <div class="wrap">
       <h2 class="sec-title">New here? Here's the whole idea in 30 seconds</h2>
       <div class="learn-grid">
-        <article class="explain"><span class="num">1</span><h3>What's Claude Code?</h3><p>Anthropic's AI coding assistant. It lives in your terminal and editor, reads your project, and helps you write, fix, and ship code.</p></article>
-        <article class="explain"><span class="num">2</span><h3>What's a plugin?</h3><p>A small add-on that teaches Claude Code one new habit — a <b>skill</b> it uses on its own, or a safe <b>hook</b> that runs at the right moment. One plugin, one job.</p></article>
+        <article class="explain"><span class="num">1</span><h3>What's a coding agent?</h3><p>Codex, Claude Code, Gemini CLI, Cursor, and Copilot help you read, write, fix, and ship code from your terminal or editor.</p></article>
+        <article class="explain"><span class="num">2</span><h3>What's a plugin?</h3><p>A small add-on that teaches an agent one focused habit — a <b>skill</b> it can use, or a safe <b>hook</b> that runs at the right moment. One plugin, one job.</p></article>
         <article class="explain"><span class="num">3</span><h3>Why the Foundry?</h3><p>Every plugin here is scoped to a single job, kept tiny, tested against its own spec, and reviewed for safety before it reaches you. Free to install, easy to remove.</p></article>
       </div>
       <div class="ba">
@@ -534,13 +575,18 @@ TEMPLATE = """<!DOCTYPE html>
 
   <section id="how" class="band alt">
     <div class="wrap">
-      <h2 class="sec-title">Install any plugin in three steps</h2>
-      <p class="sec-lede">Everything happens inside Claude Code. Click a command block to copy it.</p>
-      <ol class="steps">
-        <li><span class="step-n">1</span><div><h3>Add the marketplace once</h3><p>Paste this into Claude Code — it points at this repository:</p><div class="install">/plugin marketplace add @@REPO_OR_HINT@@</div></div></li>
-        <li><span class="step-n">2</span><div><h3>Install the plugin you want</h3><p>Swap in any name from the shelf below:</p><div class="install">/plugin install commit-craft@@@MPNAME@@</div></div></li>
-        <li><span class="step-n">3</span><div><h3>Just work — it kicks in on its own</h3><p>Claude Code loads it automatically. Commit, and Commit Craft writes the message. That's it.</p><p class="reassure">Free · open-source · remove anytime with <code>/plugin uninstall &lt;name&gt;</code></p></div></li>
-      </ol>
+      <h2 class="sec-title">Pick your host. Get the native package.</h2>
+      <p class="sec-lede">The behavior is shared; the manifest and lifecycle hooks are packaged for each host. Choose yours and every install control on this page updates with it.</p>
+      <div class="host-picker">
+        <p class="host-label">Your coding agent</p>
+        <div class="hostbuttons" id="hostbuttons" role="group" aria-label="Choose a coding-agent host"></div>
+        <p class="hoststatus" id="hoststatus" aria-live="polite"></p>
+      </div>
+      <div class="guide-head">
+        <div><span class="guide-kicker">Native install guide</span><h3 id="host-title"></h3><p id="host-desc"></p></div>
+        <a class="download" href="@@COMPAT_URL@@" id="compat-guide">Full compatibility guide →</a>
+      </div>
+      <ol class="steps" id="hoststeps"></ol>
     </div>
   </section>
 
@@ -556,7 +602,7 @@ TEMPLATE = """<!DOCTYPE html>
       <div class="chiprow tagrow" id="tagchips" role="group" aria-label="filter by tag"></div>
       <div id="grid"></div>
       <p class="empty" id="empty"></p>
-      <p class="legend"><b>What the labels mean:</b> <span class="chip comp">skill</span> a capability Claude uses on its own · <span class="chip comp">hook</span> a safe check that runs at a set moment · <span class="chip comp">agent</span> a focused sub-assistant · <span class="chip tok">~tok</span> the always-on context it costs (smaller is better) · <span class="chip comp" style="border-color:var(--live);color:var(--live)">✓ v1</span> tested &amp; reviewed, shipped.</p>
+      <p class="legend"><b>What the labels mean:</b> <span class="chip comp">skill</span> a capability your agent can use · <span class="chip comp">hook</span> a safe check that runs at a set moment · <span class="chip comp">agent</span> a focused sub-assistant · <span class="chip tok">~tok</span> the always-on context it costs (smaller is better) · <span class="chip comp" style="border-color:var(--live);color:var(--live)">✓ v1</span> tested &amp; reviewed, shipped.</p>
     </div>
   </section>
 
@@ -576,6 +622,7 @@ TEMPLATE = """<!DOCTYPE html>
         <article class="tcard"><h3>✓ Tested before it ships</h3><p>Every plugin passes a three-tier check — structure, load, and its own behavioral spec run by a skeptic — before it's ever published.</p></article>
         <article class="tcard"><h3>✓ Reviewed line by line</h3><p>A reviewer reads every prompt and every hook for safety and clarity. Nothing ships on a rubber stamp.</p></article>
         <article class="tcard"><h3>✓ Hooks behave like guests</h3><p>Code that runs on your machine is held to strict rules: narrow triggers, never destructive, fails safe, never bricks your session.</p></article>
+        <article class="tcard"><h3>✓ No telemetry or borrowed credentials</h3><p>The site uses no analytics, cookies, remote fonts, or third-party scripts. Plugin hooks make no network calls and never receive Foundry service credentials.</p></article>
         <article class="tcard"><h3>✓ A public paper trail</h3><p>Every plugin has a birth certificate — its spec, test log, review, and full version history, all in the open. <a id="trail-link" href="p/commit-craft.html">See one →</a></p></article>
       </div>
     </div>
@@ -584,7 +631,7 @@ TEMPLATE = """<!DOCTYPE html>
   <section id="machine" class="band alt">
     <div class="wrap">
       <h2 class="sec-title">Under the hood — the workshop, live</h2>
-      <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> An autonomous Claude Code loop pitches, builds, tests, reviews, and publishes every plugin above — and this page updates the moment it does.</p>
+      <p class="sec-lede">Here's the part that's a little wild: <b>no human is on the line.</b> A PR-gated Codex workflow pitches, builds, tests, reviews, and publishes every plugin above — and this page updates when a green change lands.</p>
       <p class="qstrip" id="qstrip" aria-label="the running quality counter — every number substantiated by this repo"></p>
       <div class="dogfood" id="dogfood" aria-label="the dogfood report card — the factory grades its own use of what it ships"></div>
       <img class="replay" src="replay.svg" loading="lazy" width="720" height="200"
@@ -628,10 +675,9 @@ TEMPLATE = """<!DOCTYPE html>
       </section>
       <section class="panel" id="install">
         <h3>Install anything on the shelf</h3>
-        <p>Inside Claude Code:</p>
-        <div class="install">/plugin marketplace add @@REPO_OR_HINT@@</div>
-        <div class="install">/plugin install &lt;name&gt;@@@MPNAME@@</div>
-        <p class="fine">Then browse with <b>/plugin</b>. Everything shipped carries a semver, a changelog, a release tag, and a public paper trail in @@REPO_LINK@@.</p>
+        <p id="footer-host-copy">Choose a host above to get its native install path.</p>
+        <div id="footer-install"></div>
+        <p class="fine">Every host package carries a semver, SHA-256 digest, changelog, and public paper trail in @@REPO_LINK@@. The host choice stays only in this open page.</p>
       </section>
     </div>
   </section>
@@ -640,7 +686,7 @@ TEMPLATE = """<!DOCTYPE html>
   <div class="wrap">
     <p><b>@@TITLE@@</b> — the workshop that works while you sleep.</p>
     <p class="foot-links"><a href="#shelf">Plugins</a> · <a href="#how">Install</a> · <a href="#trust">Trust</a> · <a href="saga.html">Saga</a> · <a href="feed.xml">Atom feed</a> · <a href="embed.html">Embed the ticker</a> · <a href="badge.json">Badge endpoint</a></p>
-    <p class="foot-fine">Not affiliated with Anthropic; Claude Code is a product of Anthropic. · Generated <span id="stamp">@@STAMP@@</span> — this page rebuilds every time the loop ships.</p>
+    <p class="foot-fine">Independent community project; product names belong to their respective owners. No analytics or tracking. · Generated <span id="stamp">@@STAMP@@</span> — this page rebuilds every time a green change ships.</p>
   </div>
 </footer>
 <script>
@@ -651,6 +697,14 @@ const empty = document.getElementById('empty');
 const q = document.getElementById('q');
 let activeTag = null;
 let activeCat = null;
+let activeHost = 'codex';
+const HOSTS = [
+  {id:'codex', name:'Codex', detail:'Add the Foundry marketplace, then choose the plugin in the ChatGPT desktop app Plugins Directory.'},
+  {id:'claude-code', name:'Claude Code', detail:'Install directly from the Foundry marketplace with Claude Code slash commands.'},
+  {id:'gemini-cli', name:'Gemini CLI', detail:'Download the native extension ZIP, extract it, and install the local directory with Gemini CLI.'},
+  {id:'cursor', name:'Cursor', detail:'Download the native ZIP and copy the extracted plugin into Cursor’s local plugin directory.'},
+  {id:'github-copilot', name:'GitHub Copilot', detail:'Add the Foundry marketplace and install directly with Copilot CLI.'}
+];
 /*SHIFT-START*/
 // shift schedule derived from .github/workflows/run-shift.yml cron at build time
 const SHIFT_MIN = @@SHIFT_MIN@@;
@@ -678,6 +732,85 @@ function renderNextShift(){
 }
 
 function esc(s){ const d=document.createElement('span'); d.textContent=s??''; return d.innerHTML; }
+
+function currentHost(){ return HOSTS.find(h => h.id === activeHost) || HOSTS[0]; }
+function packageFor(name){
+  const plugin = (DATA.packages || []).find(p => p.name === name);
+  return plugin && plugin.packages ? plugin.packages[activeHost] : null;
+}
+function nativeDownload(name){
+  const pkg = packageFor(name);
+  if (!pkg) return '';
+  const label = 'Download ' + currentHost().name + ' ZIP';
+  return '<a class="download" download href="downloads/' + esc(pkg.file) + '" aria-label="' +
+    esc(label + ' for ' + name) + '">' + esc(label) + '</a>';
+}
+function hostAction(name){
+  if (activeHost === 'claude-code') return {text:'/plugin install ' + name + '@' + MP, note:false};
+  if (activeHost === 'codex') return {text:'Plugins Directory → Nightshift Foundry → ' + name, note:true};
+  if (activeHost === 'gemini-cli') return {text:'gemini extensions install ./' + name, note:false};
+  if (activeHost === 'cursor') return {text:'Copy extracted ' + name + ' to %USERPROFILE%/.cursor/plugins/local/' + name, note:true};
+  return {text:'copilot plugin install ' + name + '@' + MP, note:false};
+}
+function multiActionNote(){
+  if (activeHost === 'claude-code' || activeHost === 'github-copilot') return 'run each command separately';
+  if (activeHost === 'codex') return 'choose each plugin separately in the Plugins Directory';
+  if (activeHost === 'gemini-cli') return 'install each extracted plugin directory separately';
+  return 'copy each extracted plugin directory separately';
+}
+function hostSteps(){
+  const repo = DATA.repo || '<owner/repository>';
+  if (activeHost === 'claude-code') return [
+    {title:'Add the marketplace once', text:'This registers the Foundry source.', cmd:'/plugin marketplace add ' + repo},
+    {title:'Install the plugin you want', text:'Swap in any shelf name.', cmd:'/plugin install commit-craft@' + MP},
+    {title:'Work normally', text:'Claude Code loads the plugin under its normal permission controls. Inspect or remove it whenever you like.', cmd:'/plugin uninstall commit-craft'}
+  ];
+  if (activeHost === 'codex') return [
+    {title:'Add the marketplace once', text:'This registers the repo-native Codex catalog.', cmd:'codex plugin marketplace add ' + repo},
+    {title:'Choose the plugin', text:'Open the ChatGPT desktop app Plugins Directory, select Nightshift Foundry, then choose Commit Craft.', cmd:'Plugins Directory → Nightshift Foundry → commit-craft', note:true},
+    {title:'Review and enable', text:'Codex caches the selected plugin and applies its normal plugin and hook trust controls.', download:'commit-craft'}
+  ];
+  if (activeHost === 'gemini-cli') return [
+    {title:'Download the native package', text:'Each ZIP contains Gemini’s manifest and lifecycle-event names.', download:'commit-craft'},
+    {title:'Extract, then install', text:'Run this from the directory that contains the extracted plugin folder.', cmd:'gemini extensions install ./commit-craft'},
+    {title:'Update deliberately', text:'Replace the local package with a newer download, then ask Gemini to update it.', cmd:'gemini extensions update commit-craft'}
+  ];
+  if (activeHost === 'cursor') return [
+    {title:'Download the native package', text:'Each ZIP contains Cursor’s manifest and hook mapping.', download:'commit-craft'},
+    {title:'Copy it to local plugins', text:'Extract first. On macOS or Linux use ~/.cursor/plugins/local instead.', cmd:'Copy commit-craft to %USERPROFILE%/.cursor/plugins/local/commit-craft', note:true},
+    {title:'Reload Cursor', text:'Run Developer: Reload Window, then review it under Settings → Plugins → Installed.', cmd:'Developer: Reload Window', note:true}
+  ];
+  return [
+    {title:'Add the marketplace once', text:'This registers the Foundry marketplace with Copilot CLI.', cmd:'copilot plugin marketplace add ' + repo},
+    {title:'Install the plugin you want', text:'Swap in any shelf name.', cmd:'copilot plugin install commit-craft@' + MP},
+    {title:'Work normally', text:'Copilot loads the native plugin under its own trust controls.', download:'commit-craft'}
+  ];
+}
+function renderHostButtons(){
+  const box = document.getElementById('hostbuttons');
+  box.innerHTML = HOSTS.map(h => '<button class="hostbtn" data-host="' + h.id + '" aria-pressed="' +
+    (h.id === activeHost) + '">' + esc(h.name) + '</button>').join('');
+  for (const btn of box.querySelectorAll('.hostbtn')) btn.onclick = () => {
+    activeHost = btn.dataset.host;
+    renderHostExperience(); renderGrid(); renderClerk(); renderKits();
+  };
+}
+function renderHostExperience(){
+  const host = currentHost();
+  renderHostButtons();
+  document.body.dataset.host = host.id;
+  document.getElementById('host-title').textContent = host.name;
+  document.getElementById('host-desc').textContent = host.detail;
+  document.getElementById('hoststatus').textContent = 'Showing ' + host.name + ' install paths and native downloads.';
+  document.getElementById('hoststeps').innerHTML = hostSteps().map((step, i) =>
+    '<li><span class="step-n">' + (i + 1) + '</span><div><h3>' + esc(step.title) + '</h3><p>' + esc(step.text) + '</p>' +
+    (step.cmd ? '<div class="install' + (step.note ? ' note' : '') + '">' + esc(step.cmd) + '</div>' : '') +
+    (step.download ? nativeDownload(step.download) : '') + '</div></li>').join('');
+  const footer = document.getElementById('footer-install');
+  const action = hostAction('<name>');
+  footer.innerHTML = '<div class="install' + (action.note ? ' note' : '') + '">' + esc(action.text) + '</div>';
+  document.getElementById('footer-host-copy').textContent = 'For ' + host.name + ':';
+}
 
 function badge(e){
   if (e.always_on_tokens) {
@@ -712,12 +845,14 @@ function card(e){
     ? '<p class="credit">idea by @' + esc(e.prospected_by) +
       (e.suggested_in && DATA.repo ? ' (<a href="https://github.com/' + DATA.repo + '/issues/' + esc(e.suggested_in) + '">#' + esc(e.suggested_in) + '</a>)' : '') + '</p>'
     : '';
+  const action = hostAction(e.name);
   el.innerHTML =
     '<div class="card-top"><h3>' + esc(e.title) + '</h3>' + ver + '</div>' +
     '<p class="card-cat">' + esc(catName(e.category)) + '</p>' +
     '<p class="card-desc">' + esc(e.one_liner) + '</p>' +
     '<div class="chips">' + comps + badge(e) + '</div>' +
-    '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div>' +
+    '<div class="package-row"><span class="active-host">for ' + esc(currentHost().name) + '</span>' + nativeDownload(e.name) + '</div>' +
+    '<div class="install' + (action.note ? ' note' : '') + '">' + esc(action.text) + '</div>' +
     '<div class="card-foot"><span class="ok">✓ tested &amp; reviewed</span>' +
     '<a class="prov" href="p/' + esc(e.name) + '.html">how it was built →</a></div>' + credit;
   return el;
@@ -791,14 +926,16 @@ function renderClerk(){
     return;
   }
   let out = '<p class="vnone">The front desk suggests —</p>' + hits.map(([s, e]) =>
-    '<div class="kit"><h4>' + esc(e.title) + '</h4><p>' + esc(e.one_liner) + '</p>' +
-    '<div class="install">/plugin install ' + esc(e.name) + '@' + esc(MP) + '</div></div>').join('');
+    { const action = hostAction(e.name); return '<div class="kit"><h4>' + esc(e.title) + '</h4><p>' + esc(e.one_liner) + '</p>' +
+    '<div class="package-row"><span class="active-host">for ' + esc(currentHost().name) + '</span>' + nativeDownload(e.name) + '</div>' +
+    '<div class="install' + (action.note ? ' note' : '') + '">' + esc(action.text) + '</div></div>'; }).join('');
   if (kitHit){
     const k = kitHit[1];
     const ready = k.members.filter(m => m.published);
-    const block = ready.map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
-    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install">' + block + '</div>' +
-      (ready.length > 1 ? '<p class="pending">slash commands run one at a time — paste each line separately</p>' : '') + '</div>';
+    const block = ready.map(m => esc(hostAction(m.name).text)).join('\\n');
+    out += '<div class="kit"><h4>' + esc(k.name) + ' — the whole kit</h4><p>' + esc(k.desc) + '</p><div class="install' +
+      (hostAction(ready[0].name).note ? ' note' : '') + '">' + block + '</div>' +
+      (ready.length > 1 ? '<p class="pending">' + esc(multiActionNote()) + '</p>' : '') + '</div>';
   }
   box.innerHTML = out;
 }
@@ -808,10 +945,11 @@ function renderKits(){
   box.innerHTML = kits.length ? kits.map(k => {
     const ready = k.members.filter(m => m.published);
     const pending = k.members.filter(m => !m.published);
-    const block = ready.map(m => '/plugin install ' + esc(m.name) + '@' + esc(MP)).join('\\n');
+    const block = ready.map(m => esc(hostAction(m.name).text)).join('\\n');
     return '<div class="kit"><h4>' + esc(k.name) + '</h4><p>' + esc(k.desc) + '</p>' +
-      (ready.length ? '<div class="install">' + block + '</div>' +
-        (ready.length > 1 ? '<p class="pending">slash commands run one at a time — paste each line separately</p>' : '')
+      (ready.length ? '<div class="package-row"><span class="active-host">for ' + esc(currentHost().name) + '</span></div><div class="install' +
+        (hostAction(ready[0].name).note ? ' note' : '') + '">' + block + '</div>' +
+        (ready.length > 1 ? '<p class="pending">' + esc(multiActionNote()) + '</p>' : '')
         : '<p class="pending">nothing installable yet</p>') +
       (pending.length ? '<p class="pending">+ ' + pending.map(m => esc(m.title) + ' (' + esc(m.stage) + ')').join(', ') + ' — finishing on the line</p>' : '') +
       '</div>';
@@ -997,6 +1135,7 @@ function setHeroCounts(){
 }
 function renderAll(){
   setHeroCounts();
+  renderHostExperience();
   renderCatChips(); renderTagChips(); renderGrid(); renderClerk();
   renderTape(); renderStreak(); renderTheme(); renderLanes(); renderStats();
   renderQuality(); renderDogfood(); renderFuel(); renderAlarms(); renderVotes(); renderKits();
@@ -1015,7 +1154,7 @@ renderAll();
 // without a secure context — user-select:all still works.
 document.addEventListener('click', ev => {
   const el = ev.target.closest('.install');
-  if (!el || !navigator.clipboard) return;
+  if (!el || el.classList.contains('note') || !navigator.clipboard) return;
   navigator.clipboard.writeText(el.textContent.trim()).then(() => {
     el.dataset.copied = '1';
     setTimeout(() => { delete el.dataset.copied; }, 1400);
@@ -1745,7 +1884,8 @@ def build_quality(records):
     return q
 
 
-def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, alarms, hall, streak):
+def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, alarms, hall, streak,
+               packages=None):
     title = state.get("name") or "UNNAMED"
 
     def slim(r):
@@ -1806,6 +1946,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
         "network": load_json(ROOT / "foundry" / "network.json", {}).get("network", []),
         "streak": streak,
         "categories": tax.get("categories", []),
+        "packages": packages or [],
         "repo": cfg.get("repo") or None,
         "pages_url": (cfg.get("pages_url") or "").rstrip("/") or None,
     }
@@ -1822,6 +1963,8 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
     repo = cfg.get("repo", "")
     repo_hint = html.escape(repo) if repo else "&lt;this repo&gt;"
     repo_link = (f'<a href="https://github.com/{html.escape(repo)}">the repo</a>' if repo else "the repo")
+    compat_url = (f'https://github.com/{html.escape(repo)}/blob/main/COMPATIBILITY.md'
+                  if repo else "#shelf")
     suggest = (f'<a href="https://github.com/{html.escape(repo)}/issues/new?template=idea.yml">'
                f'suggest an idea, free</a>' if repo else "suggesting ideas opens with the repo (free)")
 
@@ -1843,6 +1986,7 @@ def build_site(records, counts, state, mp_name, cfg, votes, kits, fuel_state, al
             .replace("@@CTA@@", cta)
             .replace("@@REPO_OR_HINT@@", repo_hint)
             .replace("@@REPO_LINK@@", repo_link)
+            .replace("@@COMPAT_URL@@", compat_url)
             .replace("@@SUGGEST@@", suggest)
             .replace("@@MPNAME@@", html.escape(mp_name))
             .replace("@@MP@@", json.dumps(mp_name))
@@ -1894,8 +2038,21 @@ def main():
         if p_["login"] in card_paths:
             p_["card"] = card_paths[p_["login"]]
 
+    package_count = 0
+    packages = []
+    # Full foundry builds publish one native package per plugin and host. Minimal gate
+    # fixtures intentionally omit the exporter and skip this product surface.
+    if (ROOT / "tools" / "export.py").is_file() \
+            and (ROOT / "COMPATIBILITY.md").is_file() \
+            and (ROOT / "plugins").is_dir():
+        from export import build_archives, plugin_names
+        names = plugin_names()
+        if names:
+            packages = build_archives(names, ROOT / "site" / "downloads", clean=True)
+            package_count = sum(len(plugin["packages"]) for plugin in packages)
+
     data = build_site(records, counts, state, mp_name, cfg, votes, kits,
-                      fuel(cfg), alarms, hall, streak)
+                      fuel(cfg), alarms, hall, streak, packages)
     build_pages(records, mp_name, cfg, reports)
     build_saga(records, state, cfg)
     build_embed(data["ticker"], cfg)
@@ -1907,17 +2064,6 @@ def main():
     build_notfound(cfg, mp_name)
     build_sitemap(records, cfg)
     build_verified_badges(cfg)
-    package_count = 0
-    # Full foundry builds publish one native package per plugin and host. Minimal gate
-    # fixtures intentionally omit the exporter and skip this product surface.
-    if (ROOT / "tools" / "export.py").is_file() \
-            and (ROOT / "COMPATIBILITY.md").is_file() \
-            and (ROOT / "plugins").is_dir():
-        from export import build_archives, plugin_names
-        names = plugin_names()
-        if names:
-            packages = build_archives(names, ROOT / "site" / "downloads", clean=True)
-            package_count = sum(len(plugin["packages"]) for plugin in packages)
     # P0.1 (ADR-026): the agent registry is generated, never hand-edited; a
     # manifest that breaks the contract fails the build, same as a bad record.
     from lib import build_agent_registry
