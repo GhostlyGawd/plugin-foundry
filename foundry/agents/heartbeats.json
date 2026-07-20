@@ -1,7 +1,7 @@
 {
  "_law": "P0.9 (ADR-026): written by tools/heartbeat.py only. Active agents beat every run; check compares against each manifest's heartbeat.interval_hours (×1.5 grace) and alarms on staleness. Dormant agents are exempt — a paused factory is quiet, not sick.",
  "orchestrator": {
-  "ts": "2026-07-17T08:30:55Z",
+  "ts": "2026-07-20T09:38:42Z",
   "note": "landed 0, deferred 0"
  }
 }
