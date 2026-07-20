@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [site]
 one_liner: A window page that replays the latest shift's journal as a slow-scrolling theater — watch the machine work.
 tags: [spectator, window, delight]

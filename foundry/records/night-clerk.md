@@ -7,7 +7,7 @@ kind: plugin
 version: 0.2.10
 components: [skills]
 always_on_tokens: 129
-verified: 2026-07-13
+verified: 2026-07-20
 one_liner: Ask your coding agent what plugin helps with X - the clerk searches the foundry catalog and hands you the host-native install path.
 tags: [discovery, meta, catalog]
 created: 2026-07-05

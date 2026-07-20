@@ -5,7 +5,7 @@ category: workflow
 stage: published
 version: 0.1.2
 kind: plugin
-verified: 2026-07-13
+verified: 2026-07-20
 components: [skills]
 always_on_tokens: 105
 one_liner: Turns a dependency-bump diff into a plain-language brief — what changed, what might break, what to check.

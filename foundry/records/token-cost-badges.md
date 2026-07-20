@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [site, docs]
 one_liner: Every card shows what a plugin costs your context — est. always-on tokens, and when it was last verified.
 tags: [trust, transparency, tokens]

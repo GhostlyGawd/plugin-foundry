@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [workflow,docs,template]
 one_liner: question-labeled issues get answered inside Monday shipnotes - office hours, kept by a machine.
 tags: [shipnotes, questions, community]

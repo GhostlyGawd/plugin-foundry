@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [site, docs]
 one_liner: Curated bundles with one copy-block — cut choice paralysis for first-time installers.
 tags: [onboarding, curation, installs]

@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [workflow, docs]
 one_liner: A weekly digest the loop writes itself — shipped, moved, killed, fuel — posted as an issue every Monday.
 tags: [digest, retention, narrative]

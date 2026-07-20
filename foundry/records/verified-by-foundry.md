@@ -5,7 +5,7 @@ category: growth
 stage: published
 version: null
 kind: feature
-verified: 2026-07-13
+verified: 2026-07-20
 components: [workflow, site, docs]
 one_liner: The foundry's verification machinery pointed outward - any Claude Code plugin repo can run the doctor in CI and earn a listed, dated badge.
 tags: [trust, ecosystem, verification]

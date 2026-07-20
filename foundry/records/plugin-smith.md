@@ -6,7 +6,7 @@ stage: published
 version: 0.1.4
 components: [skills]
 always_on_tokens: 137
-verified: 2026-07-13
+verified: 2026-07-20
 one_liner: Scaffolds portable coding-agent plugins and audits their host-native packages.
 tags: [meta, scaffolding, validation, dogfood]
 created: 2026-07-04

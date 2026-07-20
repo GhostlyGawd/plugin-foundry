@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [template, site]
 one_liner: Real user experiences with shipped plugins, surfaced on their birth certificates.
 tags: [social-proof, community, trust]

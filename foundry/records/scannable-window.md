@@ -5,6 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
+verified: 2026-07-20
 components: [site]
 one_liner: A cross-host storefront with native downloads, responsive install guidance, and a shelf readable in one sweep.
 tags: [ui, scannability, ia, compatibility, downloads]

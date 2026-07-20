@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [site]
 one_liner: Next-shift countdown, the sharpest-questions wall, and an ergonomics pass - the window becomes worth returning to.
 tags: [countdown, reviews, a11y]

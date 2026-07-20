@@ -7,7 +7,7 @@ kind: plugin
 version: 0.2.3
 components: [skills]
 always_on_tokens: 90
-verified: 2026-07-13
+verified: 2026-07-20
 one_liner: Bootstrap an attended cross-host plugin workshop with governance and pull-request gates built in.
 tags: [meta, bootstrap, viral, dogfood]
 created: 2026-07-05

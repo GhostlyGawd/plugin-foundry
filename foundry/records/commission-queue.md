@@ -5,7 +5,7 @@ category: growth
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [site,worker]
 one_liner: A sanitized public status board for commissions - patrons watch progress without asking.
 tags: [commissions, transparency, queue]

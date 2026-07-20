@@ -5,7 +5,7 @@ category: quality
 stage: published
 kind: feature
 version: null
-verified: 2026-07-13
+verified: 2026-07-20
 components: [site]
 one_liner: A machine-generated footprint block on every plugin certificate - hooks, network, cost, uninstall.
 tags: [trust, footprint, certificates]
